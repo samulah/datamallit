@@ -5,7 +5,11 @@
       "Bash(wslpath \"\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\Ubuntu\\\\\\\\home\\\\\\\\samu\\\\\\\\data mallit\\\\\\\\html\\\\\\\\kuvat\")",
       "Bash(cmd.exe /c \"mkdir \\\\\"\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\Ubuntu\\\\\\\\home\\\\\\\\samu\\\\\\\\data mallit\\\\\\\\html\\\\\\\\kuvat\\\\\\\\kirjallisuus-suositukset\\\\\" 2>&1\")",
       "WebFetch(domain:www.amazon.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git -C \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\samu\\\\data mallit\" remote -v)",
+      "Bash(git -C \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\samu\\\\data mallit\" log --oneline -5)",
+      "Bash(git -C \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\samu\\\\data mallit\" status)",
+      "Bash(wsl -e bash -c \"cd ~/\\\\\"data mallit\\\\\" && git remote -v && echo '---' && git log --oneline -5 && echo '---' && git status\")"
     ]
   }
 }
