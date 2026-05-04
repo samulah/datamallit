@@ -2,26 +2,123 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Lumihiutalemalli</title>
-<link rel="stylesheet" href="style.css">
+  <title>Datamalli.fi – Datan mallinnuksen opas</title>
+  <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
+  <style>
+    .kategoria {
+      margin: 32px 0 8px 0;
+    }
+    .kategoria h2 {
+      border-bottom: 2px solid #005a9e;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+    .kortti-rivi {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .kortti {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .kortti:hover {
+      border-color: #005a9e;
+      box-shadow: 0 2px 6px rgba(0,90,158,0.12);
+    }
+    .kortti strong {
+      display: block;
+      color: #005a9e;
+      margin-bottom: 6px;
+      font-size: 1.02em;
+    }
+    .kortti span {
+      font-size: 0.9em;
+      color: #555;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
 <main-navigation></main-navigation>
-  <h1>Datan mallinnus - Etusivu</h1>
-  <p>Tervetuloa datamalli.fi-sivustolle! Täältä löydät tietoa eri datan mallinnusmenetelmistä ja -malleista.</p>
-  <ul>
-    <li><a href="tahtimalli.html">Tähtimalli (Star Schema)</a></li>
-    <li><a href="lumihiutalemalli.html">Lumihiutalemalli (Snowflake Schema)</a></li>
-    <li><a href="header-detail.html">Header-detail-malli</a></li>
-    <li><a href="useampi-fakta.html">Useamman faktataulun malli</a></li>
-    <li><a href="data-vault.html">Data Vault</a></li>
-    <li><a href="medallion.html">Medallion-arkkitehtuuri</a></li>
-    <li><a href="etl-elt.html">ETL ja ELT</a></li>
-  </ul>
-  <h2>Parhaimmat käytännöt:</h2>
-                 <ul><li><a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a></li></ul>
-  <h3>Laajennusvinkit</h3>
-  <p>Voit laajentaa sivustoa lisäämällä esimerkkejä, kuvia ja käytännön ohjeita jokaiseen malliin.</p>
+
+  <h1>Datan mallinnuksen opas</h1>
+  <p>Tervetuloa datamalli.fi-sivustolle. Täältä löydät tietoa datan mallinnusmenetelmistä, arkkitehtuureista, hallintakäytännöistä sekä suositelluista työkaluista ja kirjallisuudesta.</p>
+
+  <div class="kategoria">
+    <h2>Tietomallit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti" href="tahtimalli.html">
+        <strong>Tähtimalli (Star Schema)</strong>
+        <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
+      </a>
+      <a class="kortti" href="lumihiutalemalli.html">
+        <strong>Lumihiutalemalli (Snowflake Schema)</strong>
+        <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
+      </a>
+      <a class="kortti" href="header-detail.html">
+        <strong>Header-Detail-malli</strong>
+        <span>Malli tapahtumatietojen hallintaan, jossa otsikkotaulu (esim. tilaus) ja rivitaulu (esim. tilausrivit) ovat erillään.</span>
+      </a>
+      <a class="kortti" href="useampi-fakta.html">
+        <strong>Useamman faktataulun malli</strong>
+        <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Arkkitehtuurit ja prosessit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti" href="data-vault.html">
+        <strong>Data Vault</strong>
+        <span>Skaalautuva ja auditoitava tietovarastoarkkitehtuuri. Perustuu hub-, satellite- ja link-tauluihin. Sopii erityisesti historiallisten tietojen hallintaan.</span>
+      </a>
+      <a class="kortti" href="medallion.html">
+        <strong>Medallion-arkkitehtuuri</strong>
+        <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
+      </a>
+      <a class="kortti" href="etl-elt.html">
+        <strong>ETL ja ELT</strong>
+        <span>Kaksi päälähestymistapaa datan siirtämiseen lähdejärjestelmistä kohdeympäristöön. Missä ja milloin data muunnetaan?</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Hallinta ja laatu</h2>
+    <div class="kortti-rivi">
+      <a class="kortti" href="data-governance.html">
+        <strong>Data Governance</strong>
+        <span>Datan omistajuus, laadunvarmistus, metadatan hallinta, elinkaari ja tietosuoja. Vastaukset keskeisimpiin hallintakysymyksiin dataneuvoksen suosituksineen.</span>
+      </a>
+      <a class="kortti" href="nimeamiskaytannot.html">
+        <strong>Nimeämiskäytännöt</strong>
+        <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Resurssit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti" href="kirjallisuus-suositukset.html">
+        <strong>Suositeltu kirjallisuus</strong>
+        <span>Parhaat kirjat datan mallinnuksesta, tietovarastoinnista ja Power BI:stä. Hyvä lukupaketti niin aloittelijoille kuin kokeneille.</span>
+      </a>
+      <a class="kortti" href="apuohjelmat.html">
+        <strong>Apuohjelmat</strong>
+        <span>DAX Studio, Tabular Editor ja ALM Toolkit — Power BI -kehittäjän tärkeimmät lisätyökalut selitettynä.</span>
+      </a>
+    </div>
+  </div>
+
 </body>
 </html>
