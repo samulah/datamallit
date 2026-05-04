@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Power BI Apuohjelmat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+  <style>
+    .tool-section {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #004a99;
+    }
+    .tool-section h2 {
+      margin-bottom: 6px;
+    }
+    .tool-meta {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .tool-meta span {
+      display: inline-block;
+      margin-right: 16px;
+      background: #eef3fa;
+      border: 1px solid #c0d0e8;
+      border-radius: 3px;
+      padding: 2px 8px;
+    }
+    .vertipaq-sub {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background-color: #f4f8ff;
+      border-left: 4px solid #004a99;
+      border-radius: 0 4px 4px 0;
+    }
+    .vertipaq-sub h3 {
+      margin-top: 0;
+      color: #004a99;
+    }
+    .comparison-table {
+      margin-top: 20px;
+    }
+    .comparison-table th {
+      background-color: #e8f0fb;
+      color: #004a99;
+    }
+    .check { color: #27ae60; font-weight: bold; }
+    .cross { color: #c0392b; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main-navigation></main-navigation>
+
+  <h1>Power BI Apuohjelmat</h1>
+  <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin ominaisuuksia merkittävästi. Tässä sivulla esitellään kolme keskeisintä apuohjelmaa: DAX Studio, Tabular Editor 2 ja ALM Toolkit.</p>
+
+  <!-- DAX STUDIO -->
+  <section class="tool-section">
+    <h2>DAX Studio</h2>
+    <div class="tool-meta">
+      <span>Ilmainen</span>
+      <span>Avoin lähdekoodi</span>
+      <span>daxstudio.org</span>
+    </div>
+
+    <p>DAX Studio on alun perin Darren Gosbellin kehittämä, nykyään avoimen lähdekoodin projekti, joka on ilmainen apuväline Power BI Desktop-, SSAS Tabular-, Azure Analysis Services- ja Power Pivot -malleihin. Ohjelmalla voidaan kirjoittaa, analysoida ja suorittaa DAX-kyselyitä.</p>
+
+    <div class="fakta-laatikko">
+      <strong>Keskeisimmät ominaisuudet:</strong>
+      <ul>
+        <li>DAX-kyselyiden kirjoittaminen ja suorittaminen</li>
+        <li>Objektiselain — taulut, sarakkeet ja laskurit helposti haettavissa</li>
+        <li>Integroitu <strong>DaxFormatter.com</strong> -tuki: automaattinen DAX-koodin muotoilu</li>
+        <li>Palvelimien ajoituksen jäljitys — suorituskykyanalyysi kyselykohtaisella datalla</li>
+        <li>Erottimien vaihto (US ↔ EU) ilman manuaalista muokkausta</li>
+        <li>Automaattinen Power BI Desktop -instanssien tunnistus koneelta</li>
+      </ul>
+    </div>
+
+    <div class="dataneuvos-opinion">
+      <div class="opinion-label">Dataneuvoksen mielipide</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <!-- VERTIPAQ ANALYZER -->
+    <div class="vertipaq-sub">
+      <h3>VertiPaq Analyzer</h3>
+      <p>VertiPaq Analyzer on DAX Studioon versiosta 2.11.0 lähtien viralliseksi ominaisuudeksi integroitu lisäosa, jonka avulla voidaan analysoida VertiPaq-pohjaisten relaatiotietokantojen — kuten Power BI- ja SSAS Tabular -mallien — kokoa ja rakennetta. Analyzeriin pääsee Advanced-välilehdeltä painamalla "View Metrics".</p>
+
+      <p>VertiPaq Analyzer näyttää jokaisen taulun ja sarakkeen koon bitteinä, mikä paljastaa, mitkä sarakkeet ja taulut vievät eniten muistia tietomallissa.</p>
+
+      <div class="fakta-laatikko">
+        <strong>Keskeisimmät sarakkeet Tables-välilehdellä:</strong>
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Sarake</th><th>Selite</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cardinality</td><td>Kardinaliteetti — kuinka monta uniikkia arvoa sarakkeella on</td></tr>
+            <tr><td>Table Size</td><td>Taulun kaikkien sarakkeiden koko yhteenlaskettuna bitteinä, sisältäen relaatiot</td></tr>
+            <tr><td>Col Size</td><td>Sarakkeen ja sen sisällön yhteinen koko (Data + Dictionary + Hier Size)</td></tr>
+            <tr><td>Data</td><td>Datasisällön koko</td></tr>
+            <tr><td>Dictionary</td><td>Arvokirjaston koko</td></tr>
+            <tr><td>Rel Size</td><td>Relaatioiden viemä muistin koko (näkyy vain taulutasolla)</td></tr>
+            <tr><td>% DB</td><td>Taulun tai sarakkeen osuus koko tietokannan koosta</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="dataneuvos-opinion">
+        <div class="opinion-label">Dataneuvoksen mielipide</div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABULAR EDITOR 2 -->
+  <section class="tool-section">
+    <h2>Tabular Editor 2</h2>
+    <div class="tool-meta">
+      <span>Ilmainen</span>
+      <span>MIT-lisenssi</span>
+      <span>GitHub: TabularEditor/TabularEditor</span>
+    </div>
+
+    <p>Tabular Editor on Tabular-malleihin ja Power BI -tietomalleihin yhdistämisen mahdollistava työkalu, jonka avulla pystytään muuttamaan ja hallitsemaan laskureita, laskennallisia sarakkeita, näyttökansiota, perspektiivejä ja käännöksiä. Ohjelmiston toiminta perustuu TOM:n (Tabular Object Model) metadatan paljastamiseen ja muokkaamiseen.</p>
+
+    <div class="fakta-laatikko">
+      <strong>Tabular Editor 2:n ominaisuudet:</strong>
+      <ul>
+        <li>TOM-objektien ja ominaisuuksien muokkaaminen</li>
+        <li>Tietojen editointi ja nimeäminen erissä</li>
+        <li>Kopioi/liitä ja pudota/vedä -toiminnallisuudet</li>
+        <li>Kumoa ja tee uudelleen -tuki mallinnusoperaatioille</li>
+        <li>Mallin metatietojen tallennus levylle</li>
+        <li>Kansioon tallennus</li>
+        <li>Daxformatter.com-integraatio</li>
+        <li>Kehittyneempi mallinnus: perspektiivit, laskentaryhmät, metatietojen käännökset, OLS</li>
+        <li>Syntaksin korostus ja automaattinen kaavan korjaus</li>
+        <li>Objektien välisten DAX-riippuvuuksien tarkastelu</li>
+        <li><strong>Best Practice Analyzer</strong> — parhaiden käytäntöjen analysointi- ja korjaustyökalu</li>
+        <li>C#-skriptaus ja automaatio</li>
+        <li>Muutosten tekeminen offline-tilassa ilman jatkuvaa prosessointia</li>
+        <li>Yhdistäminen SSAS-, Azure AS- ja Power BI Premium -malleihin</li>
+      </ul>
+    </div>
+
+    <p>Yksi mainitsemisen arvoinen ominaisuus on muutosten tekeminen offline-tilassa: TOM-malli ei prosessoi jatkuvasti kaikkia tehtyjä muutoksia, mikä säästää merkittävästi aikaa suurien tietomallien kehittämisessä.</p>
+
+    <div class="dataneuvos-opinion">
+      <div class="opinion-label">Dataneuvoksen mielipide</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <!-- TE2 vs TE3 vertailu -->
+    <h3 style="margin-top:28px;">Tabular Editor 2 vs. Tabular Editor 3</h3>
+    <p>Tabular Editorista on olemassa ilmainen MIT-lisenssillä toimiva 2.x-versio sekä maksullinen yrityskäyttöön suunniteltu 3.x-versio. Alla vertailu keskeisimmistä eroista:</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Ominaisuus</th>
+          <th>TE 2 (ilmainen)</th>
+          <th>TE 3 (maksullinen)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TOM-objektien muokkaaminen</td><td class="check">✔</td><td class="check">✔</td></tr>
+        <tr><td>Best Practice Analyzer</td><td class="check">✔</td><td class="check">✔</td></tr>
+        <tr><td>C#-skriptaus ja automaatio</td><td class="check">✔</td><td class="check">✔</td></tr>
+        <tr><td>Offline-muokkaus</td><td class="check">✔</td><td class="check">✔</td></tr>
+        <tr><td>VertiPaq Analyzer -integraatio</td><td class="cross">✗</td><td class="check">✔</td></tr>
+        <tr><td>DAX-debuggeri</td><td class="cross">✗</td><td class="check">✔</td></tr>
+        <tr><td>Pivot-taulukko DAX-tuloksille</td><td class="cross">✗</td><td class="check">✔</td></tr>
+        <tr><td>Diagram View (tietomallien visuaalinen kuvaus)</td><td class="cross">✗</td><td class="check">✔</td></tr>
+        <tr><td>DAX-koodin intellisense ja automaattitäydennys</td><td>Perustaso</td><td>Kehittynyt</td></tr>
+        <tr><td>Power BI Desktop -integraatio ulkoisena työkaluna</td><td class="check">✔</td><td class="check">✔</td></tr>
+        <tr><td>Hinta</td><td>Ilmainen</td><td>Maksullinen (tilauspohjainen)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ALM TOOLKIT -->
+  <section class="tool-section">
+    <h2>ALM Toolkit</h2>
+    <div class="tool-meta">
+      <span>Ilmainen</span>
+      <span>Christian Wade</span>
+      <span>alm-toolkit.com</span>
+    </div>
+
+    <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI -tietojoukkojen ja Analysis Services -mallien vertailuun, yhdistämiseen ja käyttöönoton hallintaan. Se on suunniteltu erityisesti tilanteisiin, joissa sama tietomalli on kehitettävä useaan ympäristöön tai jaettava useille raporteille.</p>
+
+    <div class="fakta-laatikko">
+      <strong>Keskeisimmät käyttötapaukset:</strong>
+      <ul>
+        <li>Kahden tietomalliversioiden vertailu visuaalisesti — kehitys- vs. tuotantomalli</li>
+        <li>Valikoiva käyttöönotto: valitaan, mitkä muutokset viedään tuotantoon</li>
+        <li>Jaetun tietomallin (shared dataset / Power BI Premium) päivittäminen ilman raporttien katkaisemista</li>
+        <li>Tietomallien versiohallinnan tukeminen yhdessä git-pohjaisten työnkulkujen kanssa</li>
+        <li>Metatietojen tuominen ja vieminen BISM Normalizer -muodossa</li>
+      </ul>
+    </div>
+
+    <p>ALM Toolkit ratkaisee Power BI:n perinteisen ongelman: PBIX-tiedoston julkaisu korvaa koko tietojoukon kerralla, mikä katkaisee siitä riippuvaiset raportit. ALM Toolkitin avulla muutokset voidaan viedä käyttöön tietomallitasolla raportteja rikkomatta.</p>
+
+    <div class="dataneuvos-opinion">
+      <div class="opinion-label">Dataneuvoksen mielipide</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </section>
+
+</body>
+</html>

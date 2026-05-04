@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(///wsl.localhost/Ubuntu/home/**)",
+      "Bash(wslpath \"\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\Ubuntu\\\\\\\\home\\\\\\\\samu\\\\\\\\data mallit\\\\\\\\html\\\\\\\\kuvat\")",
+      "Bash(cmd.exe /c \"mkdir \\\\\"\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\Ubuntu\\\\\\\\home\\\\\\\\samu\\\\\\\\data mallit\\\\\\\\html\\\\\\\\kuvat\\\\\\\\kirjallisuus-suositukset\\\\\" 2>&1\")",
+      "WebFetch(domain:www.amazon.com)",
+      "WebSearch"
+    ]
+  }
+}

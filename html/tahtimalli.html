@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumihiutalemalli</title>
+<link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+</head>
+<body>
+<main-navigation></main-navigation>
+  <h1>Tähtimalli (Star Schema)</h1>
+  
+  <p>
+    Tähtimalli on vähintään kahdesta taulusta koostuva tietomalli, joka on yksi suosituimmista Power BI:ssä ja SSAS:ssä käytetyistä tietomallityypeistä.
+    Malli koostuu yhdestä faktataulusta ja useasta dimensiotaulusta.
+  </p>
+
+  <h2>Rakenne ja toiminta</h2>
+  <p>
+    Tähtimallin toiminta perustuu normalisoituun relaatiotietokantaan, jonka faktataulussa sijaitsevat transaktiotason tapahtumat, kuten myyntitapahtumat. 
+    Dimensiotauluissa taas sijaitsevat dataa kuvailevat tiedot, kuten asiakas-, tuote- tai aikataulut.
+  </p>
+
+  <img src="kuvat\tahtimalli\tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä">
+
+  <h2>Vahvuudet ja normalisointi</h2>
+  <p>
+    Normalisoinnilla tarkoitetaan sitä, että data sijaitsee vain yhdessä paikassa. Tämä tekee tietomallista yksiselitteisen ja estää datan toistumisen, mikä puolestaan vähentää teknistä velkaa ja helpottaa laskurien (measures) tekemistä. 
+    Ferrari ja Russo (2017) korostavat, että tähtimallin suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
+  </p>
+
+  <div class="fakta-laatikko">
+    <strong>Hyödyt tiivistettynä:</strong>
+    <ul>
+      <li>Helppo ymmärtää ja hallita</li>
+      <li>Nopea suorituskyky ja pienempi muistin kulutus</li>
+      <li>Yksiselitteinen mallinnus helpottaa raporttien kehittämistä</li>
+    </ul>
+  </div>
+
+  <h2>Taloudelliset hyödyt ja suorituskyky</h2>
+  <p>
+    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun"

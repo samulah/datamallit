@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumihiutalemalli</title>
+<link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+</head>
+<body>
+<main-navigation></main-navigation>
+
+  <h1>Nimeämiskäytännöt</h1>
+  
+  <p>Tietomalliin haettaessa dataa se ladataan tietolähteestä, joka on usein tietovaraston yksittäisessä tietokannassa oleva taulu. Tietovaraston ja mallien nimeämiskäytännöt voivat olla toisistaan eroavia ja saattavat omata kehitysvelkaa pitkältäkin ajalta. Tietokannasta dataa ladattaessa voivat taulut voivat sisältää useita erityylisiä nimeämiskäytäntöjä kuten taulukosta 2 ilmenee.</p>
+
+  <p><strong>Taulukko 2. Esimerkkejä tietokannan taulujen nimeämiskäytännöistä</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension nimi</th>
+        <th>Faktan nimi</th>
+        <th>Näkymän nimi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>d_Dimensio</td>
+        <td>f_Fakta</td>
+        <td>v_Nakyma</td>
+      </tr>
+      <tr>
+        <td>dDimensio</td>
+        <td>fFakta</td>
+        <td>vNakyma</td>
+      </tr>
+      <tr>
+        <td>dim_Dimensio</td>
+        <td>fact_Fakta</td>
+        <td>View_Nakyma</td>
+      </tr>
+      <tr>
+        <td>dimDimensio</td>
+        <td>FactFakta</td>
+        <td>ViewNakyma</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Tietolähteistä tulevat taulut ja niiden sarakkeet saattavat sisältää tietokannoissa erilaisia nimiä. Hyvien nimeämiskäytäntöjen toteuttaminen ja vahtiminen jää silloin toteutettavaksi tehtäväksi tietomallin ja raportin kehittäjälle. Ferrari ja Russo (2017) mainitsevat kirjassaan seuraavat seitsemän sääntöä Power BI -tietomallien taulujen ja sarakkeiden nimeämisiin liittyen:</p>
+
+  <p><strong>Taulukko 3. Tietomallin taulujen suositellut nimeämissäännöt (Ferrari & Russo, 2017, s. 20–21)</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Sääntö</th>
+        <th>Selite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Taulujen nimien tulisi sisältää vain liiketoiminnan sisällön mukaista-dataa</td>
+        <td>Jos taulun nimi on Asiakas, niin taulun tulisi sisältää vain asiakkaita. Jos taulun nimi on Tuote, niin taulun tulisi sisältää vain tuotteita.</td>
+      </tr>
+      <tr>
+        <td>Käytä isoja kirjaimia erottamaan taulujen erilliset sanat</td>
+        <td>Jos taulu sisältää tuotteiden kategoriat, niin taulun nimen tulisi olla esimerkiksi TuoteKategoria.</td>
+      </tr>
+      <tr>
+        <td>Taulujen faktojen nimien tulisi sisältää liiketoiminnan nimen faktalle, joka on aina monikko</td>
+        <td>Myyntitaulun nimen tulisi tällöin olla aina Myynti ja ostotaulun nimi Ostot. Monikon käyttämisellä tietomallin katsomisessa ymmärtää tällöin helpommin, että yksittäisellä asiakkaalla on useampi myyntitapahtuma. Tämä vahvistaa relaatioiden ymmärtämistä.</td>
+      </tr>
+      <tr>
+        <td>Vältä nimiä, jotka ovat liian pitkiä</td>
+        <td>Koita etsiä mahdollisimman hyvä ja helposti luettava lyhyt nimi. Älä käytä turhia sanoja. Liian pitkät nimet kuten TavaroidenLähetysMaaKunJälleenmyyjäMyyTavaran ovat epäselviä.</td>
+      </tr>
+      <tr>
+        <td>Vältä nimiä, jotka ovat liian lyhyitä tai lyhenteitä</td>
+        <td>Lyhenteiden käyttö lisää raporttien epäselvyyttä. Raporttien käyttö tulee suunnitella koko organisaatiotasolle ja täten välttää lyhenteiden käyttöä. Kaikkien ymmärrys ei ole samalla tasolla ja lyhenteiden selvittäminen vie aikaa.</td>
+      </tr>
+      <tr>
+        <td>Avainkentän nimessä tulee aina olla aina maininta avaimesta</td>
+        <td>Jos sarake on avainkenttä, esimerkiksi Asiakastaulu, niin silloin asiakastaulun avainkentän nimi, joka yhdistyy faktatauluun, tulisi olla esim. asiakasAvain tai CustomerKey</td>
+      </tr>
+      <tr>
+        <td>Mieti ymmärtävätkö kaikki valitsemasi nimen</td>
+        <td>Nimeä miettiessä kannattaa kysyä itseltään, että ymmärtävätkö kaikki nykyiset ja tulevat käyttäjät valitut nimet. Jos ajattelet vain nykyisten käyttäjien ymmärrystä, on todennäköistä, että tulevaisuudessa kaikki eivät nimiä ymmärrä, ja että tästä aiheutuu helposti vältettävissä olevia ongelmia.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Hyviä nimeämiskäytäntöjä noudattava tietomalli ja raportti voidaan jakaa kaikenlaisia taustoja omaaville käyttäjille. Kun nimeämiset ovat kunnossa, niin datan ymmärtäminen helpottuu sekä mahdollisia datassa olevia virheellisiä rivejä huomataan pienemmällä vaivalla. Kunnolla nimetty tietomalli auttaa keskittymään itse sisältöön ja lukuihin, sen sijaan että keskittyminen menisi tietomallin toiminnan ja nimien ymmärtämiseen. Power BI -tietomallin nimeämisen lisäksi kannattaa kiinnittää erityistä huomiota oikein nimeämiseen jo tietokantatasolla. Tietokannassa hyvin nimetyt taulut mahdollistavat helpomman ratkaisujen monistamisen, joka taas mahdollistaa samoja lähdejärjestelmiä käyttävien ratkaisujen tuotteistamisen ja monistamisen, mikäli nimeämiset ovat lähdejärjestelmissä samoja. Hyvien sääntöjen ja yleisten käytäntöjen mukaan nimetty tietokanta helpottaa datan kaivamiseen liittyvää työtä.</p>
+</body>
+</html>

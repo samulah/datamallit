@@ -1,0 +1,2697 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+DATAN MALLINTAMISEN MERKITYS BI -OHJELMISTO ILLA  
+ 
+ 
+ 
+ 
+ 
+Lappeenrannan –Lahden teknillinen yliopisto LUT  
+Tuotantotalouden koulutus ohjelma  
+2022  
+Tekijä Samu  Lahdenperä  
+Tarkastaja t: Dosentti  Kalle  Elfvengren  
+                    Tutkijatohtori Lasse Metso   
+
+TIIVISTELMÄ  
+Lappeenrannan –Lahden teknillinen yliopisto LUT  
+Teknis -luonnontieteellinen  
+Tuotantotalous  
+ 
+Samu Lahdenperä  
+ 
+DATAN MALLINTAMISEN MERKITYS BI -OHJE LMISTOLLA  
+ 
+Tuotantotalouden Diplomityö  
+2022 
+96 sivua , 28 kuvaa, 7 taulukkoa ja 3 liitettä  
+Tarkastaja t: Dosentti Kalle Elfvengren ja Tutkijatohtori Lasse Metso  
+ 
+Avainsanat: tietomallinnus, Power BI, SSAS, Tabular, DAX, business  intelligence , BI, ana-
+lytiikka, raportointi,  parhaat käytännöt  
+ 
+Tiedon määrä  ja tarve datan analysoinnille globaaleilla markkinoilla jatkaa kasvamistaan. 
+Toiminta tapojen kehittäminen ja parhaiden käytäntöjen noudattaminen tiedolla johtamisen 
+kehitystöissä jää kuitenkin kehittäjien sekä tuoteomistajien näkökulmasta usein kiireen ve-
+rukkeella puolitiehen . Tarpeetonta teknistä velkaa aiheuttavat  muun muassa sopivien apu-
+välineiden käytön puute , tarkistuslistojen puute,  ajanpuute ja virallistamattomat kehittämi-
+sen prosessit , puutteelliset määrittelyt sekä teknisen taustan ymmärryksen puute . Ratkaise-
+malla edellä mainittuja ongelmia voidaan auttaa ratkai semaan IT-alan osaajapulaa.  
+Työn lähtökohtana oli etsiä ratkaisuja teknisten velan ennakoivaan minimointiin sekä jatku-
+van kehittämisen toimintatapojen parantamiseen. Tähän pyrittiin käyttämällä hyödyksi Po-
+wer BI -ohjelmistoille  kehitettyjä apuvälineitä  sekä tutustumalla tarkemmin tuotteiden tek-
+nologiseen taustaan . Tavoitteena oli saada kerrottua työn lukijalle miksi ongelmia tulisi rat-
+kaista , ja miten niitä voidaan ratkaista . 
+Tutkimus on jaettu teoria - ja empiriaosuuksiin. Teoriaosuudessa käydään läpi hyödylliset 
+Power BI -pohjaiset teknologiat ja teknologinen tausta, joiden avulla luodaan teoriaviiteke-
+hys Power BI -teknologioiden ymmärtämiselle ja niiden optimoinnille . Käytännön työn 
+osuudessa  kerrotaan teoriasta löytyviä vastauksia tuotteiden määrittel yihin, jatkuvan kehit-
+tämisen toimintatapoihin sekä tukitoimintoihin ja tiedon mallintamiseen liittyvät  huomioita 
+tiedolla johtamisen ratkaisujen kehittämisen kannalta . 
+   
+ABSTRACT  
+Lappeenranta –Lahti University of Technology LUT  
+School of Engineering Science  
+Industrial Engineering and Management  
+ 
+Samu Lahdenperä  
+ 
+IMPORTANCE OF DATA MODELING WITH BUSINESS INTELLIGENCE SOFT-
+WARE  
+ 
+Master’s thesis  
+2022  
+96 pages, 28 figures, 7 tables and 3 appendices  
+Examiners: Associate  Professor  Kalle  Elfvengren  and Post-doctoral researcher  Lasse Metso  
+ 
+Keywords: Data modeling, Power B I, SSAS, Tabular, DAX , Business Intelligence, BI, An-
+alytics, Reporting, Best Practice  
+ 
+The amount of data and need for analyzing it keeps growing on the global markets. However, 
+the development of operating methods and observing the best practices in Business Intelli-
+gence development are often halfway from the point of view of developers and pro duct own-
+ers under the pretext of urgency. Unnecessary technical debt is caused for example by lack 
+of using suitable tools, lack of checklists, working in the rush, unofficial development pro-
+jects, inadequate definitions, and lack of understanding of the t echnical background. By 
+solving the above -mentioned problems can also help to solve the shortage of IT -workers.  
+The starting point of the work was to find solutions for proactive minimization of technical 
+debt and for the improvement of continuous developm ent practices. This was done by uti-
+lizing the tools developed for Power BI related software’s  and by researching the technical 
+background of the products. The aim was to tell the reader why the problems should be 
+solved and how they can be solved.  
+The research is divided into theoretical and empirical parts. In the theoretical part, useful 
+Power BI based technologies and technological background are reviewed, which help to 
+create a theoretical reference framework for understanding and optimizing Po wer BI Tech-
+nologies. The practical part of the work describes the answers found in the theory to the 
+definitions of product, the methods of continuous improvement, as well as the support func-
+tions and data modeling in terms of development of Business Intel ligence Solutions.   
+KIITOKSET  
+ 
+Kiitokset tuella ja tsempillä mukaan työhön henkisellä tasolla osallistun eille. Kiitos työn 
+myös työn ohjaajille  tsempistä . 
+Samu Lahdenperä  
+Helsinki  
+  
+Lyhenteet  
+AS Analysis Services  
+BI Business Intelligence  
+C# C sharp  
+DAX  Data Analysis Expressions  
+DMV  Dynamic Management View  
+ETL Extract Transform Load  
+ID Identification Document  
+IT Information Technology  
+JSON  JavaScript Object Notation  
+KPI Key Performance I ndicator  
+RAM  Random -access memory  
+RLE  Run Length Encoding  
+SQL  Structured Query Language  
+SSAS  SQL Server Analysis Services  
+TOM  Tabular Object Model  
+VertiPaq  xVelocity  in-memory analytical engine  
+6 
+Sisällysluettelo  
+ 
+Tiivistelmä  
+Abstract  
+Kiitokset  
+Symboli - ja lyhenneluettelo  
+1. Johdanto  ................................ ................................ ................................ ........................  10 
+1.1. Työn tausta  ................................ ................................ ................................ ............  10 
+1.2. Tavoitteet, tutkimuskysymykset ja rajaukset  ................................ ........................  11 
+1.3. Tutkimusmenetelmät ja työn rakenne  ................................ ................................ ... 12 
+2. Power BI  ................................ ................................ ................................ .......................  15 
+2.1. Mikä Power BI on?  ................................ ................................ ...............................  15 
+2.2. Power BI Desktop  ................................ ................................ ................................ . 17 
+2.3. Power BI Service  ................................ ................................ ................................ ... 22 
+2.4. Data Analysis Expressions  ................................ ................................ ...................  23 
+2.5. SQL Server Analysis Services (SSAS) Tabular -malli  ................................ ..........  26 
+2.6. VertiPaq -moottori  ................................ ................................ ................................ . 29 
+3. Datan mallinnus ja parhaat käytännöt  ................................ ................................ ..........  36 
+3.1. Tähtimalli  ................................ ................................ ................................ ..............  36 
+3.2. Lumihiutalemalli  ................................ ................................ ................................ ... 38 
+3.3. Header - ja detail -taulut  ................................ ................................ ..........................  40 
+3.4. Useamman faktataulun käyttö  ................................ ................................ ...............  41 
+3.5. Nimeämiskäytännöt  ................................ ................................ ...............................  44 
+3.6. Mallintamisen parhaat käytännöt  ................................ ................................ ..........  47 
+4. Mallintamisen apuvälineet  ................................ ................................ ............................  50 
+4.1. Tabular Editor  ................................ ................................ ................................ ....... 50 
+4.2. VertiPaq Analyzer  ................................ ................................ ................................ . 53 
+4.3. DAX Studio  ................................ ................................ ................................ ...........  55 
+4.4. Ohjelmoinnin katselmointi  ................................ ................................ ....................  56 
+5. Mallintaminen  ................................ ................................ ................................ ...............  59 
+5.1. Tehtyjen tietomallien kehitystyöt  ................................ ................................ ..........  59 
+7 
+5.2. Uusien raportti - ja tietomallikokonaisuuksien määrittely  ................................ ..... 63 
+5.3. Uusien tietomallien kehittäminen  ................................ ................................ .........  66 
+5.4. Apuvälineiden käyttäminen  ................................ ................................ ..................  69 
+5.5. Teknisen velan vähentämisen tukitoiminnot mallintamisessa  ..............................  71 
+6. Yhteenveto ja johtopäätökset  ................................ ................................ .......................  74 
+6.1. Yhteenveto  ................................ ................................ ................................ ............  74 
+6.2. Johtopäätökset  ................................ ................................ ................................ ....... 79 
+Lähteet  ................................ ................................ ................................ ................................ . 81 
+ 
+Liitteet : 
+Liite 1. Azure  Analytics Services hinnasto 2.12.2021  
+Liite 2. Parhaiden käytäntöjen tarkemmat kuvaukset avoimesta Microsoftin datasetistä  
+Liite 3. Power BI Embedded hinnasto 16.2.2022  
+  
+8 
+Kuvaluettelo  
+Kuva 1. Tutkimuksessa käytetyt hakusanat, rajau kset ja tietokannat  
+Kuva 2. Diplomityön  rakenne  
+Kuva 3. Gartnerin BI -tuotteiden arvostelun vertailu tammikuun 2019 ja tammikuun 2020 
+väliltä (Climber, 2020)  
+Kuva 4. Power BI Desktopin kolme näkymää  
+Kuva 5. Power BI Desktopin kolme ruutua  
+Kuva 6. Esimerkki Fields -kentän laskureista ja taulukoista  
+Kuva 7. Power Query editoriin pääseminen  
+Kuva 8. Power BI Desktopin Power Query näkymä osineen  
+Kuva 9. Tietokantataulun sisällön esimerkki (Wilson, 2017, s.20)  
+Kuva 10. Esimerkki luodusta relaatiosta (Wilson, 2017, s.22)  
+Kuva 11. Russon ja Ferrarin (2015, s.404) esimerkkiä mukaileva numeraalisten arvojen en -
+koodauksen toimintatapa  
+Kuva 1 2. Russon ja Ferrarin (2015, s.405) esimerkkiä mukaileva sanakirjastojen enkoodauk-
+sen toimintatapa  
+Kuva 1 3. Russon ja Ferrarin (2015, s.407) esimerkkiä mukaileva RLE -pakkauksen toimin-
+tatapa  
+Kuva 1 4. Russon ja Ferrarin (2015, s.408) esimerkkiä mukaileva s anakirjastojen enkoodauk-
+sen ja RLE -pakkauksen yhdistetty toimintatapa  
+Kuva 1 5. Esimerkkirakenne tähtimallista. * kuvaa vierasavainta ja 1 pääavainta  
+Kuva 1 6. Esimerkki lumihiutalemallin tauluista ja niiden yhteyksistä  
+Kuva 1 7. Russon  ja Ferrarin (2017 s.30) Kirjan mallia mukaileva header - ja detailtaulun 
+yhteys. PK = PrimaryKey, pääavain ja FK = ForeignKey, vierasavain  
+Kuva 1 8. Esimerkki ostotaulun ja myyntitaulun yhdistävästä tuotedimensiosta  
+9 
+Kuva 1 9. Esimerkki kahden faktataulun t ietomallista, jossa dimensiot ovat yhdistettyjä toi-
+siinsa  
+Kuva 20. Useampaa faktataulua käyttäessä voidaan suodattaa visualisointeja  
+Kuva 21. GitHubin BPARules.json -tiedoston parhaat käytännöt analysoituna  
+Kuva 2 2. Esimerkki lausekkeesta ja korjauslausekkeesta nimittäin ja kategorioittain  
+Kuva 2 3. Parhaiden käytäntöjen laskennallisten tasojen mainintakerrat  
+Kuva 2 4. Tabular Editor 2.16.4 käyttöliittymä  
+Kuva 2 5. VertiPaq Analyzerin käyttöliittymä ja datasisältö  
+Kuva 2 6. Esimerkki Tabular E ditorissa muotoillusta DAX -koodista  
+Kuva 2 7. Esimerkki Tabular Editorin automaattisista tietomallin korjauksista  
+Kuva 2 8. DAX Studion VertiPaq Analyzerin kooste tietomallista  
+ 
+Taulukkoluettelo  
+Taulukko 1. DAX -funktioiden kategoriat ja selitykset  (Duncan, Sharkley & Kinsman, 2021)  
+Taulukko 2. Esimerkkejä tietokannan taulujen nimeämiskäytännöistä  
+Taulukko 3. Tietomallin taulujen suositellut nimeämissäännöt (Ferrari & Russo, 2017)  
+Taulukko 4. VertiPaq Analyzerin Tables -välilehd en sarakkeiden selitteitä. Kaikki koot ovat 
+bittejä (B)  
+Taulukko 5. DAX Studion verkkosivuilta löytyvät ominaisuudet  
+Taulukko 6. Microsoftin esimerkit kerättävistä raporttivaatimuksista (Microsoft, 2022c)   
+Taulukko 7. Microsoftin esimerkit selvitettävistä tietovaatimuksista (Microsoft , 2022 c)  
+  
+10 
+1. Johdanto  
+Tutkimuksen kohteena ovat Power BI - ja SSAS -tietomallit, niihin liittyvät parhaat käytän-
+nöt, datan mallintamiseen liittyvät kokonaisuudet  ja niiden toteuttamiseen tarvittavat apuvä-
+lineet sekä toimintatavat.  
+1.1. Työn tausta   
+Diplomit yössä käydään läpi Power BI  - ja Tabular -mallien ominaisuuksia mallintamisen 
+kannalta, mallintamiseen liittyviä teorioita ja käytäntöjä , sekä apuvälineitä näiden toteutta-
+misen kannalta . Työssä perustellaan miksi edellä mainittuja sisältökokonaisuuksia sekä apu-
+välineitä kannattaisi käyttää olemassa olevi en tietomallien parantamiseen , optimointiin  sekä 
+suunnitteilla olevien tietomallien ja raporttien kehittämiseen. Työn tarkoituksena on helpot-
+taa kehittäjiä ja organisaatioita teknisen velan vähentämisessä, sekä auttaa lukijaansa  ym-
+märtämään miksi teknisen velan vähentäminen datan mallinnuksessa on olennaista . 
+Gartnerin  (2021) mukaan IT -palveluiden kasvun on  arvioitu  nousevan  vuoden  2020 luvuista 
+vuoteen 2021 mennessä 11.2 % ja vuodesta 2021 vuoteen 2022  mennessä  8.6 %.  Sama nai-
+kaisesti tilastopalveluja tuottava n Statista n von See  (2021) arvioi, että luodun, kaapatun , ko-
+pioidun ja  käytetyn  datan määrä tulee kasvamaan vuoden 2020 arvioidusta 64.2 triljoonasta 
+gigatavusta vuoteen 2025 mennessä yli 180 triljoonaan  gigatavuun. IT-palvelujen ja datan 
+volyymin kasvusta voidaan olettaa , että Business Intelligence  (BI) -alan kysytä tulee kasva-
+maan jatkossakin . Tämän perusteella voidaan myös olettaa , että tietovarastojen, analyysirat-
+kaisujen ja tietomallien parhaiden käytäntöjen koostamiselle on tarvetta nyt ja tulevaisuu-
+dessa . Datan  määrän  lähes kolminkertaisen kasvun  ja IT - sekä data-alan työvoimapulan 
+vuoksi (ManpowerGroup , 2021 ) työtehtävien järkevöittämistä voidaan pitää välttämättö-
+mänä vastatakseen osaajapulan ja datan kasvun aiheuttamiin kysyntä - ja tarjontaongelmiin.  
+Diplomityön tekijä ei löytänyt suomenkielistä kirjallista kokonaisuutta  joka olisi käsitellyt 
+työn mukaista datan mallintamiseen liittyvää aihetta Power BI  – ja Tabular -mallien kohdalla, 
+vaikka visualisointeja , raportointia ja Power BI -ohjelmistoja hyväksi käyttäviä KPI -mitta-
+reide n luontia käsitteleviä kokonaisuuksia löytyi useampi . Aihe on  työn kirjoittajalle kiin-
+nostava diplomit yön alan seitsemän vuoden työkokemuksen takia . Puuttuvasta  aihetta 
+11 
+käsittelevästä  materiaalista johtuen on kohtuullista olettaa diplomi työn käsittelevän ajankoh-
+taista sekä tarpeellista aihetta.  
+ 
+1.2. Tavoitteet, tutkimuskysymykset ja rajaukset   
+Tutkimuksen tavoitteena on tutkia mallintamiseen liittyviä teknologioita ja toimintatapoja, 
+sekä etsiä  niitä tukevia apuvälineitä Power BI - ja SSAS  (Sql Server Analysis Services)  -
+teknologioilla  tehtäviin tietomalleihin.  Diplomityön keskeisin tavoite on löytää toimivia  työ-
+välineitä ja keinoja teknisen velan vähentämiseen ti etomallinnuksessa.  Teknisen velan vä-
+hentämisellä on tarkoitus vastata osaajapulan  sekä alan kysynnän kasvun  aiheuttamiin mah-
+dollisiin ongelmiin . Työn tavoitteena on tarkastella aihekokonaisuutta olemassa olevien tie-
+tomallien optimoinnin ja parantamisen kannalta, sekä tulevien kehitettävien ja uusien tieto-
+mallinnus - sekä raportointiprojektien kannalta. Tutkimuk sen avulla on tarkoitus löytää vas-
+taukset seuraaviin tutkimuskysymyksiin:  
+Tutkimuskysymyk set: 
+1. Mitä teknologioita ja parhaita käytäntöjä löytyy Power BI - ja Tabular -malleihin liit-
+tyen?   
+2. Miksi ja miten parhaita käytäntöjä pitäisi implementoida olemassa oleviin ja tuleviin 
+tietomalleihin?  
+3. Minkälaiset tukitoiminnot avustavat parhaiden käytäntö jen implementointia , noudat-
+tamista  ja teknisen velan vähentämistä ? 
+Työssä käsitell ään Power BI - ja SSAS -pohjaisia tietomalleja, tarkemmin katsottuna Verti-
+Paq ( xVelocity in -memory analytical engine ) -moottorilla toimivia tietomalleja . Osana työtä 
+on tietomallien  kehittämisessä sekä mallinnuksessa käytettävät parhaat käytännöt , toiminta-
+tavat sekä näiden toteuttamisessa auttavat apuohjelmat . Kirjallisuust utkimuksen  teoriaosuus 
+on rajattu  sisältämään valitut teknologiat, niiden kuvaukset, datan  mallinnukseen liittyviä 
+tärkeitä kokonaisuksia ja parhaimpia  käytäntöjä . Tutkimuksessa perehdytään tarkemmin sii-
+hen, minkälaisen kokonaisuuden edellä mainitut asiat muodostavat . Diplomityössä  vastataan 
+tutkimuksessa esitettyihin kysymyksiin . Tutkimuksen lopputuloksena on organisaatioille 
+käytettäviksi tarkoitettu toimenpide - ja apuvälinekokonaisuus Power BI - ja Tabular -
+12 
+mallinukse en liittyvään kokonaisuuteen . Toimenpide - ja apuvälinekokonaisuus pyrkii autta-
+maan teknisen velan minimoinnissa ja vähentämisessä.  Työn lopputuloksilla on tarkoitus 
+auttaa lukijaansa  ymmärtämään, miksi BI -ohjelmistoilla tapahtuvaa toimintatapojen kehit-
+tämistä kannattaa tehdä.  
+Työstä on rajattu  pois tietomallien partitiointiin ja päivityksiin liittyvät tehtävät , suuremmat 
+arkkitehtuurilliset kysymykset , pois lukien tietomallien käytön  erikseen ylös nostetut  mah-
+dollisuudet. Diplomity östä ei käsitellä  visualisointien ja datan sisällöllistä näkökulmaa  eikä 
+tarkempien ohjeiden tekemistä apuohjelmia ja valittuja teknologioita varten .  
+1.3. Tutkimusmenetelmät  ja työn rakenne  
+Tutkimuksen empiirinen osio on toteutettu hyödyntäen  kvalitatiivisia  menetelmiä. Tutki-
+muskysymyksiin haetaan vastau kset kirjallisuustutkimuksella sekä diplomityön tekijän ai-
+kaisemman alan osaamisen perusteella. Lähteinä käytetään paljon verkosta löytyvää materi-
+aalia niiden ajankohtaisuuden takia . Power BI päivittyy kuukauden sykleissä, mistä johtuen 
+materiaali on aina haettava uudesta ajantasaisesta tie dosta johon kirjojen ja muiden lähteiden 
+julkaisusyklit eivät kykene vastaamaan.  Lisäksi  tutkimus - ja lähdemateriaaliksi on valikoitu 
+alalla hyvänä  pidettyjä kirjallisia kokonaisuuksia , yksittäisiin aihealueisiin liittyvää verkko-
+kirjallisuutta ja artikkeleja . Kuvassa 1 on esitetty verkkokirjallisuuteen ja verkkohakuun liit-
+tyneitä tietokantoja, hakusanoja ja hakurajauksia . 
+ 
+Kuva 1. Tutkimuksessa käytetyt hakusanat, rajaukset ja tietokannat  
+
+13 
+Diplomityö koostuu neljästä eri osasta. Ensimmäisessä osassa käydään läpi mikä Power BI 
+on ja mitä muita teknologioita Power BI:n taustaan  ja alaisuuteen liittyy, sekä mitä käyttö-
+mahdollisu uksia kyseisellä työ välineellä on mallintamisen kannalta. Power BI -osiossa luo-
+daan  tausta teknologis ten tarpeiden ymmärtämiselle . 
+Toisessa osassa  käsitellään  datan mallintamiseen ja parhaisiin käytäntöihin liittyviä koko-
+naisuuksia . Kokonaisuudessa käsitellään  Power BI :hin ja sen teknologiseen taustaan  liitty-
+viä aihioita  ja toimintatapoja , joita ymmärtämällä mahdollistetaan parempi  teknisen velan 
+minimo inti.  
+Kolma nnessa osassa käydään läpi m allintamisen apuvälineitä ja toimintatapoja. Osa pitää 
+sisällään Power BI  - ja Tabular -mallien kehitystä parantavia ja helpottavia apuvälineitä  sekä 
+kehittämistä  tukevia teknologioista. Valitut apuvälineet liittyvät teknologioihin ja mallinta-
+miseen  sekä kehitys työn päivittäiseen tekemiseen. Mallintamisen apuvälineet -osiossa tuo-
+daan ilmi mihin apuvälineitä voidaan käyttää, ja mitä ne ovat.  
+Neljännessä osassa eli mallintamisessa käydään läpi kuinka teoriaosuudessa käsiteltyjä ai-
+heita ja aihekokonaisuuksia voidaan hyödyntää  työskentelyn kehittämisessä . Aihekokonai-
+suuksia käsitellään olemassa olevien tietomallien , uusienkin tietomallien, määrittelyjen, 
+apuvälineiden  ja tukitoimintojen kannalta. Käsiteltävän aiheet nivotaan yhtenäiseksi koko-
+naisuudeksi yhteenvedossa.  Mallintamisen osio ei pidä sisällään tarkkoja ohjeita siitä  miten 
+kyseis iä apuvälineitä käytetään.  Diplomityön tarkempi rakenne tu lee ilmi kuvasta 2. 
+14 
+ 
+Kuva 2. Diplomityön rakenne  
+Teoriaan kuuluvia lukuja ovat luvut 2, 3 ja 4. Luku 5 on työn varsinainen työ - ja tutkimus-
+osuus. Lopputulokset tuodaan esiin  luvun 6 sisällä  yhteenvedon ja johtopäätöksen kappa-
+leissa . Työssä peilataan aiheita edellisiin kappaleisiin  ja lukuihin . 
+  
+
+15 
+2. Power BI  
+Tässä luvussa käydään läpi Power BI -työvälineen keskeisimpiä ominaisuuksia tietomallin-
+tamisen osalta. Kappaleet muodostavat kokonaisuuden, jo ka auttaa lukijaa ymmärtämään 
+Power BI:n  ja sen taustalla olevien teknologioiden merk ityksen datan mallintamisessa.  
+2.1. Mikä Power BI on?  
+Power BI on Microsoftin 2015 julkai sema tiedolla johtamisen työväline . Power BI on use-
+asta erillisestä työvälineestä koostuva kokoelma ohjelmistopalveluja . Power BI -kokonai-
+suuden  avulla data voidaan muuttaa tietomall eiksi ja visualisoinneiksi . Power BI Servicessä 
+tietomallit ja visualisoinnit  voidaan jakaa  loppukäyttäjiä varten samalla mahdollistaen itse-
+palveluraportoinnin ja tietomallien jakamisen . Power BI :n kolme perusosaa ovat Power BI 
+Desktop, Power BI Service  ja Power BI -mobiilisovellukset.  Power BI:n a vulla voidaan yh-
+distää dataa jopa sadoista eri tietolähteistä  (Ulagaratchagan , 2021 ). Tietolähteinä voidaan 
+käyttää useita eri tietokantoja ja lähdejärjestelmiä  kuten  esimerkiksi  Microsoftin, Snowfla-
+ken ja Oraclen tuotteita . Tietolähteenä on mahdollista käyttää myös  Excel -tiedostoja. Power 
+BI:tä  voidaan pitää  itsep alveluraportointivälineenä ja tieto mallipohjaisena BI -ratkaisuna  
+(Russo  2018) .  
+Microsoft ja Power BI ovat vakiinnuttanut johto asemansa analytiikka - ja raportointivälinei-
+den kärjessä. Gartner  on valinnut Microsoftin ja Power BI:n johtajaksi ja parhaimmaksi tu-
+levaisuuden vision ja toimintakyvyn suhteen viimeisen kolmen vuoden ajan . Viimeisim-
+mässä Gartnerin  teettämässä mutta C limberin julkaisemassa  tarkastelussa ( kuva 3) Micro-
+softin asema alansa johtajana on kasvanut . 
+16 
+ 
+Kuva 3. Gartnerin BI -tuotteiden arvostelun vertailu tammikuun 2019 ja tammikuun 2020 
+väliltä  (Climber , 2020 ) 
+Kokonaisuudessaan Micros oftin BI -tuotteet ovat olleet 14 vuotta putkeen  alansa johtajia.  
+Ulagaratchaganin (2021) mukaan kymmenen suurinta syytä miksi asiakkaat valitsevat Po-
+wer BI:n ovat seuraavat:  
+1. Merkityksellisten tietojen luominen automaattisesti Power BI:llä, integrointi Ex-
+celiin ja Microsoft Teams  -sovellukseen  
+2. Datan yhd istäminen satoihin eri tietolähdetyyppeihin Power Queryn avulla  
+3. Älykkäiden järjestelmien rakentaminen nopeasti Power B I:n ja Azure Synapse  Ana-
+lytics  avulla  
+4. Helppo siirtyminen merkityksellistä tiedoista toimin taan Microsoft Power Platfor-
+min avulla  
+5. Ainoa BI -tuote  jossa on sisäänrakennettu tietojen katoamisen esto Microsofti n data-
+suojauksen ja Microsoft Cl oud App -suojauksen kautta  
+6. Alan johtava tekoäly auttaa löytämään vastaukset kysymyksiin datasta helposti  
+7. Kategoriansa  parhaimmat mobiilikokemukset Power BI Mobilen avulla  
+8. Pilvimaturiteetti  pohjautuu yhteen suurimmista ja nopeammista kasvavaan BI pilviin  
+
+17 
+9. Nopea käyttäjäohjautuva innovaatio, uusia toiminnallisuuksia julkaistaan viikoittain 
+käyttäjäpalautteen perusteella  
+10. Hinnoittelu,  joka sallii datakulttuurin mukaan pääsyn koko organisaatiotasolle . 
+Power BI: llä toteutettavia sovelluksia voidaan ajatella tietomalli mallipohjais ina visualisoi-
+tavissa olevina  ratkaisu ina, sillä Power BI :n tietomallinnus  kiteytyy tarkasti jo vuosia ole-
+massa o lleeseen SSAS (SQL Server Analysis Services) -teknologiaan sekä DAX  (Data Ana-
+lyticx Expressions) -kieleen.  
+2.2. Power BI Desktop  
+Power BI  Desktop on tietokoneelle ladattava kuukausittain päivittyvä ohjelmisto, jolla voi-
+daan luoda yhteys tietolähteisiin ja rakentaa tietomalleihin pohjautu via visualisointeja , sekä 
+jakaa näitä Power BI Service -palveluun. Power BI Desktopin avulla saadaan luotua yhte-
+näisiä datan lukua helpottavia sekä nopeu ttavia visualisointeja . Useimmiten Power BI 
+Desktopilla rakennetut  valmiit ratkaisut jaetaan Power BI Service -palveluun, jossa raport-
+teja ja tietomalleja päästään tarkastelemaan valittujen käyttäjäryhmien sisällä . Power BI 
+Desktopin yleis immät käyttötavat ovat seuraavat: ( Iseminger, 2021 ) 
+1. Tietoihin yhdistäminen  
+2. Tietojen muuntaminen ja puhdistaminen  sekä tietomallin luominen  
+3. Kaavioiden ja muiden visualisointien luominen – tiedot esitetään Power BI 
+Desktopissa visuaalisessa muodossa  
+4. Raporttien luominen – visualisoinnit kootaan yhdelle tai useammalle raporttisivulle  
+5. Raporttien jakaminen muiden kanssa Power BI -palvelun avulla . 
+Power BI Desktopissa tehdyt laskennat tapahtuvat DAX -kielellä, jolla saadaan laskettua da-
+tasta tärkeät tiedot määritysten vaatimalla tavalla. Visualisointien lisäksi raporteille on mah-
+dollista asettaa rivitason rajauksia erikseen määritetyille  käyttäjäryhmille,  jolloin data ei 
+päädy vääriin käsiin. Samalla sovelluksessa on mahdollista märittää organisaatioiden  visu-
+aalisen ilmeen  mukaiset tyyliohjeet . Sovelluksen toimintaperiaate koostuu kolmesta eri nä-
+kymästä  (kuva 4), jotka ovat Raportti, Tiedot ja  Malli.  
+18 
+ 
+Kuva 4. Power BI Desktopin kolme näkymää  
+Raportti -välilehdellä luodaan visualisointeja  ja laskureita  raporteille . Yksittäinen raportti 
+voi sisältää useamman välilehden, mutta kuitenkin aina vähintään yhden.  Ilman visuali-
+sointeja verkkoon julkaistu raportti on käytännö ssä Power BI -tietomalli.  Raportti välileh-
+dellä sijaitsevat  Filters - (Suodattimet) , Visualizations - (Visualisoinnit) ja Fields - (kentät) 
+ruudut ( kuva 5), joissa on mukana nimiänsä vastaavat ominaisuudet . 
+ 
+Kuva 5. Power BI Desktopin kolme ruutua  
+
+19 
+Filters -ruudussa pääsee  tarkastelemaan suodattimia, joiden avulla dataa voidaan suodattaa 
+joko visualisointi -, sivu - tai raporttitasolla. Tämä helpottaa datan  tarkastelua esimerkiksi vi-
+sualisointi -, sivu-, tai aihe kohtaisesti. Samalla nopeatkin muutokset olemassa oleviin lasku-
+reihin ja laskureita käyttäviin visualisointeihin tulevat mahdollisiksi. Visualizations -ruu-
+dussa valitaan visualisointi,  jonka avulla d ata halutaan näyttää . Fields kentässä sijaitse vat 
+tietomallin näkyvissä olevat kentät ja laskurit . Fields -kentässä on mahdollista erotella lasku-
+rit muista tauluist a ja datasta kuvan 6 tyylisesti.  
+ 
+Kuva 6. Esimerkki Fields -kentän laskureista ja taulukoista  
+Tiedot -välilehdellä voidaan tarkastella ja suodattaa dataa tarkemmin rivitasolla, kuitenkaan 
+jättämättä  tietoja pois tietomallista. Tätä välilehteä käytetään usein rivitason datan tarkaste-
+luun ja virheiden etsimiseen datasta . Tiedot -välilehdellä on mahdollista luoda laskennallisia 
+sarakkeita  (Calculated Column) ja laskureita.   
+Malli -välilehdellä on mahdollista rakentaa  tietomalli  luomalla relaatioita sekä tarkistele-
+maan jo olemassa olevan raportin tietomallia. Olemassa olevan tietomallin tarkastelu kysei-
+sellä välilehdellä voi tulla tarpeelliseksi , kun tietomalliin halutaan tehdä lisäyksiä tai vaihto-
+ehtoisesti tuoda mukaan uusia sarakkeita . Power BI:ssä on oletuksena asennettaessa päällä 
+automaattinen yhteyksien luonti eri tauluista toisiin sarakkeis iin nimien perusteella . Tällöin 
+
+20 
+yhdistetään esimerkiksi faktataulun AsiakasAvain -kenttä automaattisesti dimensiotaulun  
+AsiakasAvain -kenttää n. Semanttista tietomallia tietovarastosta ladatessa yhteydet luodaan 
+automaattisesti, ellei kyseistä ominaisuutta ole  otettu pois päältä.  Power BI:ssä voidaan käyt-
+tää tietolähteenä jo palvelussa olemassa olevia tietomalleja,  eli käyttäjäystävällisesti kerrot-
+tuna raportteja,  jolloin malli  välilehti ei ole  esillä eikä muokattavissa. Nämä aiemmin kehi-
+tetyt ja Power BI Serviceen viedyt  tietomallit voivat olla sertifioituja ja vahvistettuja, jolloin 
+mallinnus on ollut mahdollista hoitaa yksiselitteisesti sekä organisaation sääntöjen mukaan. 
+Datan on vahvist ettu tällöin olevan käyttökelpoista.  
+Datan hakeminen tapahtuu Power BI Desktopilla te htyjen tiedostojen tietomalleihin Power 
+Query -editorin kautta . Power Query -editoriin pääsee käsiksi Home -välilehdeltä Transform 
+Data -kohdasta ( kuva 7). 
+ 
+Kuva 7. Power Query editoriin pääseminen  
+Power Query on graafisen käyttöli ittymän sisältävä tietojen muuntamis - ja valmistelumo-
+duuli,  jolla voidaan suorittaa tietojen kerääminen, muuntaminen ja lataaminen eli  ETL (Ext-
+ract, Transform, Load ) -prosessi  (Microsoft, 2021b) . Power Query ssä voidaan rikastaa ja 
+muokata  dataa  liiketoimintatarpeiden mukaisesti , mikäli lähdejärjestelm istä ladatt u data  ei 
+ole käyttötarpeiden mukaista . Tämänkaltaiset nopeat tietokantataulujen sisältöä käyttötar-
+peiden mukaan muokkaavat toimenpiteet ovat yleensä vältt ämättömiä esimerkiksi datan 
+epätäydellisyyden , tietokannassa olevien puuteiden , kehitysjonojen  laajuuden  ja aikataulu-
+tavoitteiden takia.  Power Query koostuu viidestä  osasta,  jotka sijaitsevat  kuva ssa 8 näyte-
+tyistä paikoista . 
+
+21 
+ 
+Kuva 8. Power BI Desktopin Power Query näkymä  osineen  
+Kuvasta 8. ilmenee  seuraavat numeroidut kohdat niiden käyttötarkoituksineen: (Microsoft, 
+2021b)  
+1. Valintanauha  sisältää useita eri v aihtoehtoja välilehtien muunnosten lisäämiseen ja 
+kyselyn vaihtoehtojen valitsemiseen, sekä eri valintanauhan painikkeiden käytön 
+tehtävien suorittamiseen  
+2. Kyselyt -ruutu  näyttää kaikki k äytettävissä olevat kyselyt ja niiden avulla mukaan 
+ladatut yksittäiset taulut  
+3. Nykyinen näkymä  kertoo datan sisällön ja näyttää esikatselun tuottamasi kyselyn tie-
+doista  
+4. Kyselyasetukset  näyttää kaikki vaiheet v alitun kyselyn näkymästä ja kyselylle tehdyt 
+toimenpiteet  järjestyksessä ylhäältä alas  
+
+22 
+5. Tilarivi  näyttää kyselyäsi koskevia tärkeitä tietoja kuten sarakkeiden määrän sekä 
+mahdollisen käsittelyajan . 
+Mallinnuksen kannalta nämä muodostavat yhtenäisen kokonaisuuden , joka voidaan myö-
+hemmin rakentaa kokonaiseksi raportiksi ja tietomalliksi laskurein een, relaatioineen,  ja rivi-
+tason rajauksineen. Power Queryssä tehdään datan valmistelu  tietomallinnusta ja laskureiden 
+rakentamista varten  käyttökelpoiseen muotoon , ja kokonaisuudessa sitä voidaan ajatella yh-
+tenä osana ETL -prosessia . Power BI  Desktopin yleiset käyttötarkoitukset ovat datan muok-
+kaaminen ja tuonti tietomalliin, vaadittavien laskureiden tekeminen, tiedon visualisointi 
+näyttävään, kuvaavaan ja toimivaan muotoon sekä rivitason käy ttöoikeusrajausten asettami-
+nen. Varsinainen hallinnollinen puoli j a tarkemmat asetukset sekä jakeluarkkitehtuurin ra-
+kentaminen jää tehtäväksi Power BI Service -pilvipalvelun puolella.  
+2.3. Power BI Service  
+Power BI Service on kokoelma yhdessä toimivia ohjelmistopalveluja, sovelluksia ja liitti-
+miä, joiden avulla voidaan  luoda, jakaa ja hyödyntää merkityksellisiä liiketoimintatietoja 
+mahdollisimman tehokkaasti organisaatioiden  kannalta . (Microsoft, 2022b ) Power BI Ser-
+viceä käytetään pilvipohjaisena raporttien jakelumenetelmänä  (Enho , 2021) . Power BI 
+Desktopilla toteutetut tietomallit ja raportit voidaan viedä Power BI Serviceen työtiloihin . 
+Työtilat ja työtilojen sisällä olevat tietomallit sekä raportit  voidaan jakaa organisaatioiden 
+sisäisesti tai ulkopuolisesti ennalta määrätylle  käyttäjille ja käyttäjäryhmille . Kokonaisuu-
+dessaan t yötilat pitävät sisällään koontinäytöt, raportit, laskentataulukot , tietomallit  ja tieto-
+vuot. Raportit ja tietomallit  toteutetaan usein Power BI desktopilla, mu tta niiden toteuttami-
+nen on rajatu in ominaisuuksin mahdollista  myös  Power BI Servicessä.  Power BI Servicen 
+tarjoamat kehitysmahdollisuudet kokonaisuuksiin ovat kuitenkin heikompia Power BI 
+Desktoppiin verrattuna. Power BI Servicessä on  kuite nkin helppo toteuttaa raporteille pieniä 
+nopeasti julkaistavia muutoksia , kuten esimerkiksi suodattimien asettamisia visualisoint ei-
+hin. Power BI -työtiloihin viedyt raportit ja koont inäytöt voidaan julkaista laajemmalle ylei-
+sölle . Työtilassa ja sovelluksessa olevia raportteja, koontinäyttöjä, tietomalleja, tietolähteitä 
+ja laskentataulukoita voidaan asetella yhtenäisiksi kokonaisuuksiksi esimerkiksi sisällön pe-
+rusteella . Sisällöt voidaan määrittää käyttäjä ryhmien nähtäväksi jolloin  käyttöoikeuksia on 
+helpompi hallita.  (Hart, 2021 .) 
+23 
+Power BI Servicessä on mahdolli sta sertifioida sekä ylentää tietojou kkoja , tietovuota,  ra-
+portteja  ja sovelluksia . Ylentämisellä tarkoitetaan  suunnitelmallista  datan tai kokonaisuuk-
+sien esiin tuontia koko organisaatiotasolle, jolla kyetään helpottamaan itsepalvelu BI -rapor-
+tointia nostamalla valittu sisältö ylös. Samanlaisen ylösnoston  mutta korkeammalla tasolla 
+tekee sertifiointi. Sertifioi nnilla tarkoitetaan sitä, että sisältö vastaa organisaation määräämiä 
+laatustandardeja ja sitä voidaan pitää luotettavana ja virallisena tietolähteenä, joka on valmis 
+käytettäväksi koko organisaation laajuudella  (Inbar, 2021) . Sertifioinnin avulla voidaan 
+tuoda esiin organisaation tarkasti hallinnoima t ja hyväksymät tietomallit . Esiin voidaan 
+tuoda  sovellukset ja raportit  jotka ovat rakennettu sääntöjen mukaisesti, ja jotka soveltuvat 
+kaikkien käyttöön. Tietojoukkojen sertifiointi ja ylentäminen mahdollistaa yksittäisen tieto-
+mallin  sisällön vahvistamisen oikeaks i. Data voidaan tällöin vahvistaa yksiselitteiseksi.  Tie-
+tomalleja vo idaan käyttää tällöin uudelleen, jolloin datan moniulotteisuus vähenee ja yksit-
+täiset oikeiksi todetut tiedot  sijaitsevat yhdessä paikassa.  Rivitason suojaukset ja käyttäjära-
+jaukset estävät samalla datan väärinkäytön . Samalla voidaan erottaa datan mallinnus ja ra-
+portin rakentaminen toisistaan, kun tietomallia ja raportteja voi vat kehittää eri henkilöt. 
+Tämä minimoi  useisiin tietomalleihin tallennettujen tietojen päällekkäisyyden, kun laskurit, 
+mallit ja sarakkeet pysyvät kaikille organisaatioiden käyttäjille samanlaisina ja samannimi-
+sinä. Tällöin samoja asioita tarkoittaville asioille löydy useita eri selityksiä. Sertifiointi ja 
+ylentäminen tekevät Power BI Service n käytöstä Power BI:lle j a Excelille samankaltaisen 
+kuin mihin SSAS Tabular -mallia käytetty aiemmin . Tämän vuoksi on hyvä miettiä pienem-
+piä tietomalleja  ja datamääriä  varten, voisiko Power BI Servicen käyttö olla hyvä  vaihtoehto, 
+mikäli SSAS Tabular -malleja  ei ole tarpeellista rakentaa  kaikille tietomalleille . Tietomallien  
+käyttö on mahdollista eri työtilojen välillä, jolloin raportteja  voidaan rakentaa samoista tie-
+tomalleista  useisiin eri työtiloihin ja eri käyttötarpeisiin  yksillä vahvistetuilla luvuilla.  Tä-
+mänkaltainen toimintamalli vahvistaa yritysten itsepalveluraportointikulttuuria, sekä autta a 
+kehittämään organisaatioiden datanlukutaitoja. Tietomallien uudelleenkäyttö vaatii kuiten-
+kin tarkkaa suunnittelua ja hallinnointia, jolloin loppukäyttäj ien ei ole mahdollista saada tie-
+tomallista ulos virheellisiä lukuja.  
+2.4. Data Analysis Expressions  
+Data Analysis Expressions (DAX) on laskenta - ja kyselykieli,  joka on alun perin luotu Mic-
+rosoft in SQL Server Analysis Services (SSAS)  ja Power Pivot For Excel 2010 -tuotteita 
+24 
+varten.  DAX on Excelin kaavoja muistu ttava kie li. DAX -kielessä voidaan Excelin tauluk-
+komaisesta laskentatavasta  poiketen luoda yhteys koko naiseen jo aiemmin rakennettuun  
+SSAS -tietomalliin , joka  mahdollistaa relaatioiden  ja laskurien  luomisen nopeammin . Sa-
+malla mahdollistuu uuden  ohjaavan dimensio datan  nopea mukaan tuonti . Viittaukset muihin 
+laskureihin ovat DAX :ssa mahdollisia  ja suositeltavia . Viittaukset olemassa oleviin lasku-
+reihin minimoivat  päällekkäisyyksi ä ja parantavat tietomallin ylläpidettävyyttä . Marco  Rus-
+son ja Alberto Ferrarin (2015, s. 1) mukaan DAX -kieltä voi  oppia  käyttämään perustasolla 
+nopeasti jopa tunneissa  mutta kun kyseeseen tulee rivi- ja kontekstitason arviointi in ja ym-
+märtämiseen siirtyminen, sekä laskennan tekemät iteraatiot , tulee DAX -kielen ymmärtämi-
+nen vaikuttamaan aluksi hankalalta.  Sisältökokon aisuuksien  ymmärtämisen jälkeen  voidaan  
+huomata DAX:n olevan hankalimmissa  laskukaavoissa hyvin kin helppo ja loogisesti toi-
+miva kieli. DAXia voidaan verrata SQL  (Structured Query Language)  kyselykieleen  mutta 
+suurin  erottava toiminnallinen tekijä on se, että DAX :n pohjalla toimiva moottori ei koskaan 
+käytä vieraide n kenttien avaimia kyselyissään, ellei näin määritellä  erikseen  (Russo & Fer-
+rari, 2015, s.9 ). DAX :ia kuitenkin käytetään harvoin SQL:n tapaan kyselykielenä, sillä käyt-
+tötarkoitukset ovat usein laskennan puolella ja kyselyk ielenä Po wer BI:ssä toimii M -kieli.  
+DAX:n avulla voi tehdä laskureita  (Measure) ja laskennallisia  sarakkeita  (Calculated Co-
+lumn)  seitsemälle eri numeeriselle datatyypill e (Russo & Ferrari , 2015 , s.18) :  
+1. Kokonaisluku (Integer)  
+2. Desimaaliluu (Float)  
+3. Valuutta (Ennalta määritelty desimaaliluku , joka tallennetaan kokonaislukuna)  
+4. Aika (DateTime)  
+5. Boolean (True/False)  
+6. Teksti (String)  
+7. Binäärinen suuri objekti (BLOB)  
+DAX -kieli perustuu Excelin tapaan erilaisiin funktioihin . Funktiot palauttavat sarakkeista ja 
+valituista riveistä määritellyn kontekstitason  mukaisen lopputuloksen.  Erilaisia analytiik-
+kaan perustuvia funktiota on olemassa yli 250 kappaletta . Funktioiden kategoriat ja niiden 
+tarkemmat  selitteet löytyvät taulukosta 1.   
+25 
+Taulukko 1. DAX-funktioiden kategoriat ja selitykset ( Duncan , Sharkley  & Kinsman , 2021)  
+Funktion kategoria  Selite  
+1. Uudet DAX -
+funktiot  Uusia tai viime aikoina huomattavasti päivitettyjä funktioita.  Nämä funktiot ovat 
+uusia tai olemassa olevia funktioita, joita on päivitetty huomattavasti  viime ai-
+koina . 
+2. Koosta-
+misfunktiot  Laskevat skalaariar von kuten rivien määrän, rivien summan, rivien keskiarvon, 
+minimin tai enimmäisarvon.  
+3. Päivämäärä - ja 
+aika -funktiot  Microsoft Exceliä muistuttavia päivämäärä - ja aikafunktioita. Perustuvat SQL -
+serverin käyttämiin datetime tietotyyppeihin.   
+4. Suodatinfunk-
+tiot Palauttavat tietyt tietotyypit tai etsivät arvoja taulukoista ja suodattavat niitä ar-
+vojen mukaan. Hakufunktiot käyttävät taulukoita ja niiden välisiä relaatioita. 
+Suodatusfunktion avulla voidaan käsitellä tietokontekstia ja luoda dynaamisia 
+laskutoim ituksia.  
+5. Talousfunktiot  Käytetään taloudellisia laskelmia suorittavissa kaavoissa, kuten korkokannan tai 
+nettoarvon laskussa.  
+6. Tietofunktiot  Nämä funktiot näyttävät argumenttina toiselle funktiolle annettua taulukkoa tai 
+saraketta ja palauttavat, vastaako arvo odotettua tyyppiä. Esimerkiksi ISERROR -
+funktio palautt aa arvon TRUE, jos viitattava arvo sisältää virheen.  
+7. Loogiset funk-
+tiot Palauttavat tietoja lausekkeiden arvoista. Esimerkiksi  TRUE() funktio kertoo 
+onko palauttava lausekkeen arvo totta.  
+8. Matemaattiset 
+funktiot  Excelin tyyppisiä matemaattisia ja trigonometrisiä funktioita.  
+ 
+9. Muut fun ktiot Funktiot,  joita ei kyetä luokittelemaan muihin luokkiin  
+10. Pää- ja aliele-
+menttifunktiot  Käytetään tietomallien pää - ja alitason hierarkiana esitettyjen tietojen hallitsemi-
+seen.   
+11. Suhdefunktiot  Käytetään taulukkojen välisten suhteiden hallintaan ja käyttöön. Voidaan määri-
+tellä esimerkiksi inaktiivinen relaatio aktiiviseksi, jota voidaan käyttää lasken-
+nassa.  
+12. Tilastolliset 
+funktiot  Lask evat tilastollisen jakauman ja todennäköisyyden.  Kertovat esimerkiksi kes-
+kihajonnan ja permutaatioiden määrää n liittyviä arvioita.  
+13. Taulukonkä-
+sittelyfunktiot  Palauttavat taulukoita ja käsitte levät sekä  muokkaavat niitä laskennassa käytettä-
+väksi . 
+14. Tekstifunktiot  Funktioiden avulla voidaan palauttaa esimerkiksi vain osa teks tijonon kirjaimista, 
+etsiä tekstiä merkkijonosta tai y hdistää merkkijonon arvot. Sisältää myös lisätoi-
+mintoja päivämäärien, lukujen ja aikojen muotojen hallitsemiseen.  
+15. Aikatietofunk-
+tiot  Laskutoimitukset  käyttävät  hyväkseen  sisäisiä tietoja kalenterista ja päiväm ää-
+ristä. Voidaan käyttää merkityksellisien vertailujen luontiin esimerkiksi myynnin 
+ja varastojen  vertailukelpoisille ajanjaksoille  Avustaa koosteiden ja laskelmien 
+kanssa.  
+ 
+  
+26 
+Funktioi lla voidaan käsitellä dataa eri tavoilla ja niitä voidaan hyödyntää sisäkkäin DAX:n 
+syntaksissa, kun luodaan laskureita tai laskennallisia sarakkeita . Laskennallinen sarake , jolla 
+yhdistetään kaksi riviä toisiinsa voi näyttää esimeriksi tältä:  
+Myynn in bruttohinta  (sarake) =  
+’Myynti Fakta ’[VerotonHinta ] + ’MyyntiFakta ’[VeroSumma ] 
+Tämänkaltaisella ratkaisulla saadaan aikaan myynnin kokonaishinta , jossa veroton hinta ja 
+veron määrä saadaan yhdistettyä yhteen sarakkeeseen . Excel -taustaiselle käyttäjälle sarak-
+keiden  yhdistä minen voi tuntua järkevältä  mutta tietomallipohjaisessa BI -analytii kassa sa-
+maa dataa ei ole järkevää tallentaa tietomallissa useaan eri paikkaan  saatavaksi . Tämä vai-
+kuttaa mallin kokoon sekä nopeuteen, varsinkin kun datamäärät kasvavat suuriksi. Siksi vas-
+taava myynnin kokonaishinta voidaan toteuttaa seuraavan kaltaisena laskurina:  
+Myynnin bruttohinta  (laskuri)  =  
+sum(MyyntiFakta[VerotonHinta]) +  
+sum(MyyntiFakta[VeroSumma])  
+Käyttäessä DA X-koodia  on hyvä noudattaa sisennyksiä ja asettelua.  Nämä asiat helpottavat 
+laskureiden lukua ja sisäistämistä . DAX:n syntaksiin luomiseen voidaan käyttää apuvälineitä 
+kuten esimerkiksi DAX  Studio ta. DAX  Studion avulla DAX:n avulla luodut kaavat voidaan 
+muotoilla  helpommin ymmärrettävään muotoon . Laskureissa ja syntaksissa on syytä nou-
+dattaa helppolukuisuuden ja ymmärryksen parantamisen takia ihmiselle tarkoitettuja luke-
+miseen liittyviä nimiä. Esimerkiksi pankkien nimiä käsitellessä lienee täysin selvää, että uu-
+delle osaamattomammalle  tietomallinnusmaailman ulkopuolelta tulevalle raportteja käyttä-
+välle  ihmiselle S -Pankki on helpompi lukea kuin SBANFIHH, tai POP Pankki on helpompi 
+lukea kuin POPFFI22.  Usein nämä  nimeämiset ovat hoidettu sarakkeisiin jo tietovarastossa  
+mutta esimerkiksi laskureita nimettäessä on syytä välttää lyhenteiden käyttö ä ja nimetä las-
+kurit mahdollisimman helppolukuisiksi ja hyvin avatu iksi niin, että kaiken tas oiset käyttäjät 
+ymmärtävät sisällön  mahdollisimman pienellä vaivalla . 
+2.5. SQL Server Analysis Services (SSAS) Tabular -malli  
+Tabular -malli t ovat olleet alun perin  Microsoft SQL Server Analysis Services (SSAS) pal-
+velimella toimiv ia muist ipohjai sia relaatiotietokantoja.  Power BI:n tietomallien toiminta 
+27 
+perustuu tähän teknologiaan ja sen alla olevaan VertiPaq -moottoriin . Tuote  on pohjimmil-
+taan sama, mutt a yhteensopivuustaso ja  siihen sitoutuvat  ominaisuudet  eroavat hieman kes-
+kenään. Tabular -malleja voidaan julkaista suoraan Power BI Premiumiin  tai Azure Analysis 
+Services -palveluihin . Viime aikoina Tabular -mallit ovat nousseet takaisin organisaatioille 
+vaihtoehdo iksi johtuen niiden kyvystä hallinnoida ja päivittää dataa sekä käsitellä suurempia 
+datamääriä kuin mitä Power BI Dekstopilla tehdyt tietomallit voivat käsitellä .  
+Tabular -malli on muisti pohjainen re laatiotietokanta. Tabular -malli voi olla myö s tai vaihto-
+ehtoisesti DirectQuery (suorakysely)  -pohjainen re laatiotietokanta.  Muistipohjainen tieto-
+malli ei vaadi kiintolevytilaa toimiakseen ja sen vahvuuksiin kuuluu  esimerkiksi  nopeampi  
+pääsy dataan ( Wilson, 201 7, s.8) . Muistipohjaisessa mallissa data on tallennettuna tietoko-
+neen välimuistiin.  Tabular -malli käyttää DAX -kieltä mukana sarakkeissa  ja laskureissaan.  
+Tabular -mallia tehdessä ja Power BI -tietomalleja rakennettaessa tärkeää ymmärtää Tabular -
+mallin peruskonseptit . Tabular -malli n neljä pääperiaatetta ovat  taulut , sarakkeet , laskurit ja 
+relaatiot  (Wilson, 201 7, s.19). Näiden lisäksi mallintamisessa voidaan käyttää hyödyksi 
+useista sarakkeista koostuvia  hierarkioita.  
+Taulut  ovat tietolähteistä tietomallin muistiin tu otuja  datakokonaisuuksia , jotka koostuvat 
+sarakkeista  ja riveistä.  Taulujen mukaan tuonti ei vaadi datan muokkaamista erilaisiin skee-
+matyyppisiin rakenteisiin . Muokkaukset tietomalliin pystytään tekemään mallinrakennusvä-
+lineellä, kuten esimerkiksi Visual Studiolla , Power BI:llä  tai Tabular Editorilla . Tämä sallii 
+nopeammat  kehitys - ja muutossyklit  tietomalleja rakentaessa , kun tietomalleja ja raportteja 
+kehittävät BI -tiimit eivät ole riippuvaisia lähd ejärjestelmän muutoksista . Tällöin esimerkiksi 
+datan mallinukseen  ja muotoiluun liittyvät seikat voidaan tehdä mallinrakennusvälineessä . 
+Taulun sisältö voi olla esimerkiksi kuvan  9 kaltainen : 
+28 
+ 
+Kuva 9. Tietokantataulun sisällön esimerkki (Wilson, 201 7, s.20)  
+Sarakkeet ovat edellisessä kuvassa näkyvillä riveillä esimerkiksi  nimellä ”Location”. Sarak-
+keiden  datatyyppejä on seitsemän erilaista. Datatyypit ovat listattuna aie mmassa DAX -kap-
+paleessa  laskurien toiminnan yhteydessä . Taulu koostuu useammasta rivistä,  jotka sisältä vät 
+useamman sarakkeen  mutta kuitenkin aina vähintään yhden  sarakk een. Yksi rivi sisältää yh-
+den entiteetin datan, esimerkiksi myyntitapauksen tai asiakkaan tiedot. Tabular -mallia ra-
+kentaessa t aulut yhdistetään toisiinsa relaatioiden avulla . 
+Relaatio issa kentät yhdistetään toisiinsa avainke nttien avulla. Avainkent tien avaimet  voivat 
+toistua faktatauluissa useamman kerran  mutta tarkemman tiedon sisältävässä dimensiotau-
+luissa avainkent tiä tulisi olla aina yksi riviä kohden.  Tässä esimerkissä d imensiotaulussa si-
+jaitsevaa avainkenttää kutsutaan perus - eli pääavaimeksi ja faktataulussa sijaitsevaa avain-
+kenttää viiteavaimeksi ( Jaakola & Sarja , 2006).  Yhdistämällä pää - ja viiteavaimen toisiin 
+saadaan aikaan tietokantataulujen välinen yhden suhde moneen relaatio  (kuva 10), jonka 
+avulla datan rikastaminen tapahtuu.   
+ 
+Kuva 10. Esimerkki luodusta relaatiosta (W ilson, 2017, s.22)  
+
+29 
+Relaatioiden avulla saadaan datan mallintamisen ja järkeistämisen lisäksi säästettyä kustan-
+nuksia tietokantavarastoinnissa  sekä nopeutettua raportoinnin kehittämissä . Tällöin  esimer-
+kiksi asiakastietoihin voidaan lisätä uusia kuvaavia dimensiotiet oja ja dataa voidaan analy-
+soida ilman , että jokaiselle faktariville tarvitsee lisätä tätä tietoa.  Tämä mahdollistaa nope-
+amman analysoinnin, kun ladattavat ja päivitettävät rivimäärät ovat pienempiä.  
+Relaatioita voivat olla  yhden suhde yhteen ( one-to-one) -ja yhden suhde moneen ( one-to-
+many)  -relaatioita . Monen suhde moneen (many -to-many) relaatiot ovat mahdollisia tietyin 
+rajauksin  mutta niiden käyttöä ei suositella. Relaation suhde kertoo  kuinka data linkittyy 
+toisiinsa. Yhden suhde yhteen -relaatiossa molemmissa tauluissa on yksi avain  yhtä riviä 
+kohden . Rivit  luovat relaation  toisiinsa, eivätkä avaimet toistu kummassakaan taulussa use-
+ammalla rivillä. Yhden suhde moneen -relaatio on taas useimmin käytetty  relaatio , jolla lin-
+kitetään usein faktataulu dimensiotietoon. Taulujen välillä voi olla vain yksi aktiivinen re-
+laatio  (Mabee, 2020). Laskureissa voidaan  hyödyntää inaktiivisia relaatioita taulujen välillä . 
+Käyttämällä  yhtä dimensiossa sijaitsevaa päiväsaraketta voidaan tilausten määrä kertoa ti-
+lauspäivämäärän ja toimituspäivämäärän mukaan tekemällä asianmukaiset laskurit.  
+Tabular -mallit ovat pohjimmiltaan BI-maailmas sa vanhaa teknologiaa. Teknologia n voidaan 
+kuitenkin katsoa viime aikoina nostaneen suosiotaan johtuen sen läheisyydestä ja integroin-
+timahdollisuuksista esimerkiksi Power BI -välineen avulla. Power BI:n ja Tabular -mallien 
+laskenta - sekä toimintatavat ovat samanlaisia, ja Tabular -mallit mahdollistavat suurempien 
+datamäärien käsittelyn. Yleisesti voidaan katsoa pilvipalveluiden kuten Azure Analytics Ser-
+vicen sekä siellä sijaitsevien skaalausmahdollisuu ksien  helpottav an tietomallien hallintaa . 
+Power BI:n myötä Azure Analysis Services -palveluiden ja sitä kautta Tabular -mallien ke-
+hittäminen on saanut Microsoftin puolelta uutta vauhtia, ja välineiden suosiot antavat vahvaa 
+indikointia siitä, että käyttöä tulee löytymään jatkossakin.  
+2.6. VertiPaq -moottori  
+VertiPaq on yleisesti käytetty sana DAX -pohjaisten tietomalliratkaisujen taustalla toimivist a 
+moottoreiden kokonaisuuksista . VertiPaq -termin  virallinen nimi on xVelocity in -memory 
+analytic al engine (Russo & Ferrari, 2015, s.399) . Tässä diplomityössä moottorista käytetään  
+selkeämpää ja alan yleisiä käytäntöjä myötäilevää termiä  VertiPaq , joka on saanut nimensä 
+moottorin kehitysvaihee n projektinimestä . VertiPaq :n toiminta perustuu muistipohjaiseen 
+sarakepohjaiseen tietokantaan. Sarakepohjainen tietokanta toimii RAM  (Random Access 
+30 
+Memory) -muistissa. RAM -muistissa sijaitsevan tietokannan data on jatkuvasti käytössä, 
+eikä se vaadi levylle kirjoitt amista. Muistissa toimivien  VertiPaq -moottorilla käytettävien 
+tietokantojen prosessointi koostuu Russon ja Ferrarin  (2015, s.400)  mukaan  seuraavista vai-
+heista:  
+1. Lähdetietojen lukeminen, muuntaminen VertiPaq:n mukaisekeksi  saraketietoraken-
+teeksi sekä sarakkeiden enkoodaus ja pakkaus  
+2. Sarakekirjastojen ja indeksien luonti jokaiselle sarakkeelle  
+3. Tietokantarakenteiden rakentaminen sarakkeiden sisäisille suhteille  
+4. Laskennallisten sarakkeiden (Calculated columns) kaavojen komput ointi ja pakkaus.  
+Sarakepohjaisen tietokannan ideana on järjestää data niin, että jokaista riviä ei tarvitse käydä 
+läpi erikseen . Sara kepohjaisessa kannassa numeraalisia datatyyppejä sisältävät sarakkeet en-
+koda taan vähemmän tilaa vie vään muotoon. Tätä prosessia kutsutaan arvojen enkoodaa-
+miseksi. Esimerkiksi tuotteen hinnan  kertova  numero 216 vie 8 bittiä tilaa, kun taas numero 
+22 vie 5 bittiä tilaa. Tämänkaltainen pakkaus saadaan vähentämällä kaikista arvoista pienin 
+mahdollinen arvo,  jolloin numerot lähtevät nollasta ylöspäin ja jokaisen sarakkeen oma rivi 
+vie vähemmän tilaa. Lyhyillä sarakerivimäärillä tällä ei ole suurta merkitystä  mutta jos kol-
+men bitin tilansäästö kerrotaan muutamalla miljoonalla rivillä  niin voidaan todeta tämän 
+pakkauksen olevan toimiva keino säästää tilaa  (Russo & Ferrari, 2015, s.404 –405). Kuva 11 
+havainnollistaa  pakkauk sen käyttämää toimintatap aa. 
+31 
+ 
+Kuva 11. Russon ja Ferrarin (2015, s.404) esimerkkiä mukaileva numeraalisten arvojen en-
+koodauksen toimintatapa  
+Arvojen pakkauksen lisäksi VertiPaq -moottori voi tehdä vaihtoehtoisesti  sarakkeelle sana-
+kirjastojen enkoodauksen. Russo ja Ferrari (2015, s.406) kertovat kirjassaan , että sarakepoh-
+jaisten arvojen muuttaminen taustalla numeraaliseen ID -arvoon tarkoittaa , että datatyypillä 
+ei ole SSAS -mallinnuksessa suurta merkitystä.  Avainkenttinä on kuitenkin  tietomallin luet-
+tavuuden ja  selkeyden takia viisasta käyttää numeraalisia arvoja.  
+Sarakkeiden sanakirjastoon enkoodaamisessa VertiPaq -moottori luo arvoille ID:t ja nimen. 
+ID-kenttien avulla saadaan vähennettyä tietomallin käyttämää tilaa. Mikäli arvo on jokin 
+muu kuin integer, toteuttaa VertiPaq aina sarakkeiden sanakirjastotyylisen enkoodauksen. 
+VertiPaq -moottori voi kuitenkin tietyissä tapauksiss a tehdä sarakkeiden sanakirjastotyyppi-
+sen pakkauksen integer -datatyypin omaaville sarakkeille, mikäli esimerkiksi arvot ovat laa-
+jalta skaalalta ja eroavat toisistaan paljon (Russo & Ferrari, 2015, s.409). Sarak keiden  ID-
+arvojen  ja nimie n luonnin jälkeen tietomallin prosessoinnin aikana moottori korvaa taustalla  
+olevat  alkuperäiset sarakkeiden arvot numeroilla datan yhdistämistä varten sekä luo tarvit-
+tavat relaatiot sanakirjastoihin . VertiPaq näyttää loppu käyttäjälle  aina vain varsinaiset arvot . 
+Esimerkin yksittäiseen sarakkeeseen tehdystä kirjastomuotoisesta tallennuksesta näkee ku-
+vasta 12. 
+
+32 
+ 
+Kuva 12. Russon  ja Ferrarin (2015, s.40 5) esimerkkiä mukaileva sanakirjastojen  enkoodauk-
+sen toimintatapa  
+Arvojen ja sanakirjastojen enkoodaus toimii mallin tilaa vähentävänä keinoina. VertiPaq -
+moottori tarjoaa näiden kahden pakkaustekniikan lisäksi  kolmannen te kniikan datamäärän 
+pakkausta varten . RLE:n  (Run Lenght Encoding)  tarkoitus on pienentää tietomallin koon 
+määrää välttämällä sarakkeiden arvojen turhaa toistoa  (Russo & Ferrari, 2015, s.406) . RLE -
+enkoodauksen pakkaus toimii heuristisen algoritmin avulla automaattisesti (Russo, & Fer-
+rari, 205 s.410). Heuristisella algoritmilla tarkoitetaan tarpeeksi lähelle parasta mahdollista 
+ratkaisua pyrkivää algoritmia . Algoritmi järjestää sarakkeet optimaaliseen rivijärjestykseen 
+riippuen kokonaisen taulun sisällöstä  ja antaa sarakkeissa sijaitseville arvoille aloitusrivit ja 
+päätösrivit. Esimerkin kvartaalitiedon sisältävälle sarakkeelle ja sen  RLE -enkoodaukselle 
+näkee kuvasta 13. 
+
+33 
+Kuva 13. Russon ja Ferrarin (2015, s.40 7) esimerkkiä mukaileva RLE -pakkauksen toimin-
+tatapa  
+RLE -pakkaus voi kuitenkin jäädä tekemättä, mikäli kyseessä on esimerkiksi vain yksittäisiä 
+tai lähestulkoon samanlaisia arvoja omaava timestamp -tieto. Timestamp -tiedossa  erotukset 
+ovat millisekuntien tasolla , jolloin pakkaus veisi alkuperäistä arvoa enemmän tilaa . Arvot 
+voivat myös jäädä pakkaamatta, jos kyseessä on jokaisella  rivillä yksittäisen arvon omaava 
+avainkettä. Tämänkaltaisissa tapauksissa pakkaus veisi enemmän tilaa kuin alkuperäinen 
+arvo, joten VertiPaq jättää arvojen enkoodauksen, sanakirjastojen enkoodauksen ja RLE -
+pakkauksen väliin. RLE -pakkauksen toteutuessa tämä kuitenkin yhdistetään aina joko arvo-
+jen tai sanakirjojen enkoodauksen kanssa. Sanakirjasto jen enkoodauksen  kanssa yhdisty-
+vässä RLE -pakkauksessa VertiPaq -moottori vie alkuperäisen sarakkeen arvon taulukko-
+muotoon . Tällöin  aiempaa sanakirjastoesimerkkiä mukaillen on kvartaali n sisältäm ät arvot  
+muutettu taustalla ID -arvoiksi ja kirjastoksi . Samalla rivit ovat aseteltu lähes  optimaaliseen 
+järjestykseen heuristisen algoritmin avulla . Kuvasta 14 näkee esimerkin sanakirjastojen en-
+koodauksesta ja RLE -pakkauksen yhdistelmäprosessista. Arvojen enkoodauksen  yhdistel-
+mässä käytetään suoria numeroita sanakirjaston sijaan.   
+
+34 
+ 
+Kuva 14. Russon ja Ferrarin (2015, s.40 8) esimerkkiä mukaileva sanakirjastojen enkoodauk-
+sen ja RLE -pakkauksen yhdistetty toimintatapa  
+VertiPaq -moottori tekee edellä mainitut toimenpiteet heuristisen algoritmin avulla automaat-
+tisesti  niin, että käyttäjän tarvitsee keskittyä pelkästään tietomallin rakentamiseen niin, että 
+data esiintyy optimaalisella tavalla. Perusajatuksena sarakepohjai sille VertiPaq moottoria 
+käyttäville malleille on käyttämättömien kolumnien poisto sekä liian tarkalla  tasolla olevan 
+tiedon poisto. . VertiPaq -moottoria käyttävien mallien toimintakyky ja nopeus ei ole riippu-
+vainen rivien määrästä, vaan sarakkeiden yksittäisten arvojen määrästä.  
+Diplomityön tekijä on nähnyt urallaan VertiPaq moottorilla toim ivia malleja, joissa opti-
+moidussa noin 400 miljoonan rivin faktataulun omaavassa mallissa koko on ollut noin 2 GB. 
+Samalla optimoimaton, mutta kuitenkin kokonaisuudeltaan täysin erillinen tietomalli, on pi-
+tänyt sisällään 40 miljoonaa riviä ja koko on ollut  20 GB. Tästä voidaan todeta , että sarake-
+pohjaisisten tietomallien rakentamisessa ja kehittämisessä on olennaista ajatella rivimäärän 
+sijasta datassa olevia yksittäisiä sarakekohtaisia arvoja  eli kardinaliteetin vähentämistä . Kar-
+dinaliteetin vähentäminen tarkoittaa  joukossa olevien yksittäisten arvojen vähentämistä . 
+Käytännössä tämä voi tarkoittaa  esimerkiksi timestamp -muodossa oleva sta ”11.01.2022 
+15:43 ” -kentästä kellonajan poistamista , mikäli kellonaikoja ei tietomallissa tarvita . Tällöin 
+kaikki 11.01 .2022 -päivämäärällä olevat sarakk eiden arvot saadaan pakattua pienempään ja 
+helpommin käytettävään tilaan, kun jokainen rivi ei tallennu omaksi riviksi sana kirjastoon.  
+
+35 
+Liian tarkalla tasolla oleva tieto voi tarkoittaa myös yksittäisiä kellonaikoja sisältäviä date-
+time-sarakkeiden muuntamista kahdeksi päivämäärän ja kellonajan kertoviksi  erillisiksi sa-
+rakkeiksi. Malleja rakentaessa tulee ottaa huomioon muitakin asioita  kuten esimerkiksi lii-
+ketoiminnan tarpeet , datan ajantasaisuuden tarve sekä tietomallien päivitykseen menevät 
+ajat.  
+  
+36 
+3. Datan mallinnus  ja parhaat käytännöt  
+Luvussa kolme  käydään läpi yleisesti Power BI  -ja SSAS  Tabular -mallinnukseen liittyviä 
+käytäntöjä ja toimintamalleja . Luvun 3 kappaleissa on tarkoitus tuoda ilmi datan mallinta-
+miseen liittyviä parhaita  käytäntöjä . Parhaiden käytäntöjen noudattaminen parantaa ratkai-
+sujen laatuja sekä helpottaa vuosien yli jatkuvaa kehitystä . Parhaiden käytäntöjen huomioon  
+ottaminen jo suunnitteluvaiheessa luo mahdollisuudet  ratkaisujen kestävyydelle , pitkäj äntei-
+selle ke hitykselle  sekä auttaa välttämään teknologisten umpikujien kohtaamisen.  
+3.1. Tähtimalli  
+Tähtimalli  (Star Schema)  on vähintään kahdesta taulusta koostuva tietomalli, joka on sa-
+malla yksi suosituimmista Power BI:ssä  ja SSAS:ssä  käytetyistä tietomallityypeistä. Tähti-
+malli koostu yhdest ä faktataulusta ja  useasta dimensiotaulusta. Tähtimalli -pohjaisten tiet o-
+mallikokonaisuuk sien toiminta perustuu normalisoituun relaatiotietokanta an jonka  faktatau-
+lussa sijaitsevat transaktiotason tapahtumat , esimerkiksi myyntitapahtumista . Tähtimallin 
+dimensiotauluissa sijaitse vat dataa kuvailevat tiedot , esimerkiksi asiakastie dot. Tähtimalli n 
+tietomalli on kuvan 15 kaltainen.  
+37 
+ 
+Kuva 15. Esimerkkirakenne tähtimallista. *  kuvaa vierasavainta ja 1 pääavainta  
+Tähtimalli n vahvuudet  pohjautuvat taulujen normalisointiin. Normalisoinnilla tarkoitetaan 
+sitä, että data sijaitsee vain yhdessä paikassa. Siksi tähtimallia toteuttaessa on erittäin tär-
+keää, että turh at kentät poistetaan  tai jätetään kokonaan ottamatta mukaan. Kuvaavan dimen-
+siotiedon on  aina hyvä sijaita tähtimallia hyödyntävässä SSAS - tai Power BI -mallissa 
+omassa dimensio taulussaan , tai muuten datan toistu minen useassa eri paikassa tulee syö-
+mään hyvän mallinnuksen hyötyjä pois.  Saman tiedon sijaitessa useammassa eri paikassa 
+tietomalli ei ole yksiselitteinen. Moniselitteinen tietomallinnus vaikeuttaa mallin ymmärtä-
+mistä , kehittäm istä ja luo teknistä velkaa . Yksiselitteinen tietomalli mahdollistaa helpom pi-
+lukuisten laskurien tekemisen  ja tietomallin sekä raporttien nopeamman, helpomman ja pa-
+remman  kehittämisen.  
+Ferrari ja Russo (2017 ) kertovat kirjassaan ”Analyzing Data with Microsoft Power BI and 
+Power Pivo t for Excel”, että tähtimallin yksi su urimmista hyödyistä on sen helppo ymmär-
+rettävyys ja hallinta . Samalla Ferrari ja Russo (2017) mainitsevat muiden mallinnustyylien 
+kuten lumihiutalemallin olevan tarpeellinen välttämättömyyksien vuoksi.  Tietoka nnan ja 
+
+38 
+tietolähteiden  normalisoinnin avulla  sekä tähtimallia hyödyntämällä  tietomallin koko pien-
+nee huomattavasti. Tämän eron huomaa helposti vertailemalla tähti mallia denormalisoituun 
+saman datan omaavaan, mutta silti tietomalliksi lueteltavaan tauluun.  Verkkoartikkelissaan  
+Russo ja Ferrari (2021) kertovat  pienemmän tietomallin muodostavan  tähtimallin käyttä-
+mäksi muistikooksi 16.80 GB  ja lihavamman denormalisoidun  yhtä taulua käyttävän mallin 
+kooksi 44.51 GB. Tämä tarkoittaa  sitä, että analyysipalvelimella suoritettavan käytettävän 
+muistin määrä on yhdessä taulussa sijaitsevassa Tabular -mallissa 2 .65 kertaa suurempi.  Hy-
+vin suunnitellun tieto malin hyödyt ovat siis huomattavan arvoiset . Esimerkiksi Azure  Ana-
+lysis Services palvelua ostaessa alle 25 GB:n hinta on Microsoftin Azuren Analysis Services 
+-hinnoittelun  mukaan ( Liite 1, 2021) 1 323 € kuussa, kun taas laajempaan huonommin suun-
+nitellun  malliin minimissään vaadittava 50 GB:n muistikanta on hinnaltaan 2  647 € kuussa. 
+Tämä tarkoittaa käytännössä hinnan tarpeetonta tuplaantumista. Hyvällä tietomallisuunnit-
+telulla ja normalisoiduilla tähtimalleilla voidaan  vuosittain tehdä todistettavasti minimissään 
+15 888 € säästöt.  Saadut hyödyt ovat kuitenkin todennäköisesti korkeampia, sillä tietomallit 
+käyttävät muistia datan tallentamisen lisäksi myös laskennan suorittamiseen.  
+3.2. Lumihiutalemalli  
+Lumihiutalemalli (Snowf lake Schema)  on tähtimallia muistuttava tietomalli. Toimintaperi-
+aatteet ovat datan normalisointiin liittyen samanlaiset  mutta lumihiutalemallin rakenne on  
+hieman  erilainen. L umihiutalemalli ssa dimensioiden kuvaava tieto sijaitsee usein  useam-
+massa eri taulussa,  jotka yhdistyvät  syvemmälle dataan , kuten kuvasta  16. ilmenee.  
+39 
+ 
+Kuva 16. Esimerkki lumihiutalemallin tauluista ja niiden yhteyksistä  
+Lumihiutalemallissa esimerkiksi suuressa organisaatiossa yksi yritys voi sisältää useamman 
+liiketoimintaryhmän j a yksi liiketoimintaryhmä taas voi sisältää useamman kustannuspai-
+kan, ja yhdellä kustannuspaikalla voi olla useampi myymälä. Tämänka ltainen rakenne kui-
+tenkin vaikeuttaa  datan lukemista.  
+Ferrari ja Russo (2017 , s.223)  pitävät kirjassaan  lumihiutalemallia Business Intelligencen 
+maailmassa y htenä yleisimmästä käytettynä tietomallityyppinä . Ferrari  ja Russo (2017, 
+s.223)  mainitsevat  kirjassaan totuudeksi myös sen,  ettei lumihiutalemallit ole huonoja rat-
+kaisuja , vaikka tähtimalliin verratessa  suorituskyky heikkenee lievästi . Lumihiutalemallin 
+käyttötarve on usein välttämätön . Samalla lumihiutalemallia ei kuitenkaan suositella 
+
+40 
+käytettäväksi,  jos se ei ole välttämätöntä , sillä yksinkertaisempi tietomalli tekee DAX: lla 
+koodaamisesta ja kehittämisestä helpompaa.  Ohjaavan  tiedon sisällyttäminen yhteen dimen-
+siotauluun on Power BI - ja SSAS -mallinnuksessa parempi toimintatapa kuin tiedon sisäl-
+lyttäminen useampaan tauluun.  Kehittäminen on nopeampaa ja yksittäisessä t aulussa sijait-
+sevat dimensiotiedot helpottavat DAX -koodaamista ja tekevät siitä helpommin luettavaa.  
+3.3. Header - ja detail -taulut  
+Header - ja detail -tauluilla tarkoi tetaan otsikko - ja rivitason  dataa. Yksi esimerkki tämänkal-
+taisessa  lähdejärjestelmän tietorakenteessa voi olla esimerkiksi ostotilaukset ja niiden rivita-
+son data. Ostotilaus voi sisältää esimerkiksi tilaajan tietoja kuten tilauksen numeron ja ti-
+lauksen kokonaisalennusprosentin . Ostorivit -taulu taas sisältää usein tarkemman tuotetason 
+tiedon tilausmäärineen  ja yksikköhintoineen. Tämänkaltainen kahden taulun välillä toimiva 
+yhteys ( kuva 17) ei kuit enkaan toimi muistipohjaisissa relaatiotietokannoissa.  
+ 
+Kuva 17. Ferrari ja Russo  (2017 s.30) Kirjan mallia mukaileva header - ja detail -taulun yh-
+teys. PK = PrimaryKey, pääavain ja FK = ForeignKey, vierasavain  
+Ostotilausta ja osto riviä voidaan ajatella niin, että ostotilaus on dimensiotaulu ja ostorivi on 
+faktataulu. Ostotilauksen ollessa  ohjaavaa tietoa sisältävä  dimensiotaulu , tehdään tietomal-
+lista tarpeettomasti lumihiutalemallin mukainen . Lumihiutalemallin tyylinen toteutus vai-
+kuttaa kuitenkin aiemman 3.2. kappaleen kertomuksen mukaisesti negatiivisesti  käyttömah-
+dollisuuksiin . Tämän tyyppisissä tilanteissa data kannattaa yhdistää yhdeksi tauluksi tai nä-
+kymäksi jo ETL -vaiheessa.  ETL-vaiheessa tiedot tulisi siirtää  dimensio maisesta  ostotilau s-
+
+41 
+taulusta ostorivi -taulun sisälle  yhdistämällä data tilausnumeron avulla toisiinsa, ja viemällä 
+tilauskohtaiset tiedot kuten kauppa, asiakas, valuutta, tilauspäivämäärä , alennusprosentti  ja 
+kokonaisalennus  ostorivitauluun.  Tämänkaltai nen tilannekohtainen denormalisointi mah-
+dollistaa datan helpomman luettavuuden ja ymmärtämisen. Tällöin k äytettävissä oleva tie-
+tomalli  sisältää tarpeellisen tiedon samalla helpottaen laskureissa ja laskennallisissa sarak-
+keissa  käytettävän DAX -koodin käyttämistä.   
+VertiPaq -pohjaisten tietomallien sanakirjastoenkoodau ksen ja RLE -pakka uksen toimiessa 
+aiemm in mainitun tavan mukaisesti  on todistettua, että  tämänkaltaisissa tapauksissa kaksi 
+header - ja detail -taulua on järkevää  yhdistää yhdeksi  tauluksi . Tämän kaltaisessa esimerkissä 
+vältetään lumihiutalemallin käyttö  joka helpottaa kehitystyötä . Koko tietomallia ei kannata 
+kuitenkaan liittää yhdeksi tauluksi.  Datan  litistäminen eli taulujen yhdisteleminen toimii hy-
+vin silloin kun taulut liittyvät suoraan toisiinsa , kuten tässä tapauksessa tilausnumeron 
+kautta,  mutta muissa tapauksissa se ei  välttämättä  ole kaikista toimivin vaihtoehto.  Yleisesti 
+taulujen yhdist äminen mahdollistaa tähtim allin toimimisen ja lumihiutalemallin välttämisen, 
+niin silloin taulut ovat järkevä yhdistää.  
+3.4. Useamman faktataulun käyttö  
+Tähtimalliin pyrkiminen on tietomallia rakentaessa aiemmin mainittujen tapojen mukaisesti 
+järkevin vaihtoeht o mallinnusta varten, mikäli liiketoimintakysymyksiin on mahdollista vas-
+tata tällä tavalla.  Tämänkaltainen tapaus voi olla esimerkiksi raportti, jossa halutaan analy-
+soida osto - ja myyntidataa. Osto - ja myyntidata sijaitsevat eri tauluissa ja kahta fakt ataulua 
+käyttäessä yksi tapa yhdistää tämänkaltaiset tiedot toisiinsa on luoda yhteydet molempiin 
+faktatauluihin dimensioiden  avulla  kuvan 18 tyylisesti.  
+42 
+ 
+Kuva 18. Esimerkki ostotaulun ja myyntitaulun yhdistävästä tuotedimensiosta  
+Yhdistämällä myynti - ja ostotaulu tuotekategoriaan luodaan  mahdolliseksi molempien tau-
+lujen suodattami nen tuotedimension  tietojen avulla. Tämä voi tarkoittaa esimerkiksi sitä, että 
+voit valita tuotteen nimen tai valmistusmaan perusteella , ja tarkastella sen osto - ja myynti-
+tietoja samoissa visualisoi nneissa. Nämä kuitenkin vaativat toimiakseen erilliset laskurit, 
+koska varsinaiset tilaustiedot ostojen ja myyntien suhteen ovat eri tauluissa.  Jos taulut ova t 
+vahvasti denormalisoituja eikä avainkenttiä ja dimensiotauluja  löydy, niin tällöin kannattaa 
+normalisoida taulut  tai luoda vaihtoehtoiset näkymät  ja luoda dimensiotieto suoraan tietova-
+rastoon.  Samankaltaiset dimensiotietojen yhdistämiset voidaan tehdä ka ikkiin avainkenttiin . 
+(Ferrari  & Russo , 2017. s. 40–43) Esimerkki avainkenttien datan yhdistävistä  kahdesta fakta - 
+ja dimensiotaulun koostavasta tietomallista löytyy  kuvasta 19 .  
+
+43 
+ 
+Kuva 19. Esimerkki kahden faktataulun tietomallista, jossa dimensiot ovat yhdistettyjä toi-
+siinsa  
+Edellä olevan kuvan  tavalla esitetty tietomalliratkaisu mahdollistaa myynti - ja ostotietojen 
+suodattamisen kalenterin  ja tuotetietojen avulla.  Tietomallissa on käytetty vain suositeltuja 
+yhden suunnan relaatioita . Jos halutaan luoda esimerkiksi laskurin,  joka kertoo ostot vain 
+niille tuotteille,  joita on myyty, tulee sinun ratkaista tämä joko DAX -kielen avulla  tai vaih-
+toehtoisesti suodattamalla dataa tai visualisointeja  kuvan 20 tyylisesti  käyttäen hyödyksi toi-
+siin faktata uluihin perustuvia laskureita. Näiden avulla kyetään suodattamaan näytettävää 
+dataa valittujen kuvaavien tietojen, kuten tässä tapauksessa tuotteen nimen perusteella.  
+
+44 
+ 
+Kuva 20. Useampaa faktataulua käyttäessä voidaan suodattaa visua lisointeja  
+Hyvänä muistisääntönä useamman faktataulun käyttöön voidaan  pitää dimensioiden ja suo-
+dattimien käyttöä, mikäli tämä on mahdollista. Denormalisointi eli avainkenttien  kuvaavan  
+tiedon vienti tauluihin toimii mahdollisena vaihtoehtona , mikäli esimerkiksi faktataulut si-
+sältävät tietoja jotka eivät suoranaisesti liity toisiinsa . Datan vieminen yhteen faktatauluun 
+kannattaa  Power BI -mallinnukseen liittyvistä toiminnallista näkykulmista johtuen  toteuttaa  
+aina sen ollessa mahdollista.  Liika denormalisointi tekee  kuitenkin  faktataulujen  keskinäi-
+sestä suodattamisesta mahdotonta . Tämän korja amiseksi tulee valita hyvä  joukko dimensi-
+oita, joiden välillä päästään suodattamaan faktataulujen arvoja . Samalla useamman faktatau-
+lun omaavan mallin rakentaminen on kompleksista  relaatioiden hallinta a. Useamman fakta-
+taulun käyttö luo helposti moniselitteisiä tietomalleja, joissa laskurit voivat antaa useita eri 
+lukuja riippuen , missä tietoja näytetään ja mitä tietoja suodatetaan. DAX -moottorin on vai-
+kea käsitellä moniselitteisiä ratkaisumalleja , ja ongelman voi ratkaista tällöin tauluj en mo-
+nistamisella ja denormalisoinnilla . (Ferrari  & Russo , 2017. s.53 .) 
+ 
+3.5. Nimeämiskäytännöt  
+Tietomalliin haettaessa dataa se ladataan tietolähteestä , joka on usein tietovaraston yksittäi-
+sessä tietokannassa oleva taulu. Tietovaraston  ja mal lien nime ämiskäytännöt voivat olla  
+
+45 
+toisistaan eroavia ja saattavat omata kehitysvelkaa  pitkältäkin ajalta . Tietokannasta  dataa  
+ladattaessa voivat taulut voivat  sisältää useita erityylisiä nimeämiskäytäntöjä kuten taulu-
+kosta 2 ilmenee.   
+Taulukko 2. Esimerkkejä tietokannan taulujen nimeämiskäytännöistä  
+Dimension nimi  Faktan nimi  Näkymän nimi  
+d_Dimensio  f_Fakta  v_Nakyma  
+dDimensio  fFakta  vNakyma  
+dim_Dimensio  fact_Fakta  View_Nakyma  
+dimDimensio  FactFakta  ViewNakyma  
+ 
+Tietolähteistä  tulevat taulut  ja niiden sarakkeet  saattavat sisältää  tietokannoissa erilaisia ni-
+miä. Hyvien nimeämiskäytäntöjen toteuttaminen ja vahtiminen  jää silloin toteutettavaksi 
+tehtäväksi tietomallin ja raportin kehittäjälle. Ferrari ja Russo (2017) mainits evat kirjassaan 
+seuraavat seitsemän  sääntöä  Power BI  -tietomallien taulujen ja sarakkeiden  nimeämisiin liit-
+tyen: 
+  
+46 
+Taulukko 3. Tietomallin taulujen suositellut nimeämissäännöt (Ferrari & Russo, 2017 , s. 20–
+21) 
+Sääntö  Selite  
+Taulujen nimien tulisi sisältää 
+vain liiketoiminnan sisällön mu-
+kaista -dataa  Jos taulun nimi on Asiakas, niin taulun tulisi sisältää vain asiakkaita. Jos 
+taulun nimi on Tuote, niin taulun tulisi sisältää vain tuotteita.  
+Käytä isoja kirjaimia erottamaan  
+taulujen  erilliset sanat  Jos taulu sisä ltää tuotteiden kategoriat, niin taulun nimen tulisi olla esi-
+merkiksi TuoteKategoria .  
+Taulujen faktojen nimien tulisi 
+sisältää liiketoiminnan nimen 
+faktalle, joka on aina monikko  Myyntitaulun nimen tulisi tällöin olla aina Myynti ja ostotaulun nimi 
+Ostot . Monikon käyttämisellä tietomallin katsomisessa ymmärtää tällöin 
+helpommin , että yksittäisellä asiakkaalla on useampi myyntitapahtuma . 
+Tämä vahvistaa relaatioiden ymmärtämistä.  
+Vältä nimiä, jotka ovat liian pit-
+kiä Koita etsiä mahdollisimman hyvä ja helposti luettava lyhyt nimi. Älä 
+käytä turhia sanoja. Liian pitkät nimet kuten TavaroidenLähetysMaa-
+KunJälleenmyyjäMyyTavar an ovat ep äselviä.   
+Vältä nimiä, jotka ovat liian ly-
+hyitä tai lyhenteitä  Lyhenteiden käyttö lisää raporttien epäselvyyttä. Raporttien käyttö tulee 
+suunnitella koko organisaatiotasolle ja täten välttää lyhenteiden käyttöä. 
+Kaikkien ymmärrys ei ole samalla tasolla ja lyhenteiden selvittäminen 
+vie aikaa.  
+Avainkentän nimessä tule e aina 
+olla aina maininta avaimesta  Jos sarake  on avainkenttä, esimerkiksi Asiakastaulu, niin silloin asiakas-
+taulun avainkentän nimi , joka yhdistyy faktatauluun,  tulisi olla esim. 
+asiakasAvain tai CustomerKey  
+Mieti ymmärtä vätkö kaikki va-
+litsemasi nimen  Nimeä miettiessä  kannattaa kysyä itseltään, että ymmärtävätkö kaikki 
+nykyiset ja tulevat käyttäjät valitut nimet . Jos ajattelet vain nykyisten 
+käyttäjien  ymmärrystä, on todennäköistä , että tulevaisuudessa kaikki ei-
+vät nimiä ymmärrä, ja ett ä tästä aiheutuu helposti vältettävissä olevia 
+ongelmia.  
+ 
+Hyvi ä nimeämiskäytäntöjä noudattava tietomalli ja raportti voidaan  jakaa kaikenlaisia taus-
+toja omaaville käyttäjille. Kun nimeämiset ovat kunnossa, niin datan ymmärtäminen helpot-
+tuu sekä mahdollisia datassa olevia virheellisiä rivejä  huomataan pienemmällä vaivalla . 
+Kunnolla nimetty tietomalli auttaa keskittymää n itse sisältöön ja lukuihin, sen sijaan että 
+keskittyminen menisi tietomallin toiminnan ja nimien ymmärtä miseen.  Power BI -tietomal-
+lin nimeämisen lisäksi kannattaa kiinnittää erityistä huomiota oikein nimeämiseen jo tieto-
+kantatasolla. Tietokannassa hyvin  nimetyt taulut mahdollistavat  helpomman ratkaisujen mo-
+nistamisen, joka taas mahdollistaa samoja lähdejärjestelmiä käyttävien ratkaisujen tuotteis-
+tamisen  ja monistamisen , mikäli nimeämiset ovat lähdejärjestelmissä samoja . Hyvien sään-
+töjen ja yleisten käytäntöjen mukaan  nimett y tietokan ta helpottaa datan kaivamiseen liitty-
+vää työtä.  
+47 
+3.6. Mallintamisen parhaat käytännöt  
+Power BI - ja SSAS -tietomallinnuksen parhaat käytännöt koostuvat useasta eri kategoriasta. 
+Parhaiden käytäntöjen hyödyntäminen ja noudattaminen  on pitkäjänteistä työtä  mihin kes-
+kittymine n parantaa työn laatua  ja oppimista . Kun parhaita käytäntöjä noudatetaan , on jat-
+kossa seuraavien kehittäjien helpompaa palata tietomalleihin tekemään lisäyksiä ja muutok-
+sia liiketoiminnan tarpeiden mukaan . Parhaiden käytäntöjen  noudattamiseen ja seuraami-
+seen voidaan hyödyntää esimerkiksi Tabular Editoria . Parhaiden käytäntöjen sääntökokoel-
+maa voidaan käyttää kaikkie n Verti Paq-pohjaisten mallien analysoimiseen , sisältäen Power 
+BI Desktop -, Anal ysis Services -, Azure Analysis Services - ja Power BI Premiumissa sijait-
+sevat Tabular -mallit (Kovalsky , 2021 b). SSAS -pohjaisiin Tabular -malleihin liittyvät va-
+paasti käytössä olevat GitHubista ( Kovalsky, 2021 a) löytyvät parhaat käytännöt voidaan lue-
+tella kuvan 21 tavalla.  
+ 
+Kuva 21. GitHubin BPARules.json  -tiedoston parhaat käytännöt analysoituna  
+Tarkastushetkellä  joulukuussa  2021  Microsoftin ja yksittäisten  kehittäjien  lisäämiä  parhaita 
+käytäntöjä  oli 62 kappaletta. Suurin osa säännöistä liittyy  kategoriaan Performance . Suori-
+tuskyky yn vaikuttavia tarkastettavia sääntöjä löytyy  tiedostosta 23 kappaletta. Kyseisessä 
+kaikkien henkilöiden  käyte ttävissä mutta Microsoftin hallinnoimassa avoimesti käytössä 
+olevassa tiedostossa oli mukana 16 kappaletta automaattisia korjauslausekkeita. Korjauslau-
+sekkeita voidaan käyttää SSAS - ja Power BI -tietomalleissa olevien yksittäisten ongelmien 
+automaattiseen korjaamiseen. Korjauslausekkeet muokkaavat taustalla oleva n TOM -mallin 
+tietoja C# -skriptin avulla (Kovalsky, 2021 b). Parhaiden käytäntöjen tarkistus - ja korjauslau-
+sekkeet  mahdollistavat  usean ongelman samanaikaisen automaattiseen tunnistamisen . 
+Osassa tilanteista parhaiden käytäntöjen vastaisten toimien korjaaminen on mahdollista nap-
+pia painamalla . Jokainen sääntö pitää sisällään kategorian, kuvauksen, käytännön tason, 
+
+48 
+ongelmakohdat tunnistavan lausekkeen, ongelman vakavuustason välillä 1–3, ongelman ni-
+men, ongelman kuvauksen ID:n, sekä yhteensopivuustason. Parhaat käytännöt ja korjaustoi-
+menpiteet ovat tarkemmalle tasolle kuvailtuja  sääntölausekkeita, jotka ovat  C#-koodilla teh-
+tyjä. Käytäntöjen avulla etsitään TO M-mallis sa määritellyt asiat ja niille tehdään määritellyt 
+tehtävissä olevat toimenpiteet, mikäli niin halutaan.  Kuvasta 22 ilmenee esimerkinomaisesti , 
+miltä lausekkeet ja korjauslausekkeet näyttävät kategorioittain ja nimittäin.  
+ 
+Kuva 22. Esimerkki lausekkeesta ja korjauslausekkeesta nimittäin ja kategorioittain  
+Parhaiden käytäntöjen perustuminen ohjelmointiin mahdo llistaa  uusien parhaiden käytäntö-
+jen lisäämise n omiin sääntökokoelmiin  pienellä vaivalla . Tämä mahdollistaa esimerkiksi ni-
+meämiskäytäntöjen tarkastelun eri maiden  kielillä, sekä mahdollisten korjausten tekemi sen 
+bulkkina.  
+Ongelmia ja parhaita käytäntöjä voidaan tarkastella usealla eri tasolla. Taso kertoo , mihin 
+ongelma ja sen ratkaisuun keskittyvä käytäntö ja ratkaisu liitty vät. Ongelma ja ratkaisu voi-
+vat liittyä taso iltaan  esimerkiksi laskennallisiin sarakkeisiin ja laskureihin. Kokonaisen lis-
+tauksen tiedostosta löytyvistä tasoista ja niiden mainintojen määristä löytyy kuvasta 23.  
+
+49 
+ 
+Kuva 23. Parhaiden käytäntöjen laskennallisten tasojen mainintakerrat  
+Yksi ttäinen tarkasteltava käytäntö sisältää aina vähintään yhden tason , mutta käytäntö voi 
+kuitenkin pitää sisällään useamman eri tason. Esimerkiksi “[Performance] Consider a star -
+schema instead of a snow flake architecture” -nimistä käytäntöä tarkastellessa katsotaan  lau-
+seketta taulu - ja laskennallinen taulu -tasoilla, koska molemmat liittyvät aiheiseen. Toisaalta 
+taas kyseistä ongelmaa ei ole tarvetta tarkistella laskuritasolla, sillä ongelma ei liity millään 
+tavalla laskureihin. Yleisellä tasolla voidaan  katsoa, että parhaisiin käytäntöihin tutustumi-
+nen ja tietomallien kriittinen tarkastelu on hyödyllistä , helppoa ja vaivatonta . 
+  
+
+50 
+4. Mallintamisen apuvälineet  
+Tässä luvussa käydään läpi valittujen teknologioiden mallintamiseen, kehittämiseen ja par-
+haiden käytäntöjen noudattamiseen liittyviä apuvälineitä sekä toimintatapoja. Neljännen lu-
+vun tarkoituksena on luoda taustaa käytössä olevista jokseenkin suosituiksi ja hyviksi luoki-
+telluista  apuvälineistä, niiden käyttötarkoituksista ja toimintatavoista. Apuvälineiden ja oh-
+jelmoinnin katselmoinnin  tarkoituksena on mahdollistaa parempi kehittäminen sekä helpot-
+taa parhaiden käytäntöjen noudattamista . Tässä luvussa etsitään keinoja teknologisen velan 
+vähentämiselle  ja toimintatapojen parantamiselle . 
+4.1. Tabular Editor  
+Tabular Editor on Tabular -malleihin ja Power BI -tietomalleihin yhdistämisen mahdollistava 
+työkalu , jonka avulla pystytään  muuttamaan ja hallitsemaan laskureita, laskennallisia sarak-
+keita , näyttökansiota , perspektiivejä  ja käännöksiä . Tabular Editorista on olemassa maksul-
+linen  yrityskäyttöön suunniteltu laajempi  3.x versio  sekä ilmainen  MIT-lisenssillä toimiva  
+GitHubista lada ttava  2.x versio t (Otykier, 2021) . Kuvassa 24 näkyy Tabular Editor 2.16.4 
+käytt öliittymä . Tässä kappaleessa keskitytään  ilmaisesti käytössä olevien 2.x mallien omi-
+naisuuksiin.   
+51 
+ 
+Kuva 24. Tabular Editor 2.16.4 käyttöliittymä   
+Tabular Editor -ohjelmien toim inta perustuu TOM:n (Tabular Object Model) metadatan pal-
+jastamiseen  ja muokkaamiseen . TOM paljastaa natiivin tabular -mallin metadatan kuten mal-
+lin, taulut, sarakkeet  ja relaatio -objektit.  (Owen, Coulter & Petersen , 2021)  VertiPaq  poh-
+jaisten tietomallien kehittämiseen tarkoitetuissa o hjelmissa on TOM:n  pohjalle rakennettu 
+käyttöliittymä . Käyttöliittymän avulla voidaan muokata  tietoja  jotka eivät ole muissa mal-
+linnus ohjelmissa käytössä. Tämä mahdollistaa muun  muassa Power BI Desktopissa tehtä-
+vässä tietomallinnuksissa  lisäominaisuuksien  mukaan  tuonin. Otykier (2021) luettelee ilmai-
+sen Tabular Editorin päätoiminnallisuuksiksi seuraavat ominaisuudet:  
+1. TOM -objektien ja ominaisuuksien muokkaaminen  
+2. Tietojen editointi ja nimeäminen erissä  
+3. Tuki  kopioi/liitä ja pudota/vedä toiminnallisuuksille  
+4. Kumoa ja tee uudelleen datan mallinnusoperaatioita  
+
+52 
+5. Mallin metatietojen tallennus  levylle  
+6. Kansioon tallennus  
+7. Daxformatter.com integraatio ( DAX -koodin formatointi autom aattisesti parhaiden 
+standardien mukaan helpommin luettavaan muotoon)  
+8. Kehittyneempi tietojen mallinnus (perspektiivit, laskentaryhmät, metatietojen kään-
+nökset, OLS  (Object -level security)  
+9. Syntaksin korostus  ja automaattinen kaavan korjaus  
+10. Objektien välisten DAX -riippuvuuksien tarkastelu  
+11. Import  Table Wizard  
+12. Deployment Wizard  
+13. Best Practice Analyzer (parhaiden käytäntöjen analysointi - sekä korjaustyökalu)  
+14. C# skriptaus ja automaatio  
+15. Käyttö Power BI Desktop  -kehityksen  ulkoisena apu- ja työvälineenä  
+16. Yhdistäminen  SSAS, Azure AS  (Analysis Services)  ja Power BI Premium malleihin  
+17. Komentorivikäyttöliittymä  
+Edellä mainitusta listasta löytyvät  ominaisuudet  ovat sellaisia , joita ei löydy Power BI 
+Desktopista . Kyseiset käyttöön otettavat hy ödyt ja ominaisuudet  liittyvät Power BI -tieto-
+mallinnuksessa suoraan Tabular Editorin käyttämiseen . Tämän lisäksi yksi mainitsemisen 
+arvoinen listauksen ulkopuolinen ominaisuus  on muutosten tekeminen offline -tilassa . Täl-
+löin TOM -malli ei prosessoi jatkuvasti kaikkia tehtyjä muutoksia, esimerkiksi laskurimuu-
+tosten tai kenttien formatoinnin ja datatyypin vaihdon jälkeen. Varsinkin suurien tietomal-
+lien kehittämisessä tästä saatavat ajalli set säästöt ovat suuria. Kokonaisuudessaan nämä omi-
+naisuudet helpottavat ja nopeuttavat mallinnusta, sekä teke vät jo aiemmin opittujen käytän-
+töjen, kuten objektien välisten DAX -riippuvuuksien tarkastelusta nopeampaa . Power BI 
+Desktopissa samoja objektien v älisiä riippuvuuksia tarkastellessa tulisi avata jokainen las-
+kuri ja laskennallinen sarake erikseen  ja kirjata riippuvaisuudet ylös. Tabular Editorin avulla 
+tämä prosessi saadaan automatisoitua  ja on helpoimmillaan yhden klikkauksen tai pikanäp-
+päimen  takana .  
+53 
+Best Practice Analyzeriä on syytä pitää maininnan arvoisena ominaisuutena, joka antaa mah-
+dollisuuden 3.6. luvussa mainittujen parhaiden käytäntöjen ja virheiden osoittamiselle sekä 
+automaattiselle korjaamis elle. Otykier (2021) kerttoo verkkoartikkelissaan , että Tabular Edi-
+tor kannattaa  ottaa käyttöön kehittäjänä sen jälkeen , kun TOM -mallinnukseen liittyvät tek-
+niikat ja konseptit kuten laskennalliset taulut ja sarakkeet, laskurit, relaatiot, DAX -koodaus 
+ovat tulleet tutuksi.  Tabular Editor ei kuitenkaan ole ratkaisu  huonosta mallinnuksesta syn-
+tyneisiin ongelmiin . Apuvälineenä se tarjoaa  kuitenkin  mainittavan määrän  konkreettisia  
+keinoja nopeamman ja järkevämmän kehityksen mahdollistamiseksi . Samlla Tablar editor 
+helpottaa myös tietomallien optimointia ja järkevöittämistä . Järkevöittämisellä voidaan tar-
+jota esimerkiksi laskureiden siirtämistä oikeaan tauluun tai k ansioon. . 
+4.2. VertiPaq Analyzer  
+VertiPaq Anal yzer on Dax Studioon  versiosta 2 .11.0 lähtien  viralliseksi ominaisuudeksi in-
+tegroitu lisä osa (Russo , 2021 a), jonka avulla  voidaan  analysoida VertiPaq pohjaisten re-
+laatiotietokantoj en, kuten Power BI - ja SSAS Tabular -mallien kokoa ja rakennetta. Verti-
+Paq on alkujaan SSAS  Tabular -pohjaisten mallien DMV -pohjaisia  (Dynamic Management 
+View) metatietoja hyötykäyttävä Excel -pohjainen apuväline. VertiPaq Analyzer  on tärkeä 
+väline tietomallin sisällä olevien taulujen ja sarakkeiden  kokojen analysointiin (Russo, 
+2021 a). VertiPaq Analyzer on integroituna mukaan Tabular Editor 3.x ohjelmisto ihin. DAX 
+Studioon  ja malliin yhteyttä luodessa  käyttöliittymän ohjeiden m ukaisesti päästään tarkiste-
+lemaan VertiPaq Analyzerin tietoja Advanced välilehdeltä painamalla ”View Metrics” pai-
+niketta . Painikkeen kohta näkyy kuvassa 25. Kuvassa näkyy  alhaalla VertiPaq Analyzerin 
+tuottama data.  
+54 
+ 
+Kuva 25. VertiPaq Analyzerin käyttöliittymä  ja datasisältö  
+VertiPaq Analyzer in tiedot kertovat taulun koosta ja tiedoista bitteinä (B, bit) . Yksittäisen 
+taulun  tiedot  voi avata nuolimerkillä päästäkseen kiinni tarkempiin taulujen sisällä oleviin 
+saraketasojen tietoihin.  Tauluko sta 4 löytyy selitteet sarakkeista , joista on jätetty  tämän työn 
+näkökulmasta  mallinnuksen kannalta vähäisen merkityksen omaavat sarakkeet  pois.  
+Taulukko 4. VertiPaq Analyzerin tables -välilehden sarakkeiden selitteitä . Kaikki koot ovat 
+bittejä (B)  
+Nimi  Selite  
+Cardinality  Kardinaliteeti,  Kertoo kuinka monta kertaa kyseisen sarakkeet  arvot voivat liittyä 
+toisen taulukon vastaaviin arvoihin .  
+Table Size  Taulun kaikkien sarakkeiden  koko yhteenlaskettuna bitteinä  sisältäen relaatioiden 
+koon.  
+Col Size  Sarakkeiden ja sen datasisällön yhteinen  koko  bitteinä . Col Size on yhteenlaskettu 
+summa kentistä Data, Dictionary ja Hier Size.  
+Data  Data sisällön  koko .  
+Dictionary  Arvok irjaston koko.  
+Hier Size  Hierarkian koko . 
+Rel Size  Taulun relaatioiden vievä muis tin koko. Relaatiot näkyvät vain taulutasolla yhtenä 
+kokonaisuutena  
+% Table  Kuinka monta prosenttia taulusta kyseinen sarake  sisältöineen prosentteina.  
+% DB  Kertoo taulun tai sarakkeen  koon prosentuaalisen osuuden koko tietokannan koosta  
+ 
+VertiPaqin automaattiset 2.6. kappaleessa mainitut datan kompressiot johdattavat noudatta-
+maan tietomallien rakentamisessa parhaita käytäntöjä. Russo ja Ferrari (2015, s. 404) 
+
+55 
+kertovat ki rjassaan, että pienempi ja täten nopeampi  tietomalli on aina parempi  skann auksen 
+osalta . Tällöin VertiPaq:n  ei tarvitse skannata  jokaista riviä ei tarvitse käydä lävitse erikseen.  
+Kooltaan pienempi malli voi vähentää  kustannuksia , kun tiet omalli en tallennukseen, proses-
+sointiin, ja analysointiin ei mene niin paljoa muistia . Muistin pienempään käyttömäärään 
+vaikuttaa tietomallin optimointi ja parhaiden käytäntöjen noudattaminen.  Avainasemassa 
+optimoinnissa on mallin koon minimointi ja siihen liittyvien toimenpiteiden toteuttaminen.  
+4.3. DAX Studio  
+DAX Studio on alun perin Darren Gosbellin kehittä mä, mutta nykyään avoimen lähdekoodin 
+projekti, joka on ilmainen Power BI Desktoppiin  sekä SSAS Tabular -, Azure Analysis Ser-
+vices  ja Power Pivot -malleihin käytettävä apuväline . DAX  Studion  avulla voidaan kirjoit-
+taa, analysoida ja suorittaa DAX -kyselyitä. Ohjelma pitää sisällään kyselyjen editoinnin ja 
+suorittamisen, objektiselaimen, kaavojen ja laskureiden editoinnin, synt aksin ko rostamisen 
+ja formatoinnin, integroidun seurannan ja kyselyiden suorittamisen  analysoinnin sekä eritte-
+lyn. DAX  Studio pitää sisällään edellisess ä kappaleessa  4.2. mainitun VertiPaq Analyzerin 
+versiosta 2.11.0 alkaen  (DAX Studio – SQLBI , 2021) . DAX  Studio  (2021)  nostaa verkkosi-
+vullaan maini tsemisen arvoiseksi tukemiksi ominaisuuksikseen taulukon 5 mukaiset omi-
+naisuudet:  
+Taulukko 5. DAX  Studion verkkosivuilta löytyvät ominaisuudet  
+Nimi  Selite  
+Useaan datalähtee-
+seen yhdistäminen  DAX S tudio on apuväline , jolla voit suorittaa DAX -kyselyitä seuraaviin tietolähtei-
+siin: 
+Power Pivot in Excel, Power BI Desktop / SSDT  (Sql Server Data Tools)  Integroidut 
+työtilat , Analysis Services Tabular, Azure Analysis Services . 
+DAX studio skannaa automaattisesti kaikki päällä olevat Power BI Desktop ja SSDT 
+Integroidut työtila -instanssit koneeltasi  
+Integroitu DaxFor-
+matter tuki  Sovelluksesta löytyy integroitu tuki DaxFormatter.com -verkkosivulle, joka auttaa 
+sinua muotoilemaan automaattisesti DAX -koodisi helpommin luettavaan muotoon.  
+Palvelimien ajoituk-
+sen jäljitys  Ohjelmalla voidaan kerätä kysely iden suoritta misen dataa, joka auttaa performanssin 
+parantamiseen. Tämä voi olla hyvä keino muun muassa havaitakseen kahden samoja 
+lukuja tuottavan ja näennäisesti saman tuloksen tuovan laskurin todellisen eron apu-
+välineen näyttäessä dataa suorituskyvystä.  
+Erottimien vaihto  DAX koodissa käytetään valtiosta riippumatta eri erottumia. US -kielellä  käytetään 
+pilkkua (,) luetteloiden kohteil le ja pistettä (.) desimaalierottimelle. Eurooppalaisessa 
+versiossa taas käytetään puolipistettä (;) luettelon kohteille ja pilkkua (,)  desimaa-
+lierottimelle.  Tämänkaltainen toiminnallisuus on hyödyllistä, sillä Power BI -raport-
+tien käytössä olevat erottimet ovat aina raporttikohtaisia riippuen lokalisaatioasetuk-
+sista.  
+56 
+DAX  Studio sisältää jonkin verran samoja ominaisuuksia kuin Tabular E ditor . Esimerkki 
+tästä on integroitu DaxFormatter -tuki. DAX  Studio on Microsoftin verkkosivujen opaskirjan  
+(Microsoft,  2021 c) mukaan monipuolinen  DAX:n hallintaan, diagnosointiin, suorituskyvyn 
+hienosäätämiseen ja analysoitiin tarkoitettu työkal u, jonka ominaisuuksiin kuuluu  objekti en 
+selaus  ja jäljitys, kyselyiden suorittamisen erittelyt yksityiskohtaisilla tilastoilla sekä DAX -
+syntaksin korostus ja muotoilu. DAX Studion päällekkäisyydet muiden ohjelmien kanssa 
+eivät kuitenkaan tee DAX Studiosta  vertailukelpoista muiden apuvälineiden kanssa. DAX 
+Studio keskittyy pohjaltaan eri osa -alueisiin  kuten kuin muut diplomi työssä mainitut apuoh-
+jelmat.  
+4.4. Ohjelmoinnin katselmointi   
+Ohjelmistojen katselmointi ja tarkistus  on laajalti tunnistettu tärkeäksi menetelmäksi ohjel-
+mistojen kehittämisessä (Kollanus,  2011).  Ohjelmiston katselmointia käytetään ohjelmiston , 
+dokumenttien ja muiden tuotettujen artefaktien  laadun parantamisen apuvälineenä kehityk-
+sen aikana (Kollanu s & Koskinen , 2009 , s.1). Tarkistuslistat ovat yksi useimmiten käytetty 
+metodi virheiden löytämiseen.  Tarkistuslistat sisältävät  asiantuntijoiden koostamia usein 
+kohdattujen ongelmia , ja näin ne tukevat ohjelmistojen katselmointia  (Kollanus &  Koskinen, 
+2009 , s. 22 ). Tämänkaltaisten tarkastuslistojen voidaan todeta  helpottavan ohjelmistojen ak-
+tiivista katselmointia . Näillä perusteilla voidaan katsoa, että Power BI:n parhaiden käytän-
+töjen hakeminen  Tabular Editoriin ja  näiden käyttäminen ohjelmiston kehittämisen aikana 
+on laatua parantava tekijä , mikäli maininnat huo mioidaan ja niihin reagoidaan . Tabular Edi-
+toria ja Microsoftin hallinnoimia parhaita käytäntöjä hyödyntämällä voidaan aktiivisesti 
+tehdä tarkistuksia siitä,  miten mallinnuksessa on suoriuduttu.  
+Eisty Nasir ja Carver Jeffrey (2021, s .19) mainitse vat katselmointia tutkivassa vertaisarvi-
+ointia käsittelevässä artikkeleissaan kehittäjien kokevan suurimmiksi  ongelmiksensa  ver-
+taisarvioinnin vievän liian suuren ajankäytön,  kommenttien muotoilun , äänensävyn puutteen  
+tekstissä , oikeiden ihmisten löytämisen vertaisarvioinnin suorittamiseen, osallistumisen  ja 
+kehittäjien  itsetunnon . Samalla ohjelmisto kehittäjät kertoivat  näiden ongelmien ratkaisemi-
+sen parhaimmiksi todetuiksi keinoiksi prosessien virallistamisen, apuvälineiden käytön, 
+työntekijöiden lisäämisen vertaisarviointiin , kannustimien mukaan ottamisen, koulutuksen , 
+työajan varaamisen katselmointiin ja nopeamman vertaisarvioinnin vastaussyklin.  Giuliana 
+Carullo  (2020, s.168)  mainitsee kirjassaan , että kehittäjän osalta koodikatselmuksia tehdessä 
+57 
+on tärkeää muistaa, että vertaisarviointi a toteutettaessa katselmoinnista ei tehdä tuomitsevaa 
+tai henkilökohtaista. Kyseessä on ratkaisujen arvostelu, ei työntekijöiden.  
+Eisty Nasir in ja Jeffrey Carver in artikkelin  mukaan (2021, s.17 –18) 77 vastaajaa  84 vastaa-
+jasta kertoi, että v ertaisarvioinnin koetaan parantavan koodin laatua huomattavasti. Kyseiset 
+77 vastaajaa antoivat syiksi  koodin oikeellisuuden, paremman luettavuuden, useamman sil-
+mäparin tarkastelun , paremman ylläpidettävyyde n, paremman suunnittelun, osaamisen jaka-
+misen, reliabiliteetin parantamisen, paremman koodin muotoilun  sekä parantuneen doku-
+mentoinnin.  
+Power BI -ratkaisuihin liittyvissä ohjelmoinnin katselmoinn eissa voidaan ottaa käyttöön oh-
+jelmistomaailmassa todettuja hyviä käytäntöjä. Toimintatavat ja periaatteet toimivat useim-
+miten samalla tavalla,  vaikka taustalla oleva katselmoinnin kohteena oleva teknologia olisi 
+eri. Yleisesti katsoen voidaan ajatella, että vähintään kahden ihmisen kannattaisi perehtyä 
+aina jokaiseen raporttiin ja tietomalliin. Kaksi ihmistä huomaa todennäköisemmin paremmin 
+mallista löytyviä virheitä kuin yksi ihminen. T ällöin katselmoinnin aikana saadaan huo-
+mautettua toisia tekijöitä saman asian toteuttamisesta järkevämmällä tavalla, h arvemmin ke-
+hittäjät haluavat käyttää useaa tuntia tehtävään, jonka saisi hoidettua nopeammin . Samaa 
+mieltä ovat varmasti myös kehittäjien asiakasryhmät.  Ohjeita ja vinkkejä kannattaa kysyä 
+aina aktiivisesti joko organisaation sisältä tai mahdoll isesti konsulteilta . Katselmoinnin ai-
+kana virheitä ja ongelmia käsiteltäessä yhdessä saadaan jaettua tietoa eteenpäin sekä mainit-
+tua muista käytäntöihin ja mallin ongelmiin liittyvistä asioista . Mallin epäoptimaalisuuteen 
+liittyvät asiat kannattaa kuitenkin hoitaa asiallisesti ja samalla tehdä selväksi, että kyseessä 
+ei ole henkilökohtainen arviointi . 
+Aktiiviseen käyttöön katselmointiin tulisi ottaa myös kehit yksessä käytettäviä apuvälineitä 
+kuten Tabular Editor ja siihen liittyvät Microsoftin ylläpitämät  parhaat käytännöt. Tällöin 
+Best Practice Analyzerin avulla kehittäjä saa palautetta toimintatavoistaan ja mahdollisista 
+huomiota ansaitsevis ta ongelmista , sekä mahdollistaa tietomallin paremman esittämisen ka t-
+selmoijalle . Vertaisarvioinnit olisivat hyödyllistä käydä projektien valmistumisen jälkeen  
+apuvälineitä hyödyntäen . Arviointien lisäksi olisi hyvä käydä läpi mitä projekteista on opittu. 
+Samalla kyseisiä ratkaisuja voidaan esittää muille kehittäjille, jolloin voidaan kertoa oudolta 
+vaikuttavien ratkaisu jen pohjasyyt . Kokonaisuudessaan lähtökohtana oh jelmoinnin katsel-
+moinnille BI -maailmassa  on projektin jälkeen alkuperäisiin määrittelyihin  palaaminen,  sekä 
+parhaiden käytäntöjen vastaisten toimien korjaamisen lisääminen aktiiviseen päivittäiseen 
+58 
+työskentelyyn. Samalla nimeämiskäytäntöihin kannattaa k iinnittää erityistä huomiota jo 
+alusta saakka . Tämän takia nimeämiskäytäntöjä olisi hyvä lisätä organisaation valitsemien 
+käytäntöjen mukaan parhaiden käytäntöjen listaan, jos tämänkaltaiset käytännöt ovat ole-
+massa . Nimeämiskäytäntöjä  olisi tärkeää miettiä jo ennen kehityksen aloittamista, mutta vii-
+meistään ennen tuotantoon siirtymistä . Kehitysvaiheessa  nimiin voidaan vaikuttaa helposti  
+eikä niiden muuttaminen  aiheuta teknisiä  ongelm ia mahdollisille tietomallien loppukäyttä-
+jille. Nimeämiskäytäntöihin on järkevää puuttua vain silloin kun niihin puuttuminen ei ai-
+heuta lisää ongelmia.  
+  
+59 
+ 
+5. Mallintaminen  
+Mallintamista käsittelevässä luvussa käydään läpi teoriaosuuden kertomia hyötyjä mallinta-
+misen näkökulmasta.  Mallintamisessa keskitytään määrittelyyn, jatkuvan kehittämisen toi-
+mintatapoihin ja tukitoimintoihin sekä muihin tiedon mall intamiseen liittyviin huomioihin. 
+Viidennestä luvusta ei löydy tarkkoja ohjeita siihen, miten käytännön implementointi toteu-
+tetaan valituilla apuvälineillä ja teoriakokonaisuuksilla. Mallintamista käsittelevissä kappa-
+leissa kes kitytään ohjeiden sijaan antamaan syitä miksi ja millä keinoin näitä käytäntöjä kan-
+nattaa toteuttaa.  
+5.1. Tehtyjen tietomallien kehitystyöt   
+Tehtyjen ja toteutettujen raporttien sekä tietomallien optimoinnissa ja kehittämisessä tulee 
+ottaa huomioon  tietomalli n rakenne . Tämän kappaleen  esimerkeissä käytetään kehitystyön 
+ja mallintamisen merkitystä helpottamiseksi esimerkkiä, jossa tietomalli on yksittäinen Po-
+wer BI:ssä tehty ja Power BI Serviceen jaettu raportti. Käyttäessä tämänkaltaista esimerkkiä 
+ei tarvitse huolehtia mahdolliseen itsepalvel uraportoint iin liittyvistä yhteyksistä . Kappa-
+leessa jätetään huomioimatta  tietomallien uudelleenkäytön  luovat mahdolliset ongelmat.  
+Suurimmat ongelmat Power BI -tietomallien ratkaisuissa johtuvat usein tietomallin puutteel-
+lisesta kehittämisestä ja sen usean faktataulun osittain denormalisoidusta , normali soidusta ja 
+sekavasta rakenteesta . Tietomallin ja ratkaisun kokonaan uudelleen rakentaminen useam-
+man vuoden jälkeen on harvemmin reaalimaailmassa toteutettavissa  oleva ratkaisu. Tällöin 
+tekniseen velan pienentämiseen vaaditaan muita ratkaisuja .  
+Power BI -tietomallien parantaminen ja optimointi liittyvät vahvasti tietomallin ylläpidettä-
+vyyden, performanssin, muotoilun ja DAX -koodin selkeyden parantamiseen.  Kyseisiä  on-
+gelmia voidaan välttää hyödyntämällä kehityksen aikana Tabular Editorin Be st Practice 
+Analyzeria mutta jälkikäteen tapahtuva analysointi on mahdollista  ja suositeltavaa, mikäli 
+raportilla on käytettävyysongelmia ja jatkokehitystä on tarkoitus toteuttaa  tulevaisuudessa . 
+DAX -koodin formatointi mahdollisesta heikommin muotoillusta  koodista auttaa 
+60 
+hahmottamaan koodia paremmin muotoilun avulla, kuten kuvasta 26 ilmenee. Kuvassa käy-
+tetty DAX -koodi on pseudokoodia.  
+ 
+Kuva 26. Esimerkki Tabular Editorissa muotoillusta DAX -koodista  
+Avaamalla Tabular Editor -ohjelman ja käyttämällä hyödyksi parhaiden  käytäntöjen tietoja 
+saadaan näkyviin ratkaisutoimenpiteet, joiden avulla kyetään parantamaan tietomallien yllä-
+pidettävyyttä, suorituskykyä, muotoilua ja DAX -koodin selkeyttä . Avattuasi tietomallin ja 
+ladattuasi mukaan parhaat käytännöt ( liite 2) pääset tark astelemaan  ongelmia ja korjaamaan 
+vastaavat.  Best Practice Analyzerin esiin nostamia parhaiden käytäntöjen vastaisia toimia 
+voidaan korjata automaattisesti . Automaattisen korjauksen mahdollisuus näkyy klikkaa-
+malla hiiren oikealla ongelman päällä. Esimerkki yhden kategorian  automaattisista korjauk-
+sista näkyy kuvassa 27.   
+
+61 
+ 
+Kuva 27. Esimerkki Tabular Editorin automaattisista tietomallin korjauksista  
+Esimerkkinä käytettiin Diplomityön tekijän aiemmin luomaa  Power BI -raporttia, joka sisäl-
+tää Suomen valtion avointa dataa konkurssiin menneihin yrityksistä, sekä kuluttajahintain-
+deksistä ja ansiotasoista.  Yksittäisen raportin relevantit ongelmat kyettiin käymään läpi alle 
+30 minuutissa . Tabular Editorin opasti hyvin korjaamaan ongelmat, joihin ei ollut tarjolla 
+automaattisia korjauksia. Alun 109 :stä huomatusta parha iden käytäntöjen vastaisista ongel-
+mista saatiin ratkaistua Tabular Editorin avulla  53 kappaletta, ja jäljelle jäi täten 56 kappa-
+letta huomiotta jätettyjä ongelmia. Huomiotta jä tetyt ongelmat sisälsivät muun muassa ob-
+jektien kuten taulujen, laskurien ja sarakkeiden  kuvailuja , joita ei koettu tässä tapauksessa 
+tarpeellisiksi . Verratessa vanhaa optimoimat onta tietomallia uuteen optimoituun tietomalliin 
+VertiPaq Analy zerilla huomattiin mallin koon pienentyneen.  Suurin osa tietomallin pienen-
+nyksestä  johtui käyttämättöm ien taulujen ja kolumnien poistosta, sekä performanssiin liitty-
+vistä korjauksista . Tässä esimerkissä käyttämättömät taulut ja kolumnit olivat Power BI:n 
+automaattisesti luom ia aikadimensiotauluja (1 kpl tässä mallissa),  jotka eivät olleet tarpeel-
+lisia tietomalliin liitetyn aikataulun vuoksi.  Tietomallin koko kuitenkin puolittui ja muuttui 
+näillä muutoksilla alkuperäisestä 2,56 MB:stä 1,15 MB:seen, kuten kuvasta  28 ilmenee.  
+
+62 
+ 
+Kuva 28. DAX Studion VertiPaq Analyzerin kooste tietomallista  
+Tehtyjen tietomallien optimointi ja muutokset voidaankin todeta suhteellisen vaivattomiksi, 
+varsinkin jos versionhallinta on kunnossa  ja vanhoihin tietomalleihin voidaan palata ongel-
+mien ilmetessä . Tällöin ei tarvitse huolehtia tehtyjen muu tosten vaikutuksista ratkaisujen 
+toimivuuteen, myöskään mahdollisesti sellaisissa tapauksissa,  jossa kyseistä Power BI Ser-
+vice -portaaliin vietyä tietomallia käytetään uudelleen itsepalvelu raportoinnissa. Itse mallin 
+parhaisiin käytäntöjen noudattamiseen  liittyvät nopeat korjaukset ovat helppoja tehdä Tabu-
+lar Editoria hyödyntämällä, mutta suuremmat malliin tehtävät muutokset voivat aiheuttaa  
+ongelmia olemassa oleviin tietomalleihin ja siitä johdettaviin raportteihi n. Tietomall iin teh-
+tävät suuremmat muutokse t kuten kenttien poistot, taulujen poistot ja yhteyksien muokkaa-
+miset ovat aina riskaabeleja vaihtoehtoja, joiden vaikutusta on vaikea arvioida ilman tarkkaa 
+testaamista . Suurimmat ongelmat luovat  kuitenkin tässä tapauksessa puutteellinen arkkiteh-
+tuuri sek ä tietomallin kehittämisvaiheessa tehdyt virheet, joita ei voida enää mallien tai ra-
+porttien pitkälle menneen jalostuksen takia muuttaa.  Arkkitehtuurillisiin ongelmiin voidaan 
+hakea ratkaisuja parhaiten toimintatapoja muuttamalla. Organisaatiotasolla on tärkeä 
+
+63 
+hyväksyä ymmärrys niiden tietomallien suhteen, joille on jatkossa promootion ja sertifioin-
+nin avulla myönnetty jatkuvan kehityksen tuki muiden osapuolien toteuttamiin itsepalvelu-
+ratkaisujen  tarkoituksiin.   
+5.2. Uusien raportti - ja tietomallikokonaisuuksien  määrittely   
+Uusien tietomallien ja raporttien kehittäminen lähtee usein käyntiin raporttivaatimusten ke-
+räämisellä ja määrittelyllä. Raportin määrittely ja vaatimusten kerääminen on tärkeä osa ke-
+hittämistä, ja se vaikuttaa huomattavasti tietomallin kehittämiseen . Hyvin tehtyjen mä äritte-
+lyjen avulla autetaan kehittäjää ja tuotteen omistajaa päivittäisessä työssään. Määrittelyyn 
+kuuluu raporttivaatimusten ja tietovaatimusten kerääminen. Nämä kaksi vaihetta liit tyvät 
+tarkasti toisiinsa ja raporttivaatimukset auttavat vähentämän teknistä velkaa sekä ymmärtä-
+mään tietovaatimuksia paremmin. Näitä  asioita on hyvä käsitellä yhtenäisenä kokon aisuu-
+tena. Määrittelytietoja kerätessä  on suositeltavaa luokitella ominaisuuksia niiden tärkeyden 
+perusteella . Raporttivaatimuksia voidaan kerätä esimerkiksi taulukossa 6 mainituista asi-
+oista . 
+  
+64 
+Taulukko 6. Microsoftin esimerkit kerättävistä  raporttivaatimuksista (Microsoft , 2022 c) 
+Raporttivaatimus  Selite  
+Tarkoitus, kohderyhmä 
+ja odotettu toiminto  Selvitä raporttien tarkoitus ja liiketoimintaprosessit, sekä kohdeyleisö,  joille ra-
+portti on tarkoitettu. Selvitä raportin odotetut toimet, jota  käyttäjät on tarkoitus 
+pystyä tekemään . 
+Miten kuluttajat käyttä-
+vät raporttia  Käy lävitse,  miten olemassa olevia raportteja käytetään. Tätä kautta voidaan op-
+pia mitkä raporttien elementit ovat turhia, ja mitä voidaan tuoda mukaan uusiin 
+ratkaisuihin.  
+Omistaja ja aihealueen 
+asiantuntija  Selvitä raportin omistaj a ja tietomallin toimialueeseen liittyvät asiantuntijat orga-
+nisaatiossa. Selvitä  miten raportille tehtäviä muutospyyntöjä käsitellään. Kaik-
+kiin muutoksiin ei tarvitse raportin omist ajan lupaa.  
+Sisällön toimitustapa  Tee selväksi,  miten raportin kuluttajat haluavat tiedon itselleen käyttöön. Käyt-
+tötapoja on useita.  
+Vuorovaikutteisuustar-
+peet Selvitä raportin pakolliset ja ”nämä olisivat  kiva saada” vuorovaikutusvaatimuk-
+set, kuten suodattimet  ja porautumistoiminnot .  
+Tietolähteet  Varmista, että kaikki raportin toteuttamiseen vaadittavat tietolähteet löydetään, ja 
+että datan viiveen (tietojen tuoreus) ymmärretään.  Tunnista kunkin raporti n his-
+torialliset tiedot, trendit ja tietojen tilannevedoksen vaatimukset , jotta ne voidaan 
+kohdistaa yhteen tietovaatimusten kanssa. Tietolähdettä koskevat ohjeet voivat 
+olla hyödyllisiä myöhemmin uusia  kokonaisuuksia kehittäessä.  
+Suojausvaatimukset  Selvitä ketkä saavat katsella ja muokata raportteja, sekä selvitä rivitason suojaus-
+tarpeet . Ota huomioon, jos tehdään poikkeuksia organis aation normaaliin suo-
+jaukseen. Dokumentoi mahdollinen tietojen luottamuksellisuustaso, tietosuoja  tai 
+sääntely - ja yhteensopivuustarpeet.  
+Laskutoimitukset , suo-
+rituskykyilmaisimet ja 
+liiketoimintasäännöt  Tunnista ja dokumentoi kaikki tällä hetkellä käytety t laskutoimitukset, suoritus-
+kykyilmaisimet  (KPI)  ja liiketoimintasäännöt, joita on käytetty aiemmin.  
+Käytettävyys -, asettelu - 
+ja kosmeettiset vaati-
+mukset  Tunnista tietojen visualisointien, ryhmittelyn ja lajittelun vaatimuksiin ja ehdol-
+liseen näkyvyyteen  liittyvät erityiset käytettävyys -, asettelu - ja kosmeettiset tar-
+peet. Selvitä mahdolliset mobiiliraporttien käyttöön liittyvät tarpeet.  
+Tulostus - ja vientitar-
+peet Selvitä sopivin raporttityyppi ja onko raportin tulostamiselle tarvetta. Kannattaa 
+kuitenk in rohkeasti tehdä kehotuksia toimintatapojen parantamiseen. Ota huomi-
+oon se, että raporttien käyttäjät mielellään tekevät asiat samalla tavalla kuin aiem-
+minkin.  
+Riskit ja huolenaiheet  Selvitä onko raporteille muita teknisiä tai toiminnallisia vaatimuksia  sekä mah-
+dollisia riskejä tai huolenaiheita, jotka koskevat niissä esitettyjä tietoja.  
+Avoimet ongelmat ja 
+keskeneräiset työt  Tunnista mahdolliset tulevat ylläpitotoimet, jatkuvan kehityksen toimet, tunnetut 
+ongelmat tai lykätyt pyynnöt, jotka lisätään keskeneräisten töiden joukkoon.  
+ 
+Raporttivaatimuksi a kerätessä on myös suotavaa kerätä listaus tietovaatimuksista.  Tietovaa-
+timuksien keräämisellä mahdollistetaan rapo rtin käyttötarkoitusten toteuttaminen sekä ke-
+hittämisen helpottaminen. Samalla saadaan luotua hyödyllistä dokumentaatiota jatkokehit-
+tämistä varten sekä jalostettua mahdollisia käyttötarkoituksia kuten tietomallien uudelleen 
+käytettävyyttä jaettujen tietojo ukkojen avulla. 2.2. kappaleessa mainitun teoriaosuuden mu-
+kaisesti kyseiset tietojoukot voidaan sertifioida . Tietojoukkoja sertifioidessa kannattaa 
+65 
+kuitenkin miettiä ovatko ne organisaation laatustandardien mukaisia . Sertifioinnin avulla il-
+maistaan datan luotettavuus ja parannetaan sen löytämistä. Tietovaatimuksia kerätessä voi-
+daan käyttää hyödyksi tauluk koa 7.   
+Taulukko 7. M icrosoftin esimerk it selvitettävistä tietovaatimuksista  (Microsoft , 2022 c)  
+Tietovaatimus  Selite  
+Aiemmin luodut ky-
+selyt  Selvitä löytyykö aihealuetta käsitteleviä raporttikyselyitä tai tallennettuja toiminta-
+sarjoja, joita voidaan  käyttää hyödyksi raporttia kehittäessä. Tämän kaltaiset ratkaisut 
+ovat usein DirectQuery - tai yhdistelmämalleja. Samalla kyseessä voi olla Power BI 
+-palveluun jaettu tietojoukko tai -malli.   
+Tietolähdetyypit  Kokoa kaikki tietolähteet listaksi, jotka ovat tarpeellisia raportin - ja tietomallin ke-
+hittämistä varten. Näitä voivat olla keksitetyt ratkaisut kuten tietovarastot, tai esimer-
+kiksi standardinvastaiset Excel-tiedostot. Tietolähteiden ja tiedon selvittäminen on 
+tärkeää yhdyskäytävän liitettävyyttä varten  
+Tietorakenne ja siis-
+timistarpeet  Selvitä tietolähteiden datan rakenne  ja missä määrin tietoja tarvitsee siistiä käyttöä 
+varten.  
+Tietojen integrointi  Arvioi  miten  datan integrointia käsitellään, kun tietolähteitä on useita. Arvioi miten 
+relaatiot voidaan luoda taulukkojen välillä. Pyri ymmärtämään toimintatavat,  joilla 
+mallin  luettavuutta voidaan yksinkertaistaa, sekä kokoa pienentää.  
+Hyväksyttävä tieto-
+jen viive  Selvitä datan  viiveiden tarpeet tietolähteille. Tietolähteiden viiveiden tarpeet vaikut-
+tavat raporttien päivitystaajuuteen.  On tärkeää tietää milloin lähdejärjestelmät päivit-
+tyvät ja kuinka usein raportteja halutaan päivittää.   
+Tietojen määrä ja 
+skaalattav uus Arvioi olemassa olevaa ja etenkin tulevaa datan määrää ja datan odotuksia. On tär-
+keää tietää kuinka skaalattava kyseinen tietomalli voi olla, ja että tuleeko tulevaisuu-
+dessa ongelmia datan määrän ja päivitysten suhteen.   
+Mittarit, suoritusky-
+kyilmaisim et ja lii-
+ketoimintasäännöt  Mieti tarpeet mittareille, suorituskykyilmaisimille (KPI)  ja liiketoimintasäännöille. 
+Nämä asiat vaikuttavat siihen missä logiikkaa käytetään. Onko logiikka tietojou-
+kossa, raportilla vai integroinnissa.  
+Ydintiedot ja tieto-
+hakemisto  Mieti onko tärkeimpiin ydintietoihin liittyviä ongelmia, jotka edellyttävät huomiota. 
+Selvitä onko data katalogin käyttö tarpeellista, jotta voidaan parantaa datan löydettä-
+vyyttä sekä käyttää määritelmiä ja tuottaa organisaation hyväksymiä yhdenmukaisia 
+termejä.  
+Suojaus ja tieto-
+suoja  Määritä onko tietojoukoille s uojaus - tai tietosuojaseikkoja, kuten rivitason suojaus-
+vaatimuksia.  
+Avoimet ongelmat 
+ja keskeneräiset työt  Lisää tunnetut ongelmat, tietojen laatuun liittyvät puutteet, tulevat ylläpitotoimet tai 
+lykätyt pyynnöt ja mahdolliset riskit keskeneräisten töiden joukkoon.  
+ 
+Määrittely vaiheessa pidetyn  aloituspalaverin jälkeen kannattaa palata myöhemmin määrit-
+telyissä esiin nousseisiin asioihin . Sopiva aika voi  esimerkiksi 2–3 viikon kuluttua määritte-
+lyjen keräämisestä, mikäli  aikataulut mahdollistavat tämän . Asioita kannattaa palata käsitte-
+lemään myöhemmin,  sillä projektien edetessä ymmärrys kokonaisuudesta kasvaa . Usein  ko-
+konaisuutta koskevia asioita ja lisäkysymyksiä tulee mieleen myös myöhemmin . Järkevänä 
+toimintatapana on pidetty myös määrittelytietojen siistiminen asiaan palatessa. Tietomallien 
+66 
+järkevä ja kunnollinen kehittäminen vaatii hyvin tehd yn määrittelyn, jossa useita mahdollisia 
+käyttötarpeita on otettu huomioon . 
+5.3. Uusien tietomallien kehittäminen   
+Uusien tietomallien ja raporttien kehittämisessä on järkevää lähteä liikkeelle määrittelyjen 
+jälkeen rakentamalla kokonaiskuva rakennettavasta tie tomallista. Hyvien tietomallien kehit-
+täminen perustuu  pohjimmiltaan hyviin määrittelyihin, dimensionaalisen mallinnukse en, 
+tähtimalliin  ja DAX -koodauksen ymmärtämiseen. Tärkeänä osana tietomallien kehittämistä 
+voidaan pitää useamman faktataulun käyttöä ja header - sekä detail -taulujen toimintatapojen 
+ja ominaisuuksien ymmärtämistä . Samalla tulee ymmärtää, miten relaatioita voidaan raken-
+taa sekä miten taustalla oleva pakkauksen toteuttava VertiPaq  moottori toimii. Yleisesti uu-
+sia tietomalleja kehittäessä apuvälineiden  kuten Tabular Editorin  käyttö  auttaa huomaamaan 
+jo kehitysvaiheessa tietomallinnuksessa tehdyt virheet.  Best Practice Analyzerin käyttö aut-
+taa kehittäjiä sekä itsepalvelurapor toinnin  käyttäjiä  muistuttamaan mallinnuksesta toteutet-
+tavissa olevista parhaista käytännöistä, sekä välttämään aktiivisesti virheitä.  
+Diplomityöntekijän vuosien alan työkok emukseen ja muiden kehittäjien kanssa keskuste-
+luun sekä verkosta löytyviin artikkelei hin ajatuksia peilaten voidaan  katsoa, että yksittäisiä 
+oikeita toimintatapoja  uusien tietomallien ja raporttien kehittämiselle ei ole . Kehittäjiä voi-
+daan kuitenkin opastaa pienellä vaivalla toimimaan parempien  ja parempien  tapojen mukai-
+sesti. Työn tekijän tärkeimpänä pitämä perusta sarakepohjaisten Power BI ja Tabular -mal-
+lien paremmalle  kehitykselle on teknologisen taustan ymmärt äminen  sekä yleisien ja hel-
+posti huomattavien virhekohtien välttäminen . Virhekohtien välttäminen tapahtuu pohjim-
+miltaan samalla tavalla niin uusien kuin vanhempienkin tietomallien kehittämisessä.  Tehdyt 
+virheet ovat kuitenkin helpomp ia välttää , kun ratkaisut eivät ole vielä tuotantokäytössä.  Jäl-
+kikäteen tehtävät pienetkin raportti - ja tietomallitekniset muutokset voivat olla laajojen lii-
+tännäisyyksien takia hyvin hankalia ja työläitä toteuttaa.  
+Kunnollisella kehityksellä minimoidaan teknisen velan määr ää. Tähtimallin valitseminen di-
+mensionaaliseksi mallinnusmuodoksi , relaatioiden muutokset  sekä useamman faktataulun 
+ratkaisujen tietomallintamisen muutokset ovat usein vaikeita  ja lähes mahdottomia toteuttaa 
+järkevällä työmäärällä, kun ratkaisut ovat jo tuotantokäytössä . Jokainen vasten parhaita käy-
+täntöjä tehty toimenpide ja päätös heikentää tietomallin toimintakykyä  ja tulevaisuuden ke-
+hittämistä . Tietomallin toimintakyvyn heikkous säteilee niin tietomallin lukemiseen, 
+67 
+käyttöön, teknologiseen toimimiseen, nopeuteen, päivityssykliin, dokumentaatioon kuin it-
+sepalvelukäyttöönkin. Samalla raporteissa on usein huonoista tietomallipäätöksistä johtuvia 
+hitauksia.  
+Power BI:llä saa daan  helposti näyttäviä ja toimivia tuloksia aikaan  mutta yhtenä suurena 
+heikkoutena tuotteessa on sen helppokäyttöisyys . Helppojen tulosten aikaansaaminen saat-
+taa aiheuttaa epäoptimaalisia tuloksia, k un teknistä osaamista ja ymmärrystä ei ole taustalla.  
+Tästä  syystä uusia tietomalleja kehittäessä on tärkeää ymmärtää , minkälaiseen tarkoitukseen 
+tietomallia ja raporttia halutaan kehittää. Branscomben (2021) t eknologiaan ja IT:seen pe-
+rehtyvän CIO -lehteen kirjoitetun  artikkelin mukaan  työntekijöitä ei kannata jättää yksin ke-
+hitykseen liittyvissä asioissa. Tällöin voidaan aiheuttaa kokonaisarkkitehtuurillisesti hallit-
+sematon tilanne . Hallitsemattomaan tilanteeseen auttaa ratkaisujen hyväksymisen hallinta , 
+sekä tietomallien ylös nostaminen ja sertifiointi hyvien  datamallien ylös nostamiseksi . Ke-
+hittämisvaiheessa  ei tule unohtaa vanhempien osaajien tarjoamaa tukea ongelmiin s ekä ak-
+tiivista palautteen antamista kehittämisen osalta. Yhtenä  tärkeä nä osuutena voidaan pitää 
+koulutuksia , joissa vuorovaikutuksen avulla saadaan jaettua osaamist a organisaation sisällä.  
+Microsoft pitää hyödyllisenä keinona perustaa BI:n ja analytiikan a mmattilaisista koostuvan 
+tiimin, joka on vastuussa BI -ympäristön luomisesta ja ylläpidosta. Tärke änä ominaisuutena 
+tämän kaltaisen tiimin luomisessa on se, että yrityksen sisällä saadaan luotua vankka ympä-
+ristö, joka tarjoaa oikeat tiedot oikei lle henkilöille oikeaan aikaan , samalla tiedonkulkua, 
+koulutusta ja tukea kehittäen . (Microsoft , 2022 a). 
+Täydellisen listan toteuttaminen liittyen uusien tietomallien kehittämiseen  on hyvin vaikeaa . 
+Tutkimuksen aikana u usien tietomallien kehittämisessä huomioon asioista löytyy seuraa-
+vasta listasta :  
+• Hoida määrittely kunnolla. Hyvin tehty määrittely mahdollistaa kunnollisen kehittä-
+misen, sekä arkkitehtuurin  kannalta olemassa olevien ja tulevien ominaisuuksien ja 
+käyttökohteiden huomioon ottamisen . Ohjeet hyvin tehtyyn määrittelyyn saat esim. 
+kappaleesta 5.2.  
+• Valitse dimensionaaliseksi mallinnusmuodoksi aina tähtimalli  sen ollessa mahdol-
+lista. VertiPaq pohja iset tietomallit ovat parhaimpia dimensionaalisille tietomalleille , 
+joista paras näihin Power BI - ja SSAS -käyttötarkoituksiin on tähtimalli.   
+68 
+• Litistä  header - ja detail -tasojen taulut sekä dimensiohierarkiat yksittäisiksi tauluiksi 
+tai näkymiksi . 
+• Useamman faktataulun ratkaisut tulee suunnitella tarkemmin. Mieti tarkkaan , minkä 
+dimensioiden avulla saadaan yhdistettyä data toisiinsa, ja mitkä kolumnit olisivat 
+syytä denormalisoida  faktatauluihin. Useamman faktataulun ratkaisut vaikeuttavat  
+jatkokehitystä, ja tästä syystä niitä tulisikin välttää.  Yksittäistä oikeaa ratkaisua ei 
+olemassa . 
+• Ota hyvät nimeämiskäytännöt käyttöön.  mieti mallin kokonaisuutta ja mitä ratkaisuja 
+on jo olemassa mallia rakentaessa. Taulukosta  3 löytyy  lisää asiaa  tähän liittyen . 
+Kunnolla tehty nimeäminen niin tietovarastoihin  kuin raportteihin ja tietoma lleihin-
+kin mahdollistaa samoista lähdejärjestelmistä tulevien ratkaisujen tuotteistamisen  
+• Mieti semanttista tietomallirakennetta, kuinka hyvä tietomall i tietovarastossa on ole-
+massa . Ideaalitilanteessa mallit saadaan käyttöön miltei suoraan tietovarastosta  
+• Suosi  suoria näkymiä joiden avulla data ladataan tietomalliin.  On järkevämpää tehdä 
+”SELECT * FROM VIEW_FACT_TABLE ” -kysely , joka mahdollistaa VertiPaq  
+moottorin  järkevämmän käsittelyn. Tällöin käsittelysäännöt ovat alemmalla tasolla, 
+jolloin niitä voidaan käyttää hyödyksi muuallakin.  Tämä nopeuttaa Power BI -pro-
+sessointia  
+• Ota malliin mukaan tietoa vain mahdollisimm an pienellä kardinaliteetilla. SSAS ja 
+Power BI -tietomalleilla on valtava merkitys siinä, o nko data kuinka yksilöivää. Tar-
+peettoman yksilöivällä ja tarkalla tasolla olevat sarakkeet  ja rivit  jotka eivät ole tie-
+tomallissa käytössä  heikentävät suorituskykyä.  Yksittäisten rivien uniikkia määrää  
+eli kardinaliteettia nostavat rivit ovat VertiPaq -moottorin avulla toimiville tietomal-
+leille käytettävyyden kannalta huon oja 
+• Poista tietomallista kaikki sarakkeet . jotka eivät ole käytössä. Tabular Editorin  
+BPA:n  avulla voidaan poistaa automaattisesti piilotetut sarakkeet , joihin ei viitata  
+tietomallissa missään. Käyttämättömien ja piilottamattomien sarakkeiden poistami-
+nen ei ole tämän kautta mahdollista  
+• Käytä hyödyksi  laskureita ja laskuriryhmiä (Calculation Group). Laskuriryhmien 
+avulla  voi toteuttaa järkevästi esim. aiemmin jokaiselle laskurille omat tiedot 
+69 
+vaatineet time-intelligence -funktiot . Samalla tekniikalla on mahdollista toteuttaa va-
+lintalaskureita , joita voidaan käyttää esimerkiksi summien kumulatiivi seen vertai-
+luun. Nämä ovat mahdollista vain Tabular Editorin kautta  
+• Kerää teknistä velkoja aiheuttavat asiat ylös tietomalli - ja ratkaisukohtaisesti aktiivi-
+sesti kehittämisen aikana  
+• Kysy apua ja neuvoa muilta ihmisiltä . Käy läpi toteuttamiasi ratkaisujasi muiden 
+kanssa . 
+Uusien tietomalleihin liittyvien käytäntöjen kehittämistä on mahdollista jatkaa miltei  loput-
+tomiin . Olennaisessa osassa on pohjimmiltaan samojen  asioiden huomioiminen  kuten 5.1. 
+kappaleessa on mainittu. Tämän lisäksi aiheesta löytyy lisää liitteestä 2., sekä kappaleesta  
+3.6. ”mallintamisen parhaat käytännöt”. Internetistä löytyy useampia listauksia englannin-
+kielisin hakusanoin, mikäli mallintamiseen liittyviä yleisimpiä virheitä tai parhaita käytän-
+töjä halutaan selvittää. Esimerkkejä työhön käytetyistä hakusanoista ja tietolähteistä löytyy 
+kappaleesta 1.3.  
+5.4. Apuvälineiden käyttäminen   
+Apuvälineiden käyttämistä Power BI - ja Tabular -mallien kehittämisessä voidaan  pitää vält-
+tämättömänä. Apuvälineiden käyttämisen avulla saadaan aikaan hyötyjä kehittämisen no-
+peuden suhteen, sekä avattua uusia ominaisuuksia Power BI -maailmassa . Tietyt Power 
+BI:ssä mukana olevat ominaisuudet voi saada käyttöön vain apuvälineiden avulla.  Power 
+BI:n käyttäjistö on aktiivinen BI-ammattilaisten ja kehittäjien yhteis ö jotka luovat ilmaisia 
+työkaluja  kehittämistä varten . Ilmaiset apuvälineet parantavat ja laajentavat mallinnus -, in-
+tegrointi, ja raportointiominaisuuksia (Microsoft, 2021c). Apuvälineiden käyttäminen hel-
+pottaa kehitystyötä, sekä siirtää tekemistä aikaa vievistä vähäpätöisistä tehtävistä varsinai-
+seen mallinnukseen  ja itse liiketoiminnallisiin kysymyksiin .  
+Käyttämällä apuvälineitä mahdollistetaan parempi ja nopeampi  kehittäminen, sekä parem-
+mat lopputulokset ja tehokkaampi toiminta.  Apuvälineiden käyttäminen vaativammassa ke-
+hittämisessä on Microsoftin valitsema linja, jonka mukaan se auttaa heitä keskittymään 
+omiin kehitys prioriteetteihin sa paremmin . Microsofti n tavoitteena on pitkällä aikavälillä tar-
+jota edistyneempiä kehitystyökaluja niin Power BI:lle kuin Analysis Services -palveluille-
+kin,. Samalla kuitenkin  lyhyen ajan prioriteettina on laajentaa BI-kehittäjien apuvälineiden 
+70 
+saatavuutta ammattimaisi lle BI -kehittäjille  (Wade , 2021 .). Ottaessa huomioon Microsoftin 
+linjauksen voidaan  ajatella, että apuvälineiden käyttäminen kehittämisessä tulee olemaan tu-
+levaisuudessa entistä suuremmassa asemassa.  
+Tärkeimpinä apuvälineinä Power BI ja Analysis Services kehittämisessä pidetään Tabular 
+Editoria ja DAX Studiota . Tämä koskee tuotteen menne isyyttä, nykyaikaa ja tulevaisuutta. 
+Tabular Editori a pidetään ainoana ja välttämättömänä työvälineenä , jolla pääsee käsiksi  or-
+ganisaatiotason  vaatimusten mukaisten tietomallien ominaisuuksiin. Organisaatiotason ta-
+bular -pohjaisten tietomallien  kehittämi sen suositellaan tapahtuvan  Tabular Editorin  avulla . 
+Samalla DAX Studion käyttäminen tietomallien optimointiin ja DAX -koodin muokkaami-
+seen on suositeltu toimenpide.  (Russo, 2021 b.) Hyviä  työn aikana esiin tulleita  syitä apuvä-
+lineiden käyttöön löytyy seuraavasta listasta:  
+• Apuvälineet parantavat kehittämisen laatua  
+• Apuvälineitä on saatavilla ilmaiseksi  
+• Apuvälineet ova t välttämättömiä tiettyjen ominaisuuksien käyttöönottamiseen  kan-
+nalta  
+• Vähentää vähäpätöisiin töihin menevää aikaa, esimerkiksi laskureiden siirtämisiin 
+faktatauluista omiin kategorioihin. Tällä tavalla saadaan selkeytettyä nopeasti tieto-
+mallia  samalla mahdollistaen aiemmin pidemmän aikaa vieneiden muutosten nope-
+ammat muutokset  
+• Muutokset voidaan tehdä offline -tilassa,  jolloin kaikki TOM -malliin tehdyt muutok-
+set voidaan viedä yksittäisenä vientinä tietomalliin , ilman , että jokainen tehty muutos 
+vaati tietomallin prosessointia  
+• Microsoft panostaa apuvälineiden kehitykseen eikä niiden tuki ole poistumassa  
+• Mahdollistaa tietomallin tarkemman tarkistelun  
+• Mahdollistaa mm. kieliversioiden tekemisen tietomalleille, jolloin monikieliset or-
+ganisaatiot saava t samat tietomallit eri kielillä käyttöön  
+• Best Practice Analyzer mahdollistaa parhaiden k äytäntöjen huomioon ottamisen sil-
+loin kun ne eivät ole ulkomuistissa  
+71 
+• Helpottaa tietomallien dokumentointia ja jakamista. VertiPaq Analyzerin avulla saa 
+tietomallin dok umentointiin tarvittavia  tietoja ulos.  
+Listaus itsessään  ei pidä sisällään kaikkia hyötyjä,  ja niitä on olemassa huomattavasti enem-
+män.  Hyödyt apuvälineiden käyttöön selkenevät kehittäjälle nopeasti, kun lähdetään käyttä-
+mään ilmaisia ammattilaisten suosittelemia apuvälineitä. Ottaessa Tabular Editorin ja DAX 
+Studion mukaan  tietomallien kehitykseen, on hyvin  vaikeaa nähdä kehittäjänä palaavansa 
+vanhoihin toimintatapoihin , joissa apuvälineitä ei käytetä hyödyksi .  
+Tabular Editoria on järke vää käyttää hyödyksi aina kehittämisen aikana , aivan kuten  DAX 
+Studioita on jä rkevä käyttää tietomallin optimoinnin ja arvioinnin aikana . Varsinaisia hy-
+väksyttäviä selityksiä apuvälineiden käyttämättä jättämiselle raporttien ja tietomallien kehit-
+tämisessä on vaikea perustella. Molemmat ovat avoimen lähdekoodin ratkaisuja, joiden tie-
+toturvallisuudesta pääsee nopeasti perille. Samalla kummatkin kappaleessa mainitut apuvä-
+lineet ovat ilmaisia käyttää . Apuvälineiden käyttämättä jättäminen tekee vääjäämättä kehit-
+täjän työstä hankalampaa ja hitaampaa. Microsoft tukee apuvälineiden käyttöä valtavasti ja 
+samalla  tunnetut kehittäjät pitävät apuvälineiden käyttöä välttämättömänä. Samalla tulevai-
+suudessa Power BI:hin liitännäisten apuvälineiden kehitys tule e jatkumaan  suurella varmuu-
+della  tulevai suudessa mutta laajemmalla skaalalla ja suuremmalla mää rällä ominaisuuksia. 
+Samalla apuvälineiden käyttämättömyys heikentää kehittäjien omia mahdollisuuksia lisätä 
+osaamistaan, sekä luo ratkaisuille tarpeetonta teknistä velkaa, joka olisi toisenla isilla  toimin-
+tatavoilla ollut vältettävissä.  
+5.5. Teknisen velan vähentämisen tukitoiminnot mallintamisessa  
+Teknisen velan hallinnan yhtenä suurimpana haasteena pidetään Yli -Huurmoon, Maglyak-
+sen ja Smolanderin (2016, s.212) mukaan apuvälineiden käytön puutetta . Teknisen velan 
+hallinnointi ja minimointi tehdään usein ihmistyönä , ilman , että käytettäisiin velkaa mini-
+moivia apuvälinetä. Työn tarkoituksena on löytää hyviä  apuvälineitä  teknisen velan mini-
+mointiin ja estämiseen. Yli -Hurmoo et. al (2016, s 211.) kerto vat tutkimuksessaan, että tek-
+nisen velan estäminen voidaan nähdä yhtenä eniten vaikuttavana aktiviteettina teknisen ve-
+lan hallinnan toiminnoista. Teknisen velan estämisen hyödyistä ja niiden reaalimaailman 
+implementoinnin helppoudesta huolimatta teknistä v elkaa estäviä apuvälineitä ei välttämättä 
+käytetä. Suurin ongelma teknisen velan estämiseen liittyvien toimintojen käytössä on niiden 
+käyttäminen vain silloin tällöin, koska organisaatio t eivät  välttämättä  ehdi työ ajan puutteesta 
+72 
+johtuen vaatimaan toiminnassaan teknistä velkaa minimoivien toimenpiteiden käyttöä. (Yli -
+Hurmoo et al., 2016.)  
+BI-välineiden mallin tamiseen liittyvissä ongelmissa voidaan pitää hyödyllisinä keinoina 
+apuvälineiden käyttöönottoa,  tarkistuslis toja, jatkuvien  kehittämistä parantavien ja helpotta-
+vien toimintatapojen noudattamista kiireestä riippumatta, mallintamiskäytäntöjen opettele-
+mista ja ymmärtämistä,  mahdollisten teknisten velkoja aiheuttavien asioiden kirjaamista ylös 
+ja niiden käsittelemis tä, tiedon jakamista, vertaisarviointia, sekä alusta saakka hyvien toi-
+mintatapojen mukaan toimimista . 
+Hyödyntäessä Tabular Editorin Best Practice Analyzeriä aiemmin useasti mainittujen Mic-
+rosoftin parhaiden käytäntöjen kanssa saadaan aktiivisesti tehtyä ta rkistuksia siitä, miten 
+mallinnuksessa on suoriuduttu. Tällöin saadaan vähennettyä teknisen velan aiheuttamia on-
+gelmia alusta saakka, sekä parannettua kehittäjien tietotaitoa.  Lyhyesti sanottuna voidaan  
+todeta, että alusta saakka hyviks i todettujen tapojen mukaisesti toimiminen on kannattavaa. 
+Samalla olisi järkevää varata aikaa myös vanhojen tietomallien kehittämiseen  ja optimointiin 
+sekä selkeyttämiseen , mikäli niiden kehitystiekartalla nähdään tulevaisuudessa tarpeita. Ole-
+massa olevien hyvin toimivien raporttien optimointi ja jälkikäteen arviointi sekä kehittämi-
+nen ei ole kuitenkaan kaikissa tilanteissa tarpeellista.  Jos raportin tietomalli on hyvä, ja käyt-
+tötarkoitus on selkeä  eikä jatkokehitystarpeita ole tiedossa lähivuosien aikana, voidaan hel-
+posti pitää ymmärrettävänä käyttää aika tärkeämpiin asioihin.  
+Kehittämisen jälkeen tapahtuvaan v ertaisarviointiin tulee varata aikaa, jolloin olisi hyvä 
+käydä lävitse teknistä velkaa aiheuttaneet ylös kirjatut asiat. Vertaisarviointi olisi viisaampaa 
+hoitaa ihmisten välisissä palavereissa, koska silloin on helpointa välttyä  kirjoitetun tekstin 
+aiheuttamilta  väärinymmärryksiltä. Samalla  vertaisarvioinnissa  tulisi kirjata ylös sovitut toi-
+menpiteet ja muut huomatut asiat . Ylös kirjatuilla toimenpiteillä saadaan dokumentoitua tek-
+nistä velkaa aiheuttaneita asioita , jolloin vertaisarvioinnin ja jatkokehityksen myynti sidos-
+ryhmille helpottuu, eikä se vaikuta vain aj anhukalta , joka vie aikaa muulta tuottavalta  työltä.  
+Aiemmin kappaleessa 4.4. mainitun teorian mukaisesti kehittäjät pitävät vertaisarviointien 
+parhaimpana puol ina koodin oikeellisuuden parantamista, luettavuuden parantamista, mo-
+nen silmäparin tarkistelun  varmistamista ratkaisulle, paremman ylläpidettävyyden, parem-
+man suunnittelun, osaamisen jakamisen, reliabiliteetin parantamisen, paremman koodin 
+muotoilun sekä parantuneen dokumentoinnin  laadun.  Näiden syiden avulla voidaan  
+73 
+perustella vertaisarv ioinnin tärkeyden järkevyys.  Vertaisarviointia ja muita tukitoimia varten 
+olisi hyödyllistä virallistaa prosessit  organisaation sisällä. Vain seuratulla prosessinomai-
+sella toiminnalla, jota dokumentoidaan,  saadaan vahvistus siihen, että järkeviä toimintata-
+poja noudatetaan.  
+Vertaisarvioinnissa tärkeää on se, että siihen riittää aikaa, sitä ei jätetä väliin, sitä tapahtuu 
+ja apuvälineitä käytetään hyödyksi. Suuremman määrän kehittäjiä omaavissa organisaa-
+toissa voidaan järjestää esimerkiksi yritysten sisäisesti kuukausittainen tai kerran kahteen 
+viikkoon tuleva aikataulutettu keskustelu, jossa käydään läpi yhdestä mallista tehtyä ver-
+taisarviointia . Järkevänä myös pitää kehittäjätiimin kanssa yhdessä läpi käytäviä toimintata-
+pojen arviointia.  
+  
+74 
+6. Yhteenveto ja johtopäätökset  
+Kuudennessa luvussa kerrotaan työhön liittyvä yhteenveto, sekä käydään tutkimuskysymyk-
+siin saadut vastaukset läpi. Johtopäätöksissä käydään läpi, mitä diplomityöstä on opittu, ja 
+miksi työtä on syytä pitää tärkeänä. Kappalee ssa kerrotaan hyötyjä taloudellisesta , tietomal-
+linukseen liittyvistä ja kehittämiseen liittyvistä näkökulmista.  
+6.1. Yhteenveto  
+Tutkimuksessa lähdettiin selvittämään mitä teknologioita ja parhaita käytäntöjä löytyy Po-
+wer BI - ja Tabular -malleihin. Nämä voidaan jakaa toimenpiteellisiin käytäntöihin, teoriaan 
+ja teknologioihin. Toimenpiteelliset käytännöt pitävät sisällään määrittely t, niihin liittyviä 
+ohjeet sekä yleisiä toimintatapoja. Parhaita käytäntöjä, jotka liittyvät valittujen teknologioi-
+den käyttämiseen voidaan kategorisoida esimerkiksi aiemmin mainitun mallintamisen par-
+haat käytännöt 3.6. kappaleen mukaan DAX koodiin, ongelm ien välttämiseen, tekstin muo-
+toiluun, mallin ylläpidettävyyteen, nimeämiskäytäntöihin ja suorituskykyihin vaikuttaviin 
+asioihin. Näiden asioiden ymmärtämiseen ja toteuttamiseen auttaa teknologioiden taustalla 
+olevan teorian ymmärtäminen, johon taas liittyy  tarkemmin dimensionaalisen mallinnuksen 
+käytännöt, taustalla oleva VertiPaq -moottori ja sen toiminta, sekä yleisten mallikohtaisten 
+kuten useamman taulun käyttöön liittyvien asioiden oikeanlaatuinen selvittäminen. Näitä 
+kyseisiä teorioita voidaan käydä passiivisesti läpi kehityksen aikana käyttämällä apuvälinei-
+den ja vapaasti jaossa olevien parhaiden käytäntöjen GitHubista datasettiä (Kovalsky, 
+2021a). Kyseisen datasetin luettavaan muotoon muokattu taulukko löytyy liitteestä 2.  
+Diplomityön toinen tutkimuskysymys  oli, ”  Miksi ja miten parhaita käytäntöjä pitäisi imple-
+mentoida olemassa oleviin ja tuleviin tietomalleihin? ”. Uusien ja vanhojen tietomallien ke-
+hittämisessä tulisi käyttää apuvälineitä, kuten Tabular Editoria ja DAX Studiota sekä sen 
+sisällä ol evaa VertiPaq Analyzeria. Tärkeä osa parhaiden käytäntöjen  noudattamista on kui-
+tenkin huolellisesti ja hyvin  tehdyt määrittelyt, sekä oikeat yrityksen toimintatavat. Toimin-
+tatapojen osalta olisi tärkeää virallistaa organisaatioille sisäiset pelisäännöt sen suhteen, 
+kuinka teknologioiden kanssa toimitaan. Vanhojen mallien kehittämisessä tietomallien par-
+haiden käytäntöjen implementointi onnistuu usein parhaiten käymällä läpi mallit niin 
+75 
+Tabular Editorin Best Practice Analyzerin kuin VertiPaq Analyzerin kin avulla. Tabular Edi-
+torilla huomataan helposti mallissa tehdyt epäoptimaaliset ratkaisut, ja voidaan nopeasti kor-
+jata kaikista suurimmat performanssia aiheuttavat ongelmat. Vanhemmista tietomalleista 
+löytyy usein paljon kardinaliteettia nostavia kenttiä. Suuri kardinaliteetti aiheuttaa tietomal-
+leille suorituskyvyn heikentymistä ja tarpeetonta tietomallin koon suurentumista. Tietomal-
+lin koko ja suorituskyky ovat usein nopeilla ja helpoilla toimenpiteillä optimoitavissa pa-
+rempaan, ja esimerkiksi liian tarkall a tasolla olevat desimaaliluvut kuten 0.9313123 voidaan 
+pyöristää pienempään kahden desimaalin omaavaan 0.93 muotoon, jolloin aikaisemmat tar-
+kemmat 0.93 alkuiset luvut saadaan sanakirjasto enkoodauksen avulla pakattua pienempään 
+tilaan. Tällöin tallennetta vien ja haettavien yksittäisten rivien määrä ja tietomallin koko pie-
+nenevät , ja sillä voidaan arkkitehtuurillisista ratkaisuista riippuen saada aikaan rahallisia 
+säästöjä, kun kapasiteettia tarvitaan vähemmän. Uusissa tietomalleissa nämä mainitut asiat 
+voidaan hoitaa alusta alkaen samoilla parhaiden käytäntöjen säännöillä (liite 2) kuntoon, jol-
+loin suorituskyvyn heikennyksiä aiheuttaviin teknisiin kohtiin saadaan reagoitua jo kehityk-
+sen aikana. Uusia tietomalleja julkaistaessa kannattaa luoda organisaation sisäiset pelisään-
+nöt, joiden noudattaminen vaatii tuotantoon julkaiseminen. Ratkaisuna voi olla esimerkiksi 
+tarkistuslista ja Best Practice Analyzerin läpikäynti työn loppuvaiheessa yhdessä toisten ke-
+hittäjien kanssa . Best Practice Analyzeriä voidaan käyttää avuksi vertaisarviointia tehdessä.  
+Uusien mallien kehittämisessä erityisen tärkeässä osassa on määrittelyjen tekeminen kun-
+nolla. Huonot määrittelyt reflektoituvat usein tietomallien suorituskyvyn heikkouteen, sekä 
+luovat tarpeett omia ongelmia jatkokehitystä ajatellen, jos esimerkiksi skaalautuvuutta ei ole 
+ajateltu tarpeeksi, tai pahimmissa tapauksissa lainkaan.  
+Tietomallien optimointia ja parhaiden käytäntöjen mukaan toimimista kannattaa toteuttaa 
+sen takia, että se mahdollistaa kehittäjien paremm an oppimisen sekä aktiivisen palautteen 
+saamisen. Tietomallin koon laajentaminen ja performanssiin liittyvien asioiden pienentämi-
+nen taas aiheuttaa mallin paremman ja nopeamman toimisen, joka voi johtaa pienempiin 
+kustannuksiin riippuen k äytetyistä lisensoinneista. Power BI Embedded -lisenssiä käyttäessä 
+suurimman A6 -kapasiteetin käytön välttäminen käyttämällä pienempää kapasiteettia A5 
+toisi kuukausittaiset 9  561 € säästöt. Säästön voi todeta liiteestä 3 löytyvän hinnaston avulla. 
+Vuodess a tämä toisi jo 114  734 € säästöt, jotka jo itsessään kertovat sen, että tietomalleja on 
+kannattavaa optimoida  pelkästään taloudellisen näkökulman kannalta. Samalla parhaita käy-
+täntöjä hyödyntämällä saadaan ratkaistua DAX koodiin, ongelmien välttämiseen, t ekstin 
+muotoiluun, mallin ylläpidettävyyteen ja nimeämiskäytäntöihin liittyviä huomattuja 
+76 
+ongelmakohtia, jotka taas vaikuttavat tietomalien mahdolliseen tulevan kehittämisen helpot-
+tamiseen, sekä tietomallin ymmärtämisen parantamiseen. Tällöin noudattamalla  parhaita 
+käytäntöjä saadaan teknistä velkaa minimoitua helposti . Samalla parannetaan myös toimin-
+tatapoja ja pienennetään varsinaiseen kehitystyöhön menevää aikaa.  
+Tietomallien kehittämistä varten vaaditaan myös tukitoiminnot, joiden avulla parhaita käy-
+täntöjä voidaan implementoida . Näiden toimenpiteiden implementoinnilla voidaan pyrkiä 
+vähentämään teknistä velkaa. Yksi työn tutkimuskysymyksistä olikin selvittää, että minkä-
+laiset tukitoiminnot avustavat parhaiden käytäntöjen implementointia, noudattamista ja tek-
+nisen velan vähentämistä. Avustavia aiemmin työssä 4.4. kappaleessa mainittuja ohjelmiston 
+katselmointiin ja parhaiden käytäntöjen implementointiin liittyviä tukitoimintoja ovat tarkis-
+tuslistat, apuvälineiden käyttö, prosessien virallistaminen, työnt ekijöiden ja vertaisarvioin-
+tiin käytettävän työajan lisääminen, kannustimien mukaan ottaminen, sekä nopeamman ver-
+taisarvioinnin syklin mahdollistaminen. Työn tutkimuskysymyksistä saadut vastaukset ker-
+tovatkin kattavasti ratkaisuja näihin ongelmiin. Erityisen tärkeänä osana tätä kokonaisuutta 
+tulee n ostaa esiin  vertaisarviointi. Vertaisarvioinnin avulla voidaan varmistaa, että itsenäi-
+sesti tapahtuneessa kehittämisessä on noudatettu parhaita käytäntöjä, sekä teknistä velkaa 
+aiheuttavia ongelmia on minimoitu. Vertaisarvioinnin koetaan parantavan k oodin laatua 
+huomattavasti. Kehittäjiin kohdistetussa tutkimuksessa 77 kehittäjää  84 kehittäjästä kertoi-
+kin kokevansa sen parantavan koodin laatua huomattavasti (Nasir & Carver, 2021, s.17 –18). 
+Vertaisarvioinnin koetaan parantavan koodin oikeellisuutta, lu ovan paremman luettavuuden, 
+mahdollistavan useamman silmäparin tarkastelun, parantavan ylläpidettävyyttä, suunnitte-
+lua ja osaamisen jakamista.  
+Työssä  saatiin luotua hyvin ratkaisuja Power BI - ja Tabular -mallien, eli VertiPaq -pohjaisten 
+tietomallien optimointiin sekä parantamiseen tietomallin kuin toimintatapojen  kautta. Käy-
+tännön osuus kattaa hyvin mallintamisen kannalta tärkeät teknologiat ja parhaimmat käytän-
+nöt, sekä antaa ohjeita niiden implementointiin ja kertoo minkä takia toimi ntatapoja kannat-
+taisi muuttaa. Työssä keskityttiin teknisen velan vähentämisen tukitoimintoihin, jotka voivat 
+auttaa organisaatioita parantamaan työnsä laatua kokonaisvaltaisesti BI -projektien ulkopuo-
+lella. Työosuuden tulokset voidaan jakaa kolmeen eri kat egoriaan. Kategorioista ensimmäi-
+nen on määrittelyt, toinen jatkuvan kehittämisen toimintatavat sekä tukitoiminnot ja kolmas 
+tiedon mallintamiseen liittyvät huomiot.  
+77 
+Määrittelyihin liittyvät tehtävät ovat tärkeää hoitaa kunnolla, mikäli ollaan toteuttamassa  
+uusia ratkaisuja ja määrittelyvaihe on tekemättä. On tärkeää selvittää vaadittavat käyttötar-
+koitukset  sekä mahdollisuudet teknisiä ratkaisuja varten . Usein tiedolla johtamisen ratkai-
+sussa voidaa n tarjota raportin ja tietomallin tilanneelle taholle huomattavasti pyydettyä 
+enemmän, kun osataan esittää aiheeseen liittyviä hyvät  kysymykset. Käyttötarkoitusten sel-
+vittäminen merkitsee tietomallien kehittämisessä paljon, sillä se antaa pohjapiirustuksen ja 
+luo alustavan suunnitelman, jonka avulla voidaan välttää teknistä velkaa ja tulevia ongelmia 
+koko kehittämisen ajalle. Tästä syy stä olisi järkevää selvittää kunnolla tulevien projektien 
+raportti - ja tietovaatimukset, elleivät ne ole jo selvillä muiden dokumentoitujen ja liitännäis-
+ten kokonaisuuksien kautta. Raportti - ja tietovaatimusten rakentamisen pohjalla voidaan 
+käyttää av uksi esimerkiksi tästä työstä löytyviä taulukkoja 5. ja 6. Kehittämisen alkaessa on 
+pidetty järkevänä palata vielä myöhemmin määrittelydokumentteihin ja käsitellä niitä uu-
+destaan tuotekokonaisuuteen liittyvien sidosryhmien kanssa. Analytiikkaratkaisuja keh ittä-
+essä nälkä usein kasvaa syödessä  ja uusia ideoita sekä tarpeita löytyy projektin edetessä.  
+Jatkuvan kehittämisen toimintatavat ja tukitoiminnot liittyvät tekemiseen, jossa puhutaan 
+tietomallien aktiivisesta päivittäisestä kehittämisestä sekä siihen liittyvistä tukitoiminnoista  
+jotka auttavat helpottamaan kehittämistä. Ideana on ollut kerätä ohjeita ja neuvoja, jotka hel-
+pottavat teknisen velan minimointia ja parhaiden käytäntöjen implementointia jatkuvasti sa-
+malla ollen riippumaton siitä, ollaanko pr ojektissa alku - vai loppuvaiheessa. Työn aikana 
+hyödyllisiksi katsotut toimintatavat sekä tukitoiminnot löytyvät seuraavasta listasta:  
+• Apuvälineet auttavat kehittämisessä sekä teknologisen taustan ymmärtämisen kehit-
+tämisessä, opettele käyttämään apuvälinei tä sekä käytä niitä  
+• Kirjaa kehittäessä ylös teknistä velkaa mahdollisesti muodostavat asiat ylös, sekä 
+käsittele näitä virheitä myöhemmin projektien ja ratkaisujen valmistuessa  
+• Käy tietomallin ja raportin ratkaisuja läpi muiden kehittäjien kanssa, samat ai kaan-
+saadut asiat voidaan useasti tehdä järkevimmillä tavoilla. Järkevämmin tekeminen 
+voi nopeuttaa niin kehittämistä kuin tietomalliakin  
+• Teknologisen taustan ymmärtäminen ja osaaminen on kehittäjille ja teknisestä ark-
+kitehtuurista vastaaville tärkeää. Ymmä rrettäessä taustalla toimivan teknologian, 
+kyetään ymmärtämään miksi parhaiden käytäntöjen mukaan tulisi toimia, sekä kye-
+tään havainnoimaan tehtyjen ja tekemättömien toimien vaikutuksia jo etukäteen  
+78 
+• Projektien tullessa valmiiksi pitäkää vertaisarviointeja muiden Power BI -ekosystee-
+missä toimivien kanssa ja käykää lävitse ratkaisuja. Vaikka lopullisia päätöksiä rat-
+kaisujen muokkaamiseen ei tehtäisikään, on hyvä käydä läpi tietyn tyyliset ratkaisut 
+ja miksi tämän -kaltaisiin asioihin on pääd ytty. Samalla voidaan selvi ttää miten kehi-
+tysvaiheessa olisi voitu toimia toisella tavalla. Sitä kautta voi selvitä uusia tärkeitä 
+tietoja organisaation sisällä. Jos syyksi heikkotasoisiin ratkaisuihin on jatkuvasti esi-
+merkiksi osaamisen ja teknisen ymmärr yksen tai ajan puute, ja se saadaan kirjattua 
+ylös, niin sillä mahdollistetaan kyseisten asioiden huomiointi ja korjaaminen  
+• Vertaisarviointiin on tärkeää varata aikaa, sekä virallistaa niiden prosessit organisaa-
+tiossa, muuten ne jäävät todennäköisesti teke mättä  
+• Pitäkää esittelyjä tekemistänne ratkaisuista. Tiedon jakaminen auttaa aina . Esittelyt 
+ja tiedonjakaminen auttaa koko organisaatiota ja varsinkin nuorempia kehittäjiä  ym-
+märtämään teknisiä  ratkaisuja ja  näkemään miten ongelmia korjataan.  
+• Kerää teknistä velkaa aiheuttavat asiat ylös. Ylös kerätyt teknistä velkaa aiheuttavat 
+ongelmat voidaan lisätä tehtävälistalle ylös käsiteltäviksi ja priorisoida tarpeen mu-
+kaan. Teknistä velkaa aiheuttavat ongelmat johtu vat pääsääntöisesti niiden ylös mer-
+kitsemättömyydestä  
+• Keräämällä teknistä velkaa aiheuttavia asioita ylös voidaan myydä helpommin tek-
+nologisten ratkaisujen enemmän aikaa vievät ratkaisut sidosryhmille, kun riskit on 
+arvioitu ja huomioitu  
+Datan malli ntamisessa kannattaa ottaa huomioon, että kunnolla hoidettu määrittely ja hyö-
+dylliset aktiiviset jatkuvan kehittämisen toimintatavat parantavat tiedon mallintamista. Tie-
+don mallintamiseen kannattaa käyttää apuvälineitä, joiden todennettu käyttämi sen hyöty on 
+kiistaton. Apuvälineet mahdollistavat ominaisuuksien mukaan ottamista sekä asioiden huo-
+mioimista, jotka eivät Microsoftin tarjoamilla tuotteilla olisi mahdollista. Tabular Editorin 
+Best Practice Analyzerilla saadaan korjattua enemmän parhaiden  käytäntöjen vastaisia toi-
+mia, kun kehittäminen on vielä aluillaan. Tarkemmat tiedot parhaista käytännöistä ja niihin 
+liittyvistä asioista löytyvät kappaleen 5.3. listauksesta sekä Liitteestä 2. VertiPaq Analyzerin 
+avulla huomatut tietomallin datan epäpuht audet ja kokoon vaikuttavat asiat saadaan vielä 
+korjattua erikseen. VertiPaq Analyzerilla voi tallentaa tietomallin metatiedot VPAX -
+79 
+tiedostoon ja sen voi lähettää työkaverille arvioitavaksi ja tarkistettavaksi. Tämä ei pidä si-
+sällään varsinaista dataa, jol loin sen käyttö on turvallista ulkopuolisille arviointia tekeville 
+tahoille.  
+Kokonaisuudessaan voidaan katsoa määrittelyn, jatkuvan kehittämisen toimintatapojen sekä 
+tukitoimintojen ja tiedon mallintamiseen liittyvien huomioiden sitoutuvan yhteen kokonai-
+suudeksi, jossa yhden heikompi laatu vaikuttaa muihinkin asioihin. Jos tekninen  osaaminen 
+on korkealla tasolla, mutta haluttavan lopputuotteen määrittely on heikko, on tällöin hyvin 
+vaikeaa saada aikaan hyviä tuloksia. Jos määrittely on hyvä mutta helpottavia teknisiä apu-
+välineitä ei käytetä, vie kehittäminen enemmän aikaa eikä tällö in epäkohtiin ehditä puuttu-
+maan niin paljoa projektin edetessä. Lyhykäisyydessään voidaan todeta, että kaikkiin näihin 
+kokonaisuuksiin tulee kiinnittää huomiota yhdessä vaikutusten kannalta ja erikseen asiata-
+solla.  
+6.2. Johtopäätökset  
+Toimintatapojen aktiivise en kehittämiseen ja muuttamiseen tarvitaan sidosryhmien tukea 
+sekä johdonmukaista päätöksentekoa. Työssä vastattiin mielestäni hyvin siihen, minkälaisia 
+asioita pitäisi Power BI - ja Tabular -mallinnusta tehdessä tietää. Työssä esitettiin useita toi-
+mintatap ojen ja kehittämisen keinoja, konkreettisia toimenpiteitä, sekä perusteluita , joiden 
+avulla niitä kyetään myymään sidosryhmille ja asiakkaille. Tutkimuksen kautta löydettiin 
+sopivia apuvälineitä kehittämistä varten, joiden hyödyt näytettiin kiistattomiksi.  Kiistatonta 
+oli myös se, että Microsoft tukee vahvasti yhteisöään heidän apuvälineiden kehityksen 
+työssä sen ollessa osa heidän strategiaansa. Samalla kyettiin myös toteamaan, että apuväli-
+neiden käyttäminen helpottaa ja parantaa kehitystyötä, sekä siirtää  tekemistä aikaa vievistä 
+vähäpätöisistä tehtävistä varsinaiseen mallinnukseen ja raporttiominaisuuksien kehittämi-
+seen. Käyttämällä työn tuloksia hyödyksi saadaan mahdollistettua organisaatioiden teknisen 
+velan vähentyminen ja osaamisen tason parantuminen.  Näin ollen työn voidaan olevan aihe-
+alueellaan oleellinen kehitysprojekti.  
+Tutkimuksen teoreettinen pohja vastaa mallintamiskäytäntöihin liittyviin kysymyksiin, sekä 
+kasaa koostetusti yhteen VertiPaq -moottoria hyödyntävien teknologioiden tärkeimmät osat , 
+sekä niiden mallintamiseen liittyvät käytännöt. Kokonaisuutena vastaavia suomenkielisiä 
+yhteen kasattuja teoria - ja käytäntökokonaisuuksia ei ole helposti löydettävissä . Mallintami-
+seen ja parhaisiin käytäntöihin liittyvää materiaalia  ja ratkaisuja parhaiden käytäntöjen 
+80 
+toteuttamiseen  on vähän sa atavilla kirjallisessa muodossa. Yksi syy paljon käytettyyn inter-
+net-materiaaliin on sen ajankohtaisuus ja virallisuus.  
+Tutkimuksessa pyrittiin keskittymään teknologioihin ja niistä löytyviin hyötyihin, kuin  var-
+sinaiseen apuvälineiden käyttämiseen ja sen kirjaamiseen ylös. Apuvälineiden käyttämiseen 
+löytyy valtava määrä muiden yhteen keräämiä  materiaaleja  internetistä . Nämä eivät olleet 
+olennainen osa tutkimusta.  Tämän työn tärkeimmät tulokset ovat tarkasti valikoitu teoria-
+osuus, sekä oikein mallintamisen ja toimimisen hyödyt Power BI - ja Tabular -pohjaisiin tie-
+tomalleihin. Työ tarjoaa myös listauksen helpoista toimenpiteistä,  joilla saadaan paran nettua 
+omaa toimi ntaa.  
+  
+81 
+Lähteet  
+Branscombe, M (2021). 10 Power BI mistakes to avoid. (2021). https://www.cio.com/arti-
+cle/189225/10 -power -bi-mistakes -to-avoid.html. (luettu 24.1.2022).  
+Carullo, G (2020). Implementing Effective Code Reviews. Berkeley, CA: Apress L. P. 
+https://ebookcentral.proquest.com/lib/[SITE_ID]/detail.action?docID=6336346.  
+Duncan, O, Sharkey K. & Kinsman M. (2021). DAX function reference - DAX. (2021). 
+https://docs.microsoft.com/en -us/dax/dax -function -reference. (luettu 2021).  
+Eisty, N & Jeffrey , C. (2021). Developers perception of peer code review in research soft-
+ware development. New York: Springer US, 27(1). https://link.springer.com/arti-
+cle/10.1007/s 10664 -021-10053 -x. DOI: 10.1007/s10664 -021-10053 -x. 
+Enho, H . (2021). Power BI - kaikki mitä sinun tulee tietää aloittaaksesi. (2021). https://su-
+lava.com/liiketoiminnan -digitalisointi -tiedolla -johtaminen/power -bi-kaikki -mita-sinun -tu-
+lee-tietaa -aloittaaksesi /. (luettu 16.11.2021).  
+Ferrari, A & Russo, M (2017). Analyzing data with Microsoft Power BI and Power Pivot for 
+Excel. Microsoft Press. http://cds.cern.ch/record/2267681.  
+Gartner (2021). Gartner Forecasts Worldwide IT Spending to Exceed $4 Trillion in 2022. 
+(2021). https://www.gartner.com/en/newsroom/press -releases/2021 -10-20-gartner -fore-
+casts -worldwide -it-spending -to-exceed -4-trillion -in-2022. (luettu 2022).  
+Hart, M (2021) . Mikä Power BI -sovellus on? - Power BI. (2021). https://docs.micro-
+soft.com/fi -fi/power -bi/consumer/end -user-apps. (luettu 3.12.2021).  
+82 
+Inbar, P (2021). Sisältösi tukeminen - Power BI. (2021). https://docs.microsoft.com/fi -fi/po-
+wer-bi/collaborate -share/ser vice-endorse -content. (luettu 27.12.2021).  
+Iseminger, D (2021). Mikä on Power BI Desktop? - Power BI. (2021). https://docs.mi-
+crosoft.com/fi -fi/power -bi/fundamentals/desktop -what -is-desktop. (luettu 25.11.2021).  
+Jaakola, T . & Sarja J. (2006). Tietokantoihin  liittyviä käsitteitä . (2006). https://verkkopeda-
+gogi.net/vanhat/fi/sisalto/materiaalit/access2003/luku06ce4a.html?C:D=419705&sel-
+res=419705. (luettu 2021).  
+Kollanus, S . & Koskinen, J.  (2009). Survey of Software Inspection Research. 3(1), 15 –34. 
+DOI: 10.21 74/1874107X00903010015.  
+Kovalsky, M (2021a). Best Practice Rules. (2021). https://github.com/microsoft/Analysis -
+Services/tree/master/BestPracticeRules. (luettu 2022).  
+(2021b). Best practice rules to improve your model’s performance. (2021). https://pow-
+erbi.microsoft.com/en -us/blog/best -practice -rules -to-improve -your-models -performance/. 
+(luettu 10.12.2021). Llopis, M . (2021). Mikä on Power Query? (2021). https://docs.mi cro-
+soft.com/fi -fi/power -query/power -query -what -is-power -query. (luettu 27.12.2021).  
+Mabee, D . (2020). Relationships in Analysis Services tabular models. (2020). 
+https://docs.microsoft.com/en -us/analysis -services/tabular -models/relationships -ssas-tabu-
+lar. ( luettu 25.11.2021).  
+ManpowerGroup (2021). ManpowerGroup Employment Outlook Survey: Global;2021 SRI 
+B5275 -5.48908. https://statistical.proquest.com/statisticalinsight/result/pqpresultpage.pre-
+viewtitle?docType=PQSI&titleUri=/content/2021/B5275 -5.48908.xml.  
+Microsoft (2021a). DAX -syntaksi - DAX. (2021). https://docs.microsoft.com/fi -fi/dax/dax -
+syntax -reference. (luettu 2021).  
+83 
+(2021b). Power Query käyttöliittymä. (2021). https://docs.microsoft.com/fi -fi/power -
+query/power -query -ui. (luettu 27.12.2021).  
+(2021c). Ulkoiset työkalut Power BI Desktop - Power BI. (2021). https://docs.micro-
+soft.com/fi -fi/power -bi/transform -model/desktop -external -tools. (luettu 28.12.2021).  
+(2022a). Center of Excellencen luominen - Power BI. (2022). https://docs.microsoft.com/fi -
+fi/power -bi/guidance/center -of-excellence -establish. (luettu 24.1.2022).  
+(2022b). Mikä Power BI -palvelu on? (2022). https://docs.microsoft.com/fi -fi/power -bi/fun-
+damentals/power -bi-service -overview. (luettu 2022).  
+(2022c). Vaatimusten kerääminen siirryttäessä Powe r BI:hin. (2022). https://docs.micro-
+soft.com/fi -fi/power -bi/guidance/powerbi -migration -requirements. (luettu 
+21.1.2022). Otykier, D (2021). Tabular Editor. (2021). https://docs.tabulareditor.com/. (lu-
+ettu 2021).  
+Owen, D ., Coulter D. & Petersen T. (2021). Tabular Object Model (TOM). (2021). 
+https://docs.microsoft.com/en -us/analysis -services/tom/introduction -to-the-tabular -object -
+model -tom-in-analysis -services -amo. (luettu 11.2.2022).  
+Russo, Marco (2018). Power BI is a model -based tool - SQLBI. (2018). 
+https://www.sqlbi.com/articles/power -bi-is-a-model -based -tool/. (luettu 16.11.2021).  
+(2021a). Data Model Size with VertiPaq Analyzer - SQLBI. (202 1). 
+https://www.sqlbi.com/articles/data -model -size-with-vertipaq -analyzer/. (luettu 
+13.12.2021).  
+(2021b). Development tools for Tabular models in 2021 - SQLBI. (2021). 
+https://www.sqlbi.com/articles/development -tools -for-tabular -models -in-2021/. (luettu 
+25.1.2022).  
+84 
+Russo, M & Ferrari, A. (2015). The Definitive Guide to DAX: Business intelligence with 
+Microsoft Excel, SQL Server Analysis Services, and Power BI. Microsoft Press. 
+https://learning.oreilly.com/library/view/~/9780735698383/?ar.  
+(2021). Power BI – Star schema or single table - SQLBI. (2021). https://www.sqlbi.com/ar-
+ticles/power -bi-star-schema -or-single -table/. (luettu 2.12.2021).  
+von See, A . (2021). Total data volume worldwide 2010 -2025. (2021). https://www.sta-
+tista.com/statistics/871513/worldwide -data-created/. (luettu 6.1.2022).  
+SQLBI (2021). VertiPaq Analyzer - SQLBI. (2021). https://www.sqlbi.com/tools/vertipaq -
+analyzer/. (luettu  28.12.2021).  
+Ulagaratchagan, A . (2021). Microsoft named a Leader in the 2021 Gartner Magic Quadrant 
+for Analytics and BI Platforms. (2021). https://powerbi.microsoft.com/en -us/blog/mi-
+crosoft -named -a-leader -in-2021 -gartner -magic -quadrant -for-analytics -and-bi-platforms/. 
+(luettu 16.11.2021).  
+Wade, C . (2021). Community and third -party tools for developing enterprise -level Power BI 
+and Analysis Services models. (2021). https://powerbi.microsoft.com/fi -fi/blog/community -
+tools -for-enterprise -powerbi -and-analysis services/. (luettu 2021).  
+Wilson, D . (2017). Tabular Modeling with SQL Server 2016 Analysis Services Cookbook. 
+Birmingham, England: Packt Publishing. http://unr -ra.scholarvox.com/book/88842654.  
+Yli-Huumo, J ., Maglyas A. & Smolander K. (2016). How do softwa re development teams 
+manage technical debt? – An empirical study. Elsevier Inc, , 195 –218. 
+https://dx.doi.org/10.1016/j.jss.2016.05.018. DOI: 10.1016/j.jss.2016.05.018.  
+Qlik a leader in the 2020 Gartner Magic Quadrant -. (2020). (2020). 
+https://www.climber .fi/qlik -a-leader -in-the-2020 -gartner -magic -quadrant/. (luettu 
+7.2.2022).  
+85 
+DAX Studio. (2021). (2021). https://daxstudio.org/. (luettu 28.12.2021).  
+DAX Studio - SQLBI. (2021). (2021). https://www.sqlbi.com/tools/dax -studio/. (luettu 
+28.12.2021). . 
+  1 
+ 
+Liite 1. Azure Analytics Services hinnasto 2.12.2021  
+ 
+  
+
+  1 
+Liite 2. Parhaiden käytäntöjen tarkemmat kuvaukset avoimesta Microsoftin datasetistä  
+Kategoria  Nimi  Kuvaus  Va-
+ka-
+vuu
+s Yhteenso-
+pivuus-
+taso 
+DAX Ex-
+pressions  [DAX Expressions] 
+No two measures 
+should have the same 
+definition   
+2 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Avoid using the IFER-
+ROR function  Avoid using the IFERROR function as it may 
+cause performance degradation. If you are 
+concerned about a divide -by-zero error, use 
+the DIVIDE function as it naturally resolves 
+such errors as blank (or you can customize 
+what should be shown in case o f such an er-
+ror). 
+ 
+Reference: https://www.ele-
+gantbi.com/post/top10bestpractices  2 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Inactive relationships 
+that are never acti-
+vated  Inactive relationships are activated using the 
+USERELATIONSHIP function. If an inactive 
+relationship is not referenced in any measure 
+via this function, the relationship will not be 
+used. It should be determined whether the re-
+lationship is not necessary or to activate the 
+relationship via this method.  
+ 
+ 
+ 
+Reference: https://docs.micro soft.com/power -
+bi/guidance/relationships -active -inactive  
+ 
+Reference: https://dax.guide/userelationship/  2 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Filter measure values 
+by columns, not tables  Instead of using this pattern FIL-
+TER('Table',[Measure]>Value) for  the filter 
+parameters of a CALCULATE or CALCU-
+LATETABLE function, use one of the op-
+tions below (if possible). Filtering on a spe-
+cific column will produce a smaller table for 
+the engine to process, thereby enabling faster 
+performance. Using the VALUES funct ion or 
+the ALL function depends on the desired 
+measure result.  
+ 
+ 
+ 
+Option 1: FILTER(VALUES('Table'[Col-
+umn]),[Measure] > Value)  
+ 
+Option 2: 2 1200  
+2 
+ 
+FILTER(ALL('Table'[Column]),[Measure] > 
+Value)  
+ 
+ 
+ 
+Reference: https://docs.microsoft.com/power -
+bi/guidance/dax -avoid -avoid-filter -as-filter -
+argument  
+DAX Ex-
+pressions  [DAX Expressions] 
+Filter column values 
+with proper syntax  Instead of using this pattern FIL-
+TER('Table','Table'[Column]="Value") for 
+the filter parameters of a CALCULATE or 
+CALCULATETABLE function, use on e of 
+the options below. As far as whether to use 
+the KEEPFILTERS function, see the second 
+reference link below.  
+ 
+ 
+ 
+Option 1: KEEPFILTERS('Table'[Col-
+umn]="Value")  
+ 
+Option 2: 'Table'[Column]="Value"  
+ 
+ 
+ 
+Reference: https://docs.microsoft.com/power -
+bi/guidance/ dax-avoid -avoid -filter -as-filter -
+argument  
+ 
+Reference: https://www.sqlbi.com/articles/us-
+ing-keepfilters -in-dax/ 2 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Use the TREATAS 
+function instead of IN-
+TERSECT for virtual 
+relationships  The TREATAS function is more efficient and 
+provides better performance than the INTER-
+SECT function when used in virutal relation-
+ships.  
+ 
+Reference:  https://www.sqlbi.com/arti-
+cles/propagate -filters -using -treatas -in-dax/ 2 1400  
+DAX Ex-
+pressions  [DAX Expressi ons] 
+Measures should not 
+be direct references of 
+other measures  This rule identifies measures which are 
+simply a reference to another measure. As an 
+example, consider a model with two 
+measures: [MeasureA] and [MeasureB]. This 
+rule would be triggered for Me asureB if 
+MeasureB's DAX was 
+MeasureB:=[MeasureA]. Such duplicative 
+measures should be removed.  2 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Use the DIVIDE func-
+tion for division  Use the DIVIDE  function  instead of using 
+"/". The DIVIDE function resolves divide -by-
+zero cases. As such, it is recommended to use 
+to avoid errors.   
+ 2 1200  
+3 
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -bi/guidance/dax -divide -function -
+operator  
+DAX Ex-
+pressions  [DAX Expressions] 
+Column references 
+should be fully quali-
+fied Using fully qualified column references 
+makes it easier to distinguish between column 
+and measure references, and also helps avoid 
+certain errors. When referencing a column in 
+DAX, first specify the table name, then spec-
+ify the column name in square brackets.  
+ 
+Reference: https://www.ele-
+gantbi.com/post/top10bestpractices  3 1200  
+DAX Ex-
+pressions  [DAX Expressions] 
+Measure references 
+should be unqualified  Using unqualified measure references makes 
+it easier to distinguish between column and 
+measure references, and also helps avoid cer-
+tain errors. When referencing a measure using 
+DAX, do not specify the table name. Use only 
+the measure name in square bracket s. 
+ 
+Reference: https://www.ele-
+gantbi.com/post/top10bestpractices  3 1200  
+Error Pre-
+vention  [Error Prevention] Ex-
+pression -reliant ob-
+jects must have an ex-
+pression  Calculated columns, calculation items and 
+measures must have an expression. Without 
+an expressio n, these objects will not show any 
+values.  3 1200  
+Error Pre-
+vention  [Error Prevention] 
+Data columns must 
+have a source column  Data columns must have a source column. A 
+data column without a source column will 
+cause an error when processing the model.  3 1200  
+Error Pre-
+vention  [Error Prevention] 
+Avoid structured data 
+sources with provider 
+partitions  Power BI does not support provider (a.k.a. 
+'legacy') partitions which reference structured 
+data sources. Partitions which reference struc-
+tured data sources mus t use the M -language. 
+Otherwise, 'provider' partitions must refer-
+ence a 'provider' data source. This can be re-
+solved by converting the structured data 
+source into a provider data source (see 2nd 
+reference link below).  
+ 
+ 
+ 
+Reference: https://docs.microsoft.c om/power -
+bi/admin/service -premium -connect -
+tools#data -source -declaration  
+ 
+Reference: https://www.ele-
+gantbi.com/post/convertdatasources  2 1200  
+Format-
+ting [Formatting] First let-
+ter of objects must be 
+capitalized   
+1 1200  
+Format-
+ting [Formatting] Percent-
+ages should be  
+2 1200  
+4 
+ 
+formatted with thou-
+sands separators and 1 
+decimal  
+Format-
+ting [Formatting] Whole 
+numbers should be 
+formatted with thou-
+sands separators and 
+no decimals   
+2 1200  
+Format-
+ting [Formatting] Add data 
+category for columns  Add Data Category property for appropriate 
+columns.  
+ 
+ 
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -bi/transform -model/desktop -data-
+categorization  1 1200  
+Format-
+ting [Formatting] Provide 
+format string for 
+"Date" columns  Columns of type " DateTime" that have 
+"Month" in their names should be formatted 
+as "mm/dd/yyyy".  1 1200  
+Format-
+ting [Formatting] Provide 
+format string for 
+"Month" columns  Columns of type "DateTime" that have 
+"Month" in their names should be formatted 
+as "MMMM yyyy".  1 1200  
+Format-
+ting [Formatting] Format 
+flag columns as 
+Yes/No value strings  Flags must be properly formatted as Yes/No 
+as this is easier to read than using 0/1 integer 
+values.  1 1200  
+Format-
+ting [Formatting] Hide fo-
+reign keys  Foreign keys should always be hidden.  2 1200  
+Format-
+ting [Formatting] Relation-
+ship columns should 
+be of integer data type  It is a best practice for relationship columns 
+to be of integer data type. This applies not 
+only to data warehousing but data modeling 
+as well.  1 1200  
+Format-
+ting [Formatting] Hide fact 
+table columns  It is a best practice to hide fact table columns 
+that are used for aggregation in measures.  2 1200  
+Format-
+ting [Formatting] Do not 
+summarize numeric 
+columns  Numeric columns (integer, decimal, double) 
+should h ave their SummarizeBy property set 
+to "None" to avoid accidental summation in 
+Power BI (create measures instead).  3 1200  
+Format-
+ting [Formatting] Objects 
+should not start or end 
+with a space  Objects should not start or end with a space  3 1200  
+Format-
+ting [Formatting] Mark 
+primary keys  Set the 'Key' property to 'True' for primary 
+key columns within the column properties.  1 1200  
+Format-
+ting [Formatting] Month 
+(as a string) must be 
+sorted  This rule highlights month columns which are 
+strings and are not sorted. If left unsorted, 
+they will sort alphabetically (i.e. April, Au-
+gust...). Make sure to sort such columns so 
+that they sort properly (January, February, 
+March...).  2 1200  
+Format-
+ting [Formatting] Provide 
+format string for 
+measures  Visible measures sh ould have their format 
+string property assigned  3 1200  
+5 
+ 
+Mainte-
+nance  [Maintenance] Visible 
+objects with no de-
+scription  Add descriptions to objects. These descrip-
+tions are shown on hover within the Field List 
+in Power BI Desktop. Additionally, you can 
+levera ge these descriptions to create an auto-
+mated data dictionary (see link below).  
+ 
+Reference: https://www.ele-
+gantbi.com/post/datadictionary  1 1200  
+Mainte-
+nance  [Maintenance] Calcu-
+lation groups with no 
+calculation items  Calculation groups have no function unless 
+they have calculation items.  2 1200  
+Mainte-
+nance  [Maintenance] Re-
+move data sources not 
+referenced by any par-
+titions  Data sources which are not referenced by any 
+partitions may be removed.  1 1200  
+Mainte-
+nance  [Maintenance] Re-
+move unnecessary co-
+lumns  Hidden columns that are not referenced by 
+any DAX expressions, relationships, hierar-
+chy levels or Sort By -properties should be re-
+moved.  2 1200  
+Mainte-
+nance  [Maintenance] Re-
+move unnecessary 
+measures  Hidden measures that are not referenced by 
+any DAX expressions should be removed for 
+maintainability  2 1200  
+Mainte-
+nance  [Maintenance] Re-
+move roles with no 
+members  May remove roles with no members.  1 1200  
+Mainte-
+nance  [Maintenance] Per-
+spectives with no ob-
+jects Perspectives that contain no objects (tables) 
+are most likely not necessary. In this rule, it is 
+only necessary to check tables as adding a 
+column/measure/hierarchy to a perspective 
+also adds the table to the perspective. Addi-
+tionally, tables in general covers calculated 
+tables and calculation groups as well.  1 1200  
+Mainte-
+nance  [Maintenance] Fix ref-
+erential integrity vio-
+lations  This rule highlights relationships which have 
+referential integrity violations. This indicates 
+that there are values in the table on the 'from' 
+side of the relationship which do not exist in 
+the table on the 'to' side of the relationship. 
+Referential integrity violations will also pro-
+duce the 'blank' member value in slicers. It is 
+recommended to fix these issues by ensuring 
+that the 'to' table's prima ry key column has all 
+the values in the 'from' table's foreign key col-
+umn.  
+ 
+ 
+ 
+Reference: https://blog.enterpris-
+edna.co/vertipaq -analyzer -tutorial -relation-
+ships -referential -integrity/  2 1200  
+6 
+ 
+Mainte-
+nance  [Maintenance] Ensure 
+tables have relation-
+ships  This rule highlights tables which are not con-
+nected to any other table in the model with a 
+relationship.  1 1200  
+Naming 
+Conventi-
+ons [Naming Conventions] 
+Partition name should 
+match table name for 
+single partition tables  Tables with just one p artition should match 
+their table and partition names.Tables with 
+more than one partition should have each par-
+tition name starting with the table name.  1 1200  
+Naming 
+Conventi-
+ons [Naming Conventions] 
+Object names must not 
+contain special charac-
+ters Tabs, line breaks, etc.  2 1200  
+Perfor-
+mance  [Performance] Many -
+to-many relationships 
+should be single -direc-
+tion  
+2 1200  
+Perfor-
+mance  [Performance] Re-
+move redundant col-
+umns in related tables   
+2 1200  
+Perfor-
+mance  [Performance] 
+Measures using time 
+intelligence and model 
+is using Direct Query  At present, time intelligence functions are 
+known to not perform as well when using Di-
+rect Query. If you are having performance is-
+sues, you may want to try alternative solu-
+tions such as adding columns in th e fact table 
+that show previous year or previous month 
+data.  2 1200  
+Perfor-
+mance  [Performance] Re-
+move auto -date table  Avoid using auto -date tables. Make sure to 
+turn off auto -date table in the settings in 
+Power BI Desktop. This will save memory re-
+sources.  
+ 
+Reference: 
+https://www.youtube.com/watch?v=xu3uDE
+HtCrg  2 1200  
+Perfor-
+mance  [Performance] Un-
+pivot pivoted (month) 
+data Avoid using pivoted data in your tables. This 
+rule checks specifically for pivoted data by 
+month.  
+ 
+Reference: https://www.ele-
+gantbi.com/post/top10bestpractices  2 1200  
+Perfor-
+mance  [Performance] Check 
+if bi-directional and 
+many -to-many rela-
+tionships are valid  Bi-directional and many -to-many relation-
+ships may cause performance degradation or 
+even have unintended con sequences. Make 
+sure to check these specific relationships to 
+ensure they are working as designed and are 
+actually necessary.  
+ 
+Reference: https://www.sqlbi.com/articles/bi-
+directional -relationships -and-ambiguity -in-
+dax/ 1 1200  
+Perfor-
+mance  [Performance] Red uce 
+usage of calculated Calculated columns do not compress as well 
+as data columns and may cause longer 2 1200  
+7 
+ 
+columns that use the 
+RELATED function  processing times. As such, calculated col-
+umns should be avoided if possible. One sce-
+nario where they may be easier  to avoid is if 
+they use the RELATED function.  
+ 
+Reference: https://www.sqlbi.com/arti-
+cles/storage -differences -between -calculated -
+columns -and-calculated -tables/  
+Perfor-
+mance  [Performance] Reduce 
+number of calculated 
+columns  Calculated columns do not compress as well 
+as data columns so they take up more 
+memory. They also slow down processing 
+times for both the table as well as process re-
+calc. Offload calculated column logic to your 
+data warehouse and turn these calculated col-
+umns into data columns.  
+ 
+Reference: https://www.ele-
+gantbi.com/post/top10bestpractices  2 1200  
+Perfor-
+mance  [Performance] Avoid 
+bi-directional relation-
+ships against high -car-
+dinality columns  For best performance, it is recommended to 
+avoid using bi -directional  relationships 
+against high -cardinality columns. In order to 
+run this rule, you must first run the script 
+shown here: https://www.ele-
+gantbi.com/post/vertipaqintabulareditor  2 1200  
+Perfor-
+mance  [Performance] Con-
+sider a star -schema in-
+stead of a snowflake 
+architecture  Generally speaking, a star -schema is the opti-
+mal architecture for tabular models. That be-
+ing the case, there are valid cases to use a 
+snowflake approach. Please check your model 
+and consider moving to a star -schema archi-
+tecture.  
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -bi/guidance/star -schema  2 1200  
+Perfor-
+mance  [Performance] Model 
+should have a date ta-
+ble Generally speaking, models should generally 
+have a date table. Models that do not have a 
+date table generally are not ta king advantage 
+of features such as time intelligence or may 
+not have a properly structured architecture.  2 1200  
+Perfor-
+mance  [Performance] Con-
+sider using aggrega-
+tions if using Direct 
+Query in Power BI  If using Direct Query in Power BI Premium, 
+you may want to consider using aggregations 
+in order to boost performance.  
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -bi/transform -model/desktop -aggre-
+gations  1 1200  
+Perfor-
+mance  [Performance] Reduce 
+usage of long -length 
+columns with high 
+cardinality  It is best to avoid lengthy text columns. This 
+is especially true if the column has many 
+unique values. These types of columns can 
+cause longer processing times, bloated model 
+sizes, as well as slower user queri es. Long 
+length is defined as more than 100 characters.  2 1200  
+8 
+ 
+Perfor-
+mance  [Performance] Large 
+tables should be parti-
+tioned  Large tables should be partitioned in order to 
+optimize processing. In order for  this rule to 
+run properly, you must run the script shown 
+here: https://www.ele-
+gantbi.com/post/vertipaqintabulareditor  2 1200  
+Perfor-
+mance  [Performance] Avoid 
+excessive bi -direc-
+tional or many -to-
+many relationships  Limit use of b -di and many -to-many relatio n-
+ships. This rule flags the model if more than 
+30% of relationships are bi -di or many -to-
+many.  
+ 
+Reference: https://www.sqlbi.com/articles/bi-
+directional -relationships -and-ambiguity -in-
+dax/ 2 1200  
+Perfor-
+mance  [Performance] Reduce 
+usage of calculated ta-
+bles Migrate calculated table logic to your data 
+warehouse. Reliance on calculated tables will 
+lead to technical debt and potential misalign-
+ments if you have multiple models on your 
+platform.  2 1200  
+Perfor-
+mance  [Performance] Mini-
+mize Power Qu ery 
+transformations  Minimize Power Query transformations in or-
+der to improve model processing perfor-
+mance. It is a best practice to offload these 
+transformations to the data warehouse if pos-
+sible. Also, please check whether query fold-
+ing is occurring withi n your model. Please 
+reference the article below for more infor-
+mation on query folding.  
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -query/power -query -folding  2 1200  
+Perfor-
+mance  [Performance] Do not 
+use floating point data 
+types  The "Double" floating point data type should 
+be avoided, as it can result in unpredictable 
+roundoff errors and decreased performance in 
+certain scenarios. Use "Int64" or "Decimal" 
+where appropriate (but note that "Decimal" is 
+limited to 4 digits after the decimal sign) . 2 1200  
+Perfor-
+mance  [Performance] Split 
+date and time  This rule finds datetime columns that have 
+values not at midnight. To maximize perfor-
+mance, the time element should be split from 
+date element (or the time component should 
+be rounded to midnight as t his will reduce 
+column cardinality).  
+ 
+Reference: https://www.sqlbi.com/arti-
+cles/separate -date-and-time-in-powerpivot -
+and-bism -tabular/  2 1200  
+Perfor-
+mance  [Performance] 
+Date/calendar tables 
+should be marked as a 
+date table  This rule looks for tables that contain the 
+words 'date' or 'calendar' as they should likely 
+be marked as a date table.  
+ 
+Reference: https://docs.microsoft.com/en -2 1200  
+9 
+ 
+us/power -bi/transform -model/desktop -date-
+tables  
+Perfor-
+mance  [Performance] Set 
+IsAvailableInMdx to 
+false on non -attribute 
+columns  To speed up processing time and conserve 
+memory after processing, attribute hierarchies 
+should not be built for columns that are never 
+used for slicing by MDX clients. In other 
+words, all hidden columns that are not used as 
+a Sort By Column  or referenced in user hier-
+archies should have their IsAvailableInMdx 
+property set to false.  
+ 
+Reference: https://blog.cross-
+join.co.uk/2018/07/02/isavailableinmdx -ssas-
+tabular/  2 1200  
+Perfor-
+mance  [Performance] Limit 
+row level security 
+(RLS) logic  Try to si mplify the DAX used for row level 
+security. Usage of the functions within this 
+rule can likely be offloaded to the upstream 
+systems (data warehouse).  2 1200  
+Perfor-
+mance  [Performance] Check 
+if dynamic row level 
+security (RLS) is nec-
+essary  Usage of dynamic row level security (RLS) 
+can add memory and performance overhead. 
+Please research the pros/cons of using it.  
+ 
+Reference: https://docs.microsoft.com/en -
+us/power -bi/admin/service -admin -rls 1 1200  
+  1 
+Liite 3. Power BI Em bedded hinnasto 16.2.2022  
+ 
+

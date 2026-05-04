@@ -1,0 +1,42 @@
+# Suunnitelma datamalli.fi-sivustolle
+
+## Tavoite
+Koota kattava tietopaketti eri datan mallinnusmenetelmistä ja -malleista suomeksi.
+
+## HTML-sivut
+- tähtimalli.html
+- lumihiutalemalli.html
+- header-detail.html
+- useampi-fakta.html
+- data-vault.html
+- medallion.html
+- etl-elt.html
+
+## Sisältö
+- Jokaisella sivulla mallin kuvaus, hyödyt, rajoitteet, esimerkit ja laajennusvinkit
+- Kuvia ja kaavioita (myöhemmin lisättäväksi)
+- Linkit lähteisiin ja vertailutaulukko
+
+## Laajennus
+- Lisää käytännön esimerkkejä, koodia, kuvia ja käyttötapauksia
+- Luo yhteenvetosivu, jossa linkit kaikkiin malleihin
+- Syvennä sisältöä alan kirjallisuuden ja dokumentaation pohjalta
+
+## Mitä on tehty
+- Purettu PDF:stä mallinnukseen liittyvät kohdat
+- Listattu mallinnustekniikat ja suunniteltu HTML-sivujen rakenne
+- Luotu esimerkkisivut ja suunnitelmat tiedostoon
+
+
+## TODOOTA 
+- lisää suunnitelmaan vielä mukaan tuo PK ja FK ja avaimien selittelyt.
+- Lisäksi tietovarastojen nimeämisien perusteet.
+- nimeämiskäytännöt
+- muut parhaat käytännöt
+- eriyttäminen miten hommat toimii tietovarastossa ja miten power bissa
+- oma power bi spesifi sivusto 
+- katselmointi
+- apuohjelmien käyttö
+- kirjallisuus suositukset
+    - miksi näitä suositellaan?
+    - 

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumihiutalemalli - Nimeämiskäytännöt ja Kirjallisuus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+  <style>
+    /* Lisätyt tyylit kirjallisuusosioille */
+    .book-section {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #004a99;
+    }
+    .book-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .book-cover {
+      flex-shrink: 0;
+      width: 120px;
+    }
+    .book-cover img {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      display: block;
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+    }
+    .book-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .book-content h3 {
+      margin-top: 0;
+      color: #004a99;
+    }
+    .book-card h3 {
+      margin-top: 0;
+      color: #004a99;
+    }
+    .amazon-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0066c0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .amazon-link:hover {
+      text-decoration: underline;
+    }
+    .dataneuvos-opinion {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background-color: #fdfbf0;
+      border: 2px solid #C9A84C;
+      border-radius: 4px;
+    }
+    .dataneuvos-opinion .opinion-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      color: #8B6914;
+      margin-bottom: 6px;
+      font-size: 0.95em;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .dataneuvos-opinion .opinion-label::before {
+      content: "💬";
+      font-size: 1em;
+    }
+    .dataneuvos-opinion p {
+      margin: 0;
+      color: #3d2e00;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main-navigation></main-navigation>
+
+  <!-- UUSI KIRJALLISUUSOSIO -->
+  <section class="book-section">
+    <h2>Suositeltu kirjallisuus</h2>
+    <p>Seuraavat teokset ovat keskeisessä asemassa alan parhaiden käytäntöjen hallitsemisessa:</p>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="kuvat/kirjallisuus-suositukset/analyzing-data-power-bi.jpg" alt="Analyzing Data with Microsoft Power BI and Power Pivot for Excel -kirjan kansi">
+      </div>
+      <div class="book-content">
+        <h3>Analyzing Data with Microsoft Power BI and Power Pivot for Excel</h3>
+        <p><strong>Kirjoittajat:</strong> Alberto Ferrari & Marco Russo (2017)</p>
+        <h3>Opit kirjasta seuraavat asiat</h3>
+        <ul>
+          <li>Tähtimallin käyttön</li>
+          <li>DAX-kielen perusteet ja suositellut nimeämiskäytännöt</li>
+          <li>Power BI:n tehokas hyödyntäminen</li>
+        </ul>
+        <a href="https://www.amazon.com/Analyzing-Data-Microsoft-Power-Pivot/dp/150930276X" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <div class="dataneuvos-opinion">
+          <div class="opinion-label">Dataneuvoksen mielipide</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="kuvat/kirjallisuus-suositukset/definitive-guide-dax.jpg" alt="The Definitive Guide to DAX -kirjan kansi">
+      </div>
+      <div class="book-content">
+        <h3>The Definitive Guide to DAX</h3>
+        <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2019)</p>
+        <p>Kirja syventyy DAX-kieleen (Data Analysis Expressions) ja VertiPaq-moottorin toimintaan. Se selittää, miten moottori pakkaa ja enkoodaa dataa ja miksi sarakkeiden kardinaliteetin vähentäminen on suorituskyvyn kannalta tärkeää.</p>
+        <a href="https://www.amazon.com/Definitive-Guide-DAX-intelligence-Microsoft/dp/1509306978" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <div class="dataneuvos-opinion">
+          <div class="opinion-label">Dataneuvoksen mielipide</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="kuvat/kirjallisuus-suositukset/dax-patterns.jpg" alt="DAX Patterns Second Edition -kirjan kansi">
+      </div>
+      <div class="book-content">
+        <h3>DAX Patterns, Second Edition</h3>
+        <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2021)</p>
+        <p>Kirjasta löytyy paljon hyviä suoraan ympäristöön käytettäviä kaavoja. Kaavat noudattavat kaikki tähtimallin pohjalle rakennettua sapluunaa. Voit käyttää kaavoja sellaisenaan tai muokata niitä tarpeidesi mukaan. Teos on käytännönläheinen kokoelma todistettuja DAX-kaavamalleja yleisimpiin liiketoimintatarpeisiin, kuten time intelligencen, vuosittaisiin vertailuihin ja ABC-analyyseihin.</p>
+        <a href="https://www.amazon.com/DAX-Patterns-Second-Marco-Russo/dp/1735365203" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <div class="dataneuvos-opinion">
+          <div class="opinion-label">Dataneuvoksen mielipide</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="kuvat/kirjallisuus-suositukset/star-schema-complete-reference.jpg" alt="Star Schema: The Complete Reference -kirjan kansi">
+      </div>
+      <div class="book-content">
+        <h3>Star Schema: The Complete Reference</h3>
+        <p><strong>Kirjoittaja:</strong> Christopher Adamson (2010)</p>
+        <p>Kattava opas dimensionaaliseen tietovarastosuunnitteluun, joka kattaa sekä perusteet että edistyneet tekniikat todellisen maailman monimutkaisiin tilanteisiin. Kirja etenee dimensionaalisen suunnittelun perusteista yritystason tietovarastoarkkitehtuureihin ja BI- sekä ETL-järjestelmien optimointistrategioihin.</p>
+        <a href="https://www.amazon.com/Schema-Complete-Reference-Christopher-Adamson/dp/0071744320" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <div class="dataneuvos-opinion">
+          <div class="opinion-label">Dataneuvoksen mielipide</div>
+          <p>Tästä kirjasta oppii kaiken mitä tähtimallista voi oppia. Adamson käy läpi aiheen niin perusteellisesti, että lukemisen jälkeen tähtimallin rakenne ja sen takana olevat suunnittelupäätökset ovat täysin selkeitä. Yhdistettynä Ferrari &amp; Russon Power BI -kirjojen oppiin kokonaisuus on lyömätön — kun tietää miksi malli rakennetaan tietyllä tavalla ja osaa myös kirjoittaa DAX-kaavat sen päälle, ollaan jo hyvin pitkällä.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="kuvat/kirjallisuus-suositukset/data-model-resource-book.jpg" alt="The Data Model Resource Book Revised Edition -kirjan kansi">
+      </div>
+      <div class="book-content">
+        <h3>The Data Model Resource Book, Revised Edition</h3>
+        <p><strong>Kirjoittaja:</strong> Len Silverston (2001)</p>
+        <p>A Library of Universal Data Models for All Enterprises — kattava kokoelma valmiita tietomalleja yleisimpiin liiketoiminta-alueisiin, kuten henkilöihin, organisaatioihin, tuotteisiin, tilauksiin ja taloushallintoon. Kirja tarjoaa testattuja ja uudelleenkäytettäviä tietomalliratkaisuja, joiden avulla tietokantasuunnittelijat voivat nopeuttaa mallinnusprosessia sen sijaan, että aloittaisivat alusta.</p>
+        <a href="https://www.amazon.com/Data-Model-Resource-Book-Revised/dp/0471380237" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <div class="dataneuvos-opinion">
+          <div class="opinion-label">Dataneuvoksen mielipide</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
