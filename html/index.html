@@ -44,6 +44,27 @@
       color: #555;
       line-height: 1.4;
     }
+    .kortti.kesken {
+      border-color: #e0e0e0;
+      opacity: 0.7;
+    }
+    .kortti.kesken strong {
+      color: #888;
+    }
+    .kortti.kesken:hover {
+      border-color: #bbb;
+      box-shadow: none;
+    }
+    .kesken-badge {
+      display: inline-block;
+      font-size: 0.75em;
+      background: #fff3cd;
+      border: 1px solid #e0c060;
+      color: #856404;
+      border-radius: 3px;
+      padding: 1px 6px;
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 <body>
@@ -59,15 +80,76 @@
         <strong>Tähtimalli (Star Schema)</strong>
         <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
       </a>
+      <a class="kortti" href="dimensiot.html">
+        <strong>Dimensioiden mallinnus</strong>
+        <span>Surrogaattiavaimet, SCD-tyypit 0–6, parhaat käytännöt ja Power BI:n suorituskykyrajat eri kokoisilla dimensioilla.</span>
+      </a>
+      <a class="kortti kesken" href="lumihiutalemalli.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Lumihiutalemalli (Snowflake Schema)</strong>
+        <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
+      </a>
+      <a class="kortti kesken" href="header-detail.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Header-Detail-malli</strong>
+        <span>Malli tapahtumatietojen hallintaan, jossa otsikkotaulu (esim. tilaus) ja rivitaulu (esim. tilausrivit) ovat erillään.</span>
+      </a>
+      <a class="kortti kesken" href="useampi-fakta.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Useamman faktataulun malli</strong>
+        <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Arkkitehtuurit ja prosessit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="data-vault.html">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>Data Vault</strong>
+        <span>Skaalautuva ja auditoitava tietovarastoarkkitehtuuri. Perustuu hub-, satellite- ja link-tauluihin. Sopii erityisesti historiallisten tietojen hallintaan.</span>
+      </a>
+      <a class="kortti kesken" href="medallion.html">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>Medallion-arkkitehtuuri</strong>
+        <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
+      </a>
+      <a class="kortti kesken" href="etl-elt.html">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>ETL ja ELT</strong>
+        <span>Kaksi päälähestymistapaa datan siirtämiseen lähdejärjestelmistä kohdeympäristöön. Missä ja milloin data muunnetaan?</span>
+      </a>
     </div>
   </div>
 
   <div class="kategoria">
     <h2>Hallinta ja laatu</h2>
     <div class="kortti-rivi">
+      <a class="kortti kesken" href="data-governance.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Data Governance</strong>
+        <span>Datan omistajuus, laadunvarmistus, metadatan hallinta, elinkaari ja tietosuoja. Vastaukset keskeisimpiin hallintakysymyksiin dataneuvoksen suosituksineen.</span>
+      </a>
       <a class="kortti" href="nimeamiskaytannot.html">
         <strong>Nimeämiskäytännöt</strong>
         <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Resurssit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="kirjallisuus-suositukset.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Suositeltu kirjallisuus</strong>
+        <span>Parhaat kirjat datan mallinnuksesta, tietovarastoinnista ja Power BI:stä. Hyvä lukupaketti niin aloittelijoille kuin kokeneille.</span>
+      </a>
+      <a class="kortti kesken" href="apuohjelmat.html">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Apuohjelmat</strong>
+        <span>DAX Studio, Tabular Editor ja ALM Toolkit — Power BI -kehittäjän tärkeimmät lisätyökalut selitettynä.</span>
       </a>
     </div>
   </div>

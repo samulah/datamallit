@@ -68,7 +68,7 @@
   <h2>Vahvuudet ja normalisointi</h2>
   <p>
     Normalisoinnilla tarkoitetaan sitä, että data sijaitsee vain yhdessä paikassa. Tämä tekee tietomallista yksiselitteisen ja estää datan toistumisen, mikä puolestaan vähentää teknistä velkaa ja helpottaa laskurien (measures) tekemistä. 
-    Ferrari ja Russo (2017) korostavat, että tähtimallin suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
+    <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> korostavat, että tähtimallin suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
   </p>
 
   <div class="fakta-laatikko">
@@ -82,14 +82,14 @@
 
   <h2>Taloudelliset hyödyt ja suorituskyky</h2>
   <p>
-    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun". Russo ja Ferrari (2021) kertovat verkkoartikkelissaan, että tähtimallia käyttävän pienemmän tietomallin muistikoko on 16,80 GB, kun taas denormalisoitu yhtä taulua käyttävä malli vie 44,51 GB. Analyysipalvelimella käytettävän muistin määrä on siis yhteen tauluun pakatussa mallissa 2,65 kertaa suurempi.
+    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun". <a href="kirjallisuus-suositukset.html#dax-patterns">Russo ja Ferrari (2021)</a> kertovat verkkoartikkelissaan, että tähtimallia käyttävän pienemmän tietomallin muistikoko on 16,80 GB, kun taas denormalisoitu yhtä taulua käyttävä malli vie 44,51 GB. Analyysipalvelimella käytettävän muistin määrä on siis yhteen tauluun pakatussa mallissa 2,65 kertaa suurempi.
   </p>
   <p>
     Hyvin suunnitellun tietomallin hyödyt ovat taloudellisesti merkittävät. Esimerkiksi Azure Analysis Services -palvelua käytettäessä alle 25 GB:n muistikanta maksaa Microsoftin hinnoittelun mukaan 1 323 € kuussa, kun taas huonommin suunnitellun mallin vaatima vähintään 50 GB:n muistikanta maksaa 2 647 € kuussa. Tämä tarkoittaa käytännössä hinnan tarpeetonta tuplaantumista. Hyvällä tietomallisuunnittelulla ja normalisoiduilla tähtimalleilla voidaan vuosittain tehdä todistettavasti vähintään <span class="saasto">15 888 € säästöt</span>. Saadut hyödyt ovat todennäköisesti vielä suurempia, sillä tietomallit käyttävät muistia datan tallentamisen lisäksi myös laskennan suorittamiseen.
   </p>
 
   <div class="fakta-laatikko">
-    <strong>Muistikokovertailu (Russo &amp; Ferrari, 2021):</strong>
+    <strong>Muistikokovertailu (<a href="kirjallisuus-suositukset.html#dax-patterns">Russo &amp; Ferrari, 2021</a>):</strong>
     <table>
       <thead>
         <tr>

@@ -30,6 +30,15 @@ h1, h2 {
   text-decoration: underline;
 }
 
+.simple-nav a.nav-kesken {
+  color: #999;
+}
+
+.simple-nav a.nav-kesken::after {
+  content: " 🚧";
+  font-size: 0.8em;
+}
+
 /* Erikoisluokat */
 .fakta-laatikko {
   background-color: #f9f9f9;
