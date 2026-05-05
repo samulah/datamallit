@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Lumihiutalemalli</title>
+  <title>Tähtimalli (Star Schema)</title>
 <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
 </head>
@@ -21,7 +21,49 @@
     Dimensiotauluissa taas sijaitsevat dataa kuvailevat tiedot, kuten asiakas-, tuote- tai aikataulut.
   </p>
 
-  <img src="kuvat\tahtimalli\tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä">
+  <img src="kuvat/tahtimalli/tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä">
+  <p><em>Kuvassa * merkitsee vierasavainta (FK) ja 1 pääavainta (PK).</em></p>
+
+  <h2>Pää- ja vierasavaimet (PK ja FK)</h2>
+  <p>
+    Tähtimallin taulujen väliset yhteydet perustuvat avainkenttiin. Kaavioissa pääavain merkitään numerolla 1 ja vierasavain tähdellä *.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Avain</th>
+        <th>Lyhenne</th>
+        <th>Sijainti</th>
+        <th>Tehtävä</th>
+        <th>Esimerkki</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pääavain</td>
+        <td>PK (Primary Key)</td>
+        <td>Dimensiotaulu</td>
+        <td>Yksilöi jokaisen rivin — ei duplikaatteja, ei tyhjiä arvoja</td>
+        <td>AsiakasTunnus dimensiossa Asiakas</td>
+      </tr>
+      <tr>
+        <td>Vierasavain</td>
+        <td>FK (Foreign Key)</td>
+        <td>Faktataulussa</td>
+        <td>Viittaa dimensiotaulun pääavaimeen — luo yhteyden taulujen välille</td>
+        <td>AsiakasTunnus faktataulussa Myynti</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Yhteys kulkee aina samaan suuntaan: <strong>faktataulu.FK → dimensiotaulu.PK</strong>. Faktataulussa yhdellä myyntirivillä voi olla useita vierasavaimia — yksi asiakkaalle, yksi tuotteelle, yksi päivämäärälle ja niin edelleen. Jokainen niistä osoittaa vastaavan dimensiotaulun pääavaimeen. Juuri tämä rakenne muodostaa tähtimallin "tähden": faktatauluun osoittavat dimensiot ympärillä.
+  </p>
+
+  <div class="fakta-laatikko">
+    <strong>Tärkeä sääntö:</strong> Dimensiotaulun PK:n on oltava uniikki (yksi rivi per avain). Jos sama arvo esiintyy useasti, relaatio muuttuu moni-moneen-suhteeksi, joka rikkoo tähtimallin ja aiheuttaa virheellisiä laskutuloksia Power BI:ssä.
+  </div>
 
   <h2>Vahvuudet ja normalisointi</h2>
   <p>
@@ -40,4 +82,46 @@
 
   <h2>Taloudelliset hyödyt ja suorituskyky</h2>
   <p>
-    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun"
+    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun". Russo ja Ferrari (2021) kertovat verkkoartikkelissaan, että tähtimallia käyttävän pienemmän tietomallin muistikoko on 16,80 GB, kun taas denormalisoitu yhtä taulua käyttävä malli vie 44,51 GB. Analyysipalvelimella käytettävän muistin määrä on siis yhteen tauluun pakatussa mallissa 2,65 kertaa suurempi.
+  </p>
+  <p>
+    Hyvin suunnitellun tietomallin hyödyt ovat taloudellisesti merkittävät. Esimerkiksi Azure Analysis Services -palvelua käytettäessä alle 25 GB:n muistikanta maksaa Microsoftin hinnoittelun mukaan 1 323 € kuussa, kun taas huonommin suunnitellun mallin vaatima vähintään 50 GB:n muistikanta maksaa 2 647 € kuussa. Tämä tarkoittaa käytännössä hinnan tarpeetonta tuplaantumista. Hyvällä tietomallisuunnittelulla ja normalisoiduilla tähtimalleilla voidaan vuosittain tehdä todistettavasti vähintään <span class="saasto">15 888 € säästöt</span>. Saadut hyödyt ovat todennäköisesti vielä suurempia, sillä tietomallit käyttävät muistia datan tallentamisen lisäksi myös laskennan suorittamiseen.
+  </p>
+
+  <div class="fakta-laatikko">
+    <strong>Muistikokovertailu (Russo &amp; Ferrari, 2021):</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Mallityyppi</th>
+          <th>Muistikoko</th>
+          <th>Azure AS -hinta / kk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tähtimalli (normalisoitu)</td>
+          <td>16,80 GB</td>
+          <td>1 323 €</td>
+        </tr>
+        <tr>
+          <td>Denormalisoitu yksittäinen taulu</td>
+          <td>44,51 GB</td>
+          <td>2 647 €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Tähtimalli toimii parhaiten Power BI:ssä — pyri aina rakentamaan tähtimalli.</p>
+    <ul>
+      <li>Saat esimerkiksi suoria valmiita kaavoja <a href="kirjallisuus-suositukset.html#dax-patterns"><em>DAX Patterns</em> -kirjasta</a>, joita voit käyttää suoraan analytiikkatarpeisiisi.</li>
+      <li>Kirjasta löytyy paljon valmiita patterneita eli sapluunoita siihen, mitä haluat saada aikaan. Jos tietomalli on moniselitteinen, myös laskureista ja mallin hallitsemisesta tulee vaikeaa.</li>
+      <li>Tähtimalli on helppo saada yksiselitteiseksi ja tekoälyvalmiksi — selkeä rakenne tekee mallista helpommin hyödynnettävän myös AI-pohjaisissa analytiikkaratkaisuissa.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

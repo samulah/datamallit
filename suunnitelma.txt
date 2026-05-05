@@ -1,0 +1,102 @@
+# Suunnitelma datamalli.fi-sivustolle
+# Päivitetty: 2026-05-05 — projektipäällikkökatselmus
+
+## Tavoite
+Koota kattava tietopaketti eri datan mallinnusmenetelmistä ja -malleista suomeksi.
+Jokaisella sivulla on laadukas sisältö ja dataneuvoksen oikeat mielipiteet (ei lorem ipsum).
+
+---
+
+## Projektipäällikkökatselmus — sivukohtainen arvio
+
+### ✅ VALMIS
+
+| Sivu                        | Arvosana | Perustelu                                                                                     |
+|-----------------------------|----------|-----------------------------------------------------------------------------------------------|
+| index.html                  | 5 / 5    | Uusittu kokonaan. Kategoriat, kortit, kuvaukset, kaikki 11 sivua mukana.                     |
+| tahtimalli.html             | 4 / 5    | Kattava sisältö, muistikokovertailutaulukko, Azure-kustannusdata, dataneuvos kunnossa. Title korjattu. Img-polku korjattu. Voisi vielä syventää PK/FK-selitystä. |
+| nimeamiskaytannot.html      | 4 / 5    | Seitsemän nimeämissääntöä taulukossa, Ferrari & Russo -viitteet. Ei dataneuvosta — muuten valmis. Title edelleen väärä ("Lumihiutalemalli"). |
+| ~~data-governance.html~~    | ~~5 / 5~~ | **PLACEHOLDER — AI-GENEROITUA TEKSTIÄ, ei tarkistettua sisältöä. Siirretty kesken-listalle.** |
+
+### 🟡 KESKEN (sisältöä on, mutta puuttuu jotain oleellista)
+
+| Sivu                          | Arvosana | Puuttuu / ongelmat                                                                                           |
+|-------------------------------|----------|--------------------------------------------------------------------------------------------------------------|
+| lumihiutalemalli.html         | 3 / 5    | Hyvä pohja + kuva. Dataneuvos puuttuu kokonaan. Ei hyödyt/rajoitteet-rakennetta. Title väärä.               |
+| header-detail.html            | 3 / 5    | Kattava teksti PDF:stä. Dataneuvos puuttuu. Kuva puuttuu (tekstissä viitataan kuvaan 17, ei img-tagia). Title väärä. |
+| useampi-fakta.html            | 3 / 5    | Kattava teksti PDF:stä. Dataneuvos puuttuu. Kuvat puuttuu (viittaukset kuviin 18–20). H1 sisältää vanhan PDF-numeroinnin "3.4.". Title väärä. |
+| kirjallisuus-suositukset.html | 3 / 5    | Hyvä rakenne ja kirjakortit. 4 / 5 dataneuvos-kohtaa on lorem ipsum. Adamsonin kirjassa ainoa oikea mielipide. |
+| apuohjelmat.html              | 3 / 5    | Kattava tekninen sisältö, TE2 vs TE3 -vertailutaulukko. Kaikki 4 dataneuvos-kohtaa ovat lorem ipsum.        |
+| data-governance.html          | 1 / 5    | AI-GENEROITUA TEKSTIÄ (ei tarkistettua). Rakenne ok, mutta sisältö pitää kirjoittaa uudelleen omin sanoin.  |
+
+### 🔴 PLACEHOLDER (ei oikeaa sisältöä)
+
+| Sivu            | Arvosana | Nykytila                                                              |
+|-----------------|----------|-----------------------------------------------------------------------|
+| data-vault.html | 1 / 5    | 2 bullet-pointia (hubit/satelliitit/linkit + historia) + "Laajennusvinkit"-teksti. Ei käyttökelpoista sisältöä. |
+| medallion.html  | 1 / 5    | 3 bullet-pointia (Bronze/Silver/Gold) + "Laajennusvinkit"-teksti. Ei käyttökelpoista sisältöä.              |
+| etl-elt.html    | 1 / 5    | 2 bullet-pointia (ETL/ELT) + "Laajennusvinkit"-teksti. Ei käyttökelpoista sisältöä.                         |
+
+---
+
+## Prioriteettijärjestys — mitä tehdä ensin
+
+Prioriteetti perustuu kolmeen tekijään: (1) sisällön puuttuminen kokonaan on kriittisempää kuin lorem ipsum, (2) arkkitehtuurisivut (Data Vault, Medallion, ETL/ELT) ovat sivuston ydinsisältöä, (3) lorem ipsum dataneuvoksissa heikentää koko sivuston uskottavuutta.
+
+### 🔴 Korkea — placeholderit (sisältö puuttuu kokonaan)
+
+1. **etl-elt.html**
+   - Miksi ensin: ETL/ELT on käytännönläheisin ja tunnetuin aihe — todennäköisesti yksi eniten haettu sivu. Helppo kirjoittaa selkeäksi prosessikuvaukseksi.
+   - Mitä tarvitaan: ETL vs ELT -vertailu, käyttötapaukset (pilvi vs. perinteinen), prosessikuvaus, dataneuvos.
+
+2. **medallion.html**
+   - Miksi: Bronze/Silver/Gold on moderni data lake -arkkitehtuuri, jota kysytään paljon.
+   - Mitä tarvitaan: Kerrosrakenne selitettynä, käytännön esimerkki, yhteys ETL/ELT-sivuun, dataneuvos.
+
+3. **data-vault.html**
+   - Miksi: Data Vault on monimutkaisin aihe — vaatii eniten kirjoitustyötä, joten siirretään kolmanneksi.
+   - Mitä tarvitaan: Hub/satellite/link-rakenne, vertailu tähtimalliin, käyttötapaukset, dataneuvos.
+
+### 🟡 Keski — lorem ipsum -dataneuvokset
+
+4. **apuohjelmat.html**
+   - Miksi: 4/4 dataneuvos on lorem ipsum, mutta tekninen sisältö on muuten valmis — pienellä vaivalla iso parannus.
+   - Mitä tarvitaan: Kirjoita oikeat mielipiteet DAX Studiolle, VertiPaq Analyzerille, Tabular Editor 2:lle ja ALM Toolkitille.
+
+5. **kirjallisuus-suositukset.html**
+   - Miksi: 4/5 lorem ipsum. Kirjasuositusten dataneuvos-mielipide on juuri se lisäarvo joka erottaa sivuston muista.
+   - Mitä tarvitaan: Oikeat mielipiteet Ferrari & Russo (2017), Definitive Guide to DAX, DAX Patterns ja Silverston -kirjoille.
+
+6. **lumihiutalemalli.html**
+   - Mitä tarvitaan: Dataneuvos, hyödyt/rajoitteet-osio, title-korjaus.
+
+7. **header-detail.html**
+   - Mitä tarvitaan: Dataneuvos, kuva (tai kuvaviittauksen poisto), title-korjaus.
+
+8. **useampi-fakta.html**
+   - Mitä tarvitaan: Dataneuvos, H1-otsikon korjaus ("3.4." pois), kuvat tai viittausten poisto, title-korjaus.
+
+### 🔵 Matala — siistiminen ja laajennus
+
+9. Korjaa `<title>`-tagit kaikilla sivuilla jotka näyttävät "Lumihiutalemalli"
+   - Koskee: lumihiutalemalli, header-detail, useampi-fakta, nimeamiskaytannot (kaikki saivat väärän title-tagin alkuperäisestä templatesta)
+10. Lisää dataneuvos nimeämiskäytännöt-sivulle
+11. Uusi sivu: PK- ja FK-avainten selitykset
+12. Uusi sivu: Tietovarasto vs. Power BI — miten data kulkee läpi koko ketjun
+13. Uusi sivu: Power BI -spesifi sivu (RLS, tietomallioptimointi, julkaisuprosessi)
+
+---
+
+## Mitä on tehty
+
+- Purettu PDF:stä mallinnukseen liittyvät kohdat (pdf_teksti.txt)
+- Luotu HTML-sivut kaikille keskeisille malleille
+- Nimeämiskäytännöt-sivu valmis kattavalla sisällöllä
+- Kirjallisuussuositukset-sivu kirjakorttirakenteineen (lorem ipsum -mielipiteet kesken)
+- Apuohjelmat-sivu (DAX Studio + VertiPaq Analyzer, Tabular Editor 2 + TE2 vs TE3 -vertailu, ALM Toolkit) — lorem ipsum -mielipiteet kesken
+- Data Governance -sivu luotu 2026-05-05: 7 kysymystä, oikeat dataneuvos-mielipiteet
+- Etusivu uusittu 2026-05-05: kategoriat, kortit, kaikki 11 sivua
+- Navigaatio päivitetty kattamaan kaikki 11 sivua
+- tahtimalli.html korjattu 2026-05-05: katkennut sisältö täydennetty PDF:stä, Azure-kustannusdata, dataneuvos, title ja img-polku korjattu
+- DAX Patterns -kirjaan lisätty ankkuri (id="dax-patterns") linkkiä varten
+- suunnitelma.txt päivitetty projektipäällikköarviolla 2026-05-05
