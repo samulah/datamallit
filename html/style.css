@@ -106,3 +106,31 @@ img {
   font-size: 0.95em;
   line-height: 1.6;
 }
+
+/* Footer */
+.sivusto-footer {
+  margin-top: 56px;
+  padding: 20px 0 12px 0;
+  border-top: 1px solid #ddd;
+  font-size: 0.86em;
+  color: #777;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.sivusto-footer strong {
+  color: #555;
+}
+
+.sivusto-footer a {
+  color: #005a9e;
+  text-decoration: none;
+}
+
+.sivusto-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-linkit {
+  margin-top: 4px;
+}

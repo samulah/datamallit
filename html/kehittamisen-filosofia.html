@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kehittämisen filosofia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+  <style>
+    .kortti-ruudukko {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .filosofia-kortti {
+      border: 2px solid #005a9e;
+      border-radius: 10px;
+      padding: 28px 24px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,90,158,0.08);
+      break-inside: avoid;
+    }
+
+    .kortti-numero {
+      font-size: 0.78em;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      color: #005a9e;
+      text-transform: uppercase;
+    }
+
+    .kortti-otsikko {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .kortti-viiva {
+      border: none;
+      border-top: 1px solid #c8d8ee;
+      margin: 0;
+    }
+
+    .kortti-lainaus {
+      font-style: italic;
+      color: #005a9e;
+      font-size: 0.97em;
+      line-height: 1.5;
+    }
+
+    .tulosta-nappi {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 8px 18px;
+      background: #fff;
+      border: 1.5px solid #005a9e;
+      border-radius: 6px;
+      color: #005a9e;
+      font-size: 0.9em;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .tulosta-nappi:hover {
+      background: #eef3fa;
+    }
+
+    @media print {
+      body { max-width: 100%; padding: 10mm; color: #000; }
+      .simple-nav, .sivusto-footer, h1, p:first-of-type, .tulosta-nappi { display: none !important; }
+      .kortti-ruudukko {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10mm;
+        margin: 0;
+      }
+      .filosofia-kortti {
+        box-shadow: none;
+        border: 1.5pt solid #005a9e;
+        padding: 14px 14px 12px 14px;
+        gap: 8px;
+      }
+      .kortti-lainaus { color: #000; }
+      .kortti-numero { color: #005a9e; }
+    }
+  </style>
+</head>
+<body>
+  <main-navigation></main-navigation>
+
+  <h1>Kehittämisen filosofia</h1>
+  <p>Periaatteita hyvään BI- ja data-kehitykseen. <button class="tulosta-nappi" onclick="window.print()">Tulosta kortit</button></p>
+
+  <div class="kortti-ruudukko">
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">01</div>
+      <div class="kortti-otsikko">Kehitä mitä muutikin voivat ylläpitää</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Katselmoi ratkaisusi muiden kanssa ennen kuin toteutat sen.</div>
+    </div>
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">02</div>
+      <div class="kortti-otsikko">Myönnä, jos et tiedä</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Osaamattomuus on tilapäistä. Vaikeneminen ongelmista muuttaa sen pysyväksi.</div>
+    </div>
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">03</div>
+      <div class="kortti-otsikko">Merkitse tekninen velka ylös</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Tekniseen velkaan voi puuttua vain tiedostamalla sen, merkitse se ylös.</div>
+    </div>
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">04</div>
+      <div class="kortti-otsikko">Oikeellisuus ennen suorituskykyä</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Nopea väärä vastaus on huonompi kuin hidas oikea.</div>
+    </div>
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">05</div>
+      <div class="kortti-otsikko">Rakenna käyttäjälle, ei itsellesi</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Raportti, jota kehittäjä ymmärtää mutta loppukäyttäjä ei, on epäonnistunut raportti.</div>
+    </div>
+
+    <div class="filosofia-kortti">
+      <div class="kortti-numero">06</div>
+      <div class="kortti-otsikko">Yhdenmukainen on parempi kuin nerokas</div>
+      <hr class="kortti-viiva">
+      <div class="kortti-lainaus">Yllätyksetön koodi on helppoa lukea. Yllätyksetön tietomalli on helppo laajentaa.</div>
+    </div>
+
+  </div>
+</body>
+</html>

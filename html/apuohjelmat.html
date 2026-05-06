@@ -150,7 +150,7 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Tabular Editor 2:n Best Practice Analyzer muistuttaa hämmästyttävästi MCP-kehitystä (Model Context Protocol). Kummassakin määrittelet joukon sääntöjä tai työkaluja — rakenteisessa muodossa — jotka ohjaavat järjestelmän toimintaa automaattisesti. BPA-säännöissä sanot: <em>"jos tietomallin sarakkeella on tällainen ominaisuus, laukaise tämä korjausehdotus"</em>. MCP-työkaluissa sanot: <em>"jos tekoäly tarvitsee tämän toiminnon, tarjoa sille tämä rajapinta"</em>. Molemmat ovat deklaratiivisia, laajennettavia, ja muuttavat käsin tehtävän toistuvon työn automaatioksi. Jos olet joskus rakentanut MCP-palvelimen tai soveltanut BPA:ta isommassa projektissa, tunnet välittömästi olevasi tutussa maastossa.</p>
     </div>
 
     <!-- TE2 vs TE3 vertailu -->
@@ -207,7 +207,55 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>ALM Toolkit on aliarvostettu työkalu — moni Power BI -kehittäjä ei tiedä sen olemassaolosta ennen kuin kohtaa ensimmäistä kertaa tilanteen, jossa PBIX-julkaisu katkaisee tuotannon raportit. Suosittelen tutustumaan siihen jo ennen kuin ongelmaa on olemassa. Erityisesti Premium-ympäristöissä, joissa samaan tietomalliin on kytketty kymmeniä raportteja, ALM Toolkit on käytännössä pakollinen osa kehitystyönkulkua.</p>
+    </div>
+  </section>
+
+  <!-- PBI MCP -->
+  <section class="tool-section">
+    <h2>Power BI MCP (Model Context Protocol)</h2>
+    <div class="tool-meta">
+      <span>Kehittyvä teknologia</span>
+      <span>Tekoälyintegraatio</span>
+      <span>Microsoft Fabric / Power BI</span>
+    </div>
+
+    <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit — kuten Claude — voivat kutsua ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Microsoft Fabricin yhteyteen MCP mahdollistaa sen, että tekoäly voi suoraan lukea tietomallin rakenteen, kirjoittaa DAX-kyselyitä, luoda mittareita tai hakea dataa — ilman että kehittäjä kopioi manuaalisesti tietoja kontekstiin.</p>
+
+    <div class="fakta-laatikko">
+      <strong>Mitä Power BI MCP mahdollistaa käytännössä:</strong>
+      <ul>
+        <li>Tekoäly näkee tietomallin taulut, sarakkeet ja mittarit suoraan — ei tarvetta selittää rakennetta erikseen</li>
+        <li>DAX-kyselyiden kirjoittaminen ja testaaminen tekoälyn avulla oikeaa tietokantaa vasten</li>
+        <li>Mittareiden luominen ja dokumentointi AI-avusteisesti malliin</li>
+        <li>Tietomallin laadun tarkistaminen — esim. puuttuvat relaatiot, korkean kardinaliteetin sarakkeet</li>
+        <li>Luonnollisella kielellä kysyminen datasta: "Mitkä tuotteet myivät eniten Q1:llä?"</li>
+      </ul>
+    </div>
+
+    <h3>Miten MCP eroaa perinteisestä Power BI Copilotista?</h3>
+    <p>Power BI:n sisäänrakennettu Copilot toimii suljetussa ympäristössä Microsoftin oman tekoälyn kautta. MCP sen sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em> — kuten Clauden — yhdistämisen Power BI -malliin. Kehittäjä voi itse määritellä, mitkä toiminnot tekoälylle tarjotaan, ja yhdistää Power BI:n osaksi laajempaa tekoälytyönkulkua.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Ominaisuus</th>
+          <th>Power BI Copilot</th>
+          <th>Power BI + MCP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tekoälymalli</td><td>Microsoftin oma</td><td>Valittavissa (Claude, GPT jne.)</td></tr>
+        <tr><td>Integraatiotapa</td><td>Suljettu, sisäänrakennettu</td><td>Avoin protokolla, kehittäjä määrittelee</td></tr>
+        <tr><td>Laajennettavuus</td><td>Rajallinen</td><td>Yhdistettävissä muihin järjestelmiin</td></tr>
+        <tr><td>Vaatimukset</td><td>Power BI Premium / Fabric</td><td>MCP-palvelin + yhteensopiva tekoäly</td></tr>
+        <tr><td>Kypsyys (2025)</td><td>Yleisesti saatavilla</td><td>Kehittyvä, yhteisölähtöinen</td></tr>
+      </tbody>
+    </table>
+
+    <div class="dataneuvos-opinion">
+      <div class="opinion-label">Dataneuvoksen mielipide</div>
+      <p>MCP on se kehityssuunta, johon kannattaa kiinnittää huomiota nyt — ei ensi vuonna. Kun tekoäly pääsee suoraan kiinni tietomalliin strukturoidun protokollan kautta, muuttuu kehittäjän rooli: sen sijaan että selittäisit tekoälylle tietomallin rakenteen joka kerta uudestaan, tekoäly lukee sen itse. Tämä korostaa entisestään hyvän tietomallin merkitystä — selkeästi nimetty, normalisoitu tähtimalli on tekoälylle yhtä helppolukuinen kuin ihmiselle. Huonosti nimetty, denormalisoitu kaaos on yhtä sekava molemmille.</p>
     </div>
   </section>
 

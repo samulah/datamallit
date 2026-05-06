@@ -308,14 +308,14 @@
         </tr>
       </tbody>
     </table>
-    <p><strong>Ratkaisu:</strong> Poista raporteille hyödyttömät korkean kardinaliteetin sarakkeet (sähköposti, puhelin) dimensiosta tai lataa ne erilliseen dimensioon josta niihin viitätaan vain tarvittaessa. Timestamp-sarakkeet muunna DATE-tyypiksi tai liitä erilliseen Päivämäärädimenisoon.</p>
+    <p><strong>Ratkaisu:</strong> Poista raporteille hyödyttömät korkean kardinaliteetin sarakkeet (sähköposti, puhelin) dimensiosta tai lataa ne erilliseen dimensioon josta niihin viitataan vain tarvittaessa. Timestamp-sarakkeet muunna DATE-tyypiksi tai liitä erilliseen Päivämääradimensioon.</p>
   </div>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <p>Kaksi asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
     <ul>
-      <li><strong>Ei tyhjiä rivejä dimensioissa.</strong> Tyhjä rivi on oireesta, ei ominaisuus. Se syntyy kun faktataulussa on FK-arvo jolla ei ole vastinetta dimensiossa — yleensä ETL-virhe tai puuttuva "tuntematon"-rivi. Power BI luo tällöin automaattisesti "Blank"-rivin, joka näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa aina ennen julkaisua.</li>
+      <li><strong>Ei tyhjiä rivejä dimensioissa.</strong> Tyhjä rivi on oire, ei ominaisuus. Se syntyy kun faktataulussa on FK-arvo jolla ei ole vastinetta dimensiossa — yleensä ETL-virhe tai puuttuva "tuntematon"-rivi. Power BI luo tällöin automaattisesti "Blank"-rivin, joka näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa aina ennen julkaisua.</li>
       <li><strong>Blankeille ja nollatiedoille omat rivit.</strong> Kun et tiedä asiakkaan segmenttiä, faktataulun rivi ei silti saa jäädä kohdistamatta. Luo dimensioon eksplisiittiset rivit: <em>Tuntematon</em>, <em>Ei kohdistettavissa</em>, <em>Ei sovellettavissa</em>. Näin kaikki luvut summautuvat oikein ja tiedät aina kuinka suuri osuus datasta on tunnistamatonta — se itsessään on liiketoiminnallisesti arvokas tieto.</li>
       <li><strong>Hyvin tehty dimensio on käytettävissä monessa paikassa.</strong> AsiakasDimensio, jossa on kaikki tarvittavat attribuutit, liittyy yhtä hyvin Myynteihin, Tilauksiin kuin Reklamaatioihinkin. Älä rakenna "Myynti-AsiakasDimensiota" ja "Tilaukset-AsiakasDimensiota" erikseen — ne ovat sama asia ja kaksi versiota tarkoittaa kaksi kertaa enemmän ylläpitoa ja kaksi kertaa enemmän mahdollisuuksia ristiriitaisuuksiin.</li>
     </ul>

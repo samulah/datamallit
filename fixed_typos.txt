@@ -1,0 +1,32 @@
+# Korjatut virheet — datamalli.fi
+# Päivitetty: 2026-05-05
+
+## Title-tagit (väärä sivu nimettynä)
+header-detail.html: <title>Lumihiutalemalli</title> → <title>Header-Detail-malli</title>
+useampi-fakta.html: <title>Lumihiutalemalli</title> → <title>Useamman faktataulun malli</title>
+etl-elt.html: <title>Lumihiutalemalli</title> → <title>ETL ja ELT</title>
+medallion.html: <title>Lumihiutalemalli</title> → <title>Medallion-arkkitehtuuri</title>
+data-vault.html: <title>Lumihiutalemalli</title> → <title>Data Vault</title>
+lumihiutalemalli.html: <title>Lumihiutalemalli</title> → <title>Lumihiutalemalli (Snowflake Schema)</title>
+nimeamiskaytannot.html: <title>Lumihiutalemalli</title> → <title>Nimeämiskäytännöt</title>
+
+## H1-otsikko
+useampi-fakta.html: "3.4. Useamman faktataulun käyttö" → "Useamman faktataulun käyttö"
+
+## Kirjoitusvirheet — duplikaattisanat
+nimeamiskaytannot.html: "voivat taulut voivat sisältää" → "taulut voivat sisältää"
+nimeamiskaytannot.html: "tulee aina olla aina maininta avaimesta" → "tulee aina olla maininta avaimesta"
+
+## Kirjoitusvirheet — väärä piste
+lumihiutalemalli.html: "kuvasta 16. ilmenee" → "kuvasta 16 ilmenee"
+
+## Kirjoitusvirheet — taivutusmuoto
+lumihiutalemalli.html: "yhtenä yleisimmästä käytettynä tietomallityyppinä" → "yhtenä yleisimmin käytetyistä tietomallityypeistä"
+lumihiutalemalli.html: "ettei lumihiutalemallit ole huonoja ratkaisuja" → "etteivät lumihiutalemallit ole huonoja ratkaisuja"
+header-detail.html: "taulut ovat järkevä yhdistää" → "taulut on järkevää yhdistää"
+useampi-fakta.html: "toiminnallista näkykulmista johtuen" → "toiminnallisista näkökulmista johtuen"
+
+## Kirjoitusvirheet — kirjoitusasu
+dimensiot.html: "viitätaan" → "viitataan"
+dimensiot.html: "Päivämäärädimenisoon" → "Päivämääradimensioon"
+dimensiot.html: "Tyhjä rivi on oireesta, ei ominaisuus" → "Tyhjä rivi on oire, ei ominaisuus"

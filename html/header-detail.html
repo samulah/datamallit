@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Lumihiutalemalli</title>
+  <title>Header-Detail-malli</title>
 <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
 </head>
@@ -12,14 +12,14 @@
   <p>
     Header- ja detail-tauluilla tarkoitetaan otsikko- ja rivitason dataa. Yksi esimerkki tämänkaltaisessa lähdejärjestelmän tietorakenteessa voi olla esimerkiksi ostotilaukset ja niiden rivitason data. Ostotilaus voi sisältää esimerkiksi tilaajan tietoja kuten tilauksen numeron ja tilauksen kokonaisalennusprosentin. Ostorivit-taulu taas sisältää usein tarkemman tuotetason tiedon tilausmäärineen ja yksikköhintoineen. Tämänkaltainen kahden taulun välillä toimiva yhteys (kuva 17) ei kuitenkaan toimi muistipohjaisissa relaatiotietokannoissa.
   </p>
-
+  <img src="kuvat/header-detail/header-detail-taulu.png" alt="Header- ja detail-taulun yhteys">
   <p><em>Kuva 17. <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017 s.30)</a> Kirjan mallia mukaileva header- ja detail-taulun yhteys. PK = PrimaryKey, pääavain ja FK = ForeignKey, vierasavain</em></p>
 
   <p>
     Ostotilausta ja ostoriviä voidaan ajatella niin, että ostotilaus on dimensiotaulu ja ostorivi on faktataulu. Ostotilauksen ollessa ohjaavaa tietoa sisältävä dimensiotaulu, tehdään tietomallista tarpeettomasti lumihiutalemallin mukainen. Lumihiutalemallin tyylinen toteutus vaikuttaa kuitenkin aiemman 3.2. kappaleen kertomuksen mukaisesti negatiivisesti käyttömahdollisuuksiin. Tämän tyyppisissä tilanteissa data kannattaa yhdistää yhdeksi tauluksi tai näkymäksi jo ETL-vaiheessa. ETL-vaiheessa tiedot tulisi siirtää dimensiomaisesta ostotilaustaulusta ostorivi-taulun sisälle yhdistämällä data tilausnumeron avulla toisiinsa, ja viemällä tilauskohtaiset tiedot kuten kauppa, asiakas, valuutta, tilauspäivämäärä, alennusprosentti ja kokonaisalennus ostorivitauluun. Tämänkaltainen tilannekohtainen denormalisointi mahdollistaa datan helpomman luettavuuden ja ymmärtämisen. Tällöin käytettävissä oleva tietomalli sisältää tarpeellisen tiedon samalla helpottaen laskureissa ja laskennallisissa sarakkeissa käytettävän DAX-koodin käyttämistä.
   </p>
   <p>
-    VertiPaq-pohjaisten tietomallien sanakirjastoenkoodauksen ja RLE-pakkauksen toimiessa aiemmin mainitun tavan mukaisesti on todistettua, että tämänkaltaisissa tapauksissa kaksi header- ja detail-taulua on järkevää yhdistää yhdeksi tauluksi. Tämän kaltaisessa esimerkissä vältetään lumihiutalemallin käyttö joka helpottaa kehitystyötä. Koko tietomallia ei kannata kuitenkaan liittää yhdeksi tauluksi. Datan litistäminen eli taulujen yhdisteleminen toimii hyvin silloin kun taulut liittyvät suoraan toisiinsa, kuten tässä tapauksessa tilausnumeron kautta, mutta muissa tapauksissa se ei välttämättä ole kaikista toimivin vaihtoehto. Yleisesti taulujen yhdistäminen mahdollistaa tähtimallin toimimisen ja lumihiutalemallin välttämisen, niin silloin taulut ovat järkevä yhdistää.
+    VertiPaq-pohjaisten tietomallien sanakirjastoenkoodauksen ja RLE-pakkauksen toimiessa aiemmin mainitun tavan mukaisesti on todistettua, että tämänkaltaisissa tapauksissa kaksi header- ja detail-taulua on järkevää yhdistää yhdeksi tauluksi. Tämän kaltaisessa esimerkissä vältetään lumihiutalemallin käyttö joka helpottaa kehitystyötä. Koko tietomallia ei kannata kuitenkaan liittää yhdeksi tauluksi. Datan litistäminen eli taulujen yhdisteleminen toimii hyvin silloin kun taulut liittyvät suoraan toisiinsa, kuten tässä tapauksessa tilausnumeron kautta, mutta muissa tapauksissa se ei välttämättä ole kaikista toimivin vaihtoehto. Yleisesti taulujen yhdistäminen mahdollistaa tähtimallin toimimisen ja lumihiutalemallin välttämisen, niin silloin taulut on järkevää yhdistää.
   </p>
 </body>
 </html>
