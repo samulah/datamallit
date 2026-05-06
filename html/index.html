@@ -2,26 +2,314 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Lumihiutalemalli</title>
-<link rel="stylesheet" href="style.css">
+  <title>Datamalli.fi – Datan mallinnuksen opas</title>
+  <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
+  <script src="search-index.js"></script>
+  <script src="search.js" defer></script>
+  <style>
+    .kategoria {
+      margin: 32px 0 8px 0;
+    }
+    .kategoria h2 {
+      border-bottom: 2px solid #005a9e;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+    .kortti-rivi {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .kortti {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .kortti:hover {
+      border-color: #005a9e;
+      box-shadow: 0 2px 6px rgba(0,90,158,0.12);
+    }
+    .kortti strong {
+      display: block;
+      color: #005a9e;
+      margin-bottom: 6px;
+      font-size: 1.02em;
+    }
+    .kortti span {
+      font-size: 0.9em;
+      color: #555;
+      line-height: 1.4;
+    }
+    .kortti.kesken {
+      border-color: #e0e0e0;
+      opacity: 0.7;
+    }
+    .kortti.kesken strong {
+      color: #888;
+    }
+    .kortti.kesken:hover {
+      border-color: #bbb;
+      box-shadow: none;
+    }
+    .kesken-badge {
+      display: inline-block;
+      font-size: 0.75em;
+      background: #fff3cd;
+      border: 1px solid #e0c060;
+      color: #856404;
+      border-radius: 3px;
+      padding: 1px 6px;
+      margin-bottom: 6px;
+    }
+    .haku-alue {
+      margin: 4px 0 24px 0;
+    }
+    .haku-kentta {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    .haku-kentta:focus {
+      outline: none;
+      border-color: #005a9e;
+      box-shadow: 0 0 0 2px rgba(0,90,158,0.15);
+    }
+    .tagi-rivi {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tagi-otsikko {
+      font-size: 0.82em;
+      color: #888;
+      white-space: nowrap;
+    }
+    #tagi-suodatin {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex: 1;
+    }
+    .tagi-nappi {
+      font-size: 0.78em;
+      padding: 3px 10px;
+      border: 1px solid #bbb;
+      border-radius: 12px;
+      background: #f5f5f5;
+      color: #444;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+    }
+    .tagi-nappi:hover {
+      border-color: #005a9e;
+      color: #005a9e;
+      background: #e8f0f8;
+    }
+    .tagi-nappi.aktiivinen {
+      background: #005a9e;
+      color: #fff;
+      border-color: #005a9e;
+    }
+    .and-or-toggle {
+      font-size: 0.78em;
+      padding: 3px 11px;
+      border: 1.5px solid #005a9e;
+      border-radius: 12px;
+      background: #fff;
+      color: #005a9e;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    .and-or-toggle.and-aktiivinen {
+      background: #b03020;
+      border-color: #b03020;
+      color: #fff;
+    }
+    .nollaa-nappi {
+      font-size: 0.78em;
+      padding: 3px 10px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background: #fff;
+      color: #666;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .nollaa-nappi:hover { background: #f0f0f0; }
+    .kortti-tagit {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .tagi {
+      font-size: 0.71em;
+      padding: 2px 7px;
+      background: #eef3fa;
+      color: #005a9e;
+      border-radius: 10px;
+    }
+    .ei-tuloksia {
+      color: #999;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .sisalto-osuma {
+      display: inline-block;
+      font-size: 0.70em;
+      padding: 2px 7px;
+      background: #fff8e1;
+      color: #8B6914;
+      border: 1px solid #e0c060;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
+  </style>
 </head>
 <body>
 <main-navigation></main-navigation>
-  <h1>Datan mallinnus - Etusivu</h1>
-  <p>Tervetuloa datamalli.fi-sivustolle! Täältä löydät tietoa eri datan mallinnusmenetelmistä ja -malleista.</p>
-  <ul>
-    <li><a href="tahtimalli.html">Tähtimalli (Star Schema)</a></li>
-    <li><a href="lumihiutalemalli.html">Lumihiutalemalli (Snowflake Schema)</a></li>
-    <li><a href="header-detail.html">Header-detail-malli</a></li>
-    <li><a href="useampi-fakta.html">Useamman faktataulun malli</a></li>
-    <li><a href="data-vault.html">Data Vault</a></li>
-    <li><a href="medallion.html">Medallion-arkkitehtuuri</a></li>
-    <li><a href="etl-elt.html">ETL ja ELT</a></li>
-  </ul>
-  <h2>Parhaimmat käytännöt:</h2>
-                 <ul><li><a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a></li></ul>
-  <h3>Laajennusvinkit</h3>
-  <p>Voit laajentaa sivustoa lisäämällä esimerkkejä, kuvia ja käytännön ohjeita jokaiseen malliin.</p>
+
+  <h1>Datan mallinnuksen opas</h1>
+  <p>Tervetuloa datamalli.fi-sivustolle. Täältä löydät tietoa datan mallinnusmenetelmistä, arkkitehtuureista, hallintakäytännöistä sekä suositelluista työkaluista ja kirjallisuudesta.</p>
+
+  <div class="haku-alue">
+    <input type="search" id="haku" class="haku-kentta" placeholder="Etsi aiheita...">
+    <div class="tagi-rivi">
+      <span class="tagi-otsikko">Suodata:</span>
+      <div id="tagi-suodatin"></div>
+      <button id="and-or-toggle" class="and-or-toggle" title="OR: jokin valituista tägeistä riittää">OR</button>
+      <button id="nollaa-nappi" class="nollaa-nappi" style="display:none">✕ Tyhjennä</button>
+    </div>
+  </div>
+  <p id="ei-tuloksia" class="ei-tuloksia" style="display:none">Ei hakutuloksia.</p>
+
+  <div class="kategoria">
+    <h2>Tietomallit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti" href="tahtimalli.html" data-tags="tietomalli power-bi perusteoria ai">
+        <strong>Tähtimalli (Star Schema)</strong>
+        <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span><span class="tagi">AI</span></div>
+      </a>
+      <a class="kortti" href="dimensiot.html" data-tags="tietomalli power-bi perusteoria">
+        <strong>Dimensioiden mallinnus</strong>
+        <span>Surrogaattiavaimet, SCD-tyypit 0–6, parhaat käytännöt ja Power BI:n suorituskykyrajat eri kokoisilla dimensioilla.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="flattaus.html" data-tags="tietomalli power-bi perusteoria">
+        <strong>Taulujen flättäys (Flattening)</strong>
+        <span>Hierarkkisten dimensiotaulujen yhdistäminen yhdeksi leveäksi tauluksi ennen Power BI -latausta. Muuttaa lumihiutaleen tähtimalliksi.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="lumihiutalemalli.html" data-tags="tietomalli power-bi perusteoria">
+        <strong>Lumihiutalemalli (Snowflake Schema)</strong>
+        <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti kesken" href="header-detail.html" data-tags="tietomalli power-bi poikkeustapaus">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Header-Detail-malli</strong>
+        <span>Malli tapahtumatietojen hallintaan, jossa otsikkotaulu (esim. tilaus) ja rivitaulu (esim. tilausrivit) ovat erillään.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">poikkeustapaus</span></div>
+      </a>
+      <a class="kortti kesken" href="useampi-fakta.html" data-tags="tietomalli power-bi dax poikkeustapaus">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Useamman faktataulun malli</strong>
+        <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">poikkeustapaus</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Arkkitehtuurit ja prosessit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="data-vault.html" data-tags="arkkitehtuuri tietomalli">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>Data Vault</strong>
+        <span>Skaalautuva ja auditoitava tietovarastoarkkitehtuuri. Perustuu hub-, satellite- ja link-tauluihin. Sopii erityisesti historiallisten tietojen hallintaan.</span>
+        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti kesken" href="medallion.html" data-tags="arkkitehtuuri perusteoria">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>Medallion-arkkitehtuuri</strong>
+        <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
+        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti kesken" href="etl-elt.html" data-tags="arkkitehtuuri perusteoria">
+        <div class="kesken-badge">🚧 Tulossa</div>
+        <strong>ETL ja ELT</strong>
+        <span>Kaksi päälähestymistapaa datan siirtämiseen lähdejärjestelmistä kohdeympäristöön. Missä ja milloin data muunnetaan?</span>
+        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Hallinta ja laatu</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="data-governance.html" data-tags="hallinta perusteoria">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Data Governance</strong>
+        <span>Datan omistajuus, laadunvarmistus, metadatan hallinta, elinkaari ja tietosuoja. Vastaukset keskeisimpiin hallintakysymyksiin dataneuvoksen suosituksineen.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli">
+        <strong>Nimeämiskäytännöt</strong>
+        <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">tietomalli</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Filosofia ja käytännöt</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="kehittamisen-filosofia.html" data-tags="hallinta perusteoria">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Kehittämisen filosofia</strong>
+        <span>Periaatteita, jotka ohjaavat hyvää BI-kehitystä: ylläpidettävyys, avoimuus ongelmista, tekninen velka ja käyttäjälähtöisyys.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Resurssit</h2>
+    <div class="kortti-rivi">
+      <a class="kortti kesken" href="termisto.html" data-tags="perusteoria tietomalli">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Termistö</strong>
+        <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
+        <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti kesken" href="kirjallisuus-suositukset.html" data-tags="kirjallisuus dax tietomalli">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Suositeltu kirjallisuus</strong>
+        <span>Parhaat kirjat datan mallinnuksesta, tietovarastoinnista ja Power BI:stä. Hyvä lukupaketti niin aloittelijoille kuin kokeneille.</span>
+        <div class="kortti-tagit"><span class="tagi">kirjallisuus</span><span class="tagi">DAX</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti kesken" href="apuohjelmat.html" data-tags="tyokalut power-bi dax ai">
+        <div class="kesken-badge">🚧 Kesken</div>
+        <strong>Apuohjelmat</strong>
+        <span>DAX Studio, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut selitettynä.</span>
+        <div class="kortti-tagit"><span class="tagi">työkalut</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">AI</span></div>
+      </a>
+    </div>
+  </div>
+
 </body>
 </html>

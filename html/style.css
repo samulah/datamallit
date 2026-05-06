@@ -30,6 +30,15 @@ h1, h2 {
   text-decoration: underline;
 }
 
+.simple-nav a.nav-kesken {
+  color: #999;
+}
+
+.simple-nav a.nav-kesken::after {
+  content: " 🚧";
+  font-size: 0.8em;
+}
+
 /* Erikoisluokat */
 .fakta-laatikko {
   background-color: #f9f9f9;
@@ -96,4 +105,32 @@ img {
   color: #3d2e00;
   font-size: 0.95em;
   line-height: 1.6;
+}
+
+/* Footer */
+.sivusto-footer {
+  margin-top: 56px;
+  padding: 20px 0 12px 0;
+  border-top: 1px solid #ddd;
+  font-size: 0.86em;
+  color: #777;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.sivusto-footer strong {
+  color: #555;
+}
+
+.sivusto-footer a {
+  color: #005a9e;
+  text-decoration: none;
+}
+
+.sivusto-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-linkit {
+  margin-top: 4px;
 }

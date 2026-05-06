@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Lumihiutalemalli</title>
+  <title>Lumihiutalemalli (Snowflake Schema)</title>
 <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
 </head>
@@ -10,8 +10,10 @@
 <main-navigation></main-navigation>
   <h1>Lumihiutalemalli (Snowflake Schema)</h1>
   <p>
-    Lumihiutalemalli (Snowflake Schema) on tähtimallia muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta 16. ilmenee.
+    Lumihiutalemalli (Snowflake Schema) on tähtimallia muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta 16 ilmenee.
   </p>
+  
+  <img src="kuvat/lumihiutalemalli/lumihiutale.png" alt="Lumihiutalemalli">
   
   <p><em>Kuva 16. Esimerkki lumihiutalemallin tauluista ja niiden yhteyksistä</em></p>
 
@@ -19,7 +21,39 @@
     Lumihiutalemallissa esimerkiksi suuressa organisaatiossa yksi yritys voi sisältää useamman liiketoimintaryhmän ja yksi liiketoimintaryhmä taas voi sisältää useamman kustannuspaikan, ja yhdellä kustannuspaikalla voi olla useampi myymälä. Tämänkaltainen rakenne kuitenkin vaikeuttaa datan lukemista. 
   </p>
   <p>
-    Ferrari ja Russo (2017, s.223) pitävät kirjassaan lumihiutalemallia Business Intelligencen maailmassa yhtenä yleisimmästä käytettynä tietomallityyppinä. Ferrari ja Russo (2017, s.223) mainitsevat kirjassaan totuudeksi myös sen, ettei lumihiutalemallit ole huonoja ratkaisuja, vaikka tähtimalliin verratessa suorituskyky heikkenee lievästi. Lumihiutalemallin käyttötarve on usein välttämätön. Samalla lumihiutalemallia ei kuitenkaan suositella käytettäväksi, jos se ei ole välttämätöntä, sillä yksinkertaisempi tietomalli tekee DAX:lla koodaamisesta ja kehittämisestä helpompaa. Ohjaavan tiedon sisällyttäminen yhteen dimensiotauluun on Power BI - ja SSAS-mallinnuksessa parempi toimintatapa kuin tiedon sisällyttäminen useampaan tauluun. Kehittäminen on nopeampaa ja yksittäisessä taulussa sijaitsevat dimensiotiedot helpottavat DAX-koodaamista ja tekevät siitä helpommin luettavaa.
+    <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017, s.223)</a> pitävät kirjassaan lumihiutalemallia Business Intelligencen maailmassa yhtenä yleisimmin käytetyistä tietomallityypeistä. <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017, s.223)</a> mainitsevat kirjassaan totuudeksi myös sen, etteivät lumihiutalemallit ole huonoja ratkaisuja, vaikka tähtimalliin verratessa suorituskyky heikkenee lievästi. Lumihiutalemallin käyttötarve on usein välttämätön. Samalla lumihiutalemallia ei kuitenkaan suositella käytettäväksi, jos se ei ole välttämätöntä, sillä yksinkertaisempi tietomalli tekee DAX:lla koodaamisesta ja kehittämisestä helpompaa. Ohjaavan tiedon sisällyttäminen yhteen dimensiotauluun on Power BI - ja SSAS-mallinnuksessa parempi toimintatapa kuin tiedon sisällyttäminen useampaan tauluun. Kehittäminen on nopeampaa ja yksittäisessä taulussa sijaitsevat dimensiotiedot helpottavat DAX-koodaamista ja tekevät siitä helpommin luettavaa.
   </p>
+
+  <h2>Hyödyt ja rajoitteet</h2>
+  <table>
+    <thead>
+      <tr><th>Hyödyt</th><th>Rajoitteet</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Vähentää datan toisteisuutta tietovarastossa</td>
+        <td>DAX-koodaamisesta tulee monimutkaisempaa relaatioketjujen takia</td>
+      </tr>
+      <tr>
+        <td>Tietokantatasolla looginen ja normalisoitu rakenne</td>
+        <td>VertiPaq ei hyödy normalisoinnista — päinvastoin hidastuu</td>
+      </tr>
+      <tr>
+        <td>Hierarkkiset rakenteet mallinnettavissa luontevasti</td>
+        <td>Useampi relaatio = enemmän mahdollisuuksia virheille</td>
+      </tr>
+      <tr>
+        <td>Sopii tietovarastoon (DWH) ja välikerroksiin</td>
+        <td>Ei suositella suoraan Power BI -tietomalliin</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Lumihiutalemalli on hyvä valinta tietovarastoon — se on normalisoitu, looginen ja vähentää toisteisuutta. Mutta Power BI ei ole tietovarasto. Power BI:n VertiPaq-moottori on optimoitu litteille tähtimallin dimensioille, ja lumihiutalemallin relaatioketjut hidastavat kyselyitä ja tekevät DAX-laskureista hankalampia kirjoittaa.</p>
+    <p>Jos lähteesi on lumihiutalemallinen tietovarasto ja rakennat Power BI -raporttia, tee <a href="flattaus.html"><strong>flättäys</strong></a> ennen datan lataamista: yhdistä hierarkkiset dimensiotaulut yhdeksi leveäksi tauluksi ETL-vaiheessa tai SQL-näkymänä. Power BI saa valmiiksi muotoillun tähtimallin — eikä sen tarvitse tehdä yhdistelyjä itse.</p>
+  </div>
+
 </body>
 </html>

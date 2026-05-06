@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Taulujen flättäys (Flattening)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+</head>
+<body>
+  <main-navigation></main-navigation>
+
+  <h1>Taulujen flättäys (Flattening)</h1>
+  <p>Flättäys tarkoittaa useamman hierarkkisen taulun yhdistämistä yhdeksi leveäksi tauluksi ennen tietomallin lataamista Power BI:hin. Tavoitteena on muuttaa lumihiutalemainen rakenne tähtimallin mukaiseksi — yksi dimensio, yksi taulu.</p>
+
+  <h2>Miksi flättäys tehdään?</h2>
+  <p>Power BI:n VertiPaq-moottori on optimoitu tähtimallille: leveille, litteille tauluille joissa on matala kardinaliteetti. Kun dimensiot ovat hajautettuna useampaan tauluun hierarkkisesti (lumihiutalemalli), syntyy tarpeettomia relaatioketjuja, jotka hidastavat kyselyitä ja tekevät DAX-koodaamisesta monimutkaisempaa.</p>
+  <p>Flättäys ratkaistaan tyypillisesti ETL-vaiheessa tai tietokantanäkymässä (VIEW) ennen datan lataamista Power BI:hin — ei Power BI:n sisällä.</p>
+
+  <h2>Esimerkki: organisaatiohierarkia</h2>
+  <p>Lumihiutalemallissa organisaatiorakenne voi näyttää tältä — kolme erillistä taulua, joissa tieto on hajautettuna hierarkkisesti:</p>
+
+  <div class="fakta-laatikko">
+    <strong>Ennen flättäystä — 3 taulua hierarkiassa:</strong>
+    <table>
+      <thead>
+        <tr><th>Yritys</th><th>YritysID</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Yritys Oy</td><td>1</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Liiketoimintaryhmä</th><th>RyhmaID</th><th>YritysID (FK)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Kuluttajaliiketoiminta</td><td>10</td><td>1</td></tr>
+        <tr><td>Yritysasiakkaat</td><td>11</td><td>1</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Kustannuspaikka</th><th>KpID</th><th>RyhmaID (FK)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Helsinki-myymälä</td><td>100</td><td>10</td></tr>
+        <tr><td>Tampere-myymälä</td><td>101</td><td>10</td></tr>
+        <tr><td>Yrityspalvelut Etelä</td><td>102</td><td>11</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="fakta-laatikko">
+    <strong>Flättäyksen jälkeen — 1 taulu:</strong>
+    <table>
+      <thead>
+        <tr><th>KpID</th><th>Kustannuspaikka</th><th>Liiketoimintaryhmä</th><th>Yritys</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>100</td><td>Helsinki-myymälä</td><td>Kuluttajaliiketoiminta</td><td>Yritys Oy</td></tr>
+        <tr><td>101</td><td>Tampere-myymälä</td><td>Kuluttajaliiketoiminta</td><td>Yritys Oy</td></tr>
+        <tr><td>102</td><td>Yrityspalvelut Etelä</td><td>Yritysasiakkaat</td><td>Yritys Oy</td></tr>
+      </tbody>
+    </table>
+    <p>Hierarkian yläosien tieto (liiketoimintaryhmä, yritys) toistetaan joka rivillä — tämä on tarkoituksellista. VertiPaq pakkaa toistuvat arvot tehokkaasti, joten muistikoko ei kasva merkittävästi.</p>
+  </div>
+
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Tee flättäys lähdejärjestelmässä jos se on mahdollista. Kaikki datan muunnokset kannattaa tehdä ennen Power BI:tä — ETL-vaiheessa tai SQL-näkymänä — eikä Power BI:n sisällä. Power BI:n VertiPaq-moottori on optimoitu lukemaan ja pakkaamaan valmista, muotoiltua dataa, ei suorittamaan muunnoksia latauksen yhteydessä. Mitä valmiimpana data tulee Power BI:hin, sitä tehokkaammin VertiPaq pystyy sen pakkaamaan ja sitä nopeammin se vastaa kyselyihin.</p>
+  </div>
+
+</body>
+</html>

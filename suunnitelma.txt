@@ -1,0 +1,175 @@
+# Suunnitelma datamalli.fi-sivustolle
+# Päivitetty: 2026-05-05
+
+## Tavoite
+Koota kattava tietopaketti eri datan mallinnusmenetelmistä ja -malleista suomeksi.
+Jokaisella sivulla on laadukas, omin sanoin kirjoitettu sisältö ja dataneuvoksen oikeat mielipiteet.
+
+---
+
+## Sivujen tila ja tehtävälistat
+
+---
+
+### ✅ index.html — VALMIS
+- Kategorioitu etusivu korttirakenteineen
+- Kesken-sivut näkyvät harmaalla kesken-badgella
+- Hakukenttä + tägisuodatin + AND/OR-toggle toteutettu
+- Sivujen sisältöhaku esirakennetun search-index.js:n kautta
+- Tagit: tietomalli, power-bi, dax, arkkitehtuuri, hallinta, tyokalut, kirjallisuus, perusteoria, poikkeustapaus, ai
+- Kategoriat: Tietomallit, Arkkitehtuurit ja prosessit, Hallinta ja laatu, Filosofia ja käytännöt, Resurssit
+
+---
+
+### ✅ tahtimalli.html — VALMIS
+- Tähtimallin rakenne ja toiminta
+- PK/FK-selitykset taulukolla
+- Muistikokovertailu: 16,80 GB vs 44,51 GB
+- Azure-kustannusdata: 1 323 € vs 2 647 €/kk, 15 888 € vuosisäästöt
+- Dataneuvoksen mielipide: tähtimalli + tekoälyvalmius + DAX Patterns -linkki
+
+---
+
+### ✅ nimeamiskaytannot.html — VALMIS
+- Ferrarin & Russon 7 nimeämissääntöä taulukossa
+- Esimerkit tietokantanimeämisistä
+- Dataneuvoksen mielipide: nimeä yhdellä kielellä, sama kieli koko ketjussa
+
+---
+
+### ✅ dimensiot.html — VALMIS
+- Dimension rakenne: surrogaattiavain, luonnollinen avain, attribuutit, voimassaoloaika
+- Parhaat käytännöt: 8 sääntöä (ei tyhjiä rivejä, blankeille omat rivit, SK aina INT, INT-relaatiot nopeampia jne.)
+- SCD-tyypit 0–6 taulukossa selityksineen ja käyttötilanteineen
+- Type 2 -esimerkki konkreettisella taululla
+- Suorituskyky Power BI:ssä: dimensiokoot eri yksilöavainmäärillä
+- Kardinaliteetti-esimerkki 2M rivin dimensiolla
+- Power BI:n datasettirajoitteet taulukolla
+- Dataneuvoksen mielipide: dimensio on reusable, ei tyhjiä rivejä, INT-relaatiot
+
+---
+
+### ✅ lumihiutalemalli.html — VALMIS
+- Perusteksti ja kuva
+- Dataneuvoksen mielipide: hyvä tietovarastoon, huono Power BI:hin → flättäys-linkki
+- Hyödyt ja rajoitteet -taulukko
+
+---
+
+### ✅ flattaus.html — VALMIS (uusi sivu)
+- Flättäyksen selitys: mitä tarkoittaa, miksi tehdään
+- Ennen/jälkeen-esimerkki: 3 hierarkkista taulua → 1 leveä taulu
+- Missä tehdään -taulukko: SQL VIEW, ETL, Power Query
+- Dataneuvoksen mielipide: tee lähellä lähdejärjestelmää, VertiPaq pakkaa toistuvat arvot
+
+---
+
+### ✅ kehittamisen-filosofia.html — KESKEN
+- 6 pelikorttityylinen kortti tulostustuella
+- Kortit: ylläpidettävyys, myönnä jos et tiedä, tekninen velka, oikeellisuus, käyttäjälähtöisyys, johdonmukaisuus
+- [ ] Kortti 01 lainaus kesken (käyttäjä muokkaa itse)
+- [ ] Lisää mahdollisia uusia kortteja
+
+---
+
+### 🟡 header-detail.html — KESKEN
+- Kattava teksti (ostotilaus/ostorivi-esimerkki, denormalisointi ETL-vaiheessa)
+- Title-tagi kunnossa: "Header-Detail-malli" ✅
+- H1 kunnossa: "Header- ja Detail-taulut" ✅
+- [ ] Lisää dataneuvoksen mielipide
+- [ ] Kuva 17 puuttuu — lisää tai poista viittaus tekstistä
+
+---
+
+### 🟡 useampi-fakta.html — KESKEN
+- Kattava teksti (osto- ja myyntidatan yhdistäminen, DAX-laskurit)
+- Title-tagi kunnossa: "Useamman faktataulun malli" ✅
+- H1 kunnossa: "Useamman faktataulun käyttö" (ei "3.4."-etuliitettä) ✅
+- [ ] Lisää dataneuvoksen mielipide
+- [ ] Kuvat 18–20 puuttuvat — lisää tai poista viittaukset tekstistä
+
+---
+
+### 🟡 kirjallisuus-suositukset.html — KESKEN
+- 5 kirjakorttia kuvilla ja Amazon-linkeillä
+- Adamson: oikea dataneuvoksen mielipide ✅
+- [ ] Kirjoita dataneuvoksen mielipide: Ferrari & Russo — Analyzing Data with Power BI
+- [ ] Kirjoita dataneuvoksen mielipide: Russo & Ferrari — The Definitive Guide to DAX
+- [ ] Kirjoita dataneuvoksen mielipide: Russo & Ferrari — DAX Patterns
+- [ ] Kirjoita dataneuvoksen mielipide: Silverston — The Data Model Resource Book
+
+---
+
+### 🟡 apuohjelmat.html — KESKEN
+- DAX Studio + VertiPaq Analyzer (taulukko sarakkeiden selitteistä)
+- Tabular Editor 2 + TE2 vs TE3 -vertailutaulukko
+- ALM Toolkit
+- PBI MCP -osio: Copilot vs MCP -vertailutaulukko, dataneuvoksen mielipide ✅
+- Tabular Editor 2 dataneuvos: BPA vs MCP-analogia ✅
+- ALM Toolkit dataneuvos: aliarvostettu työkalu, Premium-käyttö ✅
+- [ ] Kirjoita dataneuvoksen mielipide: DAX Studio
+- [ ] Kirjoita dataneuvoksen mielipide: VertiPaq Analyzer
+
+---
+
+### 🔴 data-governance.html — PLACEHOLDER / AI-TEKSTI
+- Rakenne olemassa (7 kysymystä, taulukot, dataneuvos-kohdat)
+- Sisältö on AI-generoitua — ei tarkistettua tai omin sanoin kirjoitettua
+- [ ] Kirjoita koko sisältö uudelleen omin sanoin
+- [ ] Tarkista faktat ja lähdeviitteet
+
+---
+
+### 🔴 etl-elt.html — PLACEHOLDER
+- Vain 2 bullet-pointia, ei oikeaa sisältöä
+- [ ] Kirjoita ETL vs ELT -vertailu
+- [ ] Lisää taulukko: milloin ETL, milloin ELT
+- [ ] Lisää käytännön esimerkit (perinteinen tietovarasto vs. pilvi)
+- [ ] Korjaa title-tagi: "Lumihiutalemalli" → "ETL ja ELT"
+- [ ] Lisää dataneuvoksen mielipide
+
+---
+
+### 🔴 medallion.html — PLACEHOLDER
+- Vain 3 bullet-pointia, ei oikeaa sisältöä
+- [ ] Kirjoita Bronze/Silver/Gold-kerrosten selitykset
+- [ ] Lisää käytännön esimerkki datan kulusta kerros kerrokselta
+- [ ] Linkitä ETL/ELT-sivuun
+- [ ] Korjaa title-tagi: "Lumihiutalemalli" → "Medallion-arkkitehtuuri"
+- [ ] Lisää dataneuvoksen mielipide
+
+---
+
+### 🔴 data-vault.html — PLACEHOLDER
+- Vain 2 bullet-pointia, ei oikeaa sisältöä
+- [ ] Kirjoita hub/satellite/link-rakenteen selitys
+- [ ] Lisää vertailu tähtimalliin
+- [ ] Lisää käyttötapaukset (auditointivaatimukset, monilähdejärjestelmät)
+- [ ] Korjaa title-tagi: "Lumihiutalemalli" → "Data Vault"
+- [ ] Lisää dataneuvoksen mielipide
+
+---
+
+## Uudet sivut (ei vielä olemassa)
+
+### tietovarasto-vs-powerbi.html — EI ALOITETTU
+- [ ] Kirjoita miten data kulkee lähdejärjestelmästä tietovarastoon ja siitä Power BI:hin
+- [ ] Selitä mikä tehdään tietovarastossa, mikä Power BI:ssä
+
+### power-bi-spesifi.html — EI ALOITETTU
+- [ ] Row-Level Security (RLS)
+- [ ] Tietomallin optimointi (kardinaliteetti, sarakkeiden karsinta)
+- [ ] Julkaisuprosessi ja ympäristöt (dev/test/prod)
+
+---
+
+## Infrastruktuuri — VALMIS
+
+- ✅ Footer kaikilla sivuilla — injektoitu navigation.js:stä (muokkaa yhdessä paikassa)
+- ✅ Navigaatio kaikilla sivuilla — navigation.js + MainNavigation web component
+- ✅ Haku + tägisuodatus — search.js, search-index.js (esirakennettu indeksi)
+- ✅ AND/OR-toggle, Tyhjennä-nappi, "Ei tuloksia" -viesti
+- ✅ "löytyy sivulta" -merkki kun osuma on sivun sisällössä eikä kortin otsikossa
+- ✅ Hakuindeksi sisältää myös taulujen tekstit (search-index.js)
+- ✅ README.md — julkaisuohjeet ja muistutus indeksin päivityksestä
+- ⚠️  Muista: search-index.js päivitettävä käsin kun sivujen sisältö muuttuu
