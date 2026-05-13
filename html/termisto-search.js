@@ -1,15 +1,16 @@
 // Termistö-sivun oma haku ja tägäys
 
 const TERMI_TAGI_NIMET = {
-  'avaimet':       'avaimet',
-  'tietomalli':    'tietomalli',
-  'arkkitehtuuri': 'arkkitehtuuri',
-  'prosessit':     'prosessit',
-  'power-bi':      'Power BI',
-  'mittaaminen':   'mittaaminen',
-  'konseptit':     'konseptit',
-  'hallinta':      'hallinta',
-  'olap':          'OLAP / OLTP'
+  'avaimet':        'avaimet',
+  'tietomalli':     'tietomalli',
+  'arkkitehtuuri':  'arkkitehtuuri',
+  'prosessit':      'prosessit',
+  'power-bi':       'Power BI',
+  'dax-konseptit':  'DAX-konseptit',
+  'mittaaminen':    'mittaaminen',
+  'konseptit':      'konseptit',
+  'hallinta':       'hallinta',
+  'olap':           'OLAP / OLTP'
 };
 
 let termiAktivoidutTagit = new Set();

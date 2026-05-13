@@ -217,6 +217,23 @@ raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi`,
 'data-vault.html': `data vault skaalautuva auditoitava tietomallinnusmenetelmä suurten muuttuvien tietovarastojen hallinta
 hubit satelliitit linkit historian säilyttäminen`,
 
+'ai-valmis-metadata.html': `ai-valmis metadata tekoäly copilot power bi tietovarasto metadata
+kuvailu nimeäminen taulut sarakkeet mitat liiketoimintakuvaus
+copilot q&a synonyymit tietoluokka data category sertifiointi
+tekninen metadata liiketoimintametadata datakatalog
+hyvä kuvaus huono kuvaus luonnollinen kieli konteksti
+mitä sarake tarkoittaa yksikkö laskentalogiikka arvojoukko
+päivämäärä aikavyöhyke utc lippu tilakoodi koodiarvot selitys
+surrogaattiavain viittaa tauluun omistaja päivitysaikataulu
+ai-valmis tekoälyvalmis ai-pohjainen analytiikka copilot toimii oikein
+q&a synonyymit myynti liikevaihto revenue ohjaa samaan mittaan
+tietoluokka maa kaupunki postinumero url kuva-url
+yhteenveto-asetus oletusyhteenveto hakemistotaulu featured table excel tietotyypit
+sertifiointi virallinen luotettava power bi palvelu
+muistilista tarkistuslista jokaisella taululla kuvaus mittarisarake yksikkö
+koodiarvot aikavyöhyke synonyymit geografiset sarakkeet sertifioitu datan omistaja
+aloita tärkeimmistä sarakkeista 10-15 saraketta kehitystyön tapa pull request julkaisu`,
+
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi
 kehitä vain sellaista jonka joku muu voi ylläpitää

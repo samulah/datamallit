@@ -1,29 +1,28 @@
 # Julkaisusuunnitelma — datamalli.fi
 
-## Sivuston nykytila
+## Sivuston nykytila (päivitetty 2026-05-13)
 
-**Valmiit sivut (5 kpl, ei kesken-merkkiä etusivulla):**
+**Julkaistut sivut — näkyvät navigaatiossa (10 kpl):**
 - tahtimalli.html
 - dimensiot.html
 - flattaus.html
 - lumihiutalemalli.html
 - nimeamiskaytannot.html
+- termisto.html
+- apuohjelmat.html
+- kehittamisen-filosofia.html
+- ai-valmis-metadata.html
+- kirjallisuus-suositukset.html
 
-**Sisältö olemassa, merkitty kesken (6 kpl):**
+**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (3 kpl):**
 - header-detail.html
 - useampi-fakta.html
-- kirjallisuus-suositukset.html
-- apuohjelmat.html
 - data-governance.html
-- kehittamisen-filosofia.html
 
-**Stub-sivut, käytännössä tyhjiä (3 kpl):**
+**Piilotettu navigaatiosta, stub — käytännössä tyhjä (3 kpl):**
 - etl-elt.html
 - medallion.html
 - data-vault.html
-
-**Uusi sivu (juuri luotu, ensimmäinen versio):**
-- termisto.html
 
 
 ## Julkaisuaalto-suunnitelma
