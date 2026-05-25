@@ -46,6 +46,7 @@ Jokaisella sivulla on laadukas, omin sanoin kirjoitettu sisältö ja dataneuvoks
 - Kardinaliteetti-esimerkki 2M rivin dimensiolla
 - Power BI:n datasettirajoitteet taulukolla
 - Dataneuvoksen mielipide: dimensio on reusable, ei tyhjiä rivejä, INT-relaatiot
+- Päivitetty Word-tiedostosta (2026-05-20): lisäteksti introon, denormalisointi/FK/ETL/litistä/kardinaliteetti-linkit termistöön, taulukkootsikot (Taulukko 1–5), sanamuotomuutoksia
 
 ---
 

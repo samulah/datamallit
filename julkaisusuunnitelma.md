@@ -1,29 +1,33 @@
 # Julkaisusuunnitelma — datamalli.fi
 
-## Sivuston nykytila
+## Sivuston nykytila (päivitetty 2026-05-20)
 
-**Valmiit sivut (5 kpl, ei kesken-merkkiä etusivulla):**
-- tahtimalli.html
-- dimensiot.html
-- flattaus.html
-- lumihiutalemalli.html
-- nimeamiskaytannot.html
+**Julkaistut sivut — näkyvät navigaatiossa (11 kpl):**
 
-**Sisältö olemassa, merkitty kesken (6 kpl):**
+| Sivu | Vaikeusaste | Huomio |
+|---|---|---|
+| index.html | ⭐ 1 | Valmis — läpikäyty 2026-05-20 |
+| tahtimalli.html | ⭐ 1 | Valmis — läpikäyty 2026-05-20 |
+| dimensiot.html | ⭐ 1 | Valmis — päivitetty Word-sisällöllä, läpikäyty 2026-05-20 |
+| flattaus.html | ⭐ 1 | Valmis — läpikäyty 2026-05-20 |
+| lumihiutalemalli.html | ⭐ 1 | Valmis — läpikäyty 2026-05-20 |
+| nimeamiskaytannot.html | ⭐⭐ 2 | Valmis — läpikäyty 2026-05-20 |
+| kehittamisen-filosofia.html | ⭐ 1 | Valmis |
+| ai-valmis-metadata.html | ⭐ 1 | Valmis |
+| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti |
+| apuohjelmat.html | ⭐⭐⭐ 3 | 2x Lorem ipsum (DAX Studio + VertiPaq Analyzer) |
+| kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | 4/5 kirjan Dataneuvoksen mielipide = Lorem ipsum |
+
+**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (3 kpl):**
 - header-detail.html
 - useampi-fakta.html
-- kirjallisuus-suositukset.html
-- apuohjelmat.html
 - data-governance.html
-- kehittamisen-filosofia.html
 
-**Stub-sivut, käytännössä tyhjiä (3 kpl):**
+**Piilotettu navigaatiosta, stub — käytännössä tyhjä (4 kpl):**
 - etl-elt.html
 - medallion.html
 - data-vault.html
-
-**Uusi sivu (juuri luotu, ensimmäinen versio):**
-- termisto.html
+- data-contract.html
 
 
 ## Julkaisuaalto-suunnitelma

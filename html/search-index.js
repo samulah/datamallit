@@ -102,7 +102,7 @@ hyödyt rajoitteet tietovarasto dwh hyvä power bi huono
 flättäys flattening hierarkkiset dimensiotaulut yhdeksi leveäksi tauluksi
 vertipaq ei hyödy normalisoinnista relaatioketjut hidastavat`,
 
-'flattaus.html': `flättäys flattening taulujen yhdistäminen hierarkia leveä litteä taulu
+'litistaminen.html': `flättäys flattening taulujen yhdistäminen hierarkia leveä litteä taulu
 kolme taulua hierarkiassa vedetään yhdeksi dimensioksi
 lumihiutalemalli tähtimalli muunnos power bi
 esimerkki organisaatiohierarkia yritys liiketoimintaryhmä kustannuspaikka myymälä
@@ -196,6 +196,19 @@ luonnollisella kielellä kysyminen datasta
 copilot vs mcp avoin protokolla suljettu ympäristö
 tekoälymalli valittavissa claude gpt laajennettavuus`,
 
+'data-contract.html': `data contract sopimus datan tuottajan kuluttajan välillä
+määrittelee mitä dataa toimitetaan missä muodossa millä laadulla kenen vastuulla
+omistajuus data owner data steward data custodian dpo tietosuojavastaava vastuut roolit
+uutissivu lukijadata verkkoseuranta selaajat käyttäjät
+skeema sarakkeet tietotyypit pakollinen suostumus_tila lukija_id istunto_id kayttaja_id artikkeli_id
+lukuaika vierityssyvyys laitetyyppi maa_koodi tilaaja_tyyppi viittaaja botti
+skeemanmuutos rikkova muutos ei-rikkova muutos ilmoitusaika versiointi
+henkilötieto gdpr tietosuoja suostumus anonymisointi pseudonymisointi rekisteröidyn oikeudet poistopyyntö
+laatusäännöt null-arvot botisuodatus sisäinen liikenne täydellisyys
+sla vasteaika ratkaisuaika kriittinen p1 p2 p3 ongelmailmoitus postmortem tietosuojarikkomus 72h
+käyttökäytännöt pääsykäytännöt rls row-level security toimittaja toimituspäällikkö analyytikko markkinointi tuotekehitys
+sallitut kiellettyt käyttötarkoitukset tarkastusloki pääsynhallinta`,
+
 'data-governance.html': `data governance organisaation datan hallinta päätökset vastuut prosessit standardit
 luotettavaa saatavilla laillisesti tarkoituksenmukaisesti organisatorinen kulttuurinen muutos
 kuka omistaa datan kuka saa käyttää laatu varmistetaan elinkaari
@@ -216,6 +229,23 @@ raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi`,
 
 'data-vault.html': `data vault skaalautuva auditoitava tietomallinnusmenetelmä suurten muuttuvien tietovarastojen hallinta
 hubit satelliitit linkit historian säilyttäminen`,
+
+'ai-valmis-metadata.html': `ai-valmis metadata tekoäly copilot power bi tietovarasto metadata
+kuvailu nimeäminen taulut sarakkeet mitat liiketoimintakuvaus
+copilot q&a synonyymit tietoluokka data category sertifiointi
+tekninen metadata liiketoimintametadata datakatalog
+hyvä kuvaus huono kuvaus luonnollinen kieli konteksti
+mitä sarake tarkoittaa yksikkö laskentalogiikka arvojoukko
+päivämäärä aikavyöhyke utc lippu tilakoodi koodiarvot selitys
+surrogaattiavain viittaa tauluun omistaja päivitysaikataulu
+ai-valmis tekoälyvalmis ai-pohjainen analytiikka copilot toimii oikein
+q&a synonyymit myynti liikevaihto revenue ohjaa samaan mittaan
+tietoluokka maa kaupunki postinumero url kuva-url
+yhteenveto-asetus oletusyhteenveto hakemistotaulu featured table excel tietotyypit
+sertifiointi virallinen luotettava power bi palvelu
+muistilista tarkistuslista jokaisella taululla kuvaus mittarisarake yksikkö
+koodiarvot aikavyöhyke synonyymit geografiset sarakkeet sertifioitu datan omistaja
+aloita tärkeimmistä sarakkeista 10-15 saraketta kehitystyön tapa pull request julkaisu`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Piirakanjakoprosessi — Piirakanjakajat ry</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    .disclaimer {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 0.8em 1.2em;
+      margin-bottom: 2rem;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .piirakka-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .piirakka-vuosi {
+      flex: 1 1 180px;
+      text-align: center;
+      background: #f4f4f4;
+      border-radius: 8px;
+      padding: 1rem 0.8rem;
+    }
+    .piirakka-vuosi h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1em;
+    }
+    .eurot {
+      font-size: 0.82em;
+      color: #555;
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+    .eurot strong {
+      color: #c0392b;
+    }
+    .trendi {
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+    .trendi table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+    }
+    .trendi th, .trendi td {
+      border: 1px solid #ddd;
+      padding: 0.5em 0.8em;
+      text-align: right;
+    }
+    .trendi th {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+    }
+    .trendi td:first-child {
+      text-align: left;
+      font-weight: bold;
+    }
+    .trendi tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .kaveri-luku {
+      color: #c0392b;
+      font-weight: bold;
+    }
+    .kansa-luku {
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kuvitteellinen piirakanjakoprosessi</h1>
+  <div class="disclaimer">
+    ⚠️ Tämä sivu on täysin kuvitteellinen satiiria. Kaikki nimet, organisaatiot, henkilöt ja luvut ovat fiktiivisiä eikä niillä ole yhteyttä todellisiin henkilöihin tai tapahtumiin.
+  </div>
+
+  <h2>Prosessi: miten piirakka kulkee</h2>
+  <p>Kuvitteellisessa Piirakanjakajat ry:n hallitusohjelmassa verorahat kulkevat prosessin läpi ennen kuin ne päätyvät kansalle — tai sen kaveriverkostolle.</p>
+
+  <figure>
+    <div class="mermaid">
+flowchart LR
+  verot["Verorahat\n(100 mrd €/v)"] --> hallitus["Hallitusohjelma\nPiirakanjakajat ry"]
+  hallitus --> leikkaukset["Säästötoimet\n(kansalta)"]
+  hallitus --> kaveriohjelma["Kaveritukiohjelma\n(ystäväverkosto)"]
+  leikkaukset --> kansa["Kansa\n↓ pienenee vuosi vuodelta"]
+  kaveriohjelma --> kaverit["Kaverit\n↑ kasvaa vuosi vuodelta"]
+    </div>
+    <figcaption>Kuvitteellinen data lineage: verorahat kulkevat hallitusohjelman läpi kahdelle vastaanottajalle.</figcaption>
+  </figure>
+
+  <h2>Osuudet vuosittain</h2>
+  <p>Seuraa miten kuvitteellinen kaveriverkosto saa kasvavan siivun piiraasta — %-osuus ja euromäärä kasvavat, kansan osuus supistuu.</p>
+
+  <div class="piirakka-grid">
+
+    <div class="piirakka-vuosi">
+      <h3>Vuosi 1</h3>
+      <div class="mermaid">
+pie
+  "Kaverit 12 %" : 12
+  "Kansa 88 %" : 88
+      </div>
+      <div class="eurot">
+        Kaverit: <strong>12 mrd €</strong><br>
+        Kansa: <span class="kansa-luku">88 mrd €</span>
+      </div>
+    </div>
+
+    <div class="piirakka-vuosi">
+      <h3>Vuosi 2</h3>
+      <div class="mermaid">
+pie
+  "Kaverit 24 %" : 24
+  "Kansa 76 %" : 76
+      </div>
+      <div class="eurot">
+        Kaverit: <strong>24 mrd €</strong><br>
+        Kansa: <span class="kansa-luku">76 mrd €</span>
+      </div>
+    </div>
+
+    <div class="piirakka-vuosi">
+      <h3>Vuosi 3</h3>
+      <div class="mermaid">
+pie
+  "Kaverit 39 %" : 39
+  "Kansa 61 %" : 61
+      </div>
+      <div class="eurot">
+        Kaverit: <strong>39 mrd €</strong><br>
+        Kansa: <span class="kansa-luku">61 mrd €</span>
+      </div>
+    </div>
+
+    <div class="piirakka-vuosi">
+      <h3>Vuosi 4</h3>
+      <div class="mermaid">
+pie
+  "Kaverit 57 %" : 57
+  "Kansa 43 %" : 43
+      </div>
+      <div class="eurot">
+        Kaverit: <strong>57 mrd €</strong><br>
+        Kansa: <span class="kansa-luku">43 mrd €</span>
+      </div>
+    </div>
+
+    <div class="piirakka-vuosi">
+      <h3>Vuosi 5</h3>
+      <div class="mermaid">
+pie
+  "Kaverit 74 %" : 74
+  "Kansa 26 %" : 26
+      </div>
+      <div class="eurot">
+        Kaverit: <strong>74 mrd €</strong><br>
+        Kansa: <span class="kansa-luku">26 mrd €</span>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Trendikehitys (yhteenveto)</h2>
+  <div class="trendi">
+    <table>
+      <thead>
+        <tr>
+          <th>Vuosi</th>
+          <th>Kaverit (%)</th>
+          <th>Kaverit (mrd €)</th>
+          <th>Kansa (%)</th>
+          <th>Kansa (mrd €)</th>
+          <th>Kasvua ed. vuodesta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vuosi 1</td>
+          <td class="kaveri-luku">12 %</td>
+          <td class="kaveri-luku">12 mrd €</td>
+          <td class="kansa-luku">88 %</td>
+          <td class="kansa-luku">88 mrd €</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Vuosi 2</td>
+          <td class="kaveri-luku">24 %</td>
+          <td class="kaveri-luku">24 mrd €</td>
+          <td class="kansa-luku">76 %</td>
+          <td class="kansa-luku">76 mrd €</td>
+          <td class="kaveri-luku">+12 mrd €</td>
+        </tr>
+        <tr>
+          <td>Vuosi 3</td>
+          <td class="kaveri-luku">39 %</td>
+          <td class="kaveri-luku">39 mrd €</td>
+          <td class="kansa-luku">61 %</td>
+          <td class="kansa-luku">61 mrd €</td>
+          <td class="kaveri-luku">+15 mrd €</td>
+        </tr>
+        <tr>
+          <td>Vuosi 4</td>
+          <td class="kaveri-luku">57 %</td>
+          <td class="kaveri-luku">57 mrd €</td>
+          <td class="kansa-luku">43 %</td>
+          <td class="kansa-luku">43 mrd €</td>
+          <td class="kaveri-luku">+18 mrd €</td>
+        </tr>
+        <tr>
+          <td>Vuosi 5</td>
+          <td class="kaveri-luku">74 %</td>
+          <td class="kaveri-luku">74 mrd €</td>
+          <td class="kansa-luku">26 %</td>
+          <td class="kansa-luku">26 mrd €</td>
+          <td class="kaveri-luku">+17 mrd €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
