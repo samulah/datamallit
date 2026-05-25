@@ -11,10 +11,10 @@
 
   <h1>Nimeämiskäytännöt</h1>
   
-  <p>Tietomalliin haettaessa dataa se ladataan tietolähteestä, joka on usein tietovaraston yksittäisessä tietokannassa oleva taulu. Tietovaraston ja mallien nimeämiskäytännöt voivat olla toisistaan eroavia ja saattavat omata kehitysvelkaa pitkältäkin ajalta. Tietokannasta dataa ladattaessa taulut voivat sisältää useita erityylisiä nimeämiskäytäntöjä kuten taulukosta 2 ilmenee.</p>
+  <p>Tietomalliin haettaessa dataa se ladataan tietolähteestä, joka on usein tietovaraston yksittäisessä tietokannassa oleva taulu. Tietovaraston ja semanttisten mallien nimeämiskäytännöt voivat olla toisistaan eroavia ja saattavat omata kehitysvelkaa pitkältäkin ajalta. Tietokannasta dataa ladattaessa taulut voivat sisältää useita erityylisiä nimeämiskäytäntöjä kuten taulukosta 1 ilmenee. Kaikissa yrityksissä ei ole <a href="data-contract.html">Data Contractissa</a> määriteltyjä nimeämiskäytäntöjä.</p>
 
-  <p><strong>Taulukko 2. Esimerkkejä tietokannan taulujen nimeämiskäytännöistä</strong></p>
   <table>
+    <caption>Taulukko 1, Esimerkkejä tietokannan taulujen nimeämiskäytännöistä</caption>
     <thead>
       <tr>
         <th>Dimension nimi</th>
@@ -48,45 +48,75 @@
 
   <p>Tietolähteistä tulevat taulut ja niiden sarakkeet saattavat sisältää tietokannoissa erilaisia nimiä. Hyvien nimeämiskäytäntöjen toteuttaminen ja vahtiminen jää silloin toteutettavaksi tehtäväksi tietomallin ja raportin kehittäjälle. <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> mainitsevat kirjassaan seuraavat seitsemän sääntöä Power BI -tietomallien taulujen ja sarakkeiden nimeämisiin liittyen:</p>
 
-  <p><strong>Taulukko 3. Tietomallin taulujen suositellut nimeämissäännöt (<a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari &amp; Russo, 2017, s. 20–21</a>)</strong></p>
   <table>
+    <caption>Taulukko 2, Tietomallin taulujen suositellut nimeämissäännöt (<a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari &amp; Russo, 2017, s. 20–21</a>)</caption>
     <thead>
       <tr>
         <th>Sääntö</th>
         <th>Selite</th>
+        <th>Koskee</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Taulujen nimien tulisi sisältää vain liiketoiminnan sisällön mukaista-dataa</td>
+        <td>Taulujen nimien tulisi sisältää vain liiketoiminnan sisällön mukaista dataa</td>
         <td>Jos taulun nimi on Asiakas, niin taulun tulisi sisältää vain asiakkaita. Jos taulun nimi on Tuote, niin taulun tulisi sisältää vain tuotteita.</td>
+        <td>Taulu</td>
       </tr>
       <tr>
         <td>Käytä isoja kirjaimia erottamaan taulujen erilliset sanat</td>
         <td>Jos taulu sisältää tuotteiden kategoriat, niin taulun nimen tulisi olla esimerkiksi TuoteKategoria.</td>
+        <td>Taulu</td>
       </tr>
       <tr>
         <td>Taulujen faktojen nimien tulisi sisältää liiketoiminnan nimen faktalle, joka on aina monikko</td>
         <td>Myyntitaulun nimen tulisi tällöin olla aina Myynti ja ostotaulun nimi Ostot. Monikon käyttämisellä tietomallin katsomisessa ymmärtää tällöin helpommin, että yksittäisellä asiakkaalla on useampi myyntitapahtuma. Tämä vahvistaa relaatioiden ymmärtämistä.</td>
+        <td>Taulu</td>
       </tr>
       <tr>
         <td>Vältä nimiä, jotka ovat liian pitkiä</td>
         <td>Koita etsiä mahdollisimman hyvä ja helposti luettava lyhyt nimi. Älä käytä turhia sanoja. Liian pitkät nimet kuten TavaroidenLähetysMaaKunJälleenmyyjäMyyTavaran ovat epäselviä.</td>
+        <td>Molemmat</td>
       </tr>
       <tr>
         <td>Vältä nimiä, jotka ovat liian lyhyitä tai lyhenteitä</td>
         <td>Lyhenteiden käyttö lisää raporttien epäselvyyttä. Raporttien käyttö tulee suunnitella koko organisaatiotasolle ja täten välttää lyhenteiden käyttöä. Kaikkien ymmärrys ei ole samalla tasolla ja lyhenteiden selvittäminen vie aikaa.</td>
+        <td>Molemmat</td>
       </tr>
       <tr>
         <td>Avainkentän nimessä tulee aina olla maininta avaimesta</td>
         <td>Jos sarake on avainkenttä, esimerkiksi Asiakastaulu, niin silloin asiakastaulun avainkentän nimi, joka yhdistyy faktatauluun, tulisi olla esim. asiakasAvain tai CustomerKey</td>
+        <td>Sarake</td>
       </tr>
       <tr>
         <td>Mieti ymmärtävätkö kaikki valitsemasi nimen</td>
         <td>Nimeä miettiessä kannattaa kysyä itseltään, että ymmärtävätkö kaikki nykyiset ja tulevat käyttäjät valitut nimet. Jos ajattelet vain nykyisten käyttäjien ymmärrystä, on todennäköistä, että tulevaisuudessa kaikki eivät nimiä ymmärrä, ja että tästä aiheutuu helposti vältettävissä olevia ongelmia.</td>
+        <td>Molemmat</td>
       </tr>
     </tbody>
   </table>
+
+  <h2>Yhtenäisten nimeämiskäytäntöjen hyödyt ja haitat</h2>
+
+  <div class="fakta-laatikko">
+    <strong>Hyödyt yhtenäisistä nimeämiskäytännöistä:</strong>
+    <ul>
+      <li><strong>Laajempi käyttäjäkunta.</strong> Raportti voidaan jakaa kaikenlaisia taustoja omaaville käyttäjille.</li>
+      <li><strong>Virheet löytyvät helpommin.</strong> Datan ymmärtäminen helpottuu ja virheelliset rivit huomataan pienemmällä vaivalla.</li>
+      <li><strong>Kehittäjä voi keskittyä sisältöön.</strong> Kunnolla nimetty tietomalli auttaa keskittymään lukuihin nimien ymmärtämisen sijaan.</li>
+      <li><strong>Ratkaisut monistuvat.</strong> Ratkaisujen tuotteistaminen helpottuu kun nimeämiset ovat lähdejärjestelmissä samoja.</li>
+    </ul>
+  </div>
+
+  <div class="fakta-laatikko">
+    <strong>Haitat epäyhtenäisistä nimeämiskäytännöistä:</strong>
+    <ul>
+      <li><strong>Vahtiminen jää kehittäjälle.</strong> Nimeämiskäytäntöjen toteuttaminen ja vahtiminen jää tietomallin ja raportin kehittäjälle.</li>
+      <li><strong>Lyhenteet lisäävät epäselvyyttä.</strong> Lyhenteiden käyttö lisää raporttien epäselvyyttä ja niiden selvittäminen vie aikaa.</li>
+      <li><strong>Sekakieli hämmentää kaikkia.</strong> Sekakieliset mallit hämmentävät loppukäyttäjää, kehittäjää ja seuraajaa.</li>
+      <li><strong>Tulevat käyttäjät eivät ymmärrä nimiä.</strong> Jos ajattelet vain nykyisten käyttäjien ymmärrystä, tulevaisuudessa aiheutuu helposti vältettävissä olevia ongelmia.</li>
+    </ul>
+  </div>
 
   <p>Hyviä nimeämiskäytäntöjä noudattava tietomalli ja raportti voidaan jakaa kaikenlaisia taustoja omaaville käyttäjille. Kun nimeämiset ovat kunnossa, niin datan ymmärtäminen helpottuu sekä mahdollisia datassa olevia virheellisiä rivejä huomataan pienemmällä vaivalla. Kunnolla nimetty tietomalli auttaa keskittymään itse sisältöön ja lukuihin, sen sijaan että keskittyminen menisi tietomallin toiminnan ja nimien ymmärtämiseen. Power BI -tietomallin nimeämisen lisäksi kannattaa kiinnittää erityistä huomiota oikein nimeämiseen jo tietokantatasolla. Tietokannassa hyvin nimetyt taulut mahdollistavat helpomman ratkaisujen monistamisen, joka taas mahdollistaa samoja lähdejärjestelmiä käyttävien ratkaisujen tuotteistamisen ja monistamisen, mikäli nimeämiset ovat lähdejärjestelmissä samoja. Hyvien sääntöjen ja yleisten käytäntöjen mukaan nimetty tietokanta helpottaa datan kaivamiseen liittyvää työtä.</p>
 
@@ -95,8 +125,10 @@
     <p>Nimeä yhdellä kielellä yhteen paikkaan ja pyri pitämään koko ketjussa sama kieli kuin esityskerroksessa on
     </p>
     <ul>
+      <li>Kaikista tärkeintä on sopia yhteiset nimeämiskäytännöt joita noudatetaan ETL-prosessin alusta analytiikkakerrokselle saakka</li>
       <li>Jos raportti on suomeksi, nimeä tietomallin taulut ja sarakkeet suomeksi. Jos raportti on englanniksi, nimeä englanniksi. Sekakieliset mallit hämmentävät kaikkia — loppukäyttäjää, kehittäjää ja seuraajaa.</li>
-      <li>Jos olette suomenkielinen yritys, jonka kieli on suomi, lienee analytiikankin järkevää olla suomeksi. Äidinkielen käyttö helpottaa ymmärtämistä ja laajentaa luovia mahdollisuuksia ymmärtää uusia asioista — saat enemmän irti datasta kun kieli ei ole este ajattelulle.</li>
+      <li>Jos olette suomenkielinen yritys, jonka kieli on suomi, lienee analytiikankin järkevää olla suomeksi. Äidinkielen käyttö helpottaa ymmärtämistä ja laajentaa luovia mahdollisuuksia ymmärtää uusia asioista. Saat enemmän irti datasta kun kieli ei ole rajaava tekijä ajattelulle.</li>
+      <li><a href="data-contract.html">Data Contract</a> on toimiva paikka sopia yhteisistä käytännöistä jotka koskevat dataa</li>
     </ul>
   </div>
 </body>

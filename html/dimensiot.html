@@ -11,15 +11,17 @@
 
   <h1>Dimensioiden mallinnus</h1>
 
-  <p>Dimensio on tähtimallin kuvaileva taulu, joka vastaa kysymyksiin <em>kuka, mitä, missä, milloin</em> ja <em>miten</em>. Faktataulussa on luvut — dimensiossa on konteksti, joka tekee luvuista ymmärrettäviä. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää numerosarjaa.</p>
+  <p>Dimensio on dataa kuvaileva taulu joka vastaa kysymyksiin <em>kuka, mitä, missä, milloin</em> ja <em>miten</em>. Dimensioita käytetään usein kertomaan tapahtumien lisätietoja esim. asiakaskohtaisesti. Faktataulussa on luvut ja dimensiossa konteksti sekä metatiedot. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää numerosarjaa.</p>
 
-  <p>Dimensio liittyy faktatauluun vierasavaimen (FK) kautta. Jokaiselle faktataulun riville löytyy tasan yksi vastaava rivi dimensiossa. Tämä yksi-moneen-suhde (1:*) on tähtimallin perusrakenne.</p>
+  <p>Dimensiot toimivat 1:M relaatioiden kautta. Jokaiselle faktataulun riville löytyy tasan yksi vastaava rivi dimensiossa. Tämä yksi-moneen-suhde (1:*) on tähtimallin perusrakenne.</p>
 
   <h2>Dimension rakenne</h2>
 
-  <p>Hyvin rakennettu dimensio on <strong>leveä ja litteä</strong>: paljon kuvailevia sarakkeita, ei alatauluja. Tämä on tietoinen valinta normalisointia vastaan — raportissa käyttäjä haluaa suodattaa asiakasta maan, segmentin ja toimialan mukaan yhdestä taulusta, ei kolmesta liittyneestä taulusta.</p>
+  
+  <p>Hyvin rakennettu dimensio on <strong>leveä ja litteä</strong>: paljon kuvailevia sarakkeita, ei alatauluja. Tämä on tietoista <a href="termisto.html#denormalisointi">denormalisointia</a>. Loppukäyttäjät haluavat suodattaa asiakasta maan, segmentin ja toimialan mukaan yhdestä taulusta, ei kolmesta liittyneestä taulusta. Jos data tulee hierarkkisena lumihiutalemallina, se on hyvä yhdistää yhdeksi tauluksi ennen lataamista — katso <a href="litistaminen.html">taulujen litistäminen</a>.</p>
 
   <table>
+    <caption>Taulukko 1, Asiakasrakenne – Esimerkki siitä mitä sarakkeita dimensiotaulut pitävät sisällään ja miksi</caption>
     <thead>
       <tr>
         <th>Osa</th>
@@ -40,7 +42,7 @@
       </tr>
       <tr>
         <td><strong>Attribuutit</strong></td>
-        <td>Kuvailevat sarakkeet, joilla raportissa suodatetaan, ryhmitellään ja leikataan. Matala kardinaliteetti = nopea suorituskyky.</td>
+        <td>Kuvailevat sarakkeet, joilla raportissa suodatetaan, ryhmitellään ja leikataan. Matala <a href="termisto.html#kardinaliteetti">kardinaliteetti</a> = nopea suorituskyky.</td>
         <td>Maa, Kaupunki, Segmentti, Toimiala</td>
       </tr>
       <tr>
@@ -56,13 +58,13 @@
   <div class="fakta-laatikko">
     <strong>Dimension mallinnuksen kultaiset säännöt:</strong>
     <ol>
-      <li><strong>Ei tyhjiä rivejä.</strong> Jos faktataulun FK ei löydä vastaavaa dimensioriviä, se jää tyhjäksi. Tämä ei ole "normaali" tila — se on virhe. Korjaa ETL-prosessi tai lisää erillinen "Tuntematon"-rivi.</li>
+      <li><strong>Ei tyhjiä rivejä.</strong> Jos faktataulun <a href="termisto.html#vierasavain">FK</a> ei löydä vastaavaa dimensioriviä, se jää tyhjäksi. Tämä ei ole "normaali" tila, tämä on virhe. Korjaa <a href="termisto.html#etl">ETL-prosessi</a> tai korvaa se erillisellä "Tuntematon"-rivillä.</li>
       <li><strong>Blankeille ja tuntemattomille omat rivit.</strong> Luo dimensioon rivit kuten <em>Tuntematon asiakas</em>, <em>Ei kohdistettavissa</em>, <em>Uusi asiakas (ei rekisteröity)</em>. Näin faktataulun jokainen rivi löytää parinsa ja raportit pysyvät luvultaan oikeina.</li>
-      <li><strong>Surrogaattiavain on aina kokonaisluku.</strong> VertiPaq pakkaa INT-sarakkeet erittäin tehokkaasti. GUID- tai merkkijono-avaimet turvottavat mallia ja hidastavat laskentaa.</li>
-      <li><strong>Yksi rivi per yksilö (nykyinen tila).</strong> Ellei käytetä SCD Type 2 -historiaa, dimensiossa on täsmälleen yksi rivi per asiakas, tuote tai muu kokonaisuus. Duplikaattiavaimet rikkovat relaation ja vääristävät laskurit.</li>
-      <li><strong>Leveä, ei syvä.</strong> Denormalisoi alataulut dimensioon. AsiakasDimensio sisältää suoraan Maa, Maanosa, Alue — ei erillistä MaaDimensiota. (Päivämääradimensio on poikkeus.)</li>
-      <li><strong>Attribuuttien kardinaliteetti matalaksi.</strong> Vältä sarakkeita, joilla on miljoonia uniikkeja arvoja dimensiossa. Päivämäärä-timestamp (sekunti-tarkkuus) dimensioattribuuttina tuhoaa VertiPaq-pakkauksen.</li>
-      <li><strong>INT-tyyppiset relaatiot ovat aina nopeampia kuin muut relaatiot.</strong> Isoissa, yli miljoonan rivin dimensioissa STRING/VARCHAR-relaatiot ovat noin 1/3 hitaampia kuin INT-avaimiin perustuvat yhteydet. Nimeä avainkenttä miten tahansa, mutta varmista että sen tietotyyppi on kokonaisluku.</li>
+      <li><strong>Surrogaattiavain on aina kokonaisluku.</strong> VertiPaq pakkaa kolmunääripohjaisen pakkauksen myötä INT-sarakkeet erittäin tehokkaasti. GUID- tai merkkijono-avaimet turvottavat mallia ja hidastavat laskentaa.</li>
+      <li><strong>Yksi rivi per yksilö (nykyinen tila).</strong> Ellei käytetä SCD Type 2 -historiaa, dimensiossa on täsmälleen yksi rivi per asiakas, tuote tai muu kokonaisuus. Duplikaattiavaimet rikkovat relaation ja vääristävät laskurit. Duplikaattirivi on aina virhe.</li>
+      <li><strong>Leveä, ei syvä.</strong> Denormalisoi eli <a href="litistaminen.html">litistä</a> alataulut päädimensioon. AsiakasDimensio sisältää suoraan Maa, Maanosa, Alue — ei erillistä MaaDimensiota joka linkittyy AsiakasDimensioon.</li>
+      <li><strong>Attribuuttien kardinaliteetti matalaksi.</strong> Vältä sarakkeita, joilla on miljoonia uniikkeja arvoja dimensiossa. Päivämäärä-timestamp (sekunti-tarkkuus) dimensioattribuuttina tuhoaa pakkauksen ja tekee kaikesta hitaampaa ja huonompaa.</li>
+      <li><strong>INT-tyyppiset relaatiot ovat aina nopeampia kuin muut relaatiot.</strong> Isoissa, yli miljoonan rivin dimensioissa STRING/VARCHAR-relaatiot ovat noin 1/3 hitaampia kuin INT-avaimiin perustuvat yhteydet. Nimeä avainkenttä miten tahansa, mutta varmista että sen tietotyyppi on kokonaisluku jos viet sen Power BI:hin.</li>
       <li><strong>Hyvin tehty dimensio on käytettävissä monessa paikassa.</strong> AsiakasDimensio voi liittyä Myynti-, Tilaus- ja Reklamaatio-faktatauluihin. Tee dimensiosta niin kattava, että sitä ei tarvitse rakentaa erikseen joka raporttiin.</li>
     </ol>
   </div>
@@ -72,6 +74,7 @@
   <p>Lähes kaikki dimensiot muuttuvat ajan myötä: asiakas vaihtaa kaupunkia, tuote vaihtaa kategoriaa, myyjä siirtyy toiseen tiimiin. SCD-tyyppi määrittää, miten dimensio käsittelee muutokset — säilytetäänkö historia vai ylikirjoitetaanko vanha tieto.</p>
 
   <table>
+    <caption>Taulukko 2, Slowly Changing Dimensions (SCD) – Taulukossa käydään lävitse erilaiset SCD-tallenustyypit ja käyttötilanteet dimensioilla</caption>
     <thead>
       <tr>
         <th>Tyyppi</th>
@@ -93,28 +96,28 @@
         <td><strong>Type 1</strong></td>
         <td>Ylikirjoita</td>
         <td>Vanha arvo korvataan uudella. Yksinkertaisin toteutus.</td>
-        <td>Ei — historia katoaa</td>
+        <td>Ei, historia katoaa</td>
         <td>Kirjoitusvirheen korjaus, osoitteen päivitys kun historialla ei ole merkitystä</td>
       </tr>
       <tr>
         <td><strong>Type 2</strong></td>
         <td>Lisää uusi rivi</td>
         <td>Muutos luo uuden rivin uudella surrogaattiavaimella. Vanha rivi suljetaan (LoppuPvm). Faktataulun historialliset rivit viittaavat edelleen vanhan rivin avaimeen.</td>
-        <td>Kyllä — täydellinen historia</td>
-        <td>Asiakkaan siirtyminen toiseen segmenttiin, myyjän tiimivaihdos — kun historiatiedolla on liiketoiminnallinen merkitys</td>
+        <td>Kyllä, täydellinen historia</td>
+        <td>Asiakkaan siirtyminen toiseen segmenttiin, myyjän tiimivaihdos, silloin kun historiatiedolla on liiketoiminnallinen merkitys</td>
       </tr>
       <tr>
         <td><strong>Type 3</strong></td>
         <td>Lisää sarake</td>
         <td>Lisätään erillinen sarake "edellinen arvo" varten. Tallentaa vain yhden historiavaiheen.</td>
-        <td>Osittain — vain yksi askel taaksepäin</td>
+        <td>Osittain, vain yksi askel taaksepäin</td>
         <td>Harvinainen. Toimii kun tarvitaan vain "nykyinen vs. edellinen" -vertailu</td>
       </tr>
       <tr>
         <td><strong>Type 4</strong></td>
         <td>Historiataulu</td>
-        <td>Nykyarvot pysyvät päädimenisossa. Muutoshistoria tallennetaan erilliseen historiatauluun.</td>
-        <td>Kyllä — erillisessä taulussa</td>
+        <td>Nykyarvot pysyvät päädimensiossa. Muutoshistoria tallennetaan erilliseen historiatauluun.</td>
+        <td>Kyllä, erillisessä taulussa</td>
         <td>Kun dimensio on erittäin suuri ja historiamuutoksia paljon — Type 2 turpoaa liikaa</td>
       </tr>
       <tr>
@@ -129,8 +132,9 @@
 
   <div class="fakta-laatikko">
     <strong>Type 2 käytännössä — esimerkki:</strong>
-    <p>Asiakas Matti Meikäläinen (AsiakasTunnus = CU-001) siirtyy segmentistä "Pien­asiakas" segmenttiin "Avainasiakas" 15.3.2024.</p>
+    <p>Asiakas Matti Meikäläinen (AsiakasTunnus = CU-001) siirtyy segmentistä "Pienasiakas" segmenttiin "Avainasiakas" 15.3.2024.</p>
     <table>
+      <caption>Taulukko 3, SCD 2 – Esimerkki miltä SCD 2 muutokset näyttävät datassa</caption>
       <thead>
         <tr>
           <th>AsiakasAvain (SK)</th>
@@ -168,9 +172,10 @@
 
   <h2>Koko, kardinaliteetti ja suorituskyky Power BI:ssä</h2>
 
-  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet kardinaliteetin perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on ainoa sarake, jolla odotetaan korkea kardinaliteetti — kaikki muut attribuutit tulisi pyrkiä pitämään matalana.</p>
+  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet <a href="termisto.html#kardinaliteetti">kardinaliteetin</a> perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on ainoa sarake, jolla odotetaan korkea kardinaliteetti — kaikki muut attribuutit tulisi pyrkiä pitämään matalana.</p>
 
   <table>
+    <caption>Taulukko 4, Dimensioiden kardinaliteetit – Kardinaliteetin vaikutus Power BI dimensioiden suorituskykyyn</caption>
     <thead>
       <tr>
         <th>Dimension koko</th>
@@ -219,54 +224,12 @@
     </tbody>
   </table>
 
-  <h2>Power BI:n rajat dimensioille</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Raja</th>
-        <th>Arvo</th>
-        <th>Käytännön vaikutus</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Datasettikoko — Jaettu kapasiteetti (Pro-lisenssi)</td>
-        <td>1 GB per .pbix</td>
-        <td>Tiukka raja. Yksikin turvaava tekstisarake miljoonien rivien dimensiossa voi täyttää koko budjetin.</td>
-      </tr>
-      <tr>
-        <td>Datasettikoko — Premium Per User (PPU)</td>
-        <td>100 GB</td>
-        <td>Runsas, mutta ei rajaton. Hyvä mallinnus pienentää kokoa 2–3-kertaisesti.</td>
-      </tr>
-      <tr>
-        <td>Datasettikoko — Premium P1/P2/P3</td>
-        <td>25 / 50 / 100 GB</td>
-        <td>Suuren organisaation raja. Premium-kapasiteetti poistaa Pro-lisenssin 1 GB -katon.</td>
-      </tr>
-      <tr>
-        <td>Uniikkeja arvoja per sarake</td>
-        <td>~1,999 miljardia</td>
-        <td>Teoreettinen raja ei ole käytännön ongelma. Ongelma on pakkaus: jokainen uniikki arvo kasvattaa muistijalanjälkeä.</td>
-      </tr>
-      <tr>
-        <td>Relaation kardinaliteettirajoitus</td>
-        <td>Ei raja, mutta suositus: PK-sarakkeen tulee olla uniikki</td>
-        <td>Duplikaatit PK:ssa muuttavat suhteen moni-moneen-suhteeksi. Power BI varoittaa tästä, mutta laskee silti — virheellisesti.</td>
-      </tr>
-      <tr>
-        <td>Korkean kardinaliteetin sarakkeiden vaikutus</td>
-        <td>Ei katkaisurajaa, mutta suorituskyky heikkenee</td>
-        <td>GUID-avainkenttä tai vapaa tekstisarake 10M rivisessä dimensiossa voi kasvattaa mallin kokoa 5–10-kertaisesti verrattuna vastaavaan INT-sarakkeeseen.</td>
-      </tr>
-    </tbody>
-  </table>
 
   <div class="fakta-laatikko">
     <strong>Kardinaliteetin vaikutus pakkaussuhteeseen — esimerkki:</strong>
     <p>Asiakasdimensio, 2 000 000 riviä:</p>
     <table>
+      <caption>Taulukko 5, Ongelmalliset korkean kardinaliteetin sarakkeet – Ongelmalliset yksilöidyt korkean kardinaliteetin sarakkeet nostavat 10 mb dimension koon lähes 700 mb kokoiseksi</caption>
       <thead>
         <tr>
           <th>Sarake</th>
@@ -280,31 +243,31 @@
           <td>AsiakasAvain (SK)</td>
           <td>2 000 000</td>
           <td>INT</td>
-          <td>~8 MB — INT pakkautuu erinomaisesti</td>
+          <td>~8 MB, INT pakkautuu erinomaisesti</td>
         </tr>
         <tr>
           <td>Segmentti</td>
           <td>5</td>
           <td>VARCHAR</td>
-          <td>&lt; 1 MB — lähes ilmainen</td>
+          <td>&lt; 1 MB, lähes ilmainen</td>
         </tr>
         <tr>
           <td>Maa</td>
           <td>40</td>
           <td>VARCHAR</td>
-          <td>&lt; 1 MB — lähes ilmainen</td>
+          <td>&lt; 1 MB, lähes ilmainen</td>
         </tr>
         <tr>
           <td>Sähköposti (korkea kardinaliteetti)</td>
           <td>2 000 000</td>
           <td>VARCHAR</td>
-          <td>~200–400 MB — ei pakkaudu, jokainen arvo tallennetaan erikseen</td>
+          <td>~200–400 MB, ei pakkaudu, jokainen arvo tallennetaan erikseen</td>
         </tr>
         <tr>
           <td>Rekisteröintiaika (timestamp)</td>
           <td>~1 800 000</td>
           <td>DATETIME</td>
-          <td>~150–300 MB — lähes jokainen arvo uniikki, pakkaus epäonnistuu</td>
+          <td>~150–300 MB, lähes jokainen arvo uniikki, pakkaus epäonnistuu</td>
         </tr>
       </tbody>
     </table>
@@ -315,9 +278,9 @@
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <p>Kaksi asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
     <ul>
-      <li><strong>Ei tyhjiä rivejä dimensioissa.</strong> Tyhjä rivi on oire, ei ominaisuus. Se syntyy kun faktataulussa on FK-arvo jolla ei ole vastinetta dimensiossa — yleensä ETL-virhe tai puuttuva "tuntematon"-rivi. Power BI luo tällöin automaattisesti "Blank"-rivin, joka näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa aina ennen julkaisua.</li>
+      <li><strong>Ei tyhjiä rivejä dimensioissa.</strong> Tyhjä rivi on oire, ei ominaisuus. Se syntyy kun faktataulussa on FK-arvo jolla ei ole vastinetta dimensiossa. Tämä johtuu yleensä ETL-virheestä tai puuttuvasta "tuntematon"-rivistä. Power BI luo tällöin automaattisesti "Blank"-rivin, joka näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa ennen julkaisua.</li>
       <li><strong>Blankeille ja nollatiedoille omat rivit.</strong> Kun et tiedä asiakkaan segmenttiä, faktataulun rivi ei silti saa jäädä kohdistamatta. Luo dimensioon eksplisiittiset rivit: <em>Tuntematon</em>, <em>Ei kohdistettavissa</em>, <em>Ei sovellettavissa</em>. Näin kaikki luvut summautuvat oikein ja tiedät aina kuinka suuri osuus datasta on tunnistamatonta — se itsessään on liiketoiminnallisesti arvokas tieto.</li>
-      <li><strong>Hyvin tehty dimensio on käytettävissä monessa paikassa.</strong> AsiakasDimensio, jossa on kaikki tarvittavat attribuutit, liittyy yhtä hyvin Myynteihin, Tilauksiin kuin Reklamaatioihinkin. Älä rakenna "Myynti-AsiakasDimensiota" ja "Tilaukset-AsiakasDimensiota" erikseen — ne ovat sama asia ja kaksi versiota tarkoittaa kaksi kertaa enemmän ylläpitoa ja kaksi kertaa enemmän mahdollisuuksia ristiriitaisuuksiin.</li>
+      <li><strong>Hyvin tehty dimensio on käytettävissä monessa paikassa.</strong> AsiakasDimensio, jossa on kaikki tarvittavat attribuutit, liittyy yhtä hyvin Myynteihin, Tilauksiin kuin Reklamaatioihinkin. Älä rakenna "Myynti-AsiakasDimensiota" ja "Tilaukset-AsiakasDimensiota" erikseen. Ne ovat sama asia ja kaksi versiota tarkoittaa kaksi kertaa enemmän ylläpitoa ja kaksi kertaa enemmän mahdollisuuksia ristiriitaisuuksiin.</li>
     </ul>
   </div>
 

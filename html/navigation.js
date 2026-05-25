@@ -7,9 +7,9 @@ class MainNavigation extends HTMLElement {
                 <a href="dimensiot.html">Dimensioiden mallinnus</a> |
                 <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> |
                 <a href="lumihiutalemalli.html">Lumihiutalemalli</a> |
-                <a href="flattaus.html">Taulujen flättäys</a> |
+                <a href="litistaminen.html">Taulujen litistäminen</a> |
                 <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> |
-                <a href="apuohjelmat.html">Apuohjelmat</a> |
+                <a href="apuohjelmat.html">Power BI Apuohjelmat</a> |
                 <a href="ai-valmis-metadata.html">AI-valmis metadata</a> |
                 <a href="kehittamisen-filosofia.html">Kehittämisen filosofia</a> |
                 <a href="termisto.html">Termistö</a>

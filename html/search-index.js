@@ -102,7 +102,7 @@ hyödyt rajoitteet tietovarasto dwh hyvä power bi huono
 flättäys flattening hierarkkiset dimensiotaulut yhdeksi leveäksi tauluksi
 vertipaq ei hyödy normalisoinnista relaatioketjut hidastavat`,
 
-'flattaus.html': `flättäys flattening taulujen yhdistäminen hierarkia leveä litteä taulu
+'litistaminen.html': `flättäys flattening taulujen yhdistäminen hierarkia leveä litteä taulu
 kolme taulua hierarkiassa vedetään yhdeksi dimensioksi
 lumihiutalemalli tähtimalli muunnos power bi
 esimerkki organisaatiohierarkia yritys liiketoimintaryhmä kustannuspaikka myymälä
@@ -195,6 +195,19 @@ tietomallin laadun tarkistaminen puuttuvat relaatiot korkean kardinaliteetin sar
 luonnollisella kielellä kysyminen datasta
 copilot vs mcp avoin protokolla suljettu ympäristö
 tekoälymalli valittavissa claude gpt laajennettavuus`,
+
+'data-contract.html': `data contract sopimus datan tuottajan kuluttajan välillä
+määrittelee mitä dataa toimitetaan missä muodossa millä laadulla kenen vastuulla
+omistajuus data owner data steward data custodian dpo tietosuojavastaava vastuut roolit
+uutissivu lukijadata verkkoseuranta selaajat käyttäjät
+skeema sarakkeet tietotyypit pakollinen suostumus_tila lukija_id istunto_id kayttaja_id artikkeli_id
+lukuaika vierityssyvyys laitetyyppi maa_koodi tilaaja_tyyppi viittaaja botti
+skeemanmuutos rikkova muutos ei-rikkova muutos ilmoitusaika versiointi
+henkilötieto gdpr tietosuoja suostumus anonymisointi pseudonymisointi rekisteröidyn oikeudet poistopyyntö
+laatusäännöt null-arvot botisuodatus sisäinen liikenne täydellisyys
+sla vasteaika ratkaisuaika kriittinen p1 p2 p3 ongelmailmoitus postmortem tietosuojarikkomus 72h
+käyttökäytännöt pääsykäytännöt rls row-level security toimittaja toimituspäällikkö analyytikko markkinointi tuotekehitys
+sallitut kiellettyt käyttötarkoitukset tarkastusloki pääsynhallinta`,
 
 'data-governance.html': `data governance organisaation datan hallinta päätökset vastuut prosessit standardit
 luotettavaa saatavilla laillisesti tarkoituksenmukaisesti organisatorinen kulttuurinen muutos

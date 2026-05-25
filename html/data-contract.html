@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Contract</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+  <style>
+    .sopimus-kehys {
+      border: 2px solid #005a9e;
+      border-radius: 4px;
+      padding: 0;
+      margin: 28px 0;
+    }
+    .sopimus-otsikkorivi {
+      background: #005a9e;
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .sopimus-otsikkorivi strong {
+      font-size: 1.05em;
+    }
+    .sopimus-otsikkorivi span {
+      font-size: 0.85em;
+      opacity: 0.85;
+    }
+    .sopimus-sisalto {
+      padding: 20px 24px 24px 24px;
+    }
+    .sopimus-sisalto h3 {
+      color: #005a9e;
+      border-bottom: 1px solid #dde6f2;
+      padding-bottom: 4px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .sopimus-sisalto h3:first-child {
+      margin-top: 8px;
+    }
+    .sopimus-metatiedot {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px 24px;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+    .sopimus-metatiedot dt {
+      color: #666;
+      margin-bottom: 1px;
+    }
+    .sopimus-metatiedot dd {
+      margin: 0 0 6px 0;
+      font-weight: bold;
+      color: #222;
+    }
+    .tila-aktiivinen {
+      display: inline-block;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #b8dfc4;
+      border-radius: 3px;
+      padding: 1px 8px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+    .vakavuus-kriittinen { color: #b03020; font-weight: bold; }
+    .vakavuus-korkea { color: #c07000; font-weight: bold; }
+    .vakavuus-normaali { color: #555; }
+  </style>
+</head>
+<body>
+<main-navigation></main-navigation>
+
+  <h1>Data Contract</h1>
+
+  <p>Data contract on kirjallinen sopimus datan tuottajan ja datan kuluttajan välillä. Se määrittelee mitä dataa tuotetaan, missä muodossa, millä laadulla, kuka siitä vastaa ja millä ehdoilla sitä saa käyttää. Data contract tuo dataan samat odotukset, joita organisaatioilla on muista palveluista: selkeät vastuut, sovittu laatu ja ennustettava käyttäytyminen.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Lyhyesti:</strong> Data contract vastaa kysymyksiin kuka omistaa datan, mitä se lupaa laadun suhteen, miten muutoksista ilmoitetaan etukäteen ja kenellä on oikeus käyttää dataa mihin tarkoitukseen.
+  </div>
+
+  <p>Ilman data contractia datan kuluttaja — analyytikko, raporttikehittäjä tai toinen tiimi — ei tiedä voidaanko dataan luottaa, muuttuuko skeema varoittamatta tai kuka korjaa ongelman kun data ei saavu ajallaan. Data contract on sopimuksen muotoinen ratkaisu tähän epävarmuuteen.</p>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Data contract ei ole byrokratiaa — se on kohteliaisuutta. Kun kirjaat ylös mitä lupaat datan suhteen, pakota itsesi miettimään lupauksen realistisuus. Samalla kuluttaja tietää mihin luottaa ja mihin ei. Aloita yksinkertaisesta: yksi sivu, tärkeimmät kentät, vastuuhenkilö ja yksi SLA. Se on parempi kuin täydellinen sopimus jota ei ole olemassa.</p>
+  </div>
+
+  <h2>Esimerkkisopimus: Uutissivun lukijadata</h2>
+
+  <p>Alla on esimerkki käytännön data contractista. Sopimus kattaa uutissivuston verkkoseurannan tuottaman lukijadatan, jota toimituksen analytiikkatiimi, markkinointi ja tuotekehitys käyttävät sisältöpäätösten ja tilaajakonversion tukena. Koska data sisältää henkilötietoja, GDPR asettaa sopimukselle erityisvaatimuksia.</p>
+
+  <div class="sopimus-kehys">
+    <div class="sopimus-otsikkorivi">
+      <strong>Data Contract — Uutissivun lukijadata (web.LukijaKaynti)</strong>
+      <span>Versio 2.0 &nbsp;·&nbsp; Voimassa 2025-04-01 alkaen &nbsp;·&nbsp; <span class="tila-aktiivinen">Aktiivinen</span></span>
+    </div>
+
+    <div class="sopimus-sisalto">
+
+      <dl class="sopimus-metatiedot">
+        <div>
+          <dt>Tuottaja</dt>
+          <dd>Tekninen tiimi / verkkoseuranta (Matomo)</dd>
+        </div>
+        <div>
+          <dt>Kuluttaja</dt>
+          <dd>Toimituksen analytiikkatiimi, markkinointi, tuotekehitys</dd>
+        </div>
+        <div>
+          <dt>Datan omistaja</dt>
+          <dd>Digitaalinen päätoimittaja (Sanna Heikkinen)</dd>
+        </div>
+        <div>
+          <dt>Tekninen vastuuhenkilö</dt>
+          <dd>Data Engineer (Mikko Virtanen)</dd>
+        </div>
+        <div>
+          <dt>Tietosuojavastaava</dt>
+          <dd>DPO (Laura Mäkinen, dpo@uutislehti.fi)</dd>
+        </div>
+        <div>
+          <dt>Päivitysväli</dt>
+          <dd>Reaaliaikainen stream + koostettu vuorokausitaulukko klo 03:00</dd>
+        </div>
+        <div>
+          <dt>Säilytysaika</dt>
+          <dd>Raakadata 13 kk, anonymisoitu historiataulukko 5 vuotta</dd>
+        </div>
+        <div>
+          <dt>Henkilötietoluokka</dt>
+          <dd>Kyllä — IP-osoite, evästetieto, kirjautunut käyttäjätunnus</dd>
+        </div>
+      </dl>
+
+      <h3>1. Omistajuus ja vastuut</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rooli</th>
+            <th>Henkilö / Taho</th>
+            <th>Vastuu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data Owner</td>
+            <td>Sanna Heikkinen, digitaalinen päätoimittaja</td>
+            <td>Vastaa datan käyttötarkoitusten hyväksynnästä liiketoiminnan näkökulmasta. Hyväksyy skeemanmuutokset ja uudet käyttötarkoitukset. Viimekätinen vastuu GDPR-noudattamisesta tässä sopimuksessa.</td>
+          </tr>
+          <tr>
+            <td>Data Steward</td>
+            <td>Petra Laine, web-analyytikko</td>
+            <td>Päivittäinen laadunvalvonta. Hallinnoi suodatuslistoja (botit, sisäinen liikenne). Käsittelee rekisteröityjen poistopyynnöt tekniselle tiimille.</td>
+          </tr>
+          <tr>
+            <td>Data Custodian</td>
+            <td>Mikko Virtanen, data engineer</td>
+            <td>Tekninen vastuu keräysputkesta, tallennuksesta, anonymisoinnista ja skeemanmuutosten toteutuksesta. Toteuttaa poistopyynnöt 30 vrk sisällä.</td>
+          </tr>
+          <tr>
+            <td>Tietosuojavastaava (DPO)</td>
+            <td>Laura Mäkinen</td>
+            <td>Varmistaa GDPR-vaatimusten täyttymisen. Hyväksyttävä ennen uusien henkilötietokategorioiden lisäämistä skeemaan.</td>
+          </tr>
+          <tr>
+            <td>Data Consumer</td>
+            <td>Analytiikkatiimi, markkinointi, tuotekehitys</td>
+            <td>Käyttää dataa sovitun käyttötarkoituksen ja myönnetyn roolin mukaan. Raportoi laatu- ja tietosuojapoikkeamat Data Stewardille välittömästi.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. Skeema</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sarake</th>
+            <th>Tyyppi</th>
+            <th>Pakollinen</th>
+            <th>Henkilötieto</th>
+            <th>Kuvaus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>kaynti_id</td>
+            <td>BIGINT</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Surrogaattiavain. Yksilöi yksittäisen sivulatauksen.</td>
+          </tr>
+          <tr>
+            <td>istunto_id</td>
+            <td>VARCHAR(64)</td>
+            <td>Kyllä</td>
+            <td>Kyllä</td>
+            <td>Pseudonymisoitu istuntotunniste. Yhdistää saman selaajan käynnit yhden sessioikkunan sisällä. Hashattu SHA-256.</td>
+          </tr>
+          <tr>
+            <td>lukija_id</td>
+            <td>VARCHAR(64)</td>
+            <td>Ei</td>
+            <td>Kyllä</td>
+            <td>Pseudonymisoitu pitkäaikainen tunnisteevästetunniste. NULL jos evästettä ei ole hyväksytty tai selain estää.</td>
+          </tr>
+          <tr>
+            <td>kayttaja_id</td>
+            <td>INT</td>
+            <td>Ei</td>
+            <td>Kyllä</td>
+            <td>Tilaajan käyttäjätunnus jos kirjautunut. NULL anonymeille. Viiteavain tilaajakantaan.</td>
+          </tr>
+          <tr>
+            <td>artikkeli_id</td>
+            <td>INT</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Viiteavain sisältötauluun. NULL etusivulle ja kategorianäkymille.</td>
+          </tr>
+          <tr>
+            <td>sivutyyppi</td>
+            <td>VARCHAR(30)</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Arvot: artikkeli, etusivu, kategoria, haku, tilaus, muu. Ei vapaata tekstiä.</td>
+          </tr>
+          <tr>
+            <td>kayntiaikaleima</td>
+            <td>DATETIME</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Sivun latausaika UTC-aikavyöhykkeessä. Ei tulevaisuuden aikoja.</td>
+          </tr>
+          <tr>
+            <td>lukuaika_sekuntia</td>
+            <td>INT</td>
+            <td>Ei</td>
+            <td>Ei</td>
+            <td>Arvioitu aktiivinen lukuaika sekunteina. NULL jos selain ei tue tapahtumia. Arvot 0–3600.</td>
+          </tr>
+          <tr>
+            <td>vierityssyvyys_pct</td>
+            <td>TINYINT</td>
+            <td>Ei</td>
+            <td>Ei</td>
+            <td>Kuinka pitkälle artikkeli vieritetty, prosentteina 0–100. NULL jos ei mitata.</td>
+          </tr>
+          <tr>
+            <td>laitetyyppi</td>
+            <td>VARCHAR(10)</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Arvot: desktop, mobile, tablet. Johdettu User-Agent-merkkijonosta.</td>
+          </tr>
+          <tr>
+            <td>maa_koodi</td>
+            <td>CHAR(2)</td>
+            <td>Ei</td>
+            <td>Kyllä</td>
+            <td>ISO 3166-1 alpha-2 -maakoodi IP-geolokalisaatiosta. NULL jos ei voida määrittää. IP-osoitetta ei tallenneta.</td>
+          </tr>
+          <tr>
+            <td>suostumus_tila</td>
+            <td>VARCHAR(15)</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Arvot: hyvaksytty, hylätty, vanhentunut, ei_kysytty. Kuvaa evästesuostumuksen tilan lataushetkellä.</td>
+          </tr>
+          <tr>
+            <td>tilaaja_tyyppi</td>
+            <td>VARCHAR(15)</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>Arvot: anonyymi, rekisteröitynyt, ilmaistilaaja, maksullinen. Johdetaan kayttaja_id:n perusteella.</td>
+          </tr>
+          <tr>
+            <td>viittaaja_luokka</td>
+            <td>VARCHAR(20)</td>
+            <td>Ei</td>
+            <td>Ei</td>
+            <td>Liikenteen lähteen luokka. Arvot: suora, hakukone, some, uutiskirje, muu. Tarkkaa viittaaja-URL:ia ei tallenneta.</td>
+          </tr>
+          <tr>
+            <td>on_botti</td>
+            <td>BIT</td>
+            <td>Kyllä</td>
+            <td>Ei</td>
+            <td>1 jos tunnettu botti tai indeksointirobotti, muuten 0. Botit suodatetaan pois analytiikkanäkymistä muttei raakadatasta.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>3. Laatusäännöt</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sääntö</th>
+            <th>Ehto</th>
+            <th>Toimenpide rikkomuksesta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Suostumus ennen henkilötietojen tallennusta</td>
+            <td>Jos suostumus_tila = 'hylätty', sarakkeet lukija_id, kayttaja_id ja maa_koodi on oltava NULL</td>
+            <td>ETL-prosessi nollaa henkilötietosarakkeet automaattisesti. Poikkeamat kirjataan tietosuojalokiin. DPO:lle ilmoitus välittömästi jos &gt; 0 rikkomusta vuorokaudessa.</td>
+          </tr>
+          <tr>
+            <td>Ei NULL-arvoja avaintiedoissa</td>
+            <td>kaynti_id, kayntiaikaleima, sivutyyppi, laitetyyppi, suostumus_tila, on_botti eivät saa olla NULL</td>
+            <td>Rivi hylätään ETL-vaiheessa. Data Stewardille ilmoitus jos &gt; 0,5 % riveistä hylätään.</td>
+          </tr>
+          <tr>
+            <td>Sivutyyppi sallituista arvoista</td>
+            <td>sivutyyppi IN (artikkeli, etusivu, kategoria, haku, tilaus, muu)</td>
+            <td>Rivi ohjataan karanteeniin. Uudet sivutyypit lisätään Data Ownerin hyväksynnällä.</td>
+          </tr>
+          <tr>
+            <td>Aikaleima ei tulevaisuudessa</td>
+            <td>kayntiaikaleima &lt;= UTC_NOW() + 5 min (toleranssi kelloneroille)</td>
+            <td>Rivi hylätään. Ilmoitus Data Stewardille.</td>
+          </tr>
+          <tr>
+            <td>Botisuodatus</td>
+            <td>Tunnettujen bottien User-Agent-sormenjäljet suodatetaan IAB/ABC-listan mukaan. Lista päivitetään kuukausittain.</td>
+            <td>Bottirivit merkitään on_botti = 1 ja jätetään raakadataan mutta poissuodatetaan kaikista analytiikkanäkymistä.</td>
+          </tr>
+          <tr>
+            <td>Sisäisen liikenteen poissulkeminen</td>
+            <td>Toimiston IP-alueet (10.10.0.0/16) merkitään on_botti = 1</td>
+            <td>Lista päivitetään IT:n toimesta aina toimistoverkon muuttuessa. Data Steward vastaa ajantasaisuudesta.</td>
+          </tr>
+          <tr>
+            <td>Lukuajan arvoalue</td>
+            <td>lukuaika_sekuntia IN [0, 3600] tai NULL</td>
+            <td>Yli 3600 sekunnin arvot katkaistaan 3600:aan ennen latausta. Kirjataan muutoslokiin.</td>
+          </tr>
+          <tr>
+            <td>Päivittäinen kattavuus</td>
+            <td>Vuorokausitaulukossa jokaiselle kalenteripäivälle vähintään 1 000 käyntiriviä (arkipäivät)</td>
+            <td>Hälytys Data Stewardille ja Data Custodianille klo 04:30 mennessä. Alle 500 käyntiä käynnistää P1-prosessin automaattisesti.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4. Skeemanmuutokset</h3>
+
+      <p>Koska skeema sisältää henkilötietoja, kaikki muutokset vaativat DPO:n arvion ennen käyttöönottoa.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Muutostyyppi</th>
+            <th>Esimerkit</th>
+            <th>Ilmoitusaika</th>
+            <th>Hyväksyntä</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ei-rikkova muutos</strong></td>
+            <td>Uuden valinnaisen ei-henkilötietosarakkeen lisäys, indeksin lisäys, kuvauksen päivitys, sallitun arvojoukon laajennus</td>
+            <td>7 päivää ennen</td>
+            <td>Data Custodian ilmoittaa, DPO:n tieto riittää jos ei koske henkilötietoja</td>
+          </tr>
+          <tr>
+            <td><strong>Ei-rikkova muutos (henkilötieto)</strong></td>
+            <td>Uuden valinnaisen henkilötietosarakkeen lisäys, keräyslaajuuden muutos</td>
+            <td>21 päivää ennen</td>
+            <td>Data Ownerin ja DPO:n kirjallinen hyväksyntä. Tietosuojaseloste päivitettävä ennen käyttöönottoa.</td>
+          </tr>
+          <tr>
+            <td><strong>Rikkova muutos</strong></td>
+            <td>Sarakkeen poisto tai uudelleennimeäminen, tietotyypin muutos, pakollisen sarakkeen lisäys, arvojoukon kaventaminen</td>
+            <td>30 päivää ennen</td>
+            <td>Data Ownerin ja DPO:n kirjallinen hyväksyntä + kaikkien nimettyjen kuluttajien vahvistus</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Muutosten hallintakäytäntö:</strong></p>
+      <ul>
+        <li>Kaikki skeemanmuutokset dokumentoidaan versiohistoriaan ennen käyttöönottoa.</li>
+        <li>Rikkova muutos ei astu voimaan ennen kuin jokainen nimetty kuluttaja on vahvistanut olevansa valmis.</li>
+        <li>Siirtymäaikana molemmat versiot ovat saatavilla rinnakkain (<code>web.LukijaKaynti_v1</code> ja <code>web.LukijaKaynti_v2</code>), ellei toisin sovita.</li>
+        <li>Skeeman nykyinen versio on aina luettavissa <code>metadata.sopimukset</code>-taulusta kentistä <code>versio</code> ja <code>voimassa_alkaen</code>.</li>
+      </ul>
+
+      <h3>5. SLA:t ongelmatilanteissa</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Vakavuus</th>
+            <th>Kuvaus</th>
+            <th>Vasteaika</th>
+            <th>Ratkaisuaika</th>
+            <th>Tiedotusväli</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="vakavuus-kriittinen">P1 — Kriittinen</span></td>
+            <td>Keräysputki poikki — dataa ei saavu lainkaan. Tai tietosuojarikkomus: henkilötietoja tallennetaan ilman suostumusta.</td>
+            <td>30 min</td>
+            <td>4 tuntia</td>
+            <td>Joka 30 min. Tietosuojarikkomus: DPO:lle välitön ilmoitus, 72 h ilmoitusvelvollisuus viranomaiselle.</td>
+          </tr>
+          <tr>
+            <td><span class="vakavuus-korkea">P2 — Korkea</span></td>
+            <td>Data on osittain virheellistä tai puuttuu yli 10 % riveistä. Suostumustieto virheellinen yli 1 % riveissä.</td>
+            <td>2 tuntia</td>
+            <td>Saman päivän loppuun</td>
+            <td>Kerran 4 tunnissa. DPO saa tilannetiedon välittömästi jos suostumukseen liittyy.</td>
+          </tr>
+          <tr>
+            <td><span class="vakavuus-normaali">P3 — Normaali</span></td>
+            <td>Yksittäisiä laaturikkomuksia, ei vaikuta kokonaisuuteen. Bottisuodatuslistassa puutteita. Dokumentoitu poikkeus.</td>
+            <td>1 työpäivä</td>
+            <td>5 työpäivää</td>
+            <td>Seuraava säännöllinen katselmus</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Ongelmailmoituksen kanava:</strong> Sähköposti <code>data-tuki@uutislehti.fi</code> tai Teams-kanava <em>#data-ongelmat</em>. P1-tapaukset myös puhelinsoitto Data Custodianille. Tietosuojarikkomuksissa lisäksi välitön soitto DPO:lle.</p>
+
+      <p><strong>Postmortem:</strong> P1- ja P2-tapauksista kirjoitetaan juurisyyanalyysi viiden arkipäivän sisällä. Tietosuojarikkomuksissa dokumentaatio toimitetaan DPO:lle 48 tunnin kuluessa.</p>
+
+      <h3>6. Käyttö- ja pääsykäytännöt</h3>
+
+      <p><strong>Pääsy:</strong> Data on avointa kaikille toimituksen ja teknisen tiimin jäsenille ilman roolikohtaisia rajoituksia. Jokainen näkee kaikki artikkelit, niiden lukijamäärät, lukuajat ja muut mittarit — myös sen, kenen kirjoittamia artikkelit ovat.</p>
+
+      <p><strong>Sallitut käyttötarkoitukset:</strong></p>
+      <ul>
+        <li>Sisältösuorituskyvyn seuranta ja vertailu kirjoittajien, osastojen ja aihepiirien välillä</li>
+        <li>Tilaajakonversion analysointi ja parantaminen</li>
+        <li>Käyttökokemuksen ja sisältöstrategian kehittäminen</li>
+        <li>Tekninen virheenkorjaus ja suorituskyvyn seuranta</li>
+      </ul>
+
+      <p><strong>Kielletyt käyttötarkoitukset:</strong></p>
+      <ul>
+        <li>Datan myynti tai luovuttaminen organisaation ulkopuolelle</li>
+        <li>Lukijoiden yksilöllinen profilointi tai seuranta yli suostumuksen</li>
+        <li>Koneoppimismallin kouluttaminen henkilötason lukijadatalla ilman DPO:n erillistä hyväksyntää</li>
+      </ul>
+
+      <p><strong>Rekisteröidyn oikeudet:</strong> Lukijoita koskevat tietopyynnöt (tarkastus, poisto, siirto) ohjataan osoitteeseen <code>tietosuoja@uutislehti.fi</code>. Data Custodian toteuttaa poistopyynnöt 30 kalenteripäivän kuluessa.</p>
+
+    </div>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Avoin data sisällä on usein parempi valinta kuin monimutkainen roolihierarkia. Kun kaikki näkevät samat luvut, syntyy yhteinen todellisuus — ei kilpailevia versioita siitä mitä "meillä menee hyvin". Toimittaja, joka näkee kollegoidenkin artikkelien lukemat, oppii nopeammin mikä toimii. Läpinäkyvyys rakentaa luottamusta enemmän kuin suojatut näkymät. RLS on oikea työkalu silloin kun datassa on oikeasti arkaluonteista tai roolisidonnaista tietoa — ei oletusasetus joka otetaan käyttöön varmuuden vuoksi.</p>
+  </div>
+
+</body>
+</html>
