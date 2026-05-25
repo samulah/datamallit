@@ -228,7 +228,19 @@ extract transform load extract load transform`,
 raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi`,
 
 'data-vault.html': `data vault skaalautuva auditoitava tietomallinnusmenetelmä suurten muuttuvien tietovarastojen hallinta
-hubit satelliitit linkit historian säilyttäminen`,
+dan linstedt tiimi 1990-luvulla lockheed martin yritystason tietovarastot lähdejärjestelmien muutokset historia jäljitettävyys
+datavaultalliance faq about data vault 2.0 lähde
+perinteiset tietovarastomallit ylläpito lähteitä paljon liiketoiminnan rakenteet muuttuvat nopeasti
+alkuperäinen data vault data vault 1.0 data vault 2.0 mallinnusmenetelmä arkkitehtuuri kehitysmenetelmä automaatio nykyaikaiset data-alustat
+datavaultalliance data vault 2.0 introduction lähde
+data vault 2.0 rakenne hub linkki satelliitti hubit linkit satelliitit liiketoiminta-avain tekninen avain latausaika lähdejärjestelmä
+scalefree data vault glossary effectivity satellite lähde
+hub kuvaa liiketoiminnan ydinkohdetta asiakas tilaus tuote työntekijä
+satelliitti kuvailevat tiedot attribuutit historia asiakkaan nimi kaupunki asiakasryhmä muutokset uusi rivi ei ylikirjoiteta
+linkki hubien välinen suhde asiakas tilaus monesta moneen
+tavallinen linkki tapahtumalinkki status-linkki tilauksen status avoin toimitettu peruttu voimassaolo muutoshistoria linkin satelliitti
+luokkakaavio data vault entiteetit asiakas tilaus status hub link satellite
+raw vault business vault pit-taulut bridge-taulut latausautomaatio`,
 
 'ai-valmis-metadata.html': `ai-valmis metadata tekoäly copilot power bi tietovarasto metadata
 kuvailu nimeäminen taulut sarakkeet mitat liiketoimintakuvaus

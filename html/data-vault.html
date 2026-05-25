@@ -10,12 +10,22 @@
 <main-navigation></main-navigation>
   <h1>Data Vault</h1>
   <p>Data Vault on skaalautuva ja auditoitava tietomallinnusmenetelmä, joka soveltuu erityisesti suurten ja muuttuvien tietovarastojen hallintaan.</p>
-  <h2>Rakenne</h2>
+  <h2>Johdanto</h2>
+  <p>Data Vaultin kehitti Dan Linstedt yhdessä tiiminsä kanssa 1990-luvulla Lockheed Martinilla (<a href="https://datavaultalliance.com/architecture-data/faq-about-data-vault-2-0/">DataVaultAlliance: FAQ About Data Vault 2.0</a>). Menetelmä syntyi tarpeesta mallintaa yritystason tietovarastoja tavalla, joka kestää lähdejärjestelmien muutoksia, säilyttää historian ja tukee datan jäljitettävyyttä. Perinteiset tietovarastomallit voivat muuttua vaikeasti ylläpidettäviksi, kun lähteitä on paljon ja liiketoiminnan rakenteet muuttuvat nopeasti.</p>
+  <p>Data Vaultista puhutaan yleensä kahtena versiona: alkuperäisenä Data Vaultina, jota kutsutaan usein Data Vault 1.0:ksi, sekä Data Vault 2.0:na. Data Vault 2.0 laajentaa mallinnusmenetelmää kokonaisemmaksi lähestymistavaksi, johon kuuluu mallinnuksen lisäksi arkkitehtuuri, kehitysmenetelmä, automaatio ja nykyaikaisten data-alustojen käytännöt (<a href="https://datavaultalliance.com/engineering/data-vault-2-0-an-introduction/">DataVaultAlliance: Data Vault 2.0 Introduction</a>).</p>
+  <h2>Data Vault 2.0 -rakenne</h2>
+  <p>Data Vault 2.0 jakaa tietomallin kolmeen perusrakenteeseen: Hubeihin, Linkkeihin ja Satelliitteihin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Data Vault Glossary</a>). Ajatuksena on erottaa toisistaan pysyvät liiketoiminta-avaimet, niiden väliset suhteet ja ajan myötä muuttuvat kuvailevat tiedot. Tämä tekee mallista joustavan, koska uusi lähdejärjestelmä tai uusi attribuutti voidaan usein lisätä rikkomatta olemassa olevaa rakennetta.</p>
   <ul>
-    <li>Hubit, satelliitit ja linkit</li>
-    <li>Mahdollistaa historian säilyttämisen</li>
+    <li><strong>Hub</strong> kuvaa liiketoiminnan ydinkohdetta, kuten asiakasta, tilausta, tuotetta tai työntekijää. Hubiin tallennetaan liiketoiminta-avain, tekninen avain, latausaika ja lähdejärjestelmä. Hub ei yleensä sisällä kuvailevia attribuutteja, kuten asiakkaan nimeä tai osoitetta.</li>
+    <li><strong>Satelliitti</strong> sisältää Hubiin tai Linkkiin liittyvät kuvailevat tiedot ja niiden historian. Esimerkiksi asiakkaan nimi, kaupunki ja asiakasryhmä kuuluvat asiakassatelliittiin. Kun tieto muuttuu, satelliittiin lisätään uusi rivi sen sijaan, että vanha tieto ylikirjoitettaisiin.</li>
+    <li><strong>Linkki</strong> kuvaa Hubien välisen suhteen. Esimerkiksi asiakas ja tilaus yhdistetään asiakas-tilaus-linkillä. Linkki mahdollistaa myös monesta moneen -rakenteet ilman, että Hubien perusrakenne muuttuu.</li>
   </ul>
-  <h2>Laajennusvinkit</h2>
-  <p>Lisää esimerkkejä Data Vault -rakenteista, käyttötapauksia ja kuvia. Kerro, miten Data Vault eroaa perinteisistä malleista.</p>
+  <p>Linkkejä voi olla eri rooleissa. Tavallinen linkki kuvaa kahden tai useamman Hubin suhdetta, tapahtumalinkki voi kuvata yksittäistä tapahtumaa ja status-linkki voi kuvata kohteen suhdetta tilaan, kuten tilauksen yhteyttä statukseen <em>avoin</em>, <em>toimitettu</em> tai <em>peruttu</em>. Statuksen voimassaolo ja muutoshistoria tallennetaan usein linkkiin liittyvään satelliittiin, jolloin voidaan nähdä, milloin suhde tai tila oli voimassa (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Effectivity Satellite</a>).</p>
+  <figure>
+    <img src="kuvat/data-vault/data-vault-luokkakaavio.svg" alt="Luokkakaavio Data Vault -entiteeteistä: Hubit, Linkit ja Satelliitit asiakas-, tilaus- ja status-esimerkillä">
+    <figcaption>Yksinkertainen esimerkki Data Vault 2.0 -mallista: asiakas ja tilaus ovat Hubeja, niiden suhde on Linkki, ja muuttuvat tiedot säilytetään Satelliiteissa.</figcaption>
+  </figure>
+  <h2>Jatkokehitys</h2>
+  <p>Sivua voi myöhemmin täydentää esimerkiksi Raw Vaultin, Business Vaultin, PIT-taulujen, Bridge-taulujen ja latausautomaation esimerkeillä.</p>
 </body>
 </html>
