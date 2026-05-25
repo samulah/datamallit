@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="690" viewBox="0 0 1180 690" role="img" aria-labelledby="title desc">
+  <title id="title">Data Vault 2.0 -luokkakaavio</title>
+  <desc id="desc">Yksinkertainen Data Vault -malli, jossa Hubit, Linkit ja Satelliitit kuvaavat asiakas-, tilaus- ja status-entiteettejä.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #1f2933; }
+      .label { font: 700 16px Arial, sans-serif; fill: #ffffff; }
+      .text { font: 14px Arial, sans-serif; fill: #1f2933; }
+      .note { font: 13px Arial, sans-serif; fill: #4b5563; }
+      .hub { fill: #f1f7fc; stroke: #005a9e; stroke-width: 2; }
+      .hub-head { fill: #005a9e; }
+      .link { fill: #fff7ed; stroke: #b45309; stroke-width: 2; }
+      .link-head { fill: #b45309; }
+      .sat { fill: #f1f8f3; stroke: #2f6f3e; stroke-width: 2; }
+      .sat-head { fill: #2f6f3e; }
+      .connector { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1180" height="690" fill="#ffffff"/>
+  <text x="40" y="48" class="title">Data Vault 2.0 - esimerkin luokkakaavio</text>
+  <text x="40" y="76" class="note">Esimerkki: asiakas tekee tilauksen, ja tilauksella on muuttuva status.</text>
+
+  <g transform="translate(50 110)">
+    <rect class="hub" width="240" height="142" rx="6"/>
+    <rect class="hub-head" width="240" height="38" rx="6"/>
+    <text x="16" y="25" class="label">HUB_ASIAKAS</text>
+    <line x1="0" y1="38" x2="240" y2="38" stroke="#005a9e" stroke-width="2"/>
+    <text x="16" y="66" class="text">asiakas_hk (PK)</text>
+    <text x="16" y="91" class="text">asiakas_id (business key)</text>
+    <text x="16" y="116" class="text">load_date</text>
+    <text x="16" y="137" class="text">record_source</text>
+  </g>
+
+  <g transform="translate(360 116)">
+    <rect class="link" width="250" height="130" rx="6"/>
+    <rect class="link-head" width="250" height="38" rx="6"/>
+    <text x="16" y="25" class="label">LINK_ASIAKAS_TILAUS</text>
+    <line x1="0" y1="38" x2="250" y2="38" stroke="#b45309" stroke-width="2"/>
+    <text x="16" y="66" class="text">asiakas_tilaus_hk (PK)</text>
+    <text x="16" y="91" class="text">asiakas_hk (FK)</text>
+    <text x="16" y="116" class="text">tilaus_hk (FK)</text>
+  </g>
+
+  <g transform="translate(680 110)">
+    <rect class="hub" width="240" height="142" rx="6"/>
+    <rect class="hub-head" width="240" height="38" rx="6"/>
+    <text x="16" y="25" class="label">HUB_TILAUS</text>
+    <line x1="0" y1="38" x2="240" y2="38" stroke="#005a9e" stroke-width="2"/>
+    <text x="16" y="66" class="text">tilaus_hk (PK)</text>
+    <text x="16" y="91" class="text">tilausnumero (business key)</text>
+    <text x="16" y="116" class="text">load_date</text>
+    <text x="16" y="137" class="text">record_source</text>
+  </g>
+
+  <g transform="translate(950 110)">
+    <rect class="hub" width="190" height="142" rx="6"/>
+    <rect class="hub-head" width="190" height="38" rx="6"/>
+    <text x="16" y="25" class="label">HUB_STATUS</text>
+    <line x1="0" y1="38" x2="190" y2="38" stroke="#005a9e" stroke-width="2"/>
+    <text x="16" y="66" class="text">status_hk (PK)</text>
+    <text x="16" y="91" class="text">status_koodi</text>
+    <text x="16" y="116" class="text">load_date</text>
+    <text x="16" y="137" class="text">record_source</text>
+  </g>
+
+  <g transform="translate(50 380)">
+    <rect class="sat" width="240" height="152" rx="6"/>
+    <rect class="sat-head" width="240" height="38" rx="6"/>
+    <text x="16" y="25" class="label">SAT_ASIAKAS_TIEDOT</text>
+    <line x1="0" y1="38" x2="240" y2="38" stroke="#2f6f3e" stroke-width="2"/>
+    <text x="16" y="66" class="text">asiakas_hk (FK)</text>
+    <text x="16" y="91" class="text">nimi</text>
+    <text x="16" y="116" class="text">kaupunki</text>
+    <text x="16" y="141" class="text">hashdiff, load_date</text>
+  </g>
+
+  <g transform="translate(680 380)">
+    <rect class="sat" width="240" height="152" rx="6"/>
+    <rect class="sat-head" width="240" height="38" rx="6"/>
+    <text x="16" y="25" class="label">SAT_TILAUS_TIEDOT</text>
+    <line x1="0" y1="38" x2="240" y2="38" stroke="#2f6f3e" stroke-width="2"/>
+    <text x="16" y="66" class="text">tilaus_hk (FK)</text>
+    <text x="16" y="91" class="text">tilauspvm</text>
+    <text x="16" y="116" class="text">summa</text>
+    <text x="16" y="141" class="text">hashdiff, load_date</text>
+  </g>
+
+  <g transform="translate(950 305)">
+    <rect class="link" width="190" height="130" rx="6"/>
+    <rect class="link-head" width="190" height="38" rx="6"/>
+    <text x="16" y="25" class="label">LINK_TILAUS_STATUS</text>
+    <line x1="0" y1="38" x2="190" y2="38" stroke="#b45309" stroke-width="2"/>
+    <text x="16" y="66" class="text">tilaus_status_hk</text>
+    <text x="16" y="91" class="text">tilaus_hk (FK)</text>
+    <text x="16" y="116" class="text">status_hk (FK)</text>
+  </g>
+
+  <g transform="translate(950 500)">
+    <rect class="sat" width="190" height="142" rx="6"/>
+    <rect class="sat-head" width="190" height="38" rx="6"/>
+    <text x="16" y="25" class="label">SAT_STATUS_HISTORIA</text>
+    <line x1="0" y1="38" x2="190" y2="38" stroke="#2f6f3e" stroke-width="2"/>
+    <text x="16" y="66" class="text">tilaus_status_hk</text>
+    <text x="16" y="91" class="text">alkupvm</text>
+    <text x="16" y="116" class="text">loppupvm</text>
+    <text x="16" y="137" class="text">is_current</text>
+  </g>
+
+  <path class="connector" d="M 290 181 L 360 181"/>
+  <path class="connector" d="M 610 181 L 680 181"/>
+  <path class="connector dashed" d="M 170 252 L 170 380"/>
+  <path class="connector dashed" d="M 800 252 L 800 380"/>
+  <path class="connector" d="M 920 208 C 980 245 980 270 1045 305"/>
+  <path class="connector" d="M 1045 252 L 1045 305"/>
+  <path class="connector dashed" d="M 1045 435 L 1045 500"/>
+
+  <text x="398" y="280" class="note">Linkki yhdistää Hubit</text>
+  <text x="958" y="462" class="note">Status-linkin historia satelliitissa</text>
+</svg>
