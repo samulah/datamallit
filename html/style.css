@@ -95,6 +95,11 @@ p {
   width: 30px;
   border-radius: 50%;
   object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
   box-shadow: 0 0 0 1.5px rgba(255,255,255,0.15);
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
@@ -205,10 +210,52 @@ th {
 
 img {
   display: block;
-  max-width: 100%;
+  max-width: 88%;
   height: auto;
-  margin: 28px 0;
-  border-radius: 4px;
+  margin: 32px auto;
+  border-radius: 0 0 6px 6px;
+  background: #fff;
+  border-top: 3px solid var(--c-primary);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.09),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+img.zoomattava {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+img.zoomattava:hover {
+  transform: translateY(-2px) scale(1.005);
+  box-shadow:
+    0 8px 32px rgba(1, 94, 56, 0.13),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Figure + Mermaid */
+figure {
+  margin: 32px 0;
+}
+
+figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.80em;
+  color: var(--c-muted);
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.01em;
+}
+
+/* Kuvateksti — <p><em>Kuva:...</em></p> */
+p:has(> em:only-child) {
+  font-family: var(--font-ui);
+  font-size: 0.80em;
+  color: var(--c-muted);
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
 }
 
 .dataneuvos-opinion {
@@ -287,6 +334,11 @@ img {
   width: 44px;
   border-radius: 50%;
   object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
   opacity: 0.65;
   transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 1px 4px rgba(0,0,0,0.10);
@@ -333,6 +385,11 @@ img {
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
   opacity: 0;
   animation: splash-logo-sisaan 0.55s cubic-bezier(0.34, 1.45, 0.64, 1) 0.1s forwards;
   position: relative;
