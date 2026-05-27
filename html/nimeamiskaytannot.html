@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <title>Nimeämiskäytännöt</title>
 <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
@@ -11,7 +12,7 @@
 
   <h1>Nimeämiskäytännöt</h1>
   
-  <p>Tietomalliin haettaessa dataa se ladataan tietolähteestä, joka on usein tietovaraston yksittäisessä tietokannassa oleva taulu. Tietovaraston ja semanttisten mallien nimeämiskäytännöt voivat olla toisistaan eroavia ja saattavat omata kehitysvelkaa pitkältäkin ajalta. Tietokannasta dataa ladattaessa taulut voivat sisältää useita erityylisiä nimeämiskäytäntöjä kuten taulukosta 1 ilmenee. Kaikissa yrityksissä ei ole <a href="data-contract.html">Data Contractissa</a> määriteltyjä nimeämiskäytäntöjä.</p>
+  <p>Data ladataan tietomalliin tietolähteestä, useimmiten tietovaraston tietokannasta. Tietovaraston ja semanttisten mallien nimeämiskäytännöt eroavat toisistaan ja kantavat usein kehitysvelkaa pitkältä ajalta. Tietokannasta ladattaessa taulut sisältävät useita erityylisiä nimeämiskäytäntöjä.</p>
 
   <table>
     <caption>Taulukko 1, Esimerkkejä tietokannan taulujen nimeämiskäytännöistä</caption>
@@ -46,7 +47,7 @@
     </tbody>
   </table>
 
-  <p>Tietolähteistä tulevat taulut ja niiden sarakkeet saattavat sisältää tietokannoissa erilaisia nimiä. Hyvien nimeämiskäytäntöjen toteuttaminen ja vahtiminen jää silloin toteutettavaksi tehtäväksi tietomallin ja raportin kehittäjälle. <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> mainitsevat kirjassaan seuraavat seitsemän sääntöä Power BI -tietomallien taulujen ja sarakkeiden nimeämisiin liittyen:</p>
+  <p>Tietolähteistä tulevat taulut ja niiden sarakkeet sisältävät tietokannoissa erilaisia nimiä. Nimeämiskäytäntöjen vahtiminen jää kehittäjälle. <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> mainitsevat kirjassaan seuraavat seitsemän sääntöä Power BI -tietomallien taulujen ja sarakkeiden nimeämisiin liittyen:</p>
 
   <table>
     <caption>Taulukko 2, Tietomallin taulujen suositellut nimeämissäännöt (<a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari &amp; Russo, 2017, s. 20–21</a>)</caption>
@@ -118,16 +119,14 @@
     </ul>
   </div>
 
-  <p>Hyviä nimeämiskäytäntöjä noudattava tietomalli ja raportti voidaan jakaa kaikenlaisia taustoja omaaville käyttäjille. Kun nimeämiset ovat kunnossa, niin datan ymmärtäminen helpottuu sekä mahdollisia datassa olevia virheellisiä rivejä huomataan pienemmällä vaivalla. Kunnolla nimetty tietomalli auttaa keskittymään itse sisältöön ja lukuihin, sen sijaan että keskittyminen menisi tietomallin toiminnan ja nimien ymmärtämiseen. Power BI -tietomallin nimeämisen lisäksi kannattaa kiinnittää erityistä huomiota oikein nimeämiseen jo tietokantatasolla. Tietokannassa hyvin nimetyt taulut mahdollistavat helpomman ratkaisujen monistamisen, joka taas mahdollistaa samoja lähdejärjestelmiä käyttävien ratkaisujen tuotteistamisen ja monistamisen, mikäli nimeämiset ovat lähdejärjestelmissä samoja. Hyvien sääntöjen ja yleisten käytäntöjen mukaan nimetty tietokanta helpottaa datan kaivamiseen liittyvää työtä.</p>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Nimeä yhdellä kielellä yhteen paikkaan ja pyri pitämään koko ketjussa sama kieli kuin esityskerroksessa on
-    </p>
+    <p>Nimeä yhdellä kielellä ja pyri pitämään koko ketjussa sama kieli kuin esityskerroksessa.</p>
     <ul>
       <li>Kaikista tärkeintä on sopia yhteiset nimeämiskäytännöt joita noudatetaan ETL-prosessin alusta analytiikkakerrokselle saakka</li>
       <li>Jos raportti on suomeksi, nimeä tietomallin taulut ja sarakkeet suomeksi. Jos raportti on englanniksi, nimeä englanniksi. Sekakieliset mallit hämmentävät kaikkia — loppukäyttäjää, kehittäjää ja seuraajaa.</li>
-      <li>Jos olette suomenkielinen yritys, jonka kieli on suomi, lienee analytiikankin järkevää olla suomeksi. Äidinkielen käyttö helpottaa ymmärtämistä ja laajentaa luovia mahdollisuuksia ymmärtää uusia asioista. Saat enemmän irti datasta kun kieli ei ole rajaava tekijä ajattelulle.</li>
+      <li>Jos olette suomenkielinen yritys, analytiikankin on syytä olla suomeksi. Saat enemmän irti datasta kun kieli ei rajoita ajattelua.</li>
       <li><a href="data-contract.html">Data Contract</a> on toimiva paikka sopia yhteisistä käytännöistä jotka koskevat dataa</li>
     </ul>
   </div>

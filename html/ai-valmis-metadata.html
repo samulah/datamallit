@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <title>AI-valmis metadata</title>
   <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
@@ -25,12 +26,12 @@
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Metadata on investointi, joka maksaa itsensä takaisin moninkertaisesti. Jokainen tunti, jonka käytät hyvien kuvausten kirjoittamiseen, säästää kymmeniä tunteja selvittelyä, virheellisiä raportteja ja turhia palavereita. AI-ajan lähestyessä hyvä metadata ei ole enää mukava lisä — se on perusedellytys sille, että tekoälytyökalut toimivat luotettavasti juuri teidän datanne kanssa.</p>
+    <p>Metadata on investointi, joka maksaa itsensä takaisin moninkertaisesti. Jokainen tunti, jonka käytät hyvien kuvausten kirjoittamiseen, säästää kymmeniä tunteja selvittelyä, virheellisiä raportteja ja turhia palavereita. AI-aika on täällä — hyvä metadata ei ole enää mukava lisä, se on perusedellytys sille, että tekoälytyökalut toimivat luotettavasti juuri teidän datanne kanssa.</p>
   </div>
 
   <h2>Mitä tietovarastossa kannattaa kuvata?</h2>
 
-  <p>Tietovaraston tauluissa ja sarakkeissa metadata elää teknisessä kerroksessa — tietokantakommenteissa, datakatalogeissa tai dokumentaatiossa. Seuraava taulukko kertoo, mitä kullakin tasolla kannattaa kuvata.</p>
+  <p>Tietovaraston tauluissa ja sarakkeissa metadata elää teknisessä kerroksessa — tietokantakommenteissa, datakatalogeissa tai dokumentaatiossa.</p>
 
   <table>
     <thead>
@@ -76,7 +77,7 @@
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Aloita kaikkein tärkeimmistä sarakkeista — älä yritä kuvata kaikkea kerralla. Valitse 10–15 saraketta, jotka aiheuttavat eniten kysymyksiä tai virheitä, ja kirjoita niille ensin kunnolliset kuvaukset. Kun malli on selvillä, jatka muihin. Priorisoinnissa apuna toimii yksinkertainen kysymys: "Mitä asioita analyytikot tai Copilot kysyvät useimmin väärin?"</p>
+    <p>Aloita kaikkein tärkeimmistä sarakkeista — älä yritä kuvata kaikkea kerralla. Valitse 10–15 saraketta, jotka aiheuttavat eniten kysymyksiä tai virheitä, ja kirjoita niille ensin kunnolliset kuvaukset. Kun malli on selvillä, jatka muihin. Priorisoi yhdellä kysymyksellä: "Mitä analyytikot tai Copilot kysyvät useimmin väärin?"</p>
   </div>
 
   <h2>Mitä Power BI:ssä kannattaa kuvata?</h2>
@@ -137,7 +138,7 @@
 
   <h2>Hyvä kuvaus vs. huono kuvaus</h2>
 
-  <p>Kuvauksen laatu ratkaisee. Alla esimerkkejä siitä, millainen kuvaus auttaa tekoälyä ja millainen ei.</p>
+  <p>Kuvauksen laatu ratkaisee.</p>
 
   <table>
     <thead>
@@ -149,7 +150,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Mitta: Myynti</td>
+        <td>Mittari: Myynti</td>
         <td>"Myynti"</td>
         <td>"Vahvistettujen myyntitilausten liikevaihto euroissa ilman arvonlisäveroa. Sisältää vain toimitetut tilaukset."</td>
       </tr>
@@ -169,7 +170,7 @@
         <td>"Tilauksen luontipäivämäärä järjestelmässä (UTC). Ei ole sama kuin tilauksen vahvistuspäivä tai toimituspäivä."</td>
       </tr>
       <tr>
-        <td>Mitta: KatePros</td>
+        <td>Mittari: KatePros</td>
         <td>"Kate %"</td>
         <td>"Myyntikate prosentteina: (Myynti – Muuttuvat kustannukset) / Myynti × 100. Ei sisällä kiinteitä kuluja."</td>
       </tr>
@@ -178,12 +179,11 @@
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Kirjoita kuvaukset niin kuin selittäisit asian uudelle kollegalle, jolla ei ole taustatietoa järjestelmistänne. Jos kuvaus vaatii lisäkysymyksiä ymmärtääkseen, se on vielä liian epätarkka. Paras testi: anna kuvaus ChatGPT:lle tai Copilotille ja kysy, mitä se laskisi — jos vastaus on väärä, kuvaus tarvitsee tarkennusta.</p>
-  </div>
+    <p>Kirjoita kuvaukset niin kuin selittäisit asian uudelle kollegalle, jolla ei ole taustatietoa järjestelmistänne. Jos kuvaus vaatii lisäkysymyksiä ymmärtääkseen, se on liian epätarkka.</p> </div>
 
   <h2>Käytännön muistilista AI-valmiiseen metadataan</h2>
 
-  <p>Alla tiivis tarkistuslista, jonka avulla voi arvioida onko tietomalli tai tietovarasto AI-valmis.</p>
+  <p>Alla tiivis tarkistuslista — arvioi oman tietomallisi ja tietovarastosi AI-valmius.</p>
 
   <table>
     <thead>
@@ -218,11 +218,6 @@
         <td>Synonyymit on määritelty yleisille termeille</td>
         <td>Datakatalogin tagit tai hakutermit</td>
         <td>Q&A-synonyymit</td>
-      </tr>
-      <tr>
-        <td>Tietoluokat on asetettu geografisille sarakkeille</td>
-        <td>—</td>
-        <td>Data Category -asetus</td>
       </tr>
       <tr>
         <td>Datasetti on sertifioitu tai merkitty viralliseksi</td>
