@@ -31,7 +31,10 @@ class MainNavigation extends HTMLElement {
                     <a href="index.html" class="nav-logo-link" title="Etusivu">
                         <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="nav-logo">
                     </a>
-                    <a href="index.html" class="nav-site-name">datamalli.fi</a>
+                    <div class="nav-brand-teksti">
+                        <a href="index.html" class="nav-site-name">datamalli.fi</a>
+                        <span class="nav-tagline">Datan mallinnuksen opas</span>
+                    </div>
                 </div>
                 <div class="nav-links">
                     <a href="tahtimalli.html">Tähtimalli</a>

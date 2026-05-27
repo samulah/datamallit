@@ -110,6 +110,14 @@ p {
   filter: brightness(1.08);
 }
 
+.nav-brand-teksti {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0;
+}
+
 .nav-site-name {
   font-family: var(--font-ui);
   font-weight: 600;
@@ -117,14 +125,25 @@ p {
   color: #ffffff;
   text-decoration: none;
   letter-spacing: -0.01em;
-  padding: 10px 0;
   white-space: nowrap;
+  line-height: 1.2;
   transition: opacity 0.15s;
 }
 
 .nav-site-name:hover {
   opacity: 0.8;
   text-decoration: none;
+}
+
+.nav-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.70em;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .nav-links {
