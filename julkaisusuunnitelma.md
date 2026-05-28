@@ -62,6 +62,7 @@ Tarkistuslista per sivu:
 7. Navigaatiossa linkki olemassa
 8. Mobiiliasu ok kapealla ikkunalla
 9. Painovirheiden ja kielen tarkistus
+10. Staattiset tiedostot versioitu (`navigation.js?v=X`, `style.css?v=X`) — estää selaimen välimuistin ongelmat käyttäjillä. Päivitä versioparametri aina kun tiedostoa muutetaan.
 
 QA-aikaarviot per sivu (lukea ja tarkistaa kunnolla):
 
