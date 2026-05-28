@@ -142,59 +142,49 @@ dax-moottori vaikea käsitellä taulujen monistamisella denormalisoinnilla`,
 analyzing data with microsoft power bi and power pivot for excel
 alberto ferrari marco russo 2017
 tähtimallin käyttö dax-kielen perusteet suositellut nimeämiskäytännöt power bi tehokas hyödyntäminen
+vertipaq-moottorin peruslogiikka arkkitehtuuri tähtimalli lomitusmalli
 the definitive guide to dax marco russo alberto ferrari 2019
 dax-kieli data analysis expressions vertipaq-moottorin toiminta
 pakkaa enkoodaa dataa sarakkeiden kardinaliteetin vähentäminen suorituskyky
+evaluointijärjestys konteksti filter context row context
 dax patterns second edition marco russo alberto ferrari 2021
 valmiita kaavoja tähtimallin sapluuna time intelligence vuosittaiset vertailut abc-analyysit
+hakuteos kaavat testattu valmis kopioitavaksi
 star schema the complete reference christopher adamson 2010
 dimensionaalinen tietovarastosuunnittelu perusteet edistyneet tekniikat
 yritystason tietovarastoarkkitehtuurit bi etl-järjestelmien optimointistrategiat
 tähtimallista oppii kaiken suunnittelupäätökset selkeitä ferrari russo power bi lyömätön
 the data model resource book revised edition len silverston 2001
 library of universal data models enterprises henkilöt organisaatiot tuotteet tilaukset taloushallinto
-testattuja uudelleenkäytettäviä tietomalliratkaisuja tietokantasuunnittelijat`,
+testattuja uudelleenkäytettäviä tietomalliratkaisuja tietokantasuunnittelijat viitekirja
+business bullshit andré spicer 2018
+organisaatioissa puhuminen ilman sanomista johdon sanahelinä synergiat agiliteetti disruption
+hypepuhe tekoälypohjainen reaaliaikainen oikean ajattelun haitta päätöksenteko
+rebel ideas the power of diverse thinking matthew syed 2019
+kognitiivisesti monimuotoiset ryhmät monimutkaisia ongelmia homogeeniset asiantuntijaryhmät
+erilaiset näkökulmat taustat parempia päätöksiä sokeat pisteet rekrytointi`,
 
 'apuohjelmat.html': `power bi apuohjelmat ilmainen maksullinen laajentavat ominaisuuksia
 dax studio darren gosbelli avoimen lähdekoodin power bi desktop ssas tabular azure analysis services power pivot
-dax-kyselyiden kirjoittaminen analysoiminen suorittaminen
-objektiselain taulut sarakkeet laskurit haettavissa
-daxformatter.com dax-koodin muotoilu
-palvelimien ajoituksen jäljitys suorituskykyanalyysi
-erottimien vaihto us eu manuaalinen muokkaus
-automaattinen power bi desktop instanssien tunnistus
+dax-kyselyt objektiselain daxformatter suorituskykyanalyysi erottimien vaihto us eu automaattinen tunnistus
+pakollinen työkalu perusteltua syytä jättää käyttämättä vaikea löytää
 vertipaq analyzer dax studio versio 2.11.0 advanced view metrics
-analysoi vertipaq-pohjaisten relaatiotietokantojen kokoa rakennetta
-jokaisen taulun sarakkeen koko bitteissä muistia
-cardinality kardinaliteetti uniikkeja arvoja
-table size taulun sarakkeiden koko relaatiot bitteissä
-col size sarakkeen sisällön koko data dictionary hier size
-data datasisältö dictionary arvokirjasto rel size relaatioiden muisti
-prosentti db taulun sarakkeen osuus koko tietokannasta
-tabular editor 2 tabular-malleihin power bi tietomalleihin
-laskureita laskennallisia sarakkeita näyttökansiota perspektiivejä käännöksiä
-tom tabular object model metadatan muokkaaminen
-tietojen editointi nimeäminen erissä kopioi liitä pudota vedä
-kumoa tee uudelleen mallinnus offline-tilassa ei prosessoi jatkuvasti
-best practice analyzer parhaiden käytäntöjen analysointi korjaus bpa säännöt deklaratiivinen automaatio
-mcp model context protocol muistuttaa bpa-kehitystä säännöt työkalut automaatio
-c#-skriptaus automaatio ssas azure as power bi premium
+tietomallin koko puolittui 2,56 mb 1,15 mb optimointi käyttämättömät taulut
+a6 a5 kapasiteetti power bi embedded 114000 euroa vuosisäästö
+cardinality kardinaliteetti table size col size data dictionary rel size prosentti db
+tabular editor 2 tom tabular object model erämäinen muokkaus offline-muokkaus
+best practice analyzer bpa parhaiden käytäntöjen analysointi automaattiset korjausehdotukset
+dag-riippuvuudet c#-skriptaus versiohallintatuki git perspektiivit laskentaryhmät ols
+109 ongelmaa 53 korjattu 30 minuuttia
 te2 te3 vertailu ilmainen mit-lisenssi maksullinen tilauspohjainen
-vertipaq analyzer integraatio dax-debuggeri pivot-taulukko diagram view intellisense
 alm toolkit christian wade application lifecycle management
-tietojoukkojen analysis services mallien vertailu yhdistäminen käyttöönotto
-kahden tietomalliversioiden vertailu kehitys tuotantomalli
-valikoiva käyttöönotto jaettu tietomalli shared dataset premium päivittäminen
-git-pohjainen versiohallinnan tukeminen bism normalizer
-pbix-tiedoston julkaisu korvaa koko tietojoukon katkaisee raportit tietomallitasolla
+pbix-julkaisu korvaa koko tietojoukon katkaisee raportit tietomallitasolla
+malliversioiden vertailu valikoiva käyttöönotto jaettu tietomalli premium git bism normalizer
+aliarvostettu työkalu pakollinen premium-ympäristöissä
 power bi mcp model context protocol tekoäly ai anthropic claude fabric
-tekoälyassistentti lukee tietomallin rakenteen taulut sarakkeet mittarit
-dax-kyselyiden kirjoittaminen testaaminen tekoälyn avulla
-mittareiden luominen dokumentointi ai-avusteisesti
-tietomallin laadun tarkistaminen puuttuvat relaatiot korkean kardinaliteetin sarakkeet
-luonnollisella kielellä kysyminen datasta
-copilot vs mcp avoin protokolla suljettu ympäristö
-tekoälymalli valittavissa claude gpt laajennettavuus`,
+tekoälyassistentti lukee tietomallin rakenteen strukturoitu protokolla
+dax-kyselyt mittareiden luominen dokumentointi laadun tarkistaminen
+copilot vs mcp avoin protokolla suljettu ympäristö claude gpt laajennettavuus`,
 
 'data-contract.html': `data contract sopimus datan tuottajan kuluttajan välillä
 määrittelee mitä dataa toimitetaan missä muodossa millä laadulla kenen vastuulla
@@ -243,21 +233,99 @@ luokkakaavio data vault entiteetit asiakas tilaus status hub link satellite
 raw vault business vault pit-taulut bridge-taulut latausautomaatio`,
 
 'ai-valmis-metadata.html': `ai-valmis metadata tekoäly copilot power bi tietovarasto metadata
-kuvailu nimeäminen taulut sarakkeet mitat liiketoimintakuvaus
-copilot q&a synonyymit tietoluokka data category sertifiointi
+kuvailu nimeäminen taulut sarakkeet mittarit liiketoimintakuvaus
+tietomalli semanttinen kerros synonyymit kategoriat kuvaustekstit
+copilot q&a tulkitsevat kyselyjä puutteellinen metadata ai ei ymmärrä
 tekninen metadata liiketoimintametadata datakatalog
 hyvä kuvaus huono kuvaus luonnollinen kieli konteksti
 mitä sarake tarkoittaa yksikkö laskentalogiikka arvojoukko
 päivämäärä aikavyöhyke utc lippu tilakoodi koodiarvot selitys
 surrogaattiavain viittaa tauluun omistaja päivitysaikataulu
-ai-valmis tekoälyvalmis ai-pohjainen analytiikka copilot toimii oikein
 q&a synonyymit myynti liikevaihto revenue ohjaa samaan mittaan
-tietoluokka maa kaupunki postinumero url kuva-url
+tietoluokka data category maa kaupunki postinumero url kuva-url tärkeys tähdet
 yhteenveto-asetus oletusyhteenveto hakemistotaulu featured table excel tietotyypit
 sertifiointi virallinen luotettava power bi palvelu
 muistilista tarkistuslista jokaisella taululla kuvaus mittarisarake yksikkö
-koodiarvot aikavyöhyke synonyymit geografiset sarakkeet sertifioitu datan omistaja
-aloita tärkeimmistä sarakkeista 10-15 saraketta kehitystyön tapa pull request julkaisu`,
+koodiarvot aikavyöhyke synonyymit sertifioitu datan omistaja päivitysaikataulu
+investointi maksaa takaisin tunti kuvauksia säästää selvittelyä raportteja`,
+
+'termisto.html': `termistö datan mallinnus tietovarastointi bi-kehittäminen käsitteet
+aggregaatti aggregate yhteenlaskettu koostettu arvo summa kuukausi tuoteryhmä
+attribuutti attribute dimensiotaulun kuvaileva sarake maa kategoria tiimi suodattaminen ryhmittely
+bpa best practice analyzer tabular editor tarkistaa parhaat käytännöt korjausehdotukset
+bronze medallion-arkkitehtuuri alin taso raakadata lähdejärjestelmä muokkauksia laadunvarmistusta
+copilot power bi tekoälyavustaja luonnollinen kieli semanttinen malli metadata
+dax data analysis expressions lausekekieli laskurit laskennalliset sarakkeet power bi ssas tabular
+datakatalog data catalog organisaation tietoaineistot omistajuus käyttötarkoitukset datakirjasto
+data contract sopimus tuottaja kuluttaja muoto laatu vastuu nimeämiskäytännöt
+data lake suuri datavarasto raakadata skeema käyttötarkoitus
+data lineage mistä data peräisin muunnettu järjestelmät virheenjäljitys vaikutusarvio
+data owner omistaja liiketoiminta vastuu oikeellisuus myyntijohtaja
+data steward hoitaja päivittäinen laatu dokumentointi välissä
+data vault hub link satellite auditointi historia suuri muuttuva ympäristö
+denormalisointi denormalization toistaa tietoa luettavuus suorituskyky dimensiot
+dimensiotaulu dimension table kuvaileva kuka mitä missä milloin attribuutit
+ehdokasavain candidate key pääavain vaihtoehto
+elt extract load transform pilvi kohdejärjestelmä
+etl extract transform load perinteinen tietovarasto muunnos ennen latausta
+faktataulu fact table mitattavat tapahtumat myynnit tilaukset laskutukset
+flattening litistäminen katso litistäminen
+filter context suodatinkonteksti dax raportin valinnat suodattimet rivit laskenta
+gdpr tietosuoja-asetus henkilötiedot organisaatiot
+gold medallion-arkkitehtuuri ylin taso liiketoimintavalmis tähtimalli aggregoitu
+granulariteetti granularity rivin yksityiskohtaisuus myyntitapahtuma päivä tuote kysymykset
+header-detail-malli tilaus otsikkotiedot rivitiedot yhdistää
+hierarkia hierarchy tasorakenne vuosi kvartaali kuukausi yritys liiketoimintaryhmä kustannuspaikka
+hub data vault liiketoimintatunniste asiakasnumero tuotekoodi tunniste historia
+kardinaliteetti cardinality uniikkeja arvoja matala korkea vertipaq pakkaus suorituskyky
+kpi key performance indicator avainmittari liikevaihto asiakaspysyvyys konversio tavoite
+laskennallinen sarake calculated column dax rivitaso muisti tallennetaan
+laskuri measure dax laskenta konteksti summat keskiarvot
+litistäminen flattening hierarkkiset dimensiotaulut leveä litteä taulu etl sql-näkymä
+lakehouse databricks delta lake data lake tietovarasto rakenne
+link data vault kahden hubin välinen suhde asiakas tilaus
+lumihiutalemalli snowflake schema normalisoitu useampaan tauluun vertipaq hidastuu
+luonnollinen avain natural key business key lähdejärjestelmä tunniste hakua varten
+m-kieli power query funktionaalinen kieli muunnos yhdistäminen
+master data asiakkaat tuotteet toimittajat keskeinen ohjaava laatu yhtenäisyys
+medallion-arkkitehtuuri bronze silver gold jalostaminen kerroksittain
+metadata tieto datasta tekninen liiketoiminta sarakkeiden tietotyypit merkitys
+mittari katso laskuri
+monen-moneen-suhde many-to-many suosittelemme välttämään arvaamaton dax suorituskyky välitaulu bridge table
+normalisointi normalization kukin tieto vain yhdessä paikassa toisteisuus tietoeheys
+null tyhjä arvo ei tietoa ei nolla ei tyhjä merkkijono tuntematon dax yllättävä
+olap online analytical processing analyyttinen yhteenvedot laskelmat power bi ssas tabular
+oltp online transaction processing tapahtumankäsittely kassajärjestelmä
+pääavain primary key pk yksilöi rivin uniikki ei tyhjiä
+power query m-kieli haku muunnos yhdistäminen
+q&a power bi luonnollinen kieli kyselytoiminto visualisointi synonyymit metadata
+relaatio relationship yhteys avainkenttä yksi-moneen dimensio faktataulu
+rls row-level security rivitason tietoturva dax suodatin
+row context rivikonteksti dax laskennallinen sarake iteraatio sumx rivitaso
+sarake column pystysuora kenttä vertipaq pakkaa saraketasolla
+satellite data vault kuvaileva tieto attribuutit historia hub link muutokset
+scd slowly changing dimension muutostenkäsittely type 1 2 3
+scd type 1 ylikirjoittaa vanhan arvon historia katoaa kirjoitusvirhe korjaus
+scd type 2 uusi rivi surrogaattiavain voimassaoloaika historia säilyy yleisin
+scd type 3 edellinen arvo erilliseen sarakkeeseen yksi historiavaihe harvinainen
+semanttinen malli semantic model power bi ssas tabular tietomalli mittarit hierarkiat metadata
+sertifiointi certification power bi palvelu virallinen luotettava datasetti
+silver medallion-arkkitehtuuri keskitaso puhdistettu validoitu duplikaatit viitteet tietotyypit
+skeema schema rakenne taulut sarakkeet suhteet tähtimalli lumihiutalemalli
+ssas sql server analysis services tabular multidimensional power bi taustateknologia
+surrogaattiavain surrogate key sk kokonaisluku järjestelmä generoima ei lähdejärjestelmä scd type 2
+sql-näkymä view tietokantaan tallennettu kyselylause litistäminen join etl
+tabular editor best practice analyzer tom offline-muokkaus
+tabular-malli ssas in-memory vertipaq power bi aina tabular
+tähtimalli star schema faktataulu dimensiotaulut suorituskykyinen yksinkertainen
+tietoallas katso data lake
+tietoeheys data integrity täsmällinen yhtenäinen viite-eheys vierasavain pääavain normalisointi
+tietoluokka data category power bi sarake maa kaupunki postinumero url kuva-url copilot q&a
+tietovarasto data warehouse dwh keskitetty jäsennelty raportointi analytiikka
+vertipaq sarake in-memory pakkausmoottori kardinaliteetti optimoi saraketasolla
+vierasavain foreign key fk faktataulussa dimensio pääavain relaatio
+yhdistelmäkenttä composite field numeerinen avain luettava nimi 100 helsinki-myymälä lajittelu
+yksi-moneen one-to-many tähtimallin perusrelaatio dimensio fakta pääavain vierasavain`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi

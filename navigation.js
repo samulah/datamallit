@@ -46,7 +46,6 @@ class MainNavigation extends HTMLElement {
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
                     <a href="termisto.html">Termistö</a>
                     <a href="kirjallisuus-suositukset.html">Kirjallisuus</a>
-                    <a href="apuohjelmat.html">PBI Apuohjelmat</a>
                 </div>
             </nav>
         `;
