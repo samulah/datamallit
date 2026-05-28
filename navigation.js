@@ -131,9 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
     h.appendChild(makeJaaNappi(null));
   });
 
-  // h2 → ankkuri id:stä tai generoidusta slugista (ei aakkos-otsikot)
+  // h2 → ankkuri id:stä tai generoidusta slugista (ei aakkos-otsikot, ei index-kategoriat)
   document.querySelectorAll('h2:not(.termi-aakkos-otsikko)').forEach(h => {
     if (h.closest('nav,footer')) return;
+    if (h.closest('.kategoria')) return;
     if (!h.id) h.id = slugify(h.textContent.trim());
     h.appendChild(makeJaaNappi(h.id));
   });

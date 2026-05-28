@@ -205,6 +205,56 @@
       border-radius: 10px;
       margin-top: 8px;
     }
+    .kategoria h2 {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .kategoria h2 .otsikko-teksti {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+    .otsikko-tulossa {
+      font-size: 0.48em;
+      font-weight: 400;
+      font-family: var(--font-ui);
+      background: #fff3cd;
+      border: 1px solid #e0c060;
+      color: #856404;
+      border-radius: 4px;
+      padding: 2px 8px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .kategoria-chevron {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #eef1f8;
+      border: 1px solid #d8deec;
+      color: var(--c-muted);
+      font-size: 0.58em;
+      transition: transform 0.2s, background 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .kategoria h2:hover .kategoria-chevron {
+      background: #dde4f0;
+      color: var(--c-primary);
+    }
+    .kategoria.piilotettu .kategoria-chevron {
+      transform: rotate(-90deg);
+    }
+    .kategoria.piilotettu .kortti-rivi {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -263,7 +313,7 @@
   </div>
 
   <div class="kategoria">
-    <h2>Arkkitehtuurit ja prosessit</h2>
+    <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit <span class="otsikko-tulossa">tulossa</span></span></h2>
     <div class="kortti-rivi">
       <div class="kortti kesken" data-tags="arkkitehtuuri tietomalli kesken">
         <div class="kesken-badge">🚧 Tulossa</div>
@@ -289,6 +339,16 @@
   <div class="kategoria">
     <h2>Hallinta ja laatu</h2>
     <div class="kortti-rivi">
+      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
+        <strong>Nimeämiskäytännöt</strong>
+        <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti" href="ai-valmis-metadata.html" data-tags="hallinta power-bi ai tietomalli" data-min="11">
+        <strong>AI-valmis metadata</strong>
+        <span>Mitä tauluista, sarakkeista ja mittareista kannattaa kuvata tietovarastossa ja Power BI:ssä, jotta Copilot ja muut AI-työkalut toimivat luotettavasti.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">AI</span><span class="tagi">tietomalli</span></div>
+      </a>
       <div class="kortti kesken" data-tags="hallinta perusteoria kesken">
         <div class="kesken-badge">🚧 Tulossa</div>
         <strong>Data Governance</strong>
@@ -301,16 +361,6 @@
         <span>Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä muodossa, millä laadulla ja kenen vastuulla.</span>
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
       </div>
-      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
-        <strong>Nimeämiskäytännöt</strong>
-        <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
-        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">tietomalli</span></div>
-      </a>
-      <a class="kortti" href="ai-valmis-metadata.html" data-tags="hallinta power-bi ai tietomalli" data-min="11">
-        <strong>AI-valmis metadata</strong>
-        <span>Mitä tauluista, sarakkeista ja mittareista kannattaa kuvata tietovarastossa ja Power BI:ssä, jotta Copilot ja muut AI-työkalut toimivat luotettavasti.</span>
-        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">AI</span><span class="tagi">tietomalli</span></div>
-      </a>
     </div>
   </div>
 
@@ -355,6 +405,47 @@
       badge.textContent = `⏱ Lukemisaika: ${min} min`;
       kortti.appendChild(badge);
     });
+
+    // Piilotusnapit kategorioille
+    const TILA_AVAIN = 'kategoria-tilat';
+    const tallennetut = JSON.parse(localStorage.getItem(TILA_AVAIN) || '{}');
+
+    document.querySelectorAll('.kategoria').forEach(kategoria => {
+      const h2 = kategoria.querySelector('h2');
+      const nimi = h2.textContent.trim();
+
+      const chevron = document.createElement('span');
+      chevron.className = 'kategoria-chevron';
+      chevron.textContent = '▼';
+      h2.appendChild(chevron);
+
+      const oletusKiinni = nimi.startsWith('Arkkitehtuurit ja prosessit');
+      const onKiinni = nimi in tallennetut ? tallennetut[nimi] : oletusKiinni;
+      if (onKiinni) kategoria.classList.add('piilotettu');
+
+      h2.addEventListener('click', () => {
+        kategoria.classList.toggle('piilotettu');
+        tallennetut[nimi] = kategoria.classList.contains('piilotettu');
+        localStorage.setItem(TILA_AVAIN, JSON.stringify(tallennetut));
+      });
+    });
+
+    // Haku pakottaa kaikki osiot auki
+    const hakuKentta = document.getElementById('haku');
+    if (hakuKentta) {
+      hakuKentta.addEventListener('input', () => {
+        if (hakuKentta.value.trim()) {
+          document.querySelectorAll('.kategoria').forEach(k => k.classList.remove('piilotettu'));
+        } else {
+          document.querySelectorAll('.kategoria').forEach(k => {
+            const nimi = k.querySelector('h2').textContent.replace('▼', '').trim();
+            const oletusKiinni = nimi.startsWith('Arkkitehtuurit ja prosessit');
+            const onKiinni = nimi in tallennetut ? tallennetut[nimi] : oletusKiinni;
+            k.classList.toggle('piilotettu', onKiinni);
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
