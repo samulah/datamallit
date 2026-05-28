@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+/* Kauppaneuvos-palettti */
+:root {
+    --forest:       #015E38;   /* sinun antamasi vihreä — pidetään tämä */
+    --forest-mid:   #026b41;   /* hieman vaaleampi hover-tiloihin */
+    --gold:         #b89a2a;   /* antiikkikultainen — ei Vegas-keltainen */
+    --gold-light:   #cdb050;   /* vaaleampi kulta korostuksiin */
+    --ivory:        #faf8f3;   /* lämmin pergamentti — ei kylmä digitaalivalkoinen */
+    --ivory-shadow: #f0ead9;   /* hieman tummempi elfenbensvit */
+    --linen:        #e4e8e0;   /* vihreäsävyinen pellavatausta */
+    --text:         #1a1e18;   /* lämmin lähes-musta vihreäsävyinen */
+    --text-muted:   #3d4a38;   /* vihreäsävyinen ruskea-harmaa */
+    --sidebar-text: #d5e0cc;   /* vaaleanvihreä kerma sivupalkkiin */
+    --white:        #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', Georgia, serif;
+    background-color: var(--linen);
+    display: flex;
+    justify-content: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.cv-container {
+    width: 210mm;
+    min-height: 297mm; /* A4 */
+    background-color: var(--ivory);
+    display: flex;
+    box-shadow:
+        0 8px 48px rgba(0,0,0,0.20),
+        0 2px 8px rgba(0,0,0,0.10);
+}
+
+/* Vasen sivupalkki */
+.sidebar {
+    background-color: var(--forest);
+    color: var(--white);
+    width: 32%;
+    padding: 36px 22px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Kultainen yläviiva — hillitty luksus */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+
+.sidebar h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(184,154,42,0.28);
+    padding-bottom: 7px;
+    margin-top: 34px;
+    margin-bottom: 14px;
+}
+
+.sidebar h2:first-of-type {
+    margin-top: 0;
+}
+
+.sidebar p,
+.sidebar li {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--sidebar-text);
+    margin-bottom: 8px;
+}
+
+.contact-info div {
+    margin-bottom: 12px;
+    word-wrap: break-word;
+}
+
+.contact-info strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2px;
+}
+
+ul.sidebar-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.sidebar-list li {
+    margin-bottom: 7px;
+    padding-left: 14px;
+    position: relative;
+}
+
+/* Em-viiva listojen eteen — arvokkaampi kuin piste */
+ul.sidebar-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+/* Oikea sisältöalue */
+.main-content {
+    width: 68%;
+    padding: 42px 44px;
+    color: var(--text);
+    background: var(--ivory);
+}
+
+/* Header */
+.header-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 26px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(184,154,42,0.22);
+}
+
+.photo-placeholder {
+    width: 96px;
+    height: 96px;
+    background-color: var(--ivory-shadow);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    border: 1px solid var(--gold);
+    object-fit: cover;
+}
+
+.header-text {
+    flex: 1;
+    padding-top: 2px;
+}
+
+.header-text h1 {
+    margin: 0 0 5px 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 35px;
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+}
+
+.header-text .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+}
+
+.intro-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 28px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Osakkeiden otsikot — kultaviiva oikealle */
+.section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--forest);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 28px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(184,154,42,0.40), transparent);
+}
+
+.job-item {
+    margin-bottom: 22px;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3px;
+    gap: 16px;
+}
+
+.job-title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 15.5px;
+    color: var(--text);
+}
+
+.company {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.job-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+.job-desc ul {
+    list-style: none;
+    padding-left: 14px;
+    margin-top: 6px;
+}
+
+.job-desc li {
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+}
+
+.job-desc li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: var(--gold);
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+.tech-stack {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: var(--gold);
+    font-style: normal;
+    letter-spacing: 0.04em;
+    margin-top: 5px;
+}
+
+a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Tulostusnapit */
+.print-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--forest);
+    color: var(--gold-light);
+    border: 1px solid rgba(184,154,42,0.30);
+    padding: 9px 18px;
+    border-radius: 2px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.22);
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    z-index: 1000;
+    opacity: 0.92;
+    transition: opacity .15s ease, transform .10s ease, background .15s ease;
+}
+
+.print-button:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    background: var(--forest-mid);
+}
+
+.print-button:active {
+    transform: translateY(0);
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+    .print-button { display: none !important; }
+    .cv-container {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+}

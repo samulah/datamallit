@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <title>Kehittämisen filosofia</title>
   <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
@@ -14,14 +15,14 @@
     }
 
     .filosofia-kortti {
-      border: 2px solid #005a9e;
+      border: 2px solid var(--c-primary);
       border-radius: 10px;
       padding: 28px 24px 24px 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0,90,158,0.08);
+      box-shadow: 0 2px 8px rgba(30,58,95,0.08);
       break-inside: avoid;
     }
 
@@ -29,7 +30,7 @@
       font-size: 0.78em;
       font-weight: bold;
       letter-spacing: 0.1em;
-      color: #005a9e;
+      color: var(--c-primary);
       text-transform: uppercase;
     }
 
@@ -48,7 +49,7 @@
 
     .kortti-lainaus {
       font-style: italic;
-      color: #005a9e;
+      color: var(--c-primary);
       font-size: 0.97em;
       line-height: 1.5;
     }
@@ -58,9 +59,9 @@
       margin-bottom: 8px;
       padding: 8px 18px;
       background: #fff;
-      border: 1.5px solid #005a9e;
+      border: 1.5px solid var(--c-primary);
       border-radius: 6px;
-      color: #005a9e;
+      color: var(--c-primary);
       font-size: 0.9em;
       cursor: pointer;
       font-family: inherit;
@@ -79,12 +80,12 @@
       }
       .filosofia-kortti {
         box-shadow: none;
-        border: 1.5pt solid #005a9e;
+        border: 1.5pt solid var(--c-primary);
         padding: 14px 14px 12px 14px;
         gap: 8px;
       }
       .kortti-lainaus { color: #000; }
-      .kortti-numero { color: #005a9e; }
+      .kortti-numero { color: var(--c-primary); }
     }
   </style>
 </head>

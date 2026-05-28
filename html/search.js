@@ -8,7 +8,8 @@ const TAGI_NIMET = {
   'kirjallisuus':    'kirjallisuus',
   'perusteoria':     'perusteoria',
   'poikkeustapaus':  'poikkeustapaus',
-  'ai':              'AI'
+  'ai':              'AI',
+  'kesken':          'Kesken'
 };
 
 let aktivoidutTagit = new Set();

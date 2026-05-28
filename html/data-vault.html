@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <title>Data Vault</title>
 <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
@@ -10,22 +11,19 @@
 <main-navigation></main-navigation>
   <h1>Data Vault</h1>
   <p>Data Vault on skaalautuva ja auditoitava tietomallinnusmenetelmä, joka soveltuu erityisesti suurten ja muuttuvien tietovarastojen hallintaan.</p>
-  <h2>Johdanto</h2>
-  <p>Data Vaultin kehitti Dan Linstedt yhdessä tiiminsä kanssa 1990-luvulla Lockheed Martinilla (<a href="https://datavaultalliance.com/architecture-data/faq-about-data-vault-2-0/">DataVaultAlliance: FAQ About Data Vault 2.0</a>). Menetelmä syntyi tarpeesta mallintaa yritystason tietovarastoja tavalla, joka kestää lähdejärjestelmien muutoksia, säilyttää historian ja tukee datan jäljitettävyyttä. Perinteiset tietovarastomallit voivat muuttua vaikeasti ylläpidettäviksi, kun lähteitä on paljon ja liiketoiminnan rakenteet muuttuvat nopeasti.</p>
-  <p>Data Vaultista puhutaan yleensä kahtena versiona: alkuperäisenä Data Vaultina, jota kutsutaan usein Data Vault 1.0:ksi, sekä Data Vault 2.0:na. Data Vault 2.0 laajentaa mallinnusmenetelmää kokonaisemmaksi lähestymistavaksi, johon kuuluu mallinnuksen lisäksi arkkitehtuuri, kehitysmenetelmä, automaatio ja nykyaikaisten data-alustojen käytännöt (<a href="https://datavaultalliance.com/engineering/data-vault-2-0-an-introduction/">DataVaultAlliance: Data Vault 2.0 Introduction</a>).</p>
+  <p>Dan Linstedt kehitti menetelmän tiimeineen 1990-luvulla Lockheed Martinilla (<a href="https://datavaultalliance.com/architecture-data/faq-about-data-vault-2-0/">DataVaultAlliance: FAQ About Data Vault 2.0</a>). Tarve syntyi lähdejärjestelmien muutoksista: perinteinen tietovarastorakenne muuttuu vaikeasti ylläpidettäväksi, kun lähteitä on paljon ja liiketoiminnan rakenteet muuttuvat nopeasti. Data Vault tallentaa historian, tukee datan jäljitettävyyttä ja kestää lähdejärjestelmien muutoksia.</p>
+  <p>Data Vault 2.0 laajentaa alkuperäistä menetelmää kokonaisemmaksi lähestymistavaksi: mallinnuksen lisäksi se kattaa arkkitehtuurin, kehitysmenetelmän, automaation ja nykyaikaisten data-alustojen käytännöt (<a href="https://datavaultalliance.com/engineering/data-vault-2-0-an-introduction/">DataVaultAlliance: Data Vault 2.0 Introduction</a>).</p>
   <h2>Data Vault 2.0 -rakenne</h2>
-  <p>Data Vault 2.0 jakaa tietomallin kolmeen perusrakenteeseen: Hubeihin, Linkkeihin ja Satelliitteihin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Data Vault Glossary</a>). Ajatuksena on erottaa toisistaan pysyvät liiketoiminta-avaimet, niiden väliset suhteet ja ajan myötä muuttuvat kuvailevat tiedot. Tämä tekee mallista joustavan, koska uusi lähdejärjestelmä tai uusi attribuutti voidaan usein lisätä rikkomatta olemassa olevaa rakennetta.</p>
+  <p>Data Vault 2.0 jakaa tietomallin kolmeen perusrakenteeseen: Hubeihin, Linkkeihin ja Satelliitteihin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Data Vault Glossary</a>). Rakenne erottaa toisistaan pysyvät liiketoiminta-avaimet, niiden väliset suhteet ja ajan myötä muuttuvat kuvailevat tiedot. Uuden lähdejärjestelmän tai attribuutin lisääminen ei riko olemassa olevaa rakennetta.</p>
   <ul>
-    <li><strong>Hub</strong> kuvaa liiketoiminnan ydinkohdetta, kuten asiakasta, tilausta, tuotetta tai työntekijää. Hubiin tallennetaan liiketoiminta-avain, tekninen avain, latausaika ja lähdejärjestelmä. Hub ei yleensä sisällä kuvailevia attribuutteja, kuten asiakkaan nimeä tai osoitetta.</li>
-    <li><strong>Satelliitti</strong> sisältää Hubiin tai Linkkiin liittyvät kuvailevat tiedot ja niiden historian. Esimerkiksi asiakkaan nimi, kaupunki ja asiakasryhmä kuuluvat asiakassatelliittiin. Kun tieto muuttuu, satelliittiin lisätään uusi rivi sen sijaan, että vanha tieto ylikirjoitettaisiin.</li>
-    <li><strong>Linkki</strong> kuvaa Hubien välisen suhteen. Esimerkiksi asiakas ja tilaus yhdistetään asiakas-tilaus-linkillä. Linkki mahdollistaa myös monesta moneen -rakenteet ilman, että Hubien perusrakenne muuttuu.</li>
+    <li><strong>Hub</strong> kuvaa liiketoiminnan ydinkohdetta: asiakasta, tilausta, tuotetta tai työntekijää. Hub tallentaa liiketoiminta-avaimen, teknisen avaimen, latausajan ja lähdejärjestelmän. Hub ei sisällä kuvailevia attribuutteja, kuten asiakkaan nimeä tai osoitetta.</li>
+    <li><strong>Satelliitti</strong> sisältää Hubiin tai Linkkiin liittyvät kuvailevat tiedot ja niiden historian. Asiakkaan nimi, kaupunki ja asiakasryhmä kuuluvat asiakassatelliittiin. Kun tieto muuttuu, satelliittiin lisätään uusi rivi — vanhaa tietoa ei ylikirjoiteta.</li>
+    <li><strong>Linkki</strong> kuvaa Hubien välisen suhteen. Asiakas ja tilaus yhdistyvät asiakas-tilaus-linkillä. Linkki mahdollistaa myös moni-moneen-rakenteet muuttamatta Hubien perusrakennetta.</li>
   </ul>
-  <p>Linkkejä voi olla eri rooleissa. Tavallinen linkki kuvaa kahden tai useamman Hubin suhdetta, tapahtumalinkki voi kuvata yksittäistä tapahtumaa ja status-linkki voi kuvata kohteen suhdetta tilaan, kuten tilauksen yhteyttä statukseen <em>avoin</em>, <em>toimitettu</em> tai <em>peruttu</em>. Statuksen voimassaolo ja muutoshistoria tallennetaan usein linkkiin liittyvään satelliittiin, jolloin voidaan nähdä, milloin suhde tai tila oli voimassa (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Effectivity Satellite</a>).</p>
+  <p>Linkeillä on eri rooleja. Tavallinen linkki kuvaa kahden tai useamman Hubin suhdetta. Tapahtumalinkki kuvaa yksittäistä tapahtumaa. Status-linkki kuvaa kohteen suhdetta tilaan, kuten tilauksen yhteyttä statukseen <em>avoin</em>, <em>toimitettu</em> tai <em>peruttu</em> — voimassaolo ja muutoshistoria tallennetaan linkkiin liittyvään satelliittiin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Effectivity Satellite</a>).</p>
   <figure>
     <img src="kuvat/data-vault/data-vault-luokkakaavio.svg" alt="Luokkakaavio Data Vault -entiteeteistä: Hubit, Linkit ja Satelliitit asiakas-, tilaus- ja status-esimerkillä">
     <figcaption>Yksinkertainen esimerkki Data Vault 2.0 -mallista: asiakas ja tilaus ovat Hubeja, niiden suhde on Linkki, ja muuttuvat tiedot säilytetään Satelliiteissa.</figcaption>
   </figure>
-  <h2>Jatkokehitys</h2>
-  <p>Sivua voi myöhemmin täydentää esimerkiksi Raw Vaultin, Business Vaultin, PIT-taulujen, Bridge-taulujen ja latausautomaation esimerkeillä.</p>
 </body>
 </html>

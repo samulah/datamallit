@@ -1,107 +1,301 @@
-/* Yleiset tyylit */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+:root {
+  --c-primary:       #015E38;
+  --c-primary-hover: #026b41;
+  --c-bg:            #f6f8f6;
+  --c-surface:       #ffffff;
+  --c-border:        #d8e4da;
+  --c-text:          #1a2218;
+  --c-muted:         #4a5e48;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui:   'DM Sans', system-ui, sans-serif;
 }
 
-h1, h2 {
-  color: #005a9e;
+/* Yleiset tyylit */
+body {
+  font-family: var(--font-body);
+  line-height: 1.75;
+  color: var(--c-text);
+  background: var(--c-bg);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+h1 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--c-primary);
+  margin-top: 28px;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--c-primary);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--c-primary);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.lukemisaika {
+  font-family: var(--font-ui);
+  font-size: 0.82em;
+  color: var(--c-muted);
+  margin-top: -10px;
+  margin-bottom: 28px;
 }
 
 /* Navigaatio */
 .simple-nav {
-  background-color: #f4f4f4;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  background-color: #013d25;
+  margin: 0 -20px 36px -20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
-.simple-nav a {
+.nav-brand {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  padding-right: 20px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  flex-shrink: 0;
   text-decoration: none;
-  color: #005a9e;
-  margin: 0 5px;
 }
 
-.simple-nav a:hover {
-  text-decoration: underline;
+.nav-logo {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.15);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
-.simple-nav a.nav-kesken {
-  color: #999;
+.nav-logo-link:hover .nav-logo {
+  transform: scale(1.10);
+  box-shadow: 0 0 0 2.5px rgba(255,255,255,0.55), 0 2px 10px rgba(0,0,0,0.25);
+  filter: brightness(1.08);
 }
 
-.simple-nav a.nav-kesken::after {
+.nav-brand-teksti {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0;
+}
+
+.nav-site-name {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: opacity 0.15s;
+}
+
+.nav-site-name:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.nav-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.70em;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.nav-links a {
+  font-family: var(--font-ui);
+  font-size: 0.82em;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 14px 9px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+}
+
+.nav-links a.nav-kesken {
+  color: rgba(255,255,255,0.35);
+}
+
+.nav-links a.nav-kesken::after {
   content: " 🚧";
   font-size: 0.8em;
 }
 
 /* Erikoisluokat */
 .fakta-laatikko {
-  background-color: #f9f9f9;
-  border-left: 5px solid #005a9e;
-  padding: 15px;
-  margin: 20px 0;
+  background-color: var(--c-surface);
+  border-left: 4px solid var(--c-primary);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 24px 0;
+  font-size: 0.92em;
+  font-family: var(--font-ui);
+  background: var(--c-surface);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
 caption {
   caption-side: bottom;
   text-align: left;
-  font-size: 0.85em;
-  color: #666;
-  padding: 6px 0 0 0;
+  font-size: 0.82em;
+  color: var(--c-muted);
+  padding: 8px 0 0;
+  font-family: var(--font-ui);
   font-style: italic;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid var(--c-border);
+  padding: 10px 14px;
   text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #eaf2ec;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--c-primary);
 }
 
 .saasto {
-  color: #27ae60;
-  font-weight: bold;
+  color: #1a8a50;
+  font-weight: 600;
 }
 
 img {
   display: block;
-  max-width: 100%;
+  max-width: 88%;
   height: auto;
-  margin: 20px 0;
+  margin: 32px auto;
+  border-radius: 0 0 6px 6px;
+  background: #fff;
+  border-top: 3px solid var(--c-primary);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.09),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+img.zoomattava {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+img.zoomattava:hover {
+  transform: translateY(-2px) scale(1.005);
+  box-shadow:
+    0 8px 32px rgba(1, 94, 56, 0.13),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Figure + Mermaid */
+figure {
+  margin: 32px 0;
+}
+
+figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.80em;
+  color: var(--c-muted);
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.01em;
+}
+
+/* Kuvateksti — <p><em>Kuva:...</em></p> */
+p:has(> em:only-child) {
+  font-family: var(--font-ui);
+  font-size: 0.80em;
+  color: var(--c-muted);
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
 }
 
 .dataneuvos-opinion {
-  margin-top: 16px;
-  padding: 14px 18px;
+  margin-top: 20px;
+  padding: 16px 20px;
   background-color: #fdfbf0;
   border: 2px solid #C9A84C;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .dataneuvos-opinion .opinion-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: bold;
+  font-family: var(--font-ui);
+  font-weight: 600;
   color: #8B6914;
-  margin-bottom: 6px;
-  font-size: 0.95em;
+  margin-bottom: 8px;
+  font-size: 0.88em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .dataneuvos-opinion .opinion-label::before {
@@ -112,27 +306,28 @@ img {
 .dataneuvos-opinion p {
   margin: 0;
   color: #3d2e00;
-  font-size: 0.95em;
-  line-height: 1.6;
+  font-size: 0.93em;
+  line-height: 1.65;
 }
 
 /* Footer */
 .sivusto-footer {
-  margin-top: 56px;
-  padding: 20px 0 12px 0;
-  border-top: 1px solid #ddd;
-  font-size: 0.86em;
-  color: #777;
+  margin-top: 64px;
+  padding: 24px 0 16px;
+  border-top: 1px solid var(--c-border);
+  font-family: var(--font-ui);
+  font-size: 0.84em;
+  color: var(--c-muted);
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .sivusto-footer strong {
-  color: #555;
+  color: var(--c-text);
 }
 
 .sivusto-footer a {
-  color: #005a9e;
+  color: var(--c-primary);
   text-decoration: none;
 }
 
@@ -141,8 +336,149 @@ img {
 }
 
 .footer-linkit {
-  margin-top: 4px;
+  margin-top: 6px;
 }
+
+.footer-logo-rivi {
+  margin-bottom: 14px;
+}
+
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-logo {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
+  opacity: 0.65;
+  transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+.footer-logo-link:hover .footer-logo {
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 3px 12px rgba(1,94,56,0.25);
+}
+
+/* ── Splash screen ─────────────────────────────────────────── */
+#sivusto-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #013d25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  pointer-events: none;
+}
+
+#sivusto-splash.poistu {
+  animation: splash-poistuu 0.55s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+@keyframes splash-poistuu {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.04); }
+}
+
+.splash-logo-kehys {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* nollaa globaali img-tyyli */
+  margin: 0;
+  border-top: none;
+  background: transparent;
+  max-width: none;
+  opacity: 0;
+  animation: splash-logo-sisaan 0.55s cubic-bezier(0.34, 1.45, 0.64, 1) 0.1s forwards;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0);
+}
+
+@keyframes splash-logo-sisaan {
+  0%   { opacity: 0; transform: scale(0.45); filter: blur(6px); }
+  70%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+/* Laajenevat renkaat */
+.splash-rengas {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-rengas-1 {
+  animation: rengas-laajenee 0.9s cubic-bezier(0.2, 0.6, 0.4, 1) 0.55s forwards;
+}
+
+.splash-rengas-2 {
+  animation: rengas-laajenee 0.9s cubic-bezier(0.2, 0.6, 0.4, 1) 0.75s forwards;
+}
+
+.splash-rengas-3 {
+  border-color: rgba(255,255,255,0.2);
+  animation: rengas-laajenee 0.9s cubic-bezier(0.2, 0.6, 0.4, 1) 0.95s forwards;
+}
+
+@keyframes rengas-laajenee {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  100% { transform: scale(2.6);  opacity: 0; }
+}
+
+/* Tekstit */
+.splash-nimi {
+  font-family: var(--font-ui);
+  font-size: 1.05em;
+  font-weight: 600;
+  color: rgba(255,255,255,0);
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  opacity: 0;
+  animation: splash-teksti-sisaan 0.45s ease 0.65s forwards;
+}
+
+.splash-alaotsikko {
+  font-family: var(--font-body);
+  font-size: 0.78em;
+  font-style: italic;
+  color: rgba(255,255,255,0);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  margin-top: -14px;
+  animation: splash-teksti-sisaan 0.45s ease 0.85s forwards;
+}
+
+@keyframes splash-teksti-sisaan {
+  0%   { opacity: 0; transform: translateY(10px); color: rgba(255,255,255,0); }
+  100% { opacity: 1; transform: translateY(0);    color: rgba(255,255,255,0.7); }
+}
+/* ────────────────────────────────────────────────────────────── */
 
 /* Termistö: highlight kun navigoidaan ankkerilla tai klikataan */
 .termi:target,

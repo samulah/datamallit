@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <title>Power BI Apuohjelmat</title>
   <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
@@ -53,7 +54,7 @@
   <main-navigation></main-navigation>
 
   <h1>Power BI Apuohjelmat</h1>
-  <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin ominaisuuksia merkittävästi. Tässä sivulla esitellään kolme keskeisintä apuohjelmaa: DAX Studio, Tabular Editor 2 ja ALM Toolkit.</p>
+  <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin ominaisuuksia. Tällä sivulla esitellään neljä keskeisintä: DAX Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
 
   <!-- DAX STUDIO -->
   <section class="tool-section">
@@ -64,7 +65,7 @@
       <span>daxstudio.org</span>
     </div>
 
-    <p>DAX Studio on alun perin Darren Gosbellin kehittämä, nykyään avoimen lähdekoodin projekti, joka on ilmainen apuväline Power BI Desktop-, SSAS Tabular-, Azure Analysis Services- ja Power Pivot -malleihin. Ohjelmalla voidaan kirjoittaa, analysoida ja suorittaa DAX-kyselyitä.</p>
+    <p>DAX Studio on alun perin Darren Gosbellin kehittämä, nykyään avoimen lähdekoodin projekti — ilmainen apuväline Power BI Desktop-, SSAS Tabular-, Azure Analysis Services- ja Power Pivot -malleihin. Sillä kirjoitetaan, analysoidaan ja suoritetaan DAX-kyselyitä.</p>
 
     <div class="fakta-laatikko">
       <strong>Keskeisimmät ominaisuudet:</strong>
@@ -124,7 +125,7 @@
       <span>GitHub: TabularEditor/TabularEditor</span>
     </div>
 
-    <p>Tabular Editor on Tabular-malleihin ja Power BI -tietomalleihin yhdistämisen mahdollistava työkalu, jonka avulla pystytään muuttamaan ja hallitsemaan laskureita, laskennallisia sarakkeita, näyttökansiota, perspektiivejä ja käännöksiä. Ohjelmiston toiminta perustuu TOM:n (Tabular Object Model) metadatan paljastamiseen ja muokkaamiseen.</p>
+    <p>Tabular Editor yhdistää Power BI -tietomalleihin ja Tabular-malleihin — sillä muokataan ja hallitaan laskureita, laskennallisia sarakkeita, näyttökansioita, perspektiivejä ja käännöksiä. Ohjelma perustuu TOM:iin (Tabular Object Model): se paljastaa mallin metadatan suoraan muokattavaksi.</p>
 
     <div class="fakta-laatikko">
       <strong>Tabular Editor 2:n ominaisuudet:</strong>
@@ -146,7 +147,7 @@
       </ul>
     </div>
 
-    <p>Yksi mainitsemisen arvoinen ominaisuus on muutosten tekeminen offline-tilassa: TOM-malli ei prosessoi jatkuvasti kaikkia tehtyjä muutoksia, mikä säästää merkittävästi aikaa suurien tietomallien kehittämisessä.</p>
+    <p>Offline-muokkaus on Tabular Editor 2:n keskeinen etu: TOM-malli ei prosessoi muutoksia jatkuvasti, mikä säästää merkittävästi aikaa suurissa tietomalliprojekteissa.</p>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
@@ -190,7 +191,7 @@
       <span>alm-toolkit.com</span>
     </div>
 
-    <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI -tietojoukkojen ja Analysis Services -mallien vertailuun, yhdistämiseen ja käyttöönoton hallintaan. Se on suunniteltu erityisesti tilanteisiin, joissa sama tietomalli on kehitettävä useaan ympäristöön tai jaettava useille raporteille.</p>
+    <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI -tietojoukkojen ja Analysis Services -mallien vertailuun, yhdistämiseen ja käyttöönoton hallintaan. Se on suunniteltu tilanteisiin, joissa sama tietomalli pitää viedä useaan ympäristöön tai jakaa useille raporteille.</p>
 
     <div class="fakta-laatikko">
       <strong>Keskeisimmät käyttötapaukset:</strong>
@@ -203,7 +204,7 @@
       </ul>
     </div>
 
-    <p>ALM Toolkit ratkaisee Power BI:n perinteisen ongelman: PBIX-tiedoston julkaisu korvaa koko tietojoukon kerralla, mikä katkaisee siitä riippuvaiset raportit. ALM Toolkitin avulla muutokset voidaan viedä käyttöön tietomallitasolla raportteja rikkomatta.</p>
+    <p>ALM Toolkit ratkaisee Power BI:n perinteisen ongelman: PBIX-tiedoston julkaisu korvaa koko tietojoukon kerralla, mikä katkaisee siitä riippuvaiset raportit. ALM Toolkit vie muutokset käyttöön tietomallitasolla raportteja rikkomatta.</p>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
@@ -220,7 +221,7 @@
       <span>Microsoft Fabric / Power BI</span>
     </div>
 
-    <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit — kuten Claude — voivat kutsua ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Microsoft Fabricin yhteyteen MCP mahdollistaa sen, että tekoäly voi suoraan lukea tietomallin rakenteen, kirjoittaa DAX-kyselyitä, luoda mittareita tai hakea dataa — ilman että kehittäjä kopioi manuaalisesti tietoja kontekstiin.</p>
+    <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit — kuten Claude — kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa tekoälylle suoran pääsyn tietomallin rakenteeseen: se kirjoittaa DAX-kyselyitä, luo mittareita ja hakee dataa ilman, että kehittäjä kopioi rakennetta kontekstiin käsin.</p>
 
     <div class="fakta-laatikko">
       <strong>Mitä Power BI MCP mahdollistaa käytännössä:</strong>
