@@ -277,7 +277,6 @@
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Kaksi asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
     <ul>
       <li><strong>Ei tyhjiä rivejä dimensioissa.</strong> Tyhjä rivi on oire, ei ominaisuus. Se syntyy kun faktataulussa on FK-arvo jolla ei ole vastinetta dimensiossa. Tämä johtuu yleensä ETL-virheestä tai puuttuvasta "tuntematon"-rivistä. Power BI luo tällöin automaattisesti "Blank"-rivin, joka näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa ennen julkaisua.</li>
       <li><strong>Blankeille ja nollatiedoille omat rivit.</strong> Kun et tiedä asiakkaan segmenttiä, faktataulun rivi ei silti saa jäädä kohdistamatta. Luo dimensioon eksplisiittiset rivit: <em>Tuntematon</em>, <em>Ei kohdistettavissa</em>, <em>Ei sovellettavissa</em>. Näin kaikki luvut summautuvat oikein ja tiedät aina kuinka suuri osuus datasta on tunnistamatonta — se itsessään on liiketoiminnallisesti arvokas tieto.</li>
