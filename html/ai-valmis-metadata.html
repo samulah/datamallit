@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
@@ -7,33 +8,56 @@
   <link rel="stylesheet" href="style.css">
   <script src="navigation.js" defer></script>
 </head>
+
 <body>
-<main-navigation></main-navigation>
+  <main-navigation></main-navigation>
 
-  <h1>AI-valmis metadata</h1>
+  <h1>Mitä AI-valmis metadata tarkoittaa?</h1>
 
-  <p>AI-valmis metadata tarkoittaa, että tietovaraston taulut, sarakkeet, mittarit ja raportit on kuvattu niin selkeästi ja kattavasti, että sekä ihmiset että tekoälyavustajat voivat ymmärtää datan merkityksen ilman lisäselvittelyjä. Kun metadata on kunnossa, Power BI Copilot osaa vastata käyttäjän kysymyksiin oikein, datakatalogin haku löytää oikeat aineistot ja uusi kehittäjä pääsee kiinni malliin ilman pitkiä perehdytyksiä.</p>
+  <p>AI-valmis metadata tarkoittaa, että tietovaraston taulut, sarakkeet, mittarit ja raportit on kuvattu niin selkeästi
+    ja kattavasti, jotta ihmiset ja tekoälyavustajat voivat ymmärtää datan merkityksen ilman lisäselvittelyjä. Kun
+    metadata on kunnossa niin tekoläly, MCP-palvelut ja/tai Copilot osaa vastata käyttäjän kysymyksiin oikein. Samalla
+    datakatalogin haku löytää oikeat
+    aineistot ja uusi kehittäjä pääsee kiinni malliin ilman pitkiä perehdytyksiä.</p>
 
   <div class="fakta-laatikko">
-    <strong>Lyhyesti:</strong> AI-valmis metadata on ihmisille kirjoitettua luonnollista kieltä — se kertoo <em>mitä data tarkoittaa</em>, ei pelkästään <em>mitä se teknisesti on</em>. Tekoäly lukee kuvaukset aivan kuin ihminen lukisi dokumentaation.
+    <strong>Lyhyesti:</strong> AI-valmis metadata on ihmisille kirjoitettua luonnollista kieltä — se kertoo <em>mitä
+      data tarkoittaa</em>, ei pelkästään <em>mitä se teknisesti on</em>. Tekoäly lukee kuvaukset aivan kuin ihminen
+    lukisi dokumentaation. Kirjoita metadata siis niin, että se selittäisi asian uudelle kollegalle, jolla ei ole
+    taustatietoa järjestelmistänne.
+  </div>
   </div>
 
   <h2>Miksi metadata ratkaisee AI-työkalujen toimivuuden?</h2>
 
-  <p>Tekoälyavustajat kuten Power BI Copilot tai datakatalogin AI-haku eivät ymmärrä liiketoimintakontekstia automaattisesti — ne päättelevät merkityksen nimistä ja kuvauksista. Jos sarakkeen nimi on <code>KA_LV_NETTO_EUR</code> ilman kuvausta, Copilot ei tiedä, onko kyseessä käyntiaste, liikevaihto vai jokin muu mittari. Jos sarake on nimetty <code>NettoLiikevaihto</code> ja kuvauksessa lukee "Myynnin liikevaihto alennusten ja palautusten jälkeen, euroina ilman arvonlisäveroa", AI osaa käyttää sitä oikein.</p>
+  <p>Tekoälyavustajat eivät ymmärrä liiketoimintakontekstia
+    automaattisesti ilman opastusta. Tekoälyavustajat päättelevät merkityksen nimistä ja kuvauksista, aivan
+    kuten semanttista mallia käyttäväht ihmisetkin.
+    Jos sarakkeen nimi on
+    <code>KA_LV_NETTO_EUR</code> ilman kuvausta, Copilot ei tiedä, onko kyseessä käyntiaste, liikevaihto vai jokin muu
+    mittari. Jos sarake on nimetty <code>NettoLiikevaihto</code> ja kuvauksessa lukee "Myynnin liikevaihto alennusten ja
+    palautusten jälkeen, euroina ilman arvonlisäveroa", AI osaa käyttää sitä oikein.
+  </p>
 
-  <p>Sama pätee tauluihin ja mittoihin: mitä paremmin kokonaisuus on kuvattu, sitä tarkempia ja luotettavampia AI-avusteisen analytiikan tulokset ovat.</p>
+  <p>Sama pätee tauluihin ja mittoihin: mitä paremmin kokonaisuus on kuvattu, sitä tarkempia ja luotettavampia
+    AI-avusteisen analytiikan tulokset ovat.</p>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Metadata on investointi, joka maksaa itsensä takaisin moninkertaisesti. Jokainen tunti, jonka käytät hyvien kuvausten kirjoittamiseen, säästää kymmeniä tunteja selvittelyä, virheellisiä raportteja ja turhia palavereita. AI-aika on täällä — hyvä metadata ei ole enää mukava lisä, se on perusedellytys sille, että tekoälytyökalut toimivat luotettavasti juuri teidän datanne kanssa.</p>
+    <p>Metadata kuvailee mitä datasi tarkoittaa. Se on investointi joka maksaa itsensä takaisin moninkertaisesti.
+      Jokainen tunti, jonka käytät hyvien kuvausten kirjoittamiseen, säästää kymmeniä tunteja selvittelyä,
+      virheellisiä raportteja ja turhia palavereita.
+      AI-aika on jo täällä — hyvä metadata ei ole enää mukava lisä ja ohjelmoinnin päälle tehtävä vapaaehtoinen työ,
+      se on perusedellytys sille, että tekoälytyökalut toimivat luotettavasti juuri teidän datanne kanssa.</p>
   </div>
 
   <h2>Mitä tietovarastossa kannattaa kuvata?</h2>
 
-  <p>Tietovaraston tauluissa ja sarakkeissa metadata elää teknisessä kerroksessa — tietokantakommenteissa, datakatalogeissa tai dokumentaatiossa.</p>
+  <p>Tietovaraston tauluissa ja sarakkeissa metadata elää teknisessä kerroksessa — tietokantakommenteissa,
+    datakatalogeissa tai dokumentaatiossa.</p>
 
   <table>
+    <caption>Taulukko 1. Tietovaraston kuvauksen kohteet ja esimerkit</caption>
     <thead>
       <tr>
         <th>Kohde</th>
@@ -45,7 +69,8 @@
       <tr>
         <td><strong>Taulu tai näkymä</strong></td>
         <td>Mitä liiketoimintakokonaisuutta taulu edustaa, mistä data tulee, milloin päivittyy, kuka omistaa</td>
-        <td>"Sisältää vahvistetut myyntitilaukset toimitusjärjestelmästä. Päivittyy yöllä klo 03:00. Omistaja: myynticontrolling."</td>
+        <td>"Sisältää vahvistetut myyntitilaukset toimitusjärjestelmästä. Päivittyy yöllä klo 03:00. Omistaja:
+          myynti ja controllerit."</td>
       </tr>
       <tr>
         <td><strong>Dimensiosarake</strong></td>
@@ -75,21 +100,25 @@
     </tbody>
   </table>
 
-  <div class="dataneuvos-opinion">
-    <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Aloita kaikkein tärkeimmistä sarakkeista — älä yritä kuvata kaikkea kerralla. Valitse 10–15 saraketta, jotka aiheuttavat eniten kysymyksiä tai virheitä, ja kirjoita niille ensin kunnolliset kuvaukset. Kun malli on selvillä, jatka muihin. Priorisoi yhdellä kysymyksellä: "Mitä analyytikot tai Copilot kysyvät useimmin väärin?"</p>
-  </div>
 
   <h2>Mitä Power BI:ssä kannattaa kuvata?</h2>
 
-  <p>Power BI:ssä metadata kulkee kahdella tasolla: tietomallissa (taulut, sarakkeet, mittarit) ja semanttisessa kerroksessa (synonyymit, kategoriat, kuvaustekstit). Molemmat vaikuttavat siihen, miten Copilot ja Q&A-toiminto ymmärtävät mallin.</p>
+  <p>Power BI:ssä on kaksi tapaa kuvata dataa:</p>
+  <ol>
+    <li><strong>Tietomalli</strong> — konkreettiset rakenteet: taulut, sarakkeet, mittarit</li>
+    <li><strong>Semanttinen kerros</strong> — merkitykset: synonyymit (esim. "asiakas" = "customer"), kategoriat, kuvaustekstit</li>
+  </ol>
+  <p>Molemmat vaikuttavat siihen, miten AI-ominaisuudet (Copilot, Q&A) tulkitsevat kyselyjä — jos metadata on huonosti
+    nimetty tai puuttuu, AI ei ymmärrä mitä käyttäjä tarkoittaa.</p>
 
   <table>
+    <caption>Taulukko 2. Power BI:n metadataelementit, niiden tärkeys AI-toiminnoille ja mistä ne asetetaan</caption>
     <thead>
       <tr>
         <th>Elementti</th>
         <th>Missä asetetaan</th>
         <th>Miksi tärkeä AI:lle</th>
+        <th>Tärkeys</th>
       </tr>
     </thead>
     <tbody>
@@ -97,41 +126,43 @@
         <td><strong>Taulun kuvaus</strong></td>
         <td>Tauluominaisuudet → Kuvaus</td>
         <td>Copilot käyttää kuvausta ymmärtääkseen, mitä tauluun kannattaa hakea</td>
+        <td>★★★★★</td>
       </tr>
       <tr>
         <td><strong>Sarakkeen kuvaus</strong></td>
         <td>Sarakeominaisuudet → Kuvaus</td>
         <td>Q&A ja Copilot päättelevät sarakkeen merkityksen nimestä ja kuvauksesta</td>
+        <td>★★★★★</td>
       </tr>
       <tr>
         <td><strong>Mittarin kuvaus</strong></td>
         <td>Mittariominaisuudet → Kuvaus</td>
         <td>Kertoo mitä DAX-kaava laskee liiketoiminnallisesti, ei teknisesti</td>
+        <td>★★★★★</td>
       </tr>
       <tr>
         <td><strong>Q&A-synonyymit</strong></td>
         <td>Tietomallin asetukset → Q&A-synonyymit</td>
         <td>Mahdollistaa, että "myynti", "liikevaihto" ja "revenue" ohjaavat samaan mittaan</td>
+        <td>★★★★☆</td>
       </tr>
       <tr>
         <td><strong>Tietoluokka (Data Category)</strong></td>
         <td>Sarakeominaisuudet → Tietoluokka</td>
         <td>Kertoo AI:lle onko sarake maa, kaupunki, postinumero, URL vai kuva-URL</td>
+        <td>★★★☆☆</td>
       </tr>
       <tr>
         <td><strong>Yhteenveto-asetus</strong></td>
         <td>Sarakeominaisuudet → Oletusyhteenveto</td>
         <td>Määrittää yhteenlasketaanko, lasketaanko keskiarvo vai ei lasketa oletuksena</td>
-      </tr>
-      <tr>
-        <td><strong>Hakemistotaulu (Featured table)</strong></td>
-        <td>Tauluominaisuudet → Hakemistotaulu</td>
-        <td>Mahdollistaa datan löytämisen Excelin tietotyyppien kautta</td>
+        <td>★★★☆☆</td>
       </tr>
       <tr>
         <td><strong>Sertifiointi</strong></td>
         <td>Power BI -palvelun asetukset</td>
         <td>Kertoo AI:lle ja käyttäjille, että datasetti on virallinen ja luotettava</td>
+        <td>★★★★☆</td>
       </tr>
     </tbody>
   </table>
@@ -141,6 +172,7 @@
   <p>Kuvauksen laatu ratkaisee.</p>
 
   <table>
+    <caption>Taulukko 3. Huonon ja hyvän metadatakuvauksen vertailu esimerkeillä</caption>
     <thead>
       <tr>
         <th>Kohde</th>
@@ -152,7 +184,8 @@
       <tr>
         <td>Mittari: Myynti</td>
         <td>"Myynti"</td>
-        <td>"Vahvistettujen myyntitilausten liikevaihto euroissa ilman arvonlisäveroa. Sisältää vain toimitetut tilaukset."</td>
+        <td>"Vahvistettujen myyntitilausten liikevaihto euroissa ilman arvonlisäveroa. Sisältää vain toimitetut
+          tilaukset."</td>
       </tr>
       <tr>
         <td>Sarake: AsiakasLuokka</td>
@@ -162,30 +195,36 @@
       <tr>
         <td>Taulu: dim_Tuote</td>
         <td>"Tuotetaulu"</td>
-        <td>"Kaikki aktiiviset ja poistetut tuotteet tuotetietojärjestelmästä. Sisältää tuotehierarkian kategoriaan asti. Päivittyy päivittäin."</td>
+        <td>"Kaikki aktiiviset ja poistetut tuotteet tuotetietojärjestelmästä. Sisältää tuotehierarkian kategoriaan
+          asti. Päivittyy päivittäin."</td>
       </tr>
       <tr>
         <td>Sarake: LuontiPvm</td>
         <td>"Päivämäärä"</td>
-        <td>"Tilauksen luontipäivämäärä järjestelmässä (UTC). Ei ole sama kuin tilauksen vahvistuspäivä tai toimituspäivä."</td>
+        <td>"Tilauksen luontipäivämäärä järjestelmässä (UTC). Ei ole sama kuin tilauksen vahvistuspäivä tai
+          toimituspäivä."</td>
       </tr>
       <tr>
         <td>Mittari: KatePros</td>
         <td>"Kate %"</td>
-        <td>"Myyntikate prosentteina: (Myynti – Muuttuvat kustannukset) / Myynti × 100. Ei sisällä kiinteitä kuluja."</td>
+        <td>"Myyntikate prosentteina: (Myynti – Muuttuvat kustannukset) / Myynti × 100. Ei sisällä kiinteitä kuluja."
+        </td>
       </tr>
     </tbody>
   </table>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Kirjoita kuvaukset niin kuin selittäisit asian uudelle kollegalle, jolla ei ole taustatietoa järjestelmistänne. Jos kuvaus vaatii lisäkysymyksiä ymmärtääkseen, se on liian epätarkka.</p> </div>
+    <p>Kirjoita kuvaukset niin kuin selittäisit asian uudelle kollegalle, jolla ei ole taustatietoa järjestelmistänne.
+      Jos kuvaus vaatii lisäkysymyksiä ymmärtääkseen, se on liian epätarkka.</p>
+  </div>
 
   <h2>Käytännön muistilista AI-valmiiseen metadataan</h2>
 
   <p>Alla tiivis tarkistuslista — arvioi oman tietomallisi ja tietovarastosi AI-valmius.</p>
 
   <table>
+    <caption>Taulukko 4. AI-valmiuden tarkistuslista tietovarastolle ja Power BI:lle</caption>
     <thead>
       <tr>
         <th>Tarkistettava asia</th>
@@ -232,10 +271,7 @@
     </tbody>
   </table>
 
-  <div class="dataneuvos-opinion">
-    <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>AI-valmius ei ole erikseen tehtävä projekti — se on tapa tehdä kehitystyötä. Kun otat uuden taulun tai mittarin käyttöön, kirjoita kuvaus heti samalla kertaa. Myöhemmin tehty dokumentaatio on aina puutteellisempaa kuin se, jonka kirjoitat silloin kun asia on tuoreena mielessä. Aseta tiimissä käytäntö: pull request tai julkaisu ei mene läpi ilman kuvauksia keskeisille sarakkeille ja mittareille.</p>
-  </div>
 
 </body>
+
 </html>

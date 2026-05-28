@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
@@ -13,6 +14,7 @@
       padding-top: 20px;
       border-top: 2px solid #004a99;
     }
+
     .book-card {
       background-color: #f9f9f9;
       border: 1px solid #ddd;
@@ -23,29 +25,35 @@
       gap: 24px;
       align-items: flex-start;
     }
+
     .book-cover {
       flex-shrink: 0;
       width: 120px;
     }
+
     .book-cover img {
       width: 100%;
       border: 1px solid #ccc;
       border-radius: 3px;
       display: block;
-      box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+      box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.15);
     }
+
     .book-content {
       flex: 1;
       min-width: 0;
     }
+
     .book-content h3 {
       margin-top: 0;
       color: #004a99;
     }
+
     .book-card h3 {
       margin-top: 0;
       color: #004a99;
     }
+
     .amazon-link {
       display: inline-block;
       margin-top: 10px;
@@ -53,9 +61,11 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     .amazon-link:hover {
       text-decoration: underline;
     }
+
     .dataneuvos-opinion {
       margin-top: 16px;
       padding: 14px 18px;
@@ -63,6 +73,7 @@
       border: 2px solid #C9A84C;
       border-radius: 4px;
     }
+
     .dataneuvos-opinion .opinion-label {
       display: flex;
       align-items: center;
@@ -74,10 +85,12 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
+
     .dataneuvos-opinion .opinion-label::before {
       content: "💬";
       font-size: 1em;
     }
+
     .dataneuvos-opinion p {
       margin: 0;
       color: #3d2e00;
@@ -86,6 +99,7 @@
     }
   </style>
 </head>
+
 <body>
   <main-navigation></main-navigation>
 
@@ -96,37 +110,42 @@
 
     <div class="book-card" id="analyzing-data">
       <div class="book-cover">
-        <img src="kuvat/kirjallisuus-suositukset/analyzing-data-power-bi.jpg" alt="Analyzing Data with Microsoft Power BI and Power Pivot for Excel -kirjan kansi">
+        <img src="kuvat/kirjallisuus-suositukset/analyzing-data-power-bi.jpg"
+          alt="Analyzing Data with Microsoft Power BI and Power Pivot for Excel -kirjan kansi">
       </div>
       <div class="book-content">
         <h3>Analyzing Data with Microsoft Power BI and Power Pivot for Excel</h3>
         <p><strong>Kirjoittajat:</strong> Alberto Ferrari & Marco Russo (2017)</p>
-        <h3>Opit kirjasta seuraavat asiat</h3>
-        <ul>
-          <li>Tähtimallin käyttön</li>
-          <li>DAX-kielen perusteet ja suositellut nimeämiskäytännöt</li>
-          <li>Power BI:n tehokas hyödyntäminen</li>
-        </ul>
-        <a href="https://www.amazon.com/Analyzing-Data-Microsoft-Power-Pivot/dp/150930276X" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kirja rakentaa ymmärryksen siitä, miksi Power BI -tietomalli toimii niin kuin se toimii. Ferrari ja Russo
+          selittävät tähtimallin, VertiPaq-moottorin peruslogiikan ja DAX-kielen yhteyden toisiinsa arkkitehtuurin tasolla.</p>
+        <a href="https://www.amazon.com/Analyzing-Data-Microsoft-Power-Pivot/dp/150930276X" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Lukemalla tämän kirjan ymmärrät miksi haluat rakentaa tähtimallin ja mitä tapahtuu jos rakennat jotain muuta.
+            </p>
         </div>
       </div>
     </div>
 
     <div class="book-card" id="definitive-guide-dax">
       <div class="book-cover">
-        <img src="kuvat/kirjallisuus-suositukset/definitive-guide-dax.jpg" alt="The Definitive Guide to DAX -kirjan kansi">
+        <img src="kuvat/kirjallisuus-suositukset/definitive-guide-dax.jpg"
+          alt="The Definitive Guide to DAX -kirjan kansi">
       </div>
       <div class="book-content">
         <h3>The Definitive Guide to DAX</h3>
         <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2019)</p>
-        <p>Kirja syventyy DAX-kieleen (Data Analysis Expressions) ja VertiPaq-moottorin toimintaan. Se selittää, miten moottori pakkaa ja enkoodaa dataa ja miksi sarakkeiden kardinaliteetin vähentäminen on suorituskyvyn kannalta tärkeää.</p>
-        <a href="https://www.amazon.com/Definitive-Guide-DAX-intelligence-Microsoft/dp/1509306978" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kirja syventyy DAX-kieleen (Data Analysis Expressions) ja VertiPaq-moottorin toimintaan. Se selittää, miten
+          moottori pakkaa ja enkoodaa dataa ja miksi sarakkeiden kardinaliteetin vähentäminen on suorituskyvyn kannalta
+          tärkeää.</p>
+        <a href="https://www.amazon.com/Definitive-Guide-DAX-intelligence-Microsoft/dp/1509306978" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Kirjaa on mukava availla työh ohessa ja katsella kun Power BI:n semanttinen malli lataa dataa. 
+            Tästä opit kaiken mitä Power BI:n ja SSAS-mallien toiminnassa tapahtuu. Jos luet kirjan niin että ymmärrät sisällön
+            opit miten mallinnat parhaiden käytäntöjen mukaan ja miten vältyt "yllättäviltä" suorituskykyongelmilta.</p>
         </div>
       </div>
     </div>
@@ -138,43 +157,65 @@
       <div class="book-content">
         <h3>DAX Patterns, Second Edition</h3>
         <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2021)</p>
-        <p>Kirjasta löytyy paljon hyviä suoraan ympäristöön käytettäviä kaavoja. Kaavat noudattavat kaikki tähtimallin pohjalle rakennettua sapluunaa. Voit käyttää kaavoja sellaisenaan tai muokata niitä tarpeidesi mukaan. Teos on käytännönläheinen kokoelma todistettuja DAX-kaavamalleja yleisimpiin liiketoimintatarpeisiin, kuten time intelligencen, vuosittaisiin vertailuihin ja ABC-analyyseihin.</p>
-        <a href="https://www.amazon.com/DAX-Patterns-Second-Marco-Russo/dp/1735365203" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kirjasta löytyy paljon hyviä suoraan ympäristöön käytettäviä kaavoja. Kaavat noudattavat kaikki tähtimallin
+          pohjalle rakennettua sapluunaa. Voit käyttää kaavoja sellaisenaan tai muokata niitä tarpeidesi mukaan. Teos on
+          käytännönläheinen kokoelma todistettuja DAX-kaavamalleja yleisimpiin liiketoimintatarpeisiin, kuten time
+          intelligencen, vuosittaisiin vertailuihin ja ABC-analyyseihin.</p>
+        <a href="https://www.amazon.com/DAX-Patterns-Second-Marco-Russo/dp/1735365203" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Käytä tätä kirjaa apuna kun tiedät mitä haluat laskea Power BI:ssä, mutta et ole varma miten.
+            Kirja antaa valmiit kaavat useimpiin yleisiin laskentatarpeisiin.
+            Kaikki kirjan kaavat on kirjoitettu tähtimallin päälle, joten ne toimivat aina hyvin mallinnetuissa malleissa.</hr> </p>
         </div>
       </div>
     </div>
 
     <div class="book-card">
       <div class="book-cover">
-        <img src="kuvat/kirjallisuus-suositukset/star-schema-complete-reference.jpg" alt="Star Schema: The Complete Reference -kirjan kansi">
+        <img src="kuvat/kirjallisuus-suositukset/star-schema-complete-reference.jpg"
+          alt="Star Schema: The Complete Reference -kirjan kansi">
       </div>
       <div class="book-content">
         <h3>Star Schema: The Complete Reference</h3>
         <p><strong>Kirjoittaja:</strong> Christopher Adamson (2010)</p>
-        <p>Kattava opas dimensionaaliseen tietovarastosuunnitteluun, joka kattaa sekä perusteet että edistyneet tekniikat todellisen maailman monimutkaisiin tilanteisiin. Kirja etenee dimensionaalisen suunnittelun perusteista yritystason tietovarastoarkkitehtuureihin ja BI- sekä ETL-järjestelmien optimointistrategioihin.</p>
-        <a href="https://www.amazon.com/Schema-Complete-Reference-Christopher-Adamson/dp/0071744320" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kattava opas dimensionaaliseen tietovarastosuunnitteluun, joka kattaa sekä perusteet että edistyneet
+          tekniikat todellisen maailman monimutkaisiin tilanteisiin. Kirja etenee dimensionaalisen suunnittelun
+          perusteista yritystason tietovarastoarkkitehtuureihin ja BI- sekä ETL-järjestelmien optimointistrategioihin.
+        </p>
+        <a href="https://www.amazon.com/Schema-Complete-Reference-Christopher-Adamson/dp/0071744320" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Tästä kirjasta oppii kaiken mitä tähtimallista voi oppia. Adamson käy läpi aiheen niin perusteellisesti, että lukemisen jälkeen tähtimallin rakenne ja sen takana olevat suunnittelupäätökset ovat täysin selkeitä. Yhdistettynä Ferrari &amp; Russon Power BI -kirjojen oppiin kokonaisuus on lyömätön — kun tietää miksi malli rakennetaan tietyllä tavalla ja osaa myös kirjoittaa DAX-kaavat sen päälle, ollaan jo hyvin pitkällä.</p>
+          <p>Tästä kirjasta oppii kaiken mitä tähtimallista voi oppia. Adamson käy läpi aiheen niin perusteellisesti,
+            että lukemisen jälkeen tähtimallin rakenne ja sen takana olevat suunnittelupäätökset ovat täysin selkeitä.
+            Yhdistettynä Ferrari &amp; Russon Power BI -kirjojen oppiin kokonaisuus on lyömätön — kun tietää miksi malli
+            rakennetaan tietyllä tavalla ja osaa myös kirjoittaa DAX-kaavat sen päälle, ollaan jo hyvin pitkällä.</p>
         </div>
       </div>
     </div>
 
     <div class="book-card">
       <div class="book-cover">
-        <img src="kuvat/kirjallisuus-suositukset/data-model-resource-book.jpg" alt="The Data Model Resource Book Revised Edition -kirjan kansi">
+        <img src="kuvat/kirjallisuus-suositukset/data-model-resource-book.jpg"
+          alt="The Data Model Resource Book Revised Edition -kirjan kansi">
       </div>
       <div class="book-content">
         <h3>The Data Model Resource Book, Revised Edition</h3>
         <p><strong>Kirjoittaja:</strong> Len Silverston (2001)</p>
-        <p>A Library of Universal Data Models for All Enterprises — kattava kokoelma valmiita tietomalleja yleisimpiin liiketoiminta-alueisiin, kuten henkilöihin, organisaatioihin, tuotteisiin, tilauksiin ja taloushallintoon. Kirja tarjoaa testattuja ja uudelleenkäytettäviä tietomalliratkaisuja, joiden avulla tietokantasuunnittelijat voivat nopeuttaa mallinnusprosessia sen sijaan, että aloittaisivat alusta.</p>
-        <a href="https://www.amazon.com/Data-Model-Resource-Book-Revised/dp/0471380237" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>A Library of Universal Data Models for All Enterprises — kattava kokoelma valmiita tietomalleja yleisimpiin
+          liiketoiminta-alueisiin, kuten henkilöihin, organisaatioihin, tuotteisiin, tilauksiin ja taloushallintoon.
+          Kirja tarjoaa testattuja ja uudelleenkäytettäviä tietomalliratkaisuja, joiden avulla tietokantasuunnittelijat
+          voivat nopeuttaa mallinnusprosessia sen sijaan, että aloittaisivat alusta ja keksisisvät kaiken itse.</p>
+        <a href="https://www.amazon.com/Data-Model-Resource-Book-Revised/dp/0471380237" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Tätä ei kannata lukea alusta loppuun, käytä mielummin viitekirjana.
+            Minusta oli hyödyllistä ja mielenkiintoista nähdä eri liiketoiminta-alueiden
+            mallinnusratkaisuja,koska vaikka mallit ovat vanhoja ei organisaatioiden
+            liiketoimintalogiikka ei ole muuttunut. Tästä saat ilmaisia sapluunaratkaisuja monenlaisiin tietomalleihin</p>
         </div>
       </div>
     </div>
@@ -185,11 +226,16 @@
       <div class="book-content">
         <h3>Business Bullshit</h3>
         <p><strong>Kirjoittaja:</strong> André Spicer (2018)</p>
-        <p>Kirja tutkii, miksi organisaatioissa puhutaan niin paljon ilman, että sanotaan mitään. Spicer analysoi johdon sanahelinää — kuten "synergiat", "agiliteetti" ja "disruption" — ja osoittaa, kuinka se haittaa oikeaa ajattelua ja päätöksentekoa.</p>
-        <a href="https://www.amazon.com/Business-Bullshit-Andr%C3%A9-Spicer/dp/1138911674" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kirja tutkii, miksi organisaatioissa puhutaan niin paljon ilman, että sanotaan mitään. Spicer analysoi johdon
+          sanahelinää — kuten "synergiat", "agiliteetti" ja "disruption" — ja osoittaa, kuinka se haittaa oikeaa
+          ajattelua ja päätöksentekoa.</p>
+        <a href="https://www.amazon.com/Business-Bullshit-Andr%C3%A9-Spicer/dp/1138911674" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Ei datakirja, mutta tämä kannattaa jokaisen data-asiantuntijan kannattaa lukea. Kun johto vaatii "tekoälypohjaisia
+            reaaliaikaisia synergiota", tämä kirja auttaa tunnistamaan mistä on kyse: ei mistään. "Bullshittiä" ei voi torjua
+            ilman että sen tajuaa. Kirja auttaa tunnistamaan tyhjän puheen ja tyhjät sanat.</p>
         </div>
       </div>
     </div>
@@ -201,11 +247,17 @@
       <div class="book-content">
         <h3>Rebel Ideas: The Power of Diverse Thinking</h3>
         <p><strong>Kirjoittaja:</strong> Matthew Syed (2019)</p>
-        <p>Kirja käsittelee, miksi kognitiivisesti monimuotoiset ryhmät ratkaisevat monimutkaisia ongelmia tehokkaammin kuin homogeeniset asiantuntijaryhmät. Syed osoittaa konkreettisilla esimerkeillä, miten erilaiset näkökulmat ja taustat tuottavat parempia päätöksiä.</p>
-        <a href="https://www.amazon.com/Rebel-Ideas-Power-Diverse-Thinking/dp/1473613949" class="amazon-link" target="_blank">Tarkastele Amazonissa &rarr;</a>
+        <p>Kirja käsittelee, miksi kognitiivisesti monimuotoiset ryhmät ratkaisevat monimutkaisia ongelmia tehokkaammin
+          kuin homogeeniset asiantuntijaryhmät. Syed osoittaa konkreettisilla esimerkeillä, miten erilaiset näkökulmat
+          ja taustat tuottavat parempia päätöksiä. Syed käy kirjassaan läpi myös sen minkälaisia seurauksia homogeenisten
+        ryhmien tekemillä päätöksillä on ollut.</p>
+        <a href="https://www.amazon.com/Rebel-Ideas-Power-Diverse-Thinking/dp/1473613949" class="amazon-link"
+          target="_blank">Tarkastele Amazonissa &rarr;</a>
         <div class="dataneuvos-opinion">
           <div class="opinion-label">Dataneuvoksen mielipide</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Data-tiimit joissa kaikki ajattelevat samalla tavalla löytävät samat asiat — ja jättävät huomaamatta samat
+            sokeat pisteet. Syed perustelee kognitiivisen monimuotoisuuden arvon konkreettisilla esimerkeillä, ei
+            HR-puheella. Rekrytoi eri taustoista, saat parempia analyyseja.</p>
         </div>
       </div>
     </div>
@@ -213,4 +265,5 @@
   </section>
 
 </body>
+
 </html>

@@ -12,11 +12,11 @@ datamalli.fi on Power BI- ja tietomallinnusopas suomalaisille dataammattilaisill
 
 **Asiantuntija joka selittää miksi, ei vain mitä.**
 - ❌ "Käytä surrogaattiavainta."
-- ✅ "Surrogaattiavain on aina kokonaisluku — VertiPaq pakkaa INT-sarakkeet erittäin tehokkaasti. GUID- tai merkkijono-avaimet turvottavat mallia ja hidastavat laskentaa."
+- ✅ "Surrogaattiavain on aina kokonaisluku — kolumnaaritallennusmoottori pakkaa INT-sarakkeet tehokkaasti, GUID- ja merkkijono-avaimet turvottavat mallia ja hidastavat laskentaa."
 
 **Opinionoitu mutta perusteltu.** "Dataneuvoksen mielipide" -osioissa voi olla rohkeampi:
-- ❌ "Lumihiutalemalli on toisinaan sopimaton Power BI:hin."
-- ✅ "Hyvä tietovarastoon, huono Power BI:hin. Litistä ennen lataamista."
+- ❌ "Lumihiutalemalli on toisinaan sopimaton semanttiseen kerrokseen."
+- ✅ "Hyvä tietovarastoon, huono semanttiseen kerrokseen. Litistä ennen lataamista."
 
 ## Kielisäännöt
 
@@ -43,6 +43,8 @@ datamalli.fi on Power BI- ja tietomallinnusopas suomalaisille dataammattilaisill
 **Listapisteet:** Aina **Lihavoitu otsikko.** Selitys joka kertoo miksi tai miten.
 - ✅ "**Leveä, ei syvä.** Denormalisoi alataulut päädimensioon — loppukäyttäjä suodattaa yhdestä paikasta, ei kolmesta liittyneestä taulusta."
 
+**Hierarkialistat:** Kun sisältö esittelee taulujen hierarkian (esim. "Ennen litistämistä — 3 taulua hierarkiassa:"), listassa tulee näkyä aina taulun oikea nimi (esim. `d_yritys`, `d_liiketoimintaryhma`, `d_kustannuspaikka`). Ei pelkkiä kuvauksia.
+
 **Rakennepohja uudelle sisällölle:**
 1. Mikä tämä on (määritelmä, 1–2 virkettä)
 2. Miksi se on tärkeää (konteksti ja motivaatio)
@@ -61,8 +63,9 @@ datamalli.fi on Power BI- ja tietomallinnusopas suomalaisille dataammattilaisill
 
 1. Lue annettu teksti
 2. Tunnista: mitä tyylielementtejä puuttuu? Missä on pehmentely, abstrakti tai passiivi?
-3. Muokkaa teksti kohta kohdalta yllä olevien sääntöjen mukaisesti
-4. Säilytä kaikki asiasisältö ja faktat — muuta vain esitystapa ja rakenne
-5. Jos teksti on HTML, säilytä rakenne — muokkaa vain tekstisisältö
+3. Käy läpi **turha toisto**: etsi kohdat joissa sama asia sanotaan kahdesti — eri sanoilla, eri kappaleessa tai otsikon alla uudelleen. Raportoi löydetyt toistot ja ehdota miten ne poistettaisiin (esim. "kappale X ja kappale Y sanovat saman asian — poista Y").
+4. Muokkaa teksti kohta kohdalta yllä olevien sääntöjen mukaisesti
+5. Säilytä kaikki asiasisältö ja faktat — muuta vain esitystapa ja rakenne
+6. Jos teksti on HTML, säilytä rakenne — muokkaa vain tekstisisältö
 
-Raportti lopuksi: mitä muutettiin ja miksi (lyhyesti, max 5 kohtaa).
+Raportti lopuksi: mitä muutettiin ja miksi (lyhyesti, max 5 kohtaa). Toistot listataan erikseen ennen muita huomioita.
