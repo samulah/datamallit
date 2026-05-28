@@ -569,6 +569,12 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span></div>
     </div>
 
+    <div class="termi" id="monen-moneen" data-tags="tietomalli konseptit">
+      <span class="termi-nimi">Monen-moneen-suhde</span> <span class="termi-en">(Many-to-Many)</span>
+      <div class="termi-selite">Relaatiotyyppi, jossa molemmat taulut voivat liittyä useaan riviin toisessa taulussa — esimerkiksi yksi tilaus voi sisältää monta tuotetta ja yksi tuote voi esiintyä monessa tilauksessa. Power BI tukee monen-moneen-suhteita suoraan, mutta ne tekevät DAX-laskennasta arvaamatonta ja hidastavat suorituskykyä. <strong>Suosittelemme välttämään.</strong> Ratkaise tilanne välitaululla (bridge table) tai mallintamalla granulariteetti uudelleen niin, että suhde muuttuu <a href="#yksi-moneen">yksi-moneen-suhteeksi</a>.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
+    </div>
+
     <div class="termi" id="medallion-arkkitehtuuri" data-tags="arkkitehtuuri">
       <span class="termi-nimi">Medallion-arkkitehtuuri</span>
       <div class="termi-selite">Datan jalostusmalli, jossa data etenee kerroksittain Bronze-tasolta (raakadata)
@@ -881,6 +887,22 @@
 
   </div>
 
+  <h2 id="y" class="termi-aakkos-otsikko">Y</h2>
+  <div class="termi-luettelo">
+
+    <div class="termi" id="yhdistelmakentta" data-tags="tietomalli">
+      <span class="termi-nimi">Yhdistelmäkenttä</span>
+      <div class="termi-selite">Sarake, joka yhdistää numeerisen avaimen ja luettavan nimen yhdeksi arvoksi, esim. <code>100 – Helsinki-myymälä</code>. Mahdollistaa lajittelun numeerisen avaimen mukaan samalla kun visuaaleissa näkyy selkokielinen nimi. Rakennetaan tyypillisesti ETL-vaiheessa ennen Power BI -latausta.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span></div>
+    </div>
+
+    <div class="termi" id="yksi-moneen" data-tags="tietomalli konseptit">
+      <span class="termi-nimi">Yksi-moneen-suhde</span> <span class="termi-en">(One-to-Many)</span>
+      <div class="termi-selite">Tähtimallin perusrelaatiotyyppi: yksi dimensiorivi voi liittyä useaan faktataulun riviin, mutta jokainen faktataulun rivi liittyy täsmälleen yhteen dimensioriviin. Esimerkiksi yksi asiakas voi esiintyä tuhannessa tilauksessa. <a href="#relaatio">Relaatio</a> rakennetaan dimension <a href="#paaavain">pääavaimen</a> ja faktataulun <a href="#vierasavain">vierasavaimen</a> välille.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
+    </div>
+
+  </div>
 
   <script>
     document.querySelectorAll('.termi[id]').forEach(el => {
