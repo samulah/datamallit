@@ -5,15 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/lumihiutalemalli.html">
+  <meta name="description" content="Lumihiutalemalli (Snowflake Schema) muistuttaa tähtimallia, mutta sen dimensiot on normalisoitu omiin tauluihinsa. Opi rakenne, erot ja käyttötavat.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Lumihiutalemalli (Snowflake Schema)">
+  <meta property="og:description" content="Lumihiutalemalli (Snowflake Schema) muistuttaa tähtimallia, mutta sen dimensiot on normalisoitu omiin tauluihinsa. Opi rakenne, erot ja käyttötavat.">
+  <meta property="og:url" content="https://www.datamalli.fi/lumihiutalemalli.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/dataneuvos_logo.png">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Lumihiutalemalli (Snowflake Schema)",
+        "description": "Lumihiutalemalli (Snowflake Schema) muistuttaa tähtimallia, mutta sen dimensiot on normalisoitu omiin tauluihinsa. Opi rakenne, erot ja käyttötavat.",
+        "url": "https://www.datamalli.fi/lumihiutalemalli.html",
+        "inLanguage": "fi",
+        "dateModified": "2026-06-01",
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/" },
+        "publisher": { "@type": "Organization", "name": "Datamalli.fi", "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" } },
+        "image": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Lumihiutalemalli (Snowflake Schema)", "item": "https://www.datamalli.fi/lumihiutalemalli.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <title>Lumihiutalemalli (Snowflake Schema)</title>
 <link rel="stylesheet" href="style.css?v=2">
-  <script src="navigation.js?v=2" defer></script>
+  <script src="navigation.js?v=3" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
   <h1>Lumihiutalemalli (Snowflake Schema)</h1>
   <p>
-    Lumihiutalemalli (Snowflake Schema) on tähtimallia muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta 16 ilmenee.
+    Lumihiutalemalli (Snowflake Schema) on <a href="tahtimalli.html">tähtimallia</a> muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta 16 ilmenee.
   </p>
   
   <img src="kuvat/lumihiutalemalli/lumihiutale.png" alt="Lumihiutalemalli" class="zoomattava">

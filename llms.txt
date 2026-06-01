@@ -1,0 +1,15 @@
+# Datamalli.fi
+
+> Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen metadataan: tähtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, taulujen litistäminen ja BI-kehittämisen termistö. Sisältö on käytännönläheistä ja keskittyy Power BI- ja SSAS-ympäristöihin. Tekijä: Samu Lahdenperä (Dataneuvos, Datamalli Tiimi Oy).
+
+## Sisältösivut
+- [Tähtimalli (Star Schema)](https://www.datamalli.fi/tahtimalli.html): Yksi Power BI:n ja SSAS:n suosituimmista tietomalleista; rakenne ja suorituskykyhyödyt.
+- [Lumihiutalemalli (Snowflake Schema)](https://www.datamalli.fi/lumihiutalemalli.html): Tähtimallin muunnos, jossa dimensiot on normalisoitu omiin tauluihinsa; erot ja käyttötavat.
+- [Dimensioiden mallinnus](https://www.datamalli.fi/dimensiot.html): Dimensiotaulut, surrogaattiavaimet, SCD-tyypit ja kardinaliteetin vaikutus suorituskykyyn.
+- [Taulujen litistäminen (Flattening)](https://www.datamalli.fi/litistaminen.html): Hierarkkisten taulujen yhdistäminen yhdeksi tähtimallin tauluksi ETL-vaiheessa.
+- [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
+- [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
+- [Datan mallinnuksen termistö](https://www.datamalli.fi/termisto.html): Tietovarastoinnin, BI-kehittämisen ja AI-valmiin metadatan käsitteet suomeksi, englanninkielisin vastinein.
+
+## Tietoa
+- [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).

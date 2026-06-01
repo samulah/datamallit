@@ -336,6 +336,11 @@ optimoi ensin oikeellisuus sitten suorituskyky luvut oikein ennen optimointia
 rakenna käyttäjälle ei itsellesi loppukäyttäjä päätös kysymys raportti
 yhdenmukainen nerokkaan sijaan johdonmukaisuus nimeämiskäytännöt
 kulttuuri kysyminen hyväksytty vastaus en tiedä
-tietomalli rakenne selkeä yksiselitteinen testaa laskurit vertaa lähdejärjestelmään`
+tietomalli rakenne selkeä yksiselitteinen testaa laskurit vertaa lähdejärjestelmään`,
+
+'tietoa.html': `tietoa sivustosta datamalli.fi about kuka takana
+samu lahdenperä dataneuvos datamalli tiimi oy toimitusjohtaja perustaja
+analytiikka konsultti bi-kehittäminen kokemus opas datan mallinnus ai-valmis metadata
+yhteys linkedin sähköposti puhelin dataneuvos.fi`
 
 };
