@@ -493,3 +493,14 @@ p:has(> em:only-child) {
 .termi[id] {
   cursor: pointer;
 }
+
+/* Tekijä- ja päivitystieto (E-E-A-T) */
+.byline {
+  font-family: var(--font-ui);
+  font-size: 0.85em;
+  color: var(--c-muted);
+  margin: -0.4rem 0 1.8rem;
+}
+.byline a {
+  color: var(--c-primary);
+}

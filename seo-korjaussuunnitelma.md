@@ -70,7 +70,7 @@ Laadunheikennys koko sivustolle. Koskee:
 ### [x] H2. Ei Open Graph / Twitter Card -tageja — VALMIS (2026-06-01)
 - [x] Lisätty 8 valmiille sivulle: `og:type` (website/article), `og:site_name`, `og:locale`, `og:title`, `og:description`, `og:url`, `og:image` + `twitter:card=summary`. Noindex-sivut ohitettu.
 - [x] `og:image` = logo (`kuvat/dataneuvos_logo.png`) väliaikaisena fallbackina
-- **Backlog:** tee oikea 1200×630 OG-jakokuva (seo-image-gen) ja vaihda `og:image` siihen
+- [x] **VALMIS (2026-06-01):** oikea 1200×630 OG-jakokuva luotu (`kuvat/og-datamalli.png`, brändivärit + logo + tagline, renderöity @resvg/resvg-js:llä). `og:image` vaihdettu kaikilla 9 indeksoitavalla sivulla; lisätty `og:image:width/height/alt`; `twitter:card` → `summary_large_image`; TechArticle-skeeman `image` päivitetty (publisher-logo ennallaan).
 - **Tarkistus:** `grep -l 'property="og:title"' *.html` → 8 ✓ ; live: jaa linkki / Facebook Sharing Debugger / LinkedIn Post Inspector
 
 ### [x] H3. `kirjallisuus-suositukset.html` — H1 puuttui — VALMIS (2026-06-01)
@@ -92,9 +92,9 @@ Laadunheikennys koko sivustolle. Koskee:
   - **Tarkistus:** Googlen Rich Results Test julkaisun jälkeen; **backlog:** termistöön voi lisätä per-termi `hasDefinedTerm`-listan (~60 termiä) lisähyödyksi
 - [~] **M3.** E-E-A-T — osittain tehty (2026-06-01):
   - [x] **About-sivu** `tietoa.html` luotu: indeksoitava (canonical, viewport, description, OG), JSON-LD AboutPage + Person (Samu Lahdenperä, sameAs LinkedIn/dataneuvos.fi) + BreadcrumbList. Lisätty navigaatioon (navigation.js, `?v=2`→`?v=3` kaikilla 18 sivulla) ja sitemapiin (8→9 URL).
-  - [ ] **Backlog:** näkyvä tekijä-byline sisältösivuille + näkyvät päivityspäivämäärät (käyttäjä rajasi pois toistaiseksi)
+  - [x] **VALMIS (2026-06-01):** näkyvä tekijä-byline + päivityspäivä lisätty 7 sisältösivulle (`<p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Päivitetty 1.6.2026</p>`, tyyli `.byline` style.css:ssä, cache-buster `?v=2`→`?v=3`). termistön skeemaan lisätty `author` + `dateModified`.
 - [ ] **M4.** Tietoturvaotsikot (LiteSpeed/`.htaccess`): HSTS, X-Content-Type-Options, perus-CSP
-- [ ] **M5.** Brändin yhtenäisyys titleissä: harkitse `… | Datamalli.fi` -loppuliitettä sisältösivuille
+- [x] **M5.** Brändin yhtenäisyys titleissä — VALMIS (2026-06-01): `… | Datamalli.fi` -loppuliite lisätty 7 sisältösivun titleen (kaikki ≤ 50 merkkiä, ei katkea SERP:issä). Etusivulla ja tietoa-sivulla brändi oli jo titlessä.
 
 ---
 
@@ -102,6 +102,7 @@ Laadunheikennys koko sivustolle. Koskee:
 
 - [x] **L1.** `llms.txt` luotu (2026-06-01): 8 indeksoitavaa sivua + Tietoa, kuvauksineen, AI-crawlereille
 - [x] **L2.** Pakkaus jo päällä — varmennettu `content-encoding: br` (Brotli) livenä. Ei toimenpiteitä.
+- [x] **L4.** Etusivun korttien lukemisajat yhtenäistetty (2026-06-01): `data-min`-arvot laskettu uudelleen sanamäärästä yhtenäisellä ~130 wpm -nopeudella (tekninen/taulukkopitoinen sisältö). Korjattu 6 epäjohdonmukaista arvoa ja lisätty puuttuvat (termistö 15, tietoa 1, kehittämisen-filosofia 1). **Huom:** arvot ovat kovakoodattuja → laske uudelleen kun sivun sisältö muuttuu merkittävästi.
 - [x] **L3.** Sisäinen linkitys täydennetty (2026-06-01): tähtimalli↔dimensiot, dimensiot↔lumihiutalemalli, lumihiutalemalli→tähtimalli, litistäminen→lumihiutalemalli+tähtimalli, ai-valmis-metadata→nimeämiskäytännöt. Ei rikkinäisiä linkkejä (kaikki kohteet olemassa).
 
 ---
