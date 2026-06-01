@@ -61,6 +61,28 @@
   <title>Tietoa – Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=2">
   <script src="navigation.js?v=3" defer></script>
+  <style>
+    /* Henkilökuva — pienempi portretti, kelluu oikealle työpöydällä */
+    figure.henkilokuva {
+      float: right;
+      width: 240px;
+      max-width: 45%;
+      margin: 8px 0 24px 32px;
+    }
+    figure.henkilokuva img {
+      max-width: 100%;
+      margin: 0;
+      border-radius: 8px;
+    }
+    @media (max-width: 600px) {
+      figure.henkilokuva {
+        float: none;
+        width: auto;
+        max-width: 280px;
+        margin: 16px auto 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -75,9 +97,43 @@
 
   <h2>Kuka sivuston takana on</h2>
 
+  <figure class="henkilokuva">
+    <img src="kuvat/tietoa/samu.jpg"
+      alt="Samu Lahdenperä, Dataneuvoksen perustaja ja datan mallinnuksen asiantuntija">
+    <figcaption>Samu Lahdenperä</figcaption>
+  </figure>
+
   <p>Sivuston rakentaja ja ylläpitäjä on yli 10 vuoden analytiikka- ja konsulttikokemuksen omaava
     <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> toimitusjohtaja ja perustaja
     <strong>Samu Lahdenperä</strong>.</p>
+
+  <p>Samu on ratkaisukeskeinen, korkean tason BI-kehittäjä, joka on erikoistunut datan
+    demokratisointiin, laajojen tietomallien rakentamiseen ja optimointiin sekä
+    liiketoiminnan tarpeiden kääntämiseen ylläpidettäviksi teknisiksi ratkaisuiksi.</p>
+
+  <h2>Koulutus</h2>
+
+  <p>Diplomi-insinööri (tuotantotalous) LUT-yliopistosta, erikoistumisalueena
+    data-analytiikka päätöksenteossa.</p>
+
+  <h2>Sertifikaatit</h2>
+
+  <ul>
+    <li>Microsoft Certified: Fabric Analytics Engineer Associate (2024)</li>
+    <li>Microsoft Certified: Azure Enterprise Data Analyst Associate (2022)</li>
+    <li>Microsoft Certified: Power BI Data Analyst Associate (2021)</li>
+    <li>Mastering DAX (2017)</li>
+  </ul>
+
+  <h2>Työhistoria ja yrittäjyys</h2>
+
+  <p>Samu on tehnyt BI-kehitystyötä vuodesta 2016 alkaen ja toiminut yrittäjänä
+    <strong>Dataneuvoksen</strong> kautta vuodesta 2022. Vuosien varrella hän on
+    työskennellyt asiantuntija- ja vetovastuurooleissa muun muassa Yleisradiolla
+    (Power BI Lead), Keusotessa (BI Lead), Loihde Analyticsilla, Destialla ja Postilla.</p>
+
+  <p>Erityisosaamista ovat datan mallinnus, DAX, SSAS, Power BI ja Microsoft Fabric;
+    lisäksi vahvaa osaamista löytyy SQL:stä, Snowflakesta, dbt:stä ja Qlikistä.</p>
 
   <h2>Yhteys</h2>
 

@@ -341,6 +341,10 @@ tietomalli rakenne selkeä yksiselitteinen testaa laskurit vertaa lähdejärjest
 'tietoa.html': `tietoa sivustosta datamalli.fi about kuka takana
 samu lahdenperä dataneuvos datamalli tiimi oy toimitusjohtaja perustaja
 analytiikka konsultti bi-kehittäminen kokemus opas datan mallinnus ai-valmis metadata
+koulutus diplomi-insinööri tuotantotalous lut-yliopisto data-analytiikka
+sertifikaatit microsoft certified fabric analytics engineer azure enterprise data analyst power bi data analyst mastering dax
+työhistoria yrittäjyys freelancer yleisradio keusote loihde analytics destia posti
+ssas snowflake dbt qlik sql
 yhteys linkedin sähköposti puhelin dataneuvos.fi`
 
 };
