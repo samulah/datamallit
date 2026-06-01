@@ -38,10 +38,10 @@ class MainNavigation extends HTMLElement {
                 </div>
                 <div class="nav-links">
                     <a href="tahtimalli.html">Tähtimalli</a>
-                    <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
                     <a href="dimensiot.html">Dimensiot</a>
-                    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="litistaminen.html">Litistäminen</a>
+                    <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
+                    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
                     <a href="termisto.html">Termistö</a>
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .map(el => el.textContent).join(' ')
     .trim().split(/\s+/).filter(Boolean).length;
 
-  const textWords  = countWords('p, li, h2, h3');
+  const textWords  = countWords('p, li, h2, h3, .termi-nimi, .termi-en, .termi-selite');
   const tableWords = countWords('td, th');
   const visuals    = [...document.querySelectorAll('img, .mermaid, figure')]
     .filter(el => !excl(el)).length;
