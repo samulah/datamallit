@@ -64,6 +64,16 @@ Tarkistuslista per sivu:
 9. Painovirheiden ja kielen tarkistus
 10. Staattiset tiedostot versioitu (`navigation.js?v=X`, `style.css?v=X`) — estää selaimen välimuistin ongelmat käyttäjillä. Päivitä versioparametri aina kun tiedostoa muutetaan.
 
+### SEO-tarkistukset per sivu (ks. seo-korjaussuunnitelma.md)
+11. `<meta name="viewport" content="width=device-width, initial-scale=1">` on `<head>`:ssä (C2)
+12. Uniikki `<meta name="description">` 140–160 merkkiä (H1)
+13. `<link rel="canonical">` osoittaa `https://www.datamalli.fi/SIVU.html` (C1)
+14. Open Graph -tagit (`og:title/description/type/url/image`) lisätty (H2)
+15. JSON-LD (TechArticle + BreadcrumbList) lisätty staattiseen HTML:ään — ks. `generated-schema.json` (M2)
+16. Kun sivu julkaistaan: `noindex` poistettu JA sivu lisätty `sitemap.xml`:ään (C3/C4)
+17. Keskeneräisellä/piilotetulla sivulla on `<meta name="robots" content="noindex,nofollow">` (C4)
+18. Tasan yksi `<h1>` ja oikea otsikkohierarkia (H3)
+
 QA-aikaarviot per sivu (lukea ja tarkistaa kunnolla):
 
 | Sivu | Pituus | Aikaarvio |
