@@ -6,9 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/litistaminen.html">
+  <meta name="description" content="Taulujen litistäminen (flattening) yhdistää hierarkkiset taulut yhdeksi tähtimallin tauluksi — selkeä rakenne on AI-valmiin datan perusta.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Taulujen litistäminen (Flattening)">
+  <meta property="og:description" content="Taulujen litistäminen (flattening) yhdistää hierarkkiset taulut yhdeksi tähtimallin tauluksi — selkeä rakenne on AI-valmiin datan perusta.">
+  <meta property="og:url" content="https://www.datamalli.fi/litistaminen.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/dataneuvos_logo.png">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Taulujen litistäminen (Flattening)",
+        "description": "Taulujen litistäminen (flattening) yhdistää hierarkkiset taulut yhdeksi tähtimallin tauluksi — selkeä rakenne on AI-valmiin datan perusta.",
+        "url": "https://www.datamalli.fi/litistaminen.html",
+        "inLanguage": "fi",
+        "dateModified": "2026-06-01",
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/" },
+        "publisher": { "@type": "Organization", "name": "Datamalli.fi", "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" } },
+        "image": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Taulujen litistäminen (Flattening)", "item": "https://www.datamalli.fi/litistaminen.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <title>Taulujen litistäminen (Flattening)</title>
   <link rel="stylesheet" href="style.css?v=2">
-  <script src="navigation.js?v=2" defer></script>
+  <script src="navigation.js?v=3" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 </head>
 
@@ -17,7 +51,7 @@
 
   <h1>Taulujen litistäminen (Flattening)</h1>
   <p>Litistäminen tarkoittaa useamman hierarkkisen taulun yhdistämistä yhdeksi leveäksi tauluksi ennen sen käyttöä
-    semanttisessa tietomallissa. Tavoitteena on muuttaa lumihiutalemainen rakenne tähtimallin mukaiseksi: yksi dimensio,
+    semanttisessa tietomallissa. Tavoitteena on muuttaa <a href="lumihiutalemalli.html">lumihiutalemainen</a> rakenne <a href="tahtimalli.html">tähtimallin</a> mukaiseksi: yksi dimensio,
     yksi taulu.</p>
 
   <h2>Litistäminen osana ETL-prosessia</h2>

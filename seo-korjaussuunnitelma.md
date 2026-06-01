@@ -63,31 +63,36 @@ Laadunheikennys koko sivustolle. Koskee:
 
 ## Vaihe 2 — KORKEA (n. 1 viikko)
 
-### [ ] H1. Meta-descriptionit puuttuvat kaikilta (0/19)
-- [ ] Kirjoita uniikki 140–160 merkin kuvaus jokaiselle valmiille sivulle
-- **Tarkistus:** `grep -l 'name="description"' *.html` listaa 11 sivua
+### [x] H1. Meta-descriptionit puuttuivat kaikilta — VALMIS (2026-06-01)
+- [x] Uniikki kuvaus kirjoitettu 8 valmiille (indeksoitavalle) sivulle; merkkimäärät 137–155 (ei katkea SERP:issä). Noindex-sivut jätetty pois (kuvaus tehdään kun ne valmistuvat).
+- **Tarkistus:** `grep -l 'name="description"' *.html` → 8 sivua ✓ ; ei noindex-sivuilla ✓
 
-### [ ] H2. Ei Open Graph / Twitter Card -tageja
-- [ ] Lisää `og:title`, `og:description`, `og:type`, `og:url`, `og:image` (+ Twitter summary) jokaiselle sivulle
-- Vaikutus: LinkedIn/Slack/X-jaot näyttävät otsikon + kuvan
+### [x] H2. Ei Open Graph / Twitter Card -tageja — VALMIS (2026-06-01)
+- [x] Lisätty 8 valmiille sivulle: `og:type` (website/article), `og:site_name`, `og:locale`, `og:title`, `og:description`, `og:url`, `og:image` + `twitter:card=summary`. Noindex-sivut ohitettu.
+- [x] `og:image` = logo (`kuvat/dataneuvos_logo.png`) väliaikaisena fallbackina
+- **Backlog:** tee oikea 1200×630 OG-jakokuva (seo-image-gen) ja vaihda `og:image` siihen
+- **Tarkistus:** `grep -l 'property="og:title"' *.html` → 8 ✓ ; live: jaa linkki / Facebook Sharing Debugger / LinkedIn Post Inspector
 
-### [ ] H3. `kirjallisuus-suositukset.html` — H1 puuttuu
-- [ ] Lisää yksi H1 sivun aiheen mukaan
+### [x] H3. `kirjallisuus-suositukset.html` — H1 puuttui — VALMIS (2026-06-01)
+- [x] Korjattu rikkinäinen `<h1>...</h2>` → ehjä `<h1>`; johdantovirke palautettu `<h2>`:sta `<p>`:ksi. Sivulla nyt 1 H1 (h1 → h3, kirjat h3).
 
-### [ ] H4. `apuohjelmat.html` "julkaistu" mutta ei linkitetty (ei indexissä eikä navigaatiossa)
-- [ ] Joko linkitä navigaatiosta tai pidä noindexissä kunnes Lorem ipsum poistettu (suositus: jälkimmäinen, ks. C4)
+### [x] H4. `apuohjelmat.html` "julkaistu" mutta ei linkitetty — RATKAISTU (2026-06-01)
+- [x] Valittu suositeltu vaihtoehto: pidetään noindexissä (tehty C4:ssä) kunnes Lorem ipsum poistettu. Kun sivu valmistuu → poista noindex, lisää sitemapiin ja linkitä navigaatioon.
 
 ---
 
 ## Vaihe 3 — KESKITASO (n. 1 kk)
 
-- [ ] **M1.** `search-index.js` (24 KB) latautuu `<head>`:ssä **ilman `defer`**iä → lisää `defer`
-- [ ] **M2.** Lisää rakenteinen data — valmis `generated-schema.json`:
-  - Organization + WebSite (etusivu)
-  - TechArticle + BreadcrumbList (sisältösivut)
-  - DefinedTermSet (`termisto.html`)
-  - JSON-LD **staattiseen HTML:ään**, ei myöhään injektoituna
-- [ ] **M3.** E-E-A-T: lisää näkyvä tekijä (Samu Lahdenperä / Dataneuvos -bio), julkaistu/päivitetty-päivämäärät, About-sivu
+- [x] **M1.** `search-index.js` — `defer` lisätty index.html:ään (latausjärjestys säilyy: data ennen searchia). VALMIS 2026-06-01
+- [x] **M2.** Rakenteinen data lisätty staattisena JSON-LD:nä 8 valmiille sivulle, kaikki validoitu (node JSON.parse 8/8). VALMIS 2026-06-01
+  - Organization + WebSite (etusivu) — ei SearchActionia (haku on client-side)
+  - TechArticle + BreadcrumbList (6 sisältösivua: tahtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, litistäminen, ai-valmis-metadata)
+  - DefinedTermSet + BreadcrumbList (termisto)
+  - author=Samu Lahdenperä, publisher=Datamalli.fi, dateModified=2026-06-01
+  - **Tarkistus:** Googlen Rich Results Test julkaisun jälkeen; **backlog:** termistöön voi lisätä per-termi `hasDefinedTerm`-listan (~60 termiä) lisähyödyksi
+- [~] **M3.** E-E-A-T — osittain tehty (2026-06-01):
+  - [x] **About-sivu** `tietoa.html` luotu: indeksoitava (canonical, viewport, description, OG), JSON-LD AboutPage + Person (Samu Lahdenperä, sameAs LinkedIn/dataneuvos.fi) + BreadcrumbList. Lisätty navigaatioon (navigation.js, `?v=2`→`?v=3` kaikilla 18 sivulla) ja sitemapiin (8→9 URL).
+  - [ ] **Backlog:** näkyvä tekijä-byline sisältösivuille + näkyvät päivityspäivämäärät (käyttäjä rajasi pois toistaiseksi)
 - [ ] **M4.** Tietoturvaotsikot (LiteSpeed/`.htaccess`): HSTS, X-Content-Type-Options, perus-CSP
 - [ ] **M5.** Brändin yhtenäisyys titleissä: harkitse `… | Datamalli.fi` -loppuliitettä sisältösivuille
 
@@ -95,9 +100,9 @@ Laadunheikennys koko sivustolle. Koskee:
 
 ## Vaihe 4 — MATALA (backlog)
 
-- [ ] **L1.** `llms.txt` AI-crawlereille
-- [ ] **L2.** Varmista gzip/Brotli-pakkaus (vaikutus pieni, tiedostot pieniä)
-- [ ] **L3.** Sisäinen linkitys: kontekstilinkit toisiinsa liittyvien käsitteiden välille (tähtimalli ↔ lumihiutalemalli ↔ dimensiot)
+- [x] **L1.** `llms.txt` luotu (2026-06-01): 8 indeksoitavaa sivua + Tietoa, kuvauksineen, AI-crawlereille
+- [x] **L2.** Pakkaus jo päällä — varmennettu `content-encoding: br` (Brotli) livenä. Ei toimenpiteitä.
+- [x] **L3.** Sisäinen linkitys täydennetty (2026-06-01): tähtimalli↔dimensiot, dimensiot↔lumihiutalemalli, lumihiutalemalli→tähtimalli, litistäminen→lumihiutalemalli+tähtimalli, ai-valmis-metadata→nimeämiskäytännöt. Ei rikkinäisiä linkkejä (kaikki kohteet olemassa).
 
 ---
 
