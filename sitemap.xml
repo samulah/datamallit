@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Vain indeksoitavat (valmiit) sivut. Keskeneräiset noindex-sivut jätetään pois,
+     kunnes ne valmistuvat (lisää tänne ja poista niiden noindex samalla). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.datamalli.fi/</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/tahtimalli.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/lumihiutalemalli.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/dimensiot.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/nimeamiskaytannot.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/litistaminen.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/ai-valmis-metadata.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/termisto.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+</urlset>

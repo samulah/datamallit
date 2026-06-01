@@ -1,0 +1,9 @@
+# robots.txt — datamalli.fi
+# Sallitaan kaikki: keskeneräiset sivut deindeksoidaan sivukohtaisella
+# <meta name="robots" content="noindex"> -tagilla, joten crawlaus on sallittava
+# jotta Google ehtii lukea noindexin (Disallow estäisi sen lukemisen).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.datamalli.fi/sitemap.xml
