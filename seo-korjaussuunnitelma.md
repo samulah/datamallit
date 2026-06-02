@@ -93,7 +93,7 @@ Laadunheikennys koko sivustolle. Koskee:
 - [~] **M3.** E-E-A-T — osittain tehty (2026-06-01):
   - [x] **About-sivu** `tietoa.html` luotu: indeksoitava (canonical, viewport, description, OG), JSON-LD AboutPage + Person (Samu Lahdenperä, sameAs LinkedIn/dataneuvos.fi) + BreadcrumbList. Lisätty navigaatioon (navigation.js, `?v=2`→`?v=3` kaikilla 18 sivulla) ja sitemapiin (8→9 URL).
   - [x] **VALMIS (2026-06-01):** näkyvä tekijä-byline + päivityspäivä lisätty 7 sisältösivulle (`<p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Päivitetty 1.6.2026</p>`, tyyli `.byline` style.css:ssä, cache-buster `?v=2`→`?v=3`). termistön skeemaan lisätty `author` + `dateModified`.
-- [ ] **M4.** Tietoturvaotsikot (LiteSpeed/`.htaccess`): HSTS, X-Content-Type-Options, perus-CSP
+- [x] **M4.** Tietoturvaotsikot (LiteSpeed/`.htaccess`) — VALMIS (2026-06-02): HSTS (1 v, includeSubDomains), X-Content-Type-Options, Referrer-Policy, X-Frame-Options, CSP (unsafe-inline sallittu koska inline-skriptejä), Permissions-Policy. Lisätty myös välimuisti staattisille resursseille (1 v CSS/JS/kuvat).
 - [x] **M5.** Brändin yhtenäisyys titleissä — VALMIS (2026-06-01): `… | Datamalli.fi` -loppuliite lisätty 7 sisältösivun titleen (kaikki ≤ 50 merkkiä, ei katkea SERP:issä). Etusivulla ja tietoa-sivulla brändi oli jo titlessä.
 
 ---
