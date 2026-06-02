@@ -325,7 +325,43 @@ tietovarasto data warehouse dwh keskitetty jäsennelty raportointi analytiikka
 vertipaq sarake in-memory pakkausmoottori kardinaliteetti optimoi saraketasolla
 vierasavain foreign key fk faktataulussa dimensio pääavain relaatio
 yhdistelmäkenttä composite field numeerinen avain luettava nimi 100 helsinki-myymälä lajittelu
-yksi-moneen one-to-many tähtimallin perusrelaatio dimensio fakta pääavain vierasavain`,
+yksi-moneen one-to-many tähtimallin perusrelaatio dimensio fakta pääavain vierasavain
+alm toolkit power bi mallien vertailu käyttöönotto valikoiva julkaisu tabular editor
+anonymisointi anonymization henkilötiedot pysyvästi tunnistamaton gdpr peruuttamaton
+data consumer datan käyttäjä rooli raportit päätöksenteko analyytikko
+data custodian datan säilyttäjä tekninen rooli tallennus varmuuskopiointi tietoturva
+datan elinkaari data lifecycle kerääminen käsittely tallennus käyttö arkistointi hävittäminen gdpr
+dax studio dax kysely suorituskyky analyysi ajoitusdata laskuri optimointi
+dbt data build tool sql muunnos versiointi testaus elt transformaatio
+dpo data protection officer tietosuojavastaava gdpr henkilötiedot lainmukaisuus
+käyttötarkoituksen rajaus purpose limitation gdpr data tarkoitus kerätty data contract
+laskentaryhmä calculation group tabular dax laskuri ytd edellinen vuosi toisto tabular editor
+mcp model context protocol anthropic tekoälyavustaja avoin standardi työkalut integraatio
+microsoft fabric data-analytiikka alusta lakehouse tietovarasto power bi onelake delta
+ols object-level security objektitaso tietoturva taulu sarake piilotetaan rls tabular editor
+power pivot excel tietomalli vertipaq dax relaatiot laskurit tähtimalli
+pseudonymisointi pseudonymization henkilötiedot pseudonyymi hash käänteistettävä gdpr
+q&a synonyymi q&a synonym vaihtoehtoinen sana mitta myynti liikevaihto revenue semanttinen malli copilot
+rikkova muutos breaking change skeema sarake poisto tietotyyppi data contract
+rle run-length encoding vertipaq peräkkäiset identtiset arvot lajittelu sanakirjapakkaus
+sanakirjapakkaus dictionary encoding vertipaq toistuvat arvot kokonaisluku koodi kardinaliteetti rle
+scd type 4 slowly changing dimension historiataulu nykytila nopea historia
+sla service level agreement palvelutaso vasteaika ratkaisuaika data contract
+tekoälyavustaja ai assistant copilot luonnollinen kieli metadata semanttinen malli
+time intelligence aikaälyfunktiot dax ytd edellinen vuosi liukuva keskiarvo päivämäärä dimensiotaulu
+tyhjä rivi blank row power bi dimensio vierasavain tietoeheys vääristää
+välitaulu bridge table monen-moneen yksi-moneen uniikit avaimet silta dax
+agentti ai agent tekoälyagentti itsenäinen monivaiheinen työkalut mcp profilointi
+agenttinen tekoäly agentic ai itsenäinen päätökset automaatio
+hallusinaatio hallucination virheellinen keksitty tieto kielimalli tarkistus
+kielimalli llm large language model claude gpt gemini luonnollinen kieli dokumentointi
+päättelymalli reasoning model ääneen ajattelu tarkkuus monimutkainen dax
+promptaus prompt engineering ohje konteksti tehtävä muotoilu tekoäly
+rag retrieval augmented generation haku oma data tietokanta hallusinaatio
+skilli skill osaamispaketti ohje agentti erikoisosaaminen uudelleenkäytettävä
+spec-driven development määrittely spec tekoäly koodi dokumentaatio datasopimus
+token tokeni virtuaalivaluutta kustannukset laskutus kielimalli hinta
+vibe coding ohjelmointi luonnollinen kieli tekoäly koodi prototyyppaaminen`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi
