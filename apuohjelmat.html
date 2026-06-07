@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,14 +15,17 @@
       padding-top: 20px;
       border-top: 2px solid #004a99;
     }
+
     .tool-section h2 {
       margin-bottom: 6px;
     }
+
     .tool-meta {
       font-size: 0.9em;
       color: #555;
       margin-bottom: 16px;
     }
+
     .tool-meta span {
       display: inline-block;
       margin-right: 16px;
@@ -30,6 +34,7 @@
       border-radius: 3px;
       padding: 2px 8px;
     }
+
     .vertipaq-sub {
       margin-top: 28px;
       padding: 18px 20px;
@@ -37,27 +42,40 @@
       border-left: 4px solid #004a99;
       border-radius: 0 4px 4px 0;
     }
+
     .vertipaq-sub h3 {
       margin-top: 0;
       color: #004a99;
     }
+
     .comparison-table {
       margin-top: 20px;
     }
+
     .comparison-table th {
       background-color: #e8f0fb;
       color: #004a99;
     }
-    .check { color: #27ae60; font-weight: bold; }
-    .cross { color: #c0392b; font-weight: bold; }
+
+    .check {
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .cross {
+      color: #c0392b;
+      font-weight: bold;
+    }
   </style>
 </head>
+
 <body>
   <main-navigation></main-navigation>
 
   <h1>Power BI Apuohjelmat</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
-  <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin ominaisuuksia. Tällä sivulla esitellään neljä keskeisintä: DAX Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
+  <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin
+    ominaisuuksia. Organisaatiokäytössä nämä ominaisuudet ovat välttämättömiä. Sivu esittelee neljä keskeisintä: DAX Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
 
   <!-- DAX STUDIO -->
   <section class="tool-section">
@@ -65,54 +83,89 @@
     <div class="tool-meta">
       <span>Ilmainen</span>
       <span>Avoin lähdekoodi</span>
-      <span>daxstudio.org</span>
+      <span><a href="https://daxstudio.org" target="_blank" rel="noopener">daxstudio.org</a></span>
     </div>
 
-    <p>DAX Studio on alun perin Darren Gosbellin kehittämä, nykyään avoimen lähdekoodin projekti, ilmainen apuväline Power BI Desktop-, SSAS Tabular-, Azure Analysis Services- ja Power Pivot -malleihin.</p>
+    <p>DAX Studio on alun perin Darren Gosbellin kehittämä, nykyään avoimen lähdekoodin projekti, ilmainen apuväline
+      Power BI Desktop-, SSAS Tabular-, Azure Analysis Services- ja Power Pivot -malleihin.</p>
 
     <div class="fakta-laatikko">
       <strong>Keskeisimmät ominaisuudet:</strong>
       <ul>
         <li><strong>DAX-kyselyt.</strong> Kirjoita, analysoi ja suorita kyselyitä suoraan tietomalliin.</li>
-        <li><strong>Objektiselain.</strong> Taulut, sarakkeet ja laskurit löydät hakemalla, ilman manuaalista selailua.</li>
-        <li><strong>DaxFormatter-integraatio.</strong> Muotoilee DAX-koodin automaattisesti parhaiden standardien mukaan.</li>
-        <li><strong>Suorituskykyanalyysi.</strong> Kerää kyselykohtaista ajoitusdataa, joka paljastaa mitkä laskurit ovat hitaita ja miksi.</li>
-        <li><strong>Erottimien vaihto (US ↔ EU).</strong> Vaihtaa pilkku↔puolipiste automaattisesti, ilman manuaalista muokkausta.</li>
-        <li><strong>Automaattinen tunnistus.</strong> Löytää avoimet Power BI Desktop -instanssit koneelta ilman manuaalista yhdistämistä.</li>
+        <li><strong>Objektiselain.</strong> Löydä taulut, sarakkeet ja laskurit hakemalla, ilman manuaalista selailua.
+        </li>
+        <li><strong>DaxFormatter-integraatio.</strong> Muotoilee DAX-koodin automaattisesti parhaiden standardien
+          mukaan.</li>
+        <li><strong>Suorituskykyanalyysi.</strong> Kerää kyselykohtaista ajoitusdataa, joka paljastaa mitkä laskurit
+          ovat hitaita ja miksi.</li>
+        <li><strong>Erottimien vaihto (US ↔ EU).</strong> Vaihtaa pilkku↔puolipiste automaattisesti, ilman manuaalista
+          muokkausta.</li>
+        <li><strong>Automaattinen tunnistus.</strong> Löytää avoimet Power BI Desktop -instanssit koneelta ilman
+          manuaalista yhdistämistä.</li>
       </ul>
     </div>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>Pakollinen työkalu — perusteltua syytä jättää se käyttämättä on vaikea löytää. DaxFormatter-integraatio, erottimien vaihto US↔EU ja suorituskykydatan keruu tekevät DAX-kehityksestä nopeampaa ja laadukkaampaa. Kun DAX Studion ottaa kerran käyttöön, on mahdotonta selittää miksi siihen ei olisi ryhtynyt aiemmin.</p>
+      <p>DAX Studio otetaan useimmiten käyttöön suorituskykyongelmien selvittämiseen. Perusteltua syytä jättää se käyttämättä ei ole. VertiPaq Analyzer on välttämätön apuväline BI-kehittäjille. DaxFormatter-integraatio ja suorituskykydatan keruu tekevät DAX-kehityksestä nopeampaa ja laadukkaampaa.</p>
     </div>
 
     <!-- VERTIPAQ ANALYZER -->
     <div class="vertipaq-sub">
       <h3>VertiPaq Analyzer</h3>
-      <p>VertiPaq Analyzer on DAX Studioon versiosta 2.11.0 lähtien integroitu lisäosa, joka analysoi Power BI- ja SSAS Tabular -mallien kokoa ja rakennetta bittitasolla — taulu- ja sarakekohtaisesti. Analyzeriin pääsee Advanced-välilehdeltä painamalla "View Metrics".</p>
+      <p>VertiPaq Analyzer on DAX Studioon versiosta 2.11.0 lähtien integroitu lisäosa, joka analysoi Power BI- ja SSAS
+        Tabular -mallien kokoa ja rakennetta bittitasolla taulu- ja sarakekohtaisesti. Analyzeriin pääsee
+        Advanced-välilehdeltä painamalla "View Metrics".</p>
 
       <div class="fakta-laatikko">
         <strong>Keskeisimmät sarakkeet Tables-välilehdellä:</strong>
         <table class="comparison-table">
           <thead>
-            <tr><th>Sarake</th><th>Selite</th></tr>
+            <tr>
+              <th>Sarake</th>
+              <th>Selite</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Cardinality</td><td>Kardinaliteetti — kuinka monta uniikkia arvoa sarakkeella on</td></tr>
-            <tr><td>Table Size</td><td>Taulun kaikkien sarakkeiden koko yhteenlaskettuna bitteinä, sisältäen relaatiot</td></tr>
-            <tr><td>Col Size</td><td>Sarakkeen ja sen sisällön yhteinen koko (Data + Dictionary + Hier Size)</td></tr>
-            <tr><td>Data</td><td>Datasisällön koko</td></tr>
-            <tr><td>Dictionary</td><td>Arvokirjaston koko</td></tr>
-            <tr><td>Rel Size</td><td>Relaatioiden viemä muistin koko (näkyy vain taulutasolla)</td></tr>
-            <tr><td>% DB</td><td>Taulun tai sarakkeen osuus koko tietokannan koosta</td></tr>
+            <tr>
+              <td>Cardinality</td>
+              <td>Kardinaliteetti, kuinka monta uniikkia arvoa sarakkeella on</td>
+            </tr>
+            <tr>
+              <td>Table Size</td>
+              <td>Taulun kaikkien sarakkeiden koko yhteenlaskettuna bitteinä, sisältäen relaatiot</td>
+            </tr>
+            <tr>
+              <td>Col Size</td>
+              <td>Sarakkeen ja sen sisällön yhteinen koko (Data + Dictionary + Hier Size)</td>
+            </tr>
+            <tr>
+              <td>Data</td>
+              <td>Datasisällön koko</td>
+            </tr>
+            <tr>
+              <td>Dictionary</td>
+              <td>Arvokirjaston koko</td>
+            </tr>
+            <tr>
+              <td>Rel Size</td>
+              <td>Relaatioiden viemä muistin koko (näkyy vain taulutasolla)</td>
+            </tr>
+            <tr>
+              <td>% DB</td>
+              <td>Taulun tai sarakkeen osuus koko tietokannan koosta</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <div class="dataneuvos-opinion">
         <div class="opinion-label">Dataneuvoksen mielipide</div>
-        <p>VertiPaq Analyzer paljastaa tietomallin todelliset ongelmat bitteinä, ei arvauksena. Omassa tutkimuksessani tietomallin koko puolittui 2,56 MB:stä 1,15 MB:seen yksinkertaisilla optimoinneilla — suurin osa vähennyksestä tuli käyttämättömien taulujen poistosta. Skaalaa tämä isoon yritysmalliin: A6-kapasiteetin vaihtaminen A5-kapasiteettiin Power BI Embeddedissä tarkoittaa yli 114 000 euron vuosisäästöä. VertiPaq Analyzer kertoo tarkalleen mistä leikata.</p>
+        <p>VertiPaq Analyzer paljastaa tietomallin todelliset ongelmat bitteinä, ei arvauksena. Se kertoo tarkalleen mistä kannattaa leikata.
+           Pelkästään pikkuongelmia korjaamalla tietomallin koko puolittuu helposti.
+           Suurin osa koosta katoaa poistamalla käyttämättömät taulut ja sarakkeet sekä pienentämällä kardinaliteetteja.
+           Skaalaa tämä isoon yritysmalliin niin saat Fabric-kapasiteetin kustannukset puolitettua, parhaassa tapauksessa jo etukäteen.</p>
       </div>
     </div>
   </section>
@@ -123,33 +176,48 @@
     <div class="tool-meta">
       <span>Ilmainen</span>
       <span>MIT-lisenssi</span>
-      <span>GitHub: TabularEditor/TabularEditor</span>
+      <span><a href="https://github.com/TabularEditor/TabularEditor/releases" target="_blank" rel="noopener">GitHub: TabularEditor/TabularEditor</a></span>
     </div>
 
-    <p>Tabular Editor yhdistää Power BI -tietomalleihin ja Tabular-malleihin. Se perustuu TOM:iin (Tabular Object Model), joka paljastaa mallin metadatan suoraan muokattavaksi, mukaan lukien ominaisuudet joihin Power BI Desktop ei anna pääsyä.</p>
+    <p>Tabular Editor yhdistää Power BI -tietomalleihin ja Tabular-malleihin. Se perustuu TOM:iin (Tabular Object
+      Model), joka paljastaa mallin metadatan suoraan muokattavaksi, mukaan lukien ominaisuudet joihin Power BI Desktop
+      ei anna pääsyä.</p>
 
     <div class="fakta-laatikko">
       <strong>Tabular Editor 2:n ominaisuudet:</strong>
       <ul>
-        <li><strong>Erämäinen muokkaus.</strong> Nimeä, siirrä tai muuta kymmeniä objekteja kerralla, ei yksitellen.</li>
-        <li><strong>Offline-muokkaus.</strong> TOM-malli ei prosessoi muutoksia jatkuvasti, joten isoissa malleissa ei tarvitse odottaa jokaisen muutoksen jälkeen päivitystä.</li>
-        <li><strong>Best Practice Analyzer.</strong> Tarkistaa mallin parhaita käytäntöjä vastaan ja tarjoaa automaattiset korjausehdotukset.</li>
-        <li><strong>DAX-riippuvuudet.</strong> Näet mikä laskuri käyttää mitäkin saraketta yhdellä klikkauksella, ilman jokaisen kaavan manuaalista läpikäyntiä.</li>
+        <li><strong>Erämäinen muokkaus.</strong> Nimeä, siirrä tai muuta kymmeniä objekteja kerralla, ei yksitellen.
+        </li>
+        <li><strong>Offline-muokkaus.</strong> TOM-malli ei prosessoi muutoksia jatkuvasti, joten isoissa malleissa ei
+          tarvitse odottaa jokaisen muutoksen jälkeen päivitystä.</li>
+        <li><strong><a href="termisto.html#bpa">Best Practice Analyzer</a>.</strong> Tarkistaa mallin parhaita käytäntöjä vastaan ja tarjoaa
+          automaattiset korjausehdotukset.</li>
+        <li><strong>DAX-riippuvuudet.</strong> Näet mikä laskuri käyttää mitäkin saraketta yhdellä klikkauksella, ilman
+          jokaisen kaavan manuaalista läpikäyntiä.</li>
         <li><strong>C#-skriptaus.</strong> Automatisoi toistuvat mallinnusoperaatiot skripteillä.</li>
-        <li><strong>Versiohallintatuki.</strong> Tallentaa mallin metatiedot levylle kansioon, yhteensopiva git-työnkulkujen kanssa.</li>
-        <li><strong>Kehittynyt mallinnus.</strong> Perspektiivit, laskentaryhmät, metatietojen käännökset ja OLS (Object-Level Security), joita Power BI Desktop ei tue suoraan.</li>
+        <li><strong>Versiohallintatuki.</strong> Tallentaa mallin metatiedot levylle kansioon, yhteensopiva
+          git-työnkulkujen kanssa.</li>
+        <li><strong>Kehittynyt mallinnus.</strong> Perspektiivit, laskentaryhmät, metatietojen käännökset ja OLS
+          (Object-Level Security), joita Power BI Desktop ei tue suoraan.</li>
         <li><strong>Yhteydet.</strong> SSAS, Azure AS ja Power BI Premium -mallit kaikki samasta työkalusta.</li>
       </ul>
     </div>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>Tabular Editor 2:n Best Practice Analyzer muistuttaa hämmästyttävästi MCP-kehitystä (Model Context Protocol). Kummassakin määrittelet joukon sääntöjä tai työkaluja — rakenteisessa muodossa — jotka ohjaavat järjestelmän toimintaa automaattisesti. BPA-säännöissä sanot: <em>"jos tietomallin sarakkeella on tällainen ominaisuus, laukaise tämä korjausehdotus"</em>. MCP-työkaluissa sanot: <em>"jos tekoäly tarvitsee tämän toiminnon, tarjoa sille tämä rajapinta"</em>. Molemmat ovat deklaratiivisia, laajennettavia, ja muuttavat käsin tehtävän toistuvon työn automaatioksi. Jos olet joskus rakentanut MCP-palvelimen tai soveltanut BPA:ta isommassa projektissa, tunnet välittömästi olevasi tutussa maastossa.</p>
+      <p></strong><b>KÄYTÄ BEST PRACTICE ANALYZERIA JOKAISEEN RAKENTAMAASI TIETOMALLIIN.</b></strong> Tabular Editor 2:n <a href="termisto.html#bpa">Best Practice Analyzer</a> muistuttaa paljon MCP-kehitystä (Model Context Protocol).
+        Kummassakin määrittelet joukon sääntöjä tai työkaluja jotka ohjaavat järjestelmän
+        toimintaa automaattisesti. BPA-säännöissä sanot: <em>"jos tietomallin sarakkeella on tällainen ominaisuus,
+          laukaise tämä korjausehdotus"</em>. MCP-työkaluissa sanot: <em>"jos tekoäly tarvitsee tämän toiminnon, tarjoa
+          sille tämä rajapinta"</em>. Molemmat uuttavat käsin tehtävän
+        toistuvan työn automaatioksi. Jos olet joskus rakentanut MCP-palvelimen tai soveltanut BPA:ta isommassa
+        projektissa, tunnet välittömästi olevasi tutussa maastossa. Esimerkkisäännöt löydät <a href="https://github.com/TabularEditor/BestPracticeRules" target="_blank" rel="noopener">TabularEditor/BestPracticeRules</a>-repositoriosta.</p>
     </div>
 
     <!-- TE2 vs TE3 vertailu -->
     <h3 style="margin-top:28px;">Tabular Editor 2 vs. Tabular Editor 3</h3>
-    <p>Tabular Editorista on olemassa ilmainen MIT-lisenssillä toimiva 2.x-versio sekä maksullinen yrityskäyttöön suunniteltu 3.x-versio. Alla vertailu keskeisimmistä eroista:</p>
+    <p>Tabular Editorista on olemassa ilmainen MIT-lisenssillä toimiva 2.x-versio sekä maksullinen yrityskäyttöön
+      suunniteltu 3.x-versio. Alla vertailu keskeisimmistä eroista:</p>
 
     <table class="comparison-table">
       <thead>
@@ -160,17 +228,61 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>TOM-objektien muokkaaminen</td><td class="check">✔</td><td class="check">✔</td></tr>
-        <tr><td>Best Practice Analyzer</td><td class="check">✔</td><td class="check">✔</td></tr>
-        <tr><td>C#-skriptaus ja automaatio</td><td class="check">✔</td><td class="check">✔</td></tr>
-        <tr><td>Offline-muokkaus</td><td class="check">✔</td><td class="check">✔</td></tr>
-        <tr><td>VertiPaq Analyzer -integraatio</td><td class="cross">✗</td><td class="check">✔</td></tr>
-        <tr><td>DAX-debuggeri</td><td class="cross">✗</td><td class="check">✔</td></tr>
-        <tr><td>Pivot-taulukko DAX-tuloksille</td><td class="cross">✗</td><td class="check">✔</td></tr>
-        <tr><td>Diagram View (tietomallien visuaalinen kuvaus)</td><td class="cross">✗</td><td class="check">✔</td></tr>
-        <tr><td>DAX-koodin intellisense ja automaattitäydennys</td><td>Perustaso</td><td>Kehittynyt</td></tr>
-        <tr><td>Power BI Desktop -integraatio ulkoisena työkaluna</td><td class="check">✔</td><td class="check">✔</td></tr>
-        <tr><td>Hinta</td><td>Ilmainen</td><td>Maksullinen (tilauspohjainen)</td></tr>
+        <tr>
+          <td>TOM-objektien muokkaaminen</td>
+          <td class="check">✔</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>Best Practice Analyzer</td>
+          <td class="check">✔</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>C#-skriptaus ja automaatio</td>
+          <td class="check">✔</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>Offline-muokkaus</td>
+          <td class="check">✔</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>VertiPaq Analyzer -integraatio</td>
+          <td class="cross">✗</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>DAX-debuggeri</td>
+          <td class="cross">✗</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>Pivot-taulukko DAX-tuloksille</td>
+          <td class="cross">✗</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>Diagram View (tietomallien visuaalinen kuvaus)</td>
+          <td class="cross">✗</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>DAX-koodin intellisense ja automaattitäydennys</td>
+          <td>Perustaso</td>
+          <td>Kehittynyt</td>
+        </tr>
+        <tr>
+          <td>Power BI Desktop -integraatio ulkoisena työkaluna</td>
+          <td class="check">✔</td>
+          <td class="check">✔</td>
+        </tr>
+        <tr>
+          <td>Hinta</td>
+          <td>Ilmainen</td>
+          <td>Maksullinen (tilauspohjainen)</td>
+        </tr>
       </tbody>
     </table>
   </section>
@@ -181,17 +293,23 @@
     <div class="tool-meta">
       <span>Ilmainen</span>
       <span>Christian Wade</span>
-      <span>alm-toolkit.com</span>
+      <span><a href="https://github.com/microsoft/Analysis-Services/releases" target="_blank" rel="noopener">alm-toolkit.com</a></span>
     </div>
 
-    <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI -tietojoukkojen vertailuun, yhdistämiseen ja käyttöönoton hallintaan. PBIX-tiedoston julkaisu korvaa koko tietojoukon kerralla ja katkaisee siitä riippuvaiset raportit — ALM Toolkit vie muutokset käyttöön tietomallitasolla, raportteja rikkomatta.</p>
+    <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI
+      -tietojoukkojen vertailuun, yhdistämiseen ja käyttöönoton hallintaan. PBIX-tiedoston julkaisu korvaa koko
+      tietojoukon kerralla ja katkaisee siitä riippuvaiset raportit. ALM Toolkit vie muutokset käyttöön
+      tietomallitasolla, raportteja rikkomatta.</p>
 
     <div class="fakta-laatikko">
       <strong>Keskeisimmät käyttötapaukset:</strong>
       <ul>
-        <li><strong>Malliversioiden vertailu.</strong> Näe visuaalisesti mitä eroa kehitys- ja tuotantomallien välillä on ennen käyttöönottoa.</li>
-        <li><strong>Valikoiva käyttöönotto.</strong> Valitse mitkä muutokset viedään tuotantoon, ei pakotettua kaikki-tai-ei-mitään -julkaisua.</li>
-        <li><strong>Jaetun tietomallin päivitys.</strong> Päivitä Power BI Premium -datasetti ilman siihen kytkettyjen raporttien katkaisemista.</li>
+        <li><strong>Malliversioiden vertailu.</strong> Näe visuaalisesti mitä eroa kehitys- ja tuotantomallien välillä
+          on ennen käyttöönottoa.</li>
+        <li><strong>Valikoiva käyttöönotto.</strong> Valitse mitkä muutokset viedään tuotantoon, ei pakotettua
+          kaikki-tai-ei-mitään -julkaisua.</li>
+        <li><strong>Jaetun tietomallin päivitys.</strong> Päivitä Power BI Premium -datasetti ilman siihen kytkettyjen
+          raporttien katkaisemista.</li>
         <li><strong>Git-integraatio.</strong> Tukee versionhallintaa git-pohjaisten työnkulkujen kanssa.</li>
         <li><strong>Metatietojen siirto.</strong> Tuo ja vie metatietoja BISM Normalizer -muodossa.</li>
       </ul>
@@ -199,7 +317,9 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>ALM Toolkit on aliarvostettu työkalu — moni Power BI -kehittäjä ei tiedä sen olemassaolosta ennen kuin kohtaa ensimmäistä kertaa tilanteen, jossa PBIX-julkaisu katkaisee tuotannon raportit. Suosittelen tutustumaan siihen jo ennen kuin ongelmaa on olemassa. Erityisesti Premium-ympäristöissä, joissa samaan tietomalliin on kytketty kymmeniä raportteja, ALM Toolkit on käytännössä pakollinen osa kehitystyönkulkua.</p>
+      <p>ALM Toolkit on aliarvostettu työkalu. Moni Power BI -kehittäjä ei tiedä sen olemassaolosta ennen kuin kohtaa
+        ensimmäistä kertaa tilanteen, jossa PBIX-julkaisu katkaisee tuotannon raportit. Opi käyttämään se ennen kuin tarvitset sitä. Erityisesti Premium-ympäristöissä, joissa samaan tietomalliin on kytketty
+        kymmeniä raportteja, ALM Toolkit on käytännössä pakollinen osa kehitystyönkulkua.</p>
     </div>
   </section>
 
@@ -209,24 +329,32 @@
     <div class="tool-meta">
       <span>Kehittyvä teknologia</span>
       <span>Tekoälyintegraatio</span>
-      <span>Microsoft Fabric / Power BI</span>
+      <span><a href="https://github.com/microsoft/powerbi-modeling-mcp" target="_blank" rel="noopener">Microsoft Fabric / Power BI</a></span>
     </div>
 
-    <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit — kuten Claude — kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa tekoälylle suoran pääsyn tietomallin rakenteeseen: se kirjoittaa DAX-kyselyitä, luo mittareita ja hakee dataa ilman, että kehittäjä kopioi rakennetta kontekstiin käsin.</p>
+    <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit, kuten
+      Claude, kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa
+      tekoälylle suoran pääsyn tietomallin rakenteeseen: se kirjoittaa DAX-kyselyitä, luo mittareita ja hakee dataa
+      ilman, että kehittäjä kopioi rakennetta kontekstiin käsin.</p>
 
     <div class="fakta-laatikko">
       <strong>Mitä Power BI MCP mahdollistaa käytännössä:</strong>
       <ul>
-        <li>Tekoäly näkee tietomallin taulut, sarakkeet ja mittarit suoraan — ei tarvetta selittää rakennetta erikseen</li>
+        <li>Prompt-pohjainen kehitystyö</li>
+        <li>Tekoäly näkee tietomallin taulut, sarakkeet ja mittarit suoraan, ei tarvetta selittää rakennetta erikseen
+        </li>
         <li>DAX-kyselyiden kirjoittaminen ja testaaminen tekoälyn avulla oikeaa tietokantaa vasten</li>
         <li>Mittareiden luominen ja dokumentointi AI-avusteisesti malliin</li>
-        <li>Tietomallin laadun tarkistaminen — esim. puuttuvat relaatiot, korkean kardinaliteetin sarakkeet</li>
+        <li>Tietomallin laadun tarkistaminen: esim. puuttuvat relaatiot, korkean kardinaliteetin sarakkeet</li>
         <li>Luonnollisella kielellä kysyminen datasta: "Mitkä tuotteet myivät eniten Q1:llä?"</li>
       </ul>
     </div>
 
     <h3>Miten MCP eroaa perinteisestä Power BI Copilotista?</h3>
-    <p>Power BI:n sisäänrakennettu Copilot toimii suljetussa ympäristössä Microsoftin oman tekoälyn kautta. MCP sen sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em> — kuten Clauden — yhdistämisen Power BI -malliin. Kehittäjä voi itse määritellä, mitkä toiminnot tekoälylle tarjotaan, ja yhdistää Power BI:n osaksi laajempaa tekoälytyönkulkua.</p>
+    <p>Power BI:n sisäänrakennettu Copilot toimii suljetussa ympäristössä Microsoftin oman tekoälyn kautta. MCP sen
+      sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em>, kuten Clauden,
+      yhdistämisen Power BI -malliin. Kehittäjä voi itse määritellä, mitkä toiminnot tekoälylle tarjotaan, ja yhdistää
+      Power BI:n osaksi laajempaa tekoälytyönkulkua.</p>
 
     <table>
       <thead>
@@ -237,19 +365,44 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Tekoälymalli</td><td>Microsoftin oma</td><td>Valittavissa (Claude, GPT jne.)</td></tr>
-        <tr><td>Integraatiotapa</td><td>Suljettu, sisäänrakennettu</td><td>Avoin protokolla, kehittäjä määrittelee</td></tr>
-        <tr><td>Laajennettavuus</td><td>Rajallinen</td><td>Yhdistettävissä muihin järjestelmiin</td></tr>
-        <tr><td>Vaatimukset</td><td>Power BI Premium / Fabric</td><td>MCP-palvelin + yhteensopiva tekoäly</td></tr>
-        <tr><td>Kypsyys (2025)</td><td>Yleisesti saatavilla</td><td>Kehittyvä, yhteisölähtöinen</td></tr>
+        <tr>
+          <td>Tekoälymalli</td>
+          <td>Microsoftin oma</td>
+          <td>Valittavissa (Claude, GPT jne.)</td>
+        </tr>
+        <tr>
+          <td>Integraatiotapa</td>
+          <td>Suljettu, sisäänrakennettu</td>
+          <td>Avoin protokolla, kehittäjä määrittelee</td>
+        </tr>
+        <tr>
+          <td>Laajennettavuus</td>
+          <td>Rajallinen</td>
+          <td>Yhdistettävissä muihin järjestelmiin</td>
+        </tr>
+        <tr>
+          <td>Vaatimukset</td>
+          <td>Power BI Premium / Fabric</td>
+          <td>MCP-palvelin + yhteensopiva tekoäly</td>
+        </tr>
+        <tr>
+          <td>Kypsyys (2025)</td>
+          <td>Yleisesti saatavilla</td>
+          <td>Kehittyvä, yhteisölähtöinen</td>
+        </tr>
       </tbody>
     </table>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>MCP on se kehityssuunta, johon kannattaa kiinnittää huomiota nyt — ei ensi vuonna. Kun tekoäly pääsee suoraan kiinni tietomalliin strukturoidun protokollan kautta, muuttuu kehittäjän rooli: sen sijaan että selittäisit tekoälylle tietomallin rakenteen joka kerta uudestaan, tekoäly lukee sen itse. Tämä korostaa entisestään hyvän tietomallin merkitystä — selkeästi nimetty, normalisoitu tähtimalli on tekoälylle yhtä helppolukuinen kuin ihmiselle. Huonosti nimetty, denormalisoitu kaaos on yhtä sekava molemmille.</p>
+      <p>MCP on se kehityssuunta, johon kannattaa kiinnittää huomiota nyt, ei ensi vuonna. Kun tekoäly pääsee suoraan
+        kiinni tietomalliin strukturoidun protokollan kautta, muuttuu kehittäjän rooli: sen sijaan että selittäisit
+        tekoälylle tietomallin rakenteen joka kerta uudestaan, tekoäly lukee sen itse. Tämä korostaa entisestään hyvän
+        tietomallin merkitystä: selkeästi nimetty, normalisoitu tähtimalli on tekoälylle yhtä helppolukuinen kuin
+        ihmiselle. Huonosti nimetty, denormalisoitu kaaos on yhtä sekava molemmille.</p>
     </div>
   </section>
 
 </body>
+
 </html>

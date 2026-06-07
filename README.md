@@ -1,90 +1,92 @@
-# datamalli.fi — julkaisuohjeet
+# datamalli.fi
 
-## Sivuston rakenne
+Staattinen HTML-sivusto. Kaikki sisältösivut ovat projektin juuressa.
 
-Staattinen HTML/CSS/JS-sivusto. Ei palvelinta, ei tietokantaa, ei build-vaihetta.
-Kaikki sivut ovat `html/`-kansiossa.
+---
 
+## Termin lisääminen
+
+### 1. Luo uusi HTML-tiedosto
+
+Kopioi `sivupohja.html` uudeksi tiedostoksi ja täytä kohdat `OTSIKKO`, `SIVU`, `KUVAUS`, `VVVV-KK-PP`.
+
+**Claude-agentti:**
 ```
-html/
-  index.html           ← etusivu, kortit ja haku
-  tahtimalli.html
-  dimensiot.html
-  ... (muut sisältösivut)
-  style.css            ← globaalit tyylit
-  navigation.js        ← navigaatio + footer (injektoitu kaikille sivuille)
-  search.js            ← haku- ja tägilogiikka
-  search-index.js      ← esirakennettu hakuindeksi ← PÄIVITÄ KUN SISÄLTÖ MUUTTUU
+Luo uusi sivu lumihiutalemalli.html kopioimalla sivupohja.html.
+Sisältö tulee tiedostosta words/lumihiutalemalli.docx.
+Noudata CLAUDE.md:n Word→HTML-sääntöjä tarkasti.
 ```
+
+### 2. Lisää kortti etusivulle
+
+Avaa `index.html` ja lisää uusi kortti oikeaan kategoriaan `data-tags`-attribuutteineen.
+
+### 3. Päivitä hakuindeksi
+
+Avaa `search-index.js` ja lisää uusi rivi sivun tekstisisällöllä:
+
+```js
+window.HAKU_INDEKSI = {
+  'lumihiutalemalli.html': `sivun koko tekstisisältö pienillä kirjaimilla`,
+  // ...
+};
+```
+
+**Claude-agentti:**
+```
+Päivitä search-index.js — lisää rivi tiedostolle lumihiutalemalli.html.
+Tekstisisältö löytyy tiedostosta lumihiutalemalli.html. Älä koske muihin riveihin.
+```
+
+### 4. Ilmoita
+
+Avaa pull request — Samu saa ilmoituksen automaattisesti GitHubista.
+Jos kiireinen: **samu.lahdenpera@gmail.com**
+
+**Claude-agentti:**
+```
+Tee git commit tiedostoista lumihiutalemalli.html ja search-index.js.
+Commit-viesti: "lumihiutalemalli: [kuvaus]"
+Älä puske mainiin.
+```
+
+---
+
+## Termin korjaaminen
+
+### 1. Muokkaa HTML-tiedostoa
+
+Avaa suoraan `.html`-tiedosto ja tee muutos.
+
+**Claude-agentti:**
+```
+Tiedostossa lumihiutalemalli.html on virhe: [kuvaile mitä].
+Korjaa CLAUDE.md:n ohjeiden mukaisesti — älä muuta muuta tekstiä.
+```
+
+### 2. Päivitä hakuindeksi tarvittaessa
+
+Jos tekstisisältö muuttui merkittävästi, päivitä `search-index.js`:n kyseinen rivi.
+
+### 3. Ilmoita
+
+Avaa pull request tai lähetä sähköpostia: **samu.lahdenpera@gmail.com**
 
 ---
 
 ## Julkaisu
 
-### GitHub Pages (nykyinen käytäntö)
+Ennen kuin sivu julkaistaan:
 
-```bash
-git add html/
-git commit -m "kuvaava viesti"
-git push origin main
+- [ ] Poista `<meta name="robots" content="noindex">` sivun `<head>`-osiosta
+- [ ] Lisää sivu `sitemap.xml`:ään
+- [ ] Tarkista TechArticle-skeema (`headline`, `description`, `url`, `datePublished` täytetty)
+
+**Claude-agentti:**
 ```
-
-GitHub Pages julkaisee automaattisesti `main`-haaran sisällön.
-Sivusto on nähtävillä osoitteessa **datamalli.fi** muutaman minuutin kuluttua.
-
-### Manuaalinen siirto palvelimelle (vaihtoehto)
-
-Kopioi koko `html/`-kansion sisältö webhotellin julkiseen hakemistoon (esim. `public_html/`).
-Ei erityisiä vaatimuksia — mikä tahansa staattisten tiedostojen hosting toimii.
-
----
-
-## Sisällön päivittäminen — tärkeä muistilista
-
-### 1. Muokkaa HTML-tiedostoa
-
-Tee muutokset suoraan `html/`-kansion `.html`-tiedostoihin.
-
-### 2. ⚠️ Päivitä hakuindeksi
-
-**Haku etsii sivujen sisällöstä `search-index.js`-tiedoston kautta.**
-Tiedostoa ei päivitetä automaattisesti — se on ylläpidettävä käsin.
-
-Avaa `html/search-index.js` ja päivitä muuttuneen sivun merkkijono vastaamaan
-sivun uutta tekstisisältöä. Sisällytä myös taulukoiden teksti.
-
-```js
-window.HAKU_INDEKSI = {
-  'tahtimalli.html': `tähän sivun koko tekstisisältö pienillä kirjaimilla
-  taulukot mukaan lukien lyhenteet termit avainsanat`,
-
-  'dimensiot.html': `...`,
-  // jne.
-};
+Valmistele lumihiutalemalli.html julkaisua varten:
+1. Poista noindex-meta-tagi
+2. Lisää sivu sitemap.xml:ään (käytä muita sivuja mallina)
+3. Tarkista TechArticle-skeema — kaikki kentät täytetty oikein
+Älä tee committia.
 ```
-
-**Muista päivittää indeksi aina kun:**
-- lisäät uuden sivun
-- muutat olemassa olevan sivun tekstisisältöä merkittävästi
-- lisäät taulukon josta haluat hakutuloksia
-
-### 3. Uusi sivu — tarkistuslista
-
-- [ ] Luo `html/uusisivu.html` (käytä olemassa olevaa sivua pohjana)
-- [ ] Lisää kortti `index.html`:ään oikeaan kategoriaan `data-tags`-attribuutteineen
-- [ ] Lisää navigaatiolinkki `navigation.js`:ään
-- [ ] Lisää sivu `search-index.js`:ään
-- [ ] Commitoi ja push
-
----
-
-## Tagit
-
-Tagit määritellään kahdessa paikassa:
-
-| Tiedosto | Tarkoitus |
-|---|---|
-| `index.html` | Kortin `data-tags`-attribuutti ja näkyvät tagi-sirukkeet |
-| `search.js` | `TAGI_NIMET`-objekti (tagi-id → näkyvä nimi) |
-
-Uusi tagi otetaan käyttöön lisäämällä se molempiin.

@@ -1,0 +1,23 @@
+Claude julkaisi artikkelin siitä, miten Anthropicilla tehdään self-service analytiikkaa kielimallikyselyillä ja päästään 95 % oikeellisuuteen kyselytuloksissa.
+
+Samalla periaatteilla kuin parhaat käytännöt ovat opettaneet viimeiset 30 vuotta, mutta käyttökerroksena on nyt kielimalli sen sijaan että pivotoitaisiin ja drag and droppailtaisiin visualisoitneja alas. Tähän tulokseen pääseminen vaatii yksiselitteisen tähtimallin (Star Schema), hyvin kuvaillun semanttisen kerroksen ja metadatan, joka kertoo mitä data pitää sisällään.
+
+Tähtimalli on ollut analytiikkakerroksen paras käytäntö (pl. taulupohjaiset analytiikkatyökalut) jo yli 30 vuotta OLAP-kuutioista alkaen. Se ei ole trendi. Se on vakiintunut paras tapa toimia. Kaikkien ei ole välttämättä järkevää toimia parhaiden käytäntöjen mukaan, mutta esim. skaalautuvien ja isojen datojen parissa työskentelevien olisi ainakin syytä perehtyä näihin asioihin. 
+
+Analytiikkakerroksen mallintamisen periaatteet eivät muutu, vaikka erilaiset viraaliksi poppaavat trendit (esim. Big Data, NoSQL, Data Lake, AI, Vibetys) nousevat ja laskevatkin. Semanttisen kerroksen mallintaminen on tylsää, piilossa tapahtuvaa työtä. Sen koko työn olemassaolon tärkeys unohtuu organisaatioissa aina silloin tällöin, mutta aina löytyy organisaatioita, jotka joutuvat palaamaan tietomallien optimointiin ja skaalautuvuuteen, koska datamäärät ovat niin isoja.
+
+Datan mallintamisella on taas väliä ja se on tekkifirmojenkin mielestä järkevää. Organisaatioissa toivottavasti herätään, että jos data ei tietovarastoissa analytiikkakerroksessa tähtimallin muodossa niin AI-valmis data jää haaveeksi. Tai ehkä pääset sinne, mutta kustannukset ja poikkeussääntöjen määrä räjähtää hallitsemattomaksi ennemmin tai myöhemmin. 
+
+---
+
+Miksi tämä Clauden artikkeli kiinnostaa minua?
+
+Olen rakentanut datan mallintamiseen liittyvää verkkokirjaa osoitteeseen https://www.datamalli.fi/ jossa käyn lävitse analytiikka- ja self-service bi kerroksen mallintamista ja sen parhaita käytäntöjä läpi. 
+
+Mikä tähtimalli on ja miten se rakennetaan? Mitä hitaasti muuttuvat dimensiot (SCD) tyyppi 3 ja 4 tarkoittavat? Miten dimensiot litistetään simppeleiksi? Miten kuvaillaan AI-valmis metadata? Sivustolta löytyy myös kehittämisen filosofia-pohdintoja yhteisiksi käytännöiksi sekä kirjallisuussuosituksia — ei pelkästään teknistä kirjallisuutta.
+
+Vastauksia näihin ja moneen muuhun kysymykseen: https://datamalli.fi
+
+Sivusto päivittyy jatkossakin. Etusivulta näkyy mitä on tulossa. Jos jokin aihe kiinnostaa erityisesti, laita viestiä seuraavaksi aattelin julkaista aiheen Power BI -apuohjelmista, mukaan lukien juttua MCP:n käytöstä.
+
+Clauden artikkeli: https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude
