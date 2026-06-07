@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/tahtimalli.html">
-  <meta name="description" content="Tähtimalli (Star Schema) on yksi Power BI:n ja SSAS:n suosituimmista tietomalleista. Opi rakenne ja miksi se on jopa 3× nopeampi kuin litistetty taulu.">
+  <meta name="description"
+    content="Tähtimalli (Star Schema) on yksi Power BI:n ja SSAS:n suosituimmista tietomalleista. Opi rakenne ja miksi se on jopa 3× nopeampi kuin litistetty taulu.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Tähtimalli (Star Schema)">
-  <meta property="og:description" content="Tähtimalli (Star Schema) on yksi Power BI:n ja SSAS:n suosituimmista tietomalleista. Opi rakenne ja miksi se on jopa 3× nopeampi kuin litistetty taulu.">
+  <meta property="og:description"
+    content="Tähtimalli (Star Schema) on yksi Power BI:n ja SSAS:n suosituimmista tietomalleista. Opi rakenne ja miksi se on jopa 3× nopeampi kuin litistetty taulu.">
   <meta property="og:url" content="https://www.datamalli.fi/tahtimalli.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -46,39 +49,50 @@
   }
   </script>
   <title>Tähtimalli (Star Schema) | Datamalli.fi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=4" defer></script>
 </head>
+
 <body>
-<main-navigation></main-navigation>
-<noscript>
-  <nav class="simple-nav" style="padding:12px 24px">
-    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
-    <a href="tahtimalli.html">Tähtimalli</a> ·
-    <a href="dimensiot.html">Dimensiot</a> ·
-    <a href="litistaminen.html">Litistäminen</a> ·
-    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
-    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
-    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
-    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
-    <a href="termisto.html">Termistö</a> ·
-    <a href="tietoa.html">Tietoa</a>
-  </nav>
-</noscript>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
   <h1>Tähtimalli (Star Schema)</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time></p>
-  
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
+      datetime="2026-06-01">1.6.2026</time></p>
+
   <p>
-    Tähtimalli on vähintään kahdesta taulusta koostuva tietomalli, joka on yksi suosituimmista Power BI:ssä ja SSAS:ssä käytetyistä tietomallityypeistä. Tähtimalli on parhaimmillaan jopa 3 kertaa nopeampi kuin yksi litistetty taulu.
+    Tähtimalli on vähintään kahdesta taulusta koostuva tietomalli, joka on yksi suosituimmista Power BI:ssä ja SSAS:ssä
+    käytetyistä tietomallityypeistä. Tähtimalli on parhaimmillaan jopa 3 kertaa nopeampi kuin yksi litistetty taulu.
     Tähtimalli koostuu yhdestä faktataulusta ja useasta <a href="dimensiot.html">dimensiotaulusta</a>.
   </p>
 
   <h2>Miten tähtimalli rakentuu ja toimii?</h2>
   <p>
-    Tähtimallin toiminta perustuu normalisoituun relaatiotietokantaan, jonka faktataulussa sijaitsevat esim. transaktiotason tapahtumat, kuten myyntitapahtumat. Dimensiotauluissa taas sijaitsevat dataa kuvailevat tiedot, kuten asiakas-, tuote- tai aikatiedot. Faktataulusta lähtee relaatio jokaiseen dimensiotauluun — tämä rakenne muistuttaa tähteä, josta malli saa nimensä. Jokainen faktataulun rivi sisältää mitattavia lukuja (esim. myyntieurot, kappalemäärä) sekä vierasavaimia, jotka osoittavat dimensiotauluihin. Dimensiot vastaavat kysymyksiin: kuka (Asiakas), mitä (Tuote), milloin (Päivämäärä), missä (Alue). Tämä jako pitää tietomallin selkeänä: luvut ovat faktassa, konteksti on dimensioissa.
+    Tähtimallin toiminta perustuu normalisoituun relaatiotietokantaan, jonka faktataulussa sijaitsevat esim.
+    transaktiotason tapahtumat, kuten myyntitapahtumat. Dimensiotauluissa taas sijaitsevat dataa kuvailevat tiedot,
+    kuten asiakas-, tuote- tai aikatiedot. Faktataulusta lähtee relaatio jokaiseen dimensiotauluun josta rakenne
+    saakin nimensä, muoto muistuttaa tähteä kuten alla olevasta kuvvasta ilmenee. Jokainen faktataulun rivi sisältää mitattavia lukuja (esim. myyntieurot,
+    kappalemäärä) sekä vierasavaimia, jotka osoittavat dimensiotauluihin. Dimensiot vastaavat kysymyksiin: kuka
+    (Asiakas), mitä (Tuote), milloin (Päivämäärä), missä (Myymälä). Tämä jako pitää tietomallin selkeänä: luvut joita lasketaan ovat
+    faktassa ja konteksti on dimensioissa.
   </p>
 
   <img src="kuvat/tahtimalli/tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä" class="zoomattava">
@@ -86,7 +100,8 @@
 
   <h2>Miten pää- ja vierasavaimet toimivat tähtimallissa?</h2>
   <p>
-    Tähtimallin taulujen väliset yhteydet perustuvat avainkenttiin ja niiden välisiin relaatioihin. Tässä esimerkissä käydään läpi yksi relaatio. 
+    Tähtimallin taulujen väliset yhteydet perustuvat avainkenttiin ja niiden välisiin relaatioihin. Tässä esimerkissä
+    käydään läpi yksi relaatio.
   </p>
 
   <table>
@@ -118,41 +133,62 @@
   </table>
 
   <p>
-    Faktataulussa yhdellä myyntirivillä voi olla useita vierasavaimia kuten esim. yksi asiakkaalle, yksi tuotteelle, yksi päivämäärälle. Jokainen niistä osoittaa vastaavan dimensiotaulun pääavaimeen.
+    Faktataulussa yhdellä myyntirivillä voi olla useita vierasavaimia kuten esim. yksi asiakkaalle, yksi tuotteelle,
+    yksi päivämäärälle. Jokainen niistä osoittaa vastaavan dimensiotaulun pääavaimeen.
   </p>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Dimensiotaulun PK:n on oltava AINA uniikki (yksi rivi per avain). Jos sama arvo esiintyy useasti, relaatio muuttuu moni-moneen-suhteeksi, joka rikkoo tähtimallin ja aiheuttaa virheellisiä laskutuloksia Power BI:ssä. Moni-moneen-suhteita käyttäessä myös tietomalli muuttuu moniselitteiseksi yksiselitteisen sijaan. Älä käytä moni-moneen-suhteita, rikot sillä enemmän asioita kuin korjaat.</p>
+    <p>Dimensiotaulun PK:n on oltava AINA uniikki (yksi rivi per avain). Jos sama arvo esiintyy useasti, relaatio
+      muuttuu moni-moneen-suhteeksi, joka rikkoo tähtimallin ja aiheuttaa virheellisiä laskutuloksia Power BI:ssä.
+      Moni-moneen-suhteita käyttäessä myös tietomalli muuttuu moniselitteiseksi yksiselitteisen sijaan. Älä käytä
+      moni-moneen-suhteita, rikot sillä enemmän asioita kuin korjaat.</p>
   </div>
 
   <h2>Mitä etuja normalisointi tuo tähtimalliin?</h2>
   <p>
-    Normalisoinnilla tarkoitetaan sitä, että data sijaitsee vain yhdessä paikassa. Tämä tekee tietomallista yksiselitteisen ja estää datan toistumisen, mikä puolestaan vähentää teknistä velkaa ja helpottaa laskurien (measures) tekemistä. 
-    <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> korostavat, että tähtimallin suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
+    Normalisoinnilla tarkoitetaan sitä, että data sijaitsee vain yhdessä paikassa. Tämä tekee tietomallista
+    yksiselitteisen ja estää datan toistumisen, mikä puolestaan vähentää teknistä velkaa ja helpottaa laskurien
+    (measures) tekemistä.
+    <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> korostavat, että tähtimallin
+    suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
   </p>
-  <p>Katso termistöstä: <a href="termisto.html#normalisointi">Normalisointi</a> · <a href="termisto.html#denormalisointi">Denormalisointi</a></p>
+  <p>Katso termistöstä: <a href="termisto.html#normalisointi">Normalisointi</a> · <a
+      href="termisto.html#denormalisointi">Denormalisointi</a></p>
 
   <div class="fakta-laatikko">
     <strong>Tietomallin normalisoinnin hyödyt tiivistettynä:</strong>
     <ul>
       <li>Helppo ymmärtää ja hallita kun tieto on vain yhdessä paikassa</li>
-      <li>Nopea suorituskyky ja pakkaus <a href="termisto.html#vertipaq">VertiPaq:n</a> myötä, pienempi muistin kulutus</li>
+      <li>Nopea suorituskyky ja pakkaus <a href="termisto.html#vertipaq">VertiPaq:n</a> myötä, pienempi muistin kulutus
+      </li>
       <li>Yksiselitteinen mallinnus helpottaa raporttien kehittämistä</li>
-            <li>Yksiselitteinen malli mahdollistaa AI-pohjaisen kielimallikyselemisen</li>
+      <li>Yksiselitteinen malli mahdollistaa AI-pohjaisen kielimallikyselemisen</li>
     </ul>
   </div>
 
   <h2>Kuinka suuri on tähtimallin taloudellinen hyöty?</h2>
   <p>
-    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon tauluun". <a href="kirjallisuus-suositukset.html#dax-patterns">Russo ja Ferrari (2021)</a> kertovat verkkoartikkelissaan, että tähtimallia käyttävän pienemmän tietomallin muistikoko on 16,80 GB, kun taas denormalisoitu yhtä taulua käyttävä malli vie 44,51 GB. Analyysipalvelimella käytettävän muistin määrä on siis yhteen tauluun pakatussa mallissa 2,65 kertaa suurempi.
+    Hyvin suunniteltu tähtimalli pienentää tietomallin kokoa huomattavasti verrattuna denormalisoituun "yhteen isoon
+    tauluun". <a href="kirjallisuus-suositukset.html#dax-patterns">Russo ja Ferrari (2021)</a> kertovat
+    verkkoartikkelissaan, että tähtimallia käyttävän pienemmän tietomallin muistikoko on 16,80 GB, kun taas
+    denormalisoitu yhtä taulua käyttävä malli vie 44,51 GB. Analyysipalvelimella käytettävän muistin määrä on siis
+    yhteen tauluun pakatussa mallissa 2,65 kertaa suurempi.
   </p>
   <p>
-    Hyvin suunnitellun tietomallin hyödyt ovat taloudellisesti merkittävät. Esimerkiksi Azure Analysis Services -palvelua käytettäessä alle 25 GB:n muistikanta (S1) maksaa <a href="https://azure.microsoft.com/en-us/pricing/details/analysis-services/" target="_blank" rel="noopener">Microsoftin hinnoittelun mukaan</a> 1 266,37 € kuussa, kun taas huonommin suunnitellun mallin vaatima vähintään 50 GB:n muistikanta (S2) maksaa 2 532,73 € kuussa. Tämä tarkoittaa käytännössä hinnan tarpeetonta tuplaantumista. Hyvällä tietomallisuunnittelulla ja normalisoiduilla tähtimalleilla voidaan vuosittain tehdä todistettavasti vähintään <span class="saasto">15 196 € säästöt</span>. Saadut hyödyt ovat todennäköisesti vielä suurempia, sillä tietomallit käyttävät muistia datan tallentamisen lisäksi myös laskennan suorittamiseen.
+    Hyvin suunnitellun tietomallin hyödyt ovat taloudellisesti merkittävät. Esimerkiksi Azure Analysis Services
+    -palvelua käytettäessä alle 25 GB:n muistikanta (S1) maksaa <a
+      href="https://azure.microsoft.com/en-us/pricing/details/analysis-services/" target="_blank"
+      rel="noopener">Microsoftin hinnoittelun mukaan</a> 1 266,37 € kuussa, kun taas huonommin suunnitellun mallin
+    vaatima vähintään 50 GB:n muistikanta (S2) maksaa 2 532,73 € kuussa. Tämä tarkoittaa käytännössä hinnan tarpeetonta
+    tuplaantumista. Hyvällä tietomallisuunnittelulla ja normalisoiduilla tähtimalleilla voidaan vuosittain tehdä
+    todistettavasti vähintään <span class="saasto">15 196 € säästöt</span>. Saadut hyödyt ovat todennäköisesti vielä
+    suurempia, sillä tietomallit käyttävät muistia datan tallentamisen lisäksi myös laskennan suorittamiseen.
   </p>
 
   <div class="fakta-laatikko">
-    <strong>Muistikokovertailu (<a href="https://www.sqlbi.com/articles/power-bi-star-schema-or-single-table/" target="_blank" rel="noopener">Russo &amp; Ferrari, 2021</a>):</strong>
+    <strong>Muistikokovertailu (<a href="https://www.sqlbi.com/articles/power-bi-star-schema-or-single-table/"
+        target="_blank" rel="noopener">Russo &amp; Ferrari, 2021</a>):</strong>
     <table>
       <thead>
         <tr>
@@ -177,20 +213,29 @@
         </tr>
       </tbody>
     </table>
-    <p style="font-size:0.85em; color:#666; margin-top:8px;">Hinnat lisätty taulukkoon 2026: <a href="https://azure.microsoft.com/en-us/pricing/details/analysis-services/" target="_blank" rel="noopener">Azure Analysis Services -hinnoittelu</a>. Hinnat EUR, veroton.</p>
+    <p style="font-size:0.85em; color:#666; margin-top:8px;">Hinnat lisätty taulukkoon 2026: <a
+        href="https://azure.microsoft.com/en-us/pricing/details/analysis-services/" target="_blank" rel="noopener">Azure
+        Analysis Services -hinnoittelu</a>. Hinnat EUR, veroton.</p>
   </div>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <p>Miksi tähtimalli kannattaisi rakentaa?</p>
     <ul>
-      <li>Tähtimalli on aina suorituskykyisin, se on noin 3 kertaa pienempi ja huomattavasti nopeampi kuin denormalisoitu yhden taulun malli</li>
-      <li>Saat esimerkiksi suoria valmiita kaavoja <a href="kirjallisuus-suositukset.html#dax-patterns"><em>DAX Patterns</em> -kirjasta</a>, joita voit käyttää suoraan analytiikkatarpeisiisi.</li>
-      <li>Kirjasta löytyy paljon valmiita patterneita eli sapluunoita eri asioiden laskemiselle. Jos tietomalli on moniselitteinen, myös laskureista ja mallin hallitsemisesta tulee vaikeaa. Jos tietomalli on yksiselitteinen, sinulla on rajaton määrä valmiita laskureiden kaavoja hyötykäytettäväksi</li>
-      <li>Tähtimalli on helppo saada yksiselitteiseksi ja tekoälyvalmiksi — selkeä rakenne tekee mallista helpommin hyödynnettävän myös AI-pohjaisissa analytiikkaratkaisuissa.</li>
-      <li>Paras vaihtoehto jos haluat mallisi suorituskyvyn huippuunsa, minimoida maksamasi hinnan ja tehdä mallisi AI-valmiiksi</li>
+      <li>Tähtimalli on aina suorituskykyisin, se on noin 3 kertaa pienempi ja huomattavasti nopeampi kuin
+        denormalisoitu yhden taulun malli</li>
+      <li>Saat esimerkiksi suoria valmiita kaavoja <a href="kirjallisuus-suositukset.html#dax-patterns"><em>DAX
+            Patterns</em> -kirjasta</a>, joita voit käyttää suoraan analytiikkatarpeisiisi.</li>
+      <li>Kirjasta löytyy paljon valmiita patterneita eli sapluunoita eri asioiden laskemiselle. Jos tietomalli on
+        moniselitteinen, myös laskureista ja mallin hallitsemisesta tulee vaikeaa. Jos tietomalli on yksiselitteinen,
+        sinulla on rajaton määrä valmiita laskureiden kaavoja hyötykäytettäväksi</li>
+      <li>Tähtimalli on helppo saada yksiselitteiseksi ja tekoälyvalmiksi — selkeä rakenne tekee mallista helpommin
+        hyödynnettävän myös AI-pohjaisissa analytiikkaratkaisuissa.</li>
+      <li>Paras vaihtoehto jos haluat mallisi suorituskyvyn huippuunsa, minimoida maksamasi hinnan ja tehdä mallisi
+        AI-valmiiksi</li>
     </ul>
   </div>
 
 </body>
+
 </html>
