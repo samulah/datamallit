@@ -4,38 +4,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.datamalli.fi/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/tahtimalli.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/lumihiutalemalli.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/dimensiot.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/nimeamiskaytannot.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/litistaminen.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/ai-valmis-metadata.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/termisto.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/tietoa.html</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/tietosuoja.html</loc>
+    <lastmod>2026-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/kehittamisen-filosofia.html</loc>
+    <lastmod>2026-06-07</lastmod>
   </url>
 </urlset>

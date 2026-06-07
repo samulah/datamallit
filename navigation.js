@@ -74,6 +74,8 @@ class MainNavigation extends HTMLElement {
                     <a href="mailto:samu@dataneuvos.fi">samu@dataneuvos.fi</a>
                     &nbsp;&middot;&nbsp;
                     <a href="tel:+358404115851">+358 40 411 5851</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="tietosuoja.html">Tietosuoja</a>
                 </p>
             `;
             document.body.appendChild(footer);

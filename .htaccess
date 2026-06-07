@@ -1,0 +1,9 @@
+# Redirect /index.html → / (M8: pehmeä duplikaatti poistetaan)
+RedirectMatch 301 ^/index\.html$ /
+
+# Security headers (M9)
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# HSTS (H12)
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"

@@ -26,11 +26,13 @@
         "headline": "Dimensioiden mallinnus",
         "description": "Dimensio on dataa kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä, milloin ja miten. Opi dimensioiden mallinnus tähtimallissa.",
         "url": "https://www.datamalli.fi/dimensiot.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/dimensiot.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-01",
-        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/" },
-        "publisher": { "@type": "Organization", "name": "Datamalli.fi", "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" } },
+        "dateModified": "2026-06-07",
+        "wordCount": 1150,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
       },
       {
@@ -44,22 +46,36 @@
   }
   </script>
   <title>Dimensioiden mallinnus | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <script src="navigation.js?v=3" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=4" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="tahtimalli.html">Tähtimalli</a> ·
+    <a href="dimensiot.html">Dimensiot</a> ·
+    <a href="litistaminen.html">Litistäminen</a> ·
+    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="termisto.html">Termistö</a> ·
+    <a href="tietoa.html">Tietoa</a>
+  </nav>
+</noscript>
 
   <h1>Dimensioiden mallinnus</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time></p>
 
-  <p>Dimensio on dataa kuvaileva taulu joka vastaa kysymyksiin <em>kuka, mitä, missä, milloin</em> ja <em>miten</em>. Dimensioita käytetään usein kertomaan tapahtumien lisätietoja esim. asiakaskohtaisesti. Faktataulussa on luvut ja dimensiossa konteksti sekä metatiedot. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää numerosarjaa.</p>
+  <p>Dimensio on dataa kuvaileva taulu joka vastaa kysymyksiin <em>kuka, mitä, missä, milloin</em> ja <em>miten</em>. Dimensioita käytetään usein kertomaan tapahtumien lisätietoja esim. asiakaskohtaisesti. Faktataulussa on luvut ja dimensiossa konteksti sekä metatiedot. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää numerosarjaa. Dimensiot toimivat 1:M relaatioiden kautta: jokaiselle faktataulun riville löytyy tasan yksi vastaava rivi dimensiossa, mutta yhdellä dimensiorivillä voi olla monta faktataulun riviä — esimerkiksi yksi asiakas voi liittyä tuhansiin myyntitapahtumiin. Tämä yksi-moneen-suhde (1:*) on <a href="tahtimalli.html">tähtimallin</a> perusrakenne ja se on edellytys sille, että Power BI:n VertiPaq-moottori pystyy pakkaamaan datan tehokkaasti ja laskemaan luvut oikein. Dimensio on siis tietomallin kuvaava osa — fakta on laskettava osa.</p>
 
-  <p>Dimensiot toimivat 1:M relaatioiden kautta. Jokaiselle faktataulun riville löytyy tasan yksi vastaava rivi dimensiossa. Tämä yksi-moneen-suhde (1:*) on <a href="tahtimalli.html">tähtimallin</a> perusrakenne.</p>
+  <h2>Miten dimensio rakentuu?</h2>
 
-  <h2>Dimension rakenne</h2>
-
-  
   <p>Hyvin rakennettu dimensio on <strong>leveä ja litteä</strong>: paljon kuvailevia sarakkeita, ei alatauluja. Tämä on tietoista <a href="termisto.html#denormalisointi">denormalisointia</a>. Loppukäyttäjät haluavat suodattaa asiakasta maan, segmentin ja toimialan mukaan yhdestä taulusta, ei kolmesta liittyneestä taulusta. Jos data tulee hierarkkisena <a href="lumihiutalemalli.html">lumihiutalemallina</a>, se on hyvä yhdistää yhdeksi tauluksi ennen lataamista — katso <a href="litistaminen.html">taulujen litistäminen</a>.</p>
 
   <table>
@@ -95,7 +111,7 @@
     </tbody>
   </table>
 
-  <h2>Parhaat käytännöt</h2>
+  <h2>Mitkä ovat dimension mallinnuksen parhaat käytännöt?</h2>
 
   <div class="fakta-laatikko">
     <strong>Dimension mallinnuksen kultaiset säännöt:</strong>
@@ -111,9 +127,9 @@
     </ol>
   </div>
 
-  <h2>Slowly Changing Dimensions (SCD) — muutostyypit</h2>
+  <h2>Miten SCD-tyypit hallitsevat dimension muutoksia?</h2>
 
-  <p>Lähes kaikki dimensiot muuttuvat ajan myötä: asiakas vaihtaa kaupunkia, tuote vaihtaa kategoriaa, myyjä siirtyy toiseen tiimiin. SCD-tyyppi määrittää, miten dimensio käsittelee muutokset — säilytetäänkö historia vai ylikirjoitetaanko vanha tieto.</p>
+  <p>Lähes kaikki dimensiot muuttuvat ajan myötä: asiakas vaihtaa kaupunkia, tuote vaihtaa kategoriaa, myyjä siirtyy toiseen tiimiin. SCD-tyyppi määrittää, miten dimensio käsittelee muutokset — säilytetäänkö historia vai ylikirjoitetaanko vanha tieto. <a href="https://learn.microsoft.com/fi-fi/fabric/data-warehouse/dimensional-modeling-dimension-tables" target="_blank" rel="noopener">Microsoftin dimensiotaulujen mallinnusopas</a> käy läpi SCD-tyypit osana laajempaa dimensionaalista mallinnusta.</p>
 
   <table>
     <caption>Taulukko 2, Slowly Changing Dimensions (SCD) – Taulukossa käydään lävitse erilaiset SCD-tallenustyypit ja käyttötilanteet dimensioilla</caption>
@@ -212,9 +228,9 @@
     <p>Faktataulun myyntirivit ennen 15.3.2024 viittaavat AsiakasAvaimeen 1001 → segmentti "Pienasiakas". Myyntirivit sen jälkeen viittaavat avaimeen 1847 → segmentti "Avainasiakas". Historia säilyy täydellisenä ilman erillistä muutoslokia.</p>
   </div>
 
-  <h2>Koko, kardinaliteetti ja suorituskyky Power BI:ssä</h2>
+  <h2>Miten koko ja kardinaliteetti vaikuttavat suorituskykyyn Power BI:ssä?</h2>
 
-  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet <a href="termisto.html#kardinaliteetti">kardinaliteetin</a> perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on ainoa sarake, jolla odotetaan korkea kardinaliteetti — kaikki muut attribuutit tulisi pyrkiä pitämään matalana.</p>
+  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet <a href="termisto.html#kardinaliteetti">kardinaliteetin</a> perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on ainoa sarake, jolla odotetaan korkea kardinaliteetti — kaikki muut attribuutit tulisi pyrkiä pitämään matalana. <a href="https://www.sqlbi.com/articles/power-bi-star-schema-or-single-table/" target="_blank" rel="noopener">Russo &amp; Ferrari (sqlbi.com)</a> osoittavat käytännön esimerkillä, kuinka tähtimallin normalisointi pienentää muistikokoa yli 60 % denormalisoituun malliin verrattuna.</p>
 
   <table>
     <caption>Taulukko 4, Dimensioiden kardinaliteetit – Kardinaliteetin vaikutus Power BI dimensioiden suorituskykyyn</caption>
