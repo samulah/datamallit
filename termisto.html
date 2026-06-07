@@ -30,7 +30,7 @@
       "url": "https://www.datamalli.fi/termisto.html",
       "inLanguage": "fi",
       "datePublished": "2026-06-01",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-07",
       "author": {
         "@type": "Person",
         "name": "Samu Lahdenperä",
@@ -613,6 +613,16 @@
         },
         {
           "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#moniselitteinen-tietomalli",
+          "name": "Moniselitteinen tietomalli",
+          "url": "https://www.datamalli.fi/termisto.html#moniselitteinen-tietomalli",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "description": "Tietomalli, jossa sama tieto voi esiintyä useassa paikassa tai sarakkeen merkitys riippuu kontekstista — esimerkiksi denormalisoitu taulukko, jossa päivämäärä-sarake voi tarkoittaa tilaus-, toimitus- tai laskutuspäivää. Moniselitteisyys kasvattaa virheiden riskiä."
+        },
+        {
+          "@type": "DefinedTerm",
           "@id": "https://www.datamalli.fi/termisto.html#mcp",
           "name": "MCP",
           "url": "https://www.datamalli.fi/termisto.html#mcp",
@@ -858,6 +868,17 @@
         },
         {
           "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#role-playing-dimensio",
+          "name": "Role-playing-dimensio",
+          "url": "https://www.datamalli.fi/termisto.html#role-playing-dimensio",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Role-Playing Dimension",
+          "description": "Dimensio, jota käytetään samassa tietomallissa useampaan kertaan eri rooleissa — tyypillisesti päivämäärädimensio tilauspäivänä, toimituspäivänä ja laskutuspäivänä."
+        },
+        {
+          "@type": "DefinedTerm",
           "@id": "https://www.datamalli.fi/termisto.html#row-context",
           "name": "Row Context",
           "url": "https://www.datamalli.fi/termisto.html#row-context",
@@ -988,6 +1009,17 @@
         },
         {
           "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#single-source-of-truth",
+          "name": "Single Source of Truth",
+          "url": "https://www.datamalli.fi/termisto.html#single-source-of-truth",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "SSOT",
+          "description": "Periaate, jonka mukaan organisaation tiedolla on yksi virallinen lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. SSOT on yksiselitteisen tietomallin keskeinen tavoite."
+        },
+        {
+          "@type": "DefinedTerm",
           "@id": "https://www.datamalli.fi/termisto.html#skeema",
           "name": "Skeema",
           "url": "https://www.datamalli.fi/termisto.html#skeema",
@@ -1103,6 +1135,17 @@
           },
           "alternateName": "Star Schema",
           "description": "Yleisin tietomallityyppi BI-ratkaisuissa. Yksi faktataulu keskellä, dimensiotaulut suoraan siihen liittyneinä. Yksinkertainen, suorituskykyinen ja helposti ymmärrettävä."
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#tiedon-toisteisuus",
+          "name": "Tiedon toisteisuus",
+          "url": "https://www.datamalli.fi/termisto.html#tiedon-toisteisuus",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Data Redundancy",
+          "description": "Tilanne, jossa sama tieto tallennetaan useaan paikkaan tietomallissa. Hallitsematon toisteisuus johtaa ristiriitaisiin lukuihin eri raporteissa. Toisteisuuden välttäminen on Single Source of Truth -periaatteen ydin."
         },
         {
           "@type": "DefinedTerm",
@@ -1233,6 +1276,17 @@
         },
         {
           "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#yhdenmukaistettu-dimensio",
+          "name": "Yhdenmukaistettu dimensio",
+          "url": "https://www.datamalli.fi/termisto.html#yhdenmukaistettu-dimensio",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Conformed Dimension",
+          "description": "Dimensio, jota käytetään samanlaisena useammassa faktataulussa. Mahdollistaa faktataulujen yhdistelemisen raporteissa ilman ristiriitoja. Konkreettinen keino toteuttaa Single Source of Truth -periaate useamman faktan mallissa."
+        },
+        {
+          "@type": "DefinedTerm",
           "@id": "https://www.datamalli.fi/termisto.html#yksi-moneen",
           "name": "Yksi-moneen-suhde",
           "url": "https://www.datamalli.fi/termisto.html#yksi-moneen",
@@ -1241,6 +1295,16 @@
           },
           "alternateName": "One-to-Many",
           "description": "Tähtimallin perusrelaatiotyyppi: yksi dimensiorivi voi liittyä useaan faktataulun riviin, mutta jokainen faktataulun rivi liittyy täsmälleen yhteen dimensioriviin. Esimerkiksi yksi asiakas voi esiintyä tuhannessa tilauksessa. Relaatio rakennetaan dimension pääavaimen ja faktataulun vierasavaimen väl"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#yksiselitteinen-tietomalli",
+          "name": "Yksiselitteinen tietomalli",
+          "url": "https://www.datamalli.fi/termisto.html#yksiselitteinen-tietomalli",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "description": "Tietomalli, jossa jokainen tieto on tallennettuna vain yhteen paikkaan ja sen merkitys on selvä ilman tulkintaa. Tähtimalli on tyypillinen esimerkki. Yksiselitteinen rakenne vähentää virheitä ja tekee raporteista luotettavampia."
         }
       ]
     },
@@ -2188,6 +2252,12 @@
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Useampi fakta</span></div>
     </div>
 
+    <div class="termi" id="moniselitteinen-tietomalli" data-tags="tietomalli konseptit litistaminen">
+      <span class="termi-nimi">Moniselitteinen tietomalli</span>
+      <div class="termi-selite">Tietomalli, jossa sama tieto voi esiintyä useassa paikassa tai sarakkeen merkitys riippuu kontekstista. Tyypillinen esimerkki on <a href="#flattening">denormalisoitu</a> taulukko, jossa esimerkiksi "päivämäärä"-sarake voi tarkoittaa tilauspäivää, toimituspäivää tai laskutuspäivää. Moniselitteisyys kasvattaa virheiden riskiä ja tekee raportoinnista hankalampaa. Vrt. <a href="#yksiselitteinen-tietomalli">yksiselitteinen tietomalli</a>.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Litistäminen</span></div>
+    </div>
+
     <div class="termi" id="mcp" data-tags="ai tyokalut apuohjelmat">
       <span class="termi-nimi">MCP</span> <span class="termi-en">(Model Context Protocol)</span>
       <div class="termi-selite">Anthropicin kehittämä avoin standardi, jonka avulla <a
@@ -2400,6 +2470,12 @@
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </div>
 
+    <div class="termi" id="role-playing-dimensio" data-tags="tietomalli konseptit tahtimalli dimensiot">
+      <span class="termi-nimi">Role-playing-dimensio</span> <span class="termi-en">(Role-Playing Dimension)</span>
+      <div class="termi-selite"><a href="#dimensiotaulu">Dimensio</a>, jota käytetään samassa tietomallissa useampaan kertaan eri rooleissa. Tyypillisin esimerkki on päivämäärädimensio: sama päivämäärätaulu voi liittyä faktaan tilauspäivänä, toimituspäivänä ja laskutuspäivänä. Power BI:ssä toteutetaan luomalla useita <a href="#relaatio">relaatioita</a> samaan tauluun tai tekemällä erilliset SQL-näkymät. Role-playing-dimensio on esimerkki <a href="#moniselitteinen-tietomalli">moniselitteisestä</a> mallinnustarpeesta, jonka tähtimalli ratkaisee hallitusti.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span></div>
+    </div>
+
     <div class="termi" id="row-context" data-tags="dax-konseptit power-bi">
       <span class="termi-nimi">Row Context</span> <span class="termi-en">(rivikonteksti)</span>
       <div class="termi-selite">DAX-laskennan tilanne, jossa laskenta kohdistuu yhteen taulun riviin kerrallaan.
@@ -2505,6 +2581,12 @@
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
     </div>
 
+    <div class="termi" id="single-source-of-truth" data-tags="tietomalli konseptit arkkitehtuuri">
+      <span class="termi-nimi">Single Source of Truth</span> <span class="termi-en">(SSOT, yksi totuuden lähde)</span>
+      <div class="termi-selite">Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on <a href="#yksiselitteinen-tietomalli">yksiselitteisen tietomallin</a> keskeinen tavoite.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </div>
+
     <div class="termi" id="skeema" data-tags="tietomalli konseptit tahtimalli data-contract">
       <span class="termi-nimi">Skeema</span> <span class="termi-en">(Schema)</span>
       <div class="termi-selite">Tietokannan tai tietomallin rakenne: taulut, sarakkeet ja niiden väliset suhteet.
@@ -2594,6 +2676,12 @@
       <div class="termi-selite">Yleisin tietomallityyppi BI-ratkaisuissa. Yksi faktataulu keskellä, dimensiotaulut
         suoraan siihen liittyneinä. Yksinkertainen, suorituskykyinen ja helposti ymmärrettävä.</div>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span></div>
+    </div>
+
+    <div class="termi" id="tiedon-toisteisuus" data-tags="tietomalli konseptit litistaminen">
+      <span class="termi-nimi">Tiedon toisteisuus</span> <span class="termi-en">(Data Redundancy)</span>
+      <div class="termi-selite">Tilanne, jossa sama tieto tallennetaan useaan paikkaan tietomallissa. Hallittu toisteisuus — kuten <a href="#denormalisointi">denormalisointi</a> tähtimallin dimensioissa — on tietoinen valinta suorituskyvyn parantamiseksi. Hallitsematon toisteisuus taas syntyy, kun tietoa kopioidaan ilman suunnitelmaa, jolloin päivitykset täytyy tehdä useaan paikkaan ja eri paikoissa olevat luvut voivat ristiriitaistua. Toisteisuuden välttäminen on <a href="#single-source-of-truth">Single Source of Truth</a> -periaatteen ydin.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Litistäminen</span></div>
     </div>
 
     <div class="termi" id="tietoallas" data-tags="arkkitehtuuri">
@@ -2695,6 +2783,12 @@
   <h2 id="y" class="termi-aakkos-otsikko">Y</h2>
   <div class="termi-luettelo">
 
+    <div class="termi" id="yhdenmukaistettu-dimensio" data-tags="tietomalli konseptit tahtimalli useampi-fakta">
+      <span class="termi-nimi">Yhdenmukaistettu dimensio</span> <span class="termi-en">(Conformed Dimension)</span>
+      <div class="termi-selite">Dimensio, jota käytetään samanlaisena useammassa <a href="#faktataulu">faktataulussa</a>. Asiakasdimensio on yhdenmukaistettu, kun sekä myynti- että toimitusraportti viittaavat täsmälleen samaan dimensiotauluun samoilla sarakkeilla ja arvoilla. Yhdenmukaistaminen mahdollistaa faktataulujen yhdistelemisen raporteissa ilman ristiriitoja. Se on konkreettinen keino toteuttaa <a href="#single-source-of-truth">Single Source of Truth</a> -periaate useamman faktataulun mallissa.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Useampi fakta</span></div>
+    </div>
+
     <div class="termi" id="yhdistelmakentta" data-tags="tietomalli litistaminen dimensiot">
       <span class="termi-nimi">Yhdistelmäkenttä</span>
       <div class="termi-selite">Sarake, joka yhdistää numeerisen avaimen ja luettavan nimen yhdeksi arvoksi, esim. <code>100 – Helsinki-myymälä</code>. Mahdollistaa lajittelun numeerisen avaimen mukaan samalla kun visuaaleissa näkyy selkokielinen nimi. Rakennetaan tyypillisesti ETL-vaiheessa ennen Power BI -latausta.</div>
@@ -2704,6 +2798,12 @@
     <div class="termi" id="yksi-moneen" data-tags="tietomalli konseptit tahtimalli">
       <span class="termi-nimi">Yksi-moneen-suhde</span> <span class="termi-en">(One-to-Many)</span>
       <div class="termi-selite">Tähtimallin perusrelaatiotyyppi: yksi dimensiorivi voi liittyä useaan faktataulun riviin, mutta jokainen faktataulun rivi liittyy täsmälleen yhteen dimensioriviin. Esimerkiksi yksi asiakas voi esiintyä tuhannessa tilauksessa. <a href="#relaatio">Relaatio</a> rakennetaan dimension <a href="#paaavain">pääavaimen</a> ja faktataulun <a href="#vierasavain">vierasavaimen</a> välille.</div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
+    </div>
+
+    <div class="termi" id="yksiselitteinen-tietomalli" data-tags="tietomalli konseptit tahtimalli">
+      <span class="termi-nimi">Yksiselitteinen tietomalli</span>
+      <div class="termi-selite">Tietomalli, jossa jokainen tieto on tallennettuna vain yhteen paikkaan ja sen merkitys on selvä ilman tulkintaa. <a href="#tahtimalli">Tähtimalli</a> on tyypillinen esimerkki: dimensiotaulun sarake esiintyy vain kyseisessä dimensiossa, eikä sama tieto toistu eri nimillä useassa taulussa. Yksiselitteinen rakenne vähentää virheitä, helpottaa ylläpitoa ja tekee raporteista luotettavampia. Vrt. <a href="#moniselitteinen-tietomalli">moniselitteinen tietomalli</a>.</div>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
     </div>
 
