@@ -1329,8 +1329,11 @@
 }
   </script>
   <title>Datan mallinnuksen termistö | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <script src="navigation.js?v=3" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=4" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
@@ -1691,10 +1694,20 @@
     .termi {
       padding: 14px 0;
       border-bottom: 1px solid #e5e5e5;
+      margin: 0;
     }
 
     .termi:last-child {
       border-bottom: none;
+    }
+
+    .termi dt {
+      display: block;
+      margin: 0;
+    }
+
+    .termi dd {
+      margin: 0;
     }
 
     .termi-nimi {
@@ -1740,11 +1753,25 @@
 
 <body>
   <main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="tahtimalli.html">Tähtimalli</a> ·
+    <a href="dimensiot.html">Dimensiot</a> ·
+    <a href="litistaminen.html">Litistäminen</a> ·
+    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="termisto.html">Termistö</a> ·
+    <a href="tietoa.html">Tietoa</a>
+  </nav>
+</noscript>
 
   <nav class="aakkos-leiju" aria-label="Aakkosnavigaatio"></nav>
 
   <h1>Datan mallinnuksen termistö</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty 2.6.2026</p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-06-07">7.6.2026</time></p>
 
   <p>Termistö kokoaa datan mallinnukseen, tietovarastointiin ja BI-kehittämiseen liittyvät käsitteet. Jokainen termi
     sisältää suomenkielisen selityksen ja englanninkielisen vastineen. Syvemmät sisällöt löydät sivuston muista
@@ -1788,1021 +1815,1021 @@
   <h2 id="a" class="termi-aakkos-otsikko">A</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="agentti" data-tags="ai tyokalut">
-      <span class="termi-nimi">Agentti</span> <span class="termi-en">(AI Agent)</span>
-      <div class="termi-selite">Tekoälyjärjestelmä, joka ei vain vastaa kysymyksiin vaan suorittaa monivaiheisia
+    <dl class="termi" id="agentti" data-tags="ai tyokalut">
+      <dt><span class="termi-nimi">Agentti</span> <span class="termi-en">(AI Agent)</span></dt>
+      <dd class="termi-selite">Tekoälyjärjestelmä, joka ei vain vastaa kysymyksiin vaan suorittaa monivaiheisia
         tehtäviä itsenäisesti: se suunnittelee, kutsuu työkaluja (esimerkiksi <a href="#mcp">MCP:n</a> kautta),
         tarkistaa tuloksen ja jatkaa kunnes tavoite on saavutettu. Data-alalla agentteja käytetään esimerkiksi datan
-        profilointiin, dokumentointiin ja muunnosten kirjoittamiseen.</div>
+        profilointiin, dokumentointiin ja muunnosten kirjoittamiseen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">työkalut</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="agenttinen-tekoaly" data-tags="ai">
-      <span class="termi-nimi">Agenttinen tekoäly</span> <span class="termi-en">(Agentic AI)</span>
-      <div class="termi-selite">Lähestymistapa, jossa <a href="#agentti">agentit</a> toimivat itsenäisesti ja tekevät
+    <dl class="termi" id="agenttinen-tekoaly" data-tags="ai">
+      <dt><span class="termi-nimi">Agenttinen tekoäly</span> <span class="termi-en">(Agentic AI)</span></dt>
+      <dd class="termi-selite">Lähestymistapa, jossa <a href="#agentti">agentit</a> toimivat itsenäisesti ja tekevät
         päätöksiä ilman, että ihminen ohjaa jokaista askelta. Vastakohta perinteiselle chat-käytölle, jossa malli
-        vastaa yksi kysymys kerrallaan.</div>
+        vastaa yksi kysymys kerrallaan.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="aggregaatti" data-tags="konseptit mittaaminen">
-      <span class="termi-nimi">Aggregaatti</span> <span class="termi-en">(Aggregate)</span>
-      <div class="termi-selite">Yhteenlaskettu tai muulla tavalla koostettu arvo, kuten myyntiluvun summa kuukauden tai
-        tuoteryhmän tasolla. Raportit käyttävät aggregaatteja suurten laskujen nopeuttamiseen.</div>
+    <dl class="termi" id="aggregaatti" data-tags="konseptit mittaaminen">
+      <dt><span class="termi-nimi">Aggregaatti</span> <span class="termi-en">(Aggregate)</span></dt>
+      <dd class="termi-selite">Yhteenlaskettu tai muulla tavalla koostettu arvo, kuten myyntiluvun summa kuukauden tai
+        tuoteryhmän tasolla. Raportit käyttävät aggregaatteja suurten laskujen nopeuttamiseen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">mittaaminen</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="alm-toolkit" data-tags="tyokalut power-bi apuohjelmat">
-      <span class="termi-nimi">ALM Toolkit</span>
-      <div class="termi-selite">Ilmainen työkalu Power BI -tietomallien vertailuun ja käyttöönottoon. Näyttää erot
+    <dl class="termi" id="alm-toolkit" data-tags="tyokalut power-bi apuohjelmat">
+      <dt><span class="termi-nimi">ALM Toolkit</span></dt>
+      <dd class="termi-selite">Ilmainen työkalu Power BI -tietomallien vertailuun ja käyttöönottoon. Näyttää erot
         kehitys- ja tuotantomallin välillä ja mahdollistaa valikoivan julkaisun: vain halutut muutokset viedään
-        tuotantoon, ei kaikki-tai-ei-mitään. Täydentää <a href="#tabular-editor">Tabular Editoria</a>.</div>
+        tuotantoon, ei kaikki-tai-ei-mitään. Täydentää <a href="#tabular-editor">Tabular Editoria</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="anonymisointi" data-tags="hallinta data-contract data-governance">
-      <span class="termi-nimi">Anonymisointi</span> <span class="termi-en">(Anonymization)</span>
-      <div class="termi-selite">Henkilötietojen poistaminen tai muuttaminen pysyvästi tunnistamattomiksi, niin ettei
+    <dl class="termi" id="anonymisointi" data-tags="hallinta data-contract data-governance">
+      <dt><span class="termi-nimi">Anonymisointi</span> <span class="termi-en">(Anonymization)</span></dt>
+      <dd class="termi-selite">Henkilötietojen poistaminen tai muuttaminen pysyvästi tunnistamattomiksi, niin ettei
         yksittäistä henkilöä voi enää tunnistaa. Toisin kuin <a href="#pseudonymisointi">pseudonymisointi</a>,
         anonymisointia ei voi peruuttaa. Anonymisoitu data ei ole enää henkilötietoa <a href="#gdpr">GDPR:n</a>
-        mielessä.</div>
+        mielessä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="attribuutti" data-tags="tietomalli konseptit dimensiot tahtimalli">
-      <span class="termi-nimi">Attribuutti</span> <span class="termi-en">(Attribute)</span>
-      <div class="termi-selite">Dimensiotaulun kuvaileva sarake, kuten asiakkaan maa, tuotteen kategoria tai myyjän
-        tiimi. Raportit käyttävät attribuutteja suodattamiseen ja ryhmittelyyn.</div>
+    <dl class="termi" id="attribuutti" data-tags="tietomalli konseptit dimensiot tahtimalli">
+      <dt><span class="termi-nimi">Attribuutti</span> <span class="termi-en">(Attribute)</span></dt>
+      <dd class="termi-selite">Dimensiotaulun kuvaileva sarake, kuten asiakkaan maa, tuotteen kategoria tai myyjän
+        tiimi. Raportit käyttävät attribuutteja suodattamiseen ja ryhmittelyyn.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="b" class="termi-aakkos-otsikko">B</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="bpa" data-tags="power-bi apuohjelmat">
-      <span class="termi-nimi">BPA</span> <span class="termi-en">(Best Practice Analyzer)</span>
-      <div class="termi-selite">Tabular Editorin sisältämä työkalu, joka tarkistaa tietomallin määriteltyjä parhaita
-        käytäntöjä vastaan ja tarjoaa korjausehdotuksia. Säännöt ovat avoimia ja muokattavia. Esimerkkisäännöt: <a href="https://github.com/TabularEditor/BestPracticeRules" target="_blank" rel="noopener">TabularEditor/BestPracticeRules</a>.</div>
+    <dl class="termi" id="bpa" data-tags="power-bi apuohjelmat">
+      <dt><span class="termi-nimi">BPA</span> <span class="termi-en">(Best Practice Analyzer)</span></dt>
+      <dd class="termi-selite">Tabular Editorin sisältämä työkalu, joka tarkistaa tietomallin määriteltyjä parhaita
+        käytäntöjä vastaan ja tarjoaa korjausehdotuksia. Säännöt ovat avoimia ja muokattavia. Esimerkkisäännöt: <a href="https://github.com/TabularEditor/BestPracticeRules" target="_blank" rel="noopener">TabularEditor/BestPracticeRules</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="bronze" data-tags="arkkitehtuuri medallion">
-      <span class="termi-nimi">Bronze</span>
-      <div class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> alin taso. Bronze
+    <dl class="termi" id="bronze" data-tags="arkkitehtuuri medallion">
+      <dt><span class="termi-nimi">Bronze</span></dt>
+      <dd class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> alin taso. Bronze
         säilyttää datan täsmälleen sellaisenaan kuin se tulee lähdejärjestelmästä, ilman muokkauksia tai
-        laadunvarmistusta. Seuraava taso: <a href="#silver">Silver</a>.</div>
+        laadunvarmistusta. Seuraava taso: <a href="#silver">Silver</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="c" class="termi-aakkos-otsikko">C</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="copilot" data-tags="power-bi ai-metadata">
-      <span class="termi-nimi">Copilot</span>
-      <div class="termi-selite">Power BI:n tekoälyavustaja, joka vastaa luonnollisen kielen kysymyksiin datan pohjalta.
+    <dl class="termi" id="copilot" data-tags="power-bi ai-metadata">
+      <dt><span class="termi-nimi">Copilot</span></dt>
+      <dd class="termi-selite">Power BI:n tekoälyavustaja, joka vastaa luonnollisen kielen kysymyksiin datan pohjalta.
         Toimii <a href="#semanttinen-malli">semanttisen mallin</a> metadatan perusteella: taulukuvaukset, sarakkeiden
         nimet ja mittareiden selitteet ohjaavat vastausta. Mitä paremmin metadata on kirjoitettu, sitä tarkempia
-        Copilotin vastaukset ovat.</div>
+        Copilotin vastaukset ovat.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="d" class="termi-aakkos-otsikko">D</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="dax" data-tags="power-bi">
-      <span class="termi-nimi">DAX</span> <span class="termi-en">(Data Analysis Expressions)</span>
-      <div class="termi-selite">Microsoftin lausekekieli laskureiden ja laskennallisten sarakkeiden rakentamiseen Power
-        BI:ssä, SSAS Tabularissa ja Power Pivotissa.</div>
+    <dl class="termi" id="dax" data-tags="power-bi">
+      <dt><span class="termi-nimi">DAX</span> <span class="termi-en">(Data Analysis Expressions)</span></dt>
+      <dd class="termi-selite">Microsoftin lausekekieli laskureiden ja laskennallisten sarakkeiden rakentamiseen Power
+        BI:ssä, SSAS Tabularissa ja Power Pivotissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="dax-studio" data-tags="tyokalut power-bi apuohjelmat">
-      <span class="termi-nimi">DAX Studio</span>
-      <div class="termi-selite">Ilmainen työkalu <a href="#dax">DAX</a>-kyselyiden kirjoittamiseen ja suorituskyvyn
+    <dl class="termi" id="dax-studio" data-tags="tyokalut power-bi apuohjelmat">
+      <dt><span class="termi-nimi">DAX Studio</span></dt>
+      <dd class="termi-selite">Ilmainen työkalu <a href="#dax">DAX</a>-kyselyiden kirjoittamiseen ja suorituskyvyn
         analysointiin. Kerää kyselykohtaista ajoitusdataa, joka paljastaa mitkä <a href="#laskuri">laskurit</a> ovat
         hitaita ja miksi. Täydentää <a href="#tabular-editor">Tabular Editoria</a> mallin tutkimisessa ja
-        optimoinnissa.</div>
+        optimoinnissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="dbt" data-tags="tyokalut prosessit etl-elt">
-      <span class="termi-nimi">dbt</span> <span class="termi-en">(data build tool)</span>
-      <div class="termi-selite">SQL-pohjainen muunnostyökalu, jolla data muokataan tietovarastossa ja muunnokset
+    <dl class="termi" id="dbt" data-tags="tyokalut prosessit etl-elt">
+      <dt><span class="termi-nimi">dbt</span> <span class="termi-en">(data build tool)</span></dt>
+      <dd class="termi-selite">SQL-pohjainen muunnostyökalu, jolla data muokataan tietovarastossa ja muunnokset
         versioidaan, testataan ja dokumentoidaan kuten ohjelmistokoodi. Yleinen <a href="#elt">ELT</a>-maailman
-        vakiotyökalu, jossa muunnos tehdään vasta latauksen jälkeen kohdejärjestelmässä.</div>
+        vakiotyökalu, jossa muunnos tehdään vasta latauksen jälkeen kohdejärjestelmässä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL/ELT</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="datakatalogi" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Datakatalogi</span> <span class="termi-en">(Data Catalog)</span>
-      <div class="termi-selite">Työkalu, joka kokoaa organisaation tietoaineistot, niiden omistajuuden ja
-        käyttötarkoitukset yhteen paikkaan. Toimii organisaation datakirjastona. Esim. Datahub.</div>
+    <dl class="termi" id="datakatalogi" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Datakatalogi</span> <span class="termi-en">(Data Catalog)</span></dt>
+      <dd class="termi-selite">Työkalu, joka kokoaa organisaation tietoaineistot, niiden omistajuuden ja
+        käyttötarkoitukset yhteen paikkaan. Toimii organisaation datakirjastona. Esim. Datahub.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-consumer" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Data Consumer</span> <span class="termi-en">(Datan käyttäjä)</span>
-      <div class="termi-selite">Rooli, joka hyödyntää dataa raporteissa, analyyseissä ja päätöksenteossa — esimerkiksi
+    <dl class="termi" id="data-consumer" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Data Consumer</span> <span class="termi-en">(Datan käyttäjä)</span></dt>
+      <dd class="termi-selite">Rooli, joka hyödyntää dataa raporteissa, analyyseissä ja päätöksenteossa — esimerkiksi
         analyytikko tai liiketoimintapäällikkö. Datan kuluttaja ei vastaa datan tuottamisesta, vaan luottaa siihen, että
-        <a href="#data-steward">data steward</a> ja <a href="#data-owner">data owner</a> pitävät sen luotettavana.</div>
+        <a href="#data-steward">data steward</a> ja <a href="#data-owner">data owner</a> pitävät sen luotettavana.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-contract" data-tags="hallinta data-contract">
-      <span class="termi-nimi">Data Contract</span>
-      <div class="termi-selite">Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä
+    <dl class="termi" id="data-contract" data-tags="hallinta data-contract">
+      <dt><span class="termi-nimi">Data Contract</span></dt>
+      <dd class="termi-selite">Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä
         muodossa, millä laadulla ja kenen vastuulla. Toimiva paikka sopia yhteisistä käytännöistä kuten <a
-          href="nimeamiskaytannot.html">nimeämiskäytännöistä</a>.</div>
+          href="nimeamiskaytannot.html">nimeämiskäytännöistä</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-custodian" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Data Custodian</span> <span class="termi-en">(Datan säilyttäjä)</span>
-      <div class="termi-selite">Tekninen rooli, joka vastaa datan tallennuksesta, varmuuskopioinnista ja
+    <dl class="termi" id="data-custodian" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Data Custodian</span> <span class="termi-en">(Datan säilyttäjä)</span></dt>
+      <dd class="termi-selite">Tekninen rooli, joka vastaa datan tallennuksesta, varmuuskopioinnista ja
         tietoturvasta — esimerkiksi IT-arkkitehti, joka hallinnoi tietovaraston infrastruktuuria. Erottuu
         liiketoimintavastuun rooleista <a href="#data-owner">data owner</a> ja <a href="#data-steward">data
-          steward</a>.</div>
+          steward</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-lake" data-tags="arkkitehtuuri">
-      <span class="termi-nimi">Data Lake</span>
-      <div class="termi-selite">Suuri datavarasto, johon ladataan dataa raakamuodossa ilman tarkkaa skeemaa. Hyvä
-        lähtöpiste, kun datan käyttötarkoitus ei ole vielä selvillä.</div>
+    <dl class="termi" id="data-lake" data-tags="arkkitehtuuri">
+      <dt><span class="termi-nimi">Data Lake</span></dt>
+      <dd class="termi-selite">Suuri datavarasto, johon ladataan dataa raakamuodossa ilman tarkkaa skeemaa. Hyvä
+        lähtöpiste, kun datan käyttötarkoitus ei ole vielä selvillä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-lineage" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Data Lineage</span>
-      <div class="termi-selite">Tieto siitä, mistä data on peräisin, miten se on muunnettu ja missä järjestelmissä se on
+    <dl class="termi" id="data-lineage" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Data Lineage</span></dt>
+      <dd class="termi-selite">Tieto siitä, mistä data on peräisin, miten se on muunnettu ja missä järjestelmissä se on
         käytettävissä. Data lineage auttaa virheiden jäljittämisessä, vaikutusarvioissa ja vaatimustenmukaisuudessa.
-      </div>
+      </dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-owner" data-tags="hallinta data-governance data-contract">
-      <span class="termi-nimi">Data Owner</span>
-      <div class="termi-selite">Datan omistaja. Liiketoiminnasta vastaava henkilö, joka päättää tietoaineiston
+    <dl class="termi" id="data-owner" data-tags="hallinta data-governance data-contract">
+      <dt><span class="termi-nimi">Data Owner</span></dt>
+      <dd class="termi-selite">Datan omistaja. Liiketoiminnasta vastaava henkilö, joka päättää tietoaineiston
         käyttötarkoituksista ja vastaa sen oikeellisuudesta. Tyypillisesti johtotason rooli, kuten myyntijohtaja
-        myyntidatasta.</div>
+        myyntidatasta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-steward" data-tags="hallinta data-governance data-contract">
-      <span class="termi-nimi">Data Steward</span>
-      <div class="termi-selite">Datan hoitaja. Vastaa päivittäisestä datan laadusta, dokumentoinnista ja sääntöjen
-        noudattamisesta. Toimii datan omistajan ja teknisten toteuttajien välissä.</div>
+    <dl class="termi" id="data-steward" data-tags="hallinta data-governance data-contract">
+      <dt><span class="termi-nimi">Data Steward</span></dt>
+      <dd class="termi-selite">Datan hoitaja. Vastaa päivittäisestä datan laadusta, dokumentoinnista ja sääntöjen
+        noudattamisesta. Toimii datan omistajan ja teknisten toteuttajien välissä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="data-vault" data-tags="arkkitehtuuri tietomalli data-vault">
-      <span class="termi-nimi">Data Vault</span>
-      <div class="termi-selite">Tietovarastointimenetelmä, joka perustuu kolmeen taulutyyppiin: hub, link ja satellite.
-        Sopii erityisesti suuriin ja muuttuviin ympäristöihin, joissa auditointi on tärkeää.</div>
+    <dl class="termi" id="data-vault" data-tags="arkkitehtuuri tietomalli data-vault">
+      <dt><span class="termi-nimi">Data Vault</span></dt>
+      <dd class="termi-selite">Tietovarastointimenetelmä, joka perustuu kolmeen taulutyyppiin: hub, link ja satellite.
+        Sopii erityisesti suuriin ja muuttuviin ympäristöihin, joissa auditointi on tärkeää.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Data Vault</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="datan-elinkaari" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Datan elinkaari</span> <span class="termi-en">(Data Lifecycle)</span>
-      <div class="termi-selite">Datan kaikki vaiheet syntymästä poistamiseen: kerääminen, käsittely, tallennus, käyttö,
+    <dl class="termi" id="datan-elinkaari" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Datan elinkaari</span> <span class="termi-en">(Data Lifecycle)</span></dt>
+      <dd class="termi-selite">Datan kaikki vaiheet syntymästä poistamiseen: kerääminen, käsittely, tallennus, käyttö,
         arkistointi ja hävittäminen. Elinkaaren hallinta on osa <a href="data-governance.html">datan hallintaa</a> —
-        esimerkiksi <a href="#gdpr">GDPR</a> edellyttää, että henkilötiedot poistetaan, kun niitä ei enää tarvita.</div>
+        esimerkiksi <a href="#gdpr">GDPR</a> edellyttää, että henkilötiedot poistetaan, kun niitä ei enää tarvita.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="denormalisointi" data-tags="konseptit tahtimalli dimensiot lumihiutale">
-      <span class="termi-nimi">Denormalisointi</span> <span class="termi-en">(Denormalization)</span>
-      <div class="termi-selite">Denormalisointi toistaa tietoa useassa paikassa tarkoituksella, jotta luettavuus ja
+    <dl class="termi" id="denormalisointi" data-tags="konseptit tahtimalli dimensiot lumihiutale">
+      <dt><span class="termi-nimi">Denormalisointi</span> <span class="termi-en">(Denormalization)</span></dt>
+      <dd class="termi-selite">Denormalisointi toistaa tietoa useassa paikassa tarkoituksella, jotta luettavuus ja
         suorituskyky paranevat. Tähtimallin dimensiot ovat tyypillisesti denormalisoituja. Ks. myös <a
-          href="#normalisointi">Normalisointi</a>.</div>
+          href="#normalisointi">Normalisointi</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Lumihiutalemalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="dimensiotaulu" data-tags="tietomalli dimensiot tahtimalli">
-      <span class="termi-nimi">Dimensiotaulu</span> <span class="termi-en">(Dimension Table)</span>
-      <div class="termi-selite">Kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä ja milloin. Sisältää
-        attribuutteja kuten asiakkaan nimi, tuotteen kategoria tai päivämäärä.</div>
+    <dl class="termi" id="dimensiotaulu" data-tags="tietomalli dimensiot tahtimalli">
+      <dt><span class="termi-nimi">Dimensiotaulu</span> <span class="termi-en">(Dimension Table)</span></dt>
+      <dd class="termi-selite">Kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä ja milloin. Sisältää
+        attribuutteja kuten asiakkaan nimi, tuotteen kategoria tai päivämäärä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="dpo" data-tags="hallinta data-contract data-governance">
-      <span class="termi-nimi">DPO</span> <span class="termi-en">(Data Protection Officer, tietosuojavastaava)</span>
-      <div class="termi-selite">Rooli, joka vastaa <a href="#gdpr">GDPR</a>-vaatimusten täyttymisestä ja henkilötietojen
+    <dl class="termi" id="dpo" data-tags="hallinta data-contract data-governance">
+      <dt><span class="termi-nimi">DPO</span> <span class="termi-en">(Data Protection Officer, tietosuojavastaava)</span></dt>
+      <dd class="termi-selite">Rooli, joka vastaa <a href="#gdpr">GDPR</a>-vaatimusten täyttymisestä ja henkilötietojen
         käsittelyn lainmukaisuudesta organisaatiossa. Tietosuojavastaava hyväksyy esimerkiksi henkilötason datan käytön
-        uusiin tarkoituksiin, kuten koneoppimismallin kouluttamiseen.</div>
+        uusiin tarkoituksiin, kuten koneoppimismallin kouluttamiseen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="e" class="termi-aakkos-otsikko">E</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="ehdokasavain" data-tags="avaimet">
-      <span class="termi-nimi">Ehdokasavain</span> <span class="termi-en">(Candidate Key)</span>
-      <div class="termi-selite">Sarake tai sarakeyhdistelmä, joka voisi toimia taulun pääavaimena. Taulussa voi olla
-        useita ehdokasavaimia, joista yksi valitaan pääavaimeksi ja muut jäävät vaihtoehtoisiksi avaimiksi.</div>
+    <dl class="termi" id="ehdokasavain" data-tags="avaimet">
+      <dt><span class="termi-nimi">Ehdokasavain</span> <span class="termi-en">(Candidate Key)</span></dt>
+      <dd class="termi-selite">Sarake tai sarakeyhdistelmä, joka voisi toimia taulun pääavaimena. Taulussa voi olla
+        useita ehdokasavaimia, joista yksi valitaan pääavaimeksi ja muut jäävät vaihtoehtoisiksi avaimiksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="elt" data-tags="prosessit arkkitehtuuri etl-elt">
-      <span class="termi-nimi">ELT</span> <span class="termi-en">(Extract, Load, Transform)</span>
-      <div class="termi-selite">Datan siirtomalli, jossa raakadata ladataan ensin kohdejärjestelmään ja muunnos tehdään
-        vasta sen jälkeen. Yleinen pilvipohjaisissa ratkaisuissa.</div>
+    <dl class="termi" id="elt" data-tags="prosessit arkkitehtuuri etl-elt">
+      <dt><span class="termi-nimi">ELT</span> <span class="termi-en">(Extract, Load, Transform)</span></dt>
+      <dd class="termi-selite">Datan siirtomalli, jossa raakadata ladataan ensin kohdejärjestelmään ja muunnos tehdään
+        vasta sen jälkeen. Yleinen pilvipohjaisissa ratkaisuissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">ETL/ELT</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="etl" data-tags="prosessit arkkitehtuuri etl-elt litistaminen">
-      <span class="termi-nimi">ETL</span> <span class="termi-en">(Extract, Transform, Load)</span>
-      <div class="termi-selite">Datan siirtomalli, jossa data muunnetaan ennen lataamista kohdejärjestelmään.
-        Perinteinen lähestymistapa tietovarastoissa.</div>
+    <dl class="termi" id="etl" data-tags="prosessit arkkitehtuuri etl-elt litistaminen">
+      <dt><span class="termi-nimi">ETL</span> <span class="termi-en">(Extract, Transform, Load)</span></dt>
+      <dd class="termi-selite">Datan siirtomalli, jossa data muunnetaan ennen lataamista kohdejärjestelmään.
+        Perinteinen lähestymistapa tietovarastoissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">ETL/ELT</span><span class="termi-tagi">Litistäminen</span>
       </div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="f" class="termi-aakkos-otsikko">F</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="faktataulu" data-tags="tietomalli tahtimalli useampi-fakta">
-      <span class="termi-nimi">Faktataulu</span> <span class="termi-en">(Fact Table)</span>
-      <div class="termi-selite">Tähtimallin keskeinen taulu, joka sisältää mitattavia tapahtumia kuten myyntejä,
-        tilauksia tai laskutuksia. Faktataulun rivit ovat usein lukuja, ja tauluun viitataan dimensioiden kautta.</div>
+    <dl class="termi" id="faktataulu" data-tags="tietomalli tahtimalli useampi-fakta">
+      <dt><span class="termi-nimi">Faktataulu</span> <span class="termi-en">(Fact Table)</span></dt>
+      <dd class="termi-selite">Tähtimallin keskeinen taulu, joka sisältää mitattavia tapahtumia kuten myyntejä,
+        tilauksia tai laskutuksia. Faktataulun rivit ovat usein lukuja, ja tauluun viitataan dimensioiden kautta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Useampi fakta</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="flattening" data-tags="tietomalli litistaminen">
-      <span class="termi-nimi">Flattening</span> <span class="termi-en">(litistäminen)</span>
-      <div class="termi-selite">Katso: <a href="#litistaminen">Litistäminen</a>.</div>
+    <dl class="termi" id="flattening" data-tags="tietomalli litistaminen">
+      <dt><span class="termi-nimi">Flattening</span> <span class="termi-en">(litistäminen)</span></dt>
+      <dd class="termi-selite">Katso: <a href="#litistaminen">Litistäminen</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Litistäminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="filter-context" data-tags="dax-konseptit power-bi">
-      <span class="termi-nimi">Filter Context</span> <span class="termi-en">(suodatinkonteksti)</span>
-      <div class="termi-selite">DAX-laskennan tilanne, jossa raporttiin valitut suodattimet määräävät, mitkä rivit
+    <dl class="termi" id="filter-context" data-tags="dax-konseptit power-bi">
+      <dt><span class="termi-nimi">Filter Context</span> <span class="termi-en">(suodatinkonteksti)</span></dt>
+      <dd class="termi-selite">DAX-laskennan tilanne, jossa raporttiin valitut suodattimet määräävät, mitkä rivit
         otetaan laskennassa huomioon. Filter context kulkee aina raportin valintojen mukana ja vaikuttaa kaikkiin
-        laskureihin.</div>
+        laskureihin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Power BI</span>
       </div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="g" class="termi-aakkos-otsikko">G</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="gdpr" data-tags="hallinta data-governance data-contract">
-      <span class="termi-nimi">GDPR</span> <span class="termi-en">(General Data Protection Regulation)</span>
-      <div class="termi-selite">EU:n yleinen tietosuoja-asetus, joka säätelee henkilötietojen käsittelyä. Velvoittaa
-        organisaatiot tietämään, mitä henkilötietoja kerätään, missä ne sijaitsevat ja mihin niitä käytetään.</div>
+    <dl class="termi" id="gdpr" data-tags="hallinta data-governance data-contract">
+      <dt><span class="termi-nimi">GDPR</span> <span class="termi-en">(General Data Protection Regulation)</span></dt>
+      <dd class="termi-selite">EU:n yleinen tietosuoja-asetus, joka säätelee henkilötietojen käsittelyä. Velvoittaa
+        organisaatiot tietämään, mitä henkilötietoja kerätään, missä ne sijaitsevat ja mihin niitä käytetään.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="gold" data-tags="arkkitehtuuri medallion">
-      <span class="termi-nimi">Gold</span>
-      <div class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> ylin taso, jolla data on
+    <dl class="termi" id="gold" data-tags="arkkitehtuuri medallion">
+      <dt><span class="termi-nimi">Gold</span></dt>
+      <dd class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> ylin taso, jolla data on
         liiketoiminnan käyttöön valmista. Gold-tasolla data on jalostettu valmiiksi <a
           href="#tahtimalli">tähtimalliksi</a> tai aggregoiduksi datasetiksi, suoraan raporttien ja analytiikan
-        käyttöön. Edellinen taso: <a href="#silver">Silver</a>.</div>
+        käyttöön. Edellinen taso: <a href="#silver">Silver</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="granulariteetti" data-tags="konseptit tietomalli tahtimalli useampi-fakta dimensiot">
-      <span class="termi-nimi">Granulariteetti</span> <span class="termi-en">(Granularity)</span>
-      <div class="termi-selite">Faktataulun rivin yksityiskohtaisuuden taso. Esimerkiksi yksi rivi per myyntitapahtuma
+    <dl class="termi" id="granulariteetti" data-tags="konseptit tietomalli tahtimalli useampi-fakta dimensiot">
+      <dt><span class="termi-nimi">Granulariteetti</span> <span class="termi-en">(Granularity)</span></dt>
+      <dd class="termi-selite">Faktataulun rivin yksityiskohtaisuuden taso. Esimerkiksi yksi rivi per myyntitapahtuma
         on hienojakoinen, kun taas yksi rivi per päivä ja tuote on karkea. Granulariteetti määrää, mihin kysymyksiin
-        malli pystyy vastaamaan.</div>
+        malli pystyy vastaamaan.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Useampi fakta</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="h" class="termi-aakkos-otsikko">H</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="hallusinaatio" data-tags="ai">
-      <span class="termi-nimi">Hallusinaatio</span> <span class="termi-en">(Hallucination)</span>
-      <div class="termi-selite">Tilanne, jossa <a href="#kielimalli">kielimalli</a> tuottaa uskottavalta kuulostavaa mutta
+    <dl class="termi" id="hallusinaatio" data-tags="ai">
+      <dt><span class="termi-nimi">Hallusinaatio</span> <span class="termi-en">(Hallucination)</span></dt>
+      <dd class="termi-selite">Tilanne, jossa <a href="#kielimalli">kielimalli</a> tuottaa uskottavalta kuulostavaa mutta
         virheellistä tai keksittyä tietoa. Tämän takia tekoälyn ehdotukset, kuten sarakkeiden kuvaukset tai SQL,
-        kannattaa aina tarkistaa ennen käyttöä.</div>
+        kannattaa aina tarkistaa ennen käyttöä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="header-detail-malli" data-tags="tietomalli header-detail">
-      <span class="termi-nimi">Header-Detail-malli</span>
-      <div class="termi-selite">Tietorakenne, jossa yksi taulu sisältää tilauksen otsikkotiedot ja toinen rivitiedot.
-        Yhteys muodostuu tilausnumeron kautta. VertiPaq-pohjaisissa malleissa kannattaa yhdistää yhdeksi tauluksi.</div>
+    <dl class="termi" id="header-detail-malli" data-tags="tietomalli header-detail">
+      <dt><span class="termi-nimi">Header-Detail-malli</span></dt>
+      <dd class="termi-selite">Tietorakenne, jossa yksi taulu sisältää tilauksen otsikkotiedot ja toinen rivitiedot.
+        Yhteys muodostuu tilausnumeron kautta. VertiPaq-pohjaisissa malleissa kannattaa yhdistää yhdeksi tauluksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Header-Detail</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="hierarkia" data-tags="tietomalli konseptit lumihiutale litistaminen dimensiot">
-      <span class="termi-nimi">Hierarkia</span> <span class="termi-en">(Hierarchy)</span>
-      <div class="termi-selite">Dimension tasorakenne, jossa ylemmät tasot kokoavat alempia. Esimerkiksi Vuosi →
+    <dl class="termi" id="hierarkia" data-tags="tietomalli konseptit lumihiutale litistaminen dimensiot">
+      <dt><span class="termi-nimi">Hierarkia</span> <span class="termi-en">(Hierarchy)</span></dt>
+      <dd class="termi-selite">Dimension tasorakenne, jossa ylemmät tasot kokoavat alempia. Esimerkiksi Vuosi →
         Kvartaali → Kuukausi tai Yritys → Liiketoimintaryhmä → Kustannuspaikka. Power BI:ssä hierarkia rakennetaan
         dimensiotauluun sarakkeina, ei erillisinä tauluina. Lumihiutalemallissa hierarkia on hajautettuna useaan tauluun
-        — <a href="#litistaminen">litistäminen</a> yhdistää ne yhdeksi.</div>
+        — <a href="#litistaminen">litistäminen</a> yhdistää ne yhdeksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Lumihiutalemalli</span><span class="termi-tagi">Litistäminen</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="hub" data-tags="arkkitehtuuri tietomalli data-vault">
-      <span class="termi-nimi">Hub</span>
-      <div class="termi-selite">Data Vault -mallin keskeinen taulu, joka sisältää yksilöllisen liiketoimintatunnisteen,
+    <dl class="termi" id="hub" data-tags="arkkitehtuuri tietomalli data-vault">
+      <dt><span class="termi-nimi">Hub</span></dt>
+      <dd class="termi-selite">Data Vault -mallin keskeinen taulu, joka sisältää yksilöllisen liiketoimintatunnisteen,
         kuten asiakasnumeron tai tuotekoodin. Hub säilyttää tunnisteen historian ilman muita tietoja, jotka tallennetaan
-        satellite-tauluihin.</div>
+        satellite-tauluihin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Data Vault</span>
       </div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="k" class="termi-aakkos-otsikko">K</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="kardinaliteetti" data-tags="konseptit power-bi dimensiot header-detail">
-      <span class="termi-nimi">Kardinaliteetti</span> <span class="termi-en">(Cardinality)</span>
-      <div class="termi-selite">Sarakkeen uniikkien arvojen lukumäärä. Matala kardinaliteetti (esim. 5 maakoodia)
+    <dl class="termi" id="kardinaliteetti" data-tags="konseptit power-bi dimensiot header-detail">
+      <dt><span class="termi-nimi">Kardinaliteetti</span> <span class="termi-en">(Cardinality)</span></dt>
+      <dd class="termi-selite">Sarakkeen uniikkien arvojen lukumäärä. Matala kardinaliteetti (esim. 5 maakoodia)
         pakkautuu VertiPaqissa erittäin tehokkaasti, korkea kardinaliteetti (esim. miljoonia sähköposteja) heikentää
-        suorituskykyä.</div>
+        suorituskykyä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Header-Detail</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="kielimalli" data-tags="ai">
-      <span class="termi-nimi">Kielimalli</span> <span class="termi-en">(LLM, Large Language Model)</span>
-      <div class="termi-selite">Suurilla tekstimäärillä koulutettu tekoälymalli, joka ennustaa ja tuottaa luonnollista
+    <dl class="termi" id="kielimalli" data-tags="ai">
+      <dt><span class="termi-nimi">Kielimalli</span> <span class="termi-en">(LLM, Large Language Model)</span></dt>
+      <dd class="termi-selite">Suurilla tekstimäärillä koulutettu tekoälymalli, joka ennustaa ja tuottaa luonnollista
         kieltä. Eri kielimallit kuten Claude, GPT ja Gemini eroavat koossa, muistissaan
         ja vahvuuksiltaan. Data-alalla kielimalleja käytetään esimerkiksi dokumentointiin, kyselyiden kirjoittamiseen
-        ja <a href="#metadata">metadatan</a> rikastamiseen.</div>
+        ja <a href="#metadata">metadatan</a> rikastamiseen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="kpi" data-tags="mittaaminen">
-      <span class="termi-nimi">KPI</span> <span class="termi-en">(Key Performance Indicator)</span>
-      <div class="termi-selite">Toimintaa kuvaava avainmittari, kuten liikevaihto, asiakaspysyvyys tai
-        konversioprosentti. KPI on tyypillisesti tavoitteellinen mittari, jota seurataan säännöllisesti.</div>
+    <dl class="termi" id="kpi" data-tags="mittaaminen">
+      <dt><span class="termi-nimi">KPI</span> <span class="termi-en">(Key Performance Indicator)</span></dt>
+      <dd class="termi-selite">Toimintaa kuvaava avainmittari, kuten liikevaihto, asiakaspysyvyys tai
+        konversioprosentti. KPI on tyypillisesti tavoitteellinen mittari, jota seurataan säännöllisesti.</dd>
       <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="kayttotarkoituksen-rajaus" data-tags="hallinta konseptit data-governance data-contract">
-      <span class="termi-nimi">Käyttötarkoituksen rajaus</span> <span class="termi-en">(Purpose Limitation)</span>
-      <div class="termi-selite"><a href="#gdpr">GDPR</a>:n periaate, jonka mukaan dataa saa käyttää vain siihen
+    <dl class="termi" id="kayttotarkoituksen-rajaus" data-tags="hallinta konseptit data-governance data-contract">
+      <dt><span class="termi-nimi">Käyttötarkoituksen rajaus</span> <span class="termi-en">(Purpose Limitation)</span></dt>
+      <dd class="termi-selite"><a href="#gdpr">GDPR</a>:n periaate, jonka mukaan dataa saa käyttää vain siihen
         tarkoitukseen, johon se on alun perin kerätty. Esimerkiksi laskutusta varten kerättyä asiakasdataa ei saa ilman
         erillistä perustetta käyttää markkinointiin. Rajaus kirjataan usein <a href="data-contract.html">data
-          contractiin</a>.</div>
+          contractiin</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="l" class="termi-aakkos-otsikko">L</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="laskennallinen-sarake" data-tags="power-bi">
-      <span class="termi-nimi">Laskennallinen sarake</span> <span class="termi-en">(Calculated Column)</span>
-      <div class="termi-selite">Tietomalliin lisätty sarake, joka lasketaan DAX-lausekkeen avulla rivitasolla.
-        Laskennallinen sarake vie muistia, sillä arvot tallennetaan tauluun.</div>
+    <dl class="termi" id="laskennallinen-sarake" data-tags="power-bi">
+      <dt><span class="termi-nimi">Laskennallinen sarake</span> <span class="termi-en">(Calculated Column)</span></dt>
+      <dd class="termi-selite">Tietomalliin lisätty sarake, joka lasketaan DAX-lausekkeen avulla rivitasolla.
+        Laskennallinen sarake vie muistia, sillä arvot tallennetaan tauluun.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="laskentaryhma" data-tags="power-bi dax-konseptit apuohjelmat">
-      <span class="termi-nimi">Laskentaryhmä</span> <span class="termi-en">(Calculation Group)</span>
-      <div class="termi-selite">Tabular-mallin rakenne, joka soveltaa samaa laskentalogiikkaa moneen <a
+    <dl class="termi" id="laskentaryhma" data-tags="power-bi dax-konseptit apuohjelmat">
+      <dt><span class="termi-nimi">Laskentaryhmä</span> <span class="termi-en">(Calculation Group)</span></dt>
+      <dd class="termi-selite">Tabular-mallin rakenne, joka soveltaa samaa laskentalogiikkaa moneen <a
           href="#laskuri">laskuriin</a> kerralla — esimerkiksi kuluva vuosi, edellinen vuosi ja muutos-% ilman, että
         jokaiselle mittarille kirjoitetaan oma versio. Vähentää <a href="#dax">DAX</a>-toistoa ja pitää mallin siistinä.
-        Luodaan tyypillisesti <a href="#tabular-editor">Tabular Editorilla</a>.</div>
+        Luodaan tyypillisesti <a href="#tabular-editor">Tabular Editorilla</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Apuohjelmat</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="laskuri" data-tags="power-bi mittaaminen">
-      <span class="termi-nimi">Laskuri</span> <span class="termi-en">(Measure)</span>
-      <div class="termi-selite">DAX-lausekkeella määritelty laskenta, joka suoritetaan vasta raporttia katsottaessa
-        kontekstin perusteella. Laskureita käytetään summiin, keskiarvoihin ja monimutkaisempiin laskelmiin.</div>
+    <dl class="termi" id="laskuri" data-tags="power-bi mittaaminen">
+      <dt><span class="termi-nimi">Laskuri</span> <span class="termi-en">(Measure)</span></dt>
+      <dd class="termi-selite">DAX-lausekkeella määritelty laskenta, joka suoritetaan vasta raporttia katsottaessa
+        kontekstin perusteella. Laskureita käytetään summiin, keskiarvoihin ja monimutkaisempiin laskelmiin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">mittaaminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="litistaminen" data-tags="tietomalli litistaminen lumihiutale">
-      <span class="termi-nimi">Litistäminen</span> <span class="termi-en">(Flattening)</span>
-      <div class="termi-selite">Useamman hierarkkisen dimensiotaulun yhdistäminen yhdeksi leveäksi tauluksi ennen Power
+    <dl class="termi" id="litistaminen" data-tags="tietomalli litistaminen lumihiutale">
+      <dt><span class="termi-nimi">Litistäminen</span> <span class="termi-en">(Flattening)</span></dt>
+      <dd class="termi-selite">Useamman hierarkkisen dimensiotaulun yhdistäminen yhdeksi leveäksi tauluksi ennen Power
         BI -latausta. Muuttaa lumihiutalemaisen rakenteen tähtimallin mukaiseksi. Tehdään tyypillisesti ETL-vaiheessa
-        tai SQL-näkymänä, ei Power BI:n sisällä.</div>
+        tai SQL-näkymänä, ei Power BI:n sisällä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Litistäminen</span><span class="termi-tagi">Lumihiutalemalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="lakehouse" data-tags="arkkitehtuuri">
-      <span class="termi-nimi">Lakehouse</span>
-      <div class="termi-selite">Arkkitehtuuri, joka yhdistää data laken joustavuuden ja tietovaraston rakenteen.
-        Tunnetuin esimerkki on Databricksin Delta Lake.</div>
+    <dl class="termi" id="lakehouse" data-tags="arkkitehtuuri">
+      <dt><span class="termi-nimi">Lakehouse</span></dt>
+      <dd class="termi-selite">Arkkitehtuuri, joka yhdistää data laken joustavuuden ja tietovaraston rakenteen.
+        Tunnetuin esimerkki on Databricksin Delta Lake.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="link" data-tags="arkkitehtuuri tietomalli data-vault">
-      <span class="termi-nimi">Link</span>
-      <div class="termi-selite">Data Vault -mallin taulu, joka kuvaa kahden tai useamman hubin välistä yhteyttä.
-        Esimerkiksi tilaus on hubien Asiakas ja Tuote välinen link.</div>
+    <dl class="termi" id="link" data-tags="arkkitehtuuri tietomalli data-vault">
+      <dt><span class="termi-nimi">Link</span></dt>
+      <dd class="termi-selite">Data Vault -mallin taulu, joka kuvaa kahden tai useamman hubin välistä yhteyttä.
+        Esimerkiksi tilaus on hubien Asiakas ja Tuote välinen link.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Data Vault</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="lumihiutalemalli" data-tags="tietomalli lumihiutale litistaminen">
-      <span class="termi-nimi">Lumihiutalemalli</span> <span class="termi-en">(Snowflake Schema)</span>
-      <div class="termi-selite">Tähtimallin laajennus, jossa dimensiot on normalisoitu useaan tauluun. Vähentää datan
-        toisteisuutta tietovarastossa, mutta hidastaa Power BI:n VertiPaq-moottorin toimintaa.</div>
+    <dl class="termi" id="lumihiutalemalli" data-tags="tietomalli lumihiutale litistaminen">
+      <dt><span class="termi-nimi">Lumihiutalemalli</span> <span class="termi-en">(Snowflake Schema)</span></dt>
+      <dd class="termi-selite">Tähtimallin laajennus, jossa dimensiot on normalisoitu useaan tauluun. Vähentää datan
+        toisteisuutta tietovarastossa, mutta hidastaa Power BI:n VertiPaq-moottorin toimintaa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Lumihiutalemalli</span><span class="termi-tagi">Litistäminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="luonnollinen-avain" data-tags="avaimet dimensiot">
-      <span class="termi-nimi">Luonnollinen avain</span> <span class="termi-en">(Natural Key, Business Key)</span>
-      <div class="termi-selite">Lähdejärjestelmästä tuleva tunniste, kuten asiakasnumero tai tuotekoodi. Dimensio
-        säilyttää luonnollisen avaimen hakua varten, mutta relaatiot rakennetaan surrogaattiavaimella.</div>
+    <dl class="termi" id="luonnollinen-avain" data-tags="avaimet dimensiot">
+      <dt><span class="termi-nimi">Luonnollinen avain</span> <span class="termi-en">(Natural Key, Business Key)</span></dt>
+      <dd class="termi-selite">Lähdejärjestelmästä tuleva tunniste, kuten asiakasnumero tai tuotekoodi. Dimensio
+        säilyttää luonnollisen avaimen hakua varten, mutta relaatiot rakennetaan surrogaattiavaimella.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="m" class="termi-aakkos-otsikko">M</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="m-kieli" data-tags="power-bi">
-      <span class="termi-nimi">M-kieli</span>
-      <div class="termi-selite">Power Queryn käyttämä funktionaalinen kieli, jolla data muunnetaan ja yhdistetään ennen
-        tietomalliin lataamista.</div>
+    <dl class="termi" id="m-kieli" data-tags="power-bi">
+      <dt><span class="termi-nimi">M-kieli</span></dt>
+      <dd class="termi-selite">Power Queryn käyttämä funktionaalinen kieli, jolla data muunnetaan ja yhdistetään ennen
+        tietomalliin lataamista.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="master-data" data-tags="hallinta data-governance">
-      <span class="termi-nimi">Master Data</span>
-      <div class="termi-selite">Organisaation keskeinen ohjaava data, kuten asiakkaat, tuotteet ja toimittajat. Master
-        datan laatu ja yhtenäisyys vaikuttavat kaikkiin järjestelmiin.</div>
+    <dl class="termi" id="master-data" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Master Data</span></dt>
+      <dd class="termi-selite">Organisaation keskeinen ohjaava data, kuten asiakkaat, tuotteet ja toimittajat. Master
+        datan laatu ja yhtenäisyys vaikuttavat kaikkiin järjestelmiin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="monen-moneen" data-tags="tietomalli konseptit useampi-fakta">
-      <span class="termi-nimi">Monen-moneen-suhde</span> <span class="termi-en">(Many-to-Many)</span>
-      <div class="termi-selite">Relaatiotyyppi, jossa molemmat taulut voivat liittyä useaan riviin toisessa taulussa — esimerkiksi yksi tilaus voi sisältää monta tuotetta ja yksi tuote voi esiintyä monessa tilauksessa. Power BI tukee monen-moneen-suhteita suoraan, mutta ne tekevät DAX-laskennasta arvaamatonta ja hidastavat suorituskykyä. <strong>Suosittelemme välttämään.</strong> Ratkaise tilanne <a href="#valitaulu">välitaululla (bridge table)</a> tai mallintamalla granulariteetti uudelleen niin, että suhde muuttuu <a href="#yksi-moneen">yksi-moneen-suhteeksi</a>.</div>
+    <dl class="termi" id="monen-moneen" data-tags="tietomalli konseptit useampi-fakta">
+      <dt><span class="termi-nimi">Monen-moneen-suhde</span> <span class="termi-en">(Many-to-Many)</span></dt>
+      <dd class="termi-selite">Relaatiotyyppi, jossa molemmat taulut voivat liittyä useaan riviin toisessa taulussa — esimerkiksi yksi tilaus voi sisältää monta tuotetta ja yksi tuote voi esiintyä monessa tilauksessa. Power BI tukee monen-moneen-suhteita suoraan, mutta ne tekevät DAX-laskennasta arvaamatonta ja hidastavat suorituskykyä. <strong>Suosittelemme välttämään.</strong> Ratkaise tilanne <a href="#valitaulu">välitaululla (bridge table)</a> tai mallintamalla granulariteetti uudelleen niin, että suhde muuttuu <a href="#yksi-moneen">yksi-moneen-suhteeksi</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Useampi fakta</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="moniselitteinen-tietomalli" data-tags="tietomalli konseptit litistaminen">
-      <span class="termi-nimi">Moniselitteinen tietomalli</span>
-      <div class="termi-selite">Tietomalli, jossa sama tieto voi esiintyä useassa paikassa tai sarakkeen merkitys riippuu kontekstista. Tyypillinen esimerkki on <a href="#flattening">denormalisoitu</a> taulukko, jossa esimerkiksi "päivämäärä"-sarake voi tarkoittaa tilauspäivää, toimituspäivää tai laskutuspäivää. Moniselitteisyys kasvattaa virheiden riskiä ja tekee raportoinnista hankalampaa. Vrt. <a href="#yksiselitteinen-tietomalli">yksiselitteinen tietomalli</a>.</div>
+    <dl class="termi" id="moniselitteinen-tietomalli" data-tags="tietomalli konseptit litistaminen">
+      <dt><span class="termi-nimi">Moniselitteinen tietomalli</span></dt>
+      <dd class="termi-selite">Tietomalli, jossa sama tieto voi esiintyä useassa paikassa tai sarakkeen merkitys riippuu kontekstista. Tyypillinen esimerkki on <a href="#flattening">denormalisoitu</a> taulukko, jossa esimerkiksi "päivämäärä"-sarake voi tarkoittaa tilauspäivää, toimituspäivää tai laskutuspäivää. Moniselitteisyys kasvattaa virheiden riskiä ja tekee raportoinnista hankalampaa. Vrt. <a href="#yksiselitteinen-tietomalli">yksiselitteinen tietomalli</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Litistäminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="mcp" data-tags="ai tyokalut apuohjelmat">
-      <span class="termi-nimi">MCP</span> <span class="termi-en">(Model Context Protocol)</span>
-      <div class="termi-selite">Anthropicin kehittämä avoin standardi, jonka avulla <a
+    <dl class="termi" id="mcp" data-tags="ai tyokalut apuohjelmat">
+      <dt><span class="termi-nimi">MCP</span> <span class="termi-en">(Model Context Protocol)</span></dt>
+      <dd class="termi-selite">Anthropicin kehittämä avoin standardi, jonka avulla <a
           href="#tekoalyavustaja">tekoälyavustajat</a> kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti.
         Esimerkiksi tekoäly voi MCP:n kautta hakea tietoa tietokannasta tai <a href="#datakatalogi">datakatalogista</a>
-        ilman erillistä räätälöityä integraatiota.</div>
+        ilman erillistä räätälöityä integraatiota.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">työkalut</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="medallion-arkkitehtuuri" data-tags="arkkitehtuuri medallion">
-      <span class="termi-nimi">Medallion-arkkitehtuuri</span>
-      <div class="termi-selite">Datan jalostusmalli, jossa data etenee kerroksittain Bronze-tasolta (raakadata)
-        Silver-tasolle (puhdistettu) ja edelleen Gold-tasolle (analyysiin valmis).</div>
+    <dl class="termi" id="medallion-arkkitehtuuri" data-tags="arkkitehtuuri medallion">
+      <dt><span class="termi-nimi">Medallion-arkkitehtuuri</span></dt>
+      <dd class="termi-selite">Datan jalostusmalli, jossa data etenee kerroksittain Bronze-tasolta (raakadata)
+        Silver-tasolle (puhdistettu) ja edelleen Gold-tasolle (analyysiin valmis).</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="metadata" data-tags="hallinta data-governance ai-metadata">
-      <span class="termi-nimi">Metadata</span>
-      <div class="termi-selite">Tieto datasta. Tekninen metadata kuvaa esimerkiksi sarakkeiden tietotyyppejä,
-        liiketoimintametadata kertoo mitä sarake tarkoittaa liiketoiminnan kannalta.</div>
+    <dl class="termi" id="metadata" data-tags="hallinta data-governance ai-metadata">
+      <dt><span class="termi-nimi">Metadata</span></dt>
+      <dd class="termi-selite">Tieto datasta. Tekninen metadata kuvaa esimerkiksi sarakkeiden tietotyyppejä,
+        liiketoimintametadata kertoo mitä sarake tarkoittaa liiketoiminnan kannalta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="microsoft-fabric" data-tags="tyokalut arkkitehtuuri">
-      <span class="termi-nimi">Microsoft Fabric</span>
-      <div class="termi-selite">Microsoftin yhtenäinen data-analytiikka-alusta, joka kokoaa saman katon alle <a
+    <dl class="termi" id="microsoft-fabric" data-tags="tyokalut arkkitehtuuri">
+      <dt><span class="termi-nimi">Microsoft Fabric</span></dt>
+      <dd class="termi-selite">Microsoftin yhtenäinen data-analytiikka-alusta, joka kokoaa saman katon alle <a
           href="#lakehouse">lakehousen</a>, tietovaraston, datavirtaukset ja Power BI:n. Tavoitteena on, että data
         liikkuu vaiheesta toiseen ilman erillisiä järjestelmiä. Rakentuu OneLake-tallennuksen ja Delta-muodon
-        päälle.</div>
+        päälle.</dd>
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">arkkitehtuuri</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="mittari" data-tags="mittaaminen power-bi">
-      <span class="termi-nimi">Mittari</span>
-      <div class="termi-selite">Ks. <a href="#laskuri">Laskuri</a>.</div>
+    <dl class="termi" id="mittari" data-tags="mittaaminen power-bi">
+      <dt><span class="termi-nimi">Mittari</span></dt>
+      <dd class="termi-selite">Ks. <a href="#laskuri">Laskuri</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="n" class="termi-aakkos-otsikko">N</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="normalisointi" data-tags="konseptit tahtimalli lumihiutale">
-      <span class="termi-nimi">Normalisointi</span> <span class="termi-en">(Normalization)</span>
-      <div class="termi-selite">Tietokannan rakenteen jäsentäminen niin, että kukin tieto sijaitsee vain yhdessä
+    <dl class="termi" id="normalisointi" data-tags="konseptit tahtimalli lumihiutale">
+      <dt><span class="termi-nimi">Normalisointi</span> <span class="termi-en">(Normalization)</span></dt>
+      <dd class="termi-selite">Tietokannan rakenteen jäsentäminen niin, että kukin tieto sijaitsee vain yhdessä
         paikassa. Vähentää toisteisuutta ja parantaa tietoeheyttä, mutta tekee kyselyistä monimutkaisempia. Ks. myös <a
-          href="#denormalisointi">Denormalisointi</a>.</div>
+          href="#denormalisointi">Denormalisointi</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Lumihiutalemalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="null" data-tags="konseptit">
-      <span class="termi-nimi">NULL</span>
-      <div class="termi-selite">Tietokannan erityisarvo, joka tarkoittaa "ei tietoa". NULL ei ole nolla eikä tyhjä
+    <dl class="termi" id="null" data-tags="konseptit">
+      <dt><span class="termi-nimi">NULL</span></dt>
+      <dd class="termi-selite">Tietokannan erityisarvo, joka tarkoittaa "ei tietoa". NULL ei ole nolla eikä tyhjä
         merkkijono — se on tuntematon arvo. DAX:ssa NULL voi aiheuttaa yllättäviä tuloksia laskureissa, jos sitä ei
         käsitellä erikseen. Faktataulun NULL-arvo mittarisarakkeessa tarkoittaa yleensä, että tapahtumaa ei ole — ei
-        että arvo on nolla.</div>
+        että arvo on nolla.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="o" class="termi-aakkos-otsikko">O</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="olap" data-tags="olap">
-      <span class="termi-nimi">OLAP</span> <span class="termi-en">(Online Analytical Processing)</span>
-      <div class="termi-selite">Analyyttiseen kyselyyn optimoitu tietokantaratkaisu. Sopii suuriin yhteenvetoihin ja
+    <dl class="termi" id="olap" data-tags="olap">
+      <dt><span class="termi-nimi">OLAP</span> <span class="termi-en">(Online Analytical Processing)</span></dt>
+      <dd class="termi-selite">Analyyttiseen kyselyyn optimoitu tietokantaratkaisu. Sopii suuriin yhteenvetoihin ja
         monimutkaisiin laskelmiin. Power BI:n SSAS Tabular -malli on OLAP-järjestelmä. Ks. myös <a
-          href="#oltp">OLTP</a>.</div>
+          href="#oltp">OLTP</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="ols" data-tags="power-bi hallinta data-governance apuohjelmat">
-      <span class="termi-nimi">OLS</span> <span class="termi-en">(Object-Level Security)</span>
-      <div class="termi-selite">Objektitason tietoturva, jossa kokonainen taulu tai sarake piilotetaan käyttäjältä
+    <dl class="termi" id="ols" data-tags="power-bi hallinta data-governance apuohjelmat">
+      <dt><span class="termi-nimi">OLS</span> <span class="termi-en">(Object-Level Security)</span></dt>
+      <dd class="termi-selite">Objektitason tietoturva, jossa kokonainen taulu tai sarake piilotetaan käyttäjältä
         roolin perusteella — esimerkiksi palkkasarake näkyy vain HR-roolille. Toisin kuin rivitason <a href="#rls">RLS</a>,
         joka rajaa näkyviä rivejä, OLS rajaa näkyviä rakenteita. Määritellään <a href="#tabular-editor">Tabular
-          Editorilla</a>, koska Power BI Desktop ei tue sitä suoraan.</div>
+          Editorilla</a>, koska Power BI Desktop ei tue sitä suoraan.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="oltp" data-tags="olap">
-      <span class="termi-nimi">OLTP</span> <span class="termi-en">(Online Transaction Processing)</span>
-      <div class="termi-selite">Tapahtumankäsittelyyn optimoitu tietokantaratkaisu, kuten kassajärjestelmä tai
+    <dl class="termi" id="oltp" data-tags="olap">
+      <dt><span class="termi-nimi">OLTP</span> <span class="termi-en">(Online Transaction Processing)</span></dt>
+      <dd class="termi-selite">Tapahtumankäsittelyyn optimoitu tietokantaratkaisu, kuten kassajärjestelmä tai
         verkkokaupan tilausjärjestelmä. Sopii nopeisiin yksittäisiin lisäys-, päivitys- ja poisto-operaatioihin. Ks.
-        myös <a href="#olap">OLAP</a>.</div>
+        myös <a href="#olap">OLAP</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="p" class="termi-aakkos-otsikko">P</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="paaavain" data-tags="avaimet tahtimalli dimensiot">
-      <span class="termi-nimi">Pääavain</span> <span class="termi-en">(Primary Key, PK)</span>
-      <div class="termi-selite">Sarake tai sarakeyhdistelmä, joka yksilöi jokaisen taulun rivin ainutlaatuisesti.
-        Dimensiotaulussa pääavain on aina uniikki, eikä sarakkeessa saa olla tyhjiä arvoja.</div>
+    <dl class="termi" id="paaavain" data-tags="avaimet tahtimalli dimensiot">
+      <dt><span class="termi-nimi">Pääavain</span> <span class="termi-en">(Primary Key, PK)</span></dt>
+      <dd class="termi-selite">Sarake tai sarakeyhdistelmä, joka yksilöi jokaisen taulun rivin ainutlaatuisesti.
+        Dimensiotaulussa pääavain on aina uniikki, eikä sarakkeessa saa olla tyhjiä arvoja.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="paattelymalli" data-tags="ai">
-      <span class="termi-nimi">Päättelymalli</span> <span class="termi-en">(Reasoning model)</span>
-      <div class="termi-selite"><a href="#kielimalli">Kielimalli</a>, joka käy asian läpi useassa vaiheessa ennen
+    <dl class="termi" id="paattelymalli" data-tags="ai">
+      <dt><span class="termi-nimi">Päättelymalli</span> <span class="termi-en">(Reasoning model)</span></dt>
+      <dd class="termi-selite"><a href="#kielimalli">Kielimalli</a>, joka käy asian läpi useassa vaiheessa ennen
         vastaustaan. Tällainen ääneen ajattelu parantaa tarkkuutta monimutkaisissa tehtävissä, kuten mallinnuslogiikan
-        tai mutkikkaan DAX:n päättelyssä.</div>
+        tai mutkikkaan DAX:n päättelyssä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="power-pivot" data-tags="tyokalut power-bi">
-      <span class="termi-nimi">Power Pivot</span>
-      <div class="termi-selite">Excelin sisäinen tietomallimoottori, joka perustuu samaan <a
+    <dl class="termi" id="power-pivot" data-tags="tyokalut power-bi">
+      <dt><span class="termi-nimi">Power Pivot</span></dt>
+      <dd class="termi-selite">Excelin sisäinen tietomallimoottori, joka perustuu samaan <a
           href="#vertipaq">VertiPaq</a>-teknologiaan kuin Power BI ja käyttää <a href="#dax">DAX</a>-kieltä. Sen avulla
-        Exceliin voi rakentaa relaatioita, laskureita ja tähtimallin ilman erillistä BI-työkalua.</div>
+        Exceliin voi rakentaa relaatioita, laskureita ja tähtimallin ilman erillistä BI-työkalua.</dd>
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="power-query" data-tags="power-bi">
-      <span class="termi-nimi">Power Query</span>
-      <div class="termi-selite">Power BI:n ja Excelin sisältämä työkalu datan hakemiseen, muuntamiseen ja yhdistämiseen.
-        Käyttää M-kieltä taustalla.</div>
+    <dl class="termi" id="power-query" data-tags="power-bi">
+      <dt><span class="termi-nimi">Power Query</span></dt>
+      <dd class="termi-selite">Power BI:n ja Excelin sisältämä työkalu datan hakemiseen, muuntamiseen ja yhdistämiseen.
+        Käyttää M-kieltä taustalla.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="promptaus" data-tags="ai">
-      <span class="termi-nimi">Promptaus</span> <span class="termi-en">(Prompt engineering)</span>
-      <div class="termi-selite">Tekoälylle annettavan ohjeen eli promptin muotoilu niin, että vastaus on
+    <dl class="termi" id="promptaus" data-tags="ai">
+      <dt><span class="termi-nimi">Promptaus</span> <span class="termi-en">(Prompt engineering)</span></dt>
+      <dd class="termi-selite">Tekoälylle annettavan ohjeen eli promptin muotoilu niin, että vastaus on
         mahdollisimman hyödyllinen. Hyvä prompti antaa kontekstin, rajaa tehtävän ja kertoo halutun muodon. Sama
-        periaate kuin selkeässä toimeksiannossa ihmiselle.</div>
+        periaate kuin selkeässä toimeksiannossa ihmiselle.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="pseudonymisointi" data-tags="hallinta data-contract data-governance">
-      <span class="termi-nimi">Pseudonymisointi</span> <span class="termi-en">(Pseudonymization)</span>
-      <div class="termi-selite">Henkilötietojen korvaaminen pseudonyymeillä, kuten hashatuilla tunnisteilla, niin että
+    <dl class="termi" id="pseudonymisointi" data-tags="hallinta data-contract data-governance">
+      <dt><span class="termi-nimi">Pseudonymisointi</span> <span class="termi-en">(Pseudonymization)</span></dt>
+      <dd class="termi-selite">Henkilötietojen korvaaminen pseudonyymeillä, kuten hashatuilla tunnisteilla, niin että
         henkilön tunnistaminen vaikeutuu mutta on yhä mahdollista erillisen avaintiedon avulla. Toisin kuin <a
           href="#anonymisointi">anonymisointi</a>, pseudonymisointi on käänteistettävissä. Pseudonymisoitu data on yhä
-        henkilötietoa <a href="#gdpr">GDPR:n</a> mielessä.</div>
+        henkilötietoa <a href="#gdpr">GDPR:n</a> mielessä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="q" class="termi-aakkos-otsikko">Q</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="qa" data-tags="power-bi ai-metadata">
-      <span class="termi-nimi">Q&amp;A</span>
-      <div class="termi-selite">Power BI:n luonnollisen kielen kyselytoiminto. Loppukäyttäjä kirjoittaa kysymyksen
+    <dl class="termi" id="qa" data-tags="power-bi ai-metadata">
+      <dt><span class="termi-nimi">Q&amp;A</span></dt>
+      <dd class="termi-selite">Power BI:n luonnollisen kielen kyselytoiminto. Loppukäyttäjä kirjoittaa kysymyksen
         suomeksi tai englanniksi ja saa vastaukseksi visualisoinnin. Toimii <a href="#semanttinen-malli">semanttisen
           mallin</a> metadatan ja <a href="#qa-synonyymi">Q&amp;A-synonyymien</a> perusteella — mitä paremmin elementit
-        on nimetty ja kuvattu, sitä tarkempi vastaus.</div>
+        on nimetty ja kuvattu, sitä tarkempi vastaus.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="qa-synonyymi" data-tags="ai power-bi ai-metadata">
-      <span class="termi-nimi">Q&amp;A-synonyymi</span> <span class="termi-en">(Q&amp;A Synonym)</span>
-      <div class="termi-selite">Vaihtoehtoinen sana, jolla loppukäyttäjä voi viitata samaan mittaan tai sarakkeeseen —
+    <dl class="termi" id="qa-synonyymi" data-tags="ai power-bi ai-metadata">
+      <dt><span class="termi-nimi">Q&amp;A-synonyymi</span> <span class="termi-en">(Q&amp;A Synonym)</span></dt>
+      <dd class="termi-selite">Vaihtoehtoinen sana, jolla loppukäyttäjä voi viitata samaan mittaan tai sarakkeeseen —
         esimerkiksi "myynti", "liikevaihto" ja "revenue" ohjaavat samaan mittariin. Synonyymit asetetaan <a
           href="#semanttinen-malli">semanttisen mallin</a> metadataan, ja ne parantavat <a href="#qa">Q&amp;A:n</a> ja
-        <a href="#copilot">Copilotin</a> kykyä ymmärtää käyttäjän kysymyksiä.</div>
+        <a href="#copilot">Copilotin</a> kykyä ymmärtää käyttäjän kysymyksiä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="r" class="termi-aakkos-otsikko">R</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="rag" data-tags="ai arkkitehtuuri">
-      <span class="termi-nimi">RAG</span> <span class="termi-en">(Retrieval-Augmented Generation)</span>
-      <div class="termi-selite">Menetelmä, jossa <a href="#kielimalli">kielimallille</a> haetaan ensin aiheeseen liittyvää
+    <dl class="termi" id="rag" data-tags="ai arkkitehtuuri">
+      <dt><span class="termi-nimi">RAG</span> <span class="termi-en">(Retrieval-Augmented Generation)</span></dt>
+      <dd class="termi-selite">Menetelmä, jossa <a href="#kielimalli">kielimallille</a> haetaan ensin aiheeseen liittyvää
         tietoa omasta tietokannasta ja vasta sitten pyydetään vastaus.
         Näin malli vastaa organisaation omaan dataan perustuen eikä pelkän koulutusaineiston varassa, mikä vähentää
-        <a href="#hallusinaatio">hallusinaatioita</a>.</div>
+        <a href="#hallusinaatio">hallusinaatioita</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="relaatio" data-tags="konseptit tietomalli tahtimalli useampi-fakta">
-      <span class="termi-nimi">Relaatio</span> <span class="termi-en">(Relationship)</span>
-      <div class="termi-selite">Kahden taulun välinen yhteys, joka rakennetaan avainkenttien avulla. Tyypillisin tapaus
-        on yksi-moneen-suhde dimension ja faktataulun välillä.</div>
+    <dl class="termi" id="relaatio" data-tags="konseptit tietomalli tahtimalli useampi-fakta">
+      <dt><span class="termi-nimi">Relaatio</span> <span class="termi-en">(Relationship)</span></dt>
+      <dd class="termi-selite">Kahden taulun välinen yhteys, joka rakennetaan avainkenttien avulla. Tyypillisin tapaus
+        on yksi-moneen-suhde dimension ja faktataulun välillä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Useampi fakta</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="rikkova-muutos" data-tags="hallinta prosessit data-contract">
-      <span class="termi-nimi">Rikkova muutos</span> <span class="termi-en">(Breaking Change)</span>
-      <div class="termi-selite">Datan rakenteen muutos, joka rikkoo dataa käyttävät raportit tai sovellukset —
+    <dl class="termi" id="rikkova-muutos" data-tags="hallinta prosessit data-contract">
+      <dt><span class="termi-nimi">Rikkova muutos</span> <span class="termi-en">(Breaking Change)</span></dt>
+      <dd class="termi-selite">Datan rakenteen muutos, joka rikkoo dataa käyttävät raportit tai sovellukset —
         esimerkiksi sarakkeen poisto, uudelleennimeäminen tai tietotyypin muutos. Vastakohta on ei-rikkova muutos, kuten
         uuden valinnaisen sarakkeen lisäys. Rikkovat muutokset sovitaan ja ennakoidaan <a href="data-contract.html">data
-          contractissa</a>.</div>
+          contractissa</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="rle" data-tags="power-bi header-detail apuohjelmat">
-      <span class="termi-nimi">RLE-pakkaus</span> <span class="termi-en">(Run-Length Encoding)</span>
-      <div class="termi-selite"><a href="#vertipaq">VertiPaq</a>-pakkausmenetelmä, joka korvaa peräkkäiset identtiset
+    <dl class="termi" id="rle" data-tags="power-bi header-detail apuohjelmat">
+      <dt><span class="termi-nimi">RLE-pakkaus</span> <span class="termi-en">(Run-Length Encoding)</span></dt>
+      <dd class="termi-selite"><a href="#vertipaq">VertiPaq</a>-pakkausmenetelmä, joka korvaa peräkkäiset identtiset
         arvot yhdellä arvolla ja toistojen lukumäärällä. Tehostuu huomattavasti, kun sarake on lajiteltu. Vrt. <a
-          href="#sanakirjapakkaus">sanakirjapakkaus</a>, jota VertiPaq käyttää rinnalla.</div>
+          href="#sanakirjapakkaus">sanakirjapakkaus</a>, jota VertiPaq käyttää rinnalla.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Header-Detail</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="rls" data-tags="power-bi hallinta data-governance">
-      <span class="termi-nimi">RLS</span> <span class="termi-en">(Row-Level Security)</span>
-      <div class="termi-selite">Rivitason tietoturva, jossa käyttäjä näkee vain itselleen sallitut rivit. Power BI
+    <dl class="termi" id="rls" data-tags="power-bi hallinta data-governance">
+      <dt><span class="termi-nimi">RLS</span> <span class="termi-en">(Row-Level Security)</span></dt>
+      <dd class="termi-selite">Rivitason tietoturva, jossa käyttäjä näkee vain itselleen sallitut rivit. Power BI
         toteuttaa sen DAX-suodattimilla. Vrt. objektitason <a href="#ols">OLS</a>, joka piilottaa kokonaisia tauluja tai
-        sarakkeita.</div>
+        sarakkeita.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="role-playing-dimensio" data-tags="tietomalli konseptit tahtimalli dimensiot">
-      <span class="termi-nimi">Role-playing-dimensio</span> <span class="termi-en">(Role-Playing Dimension)</span>
-      <div class="termi-selite"><a href="#dimensiotaulu">Dimensio</a>, jota käytetään samassa tietomallissa useampaan kertaan eri rooleissa. Tyypillisin esimerkki on päivämäärädimensio: sama päivämäärätaulu voi liittyä faktaan tilauspäivänä, toimituspäivänä ja laskutuspäivänä. Power BI:ssä toteutetaan luomalla useita <a href="#relaatio">relaatioita</a> samaan tauluun tai tekemällä erilliset SQL-näkymät. Role-playing-dimensio on esimerkki <a href="#moniselitteinen-tietomalli">moniselitteisestä</a> mallinnustarpeesta, jonka tähtimalli ratkaisee hallitusti.</div>
+    <dl class="termi" id="role-playing-dimensio" data-tags="tietomalli konseptit tahtimalli dimensiot">
+      <dt><span class="termi-nimi">Role-playing-dimensio</span> <span class="termi-en">(Role-Playing Dimension)</span></dt>
+      <dd class="termi-selite"><a href="#dimensiotaulu">Dimensio</a>, jota käytetään samassa tietomallissa useampaan kertaan eri rooleissa. Tyypillisin esimerkki on päivämäärädimensio: sama päivämäärätaulu voi liittyä faktaan tilauspäivänä, toimituspäivänä ja laskutuspäivänä. Power BI:ssä toteutetaan luomalla useita <a href="#relaatio">relaatioita</a> samaan tauluun tai tekemällä erilliset SQL-näkymät. Role-playing-dimensio on esimerkki <a href="#moniselitteinen-tietomalli">moniselitteisestä</a> mallinnustarpeesta, jonka tähtimalli ratkaisee hallitusti.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="row-context" data-tags="dax-konseptit power-bi">
-      <span class="termi-nimi">Row Context</span> <span class="termi-en">(rivikonteksti)</span>
-      <div class="termi-selite">DAX-laskennan tilanne, jossa laskenta kohdistuu yhteen taulun riviin kerrallaan.
+    <dl class="termi" id="row-context" data-tags="dax-konseptit power-bi">
+      <dt><span class="termi-nimi">Row Context</span> <span class="termi-en">(rivikonteksti)</span></dt>
+      <dd class="termi-selite">DAX-laskennan tilanne, jossa laskenta kohdistuu yhteen taulun riviin kerrallaan.
         Esiintyy laskennallisissa sarakkeissa ja iteraatiofunktioissa kuten SUMX. Eroaa <a href="#filter-context">filter
-          contextista</a>: filter context suodattaa taulua, row context iteroi rivejä.</div>
+          contextista</a>: filter context suodattaa taulua, row context iteroi rivejä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Power BI</span>
       </div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="s" class="termi-aakkos-otsikko">S</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="sanakirjapakkaus" data-tags="power-bi header-detail apuohjelmat">
-      <span class="termi-nimi">Sanakirjapakkaus</span> <span class="termi-en">(Dictionary Encoding)</span>
-      <div class="termi-selite"><a href="#vertipaq">VertiPaq</a>-pakkausmenetelmä, jossa toistuvat arvot korvataan
+    <dl class="termi" id="sanakirjapakkaus" data-tags="power-bi header-detail apuohjelmat">
+      <dt><span class="termi-nimi">Sanakirjapakkaus</span> <span class="termi-en">(Dictionary Encoding)</span></dt>
+      <dd class="termi-selite"><a href="#vertipaq">VertiPaq</a>-pakkausmenetelmä, jossa toistuvat arvot korvataan
         lyhyillä kokonaislukukoodeilla ja varsinaiset arvot tallennetaan kertaalleen erilliseen sanakirjaan. Matala <a
           href="#kardinaliteetti">kardinaliteetti</a> pakkautuu tällä tavoin erittäin tehokkaasti. Vrt. <a
-          href="#rle">RLE-pakkaus</a>.</div>
+          href="#rle">RLE-pakkaus</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Header-Detail</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="sarake" data-tags="tietomalli konseptit">
-      <span class="termi-nimi">Sarake</span> <span class="termi-en">(Column)</span>
-      <div class="termi-selite">Taulun pystysuora kenttä, joka sisältää saman tyyppistä dataa kaikilla riveillä.
-        VertiPaq-moottori pakkaa datan saraketasolla.</div>
+    <dl class="termi" id="sarake" data-tags="tietomalli konseptit">
+      <dt><span class="termi-nimi">Sarake</span> <span class="termi-en">(Column)</span></dt>
+      <dd class="termi-selite">Taulun pystysuora kenttä, joka sisältää saman tyyppistä dataa kaikilla riveillä.
+        VertiPaq-moottori pakkaa datan saraketasolla.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="satellite" data-tags="arkkitehtuuri tietomalli data-vault">
-      <span class="termi-nimi">Satellite</span>
-      <div class="termi-selite"><a href="#data-vault">Data Vault</a> -mallin taulu, joka sisältää hubin tai linkin
+    <dl class="termi" id="satellite" data-tags="arkkitehtuuri tietomalli data-vault">
+      <dt><span class="termi-nimi">Satellite</span></dt>
+      <dd class="termi-selite"><a href="#data-vault">Data Vault</a> -mallin taulu, joka sisältää hubin tai linkin
         kuvailevan tiedon ja sen muutoshistorian. Satellite tallentaa kaiken muuttuvan tiedon — esimerkiksi asiakkaan
-        nimen, osoitteen ja luokittelun. Hub itse säilyttää vain tunnisteen.</div>
+        nimen, osoitteen ja luokittelun. Hub itse säilyttää vain tunnisteen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Data Vault</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="scd" data-tags="tietomalli konseptit dimensiot">
-      <span class="termi-nimi">SCD</span> <span class="termi-en">(Slowly Changing Dimension)</span>
-      <div class="termi-selite">Dimension muutostenkäsittelytapa. Yleisin on tyyppi 2, joka säilyttää historian luomalla
+    <dl class="termi" id="scd" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD</span> <span class="termi-en">(Slowly Changing Dimension)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittelytapa. Yleisin on tyyppi 2, joka säilyttää historian luomalla
         uuden rivin. Ks. <a href="#scd-type-1">SCD Type 1</a>, <a href="#scd-type-2">SCD Type 2</a>, <a
-          href="#scd-type-3">SCD Type 3</a>, <a href="#scd-type-4">SCD Type 4</a>.</div>
+          href="#scd-type-3">SCD Type 3</a>, <a href="#scd-type-4">SCD Type 4</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="scd-type-1" data-tags="tietomalli konseptit dimensiot">
-      <span class="termi-nimi">SCD Type 1</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 1)</span>
-      <div class="termi-selite">Dimension muutostenkäsittely, jossa vanha arvo ylikirjoitetaan uudella. Historia häviää.
+    <dl class="termi" id="scd-type-1" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 1</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 1)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, jossa vanha arvo ylikirjoitetaan uudella. Historia häviää.
         Sopii tilanteisiin, joissa muutos on korjaus eikä liiketoiminnallinen tapahtuma — esimerkiksi kirjoitusvirheen
-        korjaus asiakkaan nimessä. Ks. myös <a href="#scd">SCD</a>.</div>
+        korjaus asiakkaan nimessä. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="scd-type-2" data-tags="tietomalli konseptit dimensiot">
-      <span class="termi-nimi">SCD Type 2</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 2)</span>
-      <div class="termi-selite">Dimension muutostenkäsittely, jossa muutos tuottaa uuden rivin. Vanha rivi säilyy —
+    <dl class="termi" id="scd-type-2" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 2</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 2)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, jossa muutos tuottaa uuden rivin. Vanha rivi säilyy —
         historiallinen raportointi toimii oikein. Vaatii <a href="#surrogaattiavain">surrogaattiavaimen</a> ja
-        voimassaoloaikasarakkeet (valid_from, valid_to). Yleisin SCD-tyyppi. Ks. myös <a href="#scd">SCD</a>.</div>
+        voimassaoloaikasarakkeet (valid_from, valid_to). Yleisin SCD-tyyppi. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="scd-type-3" data-tags="tietomalli konseptit dimensiot">
-      <span class="termi-nimi">SCD Type 3</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 3)</span>
-      <div class="termi-selite">Dimension muutostenkäsittely, jossa edellinen arvo tallennetaan erilliseen sarakkeeseen
+    <dl class="termi" id="scd-type-3" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 3</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 3)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, jossa edellinen arvo tallennetaan erilliseen sarakkeeseen
         — esimerkiksi <code>Edellinen_Segmentti</code>. Säilyttää vain yhden aiemman arvon, ei koko historiaa.
-        Harvinaisin SCD-tyyppi käytännön toteutuksissa. Ks. myös <a href="#scd">SCD</a>.</div>
+        Harvinaisin SCD-tyyppi käytännön toteutuksissa. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="scd-type-4" data-tags="tietomalli konseptit dimensiot">
-      <span class="termi-nimi">SCD Type 4</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 4)</span>
-      <div class="termi-selite">Dimension muutostenkäsittely, jossa nykyinen arvo pidetään dimensiotaulussa nopeasti
+    <dl class="termi" id="scd-type-4" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 4</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 4)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, jossa nykyinen arvo pidetään dimensiotaulussa nopeasti
         haettavana, ja koko muutoshistoria siirretään erilliseen historiatauluun. Yhdistää <a href="#scd-type-1">tyypin
-          1</a> nopeuden ja <a href="#scd-type-2">tyypin 2</a> historian. Ks. myös <a href="#scd">SCD</a>.</div>
+          1</a> nopeuden ja <a href="#scd-type-2">tyypin 2</a> historian. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="semanttinen-malli" data-tags="tietomalli power-bi ai-metadata">
-      <span class="termi-nimi">Semanttinen malli</span> <span class="termi-en">(Semantic Model)</span>
-      <div class="termi-selite">Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI:ssä ja SSAS Tabularissa tätä kerrosta kutsuttiin aiemmin nimellä data model. Metadatan laatu ratkaisee, miten hyvin <a href="#copilot">Copilot</a> ja <a href="#qa">Q&amp;A</a> toimivat.</div>
+    <dl class="termi" id="semanttinen-malli" data-tags="tietomalli power-bi ai-metadata">
+      <dt><span class="termi-nimi">Semanttinen malli</span> <span class="termi-en">(Semantic Model)</span></dt>
+      <dd class="termi-selite">Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI:ssä ja SSAS Tabularissa tätä kerrosta kutsuttiin aiemmin nimellä data model. Metadatan laatu ratkaisee, miten hyvin <a href="#copilot">Copilot</a> ja <a href="#qa">Q&amp;A</a> toimivat.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="sertifiointi" data-tags="power-bi hallinta data-governance">
-      <span class="termi-nimi">Sertifiointi</span> <span class="termi-en">(Certification)</span>
-      <div class="termi-selite">Power BI -palvelun taso, jolla organisaatio merkitsee datasettiin "virallinen ja
+    <dl class="termi" id="sertifiointi" data-tags="power-bi hallinta data-governance">
+      <dt><span class="termi-nimi">Sertifiointi</span> <span class="termi-en">(Certification)</span></dt>
+      <dd class="termi-selite">Power BI -palvelun taso, jolla organisaatio merkitsee datasettiin "virallinen ja
         luotettava". Sertifioitu datasetti näkyy hakutuloksissa korostuneena ja kertoo AI-toiminnoille, että kyseinen
-        lähde on hyväksytty käytettäväksi.</div>
+        lähde on hyväksytty käytettäväksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="silver" data-tags="arkkitehtuuri medallion">
-      <span class="termi-nimi">Silver</span>
-      <div class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> keskitaso.
+    <dl class="termi" id="silver" data-tags="arkkitehtuuri medallion">
+      <dt><span class="termi-nimi">Silver</span></dt>
+      <dd class="termi-selite"><a href="#medallion-arkkitehtuuri">Medallion-arkkitehtuurin</a> keskitaso.
         Silver-tasolla raakadata on puhdistettu ja validoitu, mutta ei vielä täysin liiketoimintamalliin muotoiltu.
         Tyypilliset toimenpiteet: duplikaattien poisto, viitteiden validointi, tietotyyppien korjaus. Välitaso <a
-          href="#bronze">Bronzen</a> ja <a href="#gold">Goldin</a> välillä.</div>
+          href="#bronze">Bronzen</a> ja <a href="#gold">Goldin</a> välillä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="single-source-of-truth" data-tags="tietomalli konseptit arkkitehtuuri">
-      <span class="termi-nimi">Single Source of Truth</span> <span class="termi-en">(SSOT, yksi totuuden lähde)</span>
-      <div class="termi-selite">Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on <a href="#yksiselitteinen-tietomalli">yksiselitteisen tietomallin</a> keskeinen tavoite.</div>
+    <dl class="termi" id="single-source-of-truth" data-tags="tietomalli konseptit arkkitehtuuri">
+      <dt><span class="termi-nimi">Single Source of Truth</span> <span class="termi-en">(SSOT, yksi totuuden lähde)</span></dt>
+      <dd class="termi-selite">Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on <a href="#yksiselitteinen-tietomalli">yksiselitteisen tietomallin</a> keskeinen tavoite.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="skeema" data-tags="tietomalli konseptit tahtimalli data-contract">
-      <span class="termi-nimi">Skeema</span> <span class="termi-en">(Schema)</span>
-      <div class="termi-selite">Tietokannan tai tietomallin rakenne: taulut, sarakkeet ja niiden väliset suhteet.
-        Esimerkiksi tähtimalli tai lumihiutalemalli ovat skeematyyppejä.</div>
+    <dl class="termi" id="skeema" data-tags="tietomalli konseptit tahtimalli data-contract">
+      <dt><span class="termi-nimi">Skeema</span> <span class="termi-en">(Schema)</span></dt>
+      <dd class="termi-selite">Tietokannan tai tietomallin rakenne: taulut, sarakkeet ja niiden väliset suhteet.
+        Esimerkiksi tähtimalli tai lumihiutalemalli ovat skeematyyppejä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="skilli" data-tags="ai tyokalut">
-      <span class="termi-nimi">Skilli</span> <span class="termi-en">(Skill)</span>
-      <div class="termi-selite">Uudelleenkäytettävä ohje- tai osaamispaketti, jonka <a href="#agentti">tekoälyagentti</a> lataa
+    <dl class="termi" id="skilli" data-tags="ai tyokalut">
+      <dt><span class="termi-nimi">Skilli</span> <span class="termi-en">(Skill)</span></dt>
+      <dd class="termi-selite">Uudelleenkäytettävä ohje- tai osaamispaketti, jonka <a href="#agentti">tekoälyagentti</a> lataa
         tarvittaessa hoitaakseen tietyn tehtävän vakiintuneella tavalla. Skillit antavat agentille erikoisosaamista,
-        kuten yrityksen mallinnuskäytännöt, ilman että koko ohjeistus on koko ajan mukana.</div>
+        kuten yrityksen mallinnuskäytännöt, ilman että koko ohjeistus on koko ajan mukana.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">työkalut</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="sla" data-tags="hallinta data-contract">
-      <span class="termi-nimi">SLA</span> <span class="termi-en">(Service Level Agreement, palvelutasosopimus)</span>
-      <div class="termi-selite">Sopimus siitä, kuinka nopeasti ongelmiin reagoidaan ja ne ratkaistaan — esimerkiksi P1
+    <dl class="termi" id="sla" data-tags="hallinta data-contract">
+      <dt><span class="termi-nimi">SLA</span> <span class="termi-en">(Service Level Agreement, palvelutasosopimus)</span></dt>
+      <dd class="termi-selite">Sopimus siitä, kuinka nopeasti ongelmiin reagoidaan ja ne ratkaistaan — esimerkiksi P1
         = 30 minuutin vasteaika, P2 = 2 tuntia. Datan toimituksessa SLA määrittelee myös päivitystiheyden ja
-        saatavuuden. Kirjataan tyypillisesti osaksi <a href="data-contract.html">data contractia</a>.</div>
+        saatavuuden. Kirjataan tyypillisesti osaksi <a href="data-contract.html">data contractia</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="spec-driven-development" data-tags="ai tyokalut prosessit">
-      <span class="termi-nimi">Spec-driven development</span>
-      <div class="termi-selite">Kehitystapa, jossa kirjoitetaan ensin täsmällinen määrittely (spec) siitä, mitä
+    <dl class="termi" id="spec-driven-development" data-tags="ai tyokalut prosessit">
+      <dt><span class="termi-nimi">Spec-driven development</span></dt>
+      <dd class="termi-selite">Kehitystapa, jossa kirjoitetaan ensin täsmällinen määrittely (spec) siitä, mitä
         halutaan, ja tekoäly toteuttaa koodin sen pohjalta. Määrittely toimii sekä ohjeena mallille että
         dokumentaationa. Sama ajattelu kuin <a href="#data-contract">datasopimuksessa</a>, jossa rajapinta sovitaan
-        ennen toteutusta.</div>
+        ennen toteutusta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">työkalut</span><span class="termi-tagi">prosessit</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="sql-nakyma" data-tags="prosessit arkkitehtuuri litistaminen etl-elt">
-      <span class="termi-nimi">SQL-näkymä</span> <span class="termi-en">(View)</span>
-      <div class="termi-selite">Tietokantaan tallennettu kyselylause, joka näyttää käyttäjälle kuin taulu. <a
+    <dl class="termi" id="sql-nakyma" data-tags="prosessit arkkitehtuuri litistaminen etl-elt">
+      <dt><span class="termi-nimi">SQL-näkymä</span> <span class="termi-en">(View)</span></dt>
+      <dd class="termi-selite">Tietokantaan tallennettu kyselylause, joka näyttää käyttäjälle kuin taulu. <a
           href="#litistaminen">Litistäminen</a> toteutetaan usein SQL-näkymänä: JOIN-operaatiot kirjoitetaan näkymään,
-        ja Power BI lataa valmiiksi muotoillun tuloksen. Muunnokset tehdään tietokannassa, ei Power BI:n sisällä.</div>
+        ja Power BI lataa valmiiksi muotoillun tuloksen. Muunnokset tehdään tietokannassa, ei Power BI:n sisällä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Litistäminen</span><span class="termi-tagi">ETL/ELT</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="ssas" data-tags="power-bi">
-      <span class="termi-nimi">SSAS</span> <span class="termi-en">(SQL Server Analysis Services)</span>
-      <div class="termi-selite">Microsoftin analyyttinen tietokantapalvelu, joka tukee Tabular- ja
-        Multidimensional-malleja. Power BI -tietomallit perustuvat SSAS Tabular -teknologiaan.</div>
+    <dl class="termi" id="ssas" data-tags="power-bi">
+      <dt><span class="termi-nimi">SSAS</span> <span class="termi-en">(SQL Server Analysis Services)</span></dt>
+      <dd class="termi-selite">Microsoftin analyyttinen tietokantapalvelu, joka tukee Tabular- ja
+        Multidimensional-malleja. Power BI -tietomallit perustuvat SSAS Tabular -teknologiaan.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="surrogaattiavain" data-tags="avaimet dimensiot">
-      <span class="termi-nimi">Surrogaattiavain</span> <span class="termi-en">(Surrogate Key, SK)</span>
-      <div class="termi-selite">Järjestelmän itse generoima kokonaislukuavain, joka korvaa lähdejärjestelmän
+    <dl class="termi" id="surrogaattiavain" data-tags="avaimet dimensiot">
+      <dt><span class="termi-nimi">Surrogaattiavain</span> <span class="termi-en">(Surrogate Key, SK)</span></dt>
+      <dd class="termi-selite">Järjestelmän itse generoima kokonaislukuavain, joka korvaa lähdejärjestelmän
         luonnollisen avaimen relaatioissa. Mahdollistaa SCD type 2 -historian säilyttämisen ja pakkautuu VertiPaqissa
-        erinomaisesti.</div>
+        erinomaisesti.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="t" class="termi-aakkos-otsikko">T</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="tabular-editor" data-tags="power-bi apuohjelmat">
-      <span class="termi-nimi">Tabular Editor</span>
-      <div class="termi-selite">Apuohjelma, jolla muokataan ja hallitaan Power BI- ja SSAS Tabular -tietomalleja.
-        Sisältää muun muassa Best Practice Analyzerin parhaiden käytäntöjen tarkistukseen.</div>
+    <dl class="termi" id="tabular-editor" data-tags="power-bi apuohjelmat">
+      <dt><span class="termi-nimi">Tabular Editor</span></dt>
+      <dd class="termi-selite">Apuohjelma, jolla muokataan ja hallitaan Power BI- ja SSAS Tabular -tietomalleja.
+        Sisältää muun muassa Best Practice Analyzerin parhaiden käytäntöjen tarkistukseen.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tabular-malli" data-tags="power-bi">
-      <span class="termi-nimi">Tabular-malli</span>
-      <div class="termi-selite">SSAS:n in-memory-pohjainen tietomallityyppi, joka perustuu VertiPaq-moottoriin. Power BI
-        -tietomallit ovat aina Tabular-malleja.</div>
+    <dl class="termi" id="tabular-malli" data-tags="power-bi">
+      <dt><span class="termi-nimi">Tabular-malli</span></dt>
+      <dd class="termi-selite">SSAS:n in-memory-pohjainen tietomallityyppi, joka perustuu VertiPaq-moottoriin. Power BI
+        -tietomallit ovat aina Tabular-malleja.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tekoalyavustaja" data-tags="ai power-bi ai-metadata apuohjelmat">
-      <span class="termi-nimi">Tekoälyavustaja</span> <span class="termi-en">(AI Assistant)</span>
-      <div class="termi-selite">Tekoälypohjainen avustaja, joka vastaa kysymyksiin ja tuottaa sisältöä luonnollisella
+    <dl class="termi" id="tekoalyavustaja" data-tags="ai power-bi ai-metadata apuohjelmat">
+      <dt><span class="termi-nimi">Tekoälyavustaja</span> <span class="termi-en">(AI Assistant)</span></dt>
+      <dd class="termi-selite">Tekoälypohjainen avustaja, joka vastaa kysymyksiin ja tuottaa sisältöä luonnollisella
         kielellä — esimerkiksi <a href="#copilot">Copilot</a>. Tekoälyavustaja ei ymmärrä liiketoimintakontekstia
         automaattisesti, vaan sen tarkkuus riippuu <a href="#metadata">metadatan</a> ja <a
-          href="#semanttinen-malli">semanttisen mallin</a> kuvausten laadusta.</div>
+          href="#semanttinen-malli">semanttisen mallin</a> kuvausten laadusta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span><span class="termi-tagi">Apuohjelmat</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tahtimalli" data-tags="tietomalli tahtimalli">
-      <span class="termi-nimi">Tähtimalli</span> <span class="termi-en">(Star Schema)</span>
-      <div class="termi-selite">Yleisin tietomallityyppi BI-ratkaisuissa. Yksi faktataulu keskellä, dimensiotaulut
-        suoraan siihen liittyneinä. Yksinkertainen, suorituskykyinen ja helposti ymmärrettävä.</div>
+    <dl class="termi" id="tahtimalli" data-tags="tietomalli tahtimalli">
+      <dt><span class="termi-nimi">Tähtimalli</span> <span class="termi-en">(Star Schema)</span></dt>
+      <dd class="termi-selite">Yleisin tietomallityyppi BI-ratkaisuissa. Yksi faktataulu keskellä, dimensiotaulut
+        suoraan siihen liittyneinä. Yksinkertainen, suorituskykyinen ja helposti ymmärrettävä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tiedon-toisteisuus" data-tags="tietomalli konseptit litistaminen">
-      <span class="termi-nimi">Tiedon toisteisuus</span> <span class="termi-en">(Data Redundancy)</span>
-      <div class="termi-selite">Tilanne, jossa sama tieto tallennetaan useaan paikkaan tietomallissa. Hallittu toisteisuus — kuten <a href="#denormalisointi">denormalisointi</a> tähtimallin dimensioissa — on tietoinen valinta suorituskyvyn parantamiseksi. Hallitsematon toisteisuus taas syntyy, kun tietoa kopioidaan ilman suunnitelmaa, jolloin päivitykset täytyy tehdä useaan paikkaan ja eri paikoissa olevat luvut voivat ristiriitaistua. Toisteisuuden välttäminen on <a href="#single-source-of-truth">Single Source of Truth</a> -periaatteen ydin.</div>
+    <dl class="termi" id="tiedon-toisteisuus" data-tags="tietomalli konseptit litistaminen">
+      <dt><span class="termi-nimi">Tiedon toisteisuus</span> <span class="termi-en">(Data Redundancy)</span></dt>
+      <dd class="termi-selite">Tilanne, jossa sama tieto tallennetaan useaan paikkaan tietomallissa. Hallittu toisteisuus — kuten <a href="#denormalisointi">denormalisointi</a> tähtimallin dimensioissa — on tietoinen valinta suorituskyvyn parantamiseksi. Hallitsematon toisteisuus taas syntyy, kun tietoa kopioidaan ilman suunnitelmaa, jolloin päivitykset täytyy tehdä useaan paikkaan ja eri paikoissa olevat luvut voivat ristiriitaistua. Toisteisuuden välttäminen on <a href="#single-source-of-truth">Single Source of Truth</a> -periaatteen ydin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Litistäminen</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tietoallas" data-tags="arkkitehtuuri">
-      <span class="termi-nimi">Tietoallas</span>
-      <div class="termi-selite">Ks. <a href="#data-lake">Data Lake</a>.</div>
+    <dl class="termi" id="tietoallas" data-tags="arkkitehtuuri">
+      <dt><span class="termi-nimi">Tietoallas</span></dt>
+      <dd class="termi-selite">Ks. <a href="#data-lake">Data Lake</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tietoeheys" data-tags="konseptit hallinta data-governance tahtimalli">
-      <span class="termi-nimi">Tietoeheys</span> <span class="termi-en">(Data Integrity)</span>
-      <div class="termi-selite">Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Viite-eheys (referential
+    <dl class="termi" id="tietoeheys" data-tags="konseptit hallinta data-governance tahtimalli">
+      <dt><span class="termi-nimi">Tietoeheys</span> <span class="termi-en">(Data Integrity)</span></dt>
+      <dd class="termi-selite">Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Viite-eheys (referential
         integrity) tarkoittaa, että vierasavain viittaa aina olemassa olevaan pääavaimeen — faktataulussa ei voi olla
         dimensiorivejä, joilla ei ole vastinetta dimensiotaulussa. <a href="#normalisointi">Normalisointi</a> on yksi
-        tapa ylläpitää tietoeheyttä.</div>
+        tapa ylläpitää tietoeheyttä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tietoluokka" data-tags="power-bi ai-metadata">
-      <span class="termi-nimi">Tietoluokka</span> <span class="termi-en">(Data Category)</span>
-      <div class="termi-selite">Power BI:n sarakeominaisuus, joka kertoo AI-toiminnoille sarakkeen semanttisen
+    <dl class="termi" id="tietoluokka" data-tags="power-bi ai-metadata">
+      <dt><span class="termi-nimi">Tietoluokka</span> <span class="termi-en">(Data Category)</span></dt>
+      <dd class="termi-selite">Power BI:n sarakeominaisuus, joka kertoo AI-toiminnoille sarakkeen semanttisen
         merkityksen. Mahdolliset arvot: Maa, Kaupunki, Postinumero, URL, Kuva-URL. Asettaminen parantaa <a
           href="#copilot">Copilotin</a> ja <a href="#qa">Q&amp;A:n</a> kykyä käyttää saraketta oikein — esimerkiksi
-        karttavisualisointi toimii automaattisesti, kun sarake on luokiteltu Kaupungiksi.</div>
+        karttavisualisointi toimii automaattisesti, kun sarake on luokiteltu Kaupungiksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tietovarasto" data-tags="arkkitehtuuri">
-      <span class="termi-nimi">Tietovarasto</span> <span class="termi-en">(Data Warehouse, DWH)</span>
-      <div class="termi-selite">Keskitetty, jäsennelty data-alusta, johon eri lähdejärjestelmien data yhdistetään
-        raportointia ja analytiikkaa varten.</div>
+    <dl class="termi" id="tietovarasto" data-tags="arkkitehtuuri">
+      <dt><span class="termi-nimi">Tietovarasto</span> <span class="termi-en">(Data Warehouse, DWH)</span></dt>
+      <dd class="termi-selite">Keskitetty, jäsennelty data-alusta, johon eri lähdejärjestelmien data yhdistetään
+        raportointia ja analytiikkaa varten.</dd>
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="time-intelligence" data-tags="dax-konseptit power-bi">
-      <span class="termi-nimi">Time Intelligence</span> <span class="termi-en">(aikaälyfunktiot)</span>
-      <div class="termi-selite">Joukko <a href="#dax">DAX</a>-funktioita, joilla tehdään aikaan perustuvia vertailuja:
+    <dl class="termi" id="time-intelligence" data-tags="dax-konseptit power-bi">
+      <dt><span class="termi-nimi">Time Intelligence</span> <span class="termi-en">(aikaälyfunktiot)</span></dt>
+      <dd class="termi-selite">Joukko <a href="#dax">DAX</a>-funktioita, joilla tehdään aikaan perustuvia vertailuja:
         kuluva vuosi tähän mennessä (YTD), edellinen vuosi, liukuva keskiarvo ja vastaavat. Toimii luotettavasti vain,
         kun mallissa on kunnollinen päivämäärä-<a href="#dimensiotaulu">dimensiotaulu</a>, jossa on yhtenäinen
-        päiväsarake.</div>
+        päiväsarake.</dd>
       <div class="termi-tagit"><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Power BI</span>
       </div>
-    </div>
+    </dl>
 
-    <div class="termi" id="token" data-tags="ai">
-      <span class="termi-nimi">Token</span>
-      <div class="termi-selite">Yritysten keksimä nimi hatusta vedetyille virtuaalivaluutoille, joiden avulla
-        kustannusten seuraamisesta saadaan vaikeampaa ja täten laskutettua enemmän euroja.</div>
+    <dl class="termi" id="token" data-tags="ai">
+      <dt><span class="termi-nimi">Token</span></dt>
+      <dd class="termi-selite">Yritysten keksimä nimi hatusta vedetyille virtuaalivaluutoille, joiden avulla
+        kustannusten seuraamisesta saadaan vaikeampaa ja täten laskutettua enemmän euroja.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="tyhja-rivi" data-tags="tietomalli power-bi dimensiot">
-      <span class="termi-nimi">Tyhjä rivi</span> <span class="termi-en">(Blank Row)</span>
-      <div class="termi-selite">Power BI:n dimensiotauluun automaattisesti luoma rivi tilanteessa, jossa <a
+    <dl class="termi" id="tyhja-rivi" data-tags="tietomalli power-bi dimensiot">
+      <dt><span class="termi-nimi">Tyhjä rivi</span> <span class="termi-en">(Blank Row)</span></dt>
+      <dd class="termi-selite">Power BI:n dimensiotauluun automaattisesti luoma rivi tilanteessa, jossa <a
           href="#faktataulu">faktataulun</a> <a href="#vierasavain">vierasavain</a> ei löydä vastinetta
         dimensiotaulusta. Tyhjä rivi on merkki <a href="#tietoeheys">tietoeheyden</a> ongelmasta, ja se voi vääristää
-        raportin lukuja, jos sitä ei huomata.</div>
+        raportin lukuja, jos sitä ei huomata.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="v" class="termi-aakkos-otsikko">V</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="vertipaq" data-tags="power-bi apuohjelmat header-detail dimensiot">
-      <span class="termi-nimi">VertiPaq</span>
-      <div class="termi-selite">Power BI:n ja SSAS Tabularin sarakepohjainen, muistinvarainen pakkausmoottori. Pakkaa
+    <dl class="termi" id="vertipaq" data-tags="power-bi apuohjelmat header-detail dimensiot">
+      <dt><span class="termi-nimi">VertiPaq</span></dt>
+      <dd class="termi-selite">Power BI:n ja SSAS Tabularin sarakepohjainen, muistinvarainen pakkausmoottori. Pakkaa
         datan kardinaliteetin mukaan ja optimoi luettavuutta saraketasolla. Käyttää muun muassa <a
-          href="#sanakirjapakkaus">sanakirjapakkausta</a> ja <a href="#rle">RLE-pakkausta</a>.</div>
+          href="#sanakirjapakkaus">sanakirjapakkausta</a> ja <a href="#rle">RLE-pakkausta</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span><span class="termi-tagi">Header-Detail</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="vibe-coding" data-tags="ai tyokalut">
-      <span class="termi-nimi">Vibe coding</span>
-      <div class="termi-selite">Ohjelmointitapa, jossa kehittäjä kuvailee halutun lopputuloksen luonnollisella kielellä
+    <dl class="termi" id="vibe-coding" data-tags="ai tyokalut">
+      <dt><span class="termi-nimi">Vibe coding</span></dt>
+      <dd class="termi-selite">Ohjelmointitapa, jossa kehittäjä kuvailee halutun lopputuloksen luonnollisella kielellä
         ja antaa tekoälyn kirjoittaa koodin. Itse keskitytään enemmän suuntaan kuin yksittäisiin riveihin. Tapa on
-        nopea prototyyppaamiseen, mutta tuotantokäytössä tulos pitää silti tarkistaa.</div>
+        nopea prototyyppaamiseen, mutta tuotantokäytössä tulos pitää silti tarkistaa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">työkalut</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="vierasavain" data-tags="avaimet tahtimalli dimensiot">
-      <span class="termi-nimi">Vierasavain</span> <span class="termi-en">(Foreign Key, FK)</span>
-      <div class="termi-selite">Faktataulussa sijaitseva sarake, joka viittaa dimensiotaulun pääavaimeen. Vierasavain
-        mahdollistaa relaation taulujen välillä.</div>
+    <dl class="termi" id="vierasavain" data-tags="avaimet tahtimalli dimensiot">
+      <dt><span class="termi-nimi">Vierasavain</span> <span class="termi-en">(Foreign Key, FK)</span></dt>
+      <dd class="termi-selite">Faktataulussa sijaitseva sarake, joka viittaa dimensiotaulun pääavaimeen. Vierasavain
+        mahdollistaa relaation taulujen välillä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="valitaulu" data-tags="tietomalli konseptit useampi-fakta">
-      <span class="termi-nimi">Välitaulu</span> <span class="termi-en">(Bridge Table)</span>
-      <div class="termi-selite">Apu­taulu, joka purkaa hankalan <a href="#monen-moneen">monen-moneen-suhteen</a> kahdeksi
+    <dl class="termi" id="valitaulu" data-tags="tietomalli konseptit useampi-fakta">
+      <dt><span class="termi-nimi">Välitaulu</span> <span class="termi-en">(Bridge Table)</span></dt>
+      <dd class="termi-selite">Apu­taulu, joka purkaa hankalan <a href="#monen-moneen">monen-moneen-suhteen</a> kahdeksi
         hallituksi <a href="#yksi-moneen">yksi-moneen-suhteeksi</a>. Välitaulu sisältää uniikit yhdistelmät kahden taulun
         avaimista — esimerkiksi tilauksen ja tuotteen — ja toimii niiden välissä siltana. Tekee <a
-          href="#dax">DAX</a>-laskennasta ennustettavaa.</div>
+          href="#dax">DAX</a>-laskennasta ennustettavaa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Useampi fakta</span></div>
-    </div>
+    </dl>
 
   </div>
 
   <h2 id="y" class="termi-aakkos-otsikko">Y</h2>
   <div class="termi-luettelo">
 
-    <div class="termi" id="yhdenmukaistettu-dimensio" data-tags="tietomalli konseptit tahtimalli useampi-fakta">
-      <span class="termi-nimi">Yhdenmukaistettu dimensio</span> <span class="termi-en">(Conformed Dimension)</span>
-      <div class="termi-selite">Dimensio, jota käytetään samanlaisena useammassa <a href="#faktataulu">faktataulussa</a>. Asiakasdimensio on yhdenmukaistettu, kun sekä myynti- että toimitusraportti viittaavat täsmälleen samaan dimensiotauluun samoilla sarakkeilla ja arvoilla. Yhdenmukaistaminen mahdollistaa faktataulujen yhdistelemisen raporteissa ilman ristiriitoja. Se on konkreettinen keino toteuttaa <a href="#single-source-of-truth">Single Source of Truth</a> -periaate useamman faktataulun mallissa.</div>
+    <dl class="termi" id="yhdenmukaistettu-dimensio" data-tags="tietomalli konseptit tahtimalli useampi-fakta">
+      <dt><span class="termi-nimi">Yhdenmukaistettu dimensio</span> <span class="termi-en">(Conformed Dimension)</span></dt>
+      <dd class="termi-selite">Dimensio, jota käytetään samanlaisena useammassa <a href="#faktataulu">faktataulussa</a>. Asiakasdimensio on yhdenmukaistettu, kun sekä myynti- että toimitusraportti viittaavat täsmälleen samaan dimensiotauluun samoilla sarakkeilla ja arvoilla. Yhdenmukaistaminen mahdollistaa faktataulujen yhdistelemisen raporteissa ilman ristiriitoja. Se on konkreettinen keino toteuttaa <a href="#single-source-of-truth">Single Source of Truth</a> -periaate useamman faktataulun mallissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Useampi fakta</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="yhdistelmakentta" data-tags="tietomalli litistaminen dimensiot">
-      <span class="termi-nimi">Yhdistelmäkenttä</span>
-      <div class="termi-selite">Sarake, joka yhdistää numeerisen avaimen ja luettavan nimen yhdeksi arvoksi, esim. <code>100 – Helsinki-myymälä</code>. Mahdollistaa lajittelun numeerisen avaimen mukaan samalla kun visuaaleissa näkyy selkokielinen nimi. Rakennetaan tyypillisesti ETL-vaiheessa ennen Power BI -latausta.</div>
+    <dl class="termi" id="yhdistelmakentta" data-tags="tietomalli litistaminen dimensiot">
+      <dt><span class="termi-nimi">Yhdistelmäkenttä</span></dt>
+      <dd class="termi-selite">Sarake, joka yhdistää numeerisen avaimen ja luettavan nimen yhdeksi arvoksi, esim. <code>100 – Helsinki-myymälä</code>. Mahdollistaa lajittelun numeerisen avaimen mukaan samalla kun visuaaleissa näkyy selkokielinen nimi. Rakennetaan tyypillisesti ETL-vaiheessa ennen Power BI -latausta.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Litistäminen</span><span class="termi-tagi">Dimensiot</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="yksi-moneen" data-tags="tietomalli konseptit tahtimalli">
-      <span class="termi-nimi">Yksi-moneen-suhde</span> <span class="termi-en">(One-to-Many)</span>
-      <div class="termi-selite">Tähtimallin perusrelaatiotyyppi: yksi dimensiorivi voi liittyä useaan faktataulun riviin, mutta jokainen faktataulun rivi liittyy täsmälleen yhteen dimensioriviin. Esimerkiksi yksi asiakas voi esiintyä tuhannessa tilauksessa. <a href="#relaatio">Relaatio</a> rakennetaan dimension <a href="#paaavain">pääavaimen</a> ja faktataulun <a href="#vierasavain">vierasavaimen</a> välille.</div>
+    <dl class="termi" id="yksi-moneen" data-tags="tietomalli konseptit tahtimalli">
+      <dt><span class="termi-nimi">Yksi-moneen-suhde</span> <span class="termi-en">(One-to-Many)</span></dt>
+      <dd class="termi-selite">Tähtimallin perusrelaatiotyyppi: yksi dimensiorivi voi liittyä useaan faktataulun riviin, mutta jokainen faktataulun rivi liittyy täsmälleen yhteen dimensioriviin. Esimerkiksi yksi asiakas voi esiintyä tuhannessa tilauksessa. <a href="#relaatio">Relaatio</a> rakennetaan dimension <a href="#paaavain">pääavaimen</a> ja faktataulun <a href="#vierasavain">vierasavaimen</a> välille.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
-    <div class="termi" id="yksiselitteinen-tietomalli" data-tags="tietomalli konseptit tahtimalli">
-      <span class="termi-nimi">Yksiselitteinen tietomalli</span>
-      <div class="termi-selite">Tietomalli, jossa jokainen tieto on tallennettuna vain yhteen paikkaan ja sen merkitys on selvä ilman tulkintaa. <a href="#tahtimalli">Tähtimalli</a> on tyypillinen esimerkki: dimensiotaulun sarake esiintyy vain kyseisessä dimensiossa, eikä sama tieto toistu eri nimillä useassa taulussa. Yksiselitteinen rakenne vähentää virheitä, helpottaa ylläpitoa ja tekee raporteista luotettavampia. Vrt. <a href="#moniselitteinen-tietomalli">moniselitteinen tietomalli</a>.</div>
+    <dl class="termi" id="yksiselitteinen-tietomalli" data-tags="tietomalli konseptit tahtimalli">
+      <dt><span class="termi-nimi">Yksiselitteinen tietomalli</span></dt>
+      <dd class="termi-selite">Tietomalli, jossa jokainen tieto on tallennettuna vain yhteen paikkaan ja sen merkitys on selvä ilman tulkintaa. <a href="#tahtimalli">Tähtimalli</a> on tyypillinen esimerkki: dimensiotaulun sarake esiintyy vain kyseisessä dimensiossa, eikä sama tieto toistu eri nimillä useassa taulussa. Yksiselitteinen rakenne vähentää virheitä, helpottaa ylläpitoa ja tekee raporteista luotettavampia. Vrt. <a href="#moniselitteinen-tietomalli">moniselitteinen tietomalli</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
-    </div>
+    </dl>
 
   </div>
 

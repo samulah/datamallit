@@ -1,119 +1,287 @@
 # SEO-korjaussuunnitelma — datamalli.fi
 
-> Pohjautuu SEO-auditointiin 2026-06-01. SEO Health Score lähtötilanteessa: **46/100**.
-> Sisältö on hyvää ja uniikkia — puuttuu tekninen perusta, jolla Google löytää, renderöi ja luottaa siihen.
-> Tehtävät on järjestetty riippuvuuksien mukaan: vaihe 1 ensin, se avaa loput.
+> Pohjautuu SEO-auditointiin 2026-06-07. SEO Health Score lähtötilanteessa: **64/100**.
+> Toimiala: suomenkielinen tietojulkaisija (Power BI / tietomallinnus). 7 aliagentin rinnakkaisauditointi.
 
-## Tilanneyhteenveto (mistä pisteet putoavat)
+## Tilanneyhteenveto
 
 | Osa-alue | Pisteet | Pääongelma |
 |---|---|---|
-| Tekninen SEO | 35/100 | Ei robots.txt / sitemap.xml, ei kanonisointia, ei HTTPS-ohjausta |
-| Sisällön laatu | 62/100 | Hyvä uniikki sisältö; heikko E-E-A-T; placeholder-sivut indeksoitavissa |
-| On-page SEO | 45/100 | Uniikit titlet, mutta **0 meta-descriptionia**, ei OG-tageja, 1 puuttuva H1 |
-| Skeema | 5/100 | Ei lainkaan rakenteista dataa (korjattu: `generated-schema.json`) |
-| Suorituskyky | 60/100 | Pienet tiedostot, nopea TTFB; render-blocking JS; **ei viewportia** |
-| AI-näkyvyys | 40/100 | Ei skeemaa/päivämääriä/tekijää/sitemapia |
-| Kuvat | 80/100 | Kaikilla 7 kuvalla alt-teksti ✓ |
+| Tekninen SEO | 68/100 | Google Fonts @import, CLS nav-elementistä, HSTS puuttuu |
+| Sisältö & E-E-A-T | 70/100 | Ei tietosuojasivua, ei ulkoisia lähteitä, tietoa.html ohut |
+| On-page SEO | 58/100 | Ei meta-kuvauksia, coming-soon-kortit dilutoivat etusivua |
+| Schema | 75/100 | publisher ei @id-viittaus, logo ei ImageObject, WebSite ei @id |
+| Suorituskyky (CWV) | 55/100 | Fonts @import (LCP), nav-elementti (CLS), splash-ruutu |
+| AI-hakuvalmius (GEO) | 56/100 | Kappaleet liian lyhyitä (16–78 sanaa), H2:t ei kysymysmuodossa |
+| Kuvat | 65/100 | Kaikilla sivuilla sama OG-kuva, ei img width/height attribuutteja |
 
 ---
 
-## Vaihe 1 — KRIITTINEN (tehtävä ensin, estää indeksoinnin/mobiilin)
+## Vaihe 1 — KRIITTISET (korjaa välittömästi)
 
-### [x] C1. Kanonisointi: sivusto vastasi 4 eri URL-muodossa — VALMIS (2026-06-01)
-Aiemmin `http://www.`, `https://www.`, `http://` (apex) ja `https://` (apex) palauttivat kaikki `200` ilman ohjausta → Google saattoi jakaa signaalit duplikaateille.
-- [x] Kanoninen osoite valittu: **`https://www.datamalli.fi`**
-- [x] 301-ohjaukset palvelimelle lisätty (käyttäjä): kaikki 4 muotoa → `https://www.` yhdellä hypyllä, polku säilyy. Varmennettu curlilla.
-- [x] `<link rel="canonical">` lisätty 8 valmiille (indeksoitavalle) sivulle; noindex-sivut ohitettu. Varmennettu: ei ristiriitaa canonical+noindex.
-- **Tarkistus:** `curl -sI http://datamalli.fi/` → `301` → `https://www.datamalli.fi/` ✓ ; `grep -l 'rel="canonical"' *.html` → 8 sivua ✓
-- **Julkaisu:** 8 muuttunutta HTML-tiedostoa ladattava palvelimelle; live-varmistus `curl -s https://www.datamalli.fi/tahtimalli.html | grep canonical`
-- **Seuranta:** Search Console → Sivujen indeksointi → "duplikaatti ilman kanonista" laskee (viikkojen aikajänne)
+### [x] K1. Google Fonts ladataan CSS @import -metodilla — VALMIS (2026-06-07)
 
-### [x] C2. Viewport-meta puuttui kaikilta sivuilta — VALMIS (2026-06-01)
-Ilman tätä mobiililaite renderöi työpöytäleveydellä = mobiilikelpoisuus pettää (mobile-first-indeksointi).
-- [x] `<meta name="viewport" content="width=device-width, initial-scale=1">` lisätty **kaikkien 18 sivun** `<head>`:iin heti charset-rivin jälkeen
-- [x] Päätös: **hardkoodattu staattiseen HTML:ään**, EI navigation.js-injektiota — viewport on luettava jäsennyshetkellä (navigation.js on `defer` → liian myöhään). Sama koskee tulevaa OG:tä (H2), koska some-robotit eivät aja JS:ää.
-- **Tarkistus:** `grep -L 'name="viewport"' *.html` → tyhjä ✓ ; jokaisella tasan 1 (ei tuplia) ✓
-- **Julkaisu:** 18 muuttunutta HTML-tiedostoa ladattava palvelimelle; live: `curl -s https://www.datamalli.fi/tahtimalli.html | grep viewport`
-- **Seuranta:** GSC mobiilikäytettävyys; Mobile-Friendly-testi
+`style.css` ensimmäinen rivi on `@import url('https://fonts.googleapis.com/...')`. Tämä luo 3-vaiheisen waterfall-ketjun joka latauskerralla:
+HTML → style.css → fonts.googleapis.com CSS → fonts.gstatic.com fontit
 
-### [x] C3. robots.txt ja sitemap.xml palauttivat 404 — VALMIS (2026-06-01)
-- [x] `robots.txt` luotu: `Allow: /` kaikille + `Sitemap:`-rivi. **Ei Disallow noindex-sivuille** — muuten Google ei pääsisi lukemaan noindexia eikä deindeksoisi niitä.
-- [x] `sitemap.xml` luotu: **8 indeksoitavaa sivua** (täsmälleen canonical-sivut; etusivu + 7 sisältösivua). Keskeneräiset noindex-sivut jätetty pois.
-- **Tarkistus:** sitemapissa 8 `<loc>` ✓ ; ristivarmistettu ettei yksikään noindex-sivu ole mukana ✓
-- **Julkaisu:** lataa `robots.txt` + `sitemap.xml` palvelimen juureen; sitten `curl https://www.datamalli.fi/sitemap.xml` (ei enää 404) ja lähetä sitemap Search Consoleen
-- **Ylläpito:** kun keskeneräinen sivu valmistuu → poista sen `noindex` JA lisää se sitemapiin (QA-lista kohta 16)
-- **Seuranta:** GSC Sitemaps → "Löydetyt URL-osoitteet" = 8
-
-### [x] C4. Keskeneräiset placeholder-sivut ovat indeksoitavissa (kaikki 200, ei noindexiä)
-Laadunheikennys koko sivustolle. Koskee:
-- `medallion.html` (~46 san.), `etl-elt.html` (~55 san.) — sisältävät placeholder-tekstiä ("Laajennusvinkit")
-- `data-vault.html`, `header-detail.html`, `kehittamisen-filosofia.html` — stubeja
-- `samulol.html` — "Piirakanjakajat ry" -vitsisivu
-- `apuohjelmat.html`, `kirjallisuus-suositukset.html` — sisältävät vielä Lorem ipsumia
-- [x] Lisätty `<meta name="robots" content="noindex,nofollow">` 7 sivulle (2026-06-01): medallion, etl-elt, data-vault, header-detail, kehittamisen-filosofia, apuohjelmat, kirjallisuus-suositukset
-- [x] `samulol.html` — poistettu paikallisesti (git: `D`); deploy → 404 poistaa indeksistä päättäväisemmin kuin noindex. **Varmista että deploy poistaa tiedoston palvelimelta** (nyt yhä live, palauttaa 200).
-- [x] `noindex` lisätty myös: `useampi-fakta.html`, `data-governance.html`, `data-contract.html` (2026-06-01) → yhteensä **10 keskeneräistä sivua** noindexissä
-- [ ] Poista `noindex` vasta kun sivu valmistuu (sopii viikoittaiseen julkaisuaaltoon)
-- [ ] Pidä nämä poissa sitemapista kunnes valmiita
-- **Tarkistus:** `grep -l 'name="robots"' *.html` listaa 10 sivua ✓ (todennettu 2026-06-01)
-- **Seuranta:** GSC indeksoitujen sivujen määrä ei sisällä näitä
+**Korjaus:**
+1. Poista `@import`-rivi `style.css`:n alusta kokonaan.
+2. Lisää jokaisen sivun `<head>`:iin (ennen `<link rel="stylesheet">` style.css:lle):
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+```
+- **Tarkistus:** PageSpeed Insights ennen/jälkeen — LCP-arvo paranee. Ei enää "Eliminate render-blocking resources" -varoitusta fonteille.
+- **Seuranta:** PageSpeed Insights LCP-kenttädata (CrUX)
 
 ---
 
-## Vaihe 2 — KORKEA (n. 1 viikko)
+### [x] K2. `<main-navigation>` web-komponentti aiheuttaa CLS joka latauksella — VALMIS (2026-06-07)
 
-### [x] H1. Meta-descriptionit puuttuivat kaikilta — VALMIS (2026-06-01)
-- [x] Uniikki kuvaus kirjoitettu 8 valmiille (indeksoitavalle) sivulle; merkkimäärät 137–155 (ei katkea SERP:issä). Noindex-sivut jätetty pois (kuvaus tehdään kun ne valmistuvat).
-- **Tarkistus:** `grep -l 'name="description"' *.html` → 8 sivua ✓ ; ei noindex-sivuilla ✓
+HTML-body alkaa `<main-navigation></main-navigation>` → tyhjä elementti kunnes `navigation.js` (defer) suoritetaan → injektoi ~96px navigaatiopalkin → kaikki sisältö siirtyy alas. Suora, toistettava CLS-tapahtuma.
 
-### [x] H2. Ei Open Graph / Twitter Card -tageja — VALMIS (2026-06-01)
-- [x] Lisätty 8 valmiille sivulle: `og:type` (website/article), `og:site_name`, `og:locale`, `og:title`, `og:description`, `og:url`, `og:image` + `twitter:card=summary`. Noindex-sivut ohitettu.
-- [x] `og:image` = logo (`kuvat/dataneuvos_logo.png`) väliaikaisena fallbackina
-- [x] **VALMIS (2026-06-01):** oikea 1200×630 OG-jakokuva luotu (`kuvat/og-datamalli.png`, brändivärit + logo + tagline, renderöity @resvg/resvg-js:llä). `og:image` vaihdettu kaikilla 9 indeksoitavalla sivulla; lisätty `og:image:width/height/alt`; `twitter:card` → `summary_large_image`; TechArticle-skeeman `image` päivitetty (publisher-logo ennallaan).
-- **Tarkistus:** `grep -l 'property="og:title"' *.html` → 8 ✓ ; live: jaa linkki / Facebook Sharing Debugger / LinkedIn Post Inspector
-
-### [x] H3. `kirjallisuus-suositukset.html` — H1 puuttui — VALMIS (2026-06-01)
-- [x] Korjattu rikkinäinen `<h1>...</h2>` → ehjä `<h1>`; johdantovirke palautettu `<h2>`:sta `<p>`:ksi. Sivulla nyt 1 H1 (h1 → h3, kirjat h3).
-
-### [x] H4. `apuohjelmat.html` "julkaistu" mutta ei linkitetty — RATKAISTU (2026-06-01)
-- [x] Valittu suositeltu vaihtoehto: pidetään noindexissä (tehty C4:ssä) kunnes Lorem ipsum poistettu. Kun sivu valmistuu → poista noindex, lisää sitemapiin ja linkitä navigaatioon.
+**Korjaus (2 riviä `style.css`:ään):**
+```css
+main-navigation {
+  display: block;
+  min-height: 56px;
+}
+```
+- **Tarkistus:** PageSpeed Insights CLS-arvo lähestyy 0. Chrome DevTools → Performance → Layout Shifts.
+- **Seuranta:** CrUX CLS-kentän p75-arvo
 
 ---
 
-## Vaihe 3 — KESKITASO (n. 1 kk)
+### [x] K3. Tietosuojasivu puuttuu (GDPR-riski + E-E-A-T) — VALMIS (2026-06-07)
 
-- [x] **M1.** `search-index.js` — `defer` lisätty index.html:ään (latausjärjestys säilyy: data ennen searchia). VALMIS 2026-06-01
-- [x] **M2.** Rakenteinen data lisätty staattisena JSON-LD:nä 8 valmiille sivulle, kaikki validoitu (node JSON.parse 8/8). VALMIS 2026-06-01
-  - Organization + WebSite (etusivu) — ei SearchActionia (haku on client-side)
-  - TechArticle + BreadcrumbList (6 sisältösivua: tahtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, litistäminen, ai-valmis-metadata)
-  - DefinedTermSet + BreadcrumbList (termisto)
-  - author=Samu Lahdenperä, publisher=Datamalli.fi, dateModified=2026-06-01
-  - **Tarkistus:** Googlen Rich Results Test julkaisun jälkeen; **backlog:** termistöön voi lisätä per-termi `hasDefinedTerm`-listan (~60 termiä) lisähyödyksi
-- [~] **M3.** E-E-A-T — osittain tehty (2026-06-01):
-  - [x] **About-sivu** `tietoa.html` luotu: indeksoitava (canonical, viewport, description, OG), JSON-LD AboutPage + Person (Samu Lahdenperä, sameAs LinkedIn/dataneuvos.fi) + BreadcrumbList. Lisätty navigaatioon (navigation.js, `?v=2`→`?v=3` kaikilla 18 sivulla) ja sitemapiin (8→9 URL).
-  - [x] **VALMIS (2026-06-01):** näkyvä tekijä-byline + päivityspäivä lisätty 7 sisältösivulle (`<p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Päivitetty 1.6.2026</p>`, tyyli `.byline` style.css:ssä, cache-buster `?v=2`→`?v=3`). termistön skeemaan lisätty `author` + `dateModified`.
-- [x] **M4.** Tietoturvaotsikot (LiteSpeed/`.htaccess`) — VALMIS (2026-06-02): HSTS (1 v, includeSubDomains), X-Content-Type-Options, Referrer-Policy, X-Frame-Options, CSP (unsafe-inline sallittu koska inline-skriptejä), Permissions-Policy. Lisätty myös välimuisti staattisille resursseille (1 v CSS/JS/kuvat).
-- [x] **M5.** Brändin yhtenäisyys titleissä — VALMIS (2026-06-01): `… | Datamalli.fi` -loppuliite lisätty 7 sisältösivun titleen (kaikki ≤ 50 merkkiä, ei katkea SERP:issä). Etusivulla ja tietoa-sivulla brändi oli jo titlessä.
+Datamalli Tiimi Oy on rekisteröity suomalainen yritys. Sivustolla ei ole tietosuojaselostetta, evästeilmoitusta eikä tietojenkäsittelykuvausta. Google QRG 2025 arvioi tämän negatiivisesti luotettavuuden alla.
+
+**Korjaus:**
+1. Luo `/tietosuoja.html` minimisisällöllä: rekisterinpitäjä (Datamalli Tiimi Oy), yhteystiedot, mitä tietoja kerätään/ei kerätä.
+2. Lisää footer-linkki `navigation.js`:ään.
+3. Lisää `tietosuoja.html` `sitemap.xml`:ään.
+- **Tarkistus:** Sivu indeksoituu; footer-linkki näkyy kaikilla sivuilla.
+
+---
+
+### [x] K4. Meta-kuvaukset — JO TEHTY, ei toimenpiteitä
+
+Google generoi automaattisesti SERP-snippetin teknisestä tekstistä — ei houkutteleva. CTR menetetään kilpailijoille (Microsoft Learn, Sulava jne.).
+
+**Korjaus:** Lisää jokaisen julkaistun sivun `<head>`:iin 140–155 merkin kuvaus:
+
+| Sivu | Ehdotus |
+|---|---|
+| index.html | "Suomenkielinen, käytännönläheinen tietomallinnuksen opas Power BI -ammattilaisille. Tähtimalli, dimensiot, SCD-tyypit ja AI-valmis data — ilman jargonia." |
+| dimensiot.html | "Opi dimensioiden mallinnus tähtimallissa: SCD-tyypit 0–6, surrogate key, kardinaliteetti ja suorituskyky. Käytännönläheinen opas Power BI -kehittäjille." |
+| tahtimalli.html | Kirjoita vastaava 140–155 merkin kuvaus pääsisällöstä |
+| (muut sivut) | Yksilöllinen kuvaus kullekin sivulle |
+
+- **Tarkistus:** `grep -l 'name="description"' html/*.html` → kaikki julkaistut sivut
+- **Seuranta:** GSC CTR nousee indeksoituneilla sivuilla
+
+---
+
+## Vaihe 2 — KORKEA PRIORITEETTI (n. 1 viikko)
+
+### [x] H1. Schema: TechArticle publisher ei @id-viittaus — VALMIS (2026-06-07)
+
+`dimensiot.html` ja muut artikkelisivut määrittelevät `publisher`-kentän uutena inline Organization-objektina. Google ei pysty yhdistämään tätä kotisivun Organization-entiteettiin (@id-ankkuri puuttuu).
+
+**Korjaus** kaikilla TechArticle-sivuilla:
+```json
+"publisher": { "@id": "https://www.datamalli.fi/#organization" }
+```
+
+---
+
+### [x] H2. Schema: Organization.logo ei ole ImageObject — VALMIS (2026-06-07)
+
+Kotisivulla `"logo": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png"` on pelkkä URL-merkkijono. Googlen validaattori vaatii ImageObjectin.
+
+**Korjaus:**
+```json
+"logo": {
+  "@type": "ImageObject",
+  "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png"
+}
+```
+
+---
+
+### [x] H3. Schema: WebSite puuttuu @id — VALMIS (2026-06-07)
+
+Ilman `@id`:tä artikkelisivut eivät voi ristiviitata WebSite-entiteettiin entiteettigrafissa.
+
+**Korjaus:** Lisää kotisivun WebSite-objektiin:
+```json
+"@id": "https://www.datamalli.fi/#website"
+```
+
+---
+
+### [x] H4. Schema: TechArticle author URL osoittaa kotisivulle, ei Person-entiteettiin — VALMIS (2026-06-07)
+
+`author.url` = `https://www.datamalli.fi/` (Organization), pitäisi olla `https://www.datamalli.fi/tietoa.html` (Person). Lisää myös `@id`.
+
+**Korjaus:**
+```json
+"author": {
+  "@type": "Person",
+  "name": "Samu Lahdenperä",
+  "url": "https://www.datamalli.fi/tietoa.html",
+  "@id": "https://www.datamalli.fi/#samu-lahdenpera"
+}
+```
+
+---
+
+### [x] H5. Schema: TechArticle puuttuu mainEntityOfPage — VALMIS (2026-06-07)
+
+**Korjaus** (esim. dimensiot.html):
+```json
+"mainEntityOfPage": { "@id": "https://www.datamalli.fi/dimensiot.html" }
+```
+
+---
+
+### [x] H6. kehittaminen-filosofia.html: noindex päällä vaikka julkaistujen listassa — VALMIS (2026-06-07)
+
+Sivu on julkaisusuunnitelman mukaan "Valmis" mutta noindex on päällä kahdessa kohdassa (rivit 7 ja 8) eikä sivu ole sitemapissa. Kun viimeistelypassi tehty:
+1. Poista molemmat noindex-tagit
+2. Lisää `sitemap.xml`:ään
+
+---
+
+### [x] H7. Coming-soon-kortit dilutoivat etusivun auktoriteettisignaalia
+
+8 julkaisematonta artikkelia näkyy etusivulla täysikokoisina kortteina. Googlebot tulkitsee sivuston 53-prosenttisesti valmiiksi.
+
+**Korjaus:** Siirrä Tulossa-kortit selvästi etusivun alaosaan omaksi osakseen, tai poista ne kunnes sisältö on valmis julkaisuun.
+
+---
+
+### [x] H8. Sitemap lastmod — VALMIS (2026-06-07)-päivämäärät kaikki identtisiä (2026-06-01)
+
+Google lopettaa lastmod-tiedon hyödyntämisen kun kaikki sivut jakavat saman päivämäärän.
+
+**Korjaus:** Päivitä `sitemap.xml` per-sivu oikeilla muokkausajankohdilla. Päivitä myös jatkossa aina kun sivun sisältöä muutetaan.
+
+---
+
+### [x] H9. Ei ulkoisia lähteitä — VALMIS (2026-06-07) sisältösivuilla (E-E-A-T)
+
+Kummassakaan tarkistetussa artikkelissa ei ole linkkejä Microsoft Docsiin, Kimball Groupiin tai muihin auktoriteettilähteisiin. Russo & Ferrari 2021 mainitaan tahtimalli-sivulla mutta ilman linkkiä.
+
+**Korjaus:** Lisää 2–3 kontekstuaalista ulkoista linkkiä per artikkeli:
+- VertiPaq-suorituskykyselitykset → Microsoft Docs
+- SCD-tyypit → Kimball Group tai Russo & Ferrari 2021
+- Surrogate key → Microsoft Docs Power Query
+
+---
+
+### [x] H10. Tekstikappaleet — VALMIS (2026-06-07) liian lyhyitä AI-siteerattavuudelle (GEO)
+
+Mitatut kappalepituudet tahtimalli-sivulla: 35, 24, 16, 21, 44, 42, 50, 78 sanaa. AI-järjestelmien optimaalisin siteerattavuusikkuna on 134–167 sanaa per itsensä sisältävä kappale.
+
+**Korjaus:** Yhdistä lyhyet peräkkäiset kappaleet yhtenäisiksi vastausblokeiksi jokaisen H2:n alla. Tavoite: ainakin 1 kappaleen/H2-osion per sivu ylittää 134 sanaa itsessään.
+
+---
+
+### [x] H11. H2-otsikot — VALMIS (2026-06-07) eivät ole kysymysmuodossa (GEO)
+
+Otsikot kuten "Rakenne ja toiminta" eivät täsmää kun AI hakee vastausta kyselyyn "miten tähtimalli toimii". `ai-valmis-metadata.html` tekee tämän jo oikein.
+
+**Korjaus** tahtimalli.html ja dimensiot.html:
+- "Rakenne ja toiminta" → "Miten tähtimalli rakentuu ja miten se toimii?"
+- "Vahvuudet ja normalisointi" → "Mitkä ovat tähtimallin normalisoinnin edut?"
+- jne. samalla logiikalla
+
+---
+
+### [x] H12. HSTS-header puuttuu — VALMIS (2026-06-07)
+
+`Strict-Transport-Security` ei ole palvelimen vastauksissa. Lisätty `.htaccess`-tiedostoon (luotu samalla kertaa kuin M8/M9).
+
+---
+
+## Vaihe 3 — KESKITASO (n. 1 kuukausi)
+
+| # | Löydös | Korjaus |
+|---|---|---|
+| ~~M1~~ | ~~`tietoa.html` ohut (~270 sanaa) E-E-A-T-ankurisivuksi~~ | VALMIS 2026-06-07 — laajennettu ~520 sanaan, lisätty toimitusfilosofia-osio |
+| M2 | Kirjoittajainfoblokki puuttuu artikkelisivuilta | Lisää kompakti author-blokki H1:n alle (nimi, titteli, credential, päivämäärä) |
+| ~~M3~~ | ~~Ei "Seuraavaksi lue" -CTA blokkia artikkelien lopussa~~ | VALMIS 2026-06-07 — lisätty kaikille 7 artikkelisivulle |
+| ~~M4~~ | ~~Tietotaulukoissa ei `overflow-x: auto` mobiililla~~ | VALMIS 2026-06-07 — lisätty CSS @media-sääntö style.css:ään |
+| ~~M5~~ | ~~Päivämääräelementit ovat pelkkää tekstiä~~ | VALMIS 2026-06-07 — `<time>` lisätty kaikkiin artikkelisivuihin |
+| M6 | `termisto.html`: 238 DefinedTerm-schemaa, mutta ei `<dl><dt><dd>` HTML:ssä | Lisää semanttinen DOM-rakenne joka vastaa JSON-LD:tä |
+| ~~M7~~ | ~~Navigaatio on täysin JS-riippuvainen, ei noscript-varatyökalua~~ | VALMIS 2026-06-07 — `<noscript>` lisätty kaikkiin 21 tiedostoon |
+| ~~M8~~ | ~~`index.html` saavutettavissa ilman 301-ohjausta → pehmeä duplikaatti~~ | VALMIS 2026-06-07 — .htaccess luotu |
+| ~~M9~~ | ~~X-Content-Type-Options ja Referrer-Policy puuttuvat~~ | VALMIS 2026-06-07 — lisätty .htaccess:iin |
+| M10 | Kirjoittajan URL TechArticle-schemassa virheellinen (→ kotisivu, ei tietoa.html) | Korjattu H4:ssä — varmista kaikilla artikkelisivuilla |
+| M11 | Etusivun H1 ei sisällä "Power BI" | Harkitse: "Datan mallinnuksen opas Power BI -kehittäjille" tai lisää se kuvaustekstiin |
+| M12 | Kaikilla sivuilla sama OG-kuva | Luo sivukohtaiset OG-kuvat ainakin 3–4 pääartikkelille |
+| ~~M13~~ | ~~`tietoa.html` title-tagi ei sisällä kirjoittajan nimeä~~ | VALMIS 2026-06-07 — muutettu "Samu Lahdenperä – Datamalli.fi:n tekijä \| Datamalli.fi" |
+| ~~M14~~ | ~~TechArticle puuttuu `wordCount`-kenttä~~ | VALMIS 2026-06-07 — lisätty kaikkiin 7 TechArticle-schemoihin |
 
 ---
 
 ## Vaihe 4 — MATALA (backlog)
 
-- [x] **L1.** `llms.txt` luotu (2026-06-01): 8 indeksoitavaa sivua + Tietoa, kuvauksineen, AI-crawlereille
-- [x] **L2.** Pakkaus jo päällä — varmennettu `content-encoding: br` (Brotli) livenä. Ei toimenpiteitä.
-- [x] **L4.** Etusivun korttien lukemisajat yhtenäistetty (2026-06-01): `data-min`-arvot laskettu uudelleen sanamäärästä yhtenäisellä ~130 wpm -nopeudella (tekninen/taulukkopitoinen sisältö). Korjattu 6 epäjohdonmukaista arvoa ja lisätty puuttuvat (termistö 15, tietoa 1, kehittämisen-filosofia 1). **Huom:** arvot ovat kovakoodattuja → laske uudelleen kun sivun sisältö muuttuu merkittävästi.
-- [x] **L3.** Sisäinen linkitys täydennetty (2026-06-01): tähtimalli↔dimensiot, dimensiot↔lumihiutalemalli, lumihiutalemalli→tähtimalli, litistäminen→lumihiutalemalli+tähtimalli, ai-valmis-metadata→nimeämiskäytännöt. Ei rikkinäisiä linkkejä (kaikki kohteet olemassa).
+- [ ] **L1** — Etusivun arvolupaus epäselvä: lisää 1 lause joka erottaa sivuston Microsoft Learnista
+- [ ] **L2** — Ei DAX- tai Power Query -koodiesimerkkejä dimensiot.html:ssä — lisää surrogate key -esimerkki Power Query M:llä
+- [ ] **L3** — Ei "Mitä opit" / "Kenelle tämä sopii" -yhteenvetoblokkia artikkelien alussa
+- [ ] **L4** — Staattisten resurssien Cache-Control on 7 pv — voisi olla 1 v (versioitu `?v=3`, joten turvallista)
+- [ ] **L5** — HTML-vastauksissa ei Cache-Control -headeria — lisää `max-age=3600, must-revalidate`
+- [ ] **L6** — Ei IndexNow-toteutusta — generoi avain Bingissä, lisää txt-tiedosto palvelimelle
+- [ ] **L7** — Ei WebSite SearchAction -schemaa (Sitelinks Searchbox) — lisää jos haku toimii URL-parametrilla
+- [ ] **L8** — Ei lisenssimäärittelyä `llms.txt`:ssä — lisää `# License: CC BY 4.0`
+- [ ] **L9** — Ei suomenkielistä Wikipedia-artikkelia tähtimallista — korkein korrelaatio AI-siteerattavuuteen pitkällä tähtäimellä
+- [ ] **L10** — TechArticle puuttuu `@id` — lisää `"@id": "https://www.datamalli.fi/dimensiot.html#article"`
+- [ ] **L11** — Person-entiteetti voisi olla @id-ankkuroitu kotisivulla ja ristiviitattuna artikkelisivuilla
+- [ ] **L12** — Splash-ruudun kesto 1 900 ms — harkitse lyhentämistä alle 500 ms tai poistamista (LCP-vaikutus uusille käyttäjille)
 
 ---
 
-## Suositeltu toteutusjärjestys (riippuvuudet huomioiden)
+## Toteutusjärjestys (riippuvuudet huomioiden)
 
-1. **C1 + C2** (ohjaukset, canonical, viewport) — perusta, jolle muu rakentuu
-2. **C4** (noindex placeholdereille) — ennen sitemapin lähetystä, ettei Google indeksoi roskaa
-3. **C3** (robots + sitemap 11 valmiista sivusta)
-4. **H1 + H2 + H3** (descriptionit, OG, puuttuva H1) — klikkausprosentti + jaot
-5. **M1–M5** julkaisuaallon edetessä
+```
+Viikko 1 — Kriittiset tekniset korjaukset:
+  ├── [ ] K1: Poista @import style.css:stä → lisää <link> HTML:ään (kaikki sivut)
+  ├── [ ] K2: main-navigation { min-height: 56px } style.css:ään
+  ├── [ ] K3: Luo /tietosuoja.html + footer-linkki navigation.js:ään
+  └── [ ] K4: Kirjoita meta-kuvaukset kaikille julkaistuille sivuille
 
-## Integraatio olemassa olevaan työnkulkuun
-Suuri osa (viewport, canonical, OG, description, JSON-LD) on toistuvia per-sivu-muokkauksia → sopii `navigation.js`-jaetun injektion malliin ja viikoittaiseen julkaisuaaltoon. SEO-tarkistukset on lisätty `julkaisusuunnitelma.md`:n per-sivu QA-listaan.
+Viikko 2 — Schema & E-E-A-T:
+  ├── [ ] H1–H5: Schema-korjaukset (publisher @id, logo ImageObject, WebSite @id, author URL, mainEntityOfPage)
+  ├── [ ] H8: Päivitä sitemap lastmod per-sivu oikeilla päivämäärillä
+  ├── [ ] H9: Lisää ulkoiset lähdelinkit per artikkeli (2–3 kpl/sivu)
+  └── [ ] H6: Viimeistele kehittaminen-filosofia.html → poista noindex, lisää sitemapiin
+
+Viikko 3 — Sisältö & GEO:
+  ├── [ ] H10: Yhdistä lyhyet kappaleet → 134–167 sanan vastausblokeja
+  ├── [ ] H11: Muuta H2-otsikot kysymysmuotoon (tahtimalli + dimensiot)
+  ├── [ ] H12: Tarkista HSTS-tilanne, lisää tarvittaessa
+  └── [ ] H7: Siirrä Tulossa-kortit etusivun alaosaan
+
+Viikko 4 — UX & mobiili:
+  ├── [ ] M3: Lisää "Seuraavaksi lue" -blokki artikkeleiden loppuun
+  ├── [ ] M4: Lisää overflow-x: auto taulukkowrappereihin
+  └── [ ] M2: Lisää kirjoittajainfoblokki artikkelisivuille
+```
+
+---
+
+## Ylläpito: julkaisun QA-lista (per uusi sivu)
+
+Kun uusi sivu valmistuu ja noindex poistetaan:
+1. Lisää sivu `sitemap.xml`:ään oikealla `lastmod`-päivämäärällä
+2. Lisää TechArticle-schema (publisher `@id`-viittauksella, author `@id`-viittauksella, mainEntityOfPage)
+3. Lisää BreadcrumbList-schema
+4. Kirjoita meta-kuvaus (140–155 merkkiä)
+5. Varmista H1 sisältää pääavainsanan
+6. Lisää 2–3 ulkoista lähdelinkkiä
+7. Lisää kirjoittajainfoblokki
+8. Lisää "Seuraavaksi lue" -CTA lopuun
+9. Päivitä `lastmod` myös muiden päivitettyjen sivujen osalta sitemapissa

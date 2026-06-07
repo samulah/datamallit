@@ -1,4 +1,5 @@
 # Datamalli.fi
+# License: CC BY 4.0
 
 > Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen metadataan: tähtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, taulujen litistäminen ja BI-kehittämisen termistö. Sisältö on käytännönläheistä ja keskittyy Power BI- ja SSAS-ympäristöihin. Tekijä: Samu Lahdenperä (Dataneuvos, Datamalli Tiimi Oy).
 

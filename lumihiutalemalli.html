@@ -26,11 +26,13 @@
         "headline": "Lumihiutalemalli (Snowflake Schema)",
         "description": "Lumihiutalemalli (Snowflake Schema) muistuttaa tähtimallia, mutta sen dimensiot on normalisoitu omiin tauluihinsa. Opi rakenne, erot ja käyttötavat.",
         "url": "https://www.datamalli.fi/lumihiutalemalli.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/lumihiutalemalli.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-01",
-        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/" },
-        "publisher": { "@type": "Organization", "name": "Datamalli.fi", "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" } },
+        "dateModified": "2026-06-07",
+        "wordCount": 320,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
       },
       {
@@ -44,20 +46,37 @@
   }
   </script>
   <title>Lumihiutalemalli (Snowflake Schema) | Datamalli.fi</title>
-<link rel="stylesheet" href="style.css?v=3">
-  <script src="navigation.js?v=3" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=4" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="tahtimalli.html">Tähtimalli</a> ·
+    <a href="dimensiot.html">Dimensiot</a> ·
+    <a href="litistaminen.html">Litistäminen</a> ·
+    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="termisto.html">Termistö</a> ·
+    <a href="tietoa.html">Tietoa</a>
+  </nav>
+</noscript>
   <h1>Lumihiutalemalli (Snowflake Schema)</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time></p>
   <p>
-    Lumihiutalemalli (Snowflake Schema) on <a href="tahtimalli.html">tähtimallia</a> muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta 16 ilmenee.
+    Lumihiutalemalli (Snowflake Schema) on <a href="tahtimalli.html">tähtimallia</a> muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta ilmenee.
   </p>
   
   <img src="kuvat/lumihiutalemalli/lumihiutale.png" alt="Lumihiutalemalli" class="zoomattava">
   
-  <p><em>Kuva 16. Esimerkki lumihiutalemallin tauluista ja niiden yhteyksistä</em></p>
+  <p><em>Kuva: Esimerkki lumihiutalemallin tauluista ja niiden yhteyksistä</em></p>
 
   <p>
     Lumihiutalemallissa esimerkiksi suuressa organisaatiossa yksi yritys voi sisältää useamman liiketoimintaryhmän ja yksi liiketoimintaryhmä taas voi sisältää useamman kustannuspaikan, ja yhdellä kustannuspaikalla voi olla useampi myymälä. Tämänkaltainen rakenne kuitenkin vaikeuttaa datan lukemista. 

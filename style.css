@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
-
 :root {
   --c-primary:       #015E38;
   --c-primary-hover: #026b41;
@@ -58,6 +56,11 @@ p {
 }
 
 /* Navigaatio */
+main-navigation {
+  display: block;
+  min-height: 56px;
+}
+
 .simple-nav {
   background-color: #013d25;
   margin: 0 -20px 36px -20px;
@@ -197,6 +200,14 @@ table {
   font-family: var(--font-ui);
   background: var(--c-surface);
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 700px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 caption {
