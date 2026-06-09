@@ -319,7 +319,12 @@ tabular editor best practice analyzer tom offline-muokkaus
 tabular-malli ssas in-memory vertipaq power bi aina tabular
 tähtimalli star schema faktataulu dimensiotaulut suorituskykyinen yksinkertainen
 tietoallas katso data lake
-tietoeheys data integrity täsmällinen yhtenäinen viite-eheys vierasavain pääavain normalisointi
+datan laatu data quality täsmällisyys täydellisyys yhtenäisyys ajantasaisuus tietoeheys entiteettieheys viite-eheys toimialueen eheys tyhjä rivi orporivi
+entiteettieheys entity integrity pääavain yksilöivä ei-tyhjä uniikki rivit tunnistaminen raportti
+viite-eheys referential integrity vierasavain pääavain dimensiotaulu tyhjä rivi rikkoutuu poistettu
+toimialueen eheys domain integrity sarakkeen arvot sallittu joukko vaihteluväli statussarake etl virhe
+orporivi orphan row faktarivi vierasavain dimensiotaulu vastinetta viite-eheys power bi tyhjä rivi
+tietoeheys data integrity täsmällinen yhtenäinen viite-eheys vierasavain pääavain normalisointi entiteettieheys toimialueen eheys
 tietoluokka data category power bi sarake maa kaupunki postinumero url kuva-url copilot q&a
 tietovarasto data warehouse dwh keskitetty jäsennelty raportointi analytiikka
 vertipaq sarake in-memory pakkausmoottori kardinaliteetti optimoi saraketasolla

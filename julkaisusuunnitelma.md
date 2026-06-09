@@ -19,7 +19,8 @@
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 
-**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (3 kpl):**
+**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
+- faktataulut.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään
 - header-detail.html
 - useampi-fakta.html
 - data-governance.html

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="canonical" href="https://www.datamalli.fi/tahtimalli-esimerkit.html">
+  <meta name="description" content="Viisi konkreettista esimerkkiä tähtimallista ja lumihiutalemallista: yksiselitteinen, moniselitteinen, normalisoitu, litistetty — ja orgaanisesti kasvanut sekasikiömalli.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Tähtimalli ja lumihiutalemalli: viisi esimerkkiä">
+  <meta property="og:description" content="Viisi konkreettista esimerkkiä tähtimallista ja lumihiutalemallista: yksiselitteinen, moniselitteinen, normalisoitu, litistetty — ja orgaanisesti kasvanut sekasikiömalli.">
+  <meta property="og:url" content="https://www.datamalli.fi/tahtimalli-esimerkit.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="robots" content="noindex">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Tähtimalli ja lumihiutalemalli: viisi esimerkkiä",
+        "description": "Viisi konkreettista esimerkkiä tähtimallista ja lumihiutalemallista: yksiselitteinen, moniselitteinen, normalisoitu, litistetty — ja orgaanisesti kasvanut sekasikiömalli.",
+        "url": "https://www.datamalli.fi/tahtimalli-esimerkit.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/tahtimalli-esimerkit.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-06-08",
+        "dateModified": "2026-06-08",
+        "wordCount": 750,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Tähtimalli (Star Schema)", "item": "https://www.datamalli.fi/tahtimalli.html" },
+          { "@type": "ListItem", "position": 3, "name": "Tähtimalli ja lumihiutalemalli: viisi esimerkkiä", "item": "https://www.datamalli.fi/tahtimalli-esimerkit.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Tähtimalli ja lumihiutalemalli: viisi esimerkkiä | Datamalli.fi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=4" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#eaf2ec',
+        primaryTextColor: '#1a2218',
+        primaryBorderColor: '#015E38',
+        lineColor: '#4a5e48',
+        secondaryColor: '#f6f8f6',
+        tertiaryColor: '#f6f8f6',
+        fontFamily: '"DM Sans", system-ui, sans-serif',
+        fontSize: '13px'
+      }
+    });
+  </script>
+  <style>
+    .varoitus-rivi td {
+      background: #fff8e1;
+    }
+    .kaavio-pari {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0;
+    }
+    @media (max-width: 680px) {
+      .kaavio-pari { grid-template-columns: 1fr; }
+    }
+    .kaavio-pari figure {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
+
+  <h1>Tähtimalli ja lumihiutalemalli: viisi esimerkkiä</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-08">8.6.2026</time></p>
+
+  <p>
+    Sama myyntiaineisto voidaan mallintaa neljällä eri tavalla — kahtena tähtimallina ja kahtena lumihiutalemallina.
+    Kummassakin mallityypissä toinen versio on yksiselitteinen ja toinen moniselitteinen. Tähtimallissa
+    moniselitteisyys syntyy duplikaattiavaimista. Lumihiutalemallissa moniselitteisyys syntyy relaatioketjusta:
+    kun hierarkia on hajautettu useampaan tauluun, yhteen kysymykseen vastaamiseen tarvitaan useampi JOIN — ja
+    jokainen ylimääräinen relaatioaskel on yksi lisää paikkoja, joissa filtteri voi toimia eri tavalla kuin odottaa.
+    Viidenneksi esimerkiksi on otettu sekasikiömalli: se mitä syntyy kun malliin on vuosien varrella lisätty
+    kaikki pyydetty miettimättä arkkitehtuuria.
+  </p>
+
+  <!-- ===================== -->
+  <!-- 1. YKSISELITTEINEN    -->
+  <!-- ===================== -->
+  <h2>1. Tähtimalli – yksiselitteinen</h2>
+  <p>
+    Toimivassa tähtimallissa jokaisen dimensiotaulun pääavain (PK) on uniikki: sama avaintieto esiintyy täsmälleen
+    kerran. Tämä tekee jokaisen relaation yksi-moneen-suhteeksi — yksi Asiakasrivi vastaa useaan Myyntiriviin,
+    muttei koskaan toisinpäin. Power BI pystyy ratkaisemaan kaikki DAX-laskelmat yksikäsitteisesti.
+  </p>
+
+  <figure>
+    <div class="mermaid">
+      erDiagram
+        d_asiakas {
+          int asiakasId PK
+          string nimi
+          string kaupunki
+        }
+        d_tuote {
+          int tuoteId PK
+          string tuoteNimi
+          string kategoria
+        }
+        d_myymala {
+          int myymalaId PK
+          string myymala
+          string kaupunki
+        }
+        d_aika {
+          int aikaId PK
+          date paiva
+          int vuosi
+          string kuukausi
+        }
+        d_myyja {
+          int myyjäId PK
+          string nimi
+        }
+        f_myynnit {
+          int myyntiId PK
+          int asiakasId FK
+          int tuoteId FK
+          int myymalaId FK
+          int aikaId FK
+          int myyjäId FK
+          decimal myyntisumma
+          int kappalemäärä
+        }
+        d_asiakas ||--o{ f_myynnit : "1 → *"
+        d_tuote ||--o{ f_myynnit : "1 → *"
+        d_myymala ||--o{ f_myynnit : "1 → *"
+        d_aika ||--o{ f_myynnit : "1 → *"
+        d_myyja ||--o{ f_myynnit : "1 → *"
+    </div>
+    <figcaption>Yksiselitteinen tähtimalli: viisi dimensiota, yksi faktataulu, kaikki relaatiot yksi-moneen. d_myymala = Myymälä, d_myyja = Myyjä.</figcaption>
+  </figure>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: Asiakas-dimensio (PK uniikki) ja Myynnit-faktataulu</strong>
+    <table>
+      <caption>Asiakas-dimensio — jokainen asiakasId esiintyy täsmälleen kerran</caption>
+      <thead>
+        <tr>
+          <th>asiakasId (PK)</th>
+          <th>nimi</th>
+          <th>kaupunki</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Matti Meikäläinen</td>
+          <td>Helsinki</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Liisa Virtanen</td>
+          <td>Tampere</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Juhani Korhonen</td>
+          <td>Oulu</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Myynnit-faktataulu — FK viittaa aina täsmälleen yhteen Asiakas-riviin</caption>
+      <thead>
+        <tr>
+          <th>myyntiId (PK)</th>
+          <th>asiakasId (FK)</th>
+          <th>tuoteId (FK)</th>
+          <th>myyntisumma</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>1</td>
+          <td>10</td>
+          <td>250 €</td>
+        </tr>
+        <tr>
+          <td>102</td>
+          <td>2</td>
+          <td>11</td>
+          <td>80 €</td>
+        </tr>
+        <tr>
+          <td>103</td>
+          <td>1</td>
+          <td>10</td>
+          <td>310 €</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Matin kokonaismyynti: 250 + 310 = <strong>560 €</strong>. Tulos on yksiselitteinen — yksi asiakas, yksi summa.</p>
+  </div>
+
+  <!-- ======================== -->
+  <!-- 2. MONISELITTEINEN      -->
+  <!-- ======================== -->
+  <h2>2. Tähtimalli – moniselitteinen</h2>
+  <p>
+    Moniselitteisyys syntyy useimmiten siitä, että dimensiotaulun pääavain ei ole uniikki: sama arvo toistuu usealla
+    rivillä. Tällöin yksi-moneen-suhde rikkoutuu — Power BI joutuu käyttämään moni-moneen-relaatiota, jossa
+    yksi myyntirivi voi vastata useampaan Asiakas-riviin. Raportti voi kaksoislaskea myynnit tai antaa vääriä summia.
+  </p>
+
+  <figure>
+    <div class="mermaid">
+      erDiagram
+        d_asiakas {
+          int asiakasId "ei uniikki"
+          string nimi
+          string kaupunki
+        }
+        f_myynnit {
+          int myyntiId PK
+          int asiakasId FK
+          decimal myyntisumma
+        }
+        d_asiakas }o--o{ f_myynnit : "moni-moneen"
+    </div>
+    <figcaption>Moniselitteinen relaatio: Asiakas-dimensiossa duplikaattiavaimia → suhde muuttuu moni-moneen-relaatioksi.</figcaption>
+  </figure>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: sama asiakasId kahdella eri rivillä (virhe)</strong>
+    <table>
+      <caption>Asiakas-dimensio — asiakasId=1 toistuu kahdesti eri tiedoilla</caption>
+      <thead>
+        <tr>
+          <th>asiakasId</th>
+          <th>nimi</th>
+          <th>kaupunki</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="varoitus-rivi">
+          <td><strong>1</strong></td>
+          <td>Matti Meikäläinen</td>
+          <td>Helsinki</td>
+        </tr>
+        <tr class="varoitus-rivi">
+          <td><strong>1</strong></td>
+          <td>Matti M.</td>
+          <td>Espoo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Liisa Virtanen</td>
+          <td>Tampere</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Myynnit-faktataulu — asiakasId=1 löytää kaksi vastaavaa Asiakas-riviä</caption>
+      <thead>
+        <tr>
+          <th>myyntiId (PK)</th>
+          <th>asiakasId (FK)</th>
+          <th>myyntisumma</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>1</td>
+          <td>250 €</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Matriisiraportti Asiakas-dimensiolla voi näyttää: Matti Meikäläinen = 250 € ja Matti M. = 250 €, yhteensä
+    <strong>500 €</strong> — vaikka oikea summa on 250 €. Kaksoislaskenta syntyy moni-moneen-relaatiosta.</p>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>
+      Tarkista dimensiotaulujen PK-uniiikkiuden DAX-mittarilla:
+      <code>COUNTROWS(d_asiakas) = DISTINCTCOUNT(d_asiakas[asiakasId])</code>. Jos luvut eroavat, dimensiossasi on
+      duplikaattiavaimia. Yhdistä tai poista duplikaatit ETL-vaiheessa ennen lataamista — älä yritä korjata
+      moni-moneen-relaatiota Power BI:n sisällä, sillä se rikkoo enemmän asioita kuin korjaa.
+    </p>
+  </div>
+
+  <!-- =============================== -->
+  <!-- 3. LUMIHIUTALEMALLI MONISELITTEINEN -->
+  <!-- =============================== -->
+  <h2>3. Lumihiutalemalli – moniselitteinen</h2>
+  <p>
+    <a href="lumihiutalemalli.html">Lumihiutalemallissa</a> Tuote-dimensio on jaettu hierarkkisesti kolmeen tauluun:
+    <code>d_tuoteperhe</code> → <code>d_tuotekategoria</code> → <code>d_tuote</code>. Kysymykseen "kuuluuko tämä myynti Elektroniikkaan?" vastatakseen Power BI:n
+    täytyy kulkea kolmen taulun läpi: <code>f_myynnit</code> → <code>d_tuote</code> → <code>d_tuotekategoria</code> → <code>d_tuoteperhe</code>. Jokainen relaatioaskel on
+    paikka, jossa filterin suunta tai aktiivisuus voi yllättää — ja DAX-laskurista tulee vaikeampi kirjoittaa ja
+    lukea kuin yhden taulun versiossa.
+  </p>
+
+  <figure>
+    <div class="mermaid">
+      erDiagram
+        d_tuoteperhe {
+          int perheId PK
+          string perheNimi
+        }
+        d_tuotekategoria {
+          int kategoriaId PK
+          string kategoriaNimi
+          int perheId FK
+        }
+        d_tuote {
+          int tuoteId PK
+          string tuoteNimi
+          int kategoriaId FK
+        }
+        f_myynnit {
+          int myyntiId PK
+          int tuoteId FK
+          decimal myyntisumma
+        }
+        d_tuoteperhe ||--o{ d_tuotekategoria : "1 → *"
+        d_tuotekategoria ||--o{ d_tuote : "1 → *"
+        d_tuote ||--o{ f_myynnit : "1 → *"
+    </div>
+    <figcaption>Moniselitteinen lumihiutalemalli: Tuote-hierarkia kolmessa taulussa. Myynnin summaamiseen tarvitaan kolmen relaation ketju.</figcaption>
+  </figure>
+
+  <div class="fakta-laatikko">
+    <strong>Kolme taulua — filterin polku on pitkä:</strong>
+    <table>
+      <caption>d_tuoteperhe</caption>
+      <thead>
+        <tr>
+          <th>perheId (PK)</th>
+          <th>perheNimi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Elektroniikka</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>d_tuotekategoria — viittaa d_tuoteperheeseen FK:lla</caption>
+      <thead>
+        <tr>
+          <th>kategoriaId (PK)</th>
+          <th>kategoriaNimi</th>
+          <th>perheId (FK)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10</td>
+          <td>Kannettavat tietokoneet</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Älypuhelimet</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>d_tuote — viittaa d_tuotekategoriaan FK:lla</caption>
+      <thead>
+        <tr>
+          <th>tuoteId (PK)</th>
+          <th>tuoteNimi</th>
+          <th>kategoriaId (FK)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100</td>
+          <td>ProBook 14</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>101</td>
+          <td>Galaxy S25</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>102</td>
+          <td>IdeaPad 5</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><code>f_myynnit</code> filtteröityy <code>d_tuoteperhe</code>-taululla vasta kolmen relaation kautta: <code>f_myynnit</code> → <code>d_tuote</code> → <code>d_tuotekategoria</code> → <code>d_tuoteperhe</code>.
+    DAX-laskuri <code>CALCULATE(SUM(f_myynnit[myyntisumma]), d_tuoteperhe[perheNimi] = "Elektroniikka")</code> toimii,
+    mutta se edellyttää kaikkien kolmen relaation olevan aktiivia ja filtterin kulkevan oikein suuntaan.</p>
+  </div>
+
+  <!-- ================================== -->
+  <!-- 4. LUMIHIUTALEMALLI YKSISELITTEINEN -->
+  <!-- ================================== -->
+  <h2>4. Lumihiutalemalli – yksiselitteinen (litistetty)</h2>
+  <p>
+    Kun sama Tuote-hierarkia <a href="litistaminen.html">litistetään</a> yhdeksi leveäksi dimensioksi, rakenne
+    muuttuu yksiselitteiseksi: <code>f_myynnit</code> → <code>d_tuote</code> on yksi relaatio, ja <code>d_tuote[perheNimi]</code> löytyy suoraan
+    samasta taulusta. Filterin polku on lyhyt ja läpinäkyvä. Data toistuu (jokainen Elektroniikka-tuote sisältää
+    kentässä tekstin "Elektroniikka"), mutta VertiPaq pakkaa toistuvat arvot tehokkaasti eikä toisteisuus kasvata
+    muistikokoa merkittävästi.
+  </p>
+
+  <figure>
+    <div class="mermaid">
+      erDiagram
+        d_tuote {
+          int tuoteId PK
+          string tuoteNimi
+          string kategoriaNimi
+          string perheNimi
+        }
+        f_myynnit {
+          int myyntiId PK
+          int tuoteId FK
+          decimal myyntisumma
+        }
+        d_tuote ||--o{ f_myynnit : "1 → *"
+    </div>
+    <figcaption>Yksiselitteinen lumihiutalemalli litistettynä: kaikki Tuote-hierarkian tiedot yhdessä taulussa. Filterin polku on yksi relaatio.</figcaption>
+  </figure>
+
+  <div class="fakta-laatikko">
+    <strong>Yksi taulu — filterin polku on suora:</strong>
+    <table>
+      <caption>Tuote-dimensio — litistetty, kaikki hierarkiatiedot yhdessä</caption>
+      <thead>
+        <tr>
+          <th>tuoteId (PK)</th>
+          <th>tuoteNimi</th>
+          <th>kategoriaNimi</th>
+          <th>perheNimi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100</td>
+          <td>ProBook 14</td>
+          <td>Kannettavat tietokoneet</td>
+          <td>Elektroniikka</td>
+        </tr>
+        <tr>
+          <td>101</td>
+          <td>Galaxy S25</td>
+          <td>Älypuhelimet</td>
+          <td>Elektroniikka</td>
+        </tr>
+        <tr>
+          <td>102</td>
+          <td>IdeaPad 5</td>
+          <td>Kannettavat tietokoneet</td>
+          <td>Elektroniikka</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>DAX-laskuri <code>CALCULATE(SUM(f_myynnit[myyntisumma]), d_tuote[perheNimi] = "Elektroniikka")</code> toimii
+    yhdellä suoralla relaatiolla — ei ketjutusta, ei epävarmuutta filterin suunnasta.</p>
+  </div>
+
+  <!-- ======================== -->
+  <!-- 5. SEKASIKIÖMALLI        -->
+  <!-- ======================== -->
+  <h2>5. Sekasikiömalli – orgaanisesti kasvanut</h2>
+  <p>
+    Tämä malli on rakennettu vuosien varrella toteuttamalla jokainen pyyntö sellaisenaan. "Lisää vain uusi sarake."
+    "Tee uusi taulu, älä koske vanhaan." "Jätä vanha versio varmuuden vuoksi." Jokainen yksittäinen päätös on ollut
+    helppo ja nopea. Kokonaisuudesta on tullut se mitä näet alla.
+  </p>
+
+  <figure>
+    <div class="mermaid">
+      flowchart LR
+        MU["f_myynnit_uusi\n(faktataulu)"]
+        MV["f_myynnit_vanha\n(vanha faktataulu ⚠)"]
+        A["d_asiakas"]
+        A2["d_asiakkaat2\n(toinen asiakasrekisteri ⚠)"]
+        T["d_tuote"]
+        TK["d_tuote_kategoria"]
+        P["d_paiva"]
+        K["d_kalenteri\n(toinen päivämäärä ⚠)"]
+        MR["f_myynti_raportti\n(kopio faktataulusta ⚠)"]
+
+        A -->|"1 → *"| MU
+        A2 -->|"moni-moneen ⚠"| MU
+        A -->|"vanha yhteys ⚠"| MV
+        T -->|"1 → *"| MU
+        TK -->|"lumihiutale"| T
+        P -->|"1 → *"| MU
+        K -->|"moni-moneen ⚠"| MU
+        MR -->|"fakta → fakta ⚠"| MU
+
+        style MV fill:#fff8e1,stroke:#e6a817
+        style A2 fill:#fff8e1,stroke:#e6a817
+        style K  fill:#fff8e1,stroke:#e6a817
+        style MR fill:#fff8e1,stroke:#e6a817
+    </div>
+    <figcaption>Sekasikiömalli: kymmenen taulua, kaksi faktaa, kaksi asiakastaulua, kaksi päivämäärätaulua, fakta-fakta-yhteys ja moni-moneen-relaatioita. Keltaiset solmut ovat ongelmallisia.</figcaption>
+  </figure>
+
+  <div class="fakta-laatikko">
+    <strong>Mitä tässä mallissa on vialla — taulu kerrallaan:</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Taulu tai kenttä</th>
+          <th>Ongelma</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>f_myynnit_vanha</code></td>
+          <td>Vanha faktataulu jätetty malliin "varmuuden vuoksi". Kukaan ei enää tiedä onko se käytössä, mutta sen poistaminen tuntuu riskiltä.</td>
+        </tr>
+        <tr>
+          <td><code>d_asiakkaat2</code></td>
+          <td>Toinen asiakasrekisteri lisätty kun ensimmäisessä ei ollut segmenttikenttää. Avain on tekstimuotoinen (<code>string asiakasId</code>) joten se ei yhdisty siististi — tuloksena moni-moneen.</td>
+        </tr>
+        <tr>
+          <td><code>d_kalenteri</code></td>
+          <td>Toinen päivämäärädimensio luotu kun alkuperäistä <code>d_paiva</code>-taulua ei löydetty. Molemmat ovat nyt mallissa, molempia käytetään eri laskureissa.</td>
+        </tr>
+        <tr>
+          <td><code>f_myynti_raportti</code></td>
+          <td>Faktataulu joka viittaa toiseen faktatauluun. Tehty nopeuttamaan "yhtä raporttia". Luo fakta-fakta-yhteyden joka rikkoo filterin leviämisen.</td>
+        </tr>
+        <tr>
+          <td><code>f_myynnit_uusi[asiakasNimi]</code></td>
+          <td>Asiakkaan nimi on kopioitu suoraan faktatauluun koska "se oli helpompaa". Nyt sama asiakas saattaa esiintyä kahdella eri nimellä eri riveillä.</td>
+        </tr>
+        <tr>
+          <td><code>f_myynnit_uusi[myyntisumma_korjattu]</code></td>
+          <td>Joku korjasi virheelliset luvut uuteen sarakkeeseen alkuperäisen viereen. Alkuperäinen jäi malliin. Raporttien tekijät eivät aina tiedä kumpaa käyttää.</td>
+        </tr>
+        <tr>
+          <td><code>f_myynnit_uusi[kustannuspaikka]</code></td>
+          <td>Kustannuspaikkatieto lisätty suoraan faktatauluun eikä omaan dimensioonsa. Toistuu joka myyntirivillä — ja jos kustannuspaikka muuttuu, se on korjattava tuhansiin riveihin.</td>
+        </tr>
+        <tr>
+          <td><code>d_tuote[kategoriaNimi]</code></td>
+          <td>Kategorianimikin on kopioitu Tuote-tauluun vaikka <code>d_tuote_kategoria</code>-taulu on jo olemassa. Nyt tieto on kahdessa paikassa ja ne voivat eriytyä.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>
+      Sekasikiömalli ei synny huolimattomuudesta — se syntyy siitä, että jokainen yksittäinen pyyntö on toteutettu
+      järkevästi ilman kokonaiskuvaa. Ongelma ei ole yksittäisissä päätöksissä vaan siinä, että tietomallilla ei
+      ole omistajaa joka katsoisi kokonaisuutta. Kun sellainen löytyy, ensimmäinen työ on yleensä sama:
+      selvitä mitä tauluja oikeasti käytetään, poista loput, ja yhdistä duplikaatit yhdeksi.
+    </p>
+  </div>
+
+  <!-- ======================== -->
+  <!-- VERTAILUTAULUKKO         -->
+  <!-- ======================== -->
+  <h2>Vertailu tiivistettynä</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Malli</th>
+        <th>Relaatiotyyppi</th>
+        <th>PK uniikki</th>
+        <th>Toisteisuus</th>
+        <th>Sopii Power BI:hin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tähtimalli – yksiselitteinen</td>
+        <td>Yksi-moneen</td>
+        <td>Kyllä</td>
+        <td>Ei</td>
+        <td>Kyllä ✓</td>
+      </tr>
+      <tr>
+        <td>Tähtimalli – moniselitteinen</td>
+        <td>Moni-moneen</td>
+        <td>Ei (duplikaatit)</td>
+        <td>Kyllä</td>
+        <td>Ei ✗</td>
+      </tr>
+      <tr>
+        <td>Lumihiutalemalli – moniselitteinen</td>
+        <td>Yksi-moneen (ketjussa)</td>
+        <td>Kyllä</td>
+        <td>Ei</td>
+        <td>Välttäen ⚠</td>
+      </tr>
+      <tr>
+        <td>Lumihiutalemalli – yksiselitteinen (litistetty)</td>
+        <td>Yksi-moneen</td>
+        <td>Kyllä</td>
+        <td>Kyllä (pakattuna)</td>
+        <td>Kyllä ✓</td>
+      </tr>
+      <tr>
+        <td>Sekasikiömalli</td>
+        <td>Sekalainen</td>
+        <td>Vaihtelee</td>
+        <td>Kyllä, kaikkialla</td>
+        <td>Ei ✗✗</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <ul>
+      <li><strong>Tähtimalli on helppo pitää yksiselitteisenä.</strong> Yksi ETL-tarkistus — PK on uniikki — estää
+        monen raportin virheelliset luvut. Tämä on yksinkertaisin asia jonka voit tehdä tietomallisi laadun eteen.</li>
+      <li><strong>Lumihiutalemalli on moniselitteinen Power BI:ssä.</strong> Relaatioketju ei riko laskelmia
+        samalla tavalla kuin duplikaattiavaimet, mutta se tekee DAX:sta hankalampaa, hidastaa VertiPaqia ja kasvattaa
+        virheiden mahdollisuutta filterin suuntien kanssa. Litistä dimensiot tähtimalliksi ETL-vaiheessa — Power BI
+        saa yksiselitteisen rakenteen eikä sen tarvitse tehdä ketjutusta itse.</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>

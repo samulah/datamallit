@@ -9,7 +9,9 @@
   <title>Power BI Apuohjelmat</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=4" defer></script>
   <style>
@@ -69,30 +71,44 @@
       color: #c0392b;
       font-weight: bold;
     }
+
+    .tietoturva-huomio {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background-color: #fff8e6;
+      border-left: 4px solid #e6a817;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tietoturva-huomio h3 {
+      margin-top: 0;
+      color: #b07d00;
+    }
   </style>
 </head>
 
 <body>
   <main-navigation></main-navigation>
-<noscript>
-  <nav class="simple-nav" style="padding:12px 24px">
-    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
-    <a href="tahtimalli.html">Tähtimalli</a> ·
-    <a href="dimensiot.html">Dimensiot</a> ·
-    <a href="litistaminen.html">Litistäminen</a> ·
-    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
-    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
-    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
-    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
-    <a href="termisto.html">Termistö</a> ·
-    <a href="tietoa.html">Tietoa</a>
-  </nav>
-</noscript>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
 
   <h1>Power BI Apuohjelmat</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
   <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin
-    ominaisuuksia. Organisaatiokäytössä nämä ominaisuudet ovat välttämättömiä. Sivu esittelee neljä keskeisintä: DAX Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
+    ominaisuuksia. Organisaatiokäytössä nämä ominaisuudet ovat välttämättömiä. Sivu esittelee neljä keskeisintä: DAX
+    Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
 
   <!-- DAX STUDIO -->
   <section class="tool-section">
@@ -125,7 +141,9 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p>DAX Studio otetaan useimmiten käyttöön suorituskykyongelmien selvittämiseen. Perusteltua syytä jättää se käyttämättä ei ole. VertiPaq Analyzer on välttämätön apuväline BI-kehittäjille. DaxFormatter-integraatio ja suorituskykydatan keruu tekevät DAX-kehityksestä nopeampaa ja laadukkaampaa.</p>
+      <p>DAX Studio otetaan useimmiten käyttöön suorituskykyongelmien selvittämiseen. Perusteltua syytä jättää se
+        käyttämättä ei ole. VertiPaq Analyzer on välttämätön apuväline BI-kehittäjille. DaxFormatter-integraatio ja
+        suorituskykydatan keruu tekevät DAX-kehityksestä nopeampaa ja laadukkaampaa.</p>
     </div>
 
     <!-- VERTIPAQ ANALYZER -->
@@ -179,10 +197,12 @@
 
       <div class="dataneuvos-opinion">
         <div class="opinion-label">Dataneuvoksen mielipide</div>
-        <p>VertiPaq Analyzer paljastaa tietomallin todelliset ongelmat bitteinä, ei arvauksena. Se kertoo tarkalleen mistä kannattaa leikata.
-           Pelkästään pikkuongelmia korjaamalla tietomallin koko puolittuu helposti.
-           Suurin osa koosta katoaa poistamalla käyttämättömät taulut ja sarakkeet sekä pienentämällä kardinaliteetteja.
-           Skaalaa tämä isoon yritysmalliin niin saat Fabric-kapasiteetin kustannukset puolitettua, parhaassa tapauksessa jo etukäteen.</p>
+        <p>VertiPaq Analyzer paljastaa tietomallin todelliset ongelmat bitteinä, ei arvauksena. Se kertoo tarkalleen
+          mistä kannattaa leikata.
+          Pelkästään pikkuongelmia korjaamalla tietomallin koko puolittuu helposti.
+          Suurin osa koosta katoaa poistamalla käyttämättömät taulut ja sarakkeet sekä pienentämällä kardinaliteetteja.
+          Skaalaa tämä isoon yritysmalliin niin saat Fabric-kapasiteetin kustannukset puolitettua, parhaassa tapauksessa
+          jo etukäteen.</p>
       </div>
     </div>
   </section>
@@ -193,7 +213,8 @@
     <div class="tool-meta">
       <span>Ilmainen</span>
       <span>MIT-lisenssi</span>
-      <span><a href="https://github.com/TabularEditor/TabularEditor/releases" target="_blank" rel="noopener">GitHub: TabularEditor/TabularEditor</a></span>
+      <span><a href="https://github.com/TabularEditor/TabularEditor/releases" target="_blank" rel="noopener">GitHub:
+          TabularEditor/TabularEditor</a></span>
     </div>
 
     <p>Tabular Editor yhdistää Power BI -tietomalleihin ja Tabular-malleihin. Se perustuu TOM:iin (Tabular Object
@@ -207,7 +228,8 @@
         </li>
         <li><strong>Offline-muokkaus.</strong> TOM-malli ei prosessoi muutoksia jatkuvasti, joten isoissa malleissa ei
           tarvitse odottaa jokaisen muutoksen jälkeen päivitystä.</li>
-        <li><strong><a href="termisto.html#bpa">Best Practice Analyzer</a>.</strong> Tarkistaa mallin parhaita käytäntöjä vastaan ja tarjoaa
+        <li><strong><a href="termisto.html#bpa">Best Practice Analyzer</a>.</strong> Tarkistaa mallin parhaita
+          käytäntöjä vastaan ja tarjoaa
           automaattiset korjausehdotukset.</li>
         <li><strong>DAX-riippuvuudet.</strong> Näet mikä laskuri käyttää mitäkin saraketta yhdellä klikkauksella, ilman
           jokaisen kaavan manuaalista läpikäyntiä.</li>
@@ -222,13 +244,16 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p></strong><b>KÄYTÄ BEST PRACTICE ANALYZERIA JOKAISEEN RAKENTAMAASI TIETOMALLIIN.</b></strong> Tabular Editor 2:n <a href="termisto.html#bpa">Best Practice Analyzer</a> muistuttaa paljon MCP-kehitystä (Model Context Protocol).
+      <p></strong><b>KÄYTÄ BEST PRACTICE ANALYZERIA JOKAISEEN RAKENTAMAASI TIETOMALLIIN.</b></strong> Tabular Editor 2:n
+        <a href="termisto.html#bpa">Best Practice Analyzer</a> muistuttaa paljon MCP-kehitystä (Model Context Protocol).
         Kummassakin määrittelet joukon sääntöjä tai työkaluja jotka ohjaavat järjestelmän
         toimintaa automaattisesti. BPA-säännöissä sanot: <em>"jos tietomallin sarakkeella on tällainen ominaisuus,
           laukaise tämä korjausehdotus"</em>. MCP-työkaluissa sanot: <em>"jos tekoäly tarvitsee tämän toiminnon, tarjoa
           sille tämä rajapinta"</em>. Molemmat uuttavat käsin tehtävän
         toistuvan työn automaatioksi. Jos olet joskus rakentanut MCP-palvelimen tai soveltanut BPA:ta isommassa
-        projektissa, tunnet välittömästi olevasi tutussa maastossa. Esimerkkisäännöt löydät <a href="https://github.com/TabularEditor/BestPracticeRules" target="_blank" rel="noopener">TabularEditor/BestPracticeRules</a>-repositoriosta.</p>
+        projektissa, tunnet välittömästi olevasi tutussa maastossa. Esimerkkisäännöt löydät <a
+          href="https://github.com/TabularEditor/BestPracticeRules" target="_blank"
+          rel="noopener">TabularEditor/BestPracticeRules</a>-repositoriosta.</p>
     </div>
 
     <!-- TE2 vs TE3 vertailu -->
@@ -310,7 +335,8 @@
     <div class="tool-meta">
       <span>Ilmainen</span>
       <span>Christian Wade</span>
-      <span><a href="https://github.com/microsoft/Analysis-Services/releases" target="_blank" rel="noopener">alm-toolkit.com</a></span>
+      <span><a href="https://github.com/microsoft/Analysis-Services/releases" target="_blank"
+          rel="noopener">alm-toolkit.com</a></span>
     </div>
 
     <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI
@@ -325,6 +351,7 @@
           on ennen käyttöönottoa.</li>
         <li><strong>Valikoiva käyttöönotto.</strong> Valitse mitkä muutokset viedään tuotantoon, ei pakotettua
           kaikki-tai-ei-mitään -julkaisua.</li>
+          <li><strong>Päivitä vain lasuri- ja metadatamuutokset.</strong> Vältä tarpeettomat datan päivitykset siirtäessä mallia kehityksestä tuotanbtoon.</li>
         <li><strong>Jaetun tietomallin päivitys.</strong> Päivitä Power BI Premium -datasetti ilman siihen kytkettyjen
           raporttien katkaisemista.</li>
         <li><strong>Git-integraatio.</strong> Tukee versionhallintaa git-pohjaisten työnkulkujen kanssa.</li>
@@ -335,7 +362,8 @@
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
       <p>ALM Toolkit on aliarvostettu työkalu. Moni Power BI -kehittäjä ei tiedä sen olemassaolosta ennen kuin kohtaa
-        ensimmäistä kertaa tilanteen, jossa PBIX-julkaisu katkaisee tuotannon raportit. Opi käyttämään se ennen kuin tarvitset sitä. Erityisesti Premium-ympäristöissä, joissa samaan tietomalliin on kytketty
+        ensimmäistä kertaa tilanteen, jossa PBIX-julkaisu katkaisee tuotannon raportit. Opi käyttämään sitä ennen kuin
+        tarvitset sitä. Erityisesti Premium-ympäristöissä, joissa samaan tietomalliin on kytketty
         kymmeniä raportteja, ALM Toolkit on käytännössä pakollinen osa kehitystyönkulkua.</p>
     </div>
   </section>
@@ -346,11 +374,12 @@
     <div class="tool-meta">
       <span>Kehittyvä teknologia</span>
       <span>Tekoälyintegraatio</span>
-      <span><a href="https://github.com/microsoft/powerbi-modeling-mcp" target="_blank" rel="noopener">Microsoft Fabric / Power BI</a></span>
+      <span><a href="https://github.com/microsoft/powerbi-modeling-mcp" target="_blank" rel="noopener">Microsoft Fabric
+          / Power BI</a></span>
     </div>
 
     <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit, kuten
-      Claude, kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa
+      Clauden tai CoPilotin, kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa
       tekoälylle suoran pääsyn tietomallin rakenteeseen: se kirjoittaa DAX-kyselyitä, luo mittareita ja hakee dataa
       ilman, että kehittäjä kopioi rakennetta kontekstiin käsin.</p>
 
@@ -369,7 +398,7 @@
 
     <h3>Miten MCP eroaa perinteisestä Power BI Copilotista?</h3>
     <p>Power BI:n sisäänrakennettu Copilot toimii suljetussa ympäristössä Microsoftin oman tekoälyn kautta. MCP sen
-      sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em>, kuten Clauden,
+      sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em>, kuten Clauden tai CoPilotin
       yhdistämisen Power BI -malliin. Kehittäjä voi itse määritellä, mitkä toiminnot tekoälylle tarjotaan, ja yhdistää
       Power BI:n osaksi laajempaa tekoälytyönkulkua.</p>
 
@@ -409,6 +438,60 @@
         </tr>
       </tbody>
     </table>
+
+    <h3 style="margin-top:28px;">Asennus Windows-koneelle</h3>
+    <p>Nopein tapa asentaa Power BI MCP on pyytää tekoälyä tekemään se. Kopioi GitHubin osoite ja anna se suoraan Claudelle tai GitHub Copilotille:</p>
+    <div class="fakta-laatikko" style="font-style:italic;">
+      "Asenna tämä MCP-palvelin Windows-koneelleni: https://github.com/microsoft/powerbi-modeling-mcp"
+    </div>
+    <p>Tekoäly tunnistaa käyttöjärjestelmän ja ohjaa asennuksen läpi. Manuaalisesti se onnistuu kahdella tavalla:</p>
+    <div class="fakta-laatikko">
+      <strong>Vaihtoehto 1 – VS Code + GitHub Copilot (helpoin)</strong>
+      <ol>
+        <li>Asenna VS Code ja GitHub Copilot Chat -laajennus.</li>
+        <li>Asenna <strong>Power BI Modeling MCP</strong> -laajennus VS Code Marketplacesta.</li>
+        <li>Avaa Copilot Chat – <code>powerbi-modeling-mcp</code> on käytettävissä automaattisesti.</li>
+      </ol>
+    </div>
+    <div class="fakta-laatikko">
+      <strong>Vaihtoehto 2 – Claude Desktop + NPX (vaatii Node.js)</strong>
+      <ol>
+        <li>Asenna <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> ja <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude Desktop</a>.</li>
+        <li>Lisää seuraava konfiguraatio tiedostoon <code>%APPDATA%\Claude\claude_desktop_config.json</code>:</li>
+      </ol>
+      <pre style="background:#eef3fa;padding:12px;border-radius:4px;overflow-x:auto;font-size:0.88em;"><code>{
+  "mcpServers": {
+    "powerbi-modeling-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"]
+    }
+  }
+}</code></pre>
+      <li style="list-style:none;margin-top:8px;">3. Käynnistä Claude Desktop uudelleen – Power BI -tietomallit näkyvät Claude-istunnossa.</li>
+    </div>
+
+    <div class="tietoturva-huomio">
+      <h3>Tietoturvahuomio: mitä dataa välittyy tekoälylle?</h3>
+      <p>MCP-yhteys antaa tekoälylle pääsyn tietomalliisi. On tärkeää ymmärtää, mitä tietoa siirtyy ja minne.</p>
+      <div class="fakta-laatikko">
+        <strong>Mitä tekoälylle lähetetään:</strong>
+        <ul>
+          <li><strong>Tietomallin rakenne</strong> – taulujen nimet, sarakkeet, mittarit ja relaatiot siirtyvät tekoälyn kontekstiin heti yhteyden muodostuessa.</li>
+          <li><strong>DAX-kyselyt ja niiden tulokset</strong> – jos pyydät tekoälyä hakemaan dataa, se kirjoittaa <code>EVALUATE</code>-kyselyn ja saa takaisin rivejä tietokannasta. Nämä rivit sisältävät oikeaa liiketoimintadataa.</li>
+          <li><strong>Mittareiden DAX-kaavat</strong> – kaikki laskentalogiikka on luettavissa.</li>
+        </ul>
+      </div>
+      <div class="fakta-laatikko">
+        <strong>Paikallinen vs. pilvipalvelu:</strong>
+        <ul>
+          <li><strong>Claude Desktop (Anthropic)</strong> – MCP-palvelin pyörii paikallisesti, mutta kaikki mitä Claude-keskustelussa käsitellään menee Anthropicin palvelimille Yhdysvalloissa. Claude ei ole EU:n dataresidenssialueella.</li>
+          <li><strong>GitHub Copilot / Microsoft Copilot</strong> – data voi kulkea M365-sopimuksen piirissä. Tarkista organisaatiosi sopimus: EU Data Boundary -asetus voi rajata datan Eurooppaan.</li>
+          <li><strong>Paikalliset tekoälymallit (Ollama tms.)</strong> – data ei poistu koneelta lainkaan. Suositeltavin vaihtoehto luottamukselliselle datalle.</li>
+        </ul>
+      </div>
+      <p><strong>Käytännön suositukset:</strong> Aloita <code>--readonly</code>-lipulla, joka estää tekoälyä tekemästä kirjoitusoperaatioita tietomalliin. Yritysympäristössä tarkista IT-politiikka ennen käyttöönottoa. Jos tietomalli sisältää henkilötietoja tai luottamuksellista liiketoimintadataa, selvitä ensin datan luokitus ja sallitut käsittelypaikat.</p>
+    </div>
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>

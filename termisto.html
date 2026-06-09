@@ -279,6 +279,17 @@
         },
         {
           "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#datan-laatu",
+          "name": "Datan laatu",
+          "url": "https://www.datamalli.fi/termisto.html#datan-laatu",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Data Quality",
+          "description": "Datan sopivuus sen käyttötarkoitukseen: täsmällisyys, täydellisyys, yhtenäisyys ja ajantasaisuus. Käytännössä laatu kattaa muun muassa tietoeheyden, entiteettieheyden, viite-eheyden ja toimialueen eheyden. Laadun ongelmat voivat johtaa vääriin raportteihin — tyhjät rivit ja orporivit ovat tyypillisiä merkkejä."
+        },
+        {
+          "@type": "DefinedTerm",
           "@id": "https://www.datamalli.fi/termisto.html#denormalisointi",
           "name": "Denormalisointi",
           "url": "https://www.datamalli.fi/termisto.html#denormalisointi",
@@ -331,6 +342,17 @@
           },
           "alternateName": "Extract, Load, Transform",
           "description": "Datan siirtomalli, jossa raakadata ladataan ensin kohdejärjestelmään ja muunnos tehdään vasta sen jälkeen. Yleinen pilvipohjaisissa ratkaisuissa."
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#entiteettieheys",
+          "name": "Entiteettieheys",
+          "url": "https://www.datamalli.fi/termisto.html#entiteettieheys",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Entity Integrity",
+          "description": "Jokaisen taulun jokaisella rivillä on yksilöivä, ei-tyhjä pääavain. Jos pääavain puuttuu tai toistuu, rivejä ei voi tunnistaa — raportti voi laskea ne useaan kertaan tai jättää kokonaan huomiotta. Entiteettieheys on edellytys sille, että viite-eheys voi toimia."
         },
         {
           "@type": "DefinedTerm",
@@ -725,6 +747,17 @@
           },
           "alternateName": "Online Transaction Processing",
           "description": "Tapahtumankäsittelyyn optimoitu tietokantaratkaisu, kuten kassajärjestelmä tai verkkokaupan tilausjärjestelmä. Sopii nopeisiin yksittäisiin lisäys-, päivitys- ja poisto-operaatioihin. Ks. myös OLAP."
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#orporivi",
+          "name": "Orporivi",
+          "url": "https://www.datamalli.fi/termisto.html#orporivi",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Orphan Row",
+          "description": "Faktarivi, jonka vierasavain ei löydä vastinetta dimensiotaulusta. Orporivi on viite-eheyden rikkoontuminen käytännössä: Power BI reagoi siihen luomalla automaattisen tyhjän rivin dimensiotauluun. Syntyy tyypillisesti kun lähdedata sisältää faktarivejä dimensioille, joita ei ole vielä ladattu tai jotka on poistettu."
         },
         {
           "@type": "DefinedTerm",
@@ -1166,7 +1199,7 @@
             "@id": "https://www.datamalli.fi/termisto.html#termisto"
           },
           "alternateName": "Data Integrity",
-          "description": "Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Viite-eheys (referential integrity) tarkoittaa, että vierasavain viittaa aina olemassa olevaan pääavaimeen — faktataulussa ei voi olla dimensiorivejä, joilla ei ole vastinetta dimensiotaulussa. Normalisointi on yksi tapa ylläpitää tietoeheyttä."
+          "description": "Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Kattaa entiteettieheyden, viite-eheyden ja toimialueen eheyden. Normalisointi on yksi tapa ylläpitää tietoeheyttä."
         },
         {
           "@type": "DefinedTerm",
@@ -1200,6 +1233,17 @@
           },
           "alternateName": "aikaälyfunktiot",
           "description": "Joukko DAX-funktioita, joilla tehdään aikaan perustuvia vertailuja: kuluva vuosi tähän mennessä (YTD), edellinen vuosi, liukuva keskiarvo ja vastaavat. Toimii luotettavasti vain, kun mallissa on kunnollinen päivämäärä-dimensiotaulu, jossa on yhtenäinen päiväsarake."
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#toimialueen-eheys",
+          "name": "Toimialueen eheys",
+          "url": "https://www.datamalli.fi/termisto.html#toimialueen-eheys",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Domain Integrity",
+          "description": "Sarakkeen arvot kuuluvat sallittuun joukkoon tai vaihteluväliin. Statussarake hyväksyy vain määritellyt arvot, päivämäärä ei voi olla negatiivinen, hinta ei voi olla nolla jos tuote on myyty. Toimialueen eheyden rikkoontuminen on usein ETL-vaiheessa tapahtunut virhe, jonka Power BI voi piilottaa laskemalla väärillä arvoilla."
         },
         {
           "@type": "DefinedTerm",
@@ -1252,6 +1296,17 @@
           },
           "alternateName": "Foreign Key, FK",
           "description": "Faktataulussa sijaitseva sarake, joka viittaa dimensiotaulun pääavaimeen. Vierasavain mahdollistaa relaation taulujen välillä."
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://www.datamalli.fi/termisto.html#viite-eheys",
+          "name": "Viite-eheys",
+          "url": "https://www.datamalli.fi/termisto.html#viite-eheys",
+          "inDefinedTermSet": {
+            "@id": "https://www.datamalli.fi/termisto.html#termisto"
+          },
+          "alternateName": "Referential Integrity",
+          "description": "Faktataulun vierasavain viittaa aina olemassa olevaan pääavaimeen dimensiotaulussa. Jos vastaavaa dimensioriviä ei löydy, yhteys katkeaa ja Power BI luo automaattisen tyhjän rivin — luvut voivat vääristyä. Viite-eheys rikkoutuu tyypillisesti kun dimensiorivi poistetaan tai sen avain muuttuu ilman että faktarivejä päivitetään."
         },
         {
           "@type": "DefinedTerm",
@@ -1942,12 +1997,12 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
-    <dl class="termi" id="data-contract" data-tags="hallinta data-contract">
+    <dl class="termi" id="data-contract" data-tags="hallinta data-contract datan-laatu">
       <dt><span class="termi-nimi">Data Contract</span></dt>
       <dd class="termi-selite">Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä
         muodossa, millä laadulla ja kenen vastuulla. Toimiva paikka sopia yhteisistä käytännöistä kuten <a
           href="nimeamiskaytannot.html">nimeämiskäytännöistä</a>.</dd>
-      <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span></div>
+      <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="data-custodian" data-tags="hallinta data-governance">
@@ -2005,6 +2060,12 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
+    <dl class="termi" id="datan-laatu" data-tags="konseptit hallinta data-governance datan-laatu">
+      <dt><span class="termi-nimi">Datan laatu</span> <span class="termi-en">(Data Quality)</span></dt>
+      <dd class="termi-selite">Datan sopivuus sen käyttötarkoitukseen: täsmällisyys, täydellisyys, yhtenäisyys ja ajantasaisuus. Käytännössä laatu kattaa muun muassa <a href="#tietoeheys">tietoeheyden</a>, <a href="#entiteettieheys">entiteettieheyden</a>, <a href="#viite-eheys">viite-eheyden</a> ja <a href="#toimialueen-eheys">toimialueen eheyden</a>. Laadun ongelmat voivat johtaa vääriin raportteihin — <a href="#tyhja-rivi">tyhjät rivit</a> ja <a href="#orporivi">orporivit</a> ovat tyypillisiä merkkejä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Datan laatu</span></div>
+    </dl>
+
     <dl class="termi" id="denormalisointi" data-tags="konseptit tahtimalli dimensiot lumihiutale">
       <dt><span class="termi-nimi">Denormalisointi</span> <span class="termi-en">(Denormalization)</span></dt>
       <dd class="termi-selite">Denormalisointi toistaa tietoa useassa paikassa tarkoituksella, jotta luettavuus ja
@@ -2046,6 +2107,12 @@
         vasta sen jälkeen. Yleinen pilvipohjaisissa ratkaisuissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">ETL/ELT</span>
       </div>
+    </dl>
+
+    <dl class="termi" id="entiteettieheys" data-tags="konseptit avaimet tietomalli datan-laatu">
+      <dt><span class="termi-nimi">Entiteettieheys</span> <span class="termi-en">(Entity Integrity)</span></dt>
+      <dd class="termi-selite">Jokaisen taulun jokaisella rivillä on yksilöivä, ei-tyhjä <a href="#paaavain">pääavain</a>. Jos pääavain puuttuu tai toistuu, rivejä ei voi tunnistaa — raportti voi laskea ne useaan kertaan tai jättää kokonaan huomiotta. Entiteettieheys on edellytys sille, että <a href="#viite-eheys">viite-eheys</a> voi toimia.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">avaimet</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="etl" data-tags="prosessit arkkitehtuuri etl-elt litistaminen">
@@ -2329,12 +2396,12 @@
   <h2 id="n" class="termi-aakkos-otsikko">N</h2>
   <div class="termi-luettelo">
 
-    <dl class="termi" id="normalisointi" data-tags="konseptit tahtimalli lumihiutale">
+    <dl class="termi" id="normalisointi" data-tags="konseptit tahtimalli lumihiutale datan-laatu">
       <dt><span class="termi-nimi">Normalisointi</span> <span class="termi-en">(Normalization)</span></dt>
       <dd class="termi-selite">Tietokannan rakenteen jäsentäminen niin, että kukin tieto sijaitsee vain yhdessä
         paikassa. Vähentää toisteisuutta ja parantaa tietoeheyttä, mutta tekee kyselyistä monimutkaisempia. Ks. myös <a
           href="#denormalisointi">Denormalisointi</a>.</dd>
-      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Lumihiutalemalli</span></div>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Lumihiutalemalli</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="null" data-tags="konseptit">
@@ -2374,6 +2441,12 @@
         verkkokaupan tilausjärjestelmä. Sopii nopeisiin yksittäisiin lisäys-, päivitys- ja poisto-operaatioihin. Ks.
         myös <a href="#olap">OLAP</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span></div>
+    </dl>
+
+    <dl class="termi" id="orporivi" data-tags="konseptit tietomalli tahtimalli datan-laatu">
+      <dt><span class="termi-nimi">Orporivi</span> <span class="termi-en">(Orphan Row)</span></dt>
+      <dd class="termi-selite">Faktarivi, jonka <a href="#vierasavain">vierasavain</a> ei löydä vastinetta dimensiotaulusta. Orporivi on <a href="#viite-eheys">viite-eheyden</a> rikkoontuminen käytännössä: Power BI reagoi siihen luomalla automaattisen <a href="#tyhja-rivi">tyhjän rivin</a> dimensiotauluun. Syntyy tyypillisesti kun lähdedata sisältää faktarivejä dimensioille, joita ei ole vielä ladattu tai jotka on poistettu.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
   </div>
@@ -2714,13 +2787,10 @@
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span></div>
     </dl>
 
-    <dl class="termi" id="tietoeheys" data-tags="konseptit hallinta data-governance tahtimalli">
+    <dl class="termi" id="tietoeheys" data-tags="konseptit hallinta data-governance tahtimalli datan-laatu">
       <dt><span class="termi-nimi">Tietoeheys</span> <span class="termi-en">(Data Integrity)</span></dt>
-      <dd class="termi-selite">Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Viite-eheys (referential
-        integrity) tarkoittaa, että vierasavain viittaa aina olemassa olevaan pääavaimeen — faktataulussa ei voi olla
-        dimensiorivejä, joilla ei ole vastinetta dimensiotaulussa. <a href="#normalisointi">Normalisointi</a> on yksi
-        tapa ylläpitää tietoeheyttä.</dd>
-      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Tähtimalli</span></div>
+      <dd class="termi-selite">Datan täsmällisyys, yhtenäisyys ja sääntöjen mukaisuus. Kattaa <a href="#entiteettieheys">entiteettieheyden</a>, <a href="#viite-eheys">viite-eheyden</a> ja <a href="#toimialueen-eheys">toimialueen eheyden</a>. <a href="#normalisointi">Normalisointi</a> on yksi tapa ylläpitää tietoeheyttä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="tietoluokka" data-tags="power-bi ai-metadata">
@@ -2749,6 +2819,12 @@
       </div>
     </dl>
 
+    <dl class="termi" id="toimialueen-eheys" data-tags="konseptit hallinta tietomalli datan-laatu">
+      <dt><span class="termi-nimi">Toimialueen eheys</span> <span class="termi-en">(Domain Integrity)</span></dt>
+      <dd class="termi-selite">Sarakkeen arvot kuuluvat sallittuun joukkoon tai vaihteluväliin. Statussarake hyväksyy vain määritellyt arvot, päivämäärä ei voi olla negatiivinen, hinta ei voi olla nolla jos tuote on myyty. Toimialueen eheyden rikkoontuminen on usein ETL-vaiheessa tapahtunut virhe, jonka Power BI voi piilottaa laskemalla väärillä arvoilla.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Datan laatu</span></div>
+    </dl>
+
     <dl class="termi" id="token" data-tags="ai">
       <dt><span class="termi-nimi">Token</span></dt>
       <dd class="termi-selite">Yritysten keksimä nimi hatusta vedetyille virtuaalivaluutoille, joiden avulla
@@ -2756,13 +2832,13 @@
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
     </dl>
 
-    <dl class="termi" id="tyhja-rivi" data-tags="tietomalli power-bi dimensiot">
+    <dl class="termi" id="tyhja-rivi" data-tags="tietomalli power-bi dimensiot datan-laatu">
       <dt><span class="termi-nimi">Tyhjä rivi</span> <span class="termi-en">(Blank Row)</span></dt>
       <dd class="termi-selite">Power BI:n dimensiotauluun automaattisesti luoma rivi tilanteessa, jossa <a
           href="#faktataulu">faktataulun</a> <a href="#vierasavain">vierasavain</a> ei löydä vastinetta
         dimensiotaulusta. Tyhjä rivi on merkki <a href="#tietoeheys">tietoeheyden</a> ongelmasta, ja se voi vääristää
         raportin lukuja, jos sitä ei huomata.</dd>
-      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Dimensiot</span></div>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
   </div>
@@ -2791,6 +2867,12 @@
       <dd class="termi-selite">Faktataulussa sijaitseva sarake, joka viittaa dimensiotaulun pääavaimeen. Vierasavain
         mahdollistaa relaation taulujen välillä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="viite-eheys" data-tags="konseptit avaimet tietomalli tahtimalli datan-laatu">
+      <dt><span class="termi-nimi">Viite-eheys</span> <span class="termi-en">(Referential Integrity)</span></dt>
+      <dd class="termi-selite">Faktataulun <a href="#vierasavain">vierasavain</a> viittaa aina olemassa olevaan <a href="#paaavain">pääavaimeen</a> dimensiotaulussa. Jos vastaavaa dimensioriviä ei löydy, yhteys katkeaa ja Power BI luo automaattisen <a href="#tyhja-rivi">tyhjän rivin</a> — luvut voivat vääristyä. Viite-eheys rikkoutuu tyypillisesti kun dimensiorivi poistetaan tai sen avain muuttuu ilman että faktarivejä päivitetään.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">avaimet</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="valitaulu" data-tags="tietomalli konseptit useampi-fakta">
