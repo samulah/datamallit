@@ -5,7 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
-  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://www.datamalli.fi/apuohjelmat.html">
+  <meta name="description"
+    content="DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut käytännönläheisesti selitettynä.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Power BI Apuohjelmat">
+  <meta property="og:description"
+    content="DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut käytännönläheisesti selitettynä.">
+  <meta property="og:url" content="https://www.datamalli.fi/apuohjelmat.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Power BI Apuohjelmat",
+        "description": "DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut käytännönläheisesti selitettynä.",
+        "url": "https://www.datamalli.fi/apuohjelmat.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/apuohjelmat.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-06-11",
+        "dateModified": "2026-06-11",
+        "wordCount": 1280,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Power BI Apuohjelmat", "item": "https://www.datamalli.fi/apuohjelmat.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <title>Power BI Apuohjelmat | Datamalli.fi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +60,7 @@
     .tool-section {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 2px solid #004a99;
+      border-top: 2px solid var(--c-primary);
     }
 
     .tool-section h2 {
@@ -27,15 +69,15 @@
 
     .tool-meta {
       font-size: 0.9em;
-      color: #555;
+      color: var(--c-muted);
       margin-bottom: 16px;
     }
 
     .tool-meta span {
       display: inline-block;
       margin-right: 16px;
-      background: #eef3fa;
-      border: 1px solid #c0d0e8;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
       border-radius: 3px;
       padding: 2px 8px;
     }
@@ -43,14 +85,14 @@
     .vertipaq-sub {
       margin-top: 28px;
       padding: 18px 20px;
-      background-color: #f4f8ff;
-      border-left: 4px solid #004a99;
+      background-color: #f0f5f1;
+      border-left: 4px solid var(--c-primary);
       border-radius: 0 4px 4px 0;
     }
 
     .vertipaq-sub h3 {
       margin-top: 0;
-      color: #004a99;
+      color: var(--c-primary);
     }
 
     .comparison-table {
@@ -58,8 +100,8 @@
     }
 
     .comparison-table th {
-      background-color: #e8f0fb;
-      color: #004a99;
+      background-color: #e7efe8;
+      color: var(--c-primary);
     }
 
     .check {
@@ -74,15 +116,25 @@
 
     .tietoturva-huomio {
       margin-top: 28px;
-      padding: 18px 20px;
+      padding: 16px 20px;
       background-color: #fff8e6;
-      border-left: 4px solid #e6a817;
-      border-radius: 0 4px 4px 0;
+      border: 2px solid #D9A23B;
+      border-radius: 6px;
     }
 
     .tietoturva-huomio h3 {
       margin-top: 0;
-      color: #b07d00;
+      color: #8a6200;
+    }
+
+    .tietoturva-huomio h3::before {
+      content: "⚠️ ";
+    }
+
+    .tietoturva-huomio .fakta-laatikko {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-left-color: #D9A23B;
+      box-shadow: none;
     }
   </style>
 </head>
@@ -100,12 +152,14 @@
       <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
       <a href="kehittamisen-filosofia.html">Filosofia</a> ·
       <a href="termisto.html">Termistö</a> ·
+      <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+      <a href="apuohjelmat.html">Apuohjelmat</a> ·
       <a href="tietoa.html">Tietoa</a>
     </nav>
   </noscript>
 
   <h1>Power BI Apuohjelmat</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-11">11.6.2026</time></p>
   <p>Power BI -ekosysteemissä on useita ilmaisia ja maksullisia apuohjelmia, jotka laajentavat Power BI Desktopin
     ominaisuuksia. Organisaatiokäytössä nämä ominaisuudet ovat välttämättömiä. Sivu esittelee neljä keskeisintä: DAX
     Studio, Tabular Editor 2, ALM Toolkit ja Power BI MCP.</p>
@@ -244,7 +298,7 @@
 
     <div class="dataneuvos-opinion">
       <div class="opinion-label">Dataneuvoksen mielipide</div>
-      <p></strong><b>KÄYTÄ BEST PRACTICE ANALYZERIA JOKAISEEN RAKENTAMAASI TIETOMALLIIN.</b></strong> Tabular Editor 2:n
+      <p><strong>KÄYTÄ BEST PRACTICE ANALYZERIA JOKAISEEN RAKENTAMAASI TIETOMALLIIN.</strong> Tabular Editor 2:n
         <a href="termisto.html#bpa">Best Practice Analyzer</a> muistuttaa paljon MCP-kehitystä (Model Context Protocol).
         Kummassakin määrittelet joukon sääntöjä tai työkaluja jotka ohjaavat järjestelmän
         toimintaa automaattisesti. BPA-säännöissä sanot: <em>"jos tietomallin sarakkeella on tällainen ominaisuus,
@@ -336,7 +390,7 @@
       <span>Ilmainen</span>
       <span>Christian Wade</span>
       <span><a href="https://github.com/microsoft/Analysis-Services/releases" target="_blank"
-          rel="noopener">alm-toolkit.com</a></span>
+          rel="noopener">GitHub: microsoft/Analysis-Services</a></span>
     </div>
 
     <p>ALM Toolkit (Application Lifecycle Management Toolkit) on Christian Waden kehittämä ilmainen työkalu Power BI
@@ -351,7 +405,7 @@
           on ennen käyttöönottoa.</li>
         <li><strong>Valikoiva käyttöönotto.</strong> Valitse mitkä muutokset viedään tuotantoon, ei pakotettua
           kaikki-tai-ei-mitään -julkaisua.</li>
-          <li><strong>Päivitä vain lasuri- ja metadatamuutokset.</strong> Vältä tarpeettomat datan päivitykset siirtäessä mallia kehityksestä tuotanbtoon.</li>
+          <li><strong>Päivitä vain laskuri- ja metadatamuutokset.</strong> Vältä tarpeettomat datan päivitykset siirtäessä mallia kehityksestä tuotantoon.</li>
         <li><strong>Jaetun tietomallin päivitys.</strong> Päivitä Power BI Premium -datasetti ilman siihen kytkettyjen
           raporttien katkaisemista.</li>
         <li><strong>Git-integraatio.</strong> Tukee versionhallintaa git-pohjaisten työnkulkujen kanssa.</li>
@@ -379,7 +433,7 @@
     </div>
 
     <p>MCP (Model Context Protocol) on Anthropicin kehittämä avoin standardi, jonka avulla tekoälyassistentit, kuten
-      Clauden tai CoPilotin, kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa
+      Claude tai Copilot, kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Power BI:n ja Fabricin yhteydessä MCP antaa
       tekoälylle suoran pääsyn tietomallin rakenteeseen: se kirjoittaa DAX-kyselyitä, luo mittareita ja hakee dataa
       ilman, että kehittäjä kopioi rakennetta kontekstiin käsin.</p>
 
@@ -398,7 +452,7 @@
 
     <h3>Miten MCP eroaa perinteisestä Power BI Copilotista?</h3>
     <p>Power BI:n sisäänrakennettu Copilot toimii suljetussa ympäristössä Microsoftin oman tekoälyn kautta. MCP sen
-      sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em>, kuten Clauden tai CoPilotin
+      sijaan on avoin protokolla, joka mahdollistaa <em>minkä tahansa MCP-yhteensopivan tekoälyn</em>, kuten Clauden tai Copilotin
       yhdistämisen Power BI -malliin. Kehittäjä voi itse määritellä, mitkä toiminnot tekoälylle tarjotaan, ja yhdistää
       Power BI:n osaksi laajempaa tekoälytyönkulkua.</p>
 
@@ -459,7 +513,7 @@
         <li>Asenna <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> ja <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude Desktop</a>.</li>
         <li>Lisää seuraava konfiguraatio tiedostoon <code>%APPDATA%\Claude\claude_desktop_config.json</code>:</li>
       </ol>
-      <pre style="background:#eef3fa;padding:12px;border-radius:4px;overflow-x:auto;font-size:0.88em;"><code>{
+      <pre style="background:var(--c-bg);padding:12px;border-radius:4px;overflow-x:auto;font-size:0.88em;"><code>{
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "type": "stdio",
@@ -490,7 +544,6 @@
           <li><strong>Paikalliset tekoälymallit (Ollama tms.)</strong> – data ei poistu koneelta lainkaan. Suositeltavin vaihtoehto luottamukselliselle datalle.</li>
         </ul>
       </div>
-      <p><strong>Käytännön suositukset:</strong> Aloita <code>--readonly</code>-lipulla, joka estää tekoälyä tekemästä kirjoitusoperaatioita tietomalliin. Yritysympäristössä tarkista IT-politiikka ennen käyttöönottoa. Jos tietomalli sisältää henkilötietoja tai luottamuksellista liiketoimintadataa, selvitä ensin datan luokitus ja sallitut käsittelypaikat.</p>
     </div>
 
     <div class="dataneuvos-opinion">

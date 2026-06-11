@@ -18,6 +18,16 @@ tähtimalli normalisoitu denormalisoitu yksittäinen taulu
 dax patterns pyri aina rakentamaan tähtimalli
 tekoälyvalmis ai-pohjainen analytiikka`,
 
+'tahtimalli-esimerkit.html': `tähtimalli lumihiutalemalli viisi esimerkkiä yksiselitteinen moniselitteinen
+sama myyntiaineisto neljä eri tapaa duplikaattiavaimet relaatioketju join filtteri
+pääavain pk uniikki yksi-moneen-suhde dax yksikäsitteinen
+moni-moneen-relaatio kaksoislaskenta vääriä summia matriisiraportti
+countrows distinctcount pk-uniikkius tarkistus duplikaatit etl-vaiheessa
+tuote-hierarkia kolme taulua tuoteperhe tuotekategoria relaatioaskel filterin suunta aktiivisuus
+litistetty leveä dimensio toistuvat arvot vertipaq pakkaus filterin polku calculate
+sekasikiömalli orgaanisesti kasvanut kaksi faktaa kaksi asiakastaulua kaksi päivämäärätaulua
+fakta-fakta-yhteys vanha taulu kopio vertailu tiivistettynä`,
+
 'dimensiot.html': `dimensioiden mallinnus dimensio tähtimallin kuvaileva taulu
 kuka mitä missä milloin miten faktataulussa luvut dimensiossa konteksti
 vierasavain fk yksi-moneen-suhde perusrakenne
@@ -111,6 +121,17 @@ vertipaq pakkaa toistuvat arvot tehokkaasti litteä taulu
 flättäys tehdään lähellä lähdejärjestelmää sql etl ei power bi sisällä
 leveä taulu toistuvilla arvoilla on tarkoitus ei ongelma`,
 
+'faktataulut.html': `faktataulu tähtimallin laskennallinen ydin rivi mitattava tapahtuma
+luvut faktataulussa dimensiossa konteksti vierasavain fk kokonaisluku yksi-moneen-relaatio
+pitkä kapea miljoonia rivejä vähän sarakkeita vertipaq pakkaus
+additiivinen semi-additiivinen ei-additiivinen mittari myyntisumma kappalemäärä varastosaldo kateprosentti
+degeneraatioavain dd degenerate dimension tilausnumero laskunumero kuittinumero
+granulariteetti päätettävä ensin pelkkiä lukuja ei tekstiä varchar guid blank-rivi tuntematon-rivi
+ei laskettuja sarakkeita dax-mittari suodatinkonteksti
+kolme arkkityyppiä transaktio transaction grain kausi periodic snapshot kumulatiivinen accumulating snapshot
+tilannekuva kuukausivarastosaldo tilauksen elinkaari prosessi sama rivi päivitetään
+kardinaliteetti rle sanakirjapakkaus sarakepohjainen distinctcount ram suorituskyky kimball russo ferrari`,
+
 'header-detail.html': `header detail taulu otsikko rivitaulu
 ostotilaukset ostorivit tilaajan tiedot tilauksen numero kokonaisalennusprosentti
 tuotetason tieto tilausmäärät yksikköhinnat
@@ -184,7 +205,10 @@ aliarvostettu työkalu pakollinen premium-ympäristöissä
 power bi mcp model context protocol tekoäly ai anthropic claude fabric
 tekoälyassistentti lukee tietomallin rakenteen strukturoitu protokolla
 dax-kyselyt mittareiden luominen dokumentointi laadun tarkistaminen
-copilot vs mcp avoin protokolla suljettu ympäristö claude gpt laajennettavuus`,
+copilot vs mcp avoin protokolla suljettu ympäristö claude gpt laajennettavuus
+asennus windows vs code github copilot claude desktop npx node.js konfiguraatio mcp-palvelin
+tietoturvahuomio mitä dataa välittyy tekoälylle tietomallin rakenne dax-kaavat kyselyiden tulokset
+paikallinen pilvipalvelu anthropic eu data boundary ollama luottamuksellinen data`,
 
 'data-contract.html': `data contract sopimus datan tuottajan kuluttajan välillä
 määrittelee mitä dataa toimitetaan missä muodossa millä laadulla kenen vastuulla

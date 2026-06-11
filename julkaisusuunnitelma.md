@@ -2,7 +2,7 @@
 
 ## Sivuston nykytila (päivitetty 2026-06-07)
 
-**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (12 kpl):**
+**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (13 kpl):**
 
 | Sivu | Vaikeusaste | Huomio |
 |---|---|---|
@@ -18,6 +18,7 @@
 | kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Valmis — 4/5 kirjaa katettu, päivitetty 2026-06-05 |
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
+| apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
 
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - faktataulut.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään
@@ -31,8 +32,6 @@
 - data-vault.html
 - data-contract.html
 
-**Apuohjelmat:**
-- apuohjelmat.html — 2x Lorem ipsum (DAX Studio + VertiPaq Analyzer), ei julkaistu
 
 
 ## Julkaisuaalto-suunnitelma
@@ -45,7 +44,7 @@ Yksi julkaisu per viikko. Järjestys: helpoimmat ensin (vain viimeistely), vaike
 | 2 | Filosofia | kehittamisen-filosofia.html | Lukutarkistus + noindex poisto | 1,5 h | ✅ Valmis |
 | 3 | Header-Detail | header-detail.html | Sisällön viimeistely + kuvan tarkistus | 2 h | — |
 | 4 | Useampi fakta | useampi-fakta.html | Sisällön viimeistely + kuvien lisäys | 2,5 h | — |
-| 5 | Apuohjelmat | apuohjelmat.html | Lorem ipsum poistettava, pitkä sivu | 4 h | — |
+| 5 | Apuohjelmat | apuohjelmat.html | Julkaistu 2026-06-11 — dataneuvos-mielipiteet (DAX Studio, VertiPaq Analyzer) kirjoittamatta | 4 h | ✅ Julkaistu |
 | 6 | Data Governance | data-governance.html | Tarkistus + pituuden hallinta | 4 h | — |
 | 7 | ETL/ELT | etl-elt.html | Kirjoitettava alusta | 5 h | — |
 | 8 | Medallion | medallion.html | Kirjoitettava alusta | 5 h | — |

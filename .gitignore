@@ -1,0 +1,4 @@
+# Salaisuudet — EI saa päätyä GitHubiin
+secrets.env
+.env
+.env.*
