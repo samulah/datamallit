@@ -2,7 +2,7 @@
 
 ## Sivuston nykytila (päivitetty 2026-06-07)
 
-**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (13 kpl):**
+**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (14 kpl):**
 
 | Sivu | Vaikeusaste | Huomio |
 |---|---|---|
@@ -19,6 +19,7 @@
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
+| tahtimalli-esimerkit.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, SEO-optimointi, sisäiset linkit tahtimalli + lumihiutalemalli) — järjestys huonoimmasta parhaaseen |
 
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - faktataulut.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään
@@ -43,13 +44,14 @@ Yksi julkaisu per viikko. Järjestys: helpoimmat ensin (vain viimeistely), vaike
 | 1 | Termistö | termisto.html | Viimeistely + termien lisäys | 3 h | ✅ Valmis |
 | 2 | Filosofia | kehittamisen-filosofia.html | Lukutarkistus + noindex poisto | 1,5 h | ✅ Valmis |
 | 3 | Header-Detail | header-detail.html | Sisällön viimeistely + kuvan tarkistus | 2 h | — |
-| 4 | Useampi fakta | useampi-fakta.html | Sisällön viimeistely + kuvien lisäys | 2,5 h | — |
+| 4 | Useampi fakta | useampi-fakta.html | Sisällön viimeistely + kuvien lisäys — julkaistessa palauta linkki faktataulut.html:ään (granulariteetti-esimerkin loppuvirke, poistettu 2026-06-11) | 2,5 h | — |
 | 5 | Apuohjelmat | apuohjelmat.html | Julkaistu 2026-06-11 — dataneuvos-mielipiteet (DAX Studio, VertiPaq Analyzer) kirjoittamatta | 4 h | ✅ Julkaistu |
-| 6 | Data Governance | data-governance.html | Tarkistus + pituuden hallinta | 4 h | — |
+| 6 | Data Governance | data-governance.html | Tarkistus + pituuden hallinta — julkaistessa palauta linkki termistöön (Datan elinkaari -termi, poistettu 2026-06-11) | 4 h | — |
 | 7 | ETL/ELT | etl-elt.html | Kirjoitettava alusta | 5 h | — |
 | 8 | Medallion | medallion.html | Kirjoitettava alusta | 5 h | — |
 | 9 | Data Vault | data-vault.html | Kirjoitettava alusta | 6 h | — |
-| 10 | Data Contract | data-contract.html | Kirjoitettava alusta | 5 h | — |
+| 10 | Data Contract | data-contract.html | Kirjoitettava alusta — julkaistessa palauta linkit termistöön (Käyttötarkoituksen rajaus, Rikkova muutos ja SLA -termit, poistettu 2026-06-11) | 5 h | — |
+| 11 | Sekasikiö vs tähti | sekasikiomalli-vs-tahtimalli.html | Kirjoitettava alusta — etusivun tulossa-kortti lisätty 2026-06-11 | 4 h | — |
 
 Kokonaiskesto: 10 viikkoa, työmäärä yhteensä noin 36 tuntia.
 

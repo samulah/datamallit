@@ -10,7 +10,7 @@
 - [Taulujen litistäminen (Flattening)](https://www.datamalli.fi/litistaminen.html): Hierarkkisten taulujen yhdistäminen yhdeksi tähtimallin tauluksi ETL-vaiheessa.
 - [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
-- [Datan mallinnuksen termistö](https://www.datamalli.fi/termisto.html): Tietovarastoinnin, BI-kehittämisen ja AI-valmiin metadatan käsitteet suomeksi, englanninkielisin vastinein.
+- [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): Yli 130 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
 
 ## Tietoa
 - [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).

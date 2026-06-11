@@ -16,9 +16,11 @@ taloudelliset hyödyt suorituskyky muistikoko 16,80 gb 44,51 gb 2,65 kertaa suur
 azure analysis services 1 323 € 2 647 € 15 888 € vuosisäästöt
 tähtimalli normalisoitu denormalisoitu yksittäinen taulu
 dax patterns pyri aina rakentamaan tähtimalli
-tekoälyvalmis ai-pohjainen analytiikka`,
+tekoälyvalmis ai-pohjainen analytiikka
+avaintyypit muistikokovertailu koko nopeus arvio tähtinä`,
 
 'tahtimalli-esimerkit.html': `tähtimalli lumihiutalemalli viisi esimerkkiä yksiselitteinen moniselitteinen
+star schema snowflake schema power bi dax tietomallinnus huonoimmasta parhaaseen
 sama myyntiaineisto neljä eri tapaa duplikaattiavaimet relaatioketju join filtteri
 pääavain pk uniikki yksi-moneen-suhde dax yksikäsitteinen
 moni-moneen-relaatio kaksoislaskenta vääriä summia matriisiraportti
@@ -26,7 +28,9 @@ countrows distinctcount pk-uniikkius tarkistus duplikaatit etl-vaiheessa
 tuote-hierarkia kolme taulua tuoteperhe tuotekategoria relaatioaskel filterin suunta aktiivisuus
 litistetty leveä dimensio toistuvat arvot vertipaq pakkaus filterin polku calculate
 sekasikiömalli orgaanisesti kasvanut kaksi faktaa kaksi asiakastaulua kaksi päivämäärätaulua
-fakta-fakta-yhteys vanha taulu kopio vertailu tiivistettynä`,
+fakta-fakta-yhteys vanha taulu kopio vertailu tiivistettynä
+samat kysymykset samat tulokset samat arvot loppukäyttäjä nopein paras analytiikka self-service ai-valmius
+litistetty lumihiutalemalli on rakenteeltaan tähtimalli helppo rakentaa faktataulu keskellä dimensiot ympärillä`,
 
 'dimensiot.html': `dimensioiden mallinnus dimensio tähtimallin kuvaileva taulu
 kuka mitä missä milloin miten faktataulussa luvut dimensiossa konteksti
@@ -273,7 +277,7 @@ muistilista tarkistuslista jokaisella taululla kuvaus mittarisarake yksikkö
 koodiarvot aikavyöhyke synonyymit sertifioitu datan omistaja päivitysaikataulu
 investointi maksaa takaisin tunti kuvauksia säästää selvittelyä raportteja`,
 
-'termisto.html': `termistö datan mallinnus tietovarastointi bi-kehittäminen käsitteet
+'termisto.html': `termistö sanasto data-alan termit suomeksi tekoälytermit datan mallinnus tietovarastointi bi-kehittäminen käsitteet
 aggregaatti aggregate yhteenlaskettu koostettu arvo summa kuukausi tuoteryhmä
 attribuutti attribute dimensiotaulun kuvaileva sarake maa kategoria tiimi suodattaminen ryhmittely
 bpa best practice analyzer tabular editor tarkistaa parhaat käytännöt korjausehdotukset

@@ -32,8 +32,8 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/tahtimalli.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-07",
-        "wordCount": 600,
+        "dateModified": "2026-06-11",
+        "wordCount": 720,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
@@ -56,6 +56,14 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=4" defer></script>
+  <style>
+    .tahti-arvio {
+      font-family: var(--font-ui);
+      color: #C9A84C;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+  </style>
 </head>
 
 <body>
@@ -76,12 +84,13 @@
   </noscript>
   <h1>Tähtimalli (Star Schema)</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-07">7.6.2026</time></p>
+      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-11">11.6.2026</time></p>
 
   <p>
     Tähtimalli on vähintään kahdesta taulusta koostuva tietomalli, joka on yksi suosituimmista Power BI:ssä ja SSAS:ssä
     käytetyistä tietomallityypeistä. Tähtimalli on parhaimmillaan jopa 3 kertaa nopeampi kuin yksi litistetty taulu.
     Tähtimalli koostuu yhdestä faktataulusta ja useasta <a href="dimensiot.html">dimensiotaulusta</a>.
+    Sivulla käytetyt käsitteet löydät selitettyinä <a href="termisto.html">datan mallinnuksen termistöstä</a>.
   </p>
 
   <h2>Miten tähtimalli rakentuu ja toimii?</h2>
@@ -97,6 +106,8 @@
 
   <img src="kuvat/tahtimalli/tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä" class="zoomattava">
   <p><em>Kuva: * merkitsee vierasavainta (FK), 1 pääavainta (PK).</em></p>
+  <p>Katso myös: <a href="tahtimalli-esimerkit.html">tähtimalli ja lumihiutalemalli Power BI:ssä — viisi esimerkkiä
+      huonoimmasta parhaaseen</a>.</p>
 
   <h2>Miten pää- ja vierasavaimet toimivat tähtimallissa?</h2>
   <p>
@@ -105,6 +116,7 @@
   </p>
 
   <table>
+    <caption>Taulukko 1, Avaintyypit – Pää- ja vierasavaimen sijainti, tehtävä ja esimerkki tähtimallissa</caption>
     <thead>
       <tr>
         <th>Avain</th>
@@ -190,10 +202,14 @@
     <strong>Muistikokovertailu (<a href="https://www.sqlbi.com/articles/power-bi-star-schema-or-single-table/"
         target="_blank" rel="noopener">Russo &amp; Ferrari, 2021</a>):</strong>
     <table>
+      <caption>Taulukko 2, Muistikokovertailu – Mallityyppien muistikoko, Azure AS -kustannus sekä arvio tietomallin
+        koosta ja nopeudesta tähtinä (5 tähteä = paras)</caption>
       <thead>
         <tr>
           <th>Mallityyppi</th>
           <th>Muistikoko</th>
+          <th>Koko (arvio)</th>
+          <th>Nopeus (arvio)</th>
           <th>Azure AS -taso</th>
           <th>Azure AS -hinta / kk (2026, €)</th>
         </tr>
@@ -202,12 +218,16 @@
         <tr>
           <td>Tähtimalli (normalisoitu)</td>
           <td>16,80 GB</td>
+          <td class="tahti-arvio" title="5/5 — pienin muistikoko">★★★★★</td>
+          <td class="tahti-arvio" title="5/5 — nopein laskenta">★★★★★</td>
           <td>S1 (25 GB)</td>
           <td>1 266 €</td>
         </tr>
         <tr>
           <td>Denormalisoitu yksittäinen taulu</td>
           <td>44,51 GB</td>
+          <td class="tahti-arvio" title="2/5 — 2,65 kertaa suurempi muistikoko">★★☆☆☆</td>
+          <td class="tahti-arvio" title="2/5 — jopa 3 kertaa hitaampi">★★☆☆☆</td>
           <td>S2 (50 GB)</td>
           <td>2 532 €</td>
         </tr>

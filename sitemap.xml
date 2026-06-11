@@ -8,15 +8,15 @@
   </url>
   <url>
     <loc>https://www.datamalli.fi/tahtimalli.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/lumihiutalemalli.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/dimensiot.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/nimeamiskaytannot.html</loc>
@@ -28,11 +28,11 @@
   </url>
   <url>
     <loc>https://www.datamalli.fi/ai-valmis-metadata.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/termisto.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.datamalli.fi/tietoa.html</loc>
@@ -48,6 +48,10 @@
   </url>
   <url>
     <loc>https://www.datamalli.fi/apuohjelmat.html</loc>
+    <lastmod>2026-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.datamalli.fi/tahtimalli-esimerkit.html</loc>
     <lastmod>2026-06-11</lastmod>
   </url>
 </urlset>
