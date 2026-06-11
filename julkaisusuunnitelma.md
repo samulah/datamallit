@@ -14,7 +14,7 @@
 | nimeamiskaytannot.html | ⭐⭐ 2 | Valmis — päivitetty 2026-06-07 |
 | kehittamisen-filosofia.html | ⭐ 1 | Valmis — julkaistu 2026-06-07 (noindex poistettu, sitemap lisätty) |
 | ai-valmis-metadata.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
-| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — päivitetty 2026-06-07 |
+| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — päivitetty 2026-06-10 |
 | kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Valmis — 4/5 kirjaa katettu, päivitetty 2026-06-05 |
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
@@ -88,14 +88,13 @@ Kokonaiskesto: 10 viikkoa, työmäärä yhteensä noin 36 tuntia.
 
 ## Termistö-sivun jatkosuunnitelma
 
-Termejä on nyt 118 kpl. Lisättäväksi tulevissa aalloissa:
+Termejä on nyt 131 kpl. Lisättäväksi tulevissa aalloissa:
 
-- **Avaimet**: yhdistetty avain, alternate key, candidate key
+- **Avaimet**: yhdistetty avain, alternate key
 - **Tietomallit**: galaksimalli, big table -malli
-- **Power BI**: BPA, RLE, sanakirjastoenkoodaus, näyttökansio, perspektiivi
-- **DAX-konseptit**: filter context, row context, time intelligence
-- **Hallinta**: data lineage, data steward, data owner, GDPR
-- **Arkkitehtuuri**: Bronze/Silver/Gold (omat termit), hub, link, satellite
+- **Power BI**: näyttökansio, perspektiivi
 - **ETL/ELT**: CDC (Change Data Capture), staging, idempotenssi
+
+Aiemmista aalloista toteutettu: candidate key (ehdokasavain), BPA, RLE, sanakirjapakkaus, filter/row context, time intelligence, data lineage/steward/owner, GDPR, Bronze/Silver/Gold, hub, link, satellite — sekä 2026-06-10 lisätyt faktataulutermit (additiivisuustyypit, degeneraatioavain, arkkityypit, päivämäärädimensio).
 
 Sivu on tarkoituksellisesti yksinkertainen ja akateemisen tyylinen kuten PDF: lyhyt selite, englanninkielinen vastine sulkeissa, ei mielipidelaatikoita. Sivulla on oma haku ja tägäys (termisto-search.js).

@@ -13,11 +13,13 @@ const TERMI_TAGI_NIMET = {
   'olap':           'OLAP / OLTP',
   'ai':             'AI / tekoäly',
   'tyokalut':       'työkalut',
+  'datan-laatu':    'datan laatu',
   // Aihetägit — kertovat millä sisältösivulla termi käsitellään
   'tahtimalli':      'Tähtimalli',
   'lumihiutale':     'Lumihiutalemalli',
   'medallion':       'Medallion',
   'dimensiot':       'Dimensiot',
+  'faktataulut':     'Faktataulut',
   'litistaminen':    'Litistäminen',
   'header-detail':   'Header-Detail',
   'useampi-fakta':   'Useampi fakta',
@@ -31,9 +33,9 @@ const TERMI_TAGI_NIMET = {
 
 // Aihetägien slugit (erottuvat konseptitägeistä suodatinrivillä)
 const TERMI_AIHE_TAGIT = new Set([
-  'tahtimalli', 'lumihiutale', 'medallion', 'dimensiot', 'litistaminen',
-  'header-detail', 'useampi-fakta', 'data-vault', 'data-contract',
-  'data-governance', 'ai-metadata', 'apuohjelmat', 'etl-elt'
+  'tahtimalli', 'lumihiutale', 'medallion', 'dimensiot', 'faktataulut',
+  'litistaminen', 'header-detail', 'useampi-fakta', 'data-vault',
+  'data-contract', 'data-governance', 'ai-metadata', 'apuohjelmat', 'etl-elt'
 ]);
 
 let termiAktivoidutTagit = new Set();

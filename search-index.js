@@ -255,10 +255,10 @@ attribuutti attribute dimensiotaulun kuvaileva sarake maa kategoria tiimi suodat
 bpa best practice analyzer tabular editor tarkistaa parhaat käytännöt korjausehdotukset
 bronze medallion-arkkitehtuuri alin taso raakadata lähdejärjestelmä muokkauksia laadunvarmistusta
 copilot power bi tekoälyavustaja luonnollinen kieli semanttinen malli metadata
-dax data analysis expressions lausekekieli laskurit laskennalliset sarakkeet power bi ssas tabular
+dax data analysis expressions lausekekieli mittarit laskennalliset sarakkeet power bi ssas tabular
 datakatalog data catalog organisaation tietoaineistot omistajuus käyttötarkoitukset datakirjasto
-data contract sopimus tuottaja kuluttaja muoto laatu vastuu nimeämiskäytännöt
-data lake suuri datavarasto raakadata skeema käyttötarkoitus
+data contract datasopimus sopimus tuottaja kuluttaja muoto laatu vastuu nimeämiskäytännöt
+data lake tietoallas suuri datavarasto raakadata skeema käyttötarkoitus
 data lineage mistä data peräisin muunnettu järjestelmät virheenjäljitys vaikutusarvio
 data owner omistaja liiketoiminta vastuu oikeellisuus myyntijohtaja
 data steward hoitaja päivittäinen laatu dokumentointi välissä
@@ -276,13 +276,13 @@ gold medallion-arkkitehtuuri ylin taso liiketoimintavalmis tähtimalli aggregoit
 granulariteetti granularity rivin yksityiskohtaisuus myyntitapahtuma päivä tuote kysymykset
 header-detail-malli tilaus otsikkotiedot rivitiedot yhdistää
 hierarkia hierarchy tasorakenne vuosi kvartaali kuukausi yritys liiketoimintaryhmä kustannuspaikka
-hub data vault liiketoimintatunniste asiakasnumero tuotekoodi tunniste historia
+hub data vault liiketoimintatunniste asiakasnumero tuotekoodi tunniste satellite
 kardinaliteetti cardinality uniikkeja arvoja matala korkea vertipaq pakkaus suorituskyky
 kpi key performance indicator avainmittari liikevaihto asiakaspysyvyys konversio tavoite
 laskennallinen sarake calculated column dax rivitaso muisti tallennetaan
-laskuri measure dax laskenta konteksti summat keskiarvot
+laskuri katso mittari
 litistäminen flattening hierarkkiset dimensiotaulut leveä litteä taulu etl sql-näkymä
-lakehouse databricks delta lake data lake tietovarasto rakenne
+lakehouse databricks delta lake microsoft fabric data lake tietovarasto rakenne
 link data vault kahden hubin välinen suhde asiakas tilaus
 lumihiutalemalli snowflake schema normalisoitu useampaan tauluun vertipaq hidastuu
 luonnollinen avain natural key business key lähdejärjestelmä tunniste hakua varten
@@ -290,7 +290,7 @@ m-kieli power query funktionaalinen kieli muunnos yhdistäminen
 master data asiakkaat tuotteet toimittajat keskeinen ohjaava laatu yhtenäisyys
 medallion-arkkitehtuuri bronze silver gold jalostaminen kerroksittain
 metadata tieto datasta tekninen liiketoiminta sarakkeiden tietotyypit merkitys
-mittari katso laskuri
+mittari measure dax laskenta konteksti summat keskiarvot
 monen-moneen-suhde many-to-many suosittelemme välttämään arvaamaton dax suorituskyky välitaulu bridge table
 normalisointi normalization kukin tieto vain yhdessä paikassa toisteisuus tietoeheys
 null tyhjä arvo ei tietoa ei nolla ei tyhjä merkkijono tuntematon dax yllättävä
@@ -309,7 +309,7 @@ scd type 1 ylikirjoittaa vanhan arvon historia katoaa kirjoitusvirhe korjaus
 scd type 2 uusi rivi surrogaattiavain voimassaoloaika historia säilyy yleisin
 scd type 3 edellinen arvo erilliseen sarakkeeseen yksi historiavaihe harvinainen
 semanttinen malli semantic model power bi ssas tabular tietomalli mittarit hierarkiat metadata
-sertifiointi certification power bi palvelu virallinen luotettava datasetti
+sertifiointi certification power bi palvelu virallinen luotettava semanttinen malli
 silver medallion-arkkitehtuuri keskitaso puhdistettu validoitu duplikaatit viitteet tietotyypit
 skeema schema rakenne taulut sarakkeet suhteet tähtimalli lumihiutalemalli
 ssas sql server analysis services tabular multidimensional power bi taustateknologia
@@ -336,15 +336,15 @@ anonymisointi anonymization henkilötiedot pysyvästi tunnistamaton gdpr peruutt
 data consumer datan käyttäjä rooli raportit päätöksenteko analyytikko
 data custodian datan säilyttäjä tekninen rooli tallennus varmuuskopiointi tietoturva
 datan elinkaari data lifecycle kerääminen käsittely tallennus käyttö arkistointi hävittäminen gdpr
-dax studio dax kysely suorituskyky analyysi ajoitusdata laskuri optimointi
+dax studio dax kysely suorituskyky analyysi ajoitusdata mittari optimointi
 dbt data build tool sql muunnos versiointi testaus elt transformaatio
 dpo data protection officer tietosuojavastaava gdpr henkilötiedot lainmukaisuus
 käyttötarkoituksen rajaus purpose limitation gdpr data tarkoitus kerätty data contract
-laskentaryhmä calculation group tabular dax laskuri ytd edellinen vuosi toisto tabular editor
+laskentaryhmä calculation group tabular dax mittari ytd edellinen vuosi toisto tabular editor
 mcp model context protocol anthropic tekoälyavustaja avoin standardi työkalut integraatio
 microsoft fabric data-analytiikka alusta lakehouse tietovarasto power bi onelake delta
 ols object-level security objektitaso tietoturva taulu sarake piilotetaan rls tabular editor
-power pivot excel tietomalli vertipaq dax relaatiot laskurit tähtimalli
+power pivot excel tietomalli vertipaq dax relaatiot mittarit tähtimalli
 pseudonymisointi pseudonymization henkilötiedot pseudonyymi hash käänteistettävä gdpr
 q&a synonyymi q&a synonym vaihtoehtoinen sana mitta myynti liikevaihto revenue semanttinen malli copilot
 rikkova muutos breaking change skeema sarake poisto tietotyyppi data contract
@@ -366,7 +366,15 @@ rag retrieval augmented generation haku oma data tietokanta hallusinaatio
 skilli skill osaamispaketti ohje agentti erikoisosaaminen uudelleenkäytettävä
 spec-driven development määrittely spec tekoäly koodi dokumentaatio datasopimus
 token tokeni virtuaalivaluutta kustannukset laskutus kielimalli hinta
-vibe coding ohjelmointi luonnollinen kieli tekoäly koodi prototyyppaaminen`,
+vibe coding ohjelmointi luonnollinen kieli tekoäly koodi prototyyppaaminen
+additiivinen mittari additive measure summa kaikki dimensiot myyntisumma kappalemäärä
+semi-additiivinen mittari semi-additive measure varastosaldo tilin saldo tilannekuva aika
+ei-additiivinen mittari non-additive measure kateprosentti yksikköhinta osoittaja nimittäjä
+degeneraatioavain degenerate dimension dd tilausnumero kuittinumero faktataulu tunniste
+transaktiofakta transaction fact table tapahtuma rivi myyntirivit maksutapahtumat yleisin
+kausifakta periodic snapshot tilannekuva ajanjakso varastosaldo säännöllinen
+kumulatiivinen fakta accumulating snapshot prosessi elinkaari tilaus päivitetään
+päivämäärädimensio date dimension kalenteripäivä vuosi kuukausi time intelligence role-playing`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi
