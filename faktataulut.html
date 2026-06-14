@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="canonical" href="https://www.datamalli.fi/faktataulut.html">
+  <meta name="description"
+    content="Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Faktataulu">
+  <meta property="og:description"
+    content="Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.">
+  <meta property="og:url" content="https://www.datamalli.fi/faktataulut.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Faktataulu",
+        "description": "Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.",
+        "url": "https://www.datamalli.fi/faktataulut.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/faktataulut.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-06-09",
+        "dateModified": "2026-06-09",
+        "wordCount": 1300,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Faktataulu", "item": "https://www.datamalli.fi/faktataulut.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Faktataulu | Datamalli.fi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=4" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
+
+  <h1>Faktataulu</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
+      datetime="2026-06-09">9.6.2026</time></p>
+
+  <p>Faktataulu on <a href="tahtimalli.html">tähtimallin</a> laskennallinen ydin: jokainen rivi edustaa yhtä mitattavaa
+    tapahtumaa — myyntiä, tilausta, klikkausta tai muuta liiketoiminnan kannalta merkityksellistä tapahtumaa.
+    Faktataulussa on luvut, <a href="dimensiot.html">dimensiossa</a> konteksti. Yhteys dimensioihin kulkee
+    kokonaislukumuotoisten vierasavaimien (FK) kautta yksi-moneen-relaatiolla: yhdelle dimensioriville voi löytyä
+    tuhansia faktataulun rivejä, mutta jokaisella faktataulun rivillä on tasan yksi vastine jokaisessa dimensiossa. Tämä
+    relaatiorakenne on edellytys sille, että Power BI:n VertiPaq-moottori pystyy pakkaamaan datan tehokkaasti ja
+    laskemaan mittarit oikein.</p>
+
+  <h2>Miten faktataulu rakentuu?</h2>
+
+  <p>Hyvin rakennettu faktataulu on <strong>pitkä ja kapea</strong>: miljoonia rivejä, mutta vähän sarakkeita. Sarakkeet
+    jakautuvat vierasavaimiin ja mittareihin, ei mitään muuta. Kuvailevat attribuutit kuuluvat dimensioihin, ei
+    faktatauluun.</p>
+
+  <table>
+    <caption>Taulukko 1, Myyntifaktan rakenne – Faktataulun saraketyypit, niiden roolit ja esimerkit</caption>
+    <thead>
+      <tr>
+        <th>Osa</th>
+        <th>Rooli</th>
+        <th>Esimerkki</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Vierasavain</strong> (FK, Foreign Key)</td>
+        <td>INT-kokonaisluku joka linkittää dimension pääavaimeen (PK). Jokaista dimensiota kohti yksi FK-sarake.
+          Mahdollistaa suodattamisen ja ryhmittelyn dimension attribuuteilla.</td>
+        <td>AsiakasAvain, TuoteAvain, PvmAvain, MyyjaAvain</td>
+      </tr>
+      <tr>
+        <td><strong>Additiivinen mittari</strong> (Additive Measure)</td>
+        <td>Luku jota voi summata kaikkien dimensioiden yli — tulos on oikea riippumatta siitä, miltä kantilta katsot:
+          maittain, kuukausittain tai tuotteittain. Yksinkertaisin ja suorituskykyisin mittarityyppi.</td>
+        <td>Myyntisumma, Kappalemäärä, Kustannus</td>
+      </tr>
+      <tr>
+        <td><strong>Semi-additiivinen mittari</strong> (Semi-Additive Measure)</td>
+        <td>Voidaan summata joidenkin dimensioiden yli, muttei kaikkien. Useimmiten aika on se dimensio, jonka yli ei
+          voi summata — kyseessä on silloin tilannekuva eikä tapahtuma.</td>
+        <td>Varastosaldo, Tilin saldo, Avoimet tilaukset</td>
+      </tr>
+      <tr>
+        <td><strong>Ei-additiivinen mittari</strong> (Non-Additive Measure)</td>
+        <td>Ei voi summata minkään dimension yli. Laske aina DAX-kaavalla kontekstin mukaan. Tallenna sen sijaan
+          komponentit (osoittaja ja nimittäjä) erillisinä additiivisina mittareina.</td>
+        <td>Kateprosentti, Yksikköhinta, Konversioprosentti</td>
+      </tr>
+      <tr>
+        <td><strong>Degeneraatioavain</strong> (DD, Degenerate Dimension)</td>
+        <td>Lähdejärjestelmän tunniste jolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja. Säilytetään
+          faktataulussa hakua ja debug-työtä varten.</td>
+        <td>TilausNumero, LaskuNumero, KuittiNumero</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Mitkä ovat faktataulun parhaat käytännöt?</h2>
+
+  <div class="fakta-laatikko">
+    <strong>Faktataulun kultaiset säännöt:</strong>
+    <ol>
+      <li><strong>Granulariteetti on päätettävä ensin.</strong> Ennen yhtäkään saraketta: mitä yksi rivi edustaa?
+        Yksittäinen myyntirivi, päivätason yhteenveto vai kuukausitason aggregaatti? Granulariteetti ei saa muuttua
+        taulun sisällä — eri tarkkuuden rivit samassa taulussa johtavat vääristyneisiin laskureihin.</li>
+      <li><strong>Pelkkiä lukuja — ei tekstiä.</strong> Kaikki kuvailevat attribuutit kuuluvat dimensioihin.
+        Faktataulussa on avaimia ja mittareita, ei asiakkaan nimeä, tuotteen kuvausta eikä myyjän sähköpostia.
+        VARCHAR-sarake faktataulussa on yleensä dimensioattribuutti joka ei ole löytänyt kotiaan.</li>
+      <li><strong>Jokainen FK löytää parin.</strong> Vierasavain joka ei löydä vastaavaa dimensioriviä luo Power BI:hin
+        automaattisen "Blank"-rivin. Se näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa <a
+          href="termisto.html#etl">ETL-prosessi</a> tai käytä "tuntematon"-rivejä dimensioissa — katso <a
+          href="dimensiot.html">dimensioiden mallinnus</a>.</li>
+      <li><strong>Ei GUID- tai VARCHAR-avaimia relaatioihin.</strong> INT-surrogaattiavain pakkaantuu VertiPaqissa
+        tehokkaasti. Teksti- ja GUID-avaimet kasvattavat mallin muistikokoa merkittävästi ja hidastavat relaatioiden
+        läpikäyntiä.</li>
+      <li><strong>Faktataulu on pitkä ja kapea.</strong> Tavoite on monta riviä, vähän sarakkeita. <a
+          href="dimensiot.html">Dimensiot</a> ovat leveitä ja <a href="litistaminen.html">litistettyjä</a>, faktataulut
+        ohuita.</li>
+      <li><strong>Ei laskettuja sarakkeita faktatauluun.</strong> Kateprosentti, muutos-% ja muut johdetut luvut
+        lasketaan DAX-mittareina, ei tallenneta sarakkeiksi. Laskettu sarake vie muistia pysyvästi; DAX-mittari laskee
+        vain pyydettäessä oikeassa suodatinkontekstissa.</li>
+      <li><strong>Additiivinen mittari on paras.</strong> Suunnittele granulariteetti niin, että mahdollisimman moni
+        mittari on additiivinen. Kateprosentti ei ole additiivinen — tallenna sen sijaan Myyntisumma ja Kustannus
+        erikseen ja laske prosentti DAX:ssä. Näin summaukset toimivat automaattisesti kaikilla tasoilla.</li>
+    </ol>
+  </div>
+
+  <h2>Faktataulujen kolme arkkityyppiä</h2>
+
+  <p>Kaikki faktataulut eivät ole samanlaisia. Kimball jakaa faktataulut kolmeen perusarkkityyppiin sen
+    mukaan, mitä yksi rivi edustaa ja miten rivit syntyvät ja muuttuvat ajan myötä. Valitse arkkityyppi
+    liiketoimintatarpeen mukaan, ei teknisten preferenssien. <a
+      href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/three-types-of-fact-tables/"
+      target="_blank" rel="noopener">Kimball Groupin dimensionaalisen mallinnuksen tekniikkaoppaassa</a> käydään läpi
+    kaikki kolme tyyppiä käytännön esimerkein.</p>
+
+  <table>
+    <caption>Taulukko 2, Faktataulujen arkkityypit – Kolme perustyyppiä, niiden toimintaperiaate ja
+      käyttötilanteet</caption>
+    <thead>
+      <tr>
+        <th>Tyyppi</th>
+        <th>Toiminta</th>
+        <th>Rivimäärän kasvu</th>
+        <th>Käyttötilanne</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Transaktio</strong><br><em>Transaction grain</em></td>
+        <td>Yksi rivi per tapahtuma. Rivejä ei koskaan päivitetä — vain lisätään uusia.</td>
+        <td>Nopea: yksi rivi per tapahtuma, voi kasvaa satoihin miljooniin</td>
+        <td>Myyntirivit, tilausrivit, verkkosivuklikkaukset, maksutapahtumat</td>
+      </tr>
+      <tr>
+        <td><strong>Kausi</strong><br><em>Periodic snapshot</em></td>
+        <td>Otetaan tilannekuva säännöllisesti (päivä, viikko, kuukausi). Yksi rivi per ajanjakso per seurattava kohde.
+          Rivejä ei päivitetä — uusi ajanjakso luo uuden rivin.</td>
+        <td>Tasainen: rivimäärä = ajanjaksojen määrä × kohteiden määrä</td>
+        <td>Kuukausivarastosaldo, viikoittainen kassaennuste, kuukausittainen asiakassaldo</td>
+      </tr>
+      <tr>
+        <td><strong>Kumulatiivinen</strong><br><em>Accumulating snapshot</em></td>
+        <td>Yksi rivi per prosessi tai elinkaari. Rivejä <strong>päivitetään</strong> prosessin edetessä. Useita
+          päivämäärä-FK:ta eri vaiheille — viittaa "ei tiedossa" -riviin dimensiossa jos vaihe ei ole vielä
+          tapahtunut.</td>
+        <td>Pysyy pienenä: rivi per prosessi, ei per tapahtuma</td>
+        <td>Tilauksen elinkaari (tilaus → pakkaus → lähetys → toimitus), reklamaation käsittely, rekrytointiprosessi
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>Kumulatiivinen faktataulu käytännössä — esimerkki:</strong>
+    <p>Tilaus TIL-00421 etenee vaihe vaiheelta. Jokaiselle vaiheelle on oma päivämäärä-FK joka viittaa
+      päivämäärädimensioon. Kun vaihe ei ole vielä tapahtunut, FK saa arvon joka viittaa "Ei tiedossa" -riviin
+      dimensiossa.</p>
+    <p><strong>4.6.2026 — lähetys tapahtunut, toimitus odottaa:</strong></p>
+    <table>
+      <caption>Taulukko 3, Kumulatiivinen faktataulu (ennen toimitusta) – Rivi tilauksen tilana kun toimitus on vielä
+        kesken</caption>
+      <thead>
+        <tr>
+          <th>TilausAvain</th>
+          <th>TilausNumero (DD)</th>
+          <th>TilausPvmAvain</th>
+          <th>LahetysPvmAvain</th>
+          <th>ToimitusPvmAvain</th>
+          <th>TilauksenArvo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5001</td>
+          <td>TIL-00421</td>
+          <td>20260601</td>
+          <td>20260604</td>
+          <td>0</td>
+          <td>349,90</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>7.6.2026 — paketti toimitettu. ETL päivittää saman rivin:</strong></p>
+    <table>
+      <caption>Taulukko 4, Kumulatiivinen faktataulu (toimituksen jälkeen) – Sama rivi ETL-päivityksen jälkeen kun
+        ToimitusPvmAvain on saanut arvon</caption>
+      <thead>
+        <tr>
+          <th>TilausAvain</th>
+          <th>TilausNumero (DD)</th>
+          <th>TilausPvmAvain</th>
+          <th>LahetysPvmAvain</th>
+          <th>ToimitusPvmAvain</th>
+          <th>TilauksenArvo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5001</td>
+          <td>TIL-00421</td>
+          <td>20260601</td>
+          <td>20260604</td>
+          <td>20260607</td>
+          <td>349,90</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Uusia rivejä ei synny vaan sama rivi 5001 päivitetään. Toisin kuin transaktio- ja kausifaktoissa, joissa rivejä
+      vain lisätään.</p>
+  </div>
+
+  <h2>Miten granulariteetti vaikuttaa suorituskykyyn Power BI:ssä?</h2>
+
+  <p>Granulariteetti on faktataulun tärkein suunnittelupäätös — se määrittää sekä mitä kysymyksiä raporteissa voi
+    esittää että kuinka nopeasti VertiPaq-moottori pystyy vastaamaan. Mitä hienompi granulariteetti, sitä enemmän
+    rivejä — mutta Power BI:ssä rivimäärä ei ole merkittävin suorituskykytekijä. VertiPaq on sarakepohjainen
+    tietokanta: se pakkaa datan sarake kerrallaan RLE- ja sanakirjapakkauksella, jolloin ratkaisevaa on sarakkeiden
+    kardinaliteetti. Matala kardinaliteetti (muutama eri arvo, kuten alue tai tuotekategoria) pakkautuu tehokkaasti
+    pitkien toistosekvenssien ansiosta; korkea kardinaliteetti (uniikki arvo jokaisella rivillä, kuten tilausnumero)
+    ei pakkaudu. Perinteisessä rivipohjaisessa tietovarastossa rivimäärä on sen sijaan pääasiallinen
+    suorituskykytekijä. Power BI:ssä todelliset pullonkaulat ovat DISTINCTCOUNT-laskenta, korkean kardinaliteetin
+    sarakkeet ja RAM:n riittävyys. Mitä karkeampi granulariteetti (vähemmän yksilöiviä arvoja), sitä pienempi malli — mutta myös sitä enemmän
+    yksityiskohtia menetät. <a href="https://www.sqlbi.com/articles/granularity-in-a-data-model/" target="_blank"
+      rel="noopener">Russo &amp; Ferrari (sqlbi.com)</a> käyvät läpi granulariteetin vaikutuksen Power BI -malleihin
+    käytännön esimerkein.</p>
+
+  <table>
+    <caption>Taulukko 5, Granulariteetin vaikutus – Eri granulariteettitasojen rivimäärät, suorituskyky ja
+      käyttötilanteet</caption>
+    <thead>
+      <tr>
+        <th>Granulariteetti</th>
+        <th>Esimerkki</th>
+        <th>Rivimäärä (esim.)</th>
+        <th>Suorituskyky</th>
+        <th>Käyttötilanne</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Transaktiorivi</strong></td>
+        <td>Yksi myyntirivi</td>
+        <td>50–500 milj.</td>
+        <td>Nopea INT-avaimilla ja additiivisilla mittareilla — DISTINCTCOUNT ja VARCHAR-sarakkeet hidastavat enemmän kuin rivimäärä</td>
+        <td>Tarvitaan tilausnumeron tai yksittäisen asiakkaan tarkkuudella</td>
+      </tr>
+      <tr>
+        <td><strong>Päivätaso</strong></td>
+        <td>Myynti per tuote per päivä</td>
+        <td>1–10 milj.</td>
+        <td>Hyvä</td>
+        <td>Ei tarvita transaktiotason hakuja — vain päivittäisiä trendejä</td>
+      </tr>
+      <tr>
+        <td><strong>Kuukausitaso</strong></td>
+        <td>Myynti per tuote per kk</td>
+        <td>alle 1 milj.</td>
+        <td>Erinomainen</td>
+        <td>Vain kuukausi- tai kvartaalitason raportointi, ei päiväkohtaisia trendejä tarvita</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>Granulariteetin vaikutus malliin — esimerkki:</strong>
+    <p>Sama myyntidata kolmella eri granulariteetilla, 3 vuoden historia, 500 tuotetta, 50 000 myyntiä per päivä:</p>
+    <table>
+      <caption>Taulukko 6, Granulariteetti ja muistikoko – Sama data kolmella granulariteetilla, muistikoon ja
+        kyselymahdollisuuksien vertailu</caption>
+      <thead>
+        <tr>
+          <th>Granulariteetti</th>
+          <th>Rivimäärä</th>
+          <th>Arvioitu muistikoko</th>
+          <th>Voi hakea yksittäisen tilauksen?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transaktiorivi</td>
+          <td>~54 700 000</td>
+          <td>~800 MB – 2 GB</td>
+          <td>Kyllä</td>
+        </tr>
+        <tr>
+          <td>Päivätaso</td>
+          <td>~547 500</td>
+          <td>~10–30 MB</td>
+          <td>Ei</td>
+        </tr>
+        <tr>
+          <td>Kuukausitaso</td>
+          <td>~18 000</td>
+          <td>~1–3 MB</td>
+          <td>Ei</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Ratkaisu käytännössä:</strong> Jos tarvitset sekä transaktiotason yksityiskohtia (esim.
+      tilausnumerot) että nopeat kuukausitrendit, harkitse kahta erillistä faktataulua eri granulariteeteilla —
+      transaktiotaulu operatiiviseen käyttöön ja aggregoitu taulu johtoryhmäraportoinnille.</p>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Neljä asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
+    <ul>
+      <li><strong>Granulariteetti ensin, aina.</strong> Ennen kuin lisäät yhtään saraketta, kirjoita ylös: "Yksi rivi =
+        yksi X." Jos et pysty täyttämään tuota lausetta yksiselitteisesti on granulariteetti on epäselvä ja taulu tulee
+        olemaan ongelmana. Mallit joissa samassa faktataulussa on sekä transaktio- että päivätason rivejä eivät
+         koskaan summaudu oikein.</li>
+      <li><strong>Ei tekstiä faktatauluun.</strong> Ideaalitilanteessa Faktataulussa on vain avaimia ja lukuja.
+         Jokainen VARCHAR-sarake faktataulussa on yleensä kuvaileva attribuutti joka ei ole löytänyt kotiaan dimensioissa. 
+         Kuvailevat attribuutit kuuluvat dimensioihin. Käytännössä on kuitenkin ihan OK pitää sarakkeissa varchareja,
+         jos ne ovat degeneraatioavaimia (tilausnumerot, laskunumerot) jotka eivät muuten mahtuisi dimensioihin.
+         Hyväksy poikkeus tarpeen mukaan, mutta pidä se poikkeuksena.
+         Jokainen VARCHAR faktataulussa hidastaa mallia.
+           </li>
+      <li><strong>Optimissa faktataulussa ei ole yhtään VARCHAR-saraketta.</strong> Pelkät INT-avaimet ja numeeriset
+        mittarit: VertiPaq pakkaa ne tehokkaasti, VARCHAR ei pakkaudu lainkaan. Käytännössä poikkeuksia tulee,
+        degeneraatioavaimet (tilausnumerot, laskunumerot) voivat olla merkkijonomuotoisia jos lähdejärjestelmästä ei saa
+        kokonaislukutunnistetta. Hyväksy poikkeus tarpeen mukaan, mutta pidä se poikkeuksena. Jokainen VARCHAR
+        faktataulussa on kehitysvelkaa joka hidastaa mallia ja vaikeuttaa refaktorointia.</li>
+      <li><strong>Additiivinen mittari on liiketoiminnallinen lupaus.</strong> Se tarkoittaa että summa toimii oikein
+        riippumatta siitä miltä kantilta katsot: maasta, tuotteesta, kuukaudesta tai mistä tahansa yhdistelmästä.
+        Suunnittele granulariteetti niin, että pääkäyttötapauksen mittarit ovat additiivisia. Jos kateprosentti on
+        tärkein mittari, tallenna Myyntisumma ja Kustannus erikseen ja laske prosentti DAX:ssä. Se on ainoa oikea
+        tapa.</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
