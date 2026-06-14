@@ -41,6 +41,7 @@ class MainNavigation extends HTMLElement {
                     <a href="dimensiot.html">Dimensiot</a>
                     <a href="litistaminen.html">Litistäminen</a>
                     <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
+                    <a href="arkkitehtuurivalinta.html">Arkkitehtuurit</a>
                     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
