@@ -27,7 +27,7 @@ moni-moneen-relaatio kaksoislaskenta vääriä summia matriisiraportti
 countrows distinctcount pk-uniikkius tarkistus duplikaatit etl-vaiheessa
 tuote-hierarkia kolme taulua tuoteperhe tuotekategoria relaatioaskel filterin suunta aktiivisuus
 litistetty leveä dimensio toistuvat arvot vertipaq pakkaus filterin polku calculate
-sekasikiömalli orgaanisesti kasvanut kaksi faktaa kaksi asiakastaulua kaksi päivämäärätaulua
+sekasikiömalli jeesmies malli orgaanisesti kasvanut kaksi faktaa kaksi asiakastaulua kaksi päivämäärätaulua
 fakta-fakta-yhteys vanha taulu kopio vertailu tiivistettynä
 samat kysymykset samat tulokset samat arvot loppukäyttäjä nopein paras analytiikka self-service ai-valmius
 litistetty lumihiutalemalli on rakenteeltaan tähtimalli helppo rakentaa faktataulu keskellä dimensiot ympärillä`,
@@ -305,6 +305,7 @@ granulariteetti granularity rivin yksityiskohtaisuus myyntitapahtuma päivä tuo
 header-detail-malli tilaus otsikkotiedot rivitiedot yhdistää
 hierarkia hierarchy tasorakenne vuosi kvartaali kuukausi yritys liiketoimintaryhmä kustannuspaikka
 hub data vault liiketoimintatunniste asiakasnumero tuotekoodi tunniste satellite
+sekasikiömalli jeesmies malli tietomalli pyyntö sellaisenaan duplikaattitaulut vanhat versiot ei omistajaa
 kardinaliteetti cardinality uniikkeja arvoja matala korkea vertipaq pakkaus suorituskyky
 kpi key performance indicator avainmittari liikevaihto asiakaspysyvyys konversio tavoite
 laskennallinen sarake calculated column dax rivitaso muisti tallennetaan

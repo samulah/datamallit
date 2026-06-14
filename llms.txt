@@ -11,6 +11,7 @@
 - [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
 - [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): Yli 130 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
+- [Suositeltu kirjallisuus](https://www.datamalli.fi/kirjallisuus-suositukset.html): Parhaat kirjat datan mallinnuksen, DAX:n ja BI-kehittämisen oppimiseen perusteluineen.
 
 ## Tietoa
 - [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).

@@ -15,7 +15,7 @@
 | kehittamisen-filosofia.html | ⭐ 1 | Valmis — julkaistu 2026-06-07 (noindex poistettu, sitemap lisätty) |
 | ai-valmis-metadata.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
 | termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — päivitetty 2026-06-10 |
-| kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Valmis — 4/5 kirjaa katettu, päivitetty 2026-06-05 |
+| kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, llms.txt) — 4/5 kirjaa katettu |
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |

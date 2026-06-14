@@ -30,7 +30,7 @@
         "url": "https://www.datamalli.fi/termisto.html",
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-11",
+        "dateModified": "2026-06-12",
         "author": {
           "@type": "Person",
           "name": "Samu Lahdenperä",
@@ -506,6 +506,17 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "Data Vault -mallin keskeinen taulu, joka sisältää yksilöllisen liiketoimintatunnisteen, kuten asiakasnumeron tai tuotekoodin. Hub säilyttää vain tunnisteen — kuvailevat tiedot ja niiden historia tallennetaan satellite-tauluihin."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
+            "name": "Sekasikiömalli",
+            "url": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "jeesmies malli",
+            "description": "Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan sellaisenaan kyseenalaistamatta — jeesmiesten työn jälki. Malliin kertyy vuosien varrella duplikaattitauluja, vanhoja versioita \"varmuuden vuoksi\" ja moni-moneen-relaatioita, eikä kokonaisuudella ole omistajaa. Katso esimerkki: Tähtimalli ja lumihiutalemalli: viisi esimerkkiä."
           },
           {
             "@type": "DefinedTerm",
@@ -1917,7 +1928,7 @@
   <nav class="aakkos-leiju" aria-label="Aakkosnavigaatio"></nav>
 
   <h1>Datan mallinnuksen termistö</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-06-11">11.6.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-06-12">12.6.2026</time></p>
 
   <p>Tämä sanasto kokoaa data-alan termit suomeksi: datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen
     käsitteet sekä keskeisimmät tekoälytermit. Jokainen termi sisältää suomenkielisen selityksen ja
@@ -2800,6 +2811,16 @@
         haettavana, ja koko muutoshistoria siirretään erilliseen historiatauluun. Yhdistää <a href="#scd-type-1">tyypin
           1</a> nopeuden ja <a href="#scd-type-2">tyypin 2</a> historian. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="sekasikiomalli" data-tags="tietomalli konseptit tahtimalli">
+      <dt><span class="termi-nimi">Sekasikiömalli</span> <span class="termi-en">(jeesmies malli)</span></dt>
+      <dd class="termi-selite">Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan
+        sellaisenaan kyseenalaistamatta — jeesmiesten työn jälki. Malliin kertyy vuosien
+        varrella duplikaattitauluja, vanhoja versioita "varmuuden vuoksi" ja moni-moneen-relaatioita, eikä
+        kokonaisuudella ole omistajaa. Katso esimerkki:
+        <a href="tahtimalli-esimerkit.html#sekasikiomalli">Tähtimalli ja lumihiutalemalli: viisi esimerkkiä</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
     </dl>
 
     <dl class="termi" id="semanttinen-malli" data-tags="tietomalli power-bi ai-metadata">
