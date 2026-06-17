@@ -47,11 +47,8 @@
   }
   </script>
   <title>Taulujen litistäminen (Flattening) | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 </head>
 
@@ -79,7 +76,7 @@
     yksi taulu.</p>
 
   <h2>Litistäminen osana ETL-prosessia</h2>
-  <p>Litistäminen kannattaa tehdä tietovarastoon ETL-prosessin muunnosvaiheessa (Transform), ennen kuin data ladataan käytettäväksi.
+  <p>Litistäminen kannattaa tehdä tietovarastoon <a href="termisto.html#etl" class="termi-tip">ETL</a>-prosessin muunnosvaiheessa (Transform), ennen kuin data ladataan käytettäväksi.
      Lähdejärjestelmässä tieto on normalisoituna useampaan tauluun; ETL-vaihe yhdistää ne yhdeksi leveäksi
     dimensioksi JOIN-operaatioilla tai SQL-näkymällä.</p>
   <p>Dokumentoi data lineage: mitkä lähdetaulut yhdistyvät, millä avaimilla ja missä järjestyksessä. Tämä tieto on
@@ -118,13 +115,13 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
     <ul>
       <li><strong>Tee litistäminen lähdejärjestelmässä.</strong> Kaikki datan muunnokset tehdään ETL-vaiheessa tai
         SQL-näkymänä, ei Power BI:n sisällä.</li>
-      <li><strong>VertiPaq on optimoitu valmiille datalle.</strong> Se lukee ja pakkaa muotoiltua dataa, ei suorita
+      <li><strong><a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a> on optimoitu valmiille datalle.</strong> Se lukee ja pakkaa muotoiltua dataa, ei suorita
         muunnoksia latauksen yhteydessä. Mitä valmiimpana data saapuu, sitä nopeammin kyselyt vastaavat.</li>
     </ul>
   </div>
 
   <h2>Miksi litistäminen tehdään?</h2>
-  <p>Power BI:n VertiPaq-moottori on optimoitu tähtimallille: leveille, litteille tauluille, joissa on matala
+  <p>Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori on optimoitu tähtimallille: leveille, litteille tauluille, joissa on matala
     kardinaliteetti. Kun dimensiot ovat hajautettuna useampaan tauluun hierarkkisesti (lumihiutalemalli), syntyy
     tarpeettomia relaatioketjuja, jotka hidastavat kyselyitä ja tekevät DAX-koodaamisesta monimutkaisempaa.</p>
 
@@ -153,7 +150,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
         <tr>
           <th>Liiketoimintaryhmä</th>
           <th>RyhmaID</th>
-          <th>YritysID (FK)</th>
+          <th>YritysID (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
         </tr>
       </thead>
       <tbody>
@@ -174,7 +171,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
         <tr>
           <th>Kustannuspaikka</th>
           <th>KpID</th>
-          <th>RyhmaID (FK)</th>
+          <th>RyhmaID (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
         </tr>
       </thead>
       <tbody>

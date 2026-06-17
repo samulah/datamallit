@@ -49,13 +49,8 @@
   }
   </script>
   <title>Dimensioiden mallinnus | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
 </head>
 
 <body>
@@ -85,14 +80,14 @@
     numerosarjaa. Dimensiot toimivat 1:M relaatioiden kautta: jokaiselle faktataulun riville löytyy tasan yksi vastaava
     rivi dimensiossa, mutta yhdellä dimensiorivillä voi olla monta faktataulun riviä,esimerkiksi yksi asiakas voi
     liittyä tuhansiin myyntitapahtumiin. Tämä yksi-moneen-suhde (1:*) on <a href="tahtimalli.html">tähtimallin</a>
-    perusrakenne ja se on edellytys sille, että Power BI:n VertiPaq-moottori pystyy pakkaamaan datan tehokkaasti ja
+    perusrakenne ja se on edellytys sille, että Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy pakkaamaan datan tehokkaasti ja
     laskemaan luvut oikein. Dimensio on siis tietomallin kuvaava osa ja fakta on laskettava osa. Vieraat termit
     voit tarkistaa <a href="termisto.html">data-alan sanastosta</a>.</p>
 
   <h2>Miten dimensio rakentuu?</h2>
 
   <p>Hyvin rakennettu dimensio on <strong>leveä ja litteä</strong>: paljon kuvailevia sarakkeita, ei alatauluja. Tämä on
-    tietoista <a href="termisto.html#denormalisointi">denormalisointia</a>. Loppukäyttäjät haluavat suodattaa asiakasta
+    tietoista <a href="termisto.html#denormalisointi" class="termi-tip">denormalisointia</a>. Loppukäyttäjät haluavat suodattaa asiakasta
     maan, segmentin ja toimialan mukaan yhdestä taulusta, ei kolmesta liittyneestä taulusta. Jos data tulee
     hierarkkisena <a href="lumihiutalemalli.html">lumihiutalemallina</a>, se on hyvä yhdistää yhdeksi tauluksi ennen
     lataamista — katso <a href="litistaminen.html">taulujen litistäminen</a>.</p>
@@ -109,13 +104,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Surrogaattiavain</strong> (SK)</td>
-        <td>Dimension pääavain (PK). Aina kokonaisluku, aina järjestelmän generoima — ei koskaan lähdejärjestelmän
+        <td><a href="termisto.html#surrogaattiavain" class="termi-tip"><strong>Surrogaattiavain</strong></a> (<a href="termisto.html#surrogaattiavain" class="termi-tip">SK</a>)</td>
+        <td>Dimension pääavain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>). Aina kokonaisluku, aina järjestelmän generoima — ei koskaan lähdejärjestelmän
           avain. Mahdollistaa historian säilyttämisen.</td>
         <td>AsiakasAvain INT</td>
       </tr>
       <tr>
-        <td><strong>Luonnollinen avain</strong> (NK / Business Key)</td>
+        <td><a href="termisto.html#luonnollinen-avain" class="termi-tip"><strong>Luonnollinen avain</strong></a> (<a href="termisto.html#luonnollinen-avain" class="termi-tip">NK</a> / Business Key)</td>
         <td>Lähdejärjestelmän tunniste. Säilytetään dimensiossa hakua ja debug-työtä varten, mutta ei käytetä
           relaatioihin.</td>
         <td>AsiakasTunnus VARCHAR</td>
@@ -123,7 +118,7 @@
       <tr>
         <td><strong>Attribuutit</strong></td>
         <td>Kuvailevat sarakkeet, joilla raportissa suodatetaan, ryhmitellään ja leikataan. Matala <a
-            href="termisto.html#kardinaliteetti">kardinaliteetti</a> = nopea suorituskyky.</td>
+            href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a> = nopea suorituskyky.</td>
         <td>Maa, Kaupunki, Segmentti, Toimiala</td>
       </tr>
       <tr>
@@ -139,13 +134,13 @@
   <div class="fakta-laatikko">
     <strong>Dimension mallinnuksen kultaiset säännöt:</strong>
     <ol>
-      <li><strong>Ei tyhjiä rivejä.</strong> Jos faktataulun <a href="termisto.html#vierasavain">FK</a> ei löydä
+      <li><strong>Ei tyhjiä rivejä.</strong> Jos faktataulun <a href="termisto.html#vierasavain" class="termi-tip">FK</a> ei löydä
         vastaavaa dimensioriviä, se jää tyhjäksi. Tämä ei ole "normaali" tila, tämä on virhe. Korjaa <a
-          href="termisto.html#etl">ETL-prosessi</a> tai korvaa se erillisellä "Tuntematon"-rivillä.</li>
+          href="termisto.html#etl" class="termi-tip">ETL-prosessi</a> tai korvaa se erillisellä "Tuntematon"-rivillä.</li>
       <li><strong>Blankeille ja tuntemattomille omat rivit.</strong> Luo dimensioon rivit kuten <em>Tuntematon
           asiakas</em>, <em>Ei kohdistettavissa</em>, <em>Uusi asiakas (ei rekisteröity)</em>. Näin faktataulun jokainen
         rivi löytää parinsa ja raportit pysyvät luvultaan oikeina.</li>
-      <li><strong>Surrogaattiavain on aina kokonaisluku.</strong> VertiPaq pakkaa kolmunääripohjaisen pakkauksen myötä
+      <li><strong><a href="termisto.html#surrogaattiavain" class="termi-tip">Surrogaattiavain</a> on aina kokonaisluku.</strong> <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a> pakkaa kolmunääripohjaisen pakkauksen myötä
         INT-sarakkeet erittäin tehokkaasti. GUID- tai merkkijono-avaimet turvottavat mallia ja hidastavat laskentaa.
       </li>
       <li><strong>Yksi rivi per yksilö (nykyinen tila).</strong> Ellei käytetä SCD Type 2 -historiaa, dimensiossa on
@@ -154,7 +149,7 @@
       <li><strong>Leveä, ei syvä.</strong> Denormalisoi eli <a href="litistaminen.html">litistä</a> alataulut
         päädimensioon. AsiakasDimensio sisältää suoraan Maa, Maanosa, Alue — ei erillistä MaaDimensiota joka linkittyy
         AsiakasDimensioon.</li>
-      <li><strong>Attribuuttien kardinaliteetti matalaksi.</strong> Vältä sarakkeita, joilla on miljoonia uniikkeja
+      <li><strong>Attribuuttien <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a> matalaksi.</strong> Vältä sarakkeita, joilla on miljoonia uniikkeja
         arvoja dimensiossa. Päivämäärä-timestamp (sekunti-tarkkuus) dimensioattribuuttina tuhoaa pakkauksen ja tekee
         kaikesta hitaampaa ja huonompaa.</li>
       <li><strong>INT-tyyppiset relaatiot ovat aina nopeampia kuin muut relaatiot.</strong> Isoissa, yli miljoonan rivin
@@ -244,8 +239,8 @@
       <caption>Taulukko 3, SCD 2 – Esimerkki miltä SCD 2 muutokset näyttävät datassa</caption>
       <thead>
         <tr>
-          <th>AsiakasAvain (SK)</th>
-          <th>AsiakasTunnus (NK)</th>
+          <th>AsiakasAvain (<a href="termisto.html#surrogaattiavain" class="termi-tip">SK</a>)</th>
+          <th>AsiakasTunnus (<a href="termisto.html#luonnollinen-avain" class="termi-tip">NK</a>)</th>
           <th>Nimi</th>
           <th>Segmentti</th>
           <th>AlkuPvm</th>
@@ -281,7 +276,7 @@
 
   <h2>Miten koko ja kardinaliteetti vaikuttavat suorituskykyyn Power BI:ssä?</h2>
 
-  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet <a href="termisto.html#kardinaliteetti">kardinaliteetin</a>
+  <p>Power BI:n VertiPaq-moottori pakkaa sarakkeet <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetin</a>
     perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on
     ainoa sarake, jolla odotetaan korkea kardinaliteetti — kaikki muut attribuutit tulisi pyrkiä pitämään matalana. <a
       href="https://www.sqlbi.com/articles/power-bi-star-schema-or-single-table/" target="_blank" rel="noopener">Russo
@@ -320,7 +315,7 @@
         <td>100 000 – 1 000 000</td>
         <td>Asiakasdimensio (keskisuuri yritys)</td>
         <td>Kohtalainen</td>
-        <td>VertiPaq pakkaa edelleen hyvin jos attribuutit ovat koodeja/kategorioita. Vältä vapaamuotoisia
+        <td><a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a> pakkaa edelleen hyvin jos attribuutit ovat koodeja/kategorioita. Vältä vapaamuotoisia
           tekstisarakkeita.</td>
       </tr>
       <tr>

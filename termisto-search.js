@@ -19,7 +19,7 @@ const TERMI_TAGI_NIMET = {
   'lumihiutale':     'Lumihiutalemalli',
   'medallion':       'Medallion',
   'dimensiot':       'Dimensiot',
-  'faktataulut':     'Faktataulut',
+  'faktataulu':      'Faktataulu',
   'litistaminen':    'Litistäminen',
   'header-detail':   'Header-Detail',
   'useampi-fakta':   'Useampi fakta',
@@ -33,7 +33,7 @@ const TERMI_TAGI_NIMET = {
 
 // Aihetägien slugit (erottuvat konseptitägeistä suodatinrivillä)
 const TERMI_AIHE_TAGIT = new Set([
-  'tahtimalli', 'lumihiutale', 'medallion', 'dimensiot', 'faktataulut',
+  'tahtimalli', 'lumihiutale', 'medallion', 'dimensiot', 'faktataulu',
   'litistaminen', 'header-detail', 'useampi-fakta', 'data-vault',
   'data-contract', 'data-governance', 'ai-metadata', 'apuohjelmat', 'etl-elt'
 ]);

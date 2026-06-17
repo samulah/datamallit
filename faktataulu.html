@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex,nofollow">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
-  <link rel="canonical" href="https://www.datamalli.fi/faktataulut.html">
+  <link rel="canonical" href="https://www.datamalli.fi/faktataulu.html">
   <meta name="description"
     content="Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.">
   <meta property="og:type" content="article">
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Faktataulu">
   <meta property="og:description"
     content="Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.">
-  <meta property="og:url" content="https://www.datamalli.fi/faktataulut.html">
+  <meta property="og:url" content="https://www.datamalli.fi/faktataulu.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,8 +29,8 @@
         "@type": "TechArticle",
         "headline": "Faktataulu",
         "description": "Faktataulu on tähtimallin laskennallinen ydin. Opi faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta Power BI -tietomallia varten.",
-        "url": "https://www.datamalli.fi/faktataulut.html",
-        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/faktataulut.html" },
+        "url": "https://www.datamalli.fi/faktataulu.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/faktataulu.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-09",
         "dateModified": "2026-06-09",
@@ -43,20 +43,15 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
-          { "@type": "ListItem", "position": 2, "name": "Faktataulu", "item": "https://www.datamalli.fi/faktataulut.html" }
+          { "@type": "ListItem", "position": 2, "name": "Faktataulu", "item": "https://www.datamalli.fi/faktataulu.html" }
         ]
       }
     ]
   }
   </script>
   <title>Faktataulu | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
 </head>
 
 <body>
@@ -83,9 +78,9 @@
   <p>Faktataulu on <a href="tahtimalli.html">tähtimallin</a> laskennallinen ydin: jokainen rivi edustaa yhtä mitattavaa
     tapahtumaa — myyntiä, tilausta, klikkausta tai muuta liiketoiminnan kannalta merkityksellistä tapahtumaa.
     Faktataulussa on luvut, <a href="dimensiot.html">dimensiossa</a> konteksti. Yhteys dimensioihin kulkee
-    kokonaislukumuotoisten vierasavaimien (FK) kautta yksi-moneen-relaatiolla: yhdelle dimensioriville voi löytyä
+    kokonaislukumuotoisten vierasavaimien (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>) kautta yksi-moneen-relaatiolla: yhdelle dimensioriville voi löytyä
     tuhansia faktataulun rivejä, mutta jokaisella faktataulun rivillä on tasan yksi vastine jokaisessa dimensiossa. Tämä
-    relaatiorakenne on edellytys sille, että Power BI:n VertiPaq-moottori pystyy pakkaamaan datan tehokkaasti ja
+    relaatiorakenne on edellytys sille, että Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy pakkaamaan datan tehokkaasti ja
     laskemaan mittarit oikein.</p>
 
   <h2>Miten faktataulu rakentuu?</h2>
@@ -105,37 +100,100 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Vierasavain</strong> (FK, Foreign Key)</td>
+        <td><strong>Vierasavain</strong> (<a href="termisto.html#vierasavain" class="termi-tip">FK, Foreign Key</a>)</td>
         <td>INT-kokonaisluku joka linkittää dimension pääavaimeen (PK). Jokaista dimensiota kohti yksi FK-sarake.
           Mahdollistaa suodattamisen ja ryhmittelyn dimension attribuuteilla.</td>
         <td>AsiakasAvain, TuoteAvain, PvmAvain, MyyjaAvain</td>
       </tr>
       <tr>
-        <td><strong>Additiivinen mittari</strong> (Additive Measure)</td>
+        <td><a href="termisto.html#additiivinen-mittari" class="termi-tip"><strong>Additiivinen mittari</strong></a> (Additive Measure)</td>
         <td>Luku jota voi summata kaikkien dimensioiden yli — tulos on oikea riippumatta siitä, miltä kantilta katsot:
           maittain, kuukausittain tai tuotteittain. Yksinkertaisin ja suorituskykyisin mittarityyppi.</td>
         <td>Myyntisumma, Kappalemäärä, Kustannus</td>
       </tr>
       <tr>
-        <td><strong>Semi-additiivinen mittari</strong> (Semi-Additive Measure)</td>
+        <td><a href="termisto.html#semi-additiivinen-mittari" class="termi-tip"><strong>Semi-additiivinen mittari</strong></a> (Semi-Additive Measure)</td>
         <td>Voidaan summata joidenkin dimensioiden yli, muttei kaikkien. Useimmiten aika on se dimensio, jonka yli ei
           voi summata — kyseessä on silloin tilannekuva eikä tapahtuma.</td>
         <td>Varastosaldo, Tilin saldo, Avoimet tilaukset</td>
       </tr>
       <tr>
-        <td><strong>Ei-additiivinen mittari</strong> (Non-Additive Measure)</td>
+        <td><a href="termisto.html#ei-additiivinen-mittari" class="termi-tip"><strong>Ei-additiivinen mittari</strong></a> (Non-Additive Measure)</td>
         <td>Ei voi summata minkään dimension yli. Laske aina DAX-kaavalla kontekstin mukaan. Tallenna sen sijaan
           komponentit (osoittaja ja nimittäjä) erillisinä additiivisina mittareina.</td>
         <td>Kateprosentti, Yksikköhinta, Konversioprosentti</td>
       </tr>
       <tr>
-        <td><strong>Degeneraatioavain</strong> (DD, Degenerate Dimension)</td>
+        <td><a href="termisto.html#degeneraatioavain" class="termi-tip"><strong>Degeneraatioavain</strong></a> (DD, Degenerate Dimension)</td>
         <td>Lähdejärjestelmän tunniste jolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja. Säilytetään
           faktataulussa hakua ja debug-työtä varten.</td>
         <td>TilausNumero, LaskuNumero, KuittiNumero</td>
       </tr>
     </tbody>
   </table>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: FactMyynti — täydellinen faktataulu</strong>
+    <p>Viisi FK-saraketta, yksi degeneraatioavain ja kolme additiivista mittaria. Ei yhtään tekstisaraketta lukuun ottamatta TilausNumeroa, joka on degeneraatioavain — tilausnumerolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja, joten se jää faktatauluun.</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>FactMyynti — rakenne ja esimerkkidata. Kaikki avaimet INT, kaikki mittarit numeerisia.</caption>
+        <thead>
+          <tr>
+            <th>MyyntiAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+            <th>PvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+            <th>TuoteAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+            <th>AsiakasAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+            <th>MyymäläAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+            <th>MyyjaAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+            <th>TilausNumero (<a href="termisto.html#degeneraatioavain" class="termi-tip">DD</a>)</th>
+            <th>Myyntisumma</th>
+            <th>Kappalemäärä</th>
+            <th>Kustannus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>20260601</td>
+            <td>42</td>
+            <td>1042</td>
+            <td>7</td>
+            <td>18</td>
+            <td>ORD-5001</td>
+            <td>149,90</td>
+            <td>1</td>
+            <td>89,50</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>20260601</td>
+            <td>17</td>
+            <td>1042</td>
+            <td>7</td>
+            <td>18</td>
+            <td>ORD-5001</td>
+            <td>29,90</td>
+            <td>2</td>
+            <td>12,40</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>20260602</td>
+            <td>42</td>
+            <td>2205</td>
+            <td>3</td>
+            <td>24</td>
+            <td>ORD-5002</td>
+            <td>149,90</td>
+            <td>1</td>
+            <td>89,50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Myyntisumma, Kappalemäärä ja Kustannus ovat additiivisia — niitä voi summata minkä tahansa dimension yli ja tulos on oikein. Kateprosentti puuttuu: se ei ole additiivinen, joten se lasketaan DAX:ssä Myyntisummasta ja Kustannuksesta.</p>
+  </div>
 
   <h2>Mitkä ovat faktataulun parhaat käytännöt?</h2>
 
@@ -150,14 +208,12 @@
         VARCHAR-sarake faktataulussa on yleensä dimensioattribuutti joka ei ole löytänyt kotiaan.</li>
       <li><strong>Jokainen FK löytää parin.</strong> Vierasavain joka ei löydä vastaavaa dimensioriviä luo Power BI:hin
         automaattisen "Blank"-rivin. Se näkyy raporteissa eikä siihen voi liittää attribuutteja. Korjaa <a
-          href="termisto.html#etl">ETL-prosessi</a> tai käytä "tuntematon"-rivejä dimensioissa — katso <a
+          href="termisto.html#etl" class="termi-tip">ETL-prosessi</a> tai käytä "tuntematon"-rivejä dimensioissa — katso <a
           href="dimensiot.html">dimensioiden mallinnus</a>.</li>
-      <li><strong>Ei GUID- tai VARCHAR-avaimia relaatioihin.</strong> INT-surrogaattiavain pakkaantuu VertiPaqissa
+      <li><strong>Ei GUID- tai VARCHAR-avaimia relaatioihin.</strong> <a href="termisto.html#surrogaattiavain" class="termi-tip">INT-surrogaattiavain</a> pakkaantuu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a>
         tehokkaasti. Teksti- ja GUID-avaimet kasvattavat mallin muistikokoa merkittävästi ja hidastavat relaatioiden
         läpikäyntiä.</li>
-      <li><strong>Faktataulu on pitkä ja kapea.</strong> Tavoite on monta riviä, vähän sarakkeita. <a
-          href="dimensiot.html">Dimensiot</a> ovat leveitä ja <a href="litistaminen.html">litistettyjä</a>, faktataulut
-        ohuita.</li>
+      <li><strong>Faktataulu on ohut.</strong> <a href="dimensiot.html">Dimensiot</a> ovat leveitä ja <a href="litistaminen.html">litistettyjä</a> — faktataulu kapea.</li>
       <li><strong>Ei laskettuja sarakkeita faktatauluun.</strong> Kateprosentti, muutos-% ja muut johdetut luvut
         lasketaan DAX-mittareina, ei tallenneta sarakkeiksi. Laskettu sarake vie muistia pysyvästi; DAX-mittari laskee
         vain pyydettäessä oikeassa suodatinkontekstissa.</li>
@@ -213,69 +269,10 @@
     </tbody>
   </table>
 
-  <div class="fakta-laatikko">
-    <strong>Kumulatiivinen faktataulu käytännössä — esimerkki:</strong>
-    <p>Tilaus TIL-00421 etenee vaihe vaiheelta. Jokaiselle vaiheelle on oma päivämäärä-FK joka viittaa
-      päivämäärädimensioon. Kun vaihe ei ole vielä tapahtunut, FK saa arvon joka viittaa "Ei tiedossa" -riviin
-      dimensiossa.</p>
-    <p><strong>4.6.2026 — lähetys tapahtunut, toimitus odottaa:</strong></p>
-    <table>
-      <caption>Taulukko 3, Kumulatiivinen faktataulu (ennen toimitusta) – Rivi tilauksen tilana kun toimitus on vielä
-        kesken</caption>
-      <thead>
-        <tr>
-          <th>TilausAvain</th>
-          <th>TilausNumero (DD)</th>
-          <th>TilausPvmAvain</th>
-          <th>LahetysPvmAvain</th>
-          <th>ToimitusPvmAvain</th>
-          <th>TilauksenArvo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>5001</td>
-          <td>TIL-00421</td>
-          <td>20260601</td>
-          <td>20260604</td>
-          <td>0</td>
-          <td>349,90</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>7.6.2026 — paketti toimitettu. ETL päivittää saman rivin:</strong></p>
-    <table>
-      <caption>Taulukko 4, Kumulatiivinen faktataulu (toimituksen jälkeen) – Sama rivi ETL-päivityksen jälkeen kun
-        ToimitusPvmAvain on saanut arvon</caption>
-      <thead>
-        <tr>
-          <th>TilausAvain</th>
-          <th>TilausNumero (DD)</th>
-          <th>TilausPvmAvain</th>
-          <th>LahetysPvmAvain</th>
-          <th>ToimitusPvmAvain</th>
-          <th>TilauksenArvo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>5001</td>
-          <td>TIL-00421</td>
-          <td>20260601</td>
-          <td>20260604</td>
-          <td>20260607</td>
-          <td>349,90</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Uusia rivejä ei synny vaan sama rivi 5001 päivitetään. Toisin kuin transaktio- ja kausifaktoissa, joissa rivejä
-      vain lisätään.</p>
-  </div>
-
   <h2>Miten granulariteetti vaikuttaa suorituskykyyn Power BI:ssä?</h2>
 
   <p>Granulariteetti on faktataulun tärkein suunnittelupäätös — se määrittää sekä mitä kysymyksiä raporteissa voi
-    esittää että kuinka nopeasti VertiPaq-moottori pystyy vastaamaan. Mitä hienompi granulariteetti, sitä enemmän
+    esittää että kuinka nopeasti <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy vastaamaan. Mitä hienompi granulariteetti, sitä enemmän
     rivejä — mutta Power BI:ssä rivimäärä ei ole merkittävin suorituskykytekijä. VertiPaq on sarakepohjainen
     tietokanta: se pakkaa datan sarake kerrallaan RLE- ja sanakirjapakkauksella, jolloin ratkaisevaa on sarakkeiden
     kardinaliteetti. Matala kardinaliteetti (muutama eri arvo, kuten alue tai tuotekategoria) pakkautuu tehokkaasti
@@ -288,7 +285,7 @@
     käytännön esimerkein.</p>
 
   <table>
-    <caption>Taulukko 5, Granulariteetin vaikutus – Eri granulariteettitasojen rivimäärät, suorituskyky ja
+    <caption>Taulukko 3, Granulariteetin vaikutus – Eri granulariteettitasojen rivimäärät, suorituskyky ja
       käyttötilanteet</caption>
     <thead>
       <tr>
@@ -328,7 +325,7 @@
     <strong>Granulariteetin vaikutus malliin — esimerkki:</strong>
     <p>Sama myyntidata kolmella eri granulariteetilla, 3 vuoden historia, 500 tuotetta, 50 000 myyntiä per päivä:</p>
     <table>
-      <caption>Taulukko 6, Granulariteetti ja muistikoko – Sama data kolmella granulariteetilla, muistikoon ja
+      <caption>Taulukko 4, Granulariteetti ja muistikoko – Sama data kolmella granulariteetilla, muistikoon ja
         kyselymahdollisuuksien vertailu</caption>
       <thead>
         <tr>
@@ -364,26 +361,232 @@
       transaktiotaulu operatiiviseen käyttöön ja aggregoitu taulu johtoryhmäraportoinnille.</p>
   </div>
 
+  <h2>Vierasavainten puuttuvat viittaukset käytännössä</h2>
+
+  <p>Kultainen sääntö numero kolme sanoo: jokainen FK löytää parin. Lähdejärjestelmästä tulevassa raakadatassa
+    tämä ei aina pidä paikkansa — asiakkaita poistetaan GDPR-pyynnöistä, kassaostot kirjautuvat ilman
+    asiakastunnusta, tuotekoodit voivat vioittua siirrossa. Kun faktataulun vierasavain ei löydä vastaavaa
+    riviä dimensiosta, Power BI:n VertiPaq luo kyseiseen dimensioon automaattisen <strong>(Blank)</strong>-rivin,
+    joka kerää alleen kaikki vastineettomat faktataulun rivit. Se näkyy raporteissa tavallisen asiakasrivin tai
+    tuoterivin kaltaisena — paitsi että sen takana voi olla täysin eri syistä tulleet rivit, joita ei enää
+    pysty erittelemään.</p>
+
+  <p>Alla seurataan samaa myyntidataa
+    <a href="termisto.html#medallion-arkkitehtuuri">medallion-arkkitehtuurin</a> kolmen kerroksen läpi:
+    <a href="termisto.html#bronze">Bronze</a>,
+    <a href="termisto.html#silver">Silver</a> ja
+    <a href="termisto.html#gold">Gold</a>.</p>
+
+  <h3>Bronze: raakadata sellaisenaan</h3>
+
+  <p>Bronze-kerroksessa data ladataan lähdejärjestelmästä muuttamatta. NULL-arvot ja viittaukset poistettuihin
+    asiakkaisiin jäävät paikoilleen — Bronze ei korjaa dataa, se tallentaa sen.</p>
+
+  <table>
+    <caption>Taulukko 5, Bronze-tason myyntifakta – Raakadata lähdejärjestelmästä; NULL ja orpo FK näkyvät
+      sellaisinaan</caption>
+    <thead>
+      <tr>
+        <th>TilausNumero</th>
+        <th>AsiakasTunnus</th>
+        <th>TuoteKoodi</th>
+        <th>MyyntiPvm</th>
+        <th>Myyntisumma</th>
+        <th>FK-ongelma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ORD-5001</td>
+        <td>CUS-1042</td>
+        <td>PRD-200</td>
+        <td>2026-06-01</td>
+        <td>149,90</td>
+        <td>—</td>
+      </tr>
+      <tr class="rivi-null">
+        <td>ORD-5002</td>
+        <td><strong>NULL</strong></td>
+        <td>PRD-201</td>
+        <td>2026-06-02</td>
+        <td>89,50</td>
+        <td>Kassaosto — asiakas ei kirjautunut</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td>ORD-5003</td>
+        <td><strong>CUS-9841</strong></td>
+        <td>PRD-200</td>
+        <td>2026-06-03</td>
+        <td>199,90</td>
+        <td>Asiakas poistettu (GDPR) — ei löydy DimAsiakkaasta</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>(Blank)-ongelma käytännössä — sama raportti kahdella tavalla:</strong>
+    <p>Kun Bronze-data ladataan sellaisenaan Power BI:hin, sekä kassaosto (NULL) että poistetun asiakkaan
+      osto (orpo FK) päätyvät saman (Blank)-rivin alle eikä niitä voi enää erotella:</p>
+    <table>
+      <caption>Taulukko 6, Power BI -asiakasraportti ilman "ei tiedossa" -käsittelyä – NULL ja orpo FK
+        yhdistyvät erottamattomaksi (Blank)-riviksi</caption>
+      <thead>
+        <tr>
+          <th>Asiakas</th>
+          <th>Myynti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yritys Oy</td>
+          <td>149,90 €</td>
+        </tr>
+        <tr class="rivi-orpo">
+          <td><strong>(Blank)</strong></td>
+          <td><strong>289,40 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Gold-tasolla käsitelty data erittelee jokaisen syyn omalle rivilleen:</p>
+    <table>
+      <caption>Taulukko 7, Power BI -asiakasraportti oikealla "ei tiedossa" -käsittelyllä – Jokainen
+        tilanne omana rivinään, suodatettavissa erikseen</caption>
+      <thead>
+        <tr>
+          <th>Asiakas</th>
+          <th>Myynti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yritys Oy</td>
+          <td>149,90 €</td>
+        </tr>
+        <tr class="rivi-null">
+          <td>Anonyymi</td>
+          <td>89,50 €</td>
+        </tr>
+        <tr class="rivi-orpo">
+          <td>[Poistettu]</td>
+          <td>199,90 €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Silver: validointi ja sentinel-merkkijonot</h3>
+
+  <p>Silver-kerroksessa NULL-arvot ja orvot viittaukset standardoidaan tunnistettaviksi
+    sentinel-merkkijonoiksi (<em>_ANON_</em>, <em>_POISTETTU_</em>) ja jokainen ongelmarivi merkitään
+    tiedonlaatusarakkeeseen. Data pysyy vielä liiketoiminta-avaimissa — surrogaattiavaimia ei luoda
+    Silver-tasolla. Silver ei itsessään ratkaise (Blank)-ongelmaa, mutta se tekee Gold-muunnoksen
+    deterministiseksi: kun jokainen ongelmatyyppi on nimetty erikseen, ETL pystyy ohjaamaan ne oikeaan
+    sentinel-riviin Gold-dimensiossa.</p>
+
+  <h3>Gold: sentinel-rivit dimensioon ja surrogaattiavaimet</h3>
+
+  <p>Gold-kerroksessa jokainen dimensio saa omat sentinel-rivit ennen varsinaista dataa. DimAsiakkaaseen
+    lisätään erilliset rivit kassaostoille (Anonyymi) ja poistetuille asiakkaille ([Poistettu]) — sekä
+    yleinen "Ei tiedossa" -rivi kaikkea muuta varten. Nämä rivit saavat INT-surrogaattiavaimen aivan kuten
+    oikeatkin asiakasrivit. FactMyynti-taulussa jokainen AsiakasAvain osoittaa johonkin DimAsiakkaan riviin
+    — NULL-arvoja tai orvoja viittauksia ei enää ole.</p>
+
+  <table>
+    <caption>Taulukko 8, Gold-tason DimAsiakas – Sentinel-rivit (avaimet 0–2) varsinaisen asiakasdata
+      edellä</caption>
+    <thead>
+      <tr>
+        <th>AsiakasAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+        <th>AsiakasTunnus (<a href="termisto.html#nk" class="termi-tip">NK</a>)</th>
+        <th>AsiakasNimi</th>
+        <th>Segmentti</th>
+        <th>Sentinel-syy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="rivi-sentinel">
+        <td><strong>0</strong></td>
+        <td>_TUNTEMATON_</td>
+        <td>Ei tiedossa</td>
+        <td>—</td>
+        <td>Yleinen fallback — tuntematon ongelmatyyppi</td>
+      </tr>
+      <tr class="rivi-null">
+        <td><strong>1</strong></td>
+        <td>_ANON_</td>
+        <td>Anonyymi</td>
+        <td>Kuluttaja</td>
+        <td>Kassaosto — asiakastunnistautuminen ei tapahtunut</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td><strong>2</strong></td>
+        <td>_POISTETTU_</td>
+        <td>[Poistettu]</td>
+        <td>—</td>
+        <td>GDPR-pyyntö — historia säilyy, henkilötiedot poistettu</td>
+      </tr>
+      <tr>
+        <td>1042</td>
+        <td>CUS-1042</td>
+        <td>Yritys Oy</td>
+        <td>B2B</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>Taulukko 9, Gold-tason FactMyynti – Kaikki AsiakasAvain-arvot löytyvät DimAsiakkaasta,
+      NULL-arvoja ei ole</caption>
+    <thead>
+      <tr>
+        <th>MyyntiAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+        <th>TilausNumero (<a href="termisto.html#degeneraatioavain" class="termi-tip">DD</a>)</th>
+        <th>AsiakasAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>TuoteAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>MyyntiPvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>Myyntisumma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>ORD-5001</td>
+        <td>1042</td>
+        <td>201</td>
+        <td>20260601</td>
+        <td>149,90</td>
+      </tr>
+      <tr class="rivi-null">
+        <td>2</td>
+        <td>ORD-5002</td>
+        <td><strong>1</strong></td>
+        <td>202</td>
+        <td>20260602</td>
+        <td>89,50</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td>3</td>
+        <td>ORD-5003</td>
+        <td><strong>2</strong></td>
+        <td>201</td>
+        <td>20260603</td>
+        <td>199,90</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>ORD-5002:n AsiakasAvain on 1 (Anonyymi) ja ORD-5003:n on 2 ([Poistettu]). Molemmat löytyvät
+    DimAsiakkaasta — VertiPaq ei luo (Blank)-riviä. Raporteissa 289,40 € on nyt eritelty kahdeksi erilliseksi,
+    suodatettavaksi riviksi joilla on eri semanttinen merkitys.</p>
+
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <p>Neljä asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
     <ul>
       <li><strong>Granulariteetti ensin, aina.</strong> Ennen kuin lisäät yhtään saraketta, kirjoita ylös: "Yksi rivi =
-        yksi X." Jos et pysty täyttämään tuota lausetta yksiselitteisesti on granulariteetti on epäselvä ja taulu tulee
-        olemaan ongelmana. Mallit joissa samassa faktataulussa on sekä transaktio- että päivätason rivejä eivät
-         koskaan summaudu oikein.</li>
-      <li><strong>Ei tekstiä faktatauluun.</strong> Ideaalitilanteessa Faktataulussa on vain avaimia ja lukuja.
-         Jokainen VARCHAR-sarake faktataulussa on yleensä kuvaileva attribuutti joka ei ole löytänyt kotiaan dimensioissa. 
-         Kuvailevat attribuutit kuuluvat dimensioihin. Käytännössä on kuitenkin ihan OK pitää sarakkeissa varchareja,
-         jos ne ovat degeneraatioavaimia (tilausnumerot, laskunumerot) jotka eivät muuten mahtuisi dimensioihin.
-         Hyväksy poikkeus tarpeen mukaan, mutta pidä se poikkeuksena.
-         Jokainen VARCHAR faktataulussa hidastaa mallia.
-           </li>
-      <li><strong>Optimissa faktataulussa ei ole yhtään VARCHAR-saraketta.</strong> Pelkät INT-avaimet ja numeeriset
-        mittarit: VertiPaq pakkaa ne tehokkaasti, VARCHAR ei pakkaudu lainkaan. Käytännössä poikkeuksia tulee,
-        degeneraatioavaimet (tilausnumerot, laskunumerot) voivat olla merkkijonomuotoisia jos lähdejärjestelmästä ei saa
-        kokonaislukutunnistetta. Hyväksy poikkeus tarpeen mukaan, mutta pidä se poikkeuksena. Jokainen VARCHAR
-        faktataulussa on kehitysvelkaa joka hidastaa mallia ja vaikeuttaa refaktorointia.</li>
+        yksi X." Jos et pysty täyttämään tuota lausetta yksiselitteisesti, granulariteetti on epäselvä. Faktataulu jossa on sekä transaktio- että päivätason rivejä ei summaudu koskaan oikein.</li>
+      <li><strong>Ei tekstiä faktatauluun.</strong> Faktataulussa on avaimia ja lukuja — VertiPaq pakkaa INT-sarakkeet tehokkaasti, VARCHAR ei pakkaudu lainkaan ja on kehitysvelkaa joka hidastaa mallia. Ainoa hyväksytty poikkeus: degeneraatioavaimet (tilausnumerot, laskunumerot) voivat olla merkkijonomuotoisia jos lähdejärjestelmästä ei saa kokonaislukutunnistetta. Hyväksy poikkeus tarpeen mukaan, mutta pidä se poikkeuksena.</li>
       <li><strong>Additiivinen mittari on liiketoiminnallinen lupaus.</strong> Se tarkoittaa että summa toimii oikein
         riippumatta siitä miltä kantilta katsot: maasta, tuotteesta, kuukaudesta tai mistä tahansa yhdistelmästä.
         Suunnittele granulariteetti niin, että pääkäyttötapauksen mittarit ovat additiivisia. Jos kateprosentti on

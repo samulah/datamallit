@@ -125,7 +125,7 @@ vertipaq pakkaa toistuvat arvot tehokkaasti litteä taulu
 flättäys tehdään lähellä lähdejärjestelmää sql etl ei power bi sisällä
 leveä taulu toistuvilla arvoilla on tarkoitus ei ongelma`,
 
-'faktataulut.html': `faktataulu tähtimallin laskennallinen ydin rivi mitattava tapahtuma
+'faktataulu.html': `faktataulu tähtimallin laskennallinen ydin rivi mitattava tapahtuma
 luvut faktataulussa dimensiossa konteksti vierasavain fk kokonaisluku yksi-moneen-relaatio
 pitkä kapea miljoonia rivejä vähän sarakkeita vertipaq pakkaus
 additiivinen semi-additiivinen ei-additiivinen mittari myyntisumma kappalemäärä varastosaldo kateprosentti

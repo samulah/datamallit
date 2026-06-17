@@ -38,10 +38,10 @@ class MainNavigation extends HTMLElement {
                 </div>
                 <div class="nav-links">
                     <a href="tahtimalli.html">Tähtimalli</a>
+                    <a href="faktataulu.html">Faktataulu</a>
                     <a href="dimensiot.html">Dimensiot</a>
                     <a href="litistaminen.html">Litistäminen</a>
                     <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
-                    <a href="arkkitehtuurivalinta.html">Arkkitehtuurit</a>
                     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
@@ -176,3 +176,105 @@ document.addEventListener('DOMContentLoaded', () => {
     h1.insertAdjacentElement('afterend', tag);
   }
 });
+
+// Termi-tooltip: näyttää lyhyen termistöselitteen kun hiiri on a.termi-tip-linkin päällä
+(function () {
+  const TERMIT = {
+    'vierasavain':               { fi: 'Vierasavain (FK)',            en: 'Foreign Key',           selite: 'Faktataulussa sijaitseva sarake, joka viittaa dimensiotaulun pääavaimeen. Mahdollistaa relaation taulujen välillä.' },
+    'paaavain':                  { fi: 'Pääavain (PK)',               en: 'Primary Key',            selite: 'Sarake tai sarakeyhdistelmä, joka yksilöi jokaisen taulun rivin ainutlaatuisesti. Ei saa sisältää tyhjiä arvoja.' },
+    'degeneraatioavain':         { fi: 'Degeneraatioavain (DD)',       en: 'Degenerate Dimension',   selite: 'Lähdejärjestelmän tunniste faktataulussa ilman omaa dimensiotaulua. Hyödyllinen hakua ja virheiden jäljitystä varten.' },
+    'surrogaattiavain':          { fi: 'Surrogaattiavain (SK)',        en: 'Surrogate Key',          selite: 'Järjestelmän itse generoima kokonaislukuavain, joka korvaa lähdejärjestelmän luonnollisen avaimen relaatioissa. Pakkautuu VertiPaqissa erinomaisesti.' },
+    'additiivinen-mittari':      { fi: 'Additiivinen mittari',         en: 'Additive Measure',       selite: 'Mittari jonka voi summata kaikkien dimensioiden yli — tulos on oikea maittain, kuukausittain ja tuotteittain.' },
+    'semi-additiivinen-mittari': { fi: 'Semi-additiivinen mittari',    en: 'Semi-Additive Measure',  selite: 'Voidaan summata joidenkin dimensioiden yli, muttei kaikkien. Aika on usein se dimensio jonka yli ei voi summata.' },
+    'ei-additiivinen-mittari':   { fi: 'Ei-additiivinen mittari',      en: 'Non-Additive Measure',   selite: 'Ei voi summata minkään dimension yli. Laske aina DAX-kaavalla kontekstin mukaan.' },
+    'granulariteetti':           { fi: 'Granulariteetti',              en: 'Granularity',            selite: 'Faktataulun rivin yksityiskohtaisuuden taso — mitä yksi rivi edustaa. Määrää mihin kysymyksiin malli pystyy vastaamaan.' },
+    'scd':                       { fi: 'SCD',                          en: 'Slowly Changing Dimension', selite: 'Dimension muutostenkäsittelytapa. Tyyppi 2 säilyttää historian luomalla uuden rivin vanhalle arvolle.' },
+    'vertipaq':                  { fi: 'VertiPaq',                     en: 'VertiPaq',               selite: 'Power BI:n muistimoottori. Pakkaa datan sarake kerrallaan — matala kardinaliteetti pakkautuu parhaiten.' },
+    'etl':                       { fi: 'ETL',                          en: 'Extract, Transform, Load', selite: 'Prosessi jossa data poimitaan lähdejärjestelmästä, muunnetaan ja ladataan kohdetietokantaan.' },
+    'medallion-arkkitehtuuri':   { fi: 'Medallion-arkkitehtuuri',      en: 'Medallion Architecture', selite: 'Kolmikerroksinen arkkitehtuuri: Bronze (raakadata), Silver (puhdistettu) ja Gold (raportoinnille valmis).' },
+    'kardinaliteetti':           { fi: 'Kardinaliteetti',               en: 'Cardinality',            selite: 'Sarakkeen uniikkien arvojen määrä. Matala kardinaliteetti (esim. alue) pakkautuu VertiPaqissa tehokkaasti; korkea kardinaliteetti (esim. tilausnumero) ei pakkaudu.' },
+    'luonnollinen-avain':        { fi: 'Luonnollinen avain (NK)',        en: 'Natural Key / Business Key', selite: 'Lähdejärjestelmän alkuperäinen avain, joka yksilöi kohteen liiketoimintakontekstissa. Säilytetään dimensiossa hakua varten, mutta relaatioihin käytetään surrogaattiavainta.' },
+    'normalisointi':             { fi: 'Normalisointi',                  en: 'Normalization',              selite: 'Tietokannan rakenteen jäsentäminen niin, että kukin tieto sijaitsee vain yhdessä paikassa. Vähentää toisteisuutta ja parantaa tietoeheyttä, mutta tekee kyselyistä monimutkaisempia.' },
+    'denormalisointi':           { fi: 'Denormalisointi',                en: 'Denormalization',            selite: 'Toistaa tietoa useassa paikassa tarkoituksella, jotta luettavuus ja suorituskyky paranevat. Tähtimallin dimensiot ovat tyypillisesti denormalisoituja.' },
+    'bronze':                    { fi: 'Bronze',                         en: 'Bronze layer',               selite: 'Medallion-arkkitehtuurin alin taso. Säilyttää datan täsmälleen sellaisenaan kuin se tulee lähdejärjestelmästä, ilman muokkauksia tai laadunvarmistusta.' },
+    'silver':                    { fi: 'Silver',                         en: 'Silver layer',               selite: 'Medallion-arkkitehtuurin keskitaso. Raakadata on puhdistettu ja validoitu: duplikaatit poistettu, viitteet tarkistettu, tietotyypit korjattu. Välitaso Bronzen ja Goldin välillä.' },
+    'gold':                      { fi: 'Gold',                           en: 'Gold layer',                 selite: 'Medallion-arkkitehtuurin ylin taso. Data on jalostettu liiketoiminnan käyttöön valmiiksi tähtimalliksi tai aggregoiduksi datasetiksi, suoraan raporttien käyttöön.' },
+    'nk':                        { fi: 'NK (Natural Key)',               en: 'Natural Key / Business Key', selite: 'Lähdejärjestelmästä tuleva tunniste kuten asiakasnumero tai tuotekoodi. Säilytetään dimensiossa hakua varten, mutta relaatioihin käytetään surrogaattiavainta (SK).' },
+    'sk':                        { fi: 'SK (Surrogate Key)',             en: 'Surrogate Key',              selite: 'Järjestelmän generoima kokonaislukutunniste joka korvaa luonnollisen avaimen relaatioissa. Dimensiotaulun pääavain. Pakkautuu VertiPaqissa optimaalisesti.' },
+    'identity':                  { fi: 'IDENTITY',                       en: 'Auto-increment / Serial',    selite: 'SQL Serverin ominaisuus joka generoi automaattisesti nousevan kokonaisluvun uudelle riville. IDENTITY(1,1) = lähtöarvo 1, askel 1. Ensimmäinen rivi saa arvon 1, toinen 2, kolmas 3 — automaattisesti.' },
+    'dbt':                       { fi: 'dbt (data build tool)',          en: 'data build tool',            selite: 'Avoimen lähdekoodin työkalu tietovaraston muunnoslogiikan hallintaan SQL-malleina. Hoitaa inkrementaaliset lataukset, SCD-historia (snapshots) ja mallien väliset riippuvuudet automaattisesti.' },
+  };
+
+  const css = document.createElement('style');
+  css.textContent = `
+    a.termi-tip {
+      color: inherit;
+      text-decoration: underline dotted;
+      text-decoration-color: var(--c-primary, #1e3a5f);
+      text-underline-offset: 3px;
+      cursor: help;
+    }
+    #termi-tooltip {
+      position: fixed;
+      z-index: 9999;
+      width: 270px;
+      background: #fff;
+      border: 1px solid #c8d8ec;
+      border-radius: 7px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      padding: 11px 14px 9px;
+      font-size: 0.82em;
+      line-height: 1.45;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .1s;
+      font-family: inherit;
+    }
+    #termi-tooltip.nakyvilla { opacity: 1; }
+    #termi-tooltip .tt-nimi   { font-weight: 600; color: #1e3a5f; display: block; margin-bottom: 2px; }
+    #termi-tooltip .tt-en     { color: #888; font-style: italic; font-size: 0.9em; display: block; margin-bottom: 6px; }
+    #termi-tooltip .tt-selite { color: #333; display: block; }
+    #termi-tooltip .tt-lue    { display: block; margin-top: 7px; color: #1e3a5f; font-size: 0.88em; border-top: 1px solid #e8eef6; padding-top: 6px; }
+  `;
+  document.head.appendChild(css);
+
+  const tip = document.createElement('div');
+  tip.id = 'termi-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  document.body.appendChild(tip);
+
+  let hideTimer = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a.termi-tip[href*="termisto.html#"]').forEach(el => {
+      const ankkuri = el.getAttribute('href').split('#')[1];
+      const termi = TERMIT[ankkuri];
+      if (!termi) return;
+
+      el.addEventListener('mouseenter', e => {
+        clearTimeout(hideTimer);
+        tip.innerHTML =
+          `<span class="tt-nimi">${termi.fi}</span>` +
+          `<span class="tt-en">${termi.en}</span>` +
+          `<span class="tt-selite">${termi.selite}</span>` +
+          `<span class="tt-lue">→ Termistöön</span>`;
+        sijoitaTip(e);
+        tip.classList.add('nakyvilla');
+      });
+      el.addEventListener('mousemove', sijoitaTip);
+      el.addEventListener('mouseleave', () => {
+        hideTimer = setTimeout(() => tip.classList.remove('nakyvilla'), 80);
+      });
+    });
+  });
+
+  function sijoitaTip(e) {
+    const pad = 14, tw = 270, th = tip.offsetHeight || 110;
+    let x = e.clientX + pad;
+    let y = e.clientY - th - pad;
+    if (x + tw > window.innerWidth - pad) x = e.clientX - tw - pad;
+    if (y < pad) y = e.clientY + pad;
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+  }
+})();

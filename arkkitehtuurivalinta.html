@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/arkkitehtuurivalinta.html">
-  <meta name="description" content="Milloin käyttää tähtimallia, lumihiutalemallia, Data Vaultia, Data Meshia, ETL:ää tai ELT:tä? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.">
+  <meta name="description" content="Milloin käyttää tähtimallia, lumihiutalemallia, One Big Tablea, 3NF:ää, Data Vaultia, Medallion-arkkitehtuuria tai Data Meshia? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Milloin käyttää mitäkin mallia – arkkitehtuurivalinta">
-  <meta property="og:description" content="Milloin käyttää tähtimallia, lumihiutalemallia, Data Vaultia, Data Meshia, ETL:ää tai ELT:tä? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.">
+  <meta property="og:description" content="Milloin käyttää tähtimallia, lumihiutalemallia, One Big Tablea, 3NF:ää, Data Vaultia, Medallion-arkkitehtuuria tai Data Meshia? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.">
   <meta property="og:url" content="https://www.datamalli.fi/arkkitehtuurivalinta.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -24,13 +24,13 @@
       {
         "@type": "TechArticle",
         "headline": "Milloin käyttää mitäkin mallia – arkkitehtuurivalinta",
-        "description": "Milloin käyttää tähtimallia, lumihiutalemallia, Data Vaultia, Data Meshia, ETL:ää tai ELT:tä? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.",
+        "description": "Milloin käyttää tähtimallia, lumihiutalemallia, One Big Tablea, 3NF:ää, Data Vaultia, Medallion-arkkitehtuuria tai Data Meshia? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.",
         "url": "https://www.datamalli.fi/arkkitehtuurivalinta.html",
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/arkkitehtuurivalinta.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-14",
         "dateModified": "2026-06-14",
-        "wordCount": 1400,
+        "wordCount": 2200,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
@@ -46,11 +46,8 @@
   }
   </script>
   <title>Milloin käyttää mitäkin mallia | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
@@ -74,54 +71,72 @@
 <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-14">14.6.2026</time></p>
 
 <p>
-  Tähtimalli, lumihiutalemalli, Data Vault, Data Mesh, ETL ja ELT ovat ratkaisuja eri ongelmiin.
-  Valinta riippuu siitä, mitä halutaan rakentaa, miten iso organisaatio on ja mihin kerrokseen
-  arkkitehtuuria rakennetaan. Väärä valinta ei kaada projektia, mutta se tekee kehityksestä hitaampaa
-  ja ylläpidosta hankalampaa.
+  Tietoarkkitehtuureja on useita, ja ne ratkaisevat eri ongelmia. Valinta riippuu siitä,
+  mitä halutaan rakentaa, miten iso organisaatio on ja mihin kerrokseen arkkitehtuuria rakennetaan.
+  Väärä valinta ei kaada projektia, mutta se tekee kehityksestä hitaampaa ja ylläpidosta hankalampaa.
 </p>
 <p>
-  Huomio: <strong>ETL ja ELT ovat datan siirtotapoja</strong> (pipeline-lähestymistapoja), eivät tietomalleja.
-  Tähtimalli, lumihiutalemalli, Data Vault ja Data Mesh ovat tapoja mallintaa ja organisoida data.
-  Käytännössä nämä kulkevat käsi kädessä: ELT:llä siirretty data varastoidaan Data Vaultiin tai tähtimalliin.
+  Tällä sivulla käsitellään <strong>tietoarkkitehtuureja</strong> — tapoja mallintaa ja organisoida data.
+  ETL ja ELT ovat datan siirtotapoja, jotka käsitellään <a href="etl-elt.html">omalla sivullaan</a>.
 </p>
 
 <h2>Soveltuvuus käyttötilanteisiin</h2>
 
 <div style="overflow-x: auto; margin-bottom: 8px;">
-  <table>
-    <caption>Taulukko 1. Lähestymistapojen soveltuvuus eri käyttötilanteisiin</caption>
+  <table style="font-size: 0.87em;">
+    <caption>Taulukko 1. Arkkitehtuurien soveltuvuus eri käyttötilanteisiin</caption>
     <thead>
       <tr>
-        <th>Lähestymistapa</th>
-        <th>Power BI / BI-raportointi</th>
-        <th>Tietovarasto (DWH)</th>
-        <th>Historianseuranta</th>
-        <th>Monta lähdejärjestelmää</th>
-        <th>Raakadatan säilytys</th>
+        <th>Arkkitehtuuri</th>
+        <th>BI&#8209;raportointi</th>
+        <th>Tietovarasto</th>
+        <th>Historia&shy;seuranta</th>
+        <th>Monta lähdettä</th>
+        <th>Raakadata</th>
         <th>Pieni tiimi</th>
-        <th>Suuri enterprise</th>
+        <th>Enterprise</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <th>One Big Table</th>
+        <td>✅ Yksinkertainen</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>❌ Haastava</td>
+        <td>❌</td>
+        <td>✅ Ihanteellinen</td>
+        <td>❌</td>
+      </tr>
+      <tr>
         <th><a href="tahtimalli.html">Tähtimalli</a></th>
         <td>✅ Erinomainen</td>
-        <td>⚠️ Analytiikkakerros, ei staging</td>
-        <td>⚠️ Vaatii SCD:n</td>
+        <td>⚠️ Analytiikkakerros</td>
+        <td>⚠️ SCD vaaditaan</td>
         <td>⚠️ Haastava</td>
-        <td>❌ Ei sovellu</td>
-        <td>✅ Ihanteellinen</td>
-        <td>✅ Kyllä</td>
+        <td>❌</td>
+        <td>✅</td>
+        <td>✅</td>
       </tr>
       <tr>
         <th><a href="lumihiutalemalli.html">Lumihiutalemalli</a></th>
-        <td>❌ Ei suositella suoraan</td>
-        <td>✅ Hyvä staging/DWH</td>
-        <td>⚠️ Vaatii SCD:n</td>
+        <td>❌ Ei suoraan</td>
+        <td>✅ Hyvä</td>
+        <td>⚠️ SCD vaaditaan</td>
         <td>⚠️ Haastava</td>
-        <td>❌ Ei sovellu</td>
-        <td>✅ Kyllä</td>
-        <td>✅ Kyllä</td>
+        <td>❌</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <th>3NF</th>
+        <td>⚠️ Vaatii data martin</td>
+        <td>✅ Erinomainen</td>
+        <td>⚠️ Vaatii suunnittelua</td>
+        <td>✅ Hyvä</td>
+        <td>❌</td>
+        <td>❌ Raskas rakentaa</td>
+        <td>✅</td>
       </tr>
       <tr>
         <th><a href="data-vault.html">Data Vault</a></th>
@@ -134,34 +149,24 @@
         <td>✅ Erinomainen</td>
       </tr>
       <tr>
+        <th>Medallion</th>
+        <td>✅ Gold-kerros</td>
+        <td>✅ Kaikki kerrokset</td>
+        <td>✅ Bronze säilyttää</td>
+        <td>✅ Erinomainen</td>
+        <td>✅ Bronze-kerros</td>
+        <td>✅</td>
+        <td>✅</td>
+      </tr>
+      <tr>
         <th>Data Mesh</th>
         <td>⚠️ Riippuu toteutuksesta</td>
-        <td>⚠️ Hajautettu DWH</td>
-        <td>⚠️ Vaihtelee domaineittain</td>
+        <td>⚠️ Hajautettu</td>
+        <td>⚠️ Vaihtelee</td>
         <td>✅ Erinomainen</td>
         <td>⚠️ Vaihtelee</td>
-        <td>❌ Ei sovellu</td>
+        <td>❌</td>
         <td>✅ Erinomainen</td>
-      </tr>
-      <tr>
-        <th><a href="etl-elt.html">ETL</a></th>
-        <td>✅ Kyllä</td>
-        <td>✅ Perinteinen valinta</td>
-        <td>⚠️ Vaatii suunnittelua</td>
-        <td>✅ Kyllä</td>
-        <td>❌ Hylkää raakadatan</td>
-        <td>✅ Kyllä</td>
-        <td>✅ Kyllä</td>
-      </tr>
-      <tr>
-        <th><a href="etl-elt.html">ELT</a></th>
-        <td>✅ Kyllä</td>
-        <td>✅ Moderni valinta</td>
-        <td>⚠️ Vaatii suunnittelua</td>
-        <td>✅ Kyllä</td>
-        <td>✅ Säilyttää raakadatan</td>
-        <td>✅ Kyllä pilviympäristöissä</td>
-        <td>✅ Kyllä</td>
       </tr>
     </tbody>
   </table>
@@ -170,19 +175,27 @@
 <h2>Tekniset ominaisuudet</h2>
 
 <div style="overflow-x: auto; margin-bottom: 8px;">
-  <table>
-    <caption>Taulukko 2. Lähestymistapojen tekniset ominaisuudet</caption>
+  <table style="font-size: 0.87em;">
+    <caption>Taulukko 2. Arkkitehtuurien tekniset ominaisuudet</caption>
     <thead>
       <tr>
-        <th>Lähestymistapa</th>
+        <th>Arkkitehtuuri</th>
         <th>Monimutkaisuus</th>
-        <th>Kyselysuorituskyky ¹</th>
-        <th>Auditointikyky</th>
+        <th>Kysely&shy;suorituskyky ¹</th>
+        <th>Auditointi&shy;kyky</th>
         <th>Skaalautuvuus</th>
-        <th>Oppimiskynnys</th>
+        <th>Oppimis&shy;kynnys</th>
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <th>One Big Table</th>
+        <td>Erittäin matala</td>
+        <td>Hyvä</td>
+        <td>Heikko</td>
+        <td>Heikko</td>
+        <td>Erittäin matala</td>
+      </tr>
       <tr>
         <th><a href="tahtimalli.html">Tähtimalli</a></th>
         <td>Matala</td>
@@ -200,12 +213,28 @@
         <td>Matala–keski</td>
       </tr>
       <tr>
+        <th>3NF</th>
+        <td>Keski–korkea</td>
+        <td>Heikko ²</td>
+        <td>Hyvä</td>
+        <td>Hyvä</td>
+        <td>Keski</td>
+      </tr>
+      <tr>
         <th><a href="data-vault.html">Data Vault</a></th>
         <td>Korkea</td>
-        <td>Heikko suoraan ²</td>
+        <td>Heikko suoraan ³</td>
         <td>Erinomainen</td>
         <td>Erinomainen</td>
         <td>Korkea</td>
+      </tr>
+      <tr>
+        <th>Medallion</th>
+        <td>Matala–keski</td>
+        <td>Hyvä ⁴</td>
+        <td>Hyvä</td>
+        <td>Erinomainen</td>
+        <td>Matala</td>
       </tr>
       <tr>
         <th>Data Mesh</th>
@@ -215,31 +244,53 @@
         <td>Erinomainen</td>
         <td>Erittäin korkea</td>
       </tr>
-      <tr>
-        <th><a href="etl-elt.html">ETL</a></th>
-        <td>Matala–keski</td>
-        <td>— ³</td>
-        <td>Hyvä</td>
-        <td>Hyvä</td>
-        <td>Matala–keski</td>
-      </tr>
-      <tr>
-        <th><a href="etl-elt.html">ELT</a></th>
-        <td>Matala–keski</td>
-        <td>— ³</td>
-        <td>Hyvä</td>
-        <td>Erinomainen</td>
-        <td>Matala–keski</td>
-      </tr>
     </tbody>
   </table>
 </div>
 
 <p style="font-size: 0.87em; color: var(--c-muted); margin-top: 4px;">
   ¹ Analyyttisten kyselyiden suorituskyky raportointikerroksessa.<br>
-  ² Data Vault vaatii erillisen raportointikerroksen (tähtimalli tai information mart) — suora raportointi on hidasta.<br>
-  ³ ETL ja ELT ovat siirtotapoja, eivät kyselymoottoreita. Kyselysuorituskyky riippuu kohdejärjestelmästä.
+  ² 3NF vaatii monimutkaiset joinsit — raportointiin tarvitaan erillinen data mart tähtimalliksi.<br>
+  ³ Data Vault vaatii erillisen raportointikerroksen (tähtimalli tai information mart) — suora raportointi on hidasta.<br>
+  ⁴ Viittaa Gold-kerrokseen mallinnettuna tähtimalliksi.
 </p>
+
+<h2>One Big Table</h2>
+<p>
+  One Big Table (OBT) on yksinkertaisin mahdollinen tietomalli: yksi leveä taulu, johon kaikki
+  faktat ja dimensioattribuutit on esiliitetty valmiiksi. Joineja ei tarvita — kaikki on yhdessä
+  taulussa.
+</p>
+<p>
+  OBT ei ole uusi keksintö. QlikView-aikakaudella 2000- ja 2010-luvuilla monet BI-tiimit rakensivat
+  yhden ison taulun Qlikin in-memory-moottorille, koska se oli yksinkertaisin tapa saada nopea ja
+  ennustettava suorituskyky — vaikka Qlikin assosiatiivinen moottori tuki myös useampaa taulua.
+  Tableau puolestaan suosi pitkään denormalisoitua dataa: ennen version 2020 loogista kerrosta
+  Tableaun monitaulujoinsit olivat hankalia, joten data esiliitettiin ennen latausta .hyper-ekstraktiin.
+  dbt-yhteisö on nostanut OBT:n uuteen kukoistukseen pilvi-DWH:n halvan tallennustilan ansiosta —
+  duplikaatio ei enää maksa samalla tavalla kuin ennen.
+</p>
+
+<div class="fakta-laatikko">
+  <strong>Hyödyt:</strong>
+  <ul>
+    <li><strong>Äärimmäisen yksinkertainen.</strong> Ei joineja, ei relaatioita, ei mallinnettavaa — yksi taulu on helppo ymmärtää ja ottaa käyttöön.</li>
+    <li><strong>Nopea yksinkertaisille kyselyille.</strong> Kaikki data on yhdessä paikassa, join-kustannusta ei ole.</li>
+    <li><strong>Matala oppimiskynnys.</strong> Analyytikko voi kirjoittaa SQL:ää tai käyttää Exceliä suoraan tauluun ilman tietomalliosaamista.</li>
+  </ul>
+</div>
+
+<div class="fakta-laatikko">
+  <strong>Rajoitteet:</strong>
+  <ul>
+    <li><strong>Massiivinen toisteisuus.</strong> Jokainen asiakkaan nimi, kaupunki ja tuotekategoria toistuu miljoonilla riveillä — tallennustila kasvaa nopeasti.</li>
+    <li><strong>Vaikea ylläpitää.</strong> Muutos yhteen "dimensioon" tarkoittaa koko taulun uudelleenkirjoittamista.</li>
+    <li><strong>Ei skaalaudu monimutkaiseen analytiikkaan.</strong> Usean faktataulun yhdistäminen tai hierarkkiset laskut muuttuvat kankeiksi.</li>
+    <li><strong>Ei historianseurantaa.</strong> Ylikirjoittaminen on oletustoiminta — vanhat arvot katoavat.</li>
+  </ul>
+</div>
+
+<p><strong>Valitse OBT kun</strong> rakennat nopeaa prototyyppiä, yksiselitteistä raporttia pienestä datajoukosta tai syötät dataa yhteen analytiikkatyökaluun ilman kerrosarkkitehtuuria. Älä rakenna suurta tietovarastoa OBT:n varaan.</p>
 
 <h2>Tähtimalli</h2>
 <p>
@@ -296,6 +347,152 @@
 
 <p><strong>Valitse lumihiutalemalli kun</strong> rakennat tietovaraston välikerrosta tai stagingvaihetta — ja <a href="litistaminen.html">litistät</a> dimensiot tähtimalliksi ennen Power BI -latausta.</p>
 
+<h2>3NF – Inmon-malli</h2>
+<p>
+  3NF (kolmas normaalimuoto) on Bill Inmonin 1990-luvulla popularoima lähestymistapa
+  enterprise-tietovarastoon. Siinä data mallinnetaan täysin normalisoituna relaatiotietokantana:
+  jokainen tieto tallennetaan täsmälleen kerran ja kaikki niin kutsutut transitiiviset riippuvuudet
+  poistetaan. Transitiivinen riippuvuus tarkoittaa tilannetta, jossa taulun sarake riippuu toisesta
+  sarakkeesta eikä suoraan perusavaimesta.
+</p>
+
+<h3>Mitä 3NF tarkoittaa käytännössä</h3>
+<p>
+  Kuvitellaan myyntitilaus. Normalisoimattomassa taulussa kaikki tieto on yhdessä paikassa:
+</p>
+
+<div style="overflow-x: auto; margin-bottom: 8px;">
+  <table style="font-size: 0.87em;">
+    <caption>Normalisoimaton myyntitilaus — ongelma: sama tieto toistuu</caption>
+    <thead>
+      <tr>
+        <th>TilausID</th>
+        <th>AsiakasID</th>
+        <th>AsiakasNimi</th>
+        <th>Kaupunki</th>
+        <th>TuoteID</th>
+        <th>TuoteNimi</th>
+        <th>Kategoria</th>
+        <th>Määrä</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1001</td>
+        <td>A01</td>
+        <td>Mäkinen Oy</td>
+        <td>Helsinki</td>
+        <td>P500</td>
+        <td>Kannettava</td>
+        <td>Elektroniikka</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>1002</td>
+        <td>A01</td>
+        <td>Mäkinen Oy</td>
+        <td>Helsinki</td>
+        <td>P501</td>
+        <td>Hiiri</td>
+        <td>Elektroniikka</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>1003</td>
+        <td>A02</td>
+        <td>Virtanen Ab</td>
+        <td>Tampere</td>
+        <td>P500</td>
+        <td>Kannettava</td>
+        <td>Elektroniikka</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+  Ongelma: "Mäkinen Oy" ja "Helsinki" toistuvat joka rivillä. Jos asiakas muuttaa kaupunkia,
+  pitää päivittää tuhansia rivejä. Jos tuotteen nimi muuttuu, sama ongelma. 3NF ratkaisee tämän
+  hajottamalla taulun erillisiksi entiteeteiksi:
+</p>
+
+<div style="overflow-x: auto; margin-bottom: 16px;">
+  <table style="font-size: 0.87em; display: inline-table; margin-right: 16px; vertical-align: top;">
+    <caption>Tilaukset</caption>
+    <thead><tr><th>TilausID</th><th>AsiakasID</th><th>TuoteID</th><th>Määrä</th></tr></thead>
+    <tbody>
+      <tr><td>1001</td><td>A01</td><td>P500</td><td>2</td></tr>
+      <tr><td>1002</td><td>A01</td><td>P501</td><td>5</td></tr>
+      <tr><td>1003</td><td>A02</td><td>P500</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <table style="font-size: 0.87em; display: inline-table; margin-right: 16px; vertical-align: top;">
+    <caption>Asiakkaat</caption>
+    <thead><tr><th>AsiakasID</th><th>AsiakasNimi</th><th>Kaupunki</th></tr></thead>
+    <tbody>
+      <tr><td>A01</td><td>Mäkinen Oy</td><td>Helsinki</td></tr>
+      <tr><td>A02</td><td>Virtanen Ab</td><td>Tampere</td></tr>
+    </tbody>
+  </table>
+  <table style="font-size: 0.87em; display: inline-table; vertical-align: top;">
+    <caption>Tuotteet</caption>
+    <thead><tr><th>TuoteID</th><th>TuoteNimi</th><th>KategoriaID</th></tr></thead>
+    <tbody>
+      <tr><td>P500</td><td>Kannettava</td><td>K1</td></tr>
+      <tr><td>P501</td><td>Hiiri</td><td>K1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+  "Mäkinen Oy" tallennetaan nyt vain kerran. Raporttia varten taulut yhdistetään joineilla.
+  Jos hierarkioita on lisää — kaupunki kuuluu maakuntaan, maakunta maahan — ne saavat omat
+  taulunsa. 3NF-tietovarastossa tauluja voi olla satoja.
+</p>
+<p>
+  <strong>Ero tähtimalliin:</strong> tähtimallissa asiakkaasta tehdään yksi litteä
+  <code>DimAsiakas</code>-taulu, jossa kaupunki, maakunta ja maa ovat omina sarakkeina samalla
+  rivillä. Nopeampi raportoida, mutta sama kaupungin nimi toistuu kaikilla saman kaupungin
+  asiakkailla. 3NF on normalisoinnin ääripää, tähtimalli denormalisoinnin ääripää — lumihiutalemalli
+  asettuu näiden väliin.
+</p>
+
+<h3>Inmon-mallin kerrokset</h3>
+<p>
+  Inmonin Corporate Information Factory (CIF) -mallissa arkkitehtuuri etenee kerroksittain:
+  operatiiviset lähdejärjestelmät → mahdollinen ODS-kerros → <strong>keskitetty 3NF-tietovarasto</strong>
+  → kohdealuekohtaiset data martit. Data martit voivat olla tähtimalleja — Inmon ja Kimball eivät
+  siis ole toistensa vastakohtia raportoinnissa, vaan eroavat siinä, miten <em>keskitetty varasto</em>
+  rakennetaan. Inmonilla se on normalisoitu 3NF-ydin, Kimballilla tähtimalli suoraan.
+</p>
+<p>
+  Legacy-ympäristöissä — erityisesti Teradata-, Oracle- ja IBM DB2 -pohjaisissa järjestelmissä —
+  3NF-tietovarasto on yleinen. Monet vanhat pankit ja suuryritykset rakensivat 2000-luvulla
+  3NF-ytimen, jonka päällä on tähtimallisia data marteja.
+</p>
+
+<div class="fakta-laatikko">
+  <strong>Hyödyt:</strong>
+  <ul>
+    <li><strong>Ei toisteisuutta.</strong> Jokainen arvo tallennetaan kerran — tiedon konsistenssi on helppo varmistaa.</li>
+    <li><strong>Joustava uusille kyselyille.</strong> Normalisoitu rakenne ei lukitse analytiikkaa ennalta määrättyihin raportteihin.</li>
+    <li><strong>Selkeä tiedon omistajuus.</strong> Jokainen entiteetti on omassa taulussaan — suhteet ja muutokset ovat eksplisiittisiä.</li>
+  </ul>
+</div>
+
+<div class="fakta-laatikko">
+  <strong>Rajoitteet:</strong>
+  <ul>
+    <li><strong>Hidas BI-raportoinnille.</strong> Monimutkaiset raportit vaativat kymmeniä joineja — suorituskyky kärsii ilman erillistä raportointikerrosta.</li>
+    <li><strong>Ei sovellu suoraan Power BI:hin.</strong> Normalisoitu malli pitää purkaa tähtimalliksi semanttisessa kerroksessa.</li>
+    <li><strong>Korkea rakentamiskustannus.</strong> Tähtimallista voidaan raportoida heti, 3NF:stä vasta kun data martit on rakennettu päälle.</li>
+    <li><strong>Vaatii vahvan SQL-osaamisen.</strong> Mallintaminen ja kyselyjen kirjoittaminen 3NF-tietokantaan on vaativampaa kuin tähtimallissa.</li>
+  </ul>
+</div>
+
+<p><strong>Valitse 3NF kun</strong> rakennat suurta enterprise-tietovarastoa, jossa tiedon konsistenssi on kriittistä, lähdejärjestelmiä on paljon ja tiimillä on vahva relaatiotietokantaosaaminen. Ei suositella moderniin pilvi-DWH-ympäristöön, jossa ELT + Medallion + tähtimalli kattaa saman tarpeen kevyemmin.</p>
+
 <h2>Data Vault</h2>
 <p>
   <a href="data-vault.html">Data Vault</a> on historiasäilöarkkitehtuuri, joka rakentuu Hubeista
@@ -325,6 +522,35 @@
 
 <p><strong>Valitse Data Vault kun</strong> rakennat enterprise-tietovarastoa, jossa on useita lähdejärjestelmiä, tiukka auditointivaatimus tai compliance-tarve, ja tiimillä on menetelmäosaaminen.</p>
 
+<h2>Medallion-arkkitehtuuri</h2>
+<p>
+  Medallion-arkkitehtuuri jakaa datan kolmeen kerrokseen: <strong>Bronze</strong> (raakadata sellaisenaan
+  lähdejärjestelmistä), <strong>Silver</strong> (puhdistettu ja yhdistetty data) ja <strong>Gold</strong>
+  (liiketoimintatasolle aggregoitu data raportointia varten). Malli on laajalti käytössä Microsoft
+  Fabricissa, Snowflakessa ja Databricksissa — se on modernin pilvi-DWH:n yleisin kerrosrakenne.
+</p>
+
+<div class="fakta-laatikko">
+  <strong>Hyödyt:</strong>
+  <ul>
+    <li><strong>Raakadata säilyy aina.</strong> Bronze-kerros tallentaa kaiken alkuperäisenä — transformaatiovirheet voidaan korjata ajamalla Silver ja Gold uudelleen ilman uutta latausta.</li>
+    <li><strong>Selkeä kerrosrakenne.</strong> Jokainen kerros palvelee omaa tarkoitustaan — kehittäjä tietää aina missä kerroksessa ollaan ja miksi.</li>
+    <li><strong>Sopii kaikenkokoisille tiimeille.</strong> Pieni tiimi voi aloittaa yksinkertaisella Bronze→Gold-rakenteella ja lisätä Silver-kerroksen myöhemmin.</li>
+    <li><strong>Natiivi tuki modernissa pilvi-DWH:ssa.</strong> Microsoft Fabric, Databricks ja Snowflake on rakennettu tukemaan tätä mallia suoraan.</li>
+  </ul>
+</div>
+
+<div class="fakta-laatikko">
+  <strong>Rajoitteet:</strong>
+  <ul>
+    <li><strong>Sama data useassa kerroksessa.</strong> Bronze, Silver ja Gold sisältävät osin samaa dataa eri muodoissa — tallennustilan tarve kasvaa. Pilviympäristöissä tämä harvoin muodostuu ongelmaksi.</li>
+    <li><strong>Gold-kerros vaatii tähtimallin.</strong> Pelkkä kerrosrakenne ei riitä raportointiin — Gold tulee mallintaa tähtimalliksi Power BI:tä varten.</li>
+    <li><strong>Ei ratkaise muutoshistoriaa automaattisesti.</strong> Bronze säilyttää raakadatan, mutta täydellinen historianseuranta vaatii SCD:n tai Data Vaultin Silver/Gold-kerrokseen.</li>
+  </ul>
+</div>
+
+<p><strong>Valitse Medallion-arkkitehtuuri kun</strong> rakennat modernia pilvivarastoa (Microsoft Fabric, Snowflake, Databricks), haluat säilyttää raakadatan ja tarvitset selkeän kerrosrakenteen — mutta et tarvitse täydellistä auditointikykyä (Data Vault) tai organisaatiotason hajautusta (Data Mesh).</p>
+
 <h2>Data Mesh</h2>
 <p>
   Data Mesh ei ole tekninen ratkaisu vaan organisatorinen arkkitehtuuriparadigma: datan
@@ -353,68 +579,14 @@
 
 <p><strong>Valitse Data Mesh kun</strong> organisaatiossa on useita autonomisia liiketoimintadomaineja omine datatiimeineen, data-omistajuuden kulttuuri on jo rakenteilla ja tarvitaan ratkaisu hajautetun datan hallintaan — ei tekninen pikakorjaus.</p>
 
-<h2>ETL (Extract, Transform, Load)</h2>
-<p>
-  ETL:ssä data poimitaan lähdejärjestelmistä, muunnetaan erillisessä prosessissa ja ladataan
-  kohteeseen valmiiksi muotoiltuna. Transformaatio tapahtuu ennen lataamista — kohteeseen
-  saapuu jo puhdas ja jäsennelty data.
-</p>
-
-<div class="fakta-laatikko">
-  <strong>Hyödyt:</strong>
-  <ul>
-    <li><strong>Puhdas kohde.</strong> Kohteeseen saapuu vain muunnettu, validoitu data — raakasotkua ei varastoida.</li>
-    <li><strong>Tiukka skeema toimii.</strong> Perinteiset tietovarastot, jotka odottavat tiettyä rakennetta, sopivat ETL:ään hyvin.</li>
-    <li><strong>Datan laadunvarmistus ennen varastointia.</strong> Ongelmat pysähtyvät pipeline-vaiheessa, eivät etene raportteihin asti.</li>
-  </ul>
-</div>
-
-<div class="fakta-laatikko">
-  <strong>Rajoitteet:</strong>
-  <ul>
-    <li><strong>Raakadata katoaa.</strong> Jos transformaatiologiikka muuttuu, vanhaa raakadataa ei voi uudelleenprosessoida.</li>
-    <li><strong>Jäykkä muutoksille.</strong> Transformaatiosääntöjen muuttaminen saattaa vaatia koko pipelinen uudelleenajoa.</li>
-    <li><strong>Erillinen muunnospaikka tarvitaan.</strong> Muunnoslogiikka tarvitsee oman infrastruktuurin ennen kohdetta.</li>
-  </ul>
-</div>
-
-<p><strong>Valitse ETL kun</strong> käytät perinteistä on-premise-tietovarastoa, kohde on tiukasti skeematettu, tai datan laatu täytyy varmistaa ennen varastointia eikä raakadataa tarvita myöhemmin.</p>
-
-<h2>ELT (Extract, Load, Transform)</h2>
-<p>
-  ELT:ssä data poimitaan lähdejärjestelmistä ja ladataan ensin kohteeseen raakana. Transformaatio
-  tehdään kohteessa — esimerkiksi BigQueryssä, Snowflakessa tai Microsoft Fabricissa — hyödyntäen
-  pilviympäristön laskentateho.
-</p>
-
-<div class="fakta-laatikko">
-  <strong>Hyödyt:</strong>
-  <ul>
-    <li><strong>Raakadata säilyy.</strong> Koko historia on aina uudelleenprosessoitavissa — transformaatiologiikan muutokset eivät tarkoita datan menettämistä.</li>
-    <li><strong>Pilven laskentateho hyödynnetään.</strong> BigQuery, Snowflake, Databricks ja Fabric on suunniteltu massiivisiin SQL-kyselyihin.</li>
-    <li><strong>dbt-integraatio.</strong> dbt (data build tool) on rakennettu ELT-paradigman päälle — transformaatiot ovat versioitavia, testattavia SQL-tiedostoja.</li>
-    <li><strong>Joustava muunnoslogiikka.</strong> Transformaatiot voidaan ajaa uudelleen milloin tahansa ilman datan lataamista uudelleen.</li>
-  </ul>
-</div>
-
-<div class="fakta-laatikko">
-  <strong>Rajoitteet:</strong>
-  <ul>
-    <li><strong>Kohde tarvitsee laskentakapasiteettia.</strong> Jos kohde on heikko tietokanta, ELT on hidas.</li>
-    <li><strong>Raakadata vie tilaa.</strong> Tallennustilan kustannus kasvaa, kun kaikki raakadata säilyy.</li>
-    <li><strong>Ei sovi tiukkaan skeemaan.</strong> Jos kohde odottaa vain puhdasta dataa, ELT vaatii lisäkerrosta muunnosta varten.</li>
-  </ul>
-</div>
-
-<p><strong>Valitse ELT kun</strong> käytät modernia pilvi-DWH:ta (BigQuery, Snowflake, Databricks, Microsoft Fabric), haluat säilyttää raakadatan tai kehität transformaatioita dbt:llä.</p>
-
 <div class="dataneuvos-opinion">
   <div class="opinion-label">Dataneuvoksen mielipide</div>
   <ul>
-    <li><strong>Useimmat tarvitsevat tähtimallin — ei muuta.</strong> Jos rakennat Power BI -raportteja tai analytiikkakerrosta, tähtimalli on lähes aina oikea valinta. Data Vault ja Data Mesh ovat engineering-ratkaisuja enterprise-tietovarastoihin — niitä ei pidä ottaa käyttöön siksi, että ne kuulostavat hienoilta.</li>
-    <li><strong>Kolme kysymystä ennen valintaa.</strong> (1) Kuinka monta lähdejärjestelmää? (2) Tarvitaanko täydellinen muutoshistoria ja auditointi? (3) Kuinka iso on datatiimi? Jos vastaukset ovat "yksi tai muutama", "ei" ja "pieni", tähtimalli yhdistettynä ELT:hen on riittävä — ja todennäköisesti parempi kuin monimutkaisempi vaihtoehto.</li>
-    <li><strong>Kerrokset eivät kilpaile keskenään.</strong> Tähtimalli ja Data Vault eivät ole toistensa vaihtoehtoja — Data Vault on varastointikerros, tähtimalli on raportointikerros. Monessa enterprise-arkkitehtuurissa molemmat ovat käytössä yhtä aikaa: Data Vault varastoi raakadatan historiallisesti, tähtimalli tarjoaa sen loppukäyttäjille nopeasti.</li>
-    <li><strong>ELT on nykyaikainen oletusvalinta pilviympäristöissä.</strong> Moderni pilvi-DWH (Fabric, Snowflake, BigQuery) suosii ELT:tä — raakadatan säilyttäminen on halpaa ja transformaatiologiikan muuttaminen jälkikäteen on mahdollista. ETL sopii paremmin perinteiselle on-premise-tietovarastolle tai tilanteisiin, joissa kohdejärjestelmä ei tue laskentaa.</li>
+    <li><strong>Useimmat tarvitsevat tähtimallin — ei muuta.</strong> Jos rakennat Power BI -raportteja tai analytiikkakerrosta, tähtimalli on lähes aina oikea valinta. Data Vault, 3NF ja Data Mesh ovat engineering-ratkaisuja enterprise-tietovarastoihin — niitä ei pidä ottaa käyttöön siksi, että ne kuulostavat hienoilta.</li>
+    <li><strong>Kolme kysymystä ennen valintaa.</strong> (1) Kuinka monta lähdejärjestelmää? (2) Tarvitaanko täydellinen muutoshistoria ja auditointi? (3) Kuinka iso on datatiimi? Jos vastaukset ovat "yksi tai muutama", "ei" ja "pieni", tähtimalli yhdistettynä Medallion-rakenteeseen on riittävä — ja todennäköisesti parempi kuin monimutkaisempi vaihtoehto.</li>
+    <li><strong>OBT on hyvä prototyyppi, huono tuotanto.</strong> One Big Table sopii nopeaan kokeiluun ja pieniin raportteihin — mutta kun data kasvaa tai muutoksia tulee, rakenne hajoaa. Käytä OBT:tä väliaikaisena ratkaisuna, ei pysyvänä arkkitehtuurina.</li>
+    <li><strong>Medallion on hyvä aloituspiste moderniin pilviympäristöön.</strong> Bronze/Silver/Gold-rakenne sopii lähes kaikenkokoisille tiimeille ja on natiivisti tuettu Microsoft Fabricissa, Snowflakessa ja Databricksissa. Gold-kerros mallinnetaan aina tähtimalliksi — Medallion ja tähtimalli toimivat yhdessä, eivät kilpaile.</li>
+    <li><strong>Kerrokset eivät kilpaile keskenään.</strong> Data Vault (historiallinen varastointi), Medallion (kerrosrakenne) ja tähtimalli (raportointi) voivat kaikki olla käytössä yhtä aikaa enterprise-arkkitehtuurissa. Samoin 3NF-ydin ja tähtimallinen data mart kulkevat perinteisessä Inmon-mallissa käsi kädessä.</li>
   </ul>
 </div>
 

@@ -49,13 +49,8 @@
   }
   </script>
   <title>Tähtimalli (Star Schema) | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
   <style>
     .tahti-arvio {
       font-family: var(--font-ui);
@@ -105,7 +100,7 @@
   </p>
 
   <img src="kuvat/tahtimalli/tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä" class="zoomattava">
-  <p><em>Kuva: * merkitsee vierasavainta (FK), 1 pääavainta (PK).</em></p>
+  <p><em>Kuva: * merkitsee vierasavainta (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>), 1 pääavainta (<a href="termisto.html#paaavain" class="termi-tip">PK</a>).</em></p>
   <p>Katso myös: <a href="tahtimalli-esimerkit.html">tähtimalli ja lumihiutalemalli Power BI:ssä — viisi esimerkkiä
       huonoimmasta parhaaseen</a>.</p>
 
@@ -129,14 +124,14 @@
     <tbody>
       <tr>
         <td>Pääavain</td>
-        <td>PK (Primary Key)</td>
+        <td><a href="termisto.html#paaavain" class="termi-tip">PK</a> (Primary Key)</td>
         <td>Dimensiotaulu</td>
         <td>Yksilöi jokaisen rivin, ei duplikaatteja tai ei tyhjiä arvoja</td>
         <td>AsiakasTunnus dimensiossa Asiakas</td>
       </tr>
       <tr>
         <td>Vierasavain</td>
-        <td>FK (Foreign Key)</td>
+        <td><a href="termisto.html#vierasavain" class="termi-tip">FK</a> (Foreign Key)</td>
         <td>Faktataulussa</td>
         <td>Viittaa dimensiotaulun pääavaimeen ja luo yhteyden taulujen välille, tyhjille arvoille käsittelysäännöt</td>
         <td>AsiakasTunnus faktataulussa Myynti</td>
@@ -151,7 +146,7 @@
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Dimensiotaulun PK:n on oltava AINA uniikki (yksi rivi per avain). Jos sama arvo esiintyy useasti, relaatio
+    <p>Dimensiotaulun <a href="termisto.html#paaavain" class="termi-tip">PK</a>:n on oltava AINA uniikki (yksi rivi per avain). Jos sama arvo esiintyy useasti, relaatio
       muuttuu moni-moneen-suhteeksi, joka rikkoo tähtimallin ja aiheuttaa virheellisiä laskutuloksia Power BI:ssä.
       Moni-moneen-suhteita käyttäessä myös tietomalli muuttuu moniselitteiseksi yksiselitteisen sijaan. Älä käytä
       moni-moneen-suhteita, rikot sillä enemmän asioita kuin korjaat.</p>
@@ -165,14 +160,14 @@
     <a href="kirjallisuus-suositukset.html#analyzing-data">Ferrari ja Russo (2017)</a> korostavat, että tähtimallin
     suurin hyöty on sen helppo ymmärrettävyys ja hallinta.
   </p>
-  <p>Katso termistöstä: <a href="termisto.html#normalisointi">Normalisointi</a> · <a
-      href="termisto.html#denormalisointi">Denormalisointi</a></p>
+  <p>Katso termistöstä: <a href="termisto.html#normalisointi" class="termi-tip">Normalisointi</a> · <a
+      href="termisto.html#denormalisointi" class="termi-tip">Denormalisointi</a></p>
 
   <div class="fakta-laatikko">
     <strong>Tietomallin normalisoinnin hyödyt tiivistettynä:</strong>
     <ul>
       <li>Helppo ymmärtää ja hallita kun tieto on vain yhdessä paikassa</li>
-      <li>Nopea suorituskyky ja pakkaus <a href="termisto.html#vertipaq">VertiPaq:n</a> myötä, pienempi muistin kulutus
+      <li>Nopea suorituskyky ja pakkaus <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>:n myötä, pienempi muistin kulutus
       </li>
       <li>Yksiselitteinen mallinnus helpottaa raporttien kehittämistä</li>
       <li>Yksiselitteinen malli mahdollistaa AI-pohjaisen kielimallikyselemisen</li>

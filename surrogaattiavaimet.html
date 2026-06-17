@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://www.datamalli.fi/surrogaattiavaimet.html">
+  <meta name="description"
+    content="Surrogaattiavainten mallintaminen medallion-arkkitehtuurissa: missä kerroksessa avaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Surrogaattiavaimien mallintaminen">
+  <meta property="og:description"
+    content="Surrogaattiavainten mallintaminen medallion-arkkitehtuurissa: missä kerroksessa avaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.">
+  <meta property="og:url" content="https://www.datamalli.fi/surrogaattiavaimet.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Surrogaattiavaimien mallintaminen",
+        "description": "Surrogaattiavainten mallintaminen medallion-arkkitehtuurissa: missä kerroksessa avaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.",
+        "url": "https://www.datamalli.fi/surrogaattiavaimet.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/surrogaattiavaimet.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-06-15",
+        "dateModified": "2026-06-15",
+        "wordCount": 1400,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Surrogaattiavaimien mallintaminen", "item": "https://www.datamalli.fi/surrogaattiavaimet.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Surrogaattiavaimien mallintaminen | Datamalli.fi</title>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=6" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
+
+  <h1>Surrogaattiavaimien mallintaminen</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
+      datetime="2026-06-15">15.6.2026</time></p>
+
+  <p><a href="termisto.html#surrogaattiavain" class="termi-tip">Surrogaattiavain</a> on tietovaraston oma, järjestelmän
+    generoima kokonaislukutunniste joka korvaa lähdejärjestelmän <a href="termisto.html#luonnollinen-avain"
+      class="termi-tip">luonnollisen avaimen</a> dimension
+    pääavaimena. <a href="dimensiot.html">Dimensioiden mallinnuksen perusteissa</a> käydään läpi mitä surrogaattiavain
+    on ja miksi se on aina kokonaisluku. Tällä sivulla käsitellään kolme asiaa jotka jäävät perusteista usein pois:
+    missä <a href="termisto.html#medallion-arkkitehtuuri" class="termi-tip">medallion-arkkitehtuurin</a> kerroksessa
+    surrogaatit luodaan, miten suurten dimensioiden avainten hallinta kannattaa rakentaa, ja miten inkrementaalinen
+    lataus toimii käytännössä.</p>
+
+  <h2>Miksi surrogaattiavain — eikä luonnollinen avain?</h2>
+
+  <p>Luonnollinen avain tulee lähdejärjestelmästä ja se on lähdejärjestelmän omistama. Tietomalli, joka rakentaa
+    relaatiot luonnollisten avainten varaan, on riippuvainen lähdejärjestelmän päätöksistä. Kun lähdejärjestelmä
+    uudelleennumeroi asiakkaat järjestelmänvaihdon yhteydessä, kaikki historialliset faktataulun rivit viittaavat
+    väärään asiakkaaseen. Surrogaattiavain katkaisee tämän riippuvuuden.</p>
+
+  <table>
+    <caption>Taulukko 1, Luonnollinen avain vs. surrogaattiavain – Käytännön erot tietovaraston näkökulmasta</caption>
+    <thead>
+      <tr>
+        <th>Ominaisuus</th>
+        <th>Luonnollinen avain (<a href="termisto.html#nk" class="termi-tip">NK</a>)</th>
+        <th>Surrogaattiavain (<a href="termisto.html#sk" class="termi-tip">SK</a>)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Omistaja</td>
+        <td>Lähdejärjestelmä — arvo voi muuttua ulkoisesta päätöksestä</td>
+        <td>Tietovarasto — arvo pysyy muuttumattomana</td>
+      </tr>
+      <tr>
+        <td>Tietotyyppi</td>
+        <td>Usein VARCHAR tai yhdistetty avain (useampi sarake)</td>
+        <td>Aina INT — pakkautuu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a> optimaalisesti</td>
+      </tr>
+      <tr>
+        <td>Uudelleenkäyttö</td>
+        <td>Lähdejärjestelmä voi antaa saman tunnisteen uudelle entiteetille</td>
+        <td>Ei koskaan uudelleenkäytetä — jokainen arvo on ainutkertainen</td>
+      </tr>
+      <tr>
+        <td>Historian säilytys</td>
+        <td>Sama <a href="termisto.html#nk" class="termi-tip">NK</a> kaikissa versioissa → historia hajoaa tai ylikirjoittuu</td>
+        <td>Jokainen SCD Type 2 -versio saa oman <a href="termisto.html#sk" class="termi-tip">SK</a>:n → historia säilyy täydellisenä</td>
+      </tr>
+      <tr>
+        <td>Usean lähteen yhdistäminen</td>
+        <td><a href="termisto.html#nk" class="termi-tip">NK</a>:t voivat törmätä: sama asiakastunnus eri järjestelmissä eri asiakkaalle</td>
+        <td><a href="termisto.html#sk" class="termi-tip">SK</a> on globaali — ei törmäyksiä lähteiden välillä</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Missä medallion-arkkitehtuurissa surrogaatit luodaan?</h2>
+
+  <p>Yleisin virhe on luoda surrogaattiavaimet liian aikaisin (Bronze) tai liian myöhään (Gold). Oikea vastaus on
+    <strong>Silver-kerros</strong> — ja syy on looginen: Silver on se kerros jossa data puhdistetaan, yhdistetään
+    useista lähteistä ja tehdään konformiksi. Vasta silloin tiedetään varmuudella mitä entiteettiä NK edustaa.
+  </p>
+
+  <table>
+    <caption>Taulukko 2, Surrogaattiavaimien sijainti medallion-kerroksissa – Mikä rooli kullakin kerroksella on
+      avainten hallinnassa</caption>
+    <thead>
+      <tr>
+        <th>Kerros</th>
+        <th>Rooli avainten kannalta</th>
+        <th>Mitä tehdään</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="termisto.html#bronze" class="termi-tip"><strong>Bronze</strong></a></td>
+        <td>Raakadata sellaisenaan</td>
+        <td>Tallennetaan NK lähdejärjestelmästä koskemattomana. Ei surrogaatteja. Data voi olla epätäydellistä,
+          duplikoitua tai virheellistä — SK:ta ei luoda ennen kuin tiedetään mitä data tarkoittaa.</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#silver" class="termi-tip"><strong>Silver</strong></a></td>
+        <td>Avainten luontipaikka</td>
+        <td>Rakennetaan <strong>mapping-taulu</strong> (NK → SK). Jokainen uniikki NK saa oman SK:n. Jos sama entiteetti
+          tulee useasta lähdejärjestelmästä, NK:t yhdistetään yhdeksi SK:ksi. Silver-dimensiotaulussa on sekä SK
+          (<a href="termisto.html#paaavain" class="termi-tip">PK</a>) että NK (attribuuttina, debug-käyttöön).</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#gold" class="termi-tip"><strong>Gold</strong></a></td>
+        <td>Käyttää vain SK:ta</td>
+        <td>Faktataulut ja raportointimallit viittaavat yksinomaan SK:iin. Gold-kerroksessa ei enää viitata NK:iin
+          relaatioissa. NK voi silti olla dimensiossa attribuuttina loppukäyttäjää varten, mutta se ei ole avain.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>Miksi ei Bronze-kerroksessa?</strong>
+    <p>Bronze-data on raakaa: siellä voi olla duplikaattirivejä, puuttuvia arvoja ja saman entiteetin useita versioita
+      peräkkäin. Jos surrogaatti luodaan Bronze-kerroksessa, sama asiakas saa useamman SK:n ennen kuin data on
+      puhdistettu. Tämä tarkoittaa, että Silver-kerroksessa pitää joka tapauksessa yhdistää nämä avaimet uudelleen —
+      eli Bronze-tason SK oli turha välivaihe. Luodaan avain kerran, oikeassa paikassa.</p>
+    <strong>Miksi ei Gold-kerroksessa?</strong>
+    <p>Gold-kerroksessa voi olla useita erillisiä tauluja tai aggregointeja, jotka kaikki tarvitsevat saman
+      asiakasdimension. Jos SK luodaan vasta Gold-tasolla, jokainen Gold-taulu luo omat avaimensa — ja ne eivät täsmää
+      toisiinsa. Silver-tasolla luotu SK on se yhteinen nimittäjä, johon kaikki Gold-tasot voivat luottaa.</p>
+  </div>
+
+  <h2>Suuren dimension avainten hallinta</h2>
+
+  <p>Kun dimensiossa on miljoonia rivejä — esimerkiksi teleoperaattorin kaikki tilaajat tai verkkokaupan
+    rekisteröityneet käyttäjät — avainten hallintaan tarvitaan erillinen <strong>mapping-taulu</strong>.
+    Mapping-taulu on yksinkertainen viitetaulu joka pitää kirjaa siitä, mikä NK vastaa mitäkin SK:ta. Se on koko
+    inkrementaalisen latauksen ydin.</p>
+
+  <table>
+    <caption>Taulukko 3, Mapping-taulun rakenne – NK:n ja SK:n välinen viitetaulu Silver-kerroksessa</caption>
+    <thead>
+      <tr>
+        <th>Sarake</th>
+        <th>Tietotyyppi</th>
+        <th>Rooli</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AsiakasTunnus</strong></td>
+        <td>VARCHAR</td>
+        <td>Luonnollinen avain lähdejärjestelmästä. Indeksoitu — tähän haetaan jokaisessa latauksessa.</td>
+      </tr>
+      <tr>
+        <td><strong>AsiakasAvain</strong></td>
+        <td>INT <a href="termisto.html#identity" class="termi-tip">IDENTITY</a></td>
+        <td>Surrogaattiavain. Tietokanta generoi automaattisesti nousevan kokonaisluvun. Ei koskaan uudelleenkäytetä.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>LuontiAika</strong></td>
+        <td>DATETIME</td>
+        <td>Milloin rivi lisättiin. Hyödyllinen debug-työssä ja latausprosessin seurannassa.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: AsiakasDimensio — miltä mapping-taulu näyttää käytännössä</strong>
+    <p>Lähdejärjestelmä käyttää asiakasnumerona merkkijonoa <code>FI-VVVV-NNNNN</code>. Viiden latauserän jälkeen
+      <code>silver.LookupAsiakasAvain</code> näyttää tältä — IDENTITY on generoinut SK:t automaattisesti lisäysjärjestyksessä:</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>Taulukko 3b, LookupAsiakasAvain — esimerkkirivejä viiden latauserän jälkeen</caption>
+        <thead>
+          <tr>
+            <th>AsiakasAvain (SK)</th>
+            <th>AsiakasTunnus (NK)</th>
+            <th>LuontiAika</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>FI-2024-00001</td>
+            <td>2024-01-15 08:32:04</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>FI-2024-00002</td>
+            <td>2024-01-15 08:32:04</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>FI-2024-05821</td>
+            <td>2024-03-22 14:05:31</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>FI-2025-00134</td>
+            <td>2025-02-10 09:18:47</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>FI-2026-00891</td>
+            <td>2026-06-15 14:30:02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Mapping-tauluun liitytään dimensiolatauksessa NK:n perusteella. Tuloksena <code>silver.DimAsiakas</code>
+      käyttää ainoastaan INT-surrogaattiavainta — VARCHAR-tunnus jää attribuutiksi debug-käyttöön:</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>Taulukko 3c, DimAsiakas (Silver) — SK käytössä pääavaimena, NK attribuuttina</caption>
+        <thead>
+          <tr>
+            <th>AsiakasAvain (PK)</th>
+            <th>AsiakasTunnus</th>
+            <th>AsiakasNimi</th>
+            <th>Segmentti</th>
+            <th>Maa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>FI-2024-00001</td>
+            <td>Matti Meikäläinen</td>
+            <td>Pienasiakas</td>
+            <td>Suomi</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>FI-2024-00002</td>
+            <td>Yritys Oy</td>
+            <td>B2B</td>
+            <td>Suomi</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>FI-2024-05821</td>
+            <td>Tiina Testaaja</td>
+            <td>Avainasiakas</td>
+            <td>Suomi</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>FI-2025-00134</td>
+            <td>Nordic Corp AS</td>
+            <td>B2B</td>
+            <td>Norja</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>FI-2026-00891</td>
+            <td>Uusi Asiakas Ab</td>
+            <td>Pienasiakas</td>
+            <td>Ruotsi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>SQL-koodi joka toteuttaa tämän inkrementaalisesti — ensin mapping-taulun luonti, sitten kaksi vaihetta jokaisessa latauserässä. <code>IDENTITY(1,1)</code> CREATE TABLE:ssa tarkoittaa: ensimmäinen luku on lähtöarvo (1 = aloitetaan ykkösestä), toinen luku on askel (1 = kasvatetaan yhdellä aina kun rivi lisätään). Tietokanta generoi AsiakasAvain-arvon automaattisesti — INSERT-lauseessa ei tarvitse mainita AsiakasAvain-saraketta lainkaan. Ensimmäinen asiakas saa arvon 1, toinen 2, kolmas 3, ja niin edelleen ikuisesti kasvavana sarjana.</p>
+<pre><code>-- 1. Mapping-taulun luonti (kerran)
+CREATE TABLE silver.LookupAsiakasAvain (
+    AsiakasAvain  INT         NOT NULL IDENTITY(1,1),
+    AsiakasTunnus VARCHAR(50) NOT NULL,
+    LuontiAika    DATETIME2   NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT PK_LookupAsiakas PRIMARY KEY (AsiakasAvain),
+    CONSTRAINT UQ_LookupAsiakas_NK UNIQUE (AsiakasTunnus)
+);
+
+-- 2. Lisää uudet NK:t — IDENTITY generoi SK:n automaattisesti
+--    (ajetaan joka latauserässä ennen dimension päivitystä)
+INSERT INTO silver.LookupAsiakasAvain (AsiakasTunnus)
+SELECT DISTINCT s.AsiakasTunnus
+FROM   bronze.Staging_Asiakas s
+WHERE  NOT EXISTS (
+    SELECT 1
+    FROM   silver.LookupAsiakasAvain l
+    WHERE  l.AsiakasTunnus = s.AsiakasTunnus
+);
+
+-- 3. Päivitä Silver-dimensio (SCD Type 1: ylikirjoita muuttunut data)
+MERGE silver.DimAsiakas AS target
+USING (
+    SELECT l.AsiakasAvain,
+           s.AsiakasTunnus,
+           s.AsiakasNimi,
+           s.Segmentti,
+           s.Maa
+    FROM   bronze.Staging_Asiakas       s
+    JOIN   silver.LookupAsiakasAvain    l
+               ON l.AsiakasTunnus = s.AsiakasTunnus
+) AS source ON target.AsiakasAvain = source.AsiakasAvain
+WHEN MATCHED THEN
+    UPDATE SET
+        AsiakasNimi = source.AsiakasNimi,
+        Segmentti   = source.Segmentti,
+        Maa         = source.Maa
+WHEN NOT MATCHED THEN
+    INSERT (AsiakasAvain, AsiakasTunnus, AsiakasNimi, Segmentti, Maa)
+    VALUES (source.AsiakasAvain, source.AsiakasTunnus,
+            source.AsiakasNimi, source.Segmentti, source.Maa);</code></pre>
+    <p>Vaihe 2 lisää mapping-tauluun vain ne rivit joiden NK ei siellä vielä ole — olemassa olevat asiakkaat saavat
+      saman SK:n kuin aiemmassa erässä. Vaihe 3 päivittää dimension: MATCHED-haara ylikirjoittaa muuttuneet
+      attribuutit, NOT MATCHED -haara lisää kokonaan uudet rivit.</p>
+  </div>
+
+  <p>SCD Type 2 -mallinnuksessa sama NK voi esiintyä mapping-taulussa useaan kertaan — jokainen version saa oman
+    SK:n. Tällöin mapping-tauluun lisätään voimassaoloaika ja nykyisyyslippu, jotta tiedetään mikä SK on
+    tällä hetkellä voimassa:</p>
+
+  <table>
+    <caption>Taulukko 4, Mapping-taulu SCD Type 2:ssa – Sama NK useampana rivinä kun historiaa säilytetään</caption>
+    <thead>
+      <tr>
+        <th>AsiakasTunnus</th>
+        <th>AsiakasAvain</th>
+        <th>AlkuPvm</th>
+        <th>LoppuPvm</th>
+        <th>OnkoNykyinen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CU-001</td>
+        <td>1001</td>
+        <td>2022-01-01</td>
+        <td>2024-03-14</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>CU-001</td>
+        <td>4872</td>
+        <td>2024-03-15</td>
+        <td>9999-12-31</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Faktataulun lataus hakee mapping-taulusta sen SK:n joka oli voimassa tapahtuman hetkellä — ei nykyistä SK:ta.
+    Näin historialliset myyntirivit vuodelta 2023 viittaavat edelleen SK:hon 1001, vaikka asiakas olisi muuttunut
+    avainasiakkaaksi vuonna 2024.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: SCD Type 2 — asiakas vaihtaa segmenttiä</strong>
+    <p>Matti Meikäläinen (NK: <code>FI-2024-00001</code>, nykyinen SK: 1) siirtyy segmentistä
+      <em>Pienasiakas</em> segmenttiin <em>Avainasiakas</em> 15.6.2026. SCD Type 2 -mallinnuksessa tämä ei ylikirjoita
+      vanhaa riviä — se sulkee sen ja luo uuden rivin uudella SK:lla.</p>
+    <p><strong>Ennen muutosta:</strong></p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>LookupAsiakasAvain ja DimAsiakas ennen segmenttimuutosta</caption>
+        <thead>
+          <tr>
+            <th>AsiakasAvain</th>
+            <th>AsiakasTunnus</th>
+            <th>Segmentti</th>
+            <th>AlkuPvm</th>
+            <th>LoppuPvm</th>
+            <th>OnkoNykyinen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>FI-2024-00001</td>
+            <td>Pienasiakas</td>
+            <td>2024-01-15</td>
+            <td>9999-12-31</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Latauserän jälkeen (15.6.2026):</strong> Vanha rivi suljetaan, uusi SK (6) generoidaan <a href="termisto.html#identity" class="termi-tip">IDENTITY</a>:llä ja uusi
+      dimensiorivi lisätään uudella segmentillä.</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>LookupAsiakasAvain ja DimAsiakas segmenttimuutoksen jälkeen</caption>
+        <thead>
+          <tr>
+            <th>AsiakasAvain</th>
+            <th>AsiakasTunnus</th>
+            <th>Segmentti</th>
+            <th>AlkuPvm</th>
+            <th>LoppuPvm</th>
+            <th>OnkoNykyinen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="rivi-orpo">
+            <td>1</td>
+            <td>FI-2024-00001</td>
+            <td>Pienasiakas</td>
+            <td>2024-01-15</td>
+            <td><strong>2026-06-14</strong></td>
+            <td><strong>0</strong></td>
+          </tr>
+          <tr class="rivi-null">
+            <td><strong>6</strong></td>
+            <td>FI-2024-00001</td>
+            <td><strong>Avainasiakas</strong></td>
+            <td><strong>2026-06-15</strong></td>
+            <td>9999-12-31</td>
+            <td><strong>1</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>FactMyynti-rivit ennen 15.6.2026 viittaavat AsiakasAvaimeen 1 → segmentti on edelleen <em>Pienasiakas</em>.
+      Myyntirivit 15.6.2026 alkaen viittaavat AsiakasAvaimeen 6 → segmentti on <em>Avainasiakas</em>. Sama
+      asiakas, sama NK — mutta kaksi erillistä historiaa.</p>
+    <p>SCD Type 2 -mapping-taulussa ei voi käyttää UNIQUE-rajoitetta AsiakasTunnukselle, koska sama NK esiintyy
+      useita kertoja. CREATE TABLE eroaa SCD Type 1 -versiosta juuri tässä:</p>
+<pre><code>-- SCD Type 2 -mapping-taulu: sama NK voi esiintyä useasti
+CREATE TABLE silver.LookupAsiakasAvain (
+    AsiakasAvain  INT         NOT NULL IDENTITY(1,1),
+    AsiakasTunnus VARCHAR(50) NOT NULL,
+    AlkuPvm       DATE        NOT NULL,
+    LoppuPvm      DATE        NOT NULL DEFAULT '9999-12-31',
+    OnkoNykyinen  BIT         NOT NULL DEFAULT 1,
+    CONSTRAINT PK_LookupAsiakas PRIMARY KEY (AsiakasAvain)
+    -- Ei UNIQUE(AsiakasTunnus) — sama NK saa useamman SK:n eri versioille
+);
+
+-- Vaihe 1: Luo uusi SK muuttuneelle riville
+INSERT INTO silver.LookupAsiakasAvain (AsiakasTunnus, AlkuPvm)
+SELECT s.AsiakasTunnus, CAST(GETDATE() AS DATE)
+FROM   bronze.Staging_Asiakas s
+JOIN   silver.DimAsiakas      d
+    ON d.AsiakasTunnus = s.AsiakasTunnus
+   AND d.OnkoNykyinen  = 1
+WHERE  d.Segmentti &lt;&gt; s.Segmentti;   -- seurattava attribuutti muuttui
+
+-- Vaihe 2: Sulje vanha rivi (mapping-taulu)
+UPDATE silver.LookupAsiakasAvain
+SET    LoppuPvm     = DATEADD(day, -1, CAST(GETDATE() AS DATE)),
+       OnkoNykyinen = 0
+FROM   silver.LookupAsiakasAvain l
+JOIN   silver.DimAsiakas         d  ON d.AsiakasTunnus = l.AsiakasTunnus
+                                    AND d.OnkoNykyinen  = 1
+JOIN   bronze.Staging_Asiakas    s  ON s.AsiakasTunnus = l.AsiakasTunnus
+WHERE  d.Segmentti &lt;&gt; s.Segmentti
+  AND  l.OnkoNykyinen = 1;
+
+-- Vaihe 3: Sulje vanha dimensiorivi
+UPDATE silver.DimAsiakas
+SET    LoppuPvm     = DATEADD(day, -1, CAST(GETDATE() AS DATE)),
+       OnkoNykyinen = 0
+FROM   silver.DimAsiakas      d
+JOIN   bronze.Staging_Asiakas s ON s.AsiakasTunnus = d.AsiakasTunnus
+WHERE  d.Segmentti   &lt;&gt; s.Segmentti
+  AND  d.OnkoNykyinen = 1;
+
+-- Vaihe 4: Lisää uusi dimensiorivi uudella SK:lla
+INSERT INTO silver.DimAsiakas
+       (AsiakasAvain, AsiakasTunnus, AsiakasNimi, Segmentti, Maa, AlkuPvm, LoppuPvm, OnkoNykyinen)
+SELECT l.AsiakasAvain,
+       s.AsiakasTunnus, s.AsiakasNimi, s.Segmentti, s.Maa,
+       CAST(GETDATE() AS DATE), '9999-12-31', 1
+FROM   bronze.Staging_Asiakas       s
+JOIN   silver.LookupAsiakasAvain    l  ON l.AsiakasTunnus = s.AsiakasTunnus
+                                       AND l.OnkoNykyinen  = 1
+WHERE  NOT EXISTS (
+    SELECT 1 FROM silver.DimAsiakas d WHERE d.AsiakasAvain = l.AsiakasAvain
+);</code></pre>
+    <p>Vaiheet 2 ja 3 sulkevat vanhan version <code>LoppuPvm = tänään - 1</code> ja <code>OnkoNykyinen = 0</code>.
+      Vaihe 4 lisää uuden version — <a href="termisto.html#identity" class="termi-tip">IDENTITY</a> antaa sille seuraavan vapaan kokonaisluvun. Faktataulu ei muutu lainkaan:
+      se viittaa edelleen samoihin SK-arvoihin kuin aiemminkin, ja oikea dimensiotieto löytyy automaattisesti
+      voimassaoloajan perusteella.</p>
+  </div>
+
+  <h2>Inkrementaalinen lataus — uusien avainten tunnistaminen</h2>
+
+  <p>Inkrementaalisessa latauksessa data päivitetään erissä: esimerkiksi puolen tunnin välein tai kerran päivässä.
+    Jokaisessa latauksessa voi tulla sekä uusia entiteettejä (uudet asiakkaat) että muuttuneita entiteettejä (olemassa
+    oleva asiakas vaihtanut segmenttiä). Mapping-taulu ratkaisee molempien tapaukset yhdellä periaatteella: <em>jos NK
+      on jo mapping-taulussa, käytä olemassa olevaa SK:ta; jos ei ole, luo uusi.</em></p>
+
+  <div class="fakta-laatikko">
+    <strong>Inkrementaalisen latauksen vaiheet (SCD Type 1):</strong>
+    <ol>
+      <li><strong>Lataa muuttunut data staging-tauluun.</strong> Staging sisältää vain ne rivit jotka ovat muuttuneet
+        tai ovat uusia edellisen latauksen jälkeen (CDC, aikaleima tai versiotunnus).</li>
+      <li><strong>Tunnista uudet NK:t.</strong> Vertaa staging-taulun NK:ia mapping-tauluun. Staging-rivit joiden NK ei
+        löydy mapping-taulusta ovat uusia entiteettejä.</li>
+      <li><strong>Luo uudet SK:t.</strong> Lisää uudet NK:t mapping-tauluun — tietokanta generoi automaattisesti uuden
+        IDENTITY-arvon eli SK:n. Vanhoille NK:ille ei luoda uutta SK:ta.</li>
+      <li><strong>Liitä SK staging-tauluun.</strong> JOIN staging ↔ mapping NK:n perusteella. Nyt jokaisella
+        staging-rivillä on oikea SK.</li>
+      <li><strong>MERGE Silver-dimensioon.</strong> Olemassa olevat rivit päivitetään (Type 1: ylikirjoita), uudet rivit
+        lisätään.</li>
+    </ol>
+  </div>
+
+  <p>SCD Type 2 -mallinnuksessa vaihe 3 muuttuu: kun dimensioattribuutti muuttuu (esim. segmentti vaihtuu), vanhalle
+    riville kirjoitetaan sulkemispäivä ja <em>uudelle versiolle</em> luodaan uusi SK mapping-tauluun. Faktataulun
+    seuraavat rivit viittaavat uuteen SK:hon — historialliset rivit jäävät viittaamaan vanhaan.</p>
+
+  <table>
+    <caption>Taulukko 5, Latausvälin vaikutus — 30 min vs. päivittäinen – Sama malli, eri eräkoko</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>30 minuutin lataus</th>
+        <th>Päivittäinen lataus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Eräkoko</strong></td>
+        <td>Pieni — tyypillisesti muutamia satoja tai tuhansia rivejä</td>
+        <td>Suuri — koko päivän muutokset kerralla</td>
+      </tr>
+      <tr>
+        <td><strong>Mapping-taulun käyttö</strong></td>
+        <td>Sama logiikka — NK haetaan mapping-taulusta jokaisessa erässä</td>
+        <td>Sama logiikka — NK haetaan mapping-taulusta kerran päivässä</td>
+      </tr>
+      <tr>
+        <td><strong>Erityishuomio</strong></td>
+        <td>Sama NK voi tulla kahdessa peräkkäisessä erässä (asiakas päivitetty kahdesti tunnissa). Mapping-taulu
+          estää uuden SK:n luomisen — toinen erä löytää NK:n jo mapping-taulusta ja käyttää samaa SK:ta.</td>
+        <td>Lataus voidaan ajaa hiljaisena aikana (esim. yöllä), eräkoko voi olla suurempi ilman suorituskykyhuolia.
+          SCD Type 2 -sulkemiset ja avaukset tehdään kerralla koko päivän muutoksille.</td>
+      </tr>
+      <tr>
+        <td><strong>Tuoreusviive</strong></td>
+        <td>Data on korkeintaan 30 minuuttia vanhaa — sopii operatiiviseen raportointiin</td>
+        <td>Data on korkeintaan 24 tuntia vanhaa — riittää useimpiin liiketoimintaraportteihin</td>
+      </tr>
+      <tr>
+        <td><strong>Faktataulun lataus</strong></td>
+        <td>Faktat ladataan samassa tai seuraavassa erässä — dimension SK:n on oltava olemassa ennen faktan
+          latausta</td>
+        <td>Dimensiot ladataan ensin, faktat perässä — sama järjestys kuin puolen tunnin mallissa</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>Esimerkki: uusi asiakas puolen tunnin erässä</strong>
+    <p>Kello 14:00 Bronze-tauluun saapuu uusi asiakas AsiakasTunnus = "FI-2026-00891". Silver-latausprosessi käynnistyy
+      14:30:</p>
+    <ol>
+      <li>Staging sisältää rivin AsiakasTunnus = "FI-2026-00891".</li>
+      <li>Mapping-taulussa ei ole tätä NK:ta → uusi rivi lisätään, tietokanta generoi AsiakasAvain = 500 341.</li>
+      <li>Staging-rivi saa SK:n 500 341 JOIN-operaatiolla.</li>
+      <li>Silver-dimensioon lisätään uusi asiakasrivi avaimella 500 341.</li>
+      <li>Kello 15:00 sama asiakas päivittää sähköpostiosoitteensa. Seuraavassa erässä staging sisältää saman NK:n
+        "FI-2026-00891" → mapping-taulu palauttaa 500 341 → Silver-rivillä päivitetään vain sähköposti, SK pysyy
+        muuttumattomana.</li>
+    </ol>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <ul>
+      <li><strong>Mapping-taulu on tietovaraston muisti.</strong> Se on ainoa paikka jossa NK–SK-suhde säilyy
+        pysyvästi. Jos mapping-taulu katoaa tai korruptoituu, yhteys historiallisten faktojen ja dimension nykyisten
+        rivien välillä katkeaa eikä sitä voi rekonstruoida ilman alkuperäistä lähdedataa. Varmuuskopioi mapping-taulu
+        yhtä huolella kuin faktataulun.</li>
+      <li><strong>Älä luo surrogaatteja hashista.</strong> MD5- tai SHA256-hash NK:sta näyttää houkuttelevalta
+        ratkaisulta hajautetussa ympäristössä — ei tarvita centralisoitua sekvenssiä. Käytännössä se tuo kaksi
+        ongelmaa: hash ei toimi SCD Type 2:ssa (sama NK antaa aina saman hashin, mutta eri versiot tarvitsevat eri
+        SK:n), ja törmäysriski, vaikka pieni, on olemassa tuotantoympäristössä. Käytä tietokantasekvenssiä tai
+        IDENTITY-saraketta.</li>
+      <li><strong>Dimensio ladataan ennen faktaa — aina.</strong> Faktataulun <a href="termisto.html#vierasavain"
+          class="termi-tip">viiteavain</a> (FK) täytyy löytyä dimensiosta jo ennen kuin faktarivi lisätään.
+        Inkrementaalisessa latauksessa tämä tarkoittaa, että dimensio-Silver ladataan jokaisessa erässä ensin ja
+        fakta-Silver perässä. Jos järjestys menee väärin, faktataulun rivit viittaavat avaimiin joita ei vielä ole —
+        tuloksena on joko latausvirhe tai haamufaktoja.</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
