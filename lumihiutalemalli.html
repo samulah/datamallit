@@ -46,11 +46,8 @@
   }
   </script>
   <title>Lumihiutalemalli (Snowflake Schema) | Datamalli.fi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
@@ -102,7 +99,7 @@
     <strong>Rajoitteet:</strong>
     <ul>
       <li><strong>DAX monimutkistuu.</strong> DAX-koodaamisesta tulee monimutkaisempaa relaatioketjujen takia.</li>
-      <li><strong>VertiPaq hidastuu.</strong> VertiPaq ja Power BI toimivat hitaammin ja huonommin dimensioin normalisoidun tietomallin takia.</li>
+      <li><strong><a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a> hidastuu.</strong> VertiPaq ja Power BI toimivat hitaammin ja huonommin dimensioin normalisoidun tietomallin takia.</li>
       <li><strong>Enemmän virhepaikkoja.</strong> Useampi relaatio tarkoittaa enemmän mahdollisuuksia virheille.</li>
       <li><strong>Ei suositella suoraan Power BI:hin.</strong> Litistä dimensiot tähtimalliksi ennen lataamista.</li>
     </ul>
@@ -111,7 +108,7 @@
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <ul>
-      <li><strong>Hyvä tietovarastoon, huono Power BI:hin.</strong> Lumihiutalemalli on normalisoitu, looginen ja vähentää toisteisuutta — mutta Power BI ei ole tietovarasto. VertiPaq-moottori on optimoitu litteille tähtimallin dimensioille, ja relaatioketjut hidastavat kyselyitä ja tekevät DAX-laskureista hankalampia kirjoittaa.</li>
+      <li><strong>Hyvä tietovarastoon, huono Power BI:hin.</strong> Lumihiutalemalli on normalisoitu, looginen ja vähentää toisteisuutta — mutta Power BI ei ole tietovarasto. <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori on optimoitu litteille tähtimallin dimensioille, ja relaatioketjut hidastavat kyselyitä ja tekevät DAX-laskureista hankalampia kirjoittaa.</li>
       <li><strong>Litistä ennen lataamista.</strong> Jos lähteesi on lumihiutalemallinen tietovarasto ja rakennat Power BI -raporttia, tee <a href="litistaminen.html">litistäminen</a> ennen datan lataamista: yhdistä hierarkkiset dimensiotaulut yhdeksi leveäksi tauluksi ETL-vaiheessa tai SQL-näkymänä. Power BI saa valmiiksi muotoillun tähtimallin — eikä sen tarvitse tehdä yhdistelyjä itse.</li>
     </ul>
   </div>

@@ -1486,11 +1486,8 @@
   }
   </script>
   <title>Datan termistö ja sanasto – data-alan termit suomeksi | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
@@ -1975,7 +1972,7 @@
   <h2 id="a" class="termi-aakkos-otsikko">A</h2>
   <div class="termi-luettelo">
 
-    <dl class="termi" id="additiivinen-mittari" data-tags="mittaaminen konseptit faktataulut">
+    <dl class="termi" id="additiivinen-mittari" data-tags="mittaaminen konseptit faktataulu">
       <dt><span class="termi-nimi">Additiivinen mittari</span> <span class="termi-en">(Additive Measure)</span></dt>
       <dd class="termi-selite">Mittari, jonka voi summata kaikkien dimensioiden yli — tulos on oikea maittain,
         kuukausittain ja tuotteittain. Esimerkiksi myyntisumma ja kappalemäärä. Yksinkertaisin ja suorituskykyisin
@@ -2180,7 +2177,7 @@
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL/ELT</span></div>
     </dl>
 
-    <dl class="termi" id="degeneraatioavain" data-tags="avaimet tietomalli faktataulut">
+    <dl class="termi" id="degeneraatioavain" data-tags="avaimet tietomalli faktataulu">
       <dt><span class="termi-nimi">Degeneraatioavain</span> <span class="termi-en">(Degenerate Dimension, DD)</span></dt>
       <dd class="termi-selite">Faktataulussa säilytettävä lähdejärjestelmän tunniste, kuten tilaus- tai kuittinumero,
         jolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja. Hyödyllinen hakua ja virheiden jäljitystä
@@ -2223,7 +2220,7 @@
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span></div>
     </dl>
 
-    <dl class="termi" id="ei-additiivinen-mittari" data-tags="mittaaminen konseptit faktataulut">
+    <dl class="termi" id="ei-additiivinen-mittari" data-tags="mittaaminen konseptit faktataulu">
       <dt><span class="termi-nimi">Ei-additiivinen mittari</span> <span class="termi-en">(Non-Additive Measure)</span></dt>
       <dd class="termi-selite">Mittari, jota ei voi summata minkään dimension yli — esimerkiksi kateprosentti tai
         yksikköhinta. Lasketaan aina DAX-kaavalla kontekstin mukaan; faktatauluun tallennetaan sen sijaan osatekijät
@@ -2258,7 +2255,7 @@
   <h2 id="f" class="termi-aakkos-otsikko">F</h2>
   <div class="termi-luettelo">
 
-    <dl class="termi" id="faktataulu" data-tags="tietomalli tahtimalli useampi-fakta faktataulut">
+    <dl class="termi" id="faktataulu" data-tags="tietomalli tahtimalli useampi-fakta faktataulu">
       <dt><span class="termi-nimi">Faktataulu</span> <span class="termi-en">(Fact Table)</span></dt>
       <dd class="termi-selite">Tähtimallin keskeinen taulu, joka sisältää mitattavia tapahtumia kuten myyntejä,
         tilauksia tai laskutuksia. Faktataulun rivit sisältävät enimmäkseen lukuja ja avaimia, ja tauluun viitataan
@@ -2302,7 +2299,7 @@
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">Medallion</span></div>
     </dl>
 
-    <dl class="termi" id="granulariteetti" data-tags="konseptit tietomalli tahtimalli useampi-fakta dimensiot faktataulut">
+    <dl class="termi" id="granulariteetti" data-tags="konseptit tietomalli tahtimalli useampi-fakta dimensiot faktataulu">
       <dt><span class="termi-nimi">Granulariteetti</span> <span class="termi-en">(Granularity)</span></dt>
       <dd class="termi-selite">Faktataulun rivin yksityiskohtaisuuden taso. Esimerkiksi yksi rivi per myyntitapahtuma
         on hienojakoinen, kun taas yksi rivi per päivä ja tuote on karkea. Granulariteetti määrää, mihin kysymyksiin
@@ -2351,6 +2348,21 @@
 
   </div>
 
+  <h2 id="i" class="termi-aakkos-otsikko">I</h2>
+  <div class="termi-luettelo">
+
+    <dl class="termi" id="identity" data-tags="avaimet sql prosessit">
+      <dt><span class="termi-nimi">IDENTITY</span> <span class="termi-en">(Auto-increment, Serial)</span></dt>
+      <dd class="termi-selite">SQL Serverin sarakeominaisuus joka generoi automaattisesti nousevan kokonaisluvun aina
+        kun tauluun lisätään uusi rivi. <code>IDENTITY(1,1)</code> tarkoittaa: lähtöarvo 1, askel 1 — ensimmäinen rivi
+        saa arvon 1, toinen 2, kolmas 3. Käytetään <a href="#surrogaattiavain">surrogaattiavainten</a> luomiseen
+        ilman manuaalista numerointia. INSERT-lauseessa IDENTITY-saraketta ei mainita lainkaan — tietokanta täyttää
+        sen itse.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">SQL</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+  </div>
+
   <h2 id="k" class="termi-aakkos-otsikko">K</h2>
   <div class="termi-luettelo">
 
@@ -2363,7 +2375,7 @@
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Header-Detail</span></div>
     </dl>
 
-    <dl class="termi" id="kausifakta" data-tags="tietomalli faktataulut">
+    <dl class="termi" id="kausifakta" data-tags="tietomalli faktataulu">
       <dt><span class="termi-nimi">Kausifakta</span> <span class="termi-en">(Periodic Snapshot Fact Table)</span></dt>
       <dd class="termi-selite">Faktataulun arkkityyppi, johon otetaan tilannekuva säännöllisesti — yksi rivi per
         ajanjakso per seurattava kohde, esimerkiksi kuukausittainen varastosaldo. Rivejä ei päivitetä; uusi ajanjakso
@@ -2388,7 +2400,7 @@
       <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
-    <dl class="termi" id="kumulatiivinen-fakta" data-tags="tietomalli prosessit faktataulut">
+    <dl class="termi" id="kumulatiivinen-fakta" data-tags="tietomalli prosessit faktataulu">
       <dt><span class="termi-nimi">Kumulatiivinen fakta</span> <span class="termi-en">(Accumulating Snapshot Fact Table)</span></dt>
       <dd class="termi-selite">Faktataulun arkkityyppi, jossa yksi rivi kuvaa koko prosessia — esimerkiksi tilauksen
         elinkaarta tilauksesta toimitukseen — ja riviä päivitetään prosessin edetessä. Ainoa arkkityyppi, jonka rivejä
@@ -2547,6 +2559,14 @@
   <h2 id="n" class="termi-aakkos-otsikko">N</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="nk" data-tags="avaimet dimensiot">
+      <dt><span class="termi-nimi">NK</span> <span class="termi-en">(Natural Key, Business Key)</span></dt>
+      <dd class="termi-selite">Lyhenne: <a href="#luonnollinen-avain">Luonnollinen avain</a>. Lähdejärjestelmästä
+        tuleva tunniste kuten asiakasnumero tai tuotekoodi. Dimensiossa säilytetään NK hakua ja debug-työtä varten,
+        mutta relaatiot rakennetaan <a href="#sk">surrogaattiavaimella (SK)</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
     <dl class="termi" id="normalisointi" data-tags="konseptit tahtimalli lumihiutale datan-laatu">
       <dt><span class="termi-nimi">Normalisointi</span> <span class="termi-en">(Normalization)</span></dt>
       <dd class="termi-selite">Tietokannan rakenteen jäsentäminen niin, että kukin tieto sijaitsee vain yhdessä
@@ -2637,7 +2657,7 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
-    <dl class="termi" id="paivamaaradimensio" data-tags="tietomalli dimensiot tahtimalli faktataulut">
+    <dl class="termi" id="paivamaaradimensio" data-tags="tietomalli dimensiot tahtimalli faktataulu">
       <dt><span class="termi-nimi">Päivämäärädimensio</span> <span class="termi-en">(Date Dimension)</span></dt>
       <dd class="termi-selite">Dimensiotaulu, jossa on yksi rivi jokaiselle kalenteripäivälle ja attribuutteja kuten
         vuosi, kuukausi ja arkipäivä. <a href="#time-intelligence">Time Intelligence</a> -funktiot edellyttävät sitä,
@@ -2829,7 +2849,7 @@
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
     </dl>
 
-    <dl class="termi" id="semi-additiivinen-mittari" data-tags="mittaaminen konseptit faktataulut">
+    <dl class="termi" id="semi-additiivinen-mittari" data-tags="mittaaminen konseptit faktataulu">
       <dt><span class="termi-nimi">Semi-additiivinen mittari</span> <span class="termi-en">(Semi-Additive Measure)</span></dt>
       <dd class="termi-selite">Mittari, jonka voi summata joidenkin dimensioiden yli, muttei kaikkien. Useimmiten aika
         on dimensio, jonka yli ei voi summata — esimerkiksi varastosaldo on tilannekuva, ei tapahtuma, joten ajan yli
@@ -2858,6 +2878,15 @@
       <dt><span class="termi-nimi">Single Source of Truth</span> <span class="termi-en">(SSOT, yksi totuuden lähde)</span></dt>
       <dd class="termi-selite">Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on <a href="#yksiselitteinen-tietomalli">yksiselitteisen tietomallin</a> keskeinen tavoite.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
+    <dl class="termi" id="sk" data-tags="avaimet dimensiot">
+      <dt><span class="termi-nimi">SK</span> <span class="termi-en">(Surrogate Key)</span></dt>
+      <dd class="termi-selite">Lyhenne: <a href="#surrogaattiavain">Surrogaattiavain</a>. Järjestelmän generoima
+        kokonaislukutunniste joka korvaa lähdejärjestelmän <a href="#nk">luonnollisen avaimen (NK)</a>
+        relaatioissa. Dimensiotaulun pääavain (<a href="#paaavain">PK</a>). Pakkautuu
+        <a href="#vertipaq">VertiPaqissa</a> optimaalisesti.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Dimensiot</span></div>
     </dl>
 
     <dl class="termi" id="skeema" data-tags="tietomalli konseptit tahtimalli data-contract">
@@ -3001,7 +3030,7 @@
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
     </dl>
 
-    <dl class="termi" id="transaktiofakta" data-tags="tietomalli tahtimalli faktataulut">
+    <dl class="termi" id="transaktiofakta" data-tags="tietomalli tahtimalli faktataulu">
       <dt><span class="termi-nimi">Transaktiofakta</span> <span class="termi-en">(Transaction Fact Table)</span></dt>
       <dd class="termi-selite">Faktataulun arkkityyppi, jossa jokainen tapahtuma tuottaa yhden rivin — esimerkiksi
         myyntirivit ja maksutapahtumat. Rivejä ei koskaan päivitetä, vain lisätään uusia. Yleisin faktatyyppi. Ks. myös

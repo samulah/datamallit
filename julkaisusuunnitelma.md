@@ -22,10 +22,13 @@
 | tahtimalli-esimerkit.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, SEO-optimointi, sisäiset linkit tahtimalli + lumihiutalemalli) — järjestys huonoimmasta parhaaseen |
 
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
-- faktataulut.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään
+- faktataulu.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään (uudelleennimetty faktataulut.html → faktataulu.html 2026-06-15)
 - header-detail.html
 - useampi-fakta.html
 - data-governance.html
+
+**Piilotettu navigaatiosta, stub tai kesken — kirjoitettu alusta (1 kpl):**
+- surrogaattiavaimet.html — luotu 2026-06-15, sisältö kirjoitettu alusta (medallion + suuret dimensiot + inkrementaalinen lataus)
 
 **Piilotettu navigaatiosta, stub — käytännössä tyhjä (4 kpl):**
 - etl-elt.html
@@ -44,7 +47,7 @@ Yksi julkaisu per viikko. Järjestys: helpoimmat ensin (vain viimeistely), vaike
 | 1 | Termistö | termisto.html | Viimeistely + termien lisäys | 3 h | ✅ Valmis |
 | 2 | Filosofia | kehittamisen-filosofia.html | Lukutarkistus + noindex poisto | 1,5 h | ✅ Valmis |
 | 3 | Header-Detail | header-detail.html | Sisällön viimeistely + kuvan tarkistus | 2 h | — |
-| 4 | Useampi fakta | useampi-fakta.html | Sisällön viimeistely + kuvien lisäys — julkaistessa palauta linkki faktataulut.html:ään (granulariteetti-esimerkin loppuvirke, poistettu 2026-06-11) | 2,5 h | — |
+| 4 | Useampi fakta | useampi-fakta.html | Sisällön viimeistely + kuvien lisäys — julkaistessa palauta linkki faktataulu.html:ään (granulariteetti-esimerkin loppuvirke, poistettu 2026-06-11) | 2,5 h | — |
 | 5 | Apuohjelmat | apuohjelmat.html | Julkaistu 2026-06-11 — dataneuvos-mielipiteet (DAX Studio, VertiPaq Analyzer) kirjoittamatta | 4 h | ✅ Julkaistu |
 | 6 | Data Governance | data-governance.html | Tarkistus + pituuden hallinta — julkaistessa palauta linkki termistöön (Datan elinkaari -termi, poistettu 2026-06-11) | 4 h | — |
 | 7 | ETL/ELT | etl-elt.html | Kirjoitettava alusta | 5 h | — |

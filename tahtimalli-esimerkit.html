@@ -49,13 +49,8 @@
   }
   </script>
   <title>Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä | Datamalli.fi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=4" defer></script>
+  <script src="navigation.js?v=6" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
@@ -425,8 +420,8 @@
       <caption>Myynnit-faktataulu — asiakasId=1 löytää kaksi vastaavaa Asiakas-riviä</caption>
       <thead>
         <tr>
-          <th>myyntiId (PK)</th>
-          <th>asiakasId (FK)</th>
+          <th>myyntiId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+          <th>asiakasId (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
           <th>myyntisumma</th>
         </tr>
       </thead>
@@ -447,7 +442,7 @@
     <p>
       Tarkista dimensiotaulujen PK-uniikkius DAX-mittarilla:
       <code>COUNTROWS(d_asiakas) = DISTINCTCOUNT(d_asiakas[asiakasId])</code>. Jos luvut eroavat, dimensiossasi on
-      duplikaattiavaimia. Yhdistä tai poista duplikaatit ETL-vaiheessa ennen lataamista — älä yritä korjata
+      duplikaattiavaimia. Yhdistä tai poista duplikaatit <a href="termisto.html#etl" class="termi-tip">ETL</a>-vaiheessa ennen lataamista — älä yritä korjata
       moni-moneen-relaatiota Power BI:n sisällä, sillä se rikkoo enemmän asioita kuin korjaa.
     </p>
   </div>
@@ -499,7 +494,7 @@
       <caption>d_tuoteperhe</caption>
       <thead>
         <tr>
-          <th>perheId (PK)</th>
+          <th>perheId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
           <th>perheNimi</th>
         </tr>
       </thead>
@@ -514,9 +509,9 @@
       <caption>d_tuotekategoria — viittaa d_tuoteperheeseen FK:lla</caption>
       <thead>
         <tr>
-          <th>kategoriaId (PK)</th>
+          <th>kategoriaId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
           <th>kategoriaNimi</th>
-          <th>perheId (FK)</th>
+          <th>perheId (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
         </tr>
       </thead>
       <tbody>
@@ -536,9 +531,9 @@
       <caption>d_tuote — viittaa d_tuotekategoriaan FK:lla</caption>
       <thead>
         <tr>
-          <th>tuoteId (PK)</th>
+          <th>tuoteId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
           <th>tuoteNimi</th>
-          <th>kategoriaId (FK)</th>
+          <th>kategoriaId (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
         </tr>
       </thead>
       <tbody>
@@ -572,7 +567,7 @@
     Kun sama Tuote-hierarkia <a href="litistaminen.html">litistetään</a> yhdeksi leveäksi dimensioksi, rakenne
     muuttuu yksiselitteiseksi: <code>f_myynnit</code> → <code>d_tuote</code> on yksi relaatio, ja <code>d_tuote[perheNimi]</code> löytyy suoraan
     samasta taulusta. Filterin polku on lyhyt ja läpinäkyvä. Data toistuu (jokainen Elektroniikka-tuote sisältää
-    kentässä tekstin "Elektroniikka"), mutta VertiPaq pakkaa toistuvat arvot tehokkaasti eikä toisteisuus kasvata
+    kentässä tekstin "Elektroniikka"), mutta <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a> pakkaa toistuvat arvot tehokkaasti eikä toisteisuus kasvata
     muistikokoa merkittävästi.
   </p>
   <p>
@@ -607,7 +602,7 @@
       <caption>Tuote-dimensio — litistetty, kaikki hierarkiatiedot yhdessä</caption>
       <thead>
         <tr>
-          <th>tuoteId (PK)</th>
+          <th>tuoteId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
           <th>tuoteNimi</th>
           <th>kategoriaNimi</th>
           <th>perheNimi</th>
@@ -643,7 +638,7 @@
   <!-- ===================== -->
   <h2 id="tahtimalli-yksiselitteinen">5. Tähtimalli – yksiselitteinen <span class="arvio-merkki arvio-hyva">✓ suositus</span></h2>
   <p>
-    Toimivassa tähtimallissa jokaisen dimensiotaulun pääavain (PK) on uniikki: sama avaintieto esiintyy täsmälleen
+    Toimivassa tähtimallissa jokaisen dimensiotaulun pääavain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>) on uniikki: sama avaintieto esiintyy täsmälleen
     kerran. Tämä tekee jokaisen relaation yksi-moneen-suhteeksi — yksi Asiakasrivi vastaa useaan Myyntiriviin,
     muttei koskaan toisinpäin. Power BI pystyy ratkaisemaan kaikki DAX-laskelmat yksikäsitteisesti.
   </p>
@@ -701,7 +696,7 @@
       <caption>Asiakas-dimensio — jokainen asiakasId esiintyy täsmälleen kerran</caption>
       <thead>
         <tr>
-          <th>asiakasId (PK)</th>
+          <th>asiakasId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
           <th>nimi</th>
           <th>kaupunki</th>
         </tr>
@@ -728,9 +723,9 @@
       <caption>Myynnit-faktataulu — FK viittaa aina täsmälleen yhteen Asiakas-riviin</caption>
       <thead>
         <tr>
-          <th>myyntiId (PK)</th>
-          <th>asiakasId (FK)</th>
-          <th>tuoteId (FK)</th>
+          <th>myyntiId (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+          <th>asiakasId (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+          <th>tuoteId (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
           <th>myyntisumma</th>
         </tr>
       </thead>
@@ -831,11 +826,11 @@
       <li><strong>Tähtimalli on helppo rakentaa.</strong> Rakenne on aina sama: faktataulu keskellä, dimensiot
         ympärillä, jokainen relaatio yksi-moneen. Uusi kehittäjä ymmärtää mallin yhdellä vilkaisulla, ja jokainen
         uusi dimensio rakennetaan samalla kaavalla kuin edellinen.</li>
-      <li><strong>Tähtimalli on helppo pitää yksiselitteisenä.</strong> Yksi ETL-tarkistus, PK on uniikki, estää
+      <li><strong>Tähtimalli on helppo pitää yksiselitteisenä.</strong> Yksi <a href="termisto.html#etl" class="termi-tip">ETL</a>-tarkistus, <a href="termisto.html#paaavain" class="termi-tip">PK</a> on uniikki, estää
         monen raportin virheelliset luvut. Tämä on yksinkertaisin asia, jonka voit tehdä tietomallisi laadun eteen.</li>
       <li><strong>Lumihiutalemalli on moniselitteinen Power BI:ssä.</strong> Relaatioketju ei riko laskelmia
-        samalla tavalla kuin duplikaattiavaimet, mutta se tekee DAX:sta hankalampaa, hidastaa VertiPaqia ja kasvattaa
-        virheiden mahdollisuutta filterin suuntien kanssa. Litistä dimensiot tähtimalliksi ETL-vaiheessa, niin
+        samalla tavalla kuin duplikaattiavaimet, mutta se tekee DAX:sta hankalampaa, hidastaa <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>ia ja kasvattaa
+        virheiden mahdollisuutta filterin suuntien kanssa. Litistä dimensiot tähtimalliksi <a href="termisto.html#etl" class="termi-tip">ETL</a>-vaiheessa, niin
         Power BI saa yksiselitteisen rakenteen eikä sen tarvitse tehdä ketjutusta itse.</li>
     </ul>
   </div>
