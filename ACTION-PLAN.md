@@ -1,169 +1,97 @@
 # SEO Action Plan: datamalli.fi
-**Generated:** 2026-06-16  
-**Updated:** 2026-06-17  
-**Overall Score:** 75/100 (ennen alla lueteltuja korjauksia)
+**Generated:** 2026-06-17
+**Overall Score:** 85/100 (↑ from 75 on 2026-06-16)
+
+Priority order: Critical > High > Medium > Low. Items the 2026-06-16 plan listed are reconciled against the **live** site below.
 
 ---
 
-## ✅ Valmis (toteutettu 2026-06-17)
+## ✅ Already done (verified 2026-06-17)
 
-Nämä kohdat on tehty ja poistettu alla olevasta backlogista.
-
-- **#2 — faktataulu.html robots:** `noindex,nofollow` paikallaan (sivu myös uudelleennimetty `faktataulut.html` → `faktataulu.html`).
-- **#4 — llms.txt:** `apuohjelmat.html`, `tahtimalli-esimerkit.html` ja `kehittamisen-filosofia.html` lisätty `## Sisältösivut` -listaan.
-- **#5 — Self-host Google Fonts:** DM Sans ja Source Serif 4 palvellaan `/fontit/`-kansiosta (`@font-face` + `font-display: swap` + `unicode-range`), Google Fonts `<link>`-tagit poistettu, `tietosuoja.html` päivitetty (oma palvelin, ei yhteyttä Googleen). Korjattu samalla fonttilinkin poiston jättämä orpo `rel="stylesheet">` -fragmentti 10 tiedostosta.
-- **#9 — sameAs:** Organization-skeema (`index.html`) sai `sameAs` (dataneuvos.fi + henkilö- ja yritys-LinkedIn) ja perustaja linkitetty `@id`:llä Person-entiteettiin; Person-skeemassa (`tietoa.html`) `sameAs` oli jo.
-- **#10 — dateModified:** kaikilla 14 TechArticle-sivulla on sekä `datePublished` että `dateModified`.
-- **#13 — Book-skeema:** `kirjallisuus-suositukset.html` sai `ItemList`-rakenteen, jossa 7 `Book`-entiteettiä (nimi, tekijä(t), julkaisuvuosi, kansikuva, Amazon-linkki `sameAs`:nä). Kustantajia ei lisätty, koska niitä ei mainita sivulla.
-- **#14 — apuohjelmat-otsikko:** `Power BI Apuohjelmat` → `Power BI:n apuohjelmat` (title, og:title, TechArticle headline, breadcrumb-nimi ja näkyvä `<h1>`).
-- **Päivämääräkorjaus:** `kirjallisuus-suositukset.html` näkyvä byline yhtenäistetty schemaan (`Päivitetty 11.6.2026`, `datetime="2026-06-11"`).
+- **HTTP security headers deployed** — HSTS (`includeSubDomains; preload`), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy all live. (Was the previous CRITICAL.)
+- **Self-hosted fonts** — DM Sans + Source Serif 4 from `/fontit/`; no production Google Fonts CDN. GDPR exposure gone.
+- **apex → www 301** confirmed live.
+- **`arkkitehtuurivalinta.html`** deployed (200) and in sitemap.
+- **`faktataulu.html`** robots set to `noindex,nofollow` (but see HIGH #1 — the real question is whether it should be indexed at all).
+- **Book schema**, **dateModified on all TechArticles**, **Organization `sameAs`**, **apuohjelmat title fix** — all in place.
 
 ---
 
-## CRITICAL (Fix Immediately)
+## CRITICAL
+*None.* No issue is currently blocking indexing or causing penalties.
 
-### 1. Add HTTP Security Headers
+---
 
-**Impact:** Security + SEO trust signals  
-**Effort:** 30 min  
-**Why:** All 6 standard security headers are missing. Any security scanner gives a failing grade; Google's Chrome team uses HTTPS/security posture as a ranking signal.
+## HIGH (within 1 week)
 
-Add to `.htaccess` or LiteSpeed server config:
+### 1. Resolve `faktataulu.html` indexing inconsistency
+**Effort:** 15–30 min · **Impact:** unlocks a finished 1,300-word page for organic + AI visibility
+
+It's in the main nav (`navigation.js`) and on the homepage as a live card, with full TechArticle schema — but `noindex,nofollow`, not in the sitemap, not in llms.txt. Pick one:
+- **Recommended — publish it** (it looks complete): remove the `<meta name="robots" content="noindex,nofollow">`, add `<loc>https://www.datamalli.fi/faktataulu.html</loc>` (+ `lastmod`) to `sitemap.xml`, and add a line under `## Sisältösivut` in `llms.txt`. (This is exactly the project's three-step publish checklist; schema is already done.)
+- **Or — keep it draft:** remove it from `navigation.js` and the homepage card grid (or mark it "🚧 Tulossa") until it's ready, so users aren't routed to a noindexed page.
+
+---
+
+## MEDIUM (within 1 month)
+
+### 2. Expand `kehittamisen-filosofia.html` (~90–120 → 600+ words)
+**Effort:** 2–3 h · **Impact:** removes the only real thin-content risk among indexed pages
+Per principle, add: why it matters (concrete consequence), a real BI example, and 2–3 sentences of actionable guidance.
+
+### 3. Add a Content-Security-Policy header
+**Effort:** 30–60 min · **Impact:** completes the security-header set (last of 6)
+Start in report-only mode given inline `<style>`/`<script>`:
 ```apache
-<IfModule mod_headers.c>
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-  Header always set X-Frame-Options "SAMEORIGIN"
-  Header always set X-Content-Type-Options "nosniff"
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-</IfModule>
+Header always set Content-Security-Policy-Report-Only "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'"
 ```
+Review reports, then switch to enforcing `Content-Security-Policy`. No external font/CDN allow-listing needed (fonts are self-hosted).
 
-For Content-Security-Policy, build incrementally — start with report-only mode since the site uses inline styles. (Fontit ovat nyt self-hostattu, joten Google Fonts -CDN:ää ei enää tarvitse sallia CSP:ssä.)
+### 4. Add `arkkitehtuurivalinta.html` to `llms.txt`
+**Effort:** 5 min · **Impact:** AI crawler completeness
+Add under `## Sisältösivut`, e.g.:
+`- [Milloin käyttää mitäkin mallia](https://www.datamalli.fi/arkkitehtuurivalinta.html): Vertailutaulukot ja käytännön ohjeet tähtimalli/lumihiutale/Data Vault/Data Mesh/ETL/ELT -valintaan.`
 
----
+### 5. Add FAQPage schema to question-H2 pages
+**Effort:** 1–2 h · **Impact:** FAQ rich results + better AI extraction
+Target: `tahtimalli.html`, `dimensiot.html`, `faktataulu.html`, `lumihiutalemalli.html`. Reuse the existing question H2s as `Question`/`Answer` pairs alongside the current TechArticle node in the `@graph`.
 
-## HIGH (Fix Within 1 Week)
-
-### 3. Expand kehittamisen-filosofia.html (121 → 600+ words)
-
-**Impact:** Content quality, rankings for "BI kehittäminen periaatteet" etc.  
-**Effort:** 2–3 hours writing  
-
-Currently only 121 words covering 6 principles. Each principle deserves:
-- Why it matters (concrete consequence of ignoring it)
-- A practical example from real BI projects
-- 2–3 sentences of actionable guidance
-
-Target: 600–1000 words.
+### 6. Expand `lumihiutalemalli.html` (~320 → 700+ words)
+**Effort:** 1–2 h · **Impact:** rankings for "lumihiutalemalli / snowflake schema"
+Add a star-vs-snowflake comparison table, a concrete "when snowflake is justified" example, and a stronger pointer to `litistaminen.html`. (`litistaminen.html` ~360 w is the next candidate.)
 
 ---
 
-## MEDIUM (Fix Within 1 Month)
+## LOW (backlog)
 
-### 6. Add FAQ Schema to Question-Based Pages
+### 7. Image formats & coverage
+- Convert diagrams and book covers to **WebP/AVIF** (with raster fallback) — ~25–50% smaller. Largest current asset is 193 KB.
+- Add topic diagrams to text-heavy pages (SCD diagram on `dimensiot.html`, star-vs-snowflake on `lumihiutalemalli.html`, metadata diagram on `ai-valmis-metadata.html`).
+- Remove or wire up the orphan `kuvat/og-self-service.png`.
 
-**Impact:** Rich results in SERPs (FAQ dropdowns)  
-**Effort:** 1–2 hours  
-**Target pages:** tahtimalli.html, dimensiot.html, lumihiutalemalli.html (all use question H2s)
+### 8. Expand `tietoa.html` for author authority
+The E-E-A-T anchor. Add career highlights, why the site exists, and surface credentials in prose (schema already lists 4 Microsoft certs).
 
-Example for tahtimalli.html — add alongside existing TechArticle schema:
-```json
-{
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Miten tähtimalli rakentuu ja toimii?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tähtimallissa faktataulun ympärille liitetään dimensiotaulut suoraan..."
-      }
-    }
-  ]
-}
-```
+### 9. Shorten `tahtimalli-esimerkit.html` title (~77 chars)
+e.g. `Tähtimalli Power BI:ssä – 5 esimerkkiä | Datamalli.fi` (~52 chars) to avoid SERP truncation.
+
+### 10. `DefinedTerm` items in `termisto.html`
+Wrap individual terms as `DefinedTerm` within the existing `DefinedTermSet` for finer entity understanding.
+
+### 11. Font `rel="preload"` + LCP check
+Self-host is done; add `<link rel="preload" as="font" type="font/woff2" crossorigin>` for the above-the-fold woff2 files, and verify the first-visit splash animation in `navigation.js` isn't delaying LCP.
+
+### 12. Operational
+- Confirm Let's Encrypt auto-renewal (cert renews automatically; alert if <30 days).
+- Connect **GSC + GA4** and re-run with the seo-google integration to replace lab estimates with CrUX field CWV and real indexation/traffic data.
 
 ---
 
-### 7. Add Images to Core Content Pages
+## Roadmap
 
-**Impact:** Dwell time, E-E-A-T, image search traffic  
-**Effort:** 2–4 hours (design + implementation)  
-**Priority pages:**
-- `dimensiot.html` — SCD type diagram
-- `tahtimalli-esimerkit.html` — schema comparison visuals
-- `ai-valmis-metadata.html` — metadata diagram
-
-The tahtimalli.html diagram is a good model to follow. Simple, labelled SVG or PNG diagrams would be sufficient.
-
----
-
-### 8. Expand lumihiutalemalli.html (375 → 800+ words)
-
-**Impact:** Rankings for "lumihiutalemalli" / "snowflake schema"  
-**Effort:** 1–2 hours writing  
-
-Currently 375 words — borderline thin for a topic page. Add:
-- More concrete examples of when snowflake makes sense vs. star
-- Comparison table vs tähtimalli
-- Link back to litistaminen.html more prominently
-
----
-
-### 11. Shorten tahtimalli-esimerkit.html Title Tag
-
-**Impact:** SERP display, CTR  
-**Effort:** 5 min  
-
-Current: `Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä | Datamalli.fi` (77 chars — truncated in SERPs)
-
-Suggested: `Power BI -tietomallit: 5 esimerkkiä parhaasta huonoimpaan | Datamalli.fi` (71 chars)  
-Or: `5 Power BI -tietomalliesimerkkiä: tähtimallista sekasikiömalliin | Datamalli.fi` (79 — still long)  
-Or: `Tähtimalli Power BI:ssä – 5 esimerkkiä | Datamalli.fi` (52 chars ✓)
-
----
-
-### 12. Expand tietoa.html (286 → 600+ words)
-
-**Impact:** Author E-E-A-T, trust  
-**Effort:** 1 hour writing  
-
-The About page should be the strongest signal of Samu's expertise. Currently 286 words. Add:
-- Career highlights / specific projects
-- Why the site was built
-- What makes Dataneuvos's approach different
-- Qualifications/certifications if applicable
-
----
-
-## LOW (Backlog)
-
-### 15. Add DefinedTerm schema to individual terms in termisto.html
-
-Individual terms in the termistö (e.g., "tähtimalli", "dimensio", "surrogaattiavain") could each carry `DefinedTerm` schema within the existing `DefinedTermSet`. Would improve Google's understanding of the terms page structure.
-
-### 16. Monitor SSL Certificate Expiry
-
-Current cert expires 2026-08-27. Let's Encrypt auto-renews, but confirm renewal automation is working. Alert if cert is within 30 days of expiry.
-
-### 17. Consider a Sitemap Index When Draft Pages Graduate
-
-When the 8 draft pages launch, consider splitting into a topic-based sitemap structure if total page count exceeds 50.
-
-### 18. Add `<link rel="preload">` for fonts (self-host valmis)
-
-#5 on nyt tehty, joten tämä on toteutettavissa: lisää preload-vihjeet above-the-fold-käytössä oleville woff2-tiedostoille render-blockingin poistamiseksi.
-
----
-
-## Implementation Roadmap
-
-| Week | Tasks |
+| When | Tasks |
 |------|-------|
-| Week 1 | #1 Security headers |
-| Week 2 | #3 kehittamisen-filosofia.html expansion |
-| Week 3 | #6 FAQ schema |
-| Week 4 | #7 Images for dimensiot.html + tahtimalli-esimerkit.html, #8 lumihiutalemalli expansion |
-| Month 2 | #11 Title tag fix, #12 tietoa.html expansion |
-| Backlog | #15, #16, #17, #18 |
+| This week | #1 faktataulu decision |
+| Weeks 2–4 | #2 filosofia expansion, #3 CSP, #4 llms.txt, #5 FAQPage |
+| Month 2 | #6 lumihiutale/litistäminen expansion, #8 tietoa, #9 title |
+| Backlog | #7 images, #10 DefinedTerm, #11 preload/LCP, #12 GSC/GA4 |

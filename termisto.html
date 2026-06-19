@@ -30,7 +30,7 @@
         "url": "https://www.datamalli.fi/termisto.html",
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-12",
+        "dateModified": "2026-06-19",
         "author": {
           "@type": "Person",
           "name": "Samu Lahdenperä",
@@ -1109,6 +1109,17 @@
             },
             "alternateName": "Semi-Additive Measure",
             "description": "Mittari, jonka voi summata joidenkin dimensioiden yli, muttei kaikkien. Useimmiten aika on dimensio, jonka yli ei voi summata — esimerkiksi varastosaldo on tilannekuva, ei tapahtuma, joten ajan yli käytetään vaikkapa viimeisintä arvoa. Ks. myös additiivinen mittari."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#sentinel-rivi",
+            "name": "Sentinel-rivi",
+            "url": "https://www.datamalli.fi/termisto.html#sentinel-rivi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Sentinel Row",
+            "description": "Dimensiotauluun ennalta lisätty rivi, joka kerää alleen faktataulun vierasavaimet, jotka osoittavat puuttuvaan, tuntemattomaan tai poistettuun arvoon. Sentinel-rivillä on oma surrogaattiavain (tyypillisesti 0, 1, 2…), joten faktataulun viittaus löytää aina vastineen eikä Power BI luo automaattista tyhjää riviä. Tyypillisiä sentinel-rivejä ovat ”Ei tiedossa”, ”Anonyymi” (kirjautumaton kassaosto) ja ”[Poistettu]” (GDPR-pyyntö). Korvaa NULL-arvot ja orvot viittaukset hallitusti, jolloin jokainen tilanne voidaan eritellä raportissa omaksi rivikseen."
           },
           {
             "@type": "DefinedTerm",
@@ -2855,6 +2866,18 @@
         on dimensio, jonka yli ei voi summata — esimerkiksi varastosaldo on tilannekuva, ei tapahtuma, joten ajan yli
         käytetään vaikkapa viimeisintä arvoa. Ks. myös <a href="#additiivinen-mittari">additiivinen mittari</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Faktataulut</span></div>
+    </dl>
+
+    <dl class="termi" id="sentinel-rivi" data-tags="tietomalli dimensiot datan-laatu medallion">
+      <dt><span class="termi-nimi">Sentinel-rivi</span> <span class="termi-en">(Sentinel Row)</span></dt>
+      <dd class="termi-selite">Dimensiotauluun ennalta lisätty rivi, joka kerää alleen <a href="#faktataulu">faktataulun</a> <a
+          href="#vierasavain">vierasavaimet</a>, jotka osoittavat puuttuvaan, tuntemattomaan tai poistettuun arvoon.
+        Sentinel-rivillä on oma <a href="#surrogaattiavain">surrogaattiavain</a> (tyypillisesti 0, 1, 2…), joten
+        faktataulun viittaus löytää aina vastineen eikä Power BI luo automaattista <a href="#tyhja-rivi">tyhjää
+          riviä</a>. Tyypillisiä sentinel-rivejä ovat ”Ei tiedossa”, ”Anonyymi” (kirjautumaton kassaosto) ja
+        ”[Poistettu]” (GDPR-pyyntö). Korvaa <a href="#null">NULL</a>-arvot ja <a href="#orporivi">orvot
+          viittaukset</a> hallitusti, jolloin jokainen tilanne voidaan eritellä raportissa omaksi rivikseen.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">datan laatu</span><span class="termi-tagi">Medallion</span></div>
     </dl>
 
     <dl class="termi" id="sertifiointi" data-tags="power-bi hallinta data-governance">

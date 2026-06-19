@@ -1,13 +1,14 @@
 # Julkaisusuunnitelma — datamalli.fi
 
-## Sivuston nykytila (päivitetty 2026-06-07)
+## Sivuston nykytila (päivitetty 2026-06-17)
 
-**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (14 kpl):**
+**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (16 kpl):**
 
 | Sivu | Vaikeusaste | Huomio |
 |---|---|---|
 | index.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
 | tahtimalli.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 (H2-otsikot, schema) |
+| faktataulu.html | ⭐⭐ 2 | Julkaistu 2026-06-17 (noindex pois, sitemap, llms.txt; TechArticle jo paikallaan) |
 | dimensiot.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 (H2-otsikot, ulkoiset linkit) |
 | litistaminen.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
 | lumihiutalemalli.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
@@ -20,9 +21,9 @@
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
 | tahtimalli-esimerkit.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, SEO-optimointi, sisäiset linkit tahtimalli + lumihiutalemalli) — järjestys huonoimmasta parhaaseen |
+| arkkitehtuurivalinta.html | ⭐⭐⭐ 3 | Julkaistu 2026-06-14 (vertailutaulukot, TechArticle, sitemap; llms.txt lisätty 2026-06-17) |
 
-**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
-- faktataulu.html — luotu 2026-06-09, sisältö kirjoitettu alusta HTML:ään (uudelleennimetty faktataulut.html → faktataulu.html 2026-06-15)
+**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (3 kpl):**
 - header-detail.html
 - useampi-fakta.html
 - data-governance.html

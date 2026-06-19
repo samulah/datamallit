@@ -2,4 +2,4 @@
 secrets.env
 .env
 .env.*
-.htacces
+.htaccess

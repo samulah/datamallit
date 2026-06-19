@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/faktataulu.html">
   <meta name="description"
@@ -33,7 +32,7 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/faktataulu.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-09",
-        "dateModified": "2026-06-09",
+        "dateModified": "2026-06-19",
         "wordCount": 1300,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
@@ -86,7 +85,7 @@
   <h2>Miten faktataulu rakentuu?</h2>
 
   <p>Hyvin rakennettu faktataulu on <strong>pitkä ja kapea</strong>: miljoonia rivejä, mutta vähän sarakkeita. Sarakkeet
-    jakautuvat vierasavaimiin ja mittareihin, ei mitään muuta. Kuvailevat attribuutit kuuluvat dimensioihin, ei
+    jakautuvat <a href="termisto.html#vierasavain" class="termi-tip"><strong>vierasavaimiin</strong></a> ja <a href="termisto.html#mittari" class="termi-tip"><strong>mittareihin</strong></a>, ei mitään muuta. Kuvailevat attribuutit kuuluvat dimensioihin, ei
     faktatauluun.</p>
 
   <table>
@@ -134,19 +133,17 @@
 
   <div class="fakta-laatikko">
     <strong>Esimerkki: FactMyynti — täydellinen faktataulu</strong>
-    <p>Viisi FK-saraketta, yksi degeneraatioavain ja kolme additiivista mittaria. Ei yhtään tekstisaraketta lukuun ottamatta TilausNumeroa, joka on degeneraatioavain — tilausnumerolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja, joten se jää faktatauluun.</p>
+    <p>Viisi matalan kardinaliteetin vierasavainta ja kolme additiivista mittaria — ei mitään muuta. <a href="termisto.html#paaavain" class="termi-tip">Pääavain (PK)</a> ja <a href="termisto.html#degeneraatioavain" class="termi-tip">degeneraatioavaimet</a> on jätetty tästä esimerkistä pois: molemmat ovat korkean <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetin</a> sarakkeita (uniikki tai lähes uniikki arvo joka rivillä), jotka eivät pakkaudu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a>. Faktataulu ei myöskään välttämättä tarvitse omaa surrogaattipääavainta — rivin yksilöi vierasavainten yhdistelmä. Jäljelle jää siis vain matalan kardinaliteetin vierasavaimia ja mittareita.</p>
     <div style="overflow-x: auto;">
       <table>
-        <caption>FactMyynti — rakenne ja esimerkkidata. Kaikki avaimet INT, kaikki mittarit numeerisia.</caption>
+        <caption>FactMyynti — rakenne ja esimerkkidata. Vain matalan kardinaliteetin vierasavaimet (INT) ja numeeriset mittarit — pääavain ja degeneraatioavaimet jätetty pois.</caption>
         <thead>
           <tr>
-            <th>MyyntiAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
             <th>PvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
             <th>TuoteAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
             <th>AsiakasAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
             <th>MyymäläAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
             <th>MyyjaAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
-            <th>TilausNumero (<a href="termisto.html#degeneraatioavain" class="termi-tip">DD</a>)</th>
             <th>Myyntisumma</th>
             <th>Kappalemäärä</th>
             <th>Kustannus</th>
@@ -154,37 +151,31 @@
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
             <td>20260601</td>
             <td>42</td>
             <td>1042</td>
             <td>7</td>
             <td>18</td>
-            <td>ORD-5001</td>
             <td>149,90</td>
             <td>1</td>
             <td>89,50</td>
           </tr>
           <tr>
-            <td>2</td>
             <td>20260601</td>
             <td>17</td>
             <td>1042</td>
             <td>7</td>
             <td>18</td>
-            <td>ORD-5001</td>
             <td>29,90</td>
             <td>2</td>
             <td>12,40</td>
           </tr>
           <tr>
-            <td>3</td>
             <td>20260602</td>
             <td>42</td>
             <td>2205</td>
             <td>3</td>
             <td>24</td>
-            <td>ORD-5002</td>
             <td>149,90</td>
             <td>1</td>
             <td>89,50</td>
@@ -200,7 +191,7 @@
   <div class="fakta-laatikko">
     <strong>Faktataulun kultaiset säännöt:</strong>
     <ol>
-      <li><strong>Granulariteetti on päätettävä ensin.</strong> Ennen yhtäkään saraketta: mitä yksi rivi edustaa?
+      <li><strong><a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetti</a> on päätettävä ensin.</strong> Ennen yhtäkään saraketta: mitä yksi rivi edustaa?
         Yksittäinen myyntirivi, päivätason yhteenveto vai kuukausitason aggregaatti? Granulariteetti ei saa muuttua
         taulun sisällä — eri tarkkuuden rivit samassa taulussa johtavat vääristyneisiin laskureihin.</li>
       <li><strong>Pelkkiä lukuja — ei tekstiä.</strong> Kaikki kuvailevat attribuutit kuuluvat dimensioihin.
@@ -275,7 +266,7 @@
     esittää että kuinka nopeasti <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy vastaamaan. Mitä hienompi granulariteetti, sitä enemmän
     rivejä — mutta Power BI:ssä rivimäärä ei ole merkittävin suorituskykytekijä. VertiPaq on sarakepohjainen
     tietokanta: se pakkaa datan sarake kerrallaan RLE- ja sanakirjapakkauksella, jolloin ratkaisevaa on sarakkeiden
-    kardinaliteetti. Matala kardinaliteetti (muutama eri arvo, kuten alue tai tuotekategoria) pakkautuu tehokkaasti
+    <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a>. Matala kardinaliteetti (muutama eri arvo, kuten alue tai tuotekategoria) pakkautuu tehokkaasti
     pitkien toistosekvenssien ansiosta; korkea kardinaliteetti (uniikki arvo jokaisella rivillä, kuten tilausnumero)
     ei pakkaudu. Perinteisessä rivipohjaisessa tietovarastossa rivimäärä on sen sijaan pääasiallinen
     suorituskykytekijä. Power BI:ssä todelliset pullonkaulat ovat DISTINCTCOUNT-laskenta, korkean kardinaliteetin
@@ -284,78 +275,90 @@
       rel="noopener">Russo &amp; Ferrari (sqlbi.com)</a> käyvät läpi granulariteetin vaikutuksen Power BI -malleihin
     käytännön esimerkein.</p>
 
-  <table>
-    <caption>Taulukko 3, Granulariteetin vaikutus – Eri granulariteettitasojen rivimäärät, suorituskyky ja
-      käyttötilanteet</caption>
-    <thead>
-      <tr>
-        <th>Granulariteetti</th>
-        <th>Esimerkki</th>
-        <th>Rivimäärä (esim.)</th>
-        <th>Suorituskyky</th>
-        <th>Käyttötilanne</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Transaktiorivi</strong></td>
-        <td>Yksi myyntirivi</td>
-        <td>50–500 milj.</td>
-        <td>Nopea INT-avaimilla ja additiivisilla mittareilla — DISTINCTCOUNT ja VARCHAR-sarakkeet hidastavat enemmän kuin rivimäärä</td>
-        <td>Tarvitaan tilausnumeron tai yksittäisen asiakkaan tarkkuudella</td>
-      </tr>
-      <tr>
-        <td><strong>Päivätaso</strong></td>
-        <td>Myynti per tuote per päivä</td>
-        <td>1–10 milj.</td>
-        <td>Hyvä</td>
-        <td>Ei tarvita transaktiotason hakuja — vain päivittäisiä trendejä</td>
-      </tr>
-      <tr>
-        <td><strong>Kuukausitaso</strong></td>
-        <td>Myynti per tuote per kk</td>
-        <td>alle 1 milj.</td>
-        <td>Erinomainen</td>
-        <td>Vain kuukausi- tai kvartaalitason raportointi, ei päiväkohtaisia trendejä tarvita</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="fakta-laatikko">
-    <strong>Granulariteetin vaikutus malliin — esimerkki:</strong>
-    <p>Sama myyntidata kolmella eri granulariteetilla, 3 vuoden historia, 500 tuotetta, 50 000 myyntiä per päivä:</p>
+  <div style="overflow-x: auto;">
     <table>
-      <caption>Taulukko 4, Granulariteetti ja muistikoko – Sama data kolmella granulariteetilla, muistikoon ja
-        kyselymahdollisuuksien vertailu</caption>
+      <caption>Taulukko 3, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetin</a> vaikutus – Eri granulariteettitasojen rivimäärät, <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a>,
+        suorituskyky ja käyttötilanteet</caption>
       <thead>
         <tr>
           <th>Granulariteetti</th>
-          <th>Rivimäärä</th>
-          <th>Arvioitu muistikoko</th>
-          <th>Voi hakea yksittäisen tilauksen?</th>
+          <th>Esimerkki</th>
+          <th>Rivimäärä (esim.)</th>
+          <th>Kardinaliteetti (esim.)</th>
+          <th>Suorituskyky</th>
+          <th>Käyttötilanne</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Transaktiorivi</td>
-          <td>~54 700 000</td>
-          <td>~800 MB – 2 GB</td>
-          <td>Kyllä</td>
+          <td><strong>Transaktiorivi</strong></td>
+          <td>Yksi myyntirivi</td>
+          <td>50–500 milj.</td>
+          <td>Korkea — uniikki avain joka rivillä</td>
+          <td>Nopea INT-avaimilla ja additiivisilla mittareilla — DISTINCTCOUNT ja VARCHAR-sarakkeet hidastavat enemmän kuin rivimäärä</td>
+          <td>Tarvitaan tilausnumeron tai yksittäisen asiakkaan tarkkuudella</td>
         </tr>
         <tr>
-          <td>Päivätaso</td>
-          <td>~547 500</td>
-          <td>~10–30 MB</td>
-          <td>Ei</td>
+          <td><strong>Päivätaso</strong></td>
+          <td>Myynti per tuote per päivä</td>
+          <td>1–10 milj.</td>
+          <td>Matala — pvm × tuote toistuu</td>
+          <td>Hyvä</td>
+          <td>Ei tarvita transaktiotason hakuja — vain päivittäisiä trendejä</td>
         </tr>
         <tr>
-          <td>Kuukausitaso</td>
-          <td>~18 000</td>
-          <td>~1–3 MB</td>
-          <td>Ei</td>
+          <td><strong>Kuukausitaso</strong></td>
+          <td>Myynti per tuote per kk</td>
+          <td>alle 1 milj.</td>
+          <td>Hyvin matala — kk × tuote</td>
+          <td>Erinomainen</td>
+          <td>Vain kuukausi- tai kvartaalitason raportointi, ei päiväkohtaisia trendejä tarvita</td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="fakta-laatikko">
+    <strong>Granulariteetin vaikutus malliin — esimerkki:</strong>
+    <p>Sama myyntidata kolmella eri granulariteetilla, 3 vuoden historia, 500 tuotetta, 50 000 myyntiä per päivä:</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <caption>Taulukko 4, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetti</a> ja muistikoko – Sama data kolmella granulariteetilla, korkeimman
+          <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetin</a>, muistikoon ja kyselymahdollisuuksien vertailu</caption>
+        <thead>
+          <tr>
+            <th>Granulariteetti</th>
+            <th>Rivimäärä</th>
+            <th>Korkein kardinaliteetti (esim.)</th>
+            <th>Arvioitu muistikoko</th>
+            <th>Voi hakea yksittäisen tilauksen?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Transaktiorivi</td>
+            <td>~54 700 000</td>
+            <td>~54,7 milj. — tilausnumero uniikki joka rivillä, ei pakkaudu</td>
+            <td>~800 MB – 2 GB</td>
+            <td>Kyllä</td>
+          </tr>
+          <tr>
+            <td>Päivätaso</td>
+            <td>~547 500</td>
+            <td>~1 095 — pvm (3 v × 365); tuote 500, pakkautuu hyvin</td>
+            <td>~10–30 MB</td>
+            <td>Ei</td>
+          </tr>
+          <tr>
+            <td>Kuukausitaso</td>
+            <td>~18 000</td>
+            <td>~500 — tuote; kk vain ~36, pakkautuu erinomaisesti</td>
+            <td>~1–3 MB</td>
+            <td>Ei</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p><strong>Ratkaisu käytännössä:</strong> Jos tarvitset sekä transaktiotason yksityiskohtia (esim.
       tilausnumerot) että nopeat kuukausitrendit, harkitse kahta erillistä faktataulua eri granulariteeteilla —
       transaktiotaulu operatiiviseen käyttöön ja aggregoitu taulu johtoryhmäraportoinnille.</p>
@@ -481,11 +484,11 @@
     tiedonlaatusarakkeeseen. Data pysyy vielä liiketoiminta-avaimissa — surrogaattiavaimia ei luoda
     Silver-tasolla. Silver ei itsessään ratkaise (Blank)-ongelmaa, mutta se tekee Gold-muunnoksen
     deterministiseksi: kun jokainen ongelmatyyppi on nimetty erikseen, ETL pystyy ohjaamaan ne oikeaan
-    sentinel-riviin Gold-dimensiossa.</p>
+    <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-riviin</a> Gold-dimensiossa.</p>
 
   <h3>Gold: sentinel-rivit dimensioon ja surrogaattiavaimet</h3>
 
-  <p>Gold-kerroksessa jokainen dimensio saa omat sentinel-rivit ennen varsinaista dataa. DimAsiakkaaseen
+  <p>Gold-kerroksessa jokainen dimensio saa omat <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-rivit</a> ennen varsinaista dataa. DimAsiakkaaseen
     lisätään erilliset rivit kassaostoille (Anonyymi) ja poistetuille asiakkaille ([Poistettu]) — sekä
     yleinen "Ei tiedossa" -rivi kaikkea muuta varten. Nämä rivit saavat INT-surrogaattiavaimen aivan kuten
     oikeatkin asiakasrivit. FactMyynti-taulussa jokainen AsiakasAvain osoittaa johonkin DimAsiakkaan riviin

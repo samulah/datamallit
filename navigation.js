@@ -203,6 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'sk':                        { fi: 'SK (Surrogate Key)',             en: 'Surrogate Key',              selite: 'Järjestelmän generoima kokonaislukutunniste joka korvaa luonnollisen avaimen relaatioissa. Dimensiotaulun pääavain. Pakkautuu VertiPaqissa optimaalisesti.' },
     'identity':                  { fi: 'IDENTITY',                       en: 'Auto-increment / Serial',    selite: 'SQL Serverin ominaisuus joka generoi automaattisesti nousevan kokonaisluvun uudelle riville. IDENTITY(1,1) = lähtöarvo 1, askel 1. Ensimmäinen rivi saa arvon 1, toinen 2, kolmas 3 — automaattisesti.' },
     'dbt':                       { fi: 'dbt (data build tool)',          en: 'data build tool',            selite: 'Avoimen lähdekoodin työkalu tietovaraston muunnoslogiikan hallintaan SQL-malleina. Hoitaa inkrementaaliset lataukset, SCD-historia (snapshots) ja mallien väliset riippuvuudet automaattisesti.' },
+    'mittari':                   { fi: 'Mittari',                        en: 'Measure',                    selite: 'DAX-lausekkeella määritelty laskenta, joka suoritetaan vasta raporttia katsottaessa suodatinkontekstin mukaan. Faktataulun numeerinen ydin — summat, keskiarvot ja tunnusluvut.' },
+    'sentinel-rivi':             { fi: 'Sentinel-rivi',                  en: 'Sentinel Row',               selite: 'Dimensiotauluun ennalta lisätty rivi, joka kerää alleen puuttuvat, tuntemattomat ja poistetut viittaukset (Ei tiedossa, Anonyymi, [Poistettu]). Saa oman surrogaattiavaimen, joten faktataulun vierasavain löytää aina vastineen eikä Power BI luo automaattista tyhjää riviä.' },
   };
 
   const css = document.createElement('style');

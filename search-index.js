@@ -351,6 +351,7 @@ scd type 1 ylikirjoittaa vanhan arvon historia katoaa kirjoitusvirhe korjaus
 scd type 2 uusi rivi surrogaattiavain voimassaoloaika historia säilyy yleisin
 scd type 3 edellinen arvo erilliseen sarakkeeseen yksi historiavaihe harvinainen
 semanttinen malli semantic model power bi ssas tabular tietomalli mittarit hierarkiat metadata
+sentinel-rivi sentinel row dimensio puuttuva tuntematon poistettu ei tiedossa anonyymi surrogaattiavain tyhjä rivi blank null orporivi gdpr
 sertifiointi certification power bi palvelu virallinen luotettava semanttinen malli
 silver medallion-arkkitehtuuri keskitaso puhdistettu validoitu duplikaatit viitteet tietotyypit
 skeema schema rakenne taulut sarakkeet suhteet tähtimalli lumihiutalemalli
