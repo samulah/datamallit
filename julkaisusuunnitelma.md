@@ -2,7 +2,7 @@
 
 ## Sivuston nykytila (päivitetty 2026-06-17)
 
-**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (16 kpl):**
+**Julkaistut sivut — näkyvät navigaatiossa tai sitemapissa (15 kpl):**
 
 | Sivu | Vaikeusaste | Huomio |
 |---|---|---|
@@ -21,12 +21,14 @@
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
 | tahtimalli-esimerkit.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, SEO-optimointi, sisäiset linkit tahtimalli + lumihiutalemalli) — järjestys huonoimmasta parhaaseen |
-| arkkitehtuurivalinta.html | ⭐⭐⭐ 3 | Julkaistu 2026-06-14 (vertailutaulukot, TechArticle, sitemap; llms.txt lisätty 2026-06-17) |
-
-**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (3 kpl):**
+**Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - header-detail.html
 - useampi-fakta.html
 - data-governance.html
+- avaimet-ja-relaatiot.html — luotu 2026-06-20 (sisältö siirretty faktataulu.html:stä "Vierasavainten puuttuvat viittaukset" + uusi pohjasisältö: avaintyypit, relaatiot); noindex, etusivun kesken-kortti
+
+**Piilotettu navigaatiosta, palautettu luonnokseksi — valmis sisältö mutta noindex (1 kpl):**
+- arkkitehtuurivalinta.html — palautettu luonnokseksi 2026-06-20 (noindex lisätty, etusivun kortti → kesken, poistettu sitemapista); sisältö valmis, voi julkaista uudelleen poistamalla nämä
 
 **Piilotettu navigaatiosta, stub tai kesken — kirjoitettu alusta (1 kpl):**
 - surrogaattiavaimet.html — luotu 2026-06-15, sisältö kirjoitettu alusta (medallion + suuret dimensiot + inkrementaalinen lataus)

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="canonical" href="https://www.datamalli.fi/avaimet-ja-relaatiot.html">
+  <meta name="description"
+    content="Avaintyypit, relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein Power BI -tietomallissa.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Avaimien ja relaatioiden mallinnus">
+  <meta property="og:description"
+    content="Avaintyypit, relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein Power BI -tietomallissa.">
+  <meta property="og:url" content="https://www.datamalli.fi/avaimet-ja-relaatiot.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Avaimien ja relaatioiden mallinnus",
+        "description": "Avaintyypit, relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein Power BI -tietomallissa.",
+        "url": "https://www.datamalli.fi/avaimet-ja-relaatiot.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/avaimet-ja-relaatiot.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-06-20",
+        "dateModified": "2026-06-20",
+        "wordCount": 1100,
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Avaimien ja relaatioiden mallinnus", "item": "https://www.datamalli.fi/avaimet-ja-relaatiot.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Avaimien ja relaatioiden mallinnus | Datamalli.fi</title>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="navigation.js?v=6" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
+
+  <h1>Avaimien ja relaatioiden mallinnus</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
+      datetime="2026-06-20">20.6.2026</time></p>
+
+  <p>Avaimet ovat se mekanismi, jolla <a href="faktataulu.html">faktataulu</a> ja <a href="dimensiot.html">dimensiot</a>
+    kytkeytyvät toisiinsa, ja relaatiot ovat <a href="tahtimalli.html">tähtimallin</a> selkäranka. Tällä sivulla
+    käydään läpi tietomallin avaintyypit, relaation kardinaliteetti ja suodatussuunta sekä se, mitä tapahtuu kun
+    relaatio katkeaa — eli kun faktataulun vierasavain ei löydä vastinetta dimensiosta.</p>
+
+  <h2>Avaintyypit</h2>
+
+  <p>Tietomallin avaimet jakautuvat muutamaan rooliin sen mukaan, yksilöivätkö ne taulun rivin, viittaavatko ne
+    toiseen tauluun vai säilyttävätkö ne vain lähdejärjestelmän tunnisteen. Tähtimallissa relaatiot rakennetaan aina
+    kokonaislukumuotoisten surrogaattiavainten varaan.</p>
+
+  <table>
+    <caption>Taulukko 1, Tietomallin avaintyypit – Avaimen rooli ja esimerkki kustakin tyypistä</caption>
+    <thead>
+      <tr>
+        <th>Avain</th>
+        <th>Rooli</th>
+        <th>Esimerkki</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="termisto.html#paaavain" class="termi-tip"><strong>Pääavain</strong></a> (PK, Primary Key)</td>
+        <td>Yksilöi taulun jokaisen rivin — ei duplikaatteja eikä tyhjiä arvoja. Dimensiotaulussa pääavain on
+          surrogaattiavain.</td>
+        <td>DimAsiakas.AsiakasAvain</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#vierasavain" class="termi-tip"><strong>Vierasavain</strong></a> (FK, Foreign Key)</td>
+        <td>Faktataulun INT-sarake joka viittaa dimension pääavaimeen ja luo yhteyden taulujen välille. Jokaista
+          dimensiota kohti yksi FK-sarake.</td>
+        <td>FactMyynti.AsiakasAvain</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#surrogaattiavain" class="termi-tip"><strong>Surrogaattiavain</strong></a> (SK, Surrogate Key)</td>
+        <td>Järjestelmän generoima juokseva kokonaisluku, ei lähdejärjestelmän tunniste. Pakkautuu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a>
+          tehokkaasti ja toimii relaatioiden perustana.</td>
+        <td>1, 2, 3 …</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#nk" class="termi-tip"><strong>Luonnollinen avain</strong></a> (NK, Natural Key)</td>
+        <td>Lähdejärjestelmän liiketoimintatunniste, jonka surrogaattiavain korvaa relaatioissa. Säilyy dimensiossa
+          omana sarakkeenaan jäljitettävyyttä varten.</td>
+        <td>CUS-1042</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#degeneraatioavain" class="termi-tip"><strong>Degeneraatioavain</strong></a> (DD, Degenerate Dimension)</td>
+        <td>Lähdejärjestelmän tunniste jolla ei ole omaa dimensiotaulua eikä kuvailevia attribuutteja. Säilytetään
+          faktataulussa hakua ja debug-työtä varten.</td>
+        <td>TilausNumero, LaskuNumero</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Relaatiot tähtimallissa</h2>
+
+  <p>Tähtimallissa relaatio kulkee dimension pääavaimesta faktataulun vierasavaimeen <strong>yksi-moneen</strong>-suhteella:
+    yhdelle dimensioriville voi liittyä tuhansia faktarivejä, mutta jokaisella faktarivillä on tasan yksi vastine
+    kussakin dimensiossa. Tämä on tähtimallin perusrakenne ja edellytys sille, että mittarit lasketaan oikein.</p>
+
+  <p>Relaatiolla on myös <strong>suodatussuunta</strong>. Oletuksena suodatus kulkee yhteen suuntaan — dimensiosta
+    faktatauluun — jolloin dimension attribuuteilla voi suodattaa ja ryhmitellä faktataulun lukuja. Kaksisuuntainen
+    suodatus on mahdollinen, mutta sitä kannattaa välttää: se monimutkaistaa suodatinkontekstia ja voi johtaa
+    odottamattomiin tuloksiin. Pidä relaatiot yksisuuntaisina aina kun mahdollista.</p>
+
+  <p>Relaatiot kannattaa rakentaa <a href="termisto.html#surrogaattiavain" class="termi-tip">INT-surrogaattiavainten</a> varaan, ei teksti- tai GUID-avainten.
+    Kokonaislukuavain pakkautuu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a> tehokkaasti ja nopeuttaa relaatioiden läpikäyntiä; teksti- ja
+    GUID-avaimet kasvattavat mallin muistikokoa ja hidastavat kyselyitä. Surrogaattiavainten roolista dimensioiden
+    latauksessa kerrotaan lisää sivulla <a href="surrogaattiavaimet.html">surrogaattiavaimet</a>.</p>
+
+  <h2>Vierasavainten puuttuvat viittaukset käytännössä</h2>
+
+  <p>Faktataulun kultainen sääntö on, että jokainen vierasavain löytää parinsa dimensiosta. Lähdejärjestelmästä
+    tulevassa raakadatassa tämä ei aina pidä paikkansa — asiakkaita poistetaan GDPR-pyynnöistä, kassaostot kirjautuvat
+    ilman asiakastunnusta, tuotekoodit voivat vioittua siirrossa. Kun faktataulun vierasavain ei löydä vastaavaa
+    riviä dimensiosta, Power BI:n VertiPaq luo kyseiseen dimensioon automaattisen <strong>(Blank)</strong>-rivin,
+    joka kerää alleen kaikki vastineettomat faktataulun rivit. Se näkyy raporteissa tavallisen asiakasrivin tai
+    tuoterivin kaltaisena — paitsi että sen takana voi olla täysin eri syistä tulleet rivit, joita ei enää
+    pysty erittelemään.</p>
+
+  <p>Alla seurataan samaa myyntidataa
+    <a href="termisto.html#medallion-arkkitehtuuri">medallion-arkkitehtuurin</a> kolmen kerroksen läpi:
+    <a href="termisto.html#bronze">Bronze</a>,
+    <a href="termisto.html#silver">Silver</a> ja
+    <a href="termisto.html#gold">Gold</a>.</p>
+
+  <h3>Bronze: raakadata sellaisenaan</h3>
+
+  <p>Bronze-kerroksessa data ladataan lähdejärjestelmästä muuttamatta. NULL-arvot ja viittaukset poistettuihin
+    asiakkaisiin jäävät paikoilleen — Bronze ei korjaa dataa, se tallentaa sen.</p>
+
+  <table>
+    <caption>Taulukko 2, Bronze-tason myyntifakta – Raakadata lähdejärjestelmästä; NULL ja orpo FK näkyvät
+      sellaisinaan</caption>
+    <thead>
+      <tr>
+        <th>TilausNumero</th>
+        <th>AsiakasTunnus</th>
+        <th>TuoteKoodi</th>
+        <th>MyyntiPvm</th>
+        <th>Myyntisumma</th>
+        <th>FK-ongelma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ORD-5001</td>
+        <td>CUS-1042</td>
+        <td>PRD-200</td>
+        <td>2026-06-01</td>
+        <td>149,90</td>
+        <td>—</td>
+      </tr>
+      <tr class="rivi-null">
+        <td>ORD-5002</td>
+        <td><strong>NULL</strong></td>
+        <td>PRD-201</td>
+        <td>2026-06-02</td>
+        <td>89,50</td>
+        <td>Kassaosto — asiakas ei kirjautunut</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td>ORD-5003</td>
+        <td><strong>CUS-9841</strong></td>
+        <td>PRD-200</td>
+        <td>2026-06-03</td>
+        <td>199,90</td>
+        <td>Asiakas poistettu (GDPR) — ei löydy DimAsiakkaasta</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fakta-laatikko">
+    <strong>(Blank)-ongelma käytännössä — sama raportti kahdella tavalla:</strong>
+    <p>Kun Bronze-data ladataan sellaisenaan Power BI:hin, sekä kassaosto (NULL) että poistetun asiakkaan
+      osto (orpo FK) päätyvät saman (Blank)-rivin alle eikä niitä voi enää erotella:</p>
+    <table>
+      <caption>Taulukko 3, Power BI -asiakasraportti ilman "ei tiedossa" -käsittelyä – NULL ja orpo FK
+        yhdistyvät erottamattomaksi (Blank)-riviksi</caption>
+      <thead>
+        <tr>
+          <th>Asiakas</th>
+          <th>Myynti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yritys Oy</td>
+          <td>149,90 €</td>
+        </tr>
+        <tr class="rivi-orpo">
+          <td><strong>(Blank)</strong></td>
+          <td><strong>289,40 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Gold-tasolla käsitelty data erittelee jokaisen syyn omalle rivilleen:</p>
+    <table>
+      <caption>Taulukko 4, Power BI -asiakasraportti oikealla "ei tiedossa" -käsittelyllä – Jokainen
+        tilanne omana rivinään, suodatettavissa erikseen</caption>
+      <thead>
+        <tr>
+          <th>Asiakas</th>
+          <th>Myynti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yritys Oy</td>
+          <td>149,90 €</td>
+        </tr>
+        <tr class="rivi-null">
+          <td>Anonyymi</td>
+          <td>89,50 €</td>
+        </tr>
+        <tr class="rivi-orpo">
+          <td>[Poistettu]</td>
+          <td>199,90 €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Silver: validointi ja sentinel-merkkijonot</h3>
+
+  <p>Silver-kerroksessa NULL-arvot ja orvot viittaukset standardoidaan tunnistettaviksi
+    sentinel-merkkijonoiksi (<em>_ANON_</em>, <em>_POISTETTU_</em>) ja jokainen ongelmarivi merkitään
+    tiedonlaatusarakkeeseen. Data pysyy vielä liiketoiminta-avaimissa — surrogaattiavaimia ei luoda
+    Silver-tasolla. Silver ei itsessään ratkaise (Blank)-ongelmaa, mutta se tekee Gold-muunnoksen
+    deterministiseksi: kun jokainen ongelmatyyppi on nimetty erikseen, ETL pystyy ohjaamaan ne oikeaan
+    <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-riviin</a> Gold-dimensiossa.</p>
+
+  <h3>Gold: sentinel-rivit dimensioon ja surrogaattiavaimet</h3>
+
+  <p>Gold-kerroksessa jokainen dimensio saa omat <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-rivit</a> ennen varsinaista dataa. DimAsiakkaaseen
+    lisätään erilliset rivit kassaostoille (Anonyymi) ja poistetuille asiakkaille ([Poistettu]) — sekä
+    yleinen "Ei tiedossa" -rivi kaikkea muuta varten. Nämä rivit saavat INT-surrogaattiavaimen aivan kuten
+    oikeatkin asiakasrivit. FactMyynti-taulussa jokainen AsiakasAvain osoittaa johonkin DimAsiakkaan riviin
+    — NULL-arvoja tai orvoja viittauksia ei enää ole.</p>
+
+  <table>
+    <caption>Taulukko 5, Gold-tason DimAsiakas – Sentinel-rivit (avaimet 0–2) varsinaisen asiakasdata
+      edellä</caption>
+    <thead>
+      <tr>
+        <th>AsiakasAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+        <th>AsiakasTunnus (<a href="termisto.html#nk" class="termi-tip">NK</a>)</th>
+        <th>AsiakasNimi</th>
+        <th>Segmentti</th>
+        <th>Sentinel-syy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="rivi-sentinel">
+        <td><strong>0</strong></td>
+        <td>_TUNTEMATON_</td>
+        <td>Ei tiedossa</td>
+        <td>—</td>
+        <td>Yleinen fallback — tuntematon ongelmatyyppi</td>
+      </tr>
+      <tr class="rivi-null">
+        <td><strong>1</strong></td>
+        <td>_ANON_</td>
+        <td>Anonyymi</td>
+        <td>Kuluttaja</td>
+        <td>Kassaosto — asiakastunnistautuminen ei tapahtunut</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td><strong>2</strong></td>
+        <td>_POISTETTU_</td>
+        <td>[Poistettu]</td>
+        <td>—</td>
+        <td>GDPR-pyyntö — historia säilyy, henkilötiedot poistettu</td>
+      </tr>
+      <tr>
+        <td>1042</td>
+        <td>CUS-1042</td>
+        <td>Yritys Oy</td>
+        <td>B2B</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>Taulukko 6, Gold-tason FactMyynti – Kaikki AsiakasAvain-arvot löytyvät DimAsiakkaasta,
+      NULL-arvoja ei ole</caption>
+    <thead>
+      <tr>
+        <th>MyyntiAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
+        <th>TilausNumero (<a href="termisto.html#degeneraatioavain" class="termi-tip">DD</a>)</th>
+        <th>AsiakasAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>TuoteAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>MyyntiPvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
+        <th>Myyntisumma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>ORD-5001</td>
+        <td>1042</td>
+        <td>201</td>
+        <td>20260601</td>
+        <td>149,90</td>
+      </tr>
+      <tr class="rivi-null">
+        <td>2</td>
+        <td>ORD-5002</td>
+        <td><strong>1</strong></td>
+        <td>202</td>
+        <td>20260602</td>
+        <td>89,50</td>
+      </tr>
+      <tr class="rivi-orpo">
+        <td>3</td>
+        <td>ORD-5003</td>
+        <td><strong>2</strong></td>
+        <td>201</td>
+        <td>20260603</td>
+        <td>199,90</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>ORD-5002:n AsiakasAvain on 1 (Anonyymi) ja ORD-5003:n on 2 ([Poistettu]). Molemmat löytyvät
+    DimAsiakkaasta — VertiPaq ei luo (Blank)-riviä. Raporteissa 289,40 € on nyt eritelty kahdeksi erilliseksi,
+    suodatettavaksi riviksi joilla on eri semanttinen merkitys.</p>
+
+  <p>Katso myös: <a href="faktataulu.html">faktataulun mallinnus</a>, <a href="dimensiot.html">dimensioiden
+    mallinnus</a>, <a href="surrogaattiavaimet.html">surrogaattiavaimet</a> ja
+    <a href="medallion.html">medallion-arkkitehtuuri</a>.</p>
+
+</body>
+
+</html>

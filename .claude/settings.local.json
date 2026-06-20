@@ -31,7 +31,12 @@
       "Bash(grep -v \"^$\")",
       "Bash(npm init *)",
       "Bash(npm install *)",
-      "WebFetch(domain:papers.ssrn.com)"
+      "WebFetch(domain:papers.ssrn.com)",
+      "Bash(grep -n 'Vierasavainten puuttuvat viittaukset käytännössä</h2>\\\\|eri semanttinen merkitys.</p>\\\\|<div class=\"dataneuvos-opinion\">\\\\|^  </div>$' faktataulu.html)",
+      "Bash(cp faktataulu.html /tmp/faktataulu.bak)",
+      "Bash(sed -i '367,585d' faktataulu.html)",
+      "Bash(node --check search-index.js)",
+      "Bash(sed -n '/<script type=\"application\\\\/ld+json\">/,/<\\\\/script>/p' avaimet-ja-relaatiot.html)"
     ]
   }
 }

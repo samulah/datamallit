@@ -239,19 +239,6 @@ data consumer datan käyttäjä raporteissa päätöksenteossa analyytikko liike
 datan laatu täydellinen tarkka ajantasainen johdonmukainen käyttökelpoinen
 aloita pienestä dokumentoi asiakkaat tuotteet myynti omistajat laatukriteerit`,
 
-'arkkitehtuurivalinta.html': `arkkitehtuurivalinta milloin käyttää mitäkin mallia vertailu
-tähtimalli lumihiutalemalli data vault data mesh etl elt
-soveltuvuus käyttötilanteet tekniset ominaisuudet monimutkaisuus
-kyselysuorituskyky auditointikyky skaalautuvuus oppimiskynnys
-power bi bi-raportointi tietovarasto dwh historianseuranta
-monta lähdejärjestelmää raakadatan säilytys pieni tiimi suuri enterprise
-scd slowly changing dimensions hub link satellite
-extract transform load extract load transform pipeline siirtotapa
-dbt data build tool pilvi bigquery snowflake databricks fabric microsoft
-raportointikerros analytiikkakerros staging välikerros
-information mart federoitu governance dataprodukt domain
-vertailutaulukko arkkitehtuurin valinta hyödyt rajoitteet`,
-
 'etl-elt.html': `etl elt perinteinen tietovarasto pilvipohjaiset ratkaisut
 extract transform load extract load transform`,
 

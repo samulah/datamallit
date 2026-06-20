@@ -91,6 +91,15 @@ Jokaisella sivulla on laadukas, omin sanoin kirjoitettu sisältö ja dataneuvoks
 
 ---
 
+### 🟡 avaimet-ja-relaatiot.html — KESKEN (luotu 2026-06-20)
+- Sisältö siirretty faktataulu.html:stä: "Vierasavainten puuttuvat viittaukset" (medallion Bronze/Silver/Gold, sentinel-rivit)
+- Uusi pohjasisältö: johdanto, H2 Avaintyypit (PK/FK/SK/NK/DD-taulukko), H2 Relaatiot tähtimallissa (kardinaliteetti, suodatussuunta)
+- noindex, etusivun kesken-kortti (🚧 Luonnos), EI navigaatiossa eikä sitemapissa
+- [ ] Laajenna pohjasisältöä, lisää dataneuvoksen mielipide
+- [ ] Julkaistessa: poista noindex, lisää sitemapiin + navigaatioon, etusivun kortti kesken → normaali
+
+---
+
 ### 🟡 kirjallisuus-suositukset.html — KESKEN
 - 5 kirjakorttia kuvilla ja Amazon-linkeillä
 - Adamson: oikea dataneuvoksen mielipide ✅

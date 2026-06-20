@@ -31,9 +31,9 @@
         "url": "https://www.datamalli.fi/faktataulu.html",
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/faktataulu.html" },
         "inLanguage": "fi",
-        "datePublished": "2026-06-09",
-        "dateModified": "2026-06-19",
-        "wordCount": 1300,
+        "datePublished": "2026-06-22",
+        "dateModified": "2026-06-22",
+        "wordCount": 750,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
@@ -72,7 +72,7 @@
 
   <h1>Faktataulu</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-06-09">9.6.2026</time></p>
+      datetime="2026-06-22">22.6.2026</time></p>
 
   <p>Faktataulu on <a href="tahtimalli.html">tähtimallin</a> laskennallinen ydin: jokainen rivi edustaa yhtä mitattavaa
     tapahtumaa — myyntiä, tilausta, klikkausta tai muuta liiketoiminnan kannalta merkityksellistä tapahtumaa.
@@ -136,7 +136,7 @@
     <p>Viisi matalan kardinaliteetin vierasavainta ja kolme additiivista mittaria — ei mitään muuta. <a href="termisto.html#paaavain" class="termi-tip">Pääavain (PK)</a> ja <a href="termisto.html#degeneraatioavain" class="termi-tip">degeneraatioavaimet</a> on jätetty tästä esimerkistä pois: molemmat ovat korkean <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetin</a> sarakkeita (uniikki tai lähes uniikki arvo joka rivillä), jotka eivät pakkaudu <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a>. Faktataulu ei myöskään välttämättä tarvitse omaa surrogaattipääavainta — rivin yksilöi vierasavainten yhdistelmä. Jäljelle jää siis vain matalan kardinaliteetin vierasavaimia ja mittareita.</p>
     <div style="overflow-x: auto;">
       <table>
-        <caption>FactMyynti — rakenne ja esimerkkidata. Vain matalan kardinaliteetin vierasavaimet (INT) ja numeeriset mittarit — pääavain ja degeneraatioavaimet jätetty pois.</caption>
+        <caption>Taulukko 2, FactMyynti — rakenne ja esimerkkidata. Vain matalan kardinaliteetin vierasavaimet (INT) ja numeeriset mittarit — pääavain ja degeneraatioavaimet jätetty pois.</caption>
         <thead>
           <tr>
             <th>PvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
@@ -224,7 +224,7 @@
     kaikki kolme tyyppiä käytännön esimerkein.</p>
 
   <table>
-    <caption>Taulukko 2, Faktataulujen arkkityypit – Kolme perustyyppiä, niiden toimintaperiaate ja
+    <caption>Taulukko 3, Faktataulujen arkkityypit – Kolme perustyyppiä, niiden toimintaperiaate ja
       käyttötilanteet</caption>
     <thead>
       <tr>
@@ -271,13 +271,11 @@
     ei pakkaudu. Perinteisessä rivipohjaisessa tietovarastossa rivimäärä on sen sijaan pääasiallinen
     suorituskykytekijä. Power BI:ssä todelliset pullonkaulat ovat DISTINCTCOUNT-laskenta, korkean kardinaliteetin
     sarakkeet ja RAM:n riittävyys. Mitä karkeampi granulariteetti (vähemmän yksilöiviä arvoja), sitä pienempi malli — mutta myös sitä enemmän
-    yksityiskohtia menetät. <a href="https://www.sqlbi.com/articles/granularity-in-a-data-model/" target="_blank"
-      rel="noopener">Russo &amp; Ferrari (sqlbi.com)</a> käyvät läpi granulariteetin vaikutuksen Power BI -malleihin
-    käytännön esimerkein.</p>
+    yksityiskohtia menetät.</p>
 
   <div style="overflow-x: auto;">
     <table>
-      <caption>Taulukko 3, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetin</a> vaikutus – Eri granulariteettitasojen rivimäärät, <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a>,
+      <caption>Taulukko 4, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetin</a> vaikutus – Eri granulariteettitasojen rivimäärät, <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a>,
         suorituskyky ja käyttötilanteet</caption>
       <thead>
         <tr>
@@ -323,7 +321,7 @@
     <p>Sama myyntidata kolmella eri granulariteetilla, 3 vuoden historia, 500 tuotetta, 50 000 myyntiä per päivä:</p>
     <div style="overflow-x: auto;">
       <table>
-        <caption>Taulukko 4, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetti</a> ja muistikoko – Sama data kolmella granulariteetilla, korkeimman
+        <caption>Taulukko 5, <a href="termisto.html#granulariteetti" class="termi-tip">Granulariteetti</a> ja muistikoko – Sama data kolmella granulariteetilla, korkeimman
           <a href="termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetin</a>, muistikoon ja kyselymahdollisuuksien vertailu</caption>
         <thead>
           <tr>
@@ -364,228 +362,14 @@
       transaktiotaulu operatiiviseen käyttöön ja aggregoitu taulu johtoryhmäraportoinnille.</p>
   </div>
 
-  <h2>Vierasavainten puuttuvat viittaukset käytännössä</h2>
-
-  <p>Kultainen sääntö numero kolme sanoo: jokainen FK löytää parin. Lähdejärjestelmästä tulevassa raakadatassa
-    tämä ei aina pidä paikkansa — asiakkaita poistetaan GDPR-pyynnöistä, kassaostot kirjautuvat ilman
-    asiakastunnusta, tuotekoodit voivat vioittua siirrossa. Kun faktataulun vierasavain ei löydä vastaavaa
-    riviä dimensiosta, Power BI:n VertiPaq luo kyseiseen dimensioon automaattisen <strong>(Blank)</strong>-rivin,
-    joka kerää alleen kaikki vastineettomat faktataulun rivit. Se näkyy raporteissa tavallisen asiakasrivin tai
-    tuoterivin kaltaisena — paitsi että sen takana voi olla täysin eri syistä tulleet rivit, joita ei enää
-    pysty erittelemään.</p>
-
-  <p>Alla seurataan samaa myyntidataa
-    <a href="termisto.html#medallion-arkkitehtuuri">medallion-arkkitehtuurin</a> kolmen kerroksen läpi:
-    <a href="termisto.html#bronze">Bronze</a>,
-    <a href="termisto.html#silver">Silver</a> ja
-    <a href="termisto.html#gold">Gold</a>.</p>
-
-  <h3>Bronze: raakadata sellaisenaan</h3>
-
-  <p>Bronze-kerroksessa data ladataan lähdejärjestelmästä muuttamatta. NULL-arvot ja viittaukset poistettuihin
-    asiakkaisiin jäävät paikoilleen — Bronze ei korjaa dataa, se tallentaa sen.</p>
-
-  <table>
-    <caption>Taulukko 5, Bronze-tason myyntifakta – Raakadata lähdejärjestelmästä; NULL ja orpo FK näkyvät
-      sellaisinaan</caption>
-    <thead>
-      <tr>
-        <th>TilausNumero</th>
-        <th>AsiakasTunnus</th>
-        <th>TuoteKoodi</th>
-        <th>MyyntiPvm</th>
-        <th>Myyntisumma</th>
-        <th>FK-ongelma</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>ORD-5001</td>
-        <td>CUS-1042</td>
-        <td>PRD-200</td>
-        <td>2026-06-01</td>
-        <td>149,90</td>
-        <td>—</td>
-      </tr>
-      <tr class="rivi-null">
-        <td>ORD-5002</td>
-        <td><strong>NULL</strong></td>
-        <td>PRD-201</td>
-        <td>2026-06-02</td>
-        <td>89,50</td>
-        <td>Kassaosto — asiakas ei kirjautunut</td>
-      </tr>
-      <tr class="rivi-orpo">
-        <td>ORD-5003</td>
-        <td><strong>CUS-9841</strong></td>
-        <td>PRD-200</td>
-        <td>2026-06-03</td>
-        <td>199,90</td>
-        <td>Asiakas poistettu (GDPR) — ei löydy DimAsiakkaasta</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="fakta-laatikko">
-    <strong>(Blank)-ongelma käytännössä — sama raportti kahdella tavalla:</strong>
-    <p>Kun Bronze-data ladataan sellaisenaan Power BI:hin, sekä kassaosto (NULL) että poistetun asiakkaan
-      osto (orpo FK) päätyvät saman (Blank)-rivin alle eikä niitä voi enää erotella:</p>
-    <table>
-      <caption>Taulukko 6, Power BI -asiakasraportti ilman "ei tiedossa" -käsittelyä – NULL ja orpo FK
-        yhdistyvät erottamattomaksi (Blank)-riviksi</caption>
-      <thead>
-        <tr>
-          <th>Asiakas</th>
-          <th>Myynti</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Yritys Oy</td>
-          <td>149,90 €</td>
-        </tr>
-        <tr class="rivi-orpo">
-          <td><strong>(Blank)</strong></td>
-          <td><strong>289,40 €</strong></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Gold-tasolla käsitelty data erittelee jokaisen syyn omalle rivilleen:</p>
-    <table>
-      <caption>Taulukko 7, Power BI -asiakasraportti oikealla "ei tiedossa" -käsittelyllä – Jokainen
-        tilanne omana rivinään, suodatettavissa erikseen</caption>
-      <thead>
-        <tr>
-          <th>Asiakas</th>
-          <th>Myynti</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Yritys Oy</td>
-          <td>149,90 €</td>
-        </tr>
-        <tr class="rivi-null">
-          <td>Anonyymi</td>
-          <td>89,50 €</td>
-        </tr>
-        <tr class="rivi-orpo">
-          <td>[Poistettu]</td>
-          <td>199,90 €</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Silver: validointi ja sentinel-merkkijonot</h3>
-
-  <p>Silver-kerroksessa NULL-arvot ja orvot viittaukset standardoidaan tunnistettaviksi
-    sentinel-merkkijonoiksi (<em>_ANON_</em>, <em>_POISTETTU_</em>) ja jokainen ongelmarivi merkitään
-    tiedonlaatusarakkeeseen. Data pysyy vielä liiketoiminta-avaimissa — surrogaattiavaimia ei luoda
-    Silver-tasolla. Silver ei itsessään ratkaise (Blank)-ongelmaa, mutta se tekee Gold-muunnoksen
-    deterministiseksi: kun jokainen ongelmatyyppi on nimetty erikseen, ETL pystyy ohjaamaan ne oikeaan
-    <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-riviin</a> Gold-dimensiossa.</p>
-
-  <h3>Gold: sentinel-rivit dimensioon ja surrogaattiavaimet</h3>
-
-  <p>Gold-kerroksessa jokainen dimensio saa omat <a href="termisto.html#sentinel-rivi" class="termi-tip">sentinel-rivit</a> ennen varsinaista dataa. DimAsiakkaaseen
-    lisätään erilliset rivit kassaostoille (Anonyymi) ja poistetuille asiakkaille ([Poistettu]) — sekä
-    yleinen "Ei tiedossa" -rivi kaikkea muuta varten. Nämä rivit saavat INT-surrogaattiavaimen aivan kuten
-    oikeatkin asiakasrivit. FactMyynti-taulussa jokainen AsiakasAvain osoittaa johonkin DimAsiakkaan riviin
-    — NULL-arvoja tai orvoja viittauksia ei enää ole.</p>
-
-  <table>
-    <caption>Taulukko 8, Gold-tason DimAsiakas – Sentinel-rivit (avaimet 0–2) varsinaisen asiakasdata
-      edellä</caption>
-    <thead>
-      <tr>
-        <th>AsiakasAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
-        <th>AsiakasTunnus (<a href="termisto.html#nk" class="termi-tip">NK</a>)</th>
-        <th>AsiakasNimi</th>
-        <th>Segmentti</th>
-        <th>Sentinel-syy</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="rivi-sentinel">
-        <td><strong>0</strong></td>
-        <td>_TUNTEMATON_</td>
-        <td>Ei tiedossa</td>
-        <td>—</td>
-        <td>Yleinen fallback — tuntematon ongelmatyyppi</td>
-      </tr>
-      <tr class="rivi-null">
-        <td><strong>1</strong></td>
-        <td>_ANON_</td>
-        <td>Anonyymi</td>
-        <td>Kuluttaja</td>
-        <td>Kassaosto — asiakastunnistautuminen ei tapahtunut</td>
-      </tr>
-      <tr class="rivi-orpo">
-        <td><strong>2</strong></td>
-        <td>_POISTETTU_</td>
-        <td>[Poistettu]</td>
-        <td>—</td>
-        <td>GDPR-pyyntö — historia säilyy, henkilötiedot poistettu</td>
-      </tr>
-      <tr>
-        <td>1042</td>
-        <td>CUS-1042</td>
-        <td>Yritys Oy</td>
-        <td>B2B</td>
-        <td>—</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table>
-    <caption>Taulukko 9, Gold-tason FactMyynti – Kaikki AsiakasAvain-arvot löytyvät DimAsiakkaasta,
-      NULL-arvoja ei ole</caption>
-    <thead>
-      <tr>
-        <th>MyyntiAvain (<a href="termisto.html#paaavain" class="termi-tip">PK</a>)</th>
-        <th>TilausNumero (<a href="termisto.html#degeneraatioavain" class="termi-tip">DD</a>)</th>
-        <th>AsiakasAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
-        <th>TuoteAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
-        <th>MyyntiPvmAvain (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>)</th>
-        <th>Myyntisumma</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>ORD-5001</td>
-        <td>1042</td>
-        <td>201</td>
-        <td>20260601</td>
-        <td>149,90</td>
-      </tr>
-      <tr class="rivi-null">
-        <td>2</td>
-        <td>ORD-5002</td>
-        <td><strong>1</strong></td>
-        <td>202</td>
-        <td>20260602</td>
-        <td>89,50</td>
-      </tr>
-      <tr class="rivi-orpo">
-        <td>3</td>
-        <td>ORD-5003</td>
-        <td><strong>2</strong></td>
-        <td>201</td>
-        <td>20260603</td>
-        <td>199,90</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>ORD-5002:n AsiakasAvain on 1 (Anonyymi) ja ORD-5003:n on 2 ([Poistettu]). Molemmat löytyvät
-    DimAsiakkaasta — VertiPaq ei luo (Blank)-riviä. Raporteissa 289,40 € on nyt eritelty kahdeksi erilliseksi,
-    suodatettavaksi riviksi joilla on eri semanttinen merkitys.</p>
+  <!-- TODO julkaistaessa: muista liittää avaimet-ja-relaatiot.html mukaan, kun se julkaistaan.
+       Lisää tähän takaisin linkki sivulle "Avaimien ja relaatioiden mallinnus" (vierasavainten
+       puuttuvat viittaukset, sentinel-rivit, medallion-kerrokset). Linkki poistettu toistaiseksi,
+       koska kohdesivu on vielä luonnos (noindex). -->
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>Neljä asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
+    <p>Kolme asiaa, jotka on tehtävä oikein ennen kaikkea muuta:</p>
     <ul>
       <li><strong>Granulariteetti ensin, aina.</strong> Ennen kuin lisäät yhtään saraketta, kirjoita ylös: "Yksi rivi =
         yksi X." Jos et pysty täyttämään tuota lausetta yksiselitteisesti, granulariteetti on epäselvä. Faktataulu jossa on sekä transaktio- että päivätason rivejä ei summaudu koskaan oikein.</li>
