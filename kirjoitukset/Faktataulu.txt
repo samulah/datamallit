@@ -1,0 +1,23 @@
+Faktataulu on tähtimallin laskennallinen ydin — ja samalla se kohta, jossa tehdään koko mallin tärkein suunnittelupäätös.
+
+Julkaisin datamalli.fi:hin uuden sivun faktataulun mallinnuksesta. Sivustolla oli jo ennestään ohjeet dimensioiden mallintamiseen, joten oli looginen jatkumo avata myös faktataulun puoli. Tähtimalli koostuu näistä kahdesta: dimensioissa on konteksti, faktataulussa luvut. Toinen ei toimi ilman toista.
+
+Mikä faktataulu sitten on? Jokainen rivi edustaa yhtä mitattavaa tapahtumaa — myyntiä, tilausta, klikkausta. Hyvin rakennettu faktataulu on pitkä ja kapea: miljoonia rivejä mutta vähän sarakkeita. Sarakkeet jakautuvat vain kahteen: kokonaislukumuotoisiin vierasavaimiin (FK) ja mittareihin. Ei tekstiä, ei kuvailevia attribuutteja — ne kuuluvat dimensioihin.
+
+Pari asiaa, joita käyn sivulla läpi:
+
+- Granulariteetti päätetään aina ensin. Ennen yhtäkään saraketta pitää pystyä täyttämään lause "yksi rivi = yksi X". Jos et pysty, faktataulu ei summaudu koskaan oikein.
+
+- Additiivinen, semi-additiivinen ja ei-additiivinen mittari — mitä ero tarkoittaa käytännössä ja miksi esim. kateprosenttia ei pidä tallentaa sarakkeeksi vaan laskea DAX:ssä komponenteista.
+
+- Faktataulujen kolme arkkityyppiä (transaktio, kausi, kumulatiivinen) ja milloin kutakin käytetään.
+
+- Miksi VertiPaq pakkaa INT-avaimet tehokkaasti mutta VARCHAR ei pakkaudu lainkaan — ja mitä se tarkoittaa mallin muistikoolle ja nopeudelle. Mukana esimerkki samasta datasta kolmella eri granulariteetilla.
+
+Miksi tätä tekee? Semanttisen kerroksen mallintaminen on tylsää, piilossa tapahtuvaa työtä, jonka tärkeys unohtuu organisaatioissa aina silloin tällöin. Silti se on edellytys sille, että data on AI-valmista ja raportit toimivat oikein isoillakin datamäärillä. datamalli.fi on ilmainen, kaikille avoin verkkokirja näistä parhaista käytännöistä — ja se kasvaa koko ajan.
+
+Ite suosittelen ottamaan ainakin termistö-sivun talteen kirjainmerkkeihin.
+
+Faktataulun mallinnus: https://www.datamalli.fi/faktataulu.html
+
+Sivusto päivittyy jatkossakin, etusivulta näkyy mitä on suunnitelmissa. Yhdestä faktataulusta on luonteva jatkaa useampaan faktatauluun samassa mallissa — se on yksi tulevista aiheista.

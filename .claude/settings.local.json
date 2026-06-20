@@ -36,7 +36,9 @@
       "Bash(cp faktataulu.html /tmp/faktataulu.bak)",
       "Bash(sed -i '367,585d' faktataulu.html)",
       "Bash(node --check search-index.js)",
-      "Bash(sed -n '/<script type=\"application\\\\/ld+json\">/,/<\\\\/script>/p' avaimet-ja-relaatiot.html)"
+      "Bash(sed -n '/<script type=\"application\\\\/ld+json\">/,/<\\\\/script>/p' avaimet-ja-relaatiot.html)",
+      "Bash(ls -la .claude/agents/)",
+      "Bash(ls -la /home/samu/.claude/agents/)"
     ]
   }
 }
