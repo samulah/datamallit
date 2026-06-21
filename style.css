@@ -310,6 +310,49 @@ tr.rivi-null td     { background-color: #fff8e6; }
 tr.rivi-orpo td     { background-color: #fff2f2; }
 tr.rivi-sentinel td { background-color: #f2f6ff; }
 
+/* Kokoero-vertailugraafi (faktataulu: granulariteetti ja muistikoko) */
+.kokoero-graafi {
+  margin: 22px 0 6px;
+  font-family: var(--font-ui);
+}
+.kokoero-rivi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.kokoero-nimi {
+  flex: 0 0 130px;
+  font-size: 0.88em;
+  font-weight: 600;
+  color: var(--c-text);
+}
+.kokoero-track {
+  flex: 1 1 auto;
+  background: #eef2ef;
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  height: 26px;
+  overflow: hidden;
+}
+.kokoero-bar {
+  height: 100%;
+  min-width: 5px;
+  border-radius: 3px 0 0 3px;
+}
+.kokoero-arvo {
+  flex: 0 0 132px;
+  font-size: 0.88em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.kokoero-arvo strong { font-weight: 700; }
+.kokoero-kerroin { color: var(--c-muted); font-size: 0.86em; }
+@media (max-width: 600px) {
+  .kokoero-nimi  { flex-basis: 92px; font-size: 0.8em; }
+  .kokoero-arvo  { flex-basis: 104px; font-size: 0.8em; }
+}
+
 img {
   display: block;
   max-width: 88%;

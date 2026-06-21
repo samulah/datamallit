@@ -49,7 +49,7 @@
   }
   </script>
   <title>Faktataulun mallinnus | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <script src="navigation.js?v=6" defer></script>
 </head>
 
@@ -357,9 +357,32 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Ratkaisu käytännössä:</strong> Jos tarvitset sekä transaktiotason yksityiskohtia (esim.
-      tilausnumerot) että nopeat kuukausitrendit, harkitse kahta erillistä faktataulua eri granulariteeteilla —
-      transaktiotaulu operatiiviseen käyttöön ja aggregoitu taulu johtoryhmäraportoinnille.</p>
+
+    <p style="margin-top: 18px;"><strong>Sama data, kolme kokoluokkaa:</strong> palkin pituus on suorassa
+      suhteessa datan määrään. VertiPaq skannaa sarakkeen jokaisessa kyselyssä, joten palkin pituus ennustaa
+      myös kyselyiden nopeuden, pidempi palkki tarkoittaa enemmän skannattavaa dataa ja hitaampaa kyselyä. 
+      Katso alta nopeuden indeksikertoimet transaktio-, päivä- ja kuukausitasoilla:</p>
+
+    <div class="kokoero-graafi" role="img"
+      aria-label="Pylväsvertailu saman datan muistikoosta kolmella granulariteetilla: transaktiorivi noin 2 gigatavua, päivätaso noin 30 megatavua, kuukausitaso noin 3 megatavua.">
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Transaktiorivi</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 100%; background: #c0392b;"></div></div>
+        <span class="kokoero-arvo"><strong>~2 GB</strong> <span class="kokoero-kerroin">×667</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Päivätaso</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 1.5%; background: #C9A84C;"></div></div>
+        <span class="kokoero-arvo"><strong>~30 MB</strong> <span class="kokoero-kerroin">×10</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Kuukausitaso</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 0.15%; background: #1a8a50;"></div></div>
+        <span class="kokoero-arvo"><strong>~3 MB</strong> <span class="kokoero-kerroin">×1</span></span>
+      </div>
+    </div>
+    <p style="font-size: 0.82em; color: var(--c-muted); font-style: italic; margin: 4px 0 16px;">Lineaarinen
+      asteikko (2 GB = 100 %). Kerroin kuvaa kokoa suhteessa kevyimpään malliin.</p>
   </div>
 
   <!-- TODO julkaistaessa: muista liittää avaimet-ja-relaatiot.html mukaan, kun se julkaistaan.
