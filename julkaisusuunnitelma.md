@@ -20,7 +20,7 @@
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
-| tahtimalli-esimerkit.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, SEO-optimointi, sisäiset linkit tahtimalli + lumihiutalemalli) — järjestys huonoimmasta parhaaseen |
+| tahtimalli-esimerkit.html | ⭐⭐ 2 | Palautettu noindexiin 2026-06-21 (noindex,nofollow + poistettu sitemapista ja llms.txt:stä) — sisältö valmis, mutta poissa indeksistä toistaiseksi |
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - header-detail.html
 - useampi-fakta.html

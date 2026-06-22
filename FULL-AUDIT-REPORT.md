@@ -1,210 +1,197 @@
-# SEO Audit Report: datamalli.fi
-**Audit date:** 2026-06-17
-**Audited URL:** https://datamalli.fi/ → https://www.datamalli.fi/ (301)
-**Server:** LiteSpeed (HTTP/2 + HTTP/3)
-**Language:** Finnish (fi)
-**Business type:** Educational / Content Publisher — Finnish-language data-modelling guide (BI & data-warehouse niche)
-**Method:** Local source review (static HTML repo) + live header/redirect verification via curl. CWV field data not available (no GSC/GA4).
+# Full SEO Audit — datamalli.fi
 
----
-
-## Overall SEO Health Score: 85/100
-
-| Category | Weight | Score | Weighted |
-|----------|--------|-------|----------|
-| Technical SEO | 22% | 90/100 | 19.8 |
-| Content Quality | 23% | 80/100 | 18.4 |
-| On-Page SEO | 20% | 85/100 | 17.0 |
-| Schema / Structured Data | 10% | 92/100 | 9.2 |
-| Performance (CWV) | 10% | 85/100 | 8.5 |
-| AI Search Readiness | 10% | 84/100 | 8.4 |
-| Images | 5% | 70/100 | 3.5 |
-| **Total** | **100%** | | **84.8 → 85** |
-
-**Change since 2026-06-16 audit: 75 → 85 (+10).** The previous critical issue (all HTTP security headers missing) and the GDPR Google-Fonts dependency have both been resolved (see "Fixed since last audit" below).
+**Audit date:** 2026-06-21
+**Audited host:** https://www.datamalli.fi/ (apex `datamalli.fi` 301→ `www`)
+**Pages analysed:** 15 indexable (sitemap) + 11 in-progress (noindex) verified
+**Method:** Live crawl (curl/HTTP), source cross-check, schema validation, lab performance
+**Score trajectory:** 75 (2026-06-16) → 85 (2026-06-17) → **93 (2026-06-21)**
+**Tooling note:** No Google Search Console / CrUX / DataForSEO credentials present — no field CWV, SERP-position, or backlink data in this run. Performance figures are lab/transfer-based.
 
 ---
 
 ## Executive Summary
 
-Datamalli.fi is a well-built, niche Finnish educational site on data modelling (star/snowflake schema, dimensions, fact tables, naming conventions, AI-ready metadata, Power BI tooling). On-page SEO and structured data are genuinely excellent: every indexable page has a correct title, meta description, self-referencing canonical, OG tags, a single H1, and a rich JSON-LD `@graph` (TechArticle + BreadcrumbList, with author/publisher resolved by `@id`). Author E-E-A-T is strong — a dedicated `Person` entity with job title, employer, certifications, `alumniOf`, `knowsAbout`, and `sameAs` links.
+**SEO Health Score: 93 / 100 — Excellent**
 
-Technically the site is now in very good shape: apex → www is a clean **301**, HSTS is set with `includeSubDomains; preload`, and the standard security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy) are present. Fonts are self-hosted (woff2). The draft/publishing strategy is sound: unfinished pages are `noindex,nofollow`, kept out of the sitemap, and crawlable so Google can read the noindex.
+datamalli.fi is a technically exemplary, well-structured niche content site (Finnish-language data-modelling guide). It is one of the cleanest small sites I have audited: indexation hygiene, security headers, structured data, and performance are all near-textbook. The findings below are refinements, not repairs — there are **no critical or high-severity issues**.
 
-The single most impactful remaining issue is an **indexing/architecture inconsistency on `faktataulu.html`**: it is a finished, 1,300-word page with full TechArticle schema and is linked from both the main navigation and the homepage as a live card — yet it is `noindex,nofollow` and absent from the sitemap and llms.txt. It is either a complete page that was never finished being published, or a draft that shouldn't yet be in the primary nav. Secondary items are a very thin philosophy page, a missing CSP header, and a handful of schema/image enhancements.
+**Business type:** Niche knowledge / publisher (single-author expert content). Not e-commerce, not local — so no GBP/product/marketplace analysis applies.
 
-### Top 5 Issues
-1. **`faktataulu.html`: finished + prominently linked, but `noindex` and not in sitemap/llms.txt** (HIGH). A complete content asset earns zero organic visibility while occupying a main-nav slot.
-2. **`kehittamisen-filosofia.html`: ~90–120 words** (MEDIUM). Indexed, in sitemap and main nav, but by far the thinnest page — thin-content risk.
-3. **Content-Security-Policy header missing** (MEDIUM). 5 of 6 standard security headers are now present; CSP is the last one.
-4. **`arkkitehtuurivalinta.html` missing from `llms.txt`** (LOW/MEDIUM). Published 2026-06-14, in sitemap and indexable, but not listed for AI crawlers.
-5. **Borderline-thin topic pages** (LOW): `lumihiutalemalli.html` (~320 w) and `litistaminen.html` (~360 w).
+### Category scores
 
-### Top 5 Quick Wins
-1. Decide `faktataulu.html`: publish it (remove noindex → add to sitemap + llms.txt) **or** pull it from main nav/homepage until ready. (15–30 min)
-2. Add `arkkitehtuurivalinta.html` to `llms.txt` under `## Sisältösivut`. (5 min)
-3. Add a report-only CSP header, then enforce once clean. (30–60 min)
-4. Expand `kehittamisen-filosofia.html` to 600+ words. (2–3 h)
-5. Add FAQPage schema to the question-based H2 pages (tahtimalli, dimensiot, faktataulu). (1–2 h)
+| Category | Weight | Score | Notes |
+|----------|:------:|:-----:|-------|
+| Technical SEO | 22% | 97 | HSTS preload, CSP, clean robots/sitemap, perfect noindex hygiene |
+| Content Quality | 23% | 88 | Strong E-E-A-T; a few thin pages |
+| On-Page SEO | 20% | 93 | All meta complete; 2 long titles |
+| Schema / Structured Data | 10% | 95 | Valid entity graph, DefinedTermSet, TechArticle |
+| Performance (CWV, lab) | 10% | 92 | ~95ms TTFB, Brotli, HTTP/2+h3, deferred JS |
+| AI Search Readiness | 10% | 94 | llms.txt + semantic schema |
+| Images | 5% | 96 | 100% alt coverage, proper OG images |
+| **Weighted total** | | **93** | |
 
----
+### Top strengths
+1. **Indexation hygiene is exemplary.** Every in-progress page is `noindex,nofollow` *and* excluded from the sitemap; every sitemap URL is 200 + indexable. Clean separation, exactly as documented in the project's publishing convention.
+2. **Security headers are production-grade.** HSTS with `preload`, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy — all present.
+3. **Structured data is rich and correct.** Proper `@id` entity graph (Organization → founder → Person; TechArticle → author/publisher refs), `DefinedTermSet` glossary, `sameAs` to LinkedIn/dataneuvos.fi. All 15 pages' JSON-LD parses cleanly.
+4. **Fast and lean.** ~95 ms TTFB, Brotli, HTTP/2 (+h3/QUIC), 7-day cache headers, all JS `defer`-loaded, self-hosted fonts with `font-display: swap`.
+5. **AI/GEO-ready.** Detailed `llms.txt` (CC BY 4.0), citable structure, glossary terms.
 
-## Fixed since last audit (2026-06-16 → 2026-06-17)
-
-Verified against live headers and current source:
-
-- ✅ **Security headers deployed** — live response now includes `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`, `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`. (Was the previous CRITICAL.)
-- ✅ **Google Fonts removed / self-hosted** — DM Sans + Source Serif 4 served from `/fontit/` via `@font-face`; no production page references `fonts.googleapis.com` (only the unused demo file `esimerkkityyli.css` still does). GDPR exposure resolved.
-- ✅ **apex → www 301 confirmed live** — `https://datamalli.fi/` returns `HTTP/2 301` to `https://www.datamalli.fi/`.
-- ✅ **`faktataulu.html` now `noindex,nofollow`** (was noindex-only) — though see HIGH finding below: the deeper question is whether it should be noindex at all.
-- ✅ **`arkkitehtuurivalinta.html` deployed** — returns 200, indexable, and added to the sitemap (was 404 yesterday).
-
----
-
-## Technical SEO — 90/100
-
-### Live verification (curl, 2026-06-17)
-
-| Check | Result |
-|-------|--------|
-| apex → www redirect | `HTTP/2 301` → `https://www.datamalli.fi/` ✅ |
-| HSTS | `max-age=31536000; includeSubDomains; preload` ✅ |
-| X-Frame-Options | `SAMEORIGIN` ✅ |
-| X-Content-Type-Options | `nosniff` ✅ |
-| Referrer-Policy | `strict-origin-when-cross-origin` ✅ |
-| Permissions-Policy | `camera=(), microphone=(), geolocation=()` ✅ |
-| Content-Security-Policy | ❌ Missing (only gap) |
-| HTTP/2 | ✅ |
-| HTTP/3 (QUIC) | ✅ advertised via `alt-svc` |
-
-### robots.txt & sitemap
-- `robots.txt`: `Allow: /` with sitemap reference. Deliberate strategy — crawling is allowed so Googlebot can read per-page `noindex` on drafts (a `Disallow` would hide the noindex). ✅
-- `sitemap.xml`: 15 URLs, all `www.datamalli.fi`, all with `lastmod`, only production-ready pages. ✅ Now includes `arkkitehtuurivalinta.html`.
-
-### Canonical & host strategy
-- Every indexable page has a self-referencing canonical on `www.datamalli.fi`. Canonical host, sitemap, robots, OG URLs, and the 301 all agree on `www`. ✅
-
-### Draft / noindex strategy
-`noindex,nofollow` and excluded from the sitemap: `data-contract`, `data-governance`, `data-vault`, `etl-elt`, `header-detail`, `medallion`, `useampi-fakta`, `surrogaattiavaimet` (draft, published 06-15), plus the template `sivupohja.html`. These are not linked from the homepage as live cards (shown as "🚧 Tulossa") — correct gating. ✅
-
-### Remaining gap
-- **CSP missing.** Start in `Content-Security-Policy-Report-Only` mode given inline `<style>`/`<script>` blocks; tighten, then enforce. Self-hosted fonts mean no Google CDN needs allow-listing.
+### Top quick wins
+1. Resolve the `arkkitehtuurivalinta.html` inconsistency (in llms.txt but `noindex` + not in sitemap). — *Medium*
+2. Refresh `<lastmod>` dates in sitemap.xml (currently stale vs. actual edits). — *Medium*
+3. Trim 2 over-length titles (`termisto` 68, `tahtimalli-esimerkit` 76 chars). — *Low*
+4. Expand the 2 thinnest topic pages (`kehittamisen-filosofia` 393 w, `lumihiutalemalli` 459 w). — *Low*
+5. Preload the primary body font for a marginal LCP gain. — *Low*
 
 ---
 
-## Content Quality — 80/100
+## Technical SEO — 97/100
 
-### Word counts (declared `wordCount` in schema; indexable pages)
+**Crawlability & indexability**
+- `robots.txt`: clean, `Allow: /`, sitemap referenced (correctly with `www` host). Comment explains the deliberate "crawl-allowed + per-page noindex" strategy. ✔
+- Apex → www: `https://datamalli.fi/` issues a single `301` to `https://www.datamalli.fi/`. Canonical host is consistent everywhere. ✔
+- Canonicals: all 15 indexable pages self-canonicalise to the `www` host — no host/protocol mismatch. ✔
+- `noindex` hygiene: 11/11 in-progress pages (`arkkitehtuurivalinta`, `avaimet-ja-relaatiot`, `data-contract`, `data-governance`, `data-vault`, `etl-elt`, `medallion`, `surrogaattiavaimet`, `useampi-fakta`, `header-detail`) verified `noindex,nofollow` and absent from the sitemap. ✔
+- 404 handling: unknown URLs return a true `404` (no soft-200). ✔
+- `<html lang="fi">`, `<meta viewport>` present on all pages. ✔
 
-| Page | Words | Status |
-|------|-------|--------|
-| arkkitehtuurivalinta.html | 2,200 | ✅ Excellent |
-| tahtimalli-esimerkit.html | 1,330 | ✅ Strong |
-| apuohjelmat.html | 1,280 | ✅ Strong |
-| dimensiot.html | 1,150 | ✅ Strong |
-| ai-valmis-metadata.html | 770 | ✅ Good |
-| tahtimalli.html | 720 | ✅ Good |
-| kirjallisuus-suositukset.html | 649 | ✅ Good |
-| nimeamiskaytannot.html | 500 | ⚠ Acceptable |
-| litistaminen.html | 360 | ⚠ Borderline |
-| lumihiutalemalli.html | 320 | ⚠ Thin |
-| kehittamisen-filosofia.html | 90 | ❌ Very thin |
-| termisto.html | 130+ defined terms | ✅ Excellent (glossary) |
-| tietoa.html | About + rich Person schema | ✅ (E-E-A-T anchor) |
-| tietosuoja.html | privacy notice | ✅ (expected length) |
-| faktataulu.html | 1,300 | ✅ Strong — but `noindex` (see HIGH) |
+**Security**
+- HSTS: `max-age=31536000; includeSubDomains; preload` ✔
+- CSP present and reasonably tight (`object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'self'`, `upgrade-insecure-requests`). ✔
+- X-Frame-Options `SAMEORIGIN`, X-Content-Type-Options `nosniff`, Referrer-Policy `strict-origin-when-cross-origin`, Permissions-Policy locking camera/mic/geolocation. ✔
 
-### E-E-A-T — strong
-- **Author identity:** every TechArticle resolves `author` to `#samu-lahdenpera`; `tietoa.html` carries a full `Person` entity — `jobTitle`, `worksFor` (Datamalli Tiimi Oy / Dataneuvos), `sameAs` (LinkedIn, dataneuvos.fi), `image`, `alumniOf` (LUT), `knowsAbout`, and four `hasCredential` Microsoft certifications.
-- **Trust:** privacy policy present; footer has email + phone; real company; CC BY 4.0 licence (open-knowledge signal).
-- **Opportunity:** `tietoa.html` could be expanded to maximise author authority; consider an author photo/byline visible on content pages (schema has `image`, content does not surface it).
+**Delivery**
+- HTTP/2 served, h3/QUIC advertised via `alt-svc`. ✔
+- Brotli compression active (style.css 14,235 B → 3,106 B). ✔
+- Static assets `Cache-Control: public, max-age=604800`. ✔
+- Server: LiteSpeed.
 
-### Thin content
-- **`kehittamisen-filosofia.html` (~90–120 words)** — six principles presented as cards with little prose. Genuine thin-content risk; expand each principle with rationale + a concrete BI example.
-- **`lumihiutalemalli.html` (~320)** and **`litistaminen.html` (~360)** — focused topic pages; acceptable but would rank more robustly with a comparison table and worked example.
+**Minor**
+- `sitemap.xml` `<lastmod>` values are stale: homepage shows `2026-06-07` but its `Last-Modified` header is `2026-06-20`; most pages were edited more recently than their listed `lastmod`. Stale lastmod undersells content freshness. *(Medium)*
 
 ---
 
-## On-Page SEO — 85/100
+## Content Quality — 88/100
 
-- **Titles:** present on every page, well within display limits; sentence-case and descriptive. `tahtimalli-esimerkit.html`'s title is on the long side (~77 chars) and may truncate in SERPs.
-- **Meta descriptions:** present on every page, ~137–155 chars, keyword-relevant. ✅
-- **Headings:** exactly one H1 per page (verified across all 25 HTML files); H2s are question-based ("Miten tähtimalli rakentuu?") — good for snippets and AI extraction. ✅
-- **Internal linking:** strong — content pages cross-link (tahtimalli ↔ dimensiot ↔ litistaminen ↔ lumihiutale), use in-text term tooltips linking to `termisto.html#anchor`, and carry BreadcrumbList. A consistent main nav + footer is injected via `navigation.js`.
+**E-E-A-T: very strong for a single-author site**
+- Named, credentialed author (Samu Lahdenperä, "Dataneuvos") with a dedicated `tietoa.html` author page carrying `AboutPage` + `Person` + `EducationalOccupationalCredential` + `CollegeOrUniversity` schema.
+- Author `sameAs` LinkedIn (personal + company) and dataneuvos.fi — external identity validation.
+- TechArticle author/publisher entity links on every topic page.
+- Original, practitioner-focused Finnish content in an underserved niche (Power BI / SSAS data modelling in Finnish).
 
-### Architecture inconsistency (HIGH)
-**`faktataulu.html` is in the primary navigation (`navigation.js`) and on the homepage as a live `.kortti` card with a reading-time badge, yet it is `noindex,nofollow` and not in the sitemap or llms.txt.** It is a complete 1,300-word page with full TechArticle + BreadcrumbList schema and OG tags. This is contradictory: users are routed to it as published content, but search engines and AI crawlers are told to ignore it. Resolve one way or the other — recommended: publish it (it looks finished), per the project's three-step checklist (remove noindex → sitemap → schema; schema is already done).
+**Word counts (live, visible text)**
 
----
+| Page | Words | |
+|------|------:|---|
+| termisto.html | 11,743 | Glossary — exceptional depth |
+| tahtimalli-esimerkit.html | 2,139 | |
+| apuohjelmat.html | 1,627 | |
+| faktataulu.html | 1,490 | |
+| dimensiot.html | 1,459 | |
+| kirjallisuus-suositukset.html | 1,306 | |
+| index.html | 1,280 | |
+| ai-valmis-metadata.html | 944 | |
+| tahtimalli.html | 898 | |
+| nimeamiskaytannot.html | 626 | |
+| litistaminen.html | 563 | |
+| tietoa.html | 537 | About page — fine |
+| lumihiutalemalli.html | 459 | A little thin for a topic page |
+| kehittamisen-filosofia.html | 393 | Thinnest topic page |
+| tietosuoja.html | 247 | Privacy policy — fine |
 
-## Schema & Structured Data — 92/100
-
-Excellent coverage. Observed types:
-
-| Page(s) | Schema |
-|---------|--------|
-| index.html | Organization (with `sameAs`) + WebSite, `@graph` |
-| All TechArticle pages | TechArticle + BreadcrumbList; author/publisher by `@id`; `datePublished` + `dateModified`; `wordCount`; `inLanguage: fi` |
-| termisto.html | DefinedTermSet |
-| tietoa.html | AboutPage + Person (credentials, sameAs, knowsAbout, alumniOf) |
-| kirjallisuus-suositukset.html | TechArticle + ItemList of 7 `Book` entities |
-| tietosuoja.html | WebPage |
-
-### Remaining opportunities
-1. **FAQPage** — the question-based H2s on tahtimalli/dimensiot/faktataulu/lumihiutale are ready-made `Question`/`Answer` pairs; adding FAQPage can earn FAQ rich results and helps AI extraction.
-2. **DefinedTerm** — individual terms inside `termisto.html`'s DefinedTermSet could each be a `DefinedTerm` item for finer-grained entity understanding.
-3. **SearchAction** — homepage WebSite has an on-site search; an (optional) `potentialAction` SearchAction is a minor enhancement.
-
----
-
-## Performance (CWV) — 85/100
-*Lab/heuristic only — no CrUX field data (no GSC/GA4 access).*
-
-- **TTFB:** excellent on LiteSpeed (prior measured 80–110 ms); HTTP/2 + HTTP/3. ✅
-- **Fonts:** now self-hosted woff2 with `font-display: swap` and `unicode-range` splits (latin / latin-ext) — removes a third-party connection and improves CLS/LCP risk vs. the old Google CDN.
-- **Render path:** single `style.css`; JS (`navigation.js`, `search*.js`) loaded `defer`. ✅
-- **Page weight:** HTML mostly 5–33 KB; `termisto.html` ~197 KB (justified by volume). Largest assets are book-cover JPGs (~140–193 KB).
-- **Watch:** the first-visit splash animation in `navigation.js` (1.9 s, once per session) renders before main content — verify it isn't delaying LCP on first session view. Consider `rel="preload"` for the above-the-fold woff2 files.
+- **Thin content:** `kehittamisen-filosofia.html` (393 w) and `lumihiutalemalli.html` (459 w) are the only topic pages that read thin. Both are well-targeted but would benefit from a worked example, comparison table, or FAQ block. `tietosuoja`/`tietoa` short counts are expected for their page types. *(Low)*
+- No duplicate-content or cannibalisation issues observed — each page targets a distinct concept.
 
 ---
 
-## Images — 70/100
+## On-Page SEO — 93/100
 
-- **Alt text:** all 8 `<img>` tags across the site have descriptive Finnish alt text; none missing. ✅
-- **No oversized images:** largest is 193 KB (book cover). All reasonable. ✅
-- **OG images:** per-key-page OG images exist and are referenced correctly (`og-datamalli`, `og-termisto`, `og-apuohjelmat`, `og-sekasikio`), 1200×630 with `og:image:alt`. ✅
-- **Gaps:**
-  - Format: all raster assets are JPG/PNG — converting diagrams/covers to **WebP/AVIF** would cut bytes ~25–50%.
-  - Coverage: most indexed content pages are text/table-only. Topic diagrams (e.g. star-vs-snowflake on dimensiot/lumihiutale, an SCD diagram, a metadata diagram) would aid comprehension, dwell time, and image-search visibility.
-  - Housekeeping: `kuvat/og-self-service.png` is orphaned (referenced by no page).
+- **Titles:** all 15 present, unique, brand-suffixed (`… | Datamalli.fi`). Lengths 32–76 chars.
+  - Over ~60 chars (SERP truncation risk): `termisto.html` (68) and `tahtimalli-esimerkit.html` (76). *(Low)*
+- **Meta descriptions:** all 15 present, 137–154 chars — squarely in the optimal range. ✔
+- **Open Graph:** complete on every page (`og:type/title/description/url/image` + `og:image:width/height/alt`, `og:locale=fi_FI`, `og:site_name`). ✔
+- **Twitter:** `summary_large_image` card present; no explicit `twitter:image` (falls back to `og:image` — acceptable, no action needed).
+- **Headings:** exactly one `<h1>` per page; logical `<h2>` structure. ✔
+- **Internal linking:** homepage links to all 15 indexable pages (hub-and-spoke); shared nav via `navigation.js`. Good for a site this size.
 
----
-
-## AI Search Readiness (GEO) — 84/100
-
-- **llms.txt:** present, CC BY 4.0, with a clear site summary and a curated `## Sisältösivut` list. Covers 11 content pages + Tietoa. **Missing only `arkkitehtuurivalinta.html`** (published 06-14). `faktataulu.html` is correctly absent while noindex.
-- **Citability:** factual, well-structured, with specific quotable claims ("jopa 3× nopeampi"); a 130+ term glossary is a strong Finnish-language citation target; low competition in this language/niche.
-- **Machine-readability:** TechArticle + `inLanguage: fi` + author `@id` graph make passages easy to attribute. Adding FAQPage (above) would further help AI answer extraction.
-- **Brand/entity signals:** Organization `sameAs` (dataneuvos.fi + LinkedIn) and Person credentials give AI engines corroborating identity signals.
+> Note: meta description and og:description tags are authored across two source lines (attribute on the following line). This is valid HTML and crawlers parse it fine — no action needed (flagged only because it can fool line-based tooling).
 
 ---
 
-## Crawlability Summary
+## Schema / Structured Data — 95/100
 
-| Check | Status |
-|-------|--------|
-| robots.txt accessible & sane | ✅ |
-| Sitemap valid, www-consistent, lastmod present | ✅ |
-| Canonicals self-referencing & consistent | ✅ |
-| apex → www 301 (verified live) | ✅ |
-| Draft pages noindex + excluded from sitemap | ✅ |
-| Security headers (5/6) | ✅ (CSP missing) |
-| HSTS preload | ✅ |
-| HTTP/2 + HTTP/3 | ✅ |
-| Self-hosted fonts | ✅ |
-| `faktataulu.html` published consistently | ❌ in nav/homepage but noindex + not in sitemap |
-| `arkkitehtuurivalinta.html` in llms.txt | ❌ missing |
+All JSON-LD validates (parses without error) across all 15 pages. Implementation quality is high:
+
+| Page type | Types present |
+|-----------|---------------|
+| Home | `Organization` + `WebSite` + `Person` + `ImageObject` (`@graph`, fully `@id`-linked) |
+| Topic articles | `TechArticle` + `BreadcrumbList` + `Person` (author) |
+| Glossary | `DefinedTermSet` + `DefinedTerm` (+ Org/Person) |
+| Author page | `AboutPage` + `Person` + `CollegeOrUniversity` + `EducationalOccupationalCredential` |
+| Book list | `Book` + `ItemList` + `TechArticle` |
+| Privacy | `WebPage` |
+
+- TechArticle carries `headline`, `datePublished`, `dateModified`, `author` (Person `@id` + author-page URL), `publisher` (Org `@id`), `image`, `inLanguage`, `mainEntityOfPage`. ✔
+- Entity reuse via `@id` (e.g. `#organization`, `#samu-lahdenpera`) is correct and consistent. ✔
+
+**Opportunities**
+- `WebSite` has no `potentialAction` / `SearchAction` despite on-site search existing. Adding it enables sitelinks-searchbox eligibility. *(Low)*
+- Consider `FAQPage` on pages that already pose/answer questions (e.g. tähtimalli, dimensiot) for additional SERP real estate. *(Low)*
 
 ---
 
-*Generated by /seo-audit. Live checks performed 2026-06-17 via curl; content checks from local static source (`/home/samu/data mallit`). For field-level CWV and indexation status, connect GSC/GA4 and re-run with the seo-google integration.*
+## Performance (Core Web Vitals — lab/transfer) — 92/100
+
+| Metric | Value |
+|--------|-------|
+| TTFB (warm) | ~93–96 ms |
+| Total homepage transfer | 23.4 KB HTML |
+| Critical-path weight (HTML+CSS+JS+2 fonts) | ~270 KB (185 KB = fonts) |
+| HTML+CSS+JS only | ~92 KB uncompressed (Brotli on the wire) |
+| Protocol | HTTP/2 (+ h3/QUIC advertised) |
+| Compression | Brotli ✔ |
+| Render-blocking | 1 stylesheet (14 KB); all JS `defer` ✔ |
+| Fonts | self-hosted woff2, `font-display: swap` (no CLS) ✔ |
+
+- Lab signals point to strong LCP/CLS/INP: tiny HTML, fast TTFB, no blocking JS, swap fonts, no third-party scripts (CSP forbids them beyond jsdelivr).
+- **No field (CrUX) data available** this run — connect Search Console / PageSpeed Insights to confirm real-user CWV.
+
+**Opportunities**
+- Preload the primary body font (`source-serif-4-normal-latin.woff2`, 122 KB) to shave first-paint of body text. *(Low)*
+- `search-index.js` is 32 KB — fine while `defer`-loaded; revisit only if it grows.
+
+---
+
+## Images — 96/100
+
+- **Alt coverage: 100%.** Across every indexable page, 0 images missing alt and 0 empty alt (incl. the 7-image `kirjallisuus-suositukset` page). ✔
+- OG image present and valid: `kuvat/og-datamalli.png`, 1200×630, 74 KB, returns 200. ✔
+- Images served from same origin (CSP `img-src 'self' data:`).
+- Minor: consider per-page OG images (currently one shared `og-datamalli.png` across articles) for stronger social/SERP differentiation. *(Low)*
+
+---
+
+## AI Search Readiness (GEO) — 94/100
+
+- `llms.txt` present (200, text/plain, 2,973 B), CC BY 4.0 licensed, with a curated, described content index — strong signal for ChatGPT/Perplexity/AI Overviews. ✔
+- Highly citable structure: clear H1/H2 hierarchy, definitional content, `DefinedTermSet` glossary (130+ terms), named expert author. ✔
+- No third-party JS / paywall / cloaking — content is fully accessible to AI crawlers. ✔
+
+**Inconsistency to fix**
+- `llms.txt` lists **`arkkitehtuurivalinta.html`** as a content page, but that page is `noindex,nofollow` and is **not** in the sitemap. AI crawlers are being pointed to a page the site otherwise treats as unpublished. Either finish publishing it (remove noindex → add to sitemap → confirm TechArticle schema) or remove it from `llms.txt` until ready. *(Medium)*
+
+---
+
+## What I could not assess (data/credential gaps)
+
+- **Field Core Web Vitals** (CrUX) and **indexation status** (GSC) — no Google API credentials.
+- **Backlink profile / referring domains** — no Moz/Bing/DataForSEO access.
+- **Live SERP positions / keyword volumes** — no DataForSEO.
+- **Rendered visual / mobile screenshots** — Playwright not invoked this run.
+
+Connecting Search Console + PageSpeed Insights (free) would upgrade the Performance and Indexation sections from lab/inference to field data.
+
+---
+
+*Companion file: `ACTION-PLAN.md` (prioritised).*

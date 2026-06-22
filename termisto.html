@@ -347,6 +347,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#duplikaattiavain",
+            "name": "Duplikaattiavain",
+            "url": "https://www.datamalli.fi/termisto.html#duplikaattiavain",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Duplicate Key",
+            "description": "Dimensiotaulun pääavain, jonka sama arvo esiintyy useammalla rivillä, vaikka sen pitäisi olla uniikki. Duplikaattiavaimet rikkovat yksi-moneen-suhteen: Power BI joutuu muodostamaan monen-moneen-relaation, jolloin yksi faktarivi voi kytkeytyä useaan dimensioriviin ja aiheuttaa kaksoislaskentaa. Tarkista uniikkius esimerkiksi vertaamalla taulun rivimäärää ja avaimen erillisten arvojen määrää."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#ehdokasavain",
             "name": "Ehdokasavain",
             "url": "https://www.datamalli.fi/termisto.html#ehdokasavain",
@@ -517,6 +528,17 @@
             },
             "alternateName": "jeesmies malli",
             "description": "Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan sellaisenaan kyseenalaistamatta — jeesmiesten työn jälki. Malliin kertyy vuosien varrella duplikaattitauluja, vanhoja versioita \"varmuuden vuoksi\" ja moni-moneen-relaatioita, eikä kokonaisuudella ole omistajaa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#kaksoislaskenta",
+            "name": "Kaksoislaskenta",
+            "url": "https://www.datamalli.fi/termisto.html#kaksoislaskenta",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Double Counting",
+            "description": "Virhe, jossa sama arvo lasketaan mukaan useaan kertaan ja lopputulos kasvaa todellista suuremmaksi. Power BI:ssä kaksoislaskenta syntyy tyypillisesti monen-moneen-suhteesta, jonka aiheuttaa dimensiotaulun ei-uniikki pääavain (duplikaattiavaimet): yksi faktarivi kytkeytyy useaan dimensioriviin ja summautuu jokaiselle. Estetään varmistamalla dimensioiden pääavainten uniikkius ETL-vaiheessa."
           },
           {
             "@type": "DefinedTerm",
@@ -1042,7 +1064,18 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "alternateName": "Slowly Changing Dimension",
-            "description": "Dimension muutostenkäsittelytapa. Yleisin on tyyppi 2, joka säilyttää historian luomalla uuden rivin. Ks. SCD Type 1, SCD Type 2, SCD Type 3, SCD Type 4."
+            "description": "Dimension muutostenkäsittelytapa. Yleisin on tyyppi 2, joka säilyttää historian luomalla uuden rivin. Ks. SCD Type 0, SCD Type 1, SCD Type 2, SCD Type 3, SCD Type 4, SCD Type 5, SCD Type 6."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#scd-type-0",
+            "name": "SCD Type 0",
+            "url": "https://www.datamalli.fi/termisto.html#scd-type-0",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Slowly Changing Dimension, tyyppi 0",
+            "description": "Dimension muutostenkäsittely, jossa arvo lukitaan latauksen jälkeen eikä sitä koskaan muuteta. Sopii tietoihin, joiden kuuluu pysyä alkuperäisinä — esimerkiksi syntymäaika tai alkuperäinen rekisteröintipäivä. Ks. myös SCD."
           },
           {
             "@type": "DefinedTerm",
@@ -1087,6 +1120,28 @@
             },
             "alternateName": "Slowly Changing Dimension, tyyppi 4",
             "description": "Dimension muutostenkäsittely, jossa nykyinen arvo pidetään dimensiotaulussa nopeasti haettavana, ja koko muutoshistoria siirretään erilliseen historiatauluun. Yhdistää tyypin 1 nopeuden ja tyypin 2 historian. Ks. myös SCD."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#scd-type-5",
+            "name": "SCD Type 5",
+            "url": "https://www.datamalli.fi/termisto.html#scd-type-5",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Slowly Changing Dimension, tyyppi 5",
+            "description": "Dimension muutostenkäsittely, joka laajentaa tyyppiä 4: nopeasti muuttuvat attribuutit eriytetään minidimensioon, ja perusdimensioon lisätään tyypin 1 tavalla ylikirjoitettava avain, joka osoittaa aina minidimension nykyiseen riviin. Nimi tulee yhdistelmästä 4 + 1 = 5. Mahdollistaa nykyprofiilin raportoinnin suoraan perusdimensiosta. Ks. myös SCD."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#scd-type-6",
+            "name": "SCD Type 6",
+            "url": "https://www.datamalli.fi/termisto.html#scd-type-6",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Slowly Changing Dimension, tyyppi 6",
+            "description": "Dimension muutostenkäsittely, joka yhdistää tyypit 1, 2 ja 3 (1 + 2 + 3 = 6). Muutoksesta syntyy uusi rivi (tyyppi 2), nykyarvo päivitetään kaikkiin saman kohteen riveihin (tyyppi 1) ja edellinen arvo säilyy omassa sarakkeessaan (tyyppi 3). Hybridi, jolla saa sekä täyden historian että nykyarvon kaikilta riveiltä. Ks. myös SCD."
           },
           {
             "@type": "DefinedTerm",
@@ -1388,6 +1443,16 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "Power BI:n ja SSAS Tabularin sarakepohjainen, muistinvarainen pakkausmoottori. Pakkaa datan kardinaliteetin mukaan ja optimoi kyselyiden lukunopeutta saraketasolla. Käyttää muun muassa sanakirjapakkausta ja RLE-pakkausta."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#vertipaq-analyzer",
+            "name": "VertiPaq Analyzer",
+            "url": "https://www.datamalli.fi/termisto.html#vertipaq-analyzer",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ilmainen analyysityökalu, joka näyttää semanttisen mallin muistinkäytön taulu- ja saraketasolla: mitkä sarakkeet vievät eniten tilaa, miten VertiPaq on pakannut datan ja missä kardinaliteetti on korkea. Integroitu DAX Studioon ja saatavilla myös erillisenä. Auttaa optimoimaan mallin kokoa ja suorituskykyä."
           },
           {
             "@type": "DefinedTerm",
@@ -2219,6 +2284,16 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
+    <dl class="termi" id="duplikaattiavain" data-tags="avaimet tietomalli dimensiot">
+      <dt><span class="termi-nimi">Duplikaattiavain</span> <span class="termi-en">(Duplicate Key)</span></dt>
+      <dd class="termi-selite">Dimensiotaulun pääavain, jonka sama arvo esiintyy useammalla rivillä, vaikka sen pitäisi
+        olla uniikki. Duplikaattiavaimet rikkovat <a href="#yksi-moneen">yksi-moneen-suhteen</a>: Power BI joutuu
+        muodostamaan <a href="#monen-moneen">monen-moneen-relaation</a>, jolloin yksi faktarivi voi kytkeytyä useaan
+        dimensioriviin ja aiheuttaa <a href="#kaksoislaskenta">kaksoislaskentaa</a>. Tarkista uniikkius esimerkiksi
+        vertaamalla taulun rivimäärää ja avaimen erillisten arvojen määrää.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
   </div>
 
   <h2 id="e" class="termi-aakkos-otsikko">E</h2>
@@ -2376,6 +2451,16 @@
 
   <h2 id="k" class="termi-aakkos-otsikko">K</h2>
   <div class="termi-luettelo">
+
+    <dl class="termi" id="kaksoislaskenta" data-tags="konseptit tietomalli tahtimalli">
+      <dt><span class="termi-nimi">Kaksoislaskenta</span> <span class="termi-en">(Double Counting)</span></dt>
+      <dd class="termi-selite">Virhe, jossa sama arvo lasketaan mukaan useaan kertaan ja lopputulos kasvaa todellista
+        suuremmaksi. Power BI:ssä kaksoislaskenta syntyy tyypillisesti <a href="#monen-moneen">monen-moneen-suhteesta</a>,
+        jonka aiheuttaa dimensiotaulun ei-uniikki pääavain (<a href="#duplikaattiavain">duplikaattiavaimet</a>): yksi
+        faktarivi kytkeytyy useaan dimensioriviin ja summautuu jokaiselle. Estetään varmistamalla dimensioiden
+        pääavainten uniikkius <a href="#etl">ETL</a>-vaiheessa.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span></div>
+    </dl>
 
     <dl class="termi" id="kardinaliteetti" data-tags="konseptit power-bi dimensiot header-detail">
       <dt><span class="termi-nimi">Kardinaliteetti</span> <span class="termi-en">(Cardinality)</span></dt>
@@ -2807,8 +2892,17 @@
     <dl class="termi" id="scd" data-tags="tietomalli konseptit dimensiot">
       <dt><span class="termi-nimi">SCD</span> <span class="termi-en">(Slowly Changing Dimension)</span></dt>
       <dd class="termi-selite">Dimension muutostenkäsittelytapa. Yleisin on tyyppi 2, joka säilyttää historian luomalla
-        uuden rivin. Ks. <a href="#scd-type-1">SCD Type 1</a>, <a href="#scd-type-2">SCD Type 2</a>, <a
-          href="#scd-type-3">SCD Type 3</a>, <a href="#scd-type-4">SCD Type 4</a>.</dd>
+        uuden rivin. Ks. <a href="#scd-type-0">SCD Type 0</a>, <a href="#scd-type-1">SCD Type 1</a>, <a
+          href="#scd-type-2">SCD Type 2</a>, <a href="#scd-type-3">SCD Type 3</a>, <a href="#scd-type-4">SCD Type 4</a>,
+        <a href="#scd-type-5">SCD Type 5</a>, <a href="#scd-type-6">SCD Type 6</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="scd-type-0" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 0</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 0)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, jossa arvo lukitaan latauksen jälkeen eikä sitä koskaan
+        muuteta. Sopii tietoihin, joiden kuuluu pysyä alkuperäisinä — esimerkiksi syntymäaika tai alkuperäinen
+        rekisteröintipäivä. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
     </dl>
 
@@ -2841,6 +2935,24 @@
       <dd class="termi-selite">Dimension muutostenkäsittely, jossa nykyinen arvo pidetään dimensiotaulussa nopeasti
         haettavana, ja koko muutoshistoria siirretään erilliseen historiatauluun. Yhdistää <a href="#scd-type-1">tyypin
           1</a> nopeuden ja <a href="#scd-type-2">tyypin 2</a> historian. Ks. myös <a href="#scd">SCD</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="scd-type-5" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 5</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 5)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, joka laajentaa <a href="#scd-type-4">tyyppiä 4</a>: nopeasti
+        muuttuvat attribuutit eriytetään minidimensioon, ja perusdimensioon lisätään <a href="#scd-type-1">tyypin 1</a>
+        tavalla ylikirjoitettava avain, joka osoittaa aina minidimension nykyiseen riviin. Nimi tulee yhdistelmästä
+        4 + 1 = 5. Mahdollistaa nykyprofiilin raportoinnin suoraan perusdimensiosta. Ks. myös <a href="#scd">SCD</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="scd-type-6" data-tags="tietomalli konseptit dimensiot">
+      <dt><span class="termi-nimi">SCD Type 6</span> <span class="termi-en">(Slowly Changing Dimension, tyyppi 6)</span></dt>
+      <dd class="termi-selite">Dimension muutostenkäsittely, joka yhdistää tyypit 1, 2 ja 3 (1 + 2 + 3 = 6). Muutoksesta
+        syntyy uusi rivi (<a href="#scd-type-2">tyyppi 2</a>), nykyarvo päivitetään kaikkiin saman kohteen riveihin
+        (<a href="#scd-type-1">tyyppi 1</a>) ja edellinen arvo säilyy omassa sarakkeessaan (<a href="#scd-type-3">tyyppi
+          3</a>). Hybridi, jolla saa sekä täyden historian että nykyarvon kaikilta riveiltä. Ks. myös <a href="#scd">SCD</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span></div>
     </dl>
 
@@ -3087,6 +3199,16 @@
         datan kardinaliteetin mukaan ja optimoi kyselyiden lukunopeutta saraketasolla. Käyttää muun muassa <a
           href="#sanakirjapakkaus">sanakirjapakkausta</a> ja <a href="#rle">RLE-pakkausta</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span><span class="termi-tagi">Header-Detail</span><span class="termi-tagi">Dimensiot</span></div>
+    </dl>
+
+    <dl class="termi" id="vertipaq-analyzer" data-tags="power-bi apuohjelmat">
+      <dt><span class="termi-nimi">VertiPaq Analyzer</span></dt>
+      <dd class="termi-selite">Ilmainen analyysityökalu, joka näyttää <a href="#semanttinen-malli">semanttisen mallin</a>
+        muistinkäytön taulu- ja saraketasolla: mitkä sarakkeet vievät eniten tilaa, miten <a href="#vertipaq">VertiPaq</a>
+        on pakannut datan ja missä <a href="#kardinaliteetti">kardinaliteetti</a> on korkea. Integroitu <a
+          href="#dax-studio">DAX Studioon</a> ja saatavilla myös erillisenä. Auttaa optimoimaan mallin kokoa ja
+        suorituskykyä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">Apuohjelmat</span></div>
     </dl>
 
     <dl class="termi" id="vibe-coding" data-tags="ai tyokalut">

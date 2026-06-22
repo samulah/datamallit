@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <meta name="robots" content="noindex,nofollow">
   <link rel="canonical" href="https://www.datamalli.fi/tahtimalli-esimerkit.html">
   <meta name="description" content="Viisi Power BI -esimerkkiä tähtimallista (star schema) ja lumihiutalemallista (snowflake schema) huonoimmasta parhaaseen — mukana myös sekasikiömalli.">
   <meta property="og:type" content="article">
@@ -49,7 +50,7 @@
   }
   </script>
   <title>Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <script src="navigation.js?v=6" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
@@ -768,6 +769,7 @@
   </p>
 
   <table>
+    <caption>Taulukko 1, Mallivertailu – Viiden esimerkkimallin relaatiotyyppi, PK:n uniikkius, toisteisuus ja Power BI -sopivuus</caption>
     <thead>
       <tr>
         <th>Malli</th>
@@ -815,6 +817,89 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="fakta-laatikko">
+    <strong>Arvioitu tietomallin koko ja nopeus</strong>
+    <p>Kaikki viisi mallia sisältävät saman myyntidatan, joten erot eivät synny datan määrästä vaan rakenteesta. Alla
+      olevat palkit ovat suuntaa-antavia arvioita, eivät mitattuja benchmark-lukuja: ne kuvaavat mallien suhteellista
+      eroa, kun perusvertailu tehdään fakta–dimensio-relaatioiden nopeudella. Lumihiutalemallin moniselitteisessä
+      versiossa on lisäksi huomioitu relaatioketju (kolme JOINia).</p>
+
+    <p style="margin-top: 18px;"><strong>Tietomallin koko:</strong> mallin koko määräytyy käytännössä faktataulusta.
+      Neljä kurinalaista mallia pakkautuvat <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a>
+      suunnilleen samankokoisiksi. Sekasikiömalli paisuu moninkertaiseksi, koska sama data on monistettu
+      päällekkäisiin tauluihin ja kopioitu tekstinä faktatauluun — eikä teksti pakkaudu VertiPaqissa.</p>
+
+    <div class="kokoero-graafi" role="img"
+      aria-label="Pylväsvertailu viiden mallin arvioidusta tietomallin koosta: sekasikiömalli noin nelinkertainen, neljä muuta mallia suunnilleen samankokoisia perustasolla.">
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Sekasikiömalli</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 100%; background: #b3261e;"></div></div>
+        <span class="kokoero-arvo"><strong>~×4</strong> <span class="kokoero-kerroin">suurin</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Tähtimalli – moniselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 25%; background: #c75c1f;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Lumihiutalemalli – moniselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 25%; background: #e6a817;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Lumihiutalemalli – litistetty</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 25%; background: #4d9b54;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Tähtimalli – yksiselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 25%; background: #015E38;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong></span>
+      </div>
+    </div>
+    <p style="font-size: 0.82em; color: var(--c-muted); font-style: italic; margin: 4px 0 16px;">Lineaarinen asteikko,
+      suurin malli = 100 %. Kertoimet ovat suuntaa-antavia arvioita. Neljän kurinalaisen mallin väliset kokoerot ovat
+      marginaalisia; normalisoiduin lumihiutalemalli on niistä niukasti pienin.</p>
+
+    <p style="margin-top: 18px;"><strong>Laskennan nopeus:</strong> palkin pituus kuvaa suhteellista laskenta-aikaa —
+      lyhyempi on nopeampi. Moni-moneen-relaatiot (sekasikiömalli ja moniselitteinen tähtimalli) ovat raskaimpia.
+      Moniselitteinen lumihiutalemalli on nopeampi kuin moni-moneen-mallit, mutta sen relaatioketju (kolme JOINia)
+      hidastaa laskentaa verrattuna suoraan fakta–dimensio-relaatioon. Litistetty lumihiutalemalli ja yksiselitteinen
+      tähtimalli ovat rakenteeltaan sama tähtimalli ja siksi nopeimpia.</p>
+
+    <div class="kokoero-graafi" role="img"
+      aria-label="Pylväsvertailu viiden mallin arvioidusta laskenta-ajasta: sekasikiömalli hitain noin kymmenkertaisella ajalla, moniselitteinen tähtimalli noin viisinkertainen, moniselitteinen lumihiutalemalli noin kolminkertainen relaatioketjun takia, litistetty lumihiutalemalli ja yksiselitteinen tähtimalli nopeimmat perustasolla.">
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Sekasikiömalli</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 100%; background: #b3261e;"></div></div>
+        <span class="kokoero-arvo"><strong>~×10</strong> <span class="kokoero-kerroin">hitain</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Tähtimalli – moniselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 50%; background: #c75c1f;"></div></div>
+        <span class="kokoero-arvo"><strong>~×5</strong> <span class="kokoero-kerroin">moni-moneen</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Lumihiutalemalli – moniselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 30%; background: #e6a817;"></div></div>
+        <span class="kokoero-arvo"><strong>~×3</strong> <span class="kokoero-kerroin">relaatioketju</span></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Lumihiutalemalli – litistetty</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 10%; background: #4d9b54;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong></span>
+      </div>
+      <div class="kokoero-rivi">
+        <span class="kokoero-nimi">Tähtimalli – yksiselitteinen</span>
+        <div class="kokoero-track"><div class="kokoero-bar" style="width: 10%; background: #015E38;"></div></div>
+        <span class="kokoero-arvo"><strong>~×1</strong> <span class="kokoero-kerroin">nopein</span></span>
+      </div>
+    </div>
+    <p style="font-size: 0.82em; color: var(--c-muted); font-style: italic; margin: 4px 0 16px;">Lineaarinen asteikko,
+      hitain malli = 100 %. Kerroin kuvaa suhteellista laskenta-aikaa nopeimpaan malliin verrattuna; luvut ovat
+      suuntaa-antavia arvioita.</p>
+  </div>
 
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>

@@ -13,7 +13,6 @@
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
 - [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): Yli 130 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
 - [Suositeltu kirjallisuus](https://www.datamalli.fi/kirjallisuus-suositukset.html): Parhaat kirjat datan mallinnuksen, DAX:n ja BI-kehittämisen oppimiseen perusteluineen.
-- [Tähtimalli Power BI:ssä – viisi esimerkkiä](https://www.datamalli.fi/tahtimalli-esimerkit.html): Viisi käytännön esimerkkiä tähtimallista ja lumihiutalemallista huonoimmasta parhaaseen, mukana sekasikiömalli.
 - [Apuohjelmat](https://www.datamalli.fi/apuohjelmat.html): DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut.
 - [Kehittämisen filosofia](https://www.datamalli.fi/kehittamisen-filosofia.html): Kuusi periaatetta hyvään BI- ja datakehitykseen: oikeellisuus, ylläpidettävyys ja käyttäjäkeskeisyys.
 - [Milloin käyttää mitäkin mallia](https://www.datamalli.fi/arkkitehtuurivalinta.html): Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan — tähtimalli, lumihiutalemalli, Data Vault, Data Mesh, ETL ja ELT.

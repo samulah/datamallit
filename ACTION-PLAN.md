@@ -1,97 +1,65 @@
-# SEO Action Plan: datamalli.fi
-**Generated:** 2026-06-17
-**Overall Score:** 85/100 (↑ from 75 on 2026-06-16)
+# SEO Action Plan — datamalli.fi
 
-Priority order: Critical > High > Medium > Low. Items the 2026-06-16 plan listed are reconciled against the **live** site below.
+**Generated:** 2026-06-21
+**Overall score:** 93/100 (↑ from 85 on 2026-06-17, ↑ from 75 on 2026-06-16)
 
----
-
-## ✅ Already done (verified 2026-06-17)
-
-- **HTTP security headers deployed** — HSTS (`includeSubDomains; preload`), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy all live. (Was the previous CRITICAL.)
-- **Self-hosted fonts** — DM Sans + Source Serif 4 from `/fontit/`; no production Google Fonts CDN. GDPR exposure gone.
-- **apex → www 301** confirmed live.
-- **`arkkitehtuurivalinta.html`** deployed (200) and in sitemap.
-- **`faktataulu.html`** robots set to `noindex,nofollow` (but see HIGH #1 — the real question is whether it should be indexed at all).
-- **Book schema**, **dateModified on all TechArticles**, **Organization `sameAs`**, **apuohjelmat title fix** — all in place.
+Priority order: Critical > High > Medium > Low. No Critical or High items this round — the site is in excellent shape. Everything below is optimisation.
 
 ---
 
-## CRITICAL
-*None.* No issue is currently blocking indexing or causing penalties.
+## 🔴 Critical — none
+## 🟠 High — none
 
 ---
 
-## HIGH (within 1 week)
+## 🟡 Medium (within ~1 month)
 
-### 1. Resolve `faktataulu.html` indexing inconsistency
-**Effort:** 15–30 min · **Impact:** unlocks a finished 1,300-word page for organic + AI visibility
+### M1. Resolve the `arkkitehtuurivalinta.html` indexation/llms inconsistency
+- **Problem:** It's listed as a content page in `llms.txt`, but the live page is `noindex,nofollow` and is **not** in `sitemap.xml`. AI crawlers are pointed to a page the site treats as unpublished.
+- **Fix — pick one:**
+  - *If ready to publish:* remove the `noindex,nofollow` meta → add `<url>` to `sitemap.xml` with today's `lastmod` → confirm TechArticle schema (your standard publish checklist).
+  - *If not ready:* remove the `arkkitehtuurivalinta.html` line from `llms.txt` until you publish.
+- **Effort:** 5–10 min.
 
-It's in the main nav (`navigation.js`) and on the homepage as a live card, with full TechArticle schema — but `noindex,nofollow`, not in the sitemap, not in llms.txt. Pick one:
-- **Recommended — publish it** (it looks complete): remove the `<meta name="robots" content="noindex,nofollow">`, add `<loc>https://www.datamalli.fi/faktataulu.html</loc>` (+ `lastmod`) to `sitemap.xml`, and add a line under `## Sisältösivut` in `llms.txt`. (This is exactly the project's three-step publish checklist; schema is already done.)
-- **Or — keep it draft:** remove it from `navigation.js` and the homepage card grid (or mark it "🚧 Tulossa") until it's ready, so users aren't routed to a noindexed page.
-
----
-
-## MEDIUM (within 1 month)
-
-### 2. Expand `kehittamisen-filosofia.html` (~90–120 → 600+ words)
-**Effort:** 2–3 h · **Impact:** removes the only real thin-content risk among indexed pages
-Per principle, add: why it matters (concrete consequence), a real BI example, and 2–3 sentences of actionable guidance.
-
-### 3. Add a Content-Security-Policy header
-**Effort:** 30–60 min · **Impact:** completes the security-header set (last of 6)
-Start in report-only mode given inline `<style>`/`<script>`:
-```apache
-Header always set Content-Security-Policy-Report-Only "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'"
-```
-Review reports, then switch to enforcing `Content-Security-Policy`. No external font/CDN allow-listing needed (fonts are self-hosted).
-
-### 4. Add `arkkitehtuurivalinta.html` to `llms.txt`
-**Effort:** 5 min · **Impact:** AI crawler completeness
-Add under `## Sisältösivut`, e.g.:
-`- [Milloin käyttää mitäkin mallia](https://www.datamalli.fi/arkkitehtuurivalinta.html): Vertailutaulukot ja käytännön ohjeet tähtimalli/lumihiutale/Data Vault/Data Mesh/ETL/ELT -valintaan.`
-
-### 5. Add FAQPage schema to question-H2 pages
-**Effort:** 1–2 h · **Impact:** FAQ rich results + better AI extraction
-Target: `tahtimalli.html`, `dimensiot.html`, `faktataulu.html`, `lumihiutalemalli.html`. Reuse the existing question H2s as `Question`/`Answer` pairs alongside the current TechArticle node in the `@graph`.
-
-### 6. Expand `lumihiutalemalli.html` (~320 → 700+ words)
-**Effort:** 1–2 h · **Impact:** rankings for "lumihiutalemalli / snowflake schema"
-Add a star-vs-snowflake comparison table, a concrete "when snowflake is justified" example, and a stronger pointer to `litistaminen.html`. (`litistaminen.html` ~360 w is the next candidate.)
+### M2. Refresh `<lastmod>` dates in `sitemap.xml`
+- **Problem:** lastmod values are stale (e.g. homepage `2026-06-07` vs. actual `Last-Modified: 2026-06-20`; most pages edited after their listed date). Undersells freshness to crawlers.
+- **Fix:** Update each `<lastmod>` to the file's real last-edit date on every deploy. Consider auto-generating the sitemap from file mtimes so this can't drift again.
+- **Effort:** 10 min (manual) / one-time script.
 
 ---
 
-## LOW (backlog)
+## 🟢 Low (backlog)
 
-### 7. Image formats & coverage
-- Convert diagrams and book covers to **WebP/AVIF** (with raster fallback) — ~25–50% smaller. Largest current asset is 193 KB.
-- Add topic diagrams to text-heavy pages (SCD diagram on `dimensiot.html`, star-vs-snowflake on `lumihiutalemalli.html`, metadata diagram on `ai-valmis-metadata.html`).
-- Remove or wire up the orphan `kuvat/og-self-service.png`.
+### L1. Trim two over-length titles
+- `tahtimalli-esimerkit.html` (76 chars) and `termisto.html` (68 chars) exceed ~60 and may truncate in SERPs.
+- Suggestions: `Tähtimalli Power BI:ssä – 5 esimerkkiä | Datamalli.fi`; `Datan termistö – data-alan termit suomeksi | Datamalli.fi`.
 
-### 8. Expand `tietoa.html` for author authority
-The E-E-A-T anchor. Add career highlights, why the site exists, and surface credentials in prose (schema already lists 4 Microsoft certs).
+### L2. Expand the two thinnest topic pages
+- `kehittamisen-filosofia.html` (393 w) and `lumihiutalemalli.html` (459 w). Add a worked example, a comparison table, or a short FAQ block to deepen coverage and citability.
 
-### 9. Shorten `tahtimalli-esimerkit.html` title (~77 chars)
-e.g. `Tähtimalli Power BI:ssä – 5 esimerkkiä | Datamalli.fi` (~52 chars) to avoid SERP truncation.
+### L3. Add `SearchAction` to the WebSite schema
+- You have on-site search (`search.js`) but no `potentialAction`/`SearchAction` in the `WebSite` node. Add it for sitelinks-searchbox eligibility.
 
-### 10. `DefinedTerm` items in `termisto.html`
-Wrap individual terms as `DefinedTerm` within the existing `DefinedTermSet` for finer entity understanding.
+### L4. Preload the primary body font
+- `<link rel="preload" as="font" type="font/woff2" href="/fontit/source-serif-4-normal-latin.woff2" crossorigin>` in `<head>` to speed body-text first paint. Keep `font-display: swap`.
 
-### 11. Font `rel="preload"` + LCP check
-Self-host is done; add `<link rel="preload" as="font" type="font/woff2" crossorigin>` for the above-the-fold woff2 files, and verify the first-visit splash animation in `navigation.js` isn't delaying LCP.
+### L5. Consider per-page OG images
+- All articles share `og-datamalli.png`. Per-topic OG images improve social/SERP click-through differentiation. (You already have `generate_og_*.py` scaffolding.)
 
-### 12. Operational
-- Confirm Let's Encrypt auto-renewal (cert renews automatically; alert if <30 days).
-- Connect **GSC + GA4** and re-run with the seo-google integration to replace lab estimates with CrUX field CWV and real indexation/traffic data.
+### L6. Optional: `FAQPage` schema where you already Q&A
+- Pages like `tahtimalli.html` / `dimensiot.html` that pose and answer questions can earn extra SERP real estate with `FAQPage` markup.
 
 ---
 
-## Roadmap
+## Recommended free data hookups (upgrades future audits)
+- **Google Search Console** — real indexation status, impressions/clicks/CTR/position.
+- **PageSpeed Insights / CrUX** — field Core Web Vitals (replaces this run's lab estimates).
+- These were unavailable this run; connecting them would let the Performance + Indexation sections move from inference to measured field data.
 
-| When | Tasks |
-|------|-------|
-| This week | #1 faktataulu decision |
-| Weeks 2–4 | #2 filosofia expansion, #3 CSP, #4 llms.txt, #5 FAQPage |
-| Month 2 | #6 lumihiutale/litistäminen expansion, #8 tietoa, #9 title |
-| Backlog | #7 images, #10 DefinedTerm, #11 preload/LCP, #12 GSC/GA4 |
+---
+
+## Verified clean this run (no action needed)
+- Apex→www 301, consistent `www` canonicals, single H1/page, all titles+descriptions present and well-sized, full OG coverage.
+- 11/11 in-progress pages correctly `noindex,nofollow` and excluded from sitemap.
+- HSTS preload + CSP + full security-header set; Brotli; HTTP/2+h3; 7-day cache; true 404s.
+- All JSON-LD valid; rich entity graph; 100% image alt coverage; `llms.txt` present.
