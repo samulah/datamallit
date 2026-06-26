@@ -82,6 +82,29 @@ sähköposti korkea kardinaliteetti 2000000 varchar 200-400 mb ei pakkaudu jokai
 rekisteröintiaika timestamp 1800000 datetime 150-300 mb pakkaus epäonnistuu
 ratkaisu poista korkean kardinaliteetin sarakkeet sähköposti puhelin timestamp date-tyypiksi`,
 
+'avaimet-ja-relaatiot.html': `avaimien avaimet relaatioiden relaatiot mallinnus tähtimalli faktataulu dimensiot kytkeytyvät
+relaatio kardinaliteetti suodatussuunta yksi-moneen 1 moneen dimension pääavaimesta faktataulun vierasavaimeen
+d_asiakas f_myynnit asiakasid myyntisumma er-kaavio
+avaintyypit pääavain pk primary key yksilöi rivin ei duplikaatteja ei tyhjiä
+vierasavain fk foreign key viittaa dimension pääavaimeen luo yhteyden
+surrogaattiavain sk surrogate key järjestelmän generoima juokseva kokonaisluku int pakkautuu vertipaqissa
+luonnollinen avain nk natural key business key lähdejärjestelmän liiketoimintatunniste cus-1042
+degeneraatioavain dd degenerate dimension tilausnumero laskunumero ei omaa dimensiotaulua
+relaatiot rakennetaan int-surrogaattiavainten varaan ei teksti ei guid
+yksisuuntainen suodatus ennustettava suodatinkonteksti kaksisuuntainen väärät luvut
+yksi-moneen-kardinaliteetti moni-moneen summat tuplaantuvat mittarit lasketaan oikein
+orpo vierasavain ei löydä paria dimensiosta blank-rivi vertipaq niputtaa
+faktataulun kultainen sääntö jokainen vierasavain löytää parinsa
+sentinel-rivit dimensioon anonyymi poistettu ei tiedossa oma surrogaattiavain suodatettavissa
+sentinel-merkkijonot anon poistettu tuntematon laatusarake tiedonlaatu
+medallion bronze silver gold raakadata validointi
+null kassaosto asiakas ei kirjautunut gdpr poistettu asiakas orpo fk
+dimasiakas factmyynti asiakasavain tuoteavain myyntipvmavain
+useRelationship aktiivinen inaktiivinen relaatio yksi aktiivinen tauluparia kohti
+conformed dimensions yhdenmukaistettu dimensio bridge-taulu välitaulu
+päivämäärädimensio mark as date table time intelligence aikatiedustelu
+kahdeksan kultaista sääntöä relaatioista power bi tietomalli`,
+
 'nimeamiskaytannot.html': `nimeämiskäytännöt tietomallin taulujen sarakkeiden nimeäminen
 tietomalliin haettaessa dataa tietolähteestä tietokannan taulut nimeämiskäytännöt
 d_dimensio f_fakta v_nakyma ddimensio ffakta vnakyma dim_dimensio fact_fakta view_nakyma

@@ -42,6 +42,7 @@ class MainNavigation extends HTMLElement {
                     <a href="dimensiot.html">Dimensiot</a>
                     <a href="litistaminen.html">Litistäminen</a>
                     <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
+                    <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>
                     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
@@ -205,6 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'dbt':                       { fi: 'dbt (data build tool)',          en: 'data build tool',            selite: 'Avoimen lähdekoodin työkalu tietovaraston muunnoslogiikan hallintaan SQL-malleina. Hoitaa inkrementaaliset lataukset, SCD-historia (snapshots) ja mallien väliset riippuvuudet automaattisesti.' },
     'mittari':                   { fi: 'Mittari',                        en: 'Measure',                    selite: 'DAX-lausekkeella määritelty laskenta, joka suoritetaan vasta raporttia katsottaessa suodatinkontekstin mukaan. Faktataulun numeerinen ydin — summat, keskiarvot ja tunnusluvut.' },
     'sentinel-rivi':             { fi: 'Sentinel-rivi',                  en: 'Sentinel Row',               selite: 'Dimensiotauluun ennalta lisätty rivi, joka kerää alleen puuttuvat, tuntemattomat ja poistetut viittaukset (Ei tiedossa, Anonyymi, [Poistettu]). Saa oman surrogaattiavaimen, joten faktataulun vierasavain löytää aina vastineen eikä Power BI luo automaattista tyhjää riviä.' },
+    'valitaulu':                 { fi: 'Välitaulu',                      en: 'Bridge Table',               selite: 'Aputaulu, joka purkaa hankalan monen-moneen-suhteen kahdeksi hallituksi yksi-moneen-suhteeksi. Sisältää uniikit yhdistelmät kahden taulun avaimista ja toimii niiden välissä siltana.' },
+    'yhdenmukaistettu-dimensio': { fi: 'Yhdenmukaistettu dimensio',      en: 'Conformed Dimension',        selite: 'Dimensio, jota käytetään samanlaisena useammassa faktataulussa — sama taulu, samat sarakkeet ja arvot. Mahdollistaa faktataulujen yhdistelyn raporteissa ilman ristiriitoja.' },
   };
 
   const css = document.createElement('style');

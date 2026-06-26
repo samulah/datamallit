@@ -49,8 +49,9 @@
   }
   </script>
   <title>Tähtimalli (Star Schema) | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=6" defer></script>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="navigation.js?v=8" defer></script>
+  <script src="kortit.js?v=2" defer></script>
   <style>
     .tahti-arvio {
       font-family: var(--font-ui);
@@ -99,8 +100,125 @@
     faktassa ja konteksti on dimensioissa.
   </p>
 
-  <img src="kuvat/tahtimalli/tahtimalli.jpg" alt="Tähtimallin kaavio, jossa myynnit ovat keskiössä" class="zoomattava">
-  <p><em>Kuva: * merkitsee vierasavainta (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>), 1 pääavainta (<a href="termisto.html#paaavain" class="termi-tip">PK</a>).</em></p>
+  <figure>
+    <svg class="tahti-kaavio" viewBox="0 0 1000 692" role="img"
+      aria-labelledby="tahti-svg-title tahti-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="tahti-svg-title">Tähtimallin kaavio</title>
+      <desc id="tahti-svg-desc">Faktataulu f_myynnit keskellä ja viisi dimensiota – d_tuote, d_asiakas, d_myymala,
+        d_aika ja d_myyja – sen ympärillä tähtimäisesti. Jokaisen dimension pääavain on yhdistetty faktataulun
+        vastaavaan vierasavaimeen yksi-moneen-relaatiolla.</desc>
+      <style>
+        .tahti-kaavio { width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;
+          font-family: var(--font-ui, "DM Sans", system-ui, sans-serif); }
+        .tk-rel { stroke: #4a5e48; stroke-width: 1.8; fill: none; }
+        .tk-card { fill: #4a5e48; font-size: 14px; font-weight: 600; }
+        .tk-bodyfakta { fill: #eaf2ec; stroke: #015E38; stroke-width: 2; }
+        .tk-bodydim { fill: #f6f8f6; stroke: #015E38; stroke-width: 1.4; }
+        .tk-head { fill: #015E38; }
+        .tk-hname { fill: #ffffff; font-size: 14px; font-weight: 600; text-anchor: middle; }
+        .tk-fld { fill: #1a2218; font-size: 12.5px; }
+        .tk-pk { fill: #015E38; font-size: 11px; font-weight: 700; text-anchor: end; }
+        .tk-fk { fill: #9a6a00; font-size: 11px; font-weight: 700; text-anchor: end; }
+      </style>
+
+      <!-- Relaatiot: dimension PK (1) -> faktan FK (*) -->
+      <g class="tk-rel">
+        <line x1="500" y1="111" x2="500" y2="270" />
+        <line x1="200" y1="390" x2="390" y2="362" />
+        <line x1="800" y1="390" x2="610" y2="374" />
+        <line x1="230" y1="560" x2="450" y2="466" />
+        <line x1="770" y1="560" x2="550" y2="466" />
+      </g>
+      <g class="tk-card" text-anchor="middle">
+        <!-- tuote -->
+        <text x="514" y="128">1</text><text x="514" y="258">∗</text>
+        <!-- asiakas -->
+        <text x="214" y="382">1</text><text x="378" y="350">∗</text>
+        <!-- myymala -->
+        <text x="786" y="382">1</text><text x="624" y="362">∗</text>
+        <!-- aika -->
+        <text x="244" y="552">1</text><text x="440" y="478">∗</text>
+        <!-- myyja -->
+        <text x="756" y="552">1</text><text x="560" y="478">∗</text>
+      </g>
+
+      <!-- f_myynnit (faktataulu, keskellä) -->
+      <g>
+        <rect class="tk-bodyfakta" x="390" y="270" width="220" height="196" rx="6" />
+        <rect class="tk-head" x="390" y="270" width="220" height="28" rx="6" />
+        <rect class="tk-head" x="390" y="286" width="220" height="12" />
+        <text class="tk-hname" x="500" y="290">f_myynnit</text>
+        <text class="tk-fld" x="402" y="314">myyntiId</text><text class="tk-pk" x="598" y="314">PK</text>
+        <text class="tk-fld" x="402" y="335">tuoteId</text><text class="tk-fk" x="598" y="335">FK</text>
+        <text class="tk-fld" x="402" y="356">asiakasId</text><text class="tk-fk" x="598" y="356">FK</text>
+        <text class="tk-fld" x="402" y="377">myymalaId</text><text class="tk-fk" x="598" y="377">FK</text>
+        <text class="tk-fld" x="402" y="398">aikaId</text><text class="tk-fk" x="598" y="398">FK</text>
+        <text class="tk-fld" x="402" y="419">myyjäId</text><text class="tk-fk" x="598" y="419">FK</text>
+        <text class="tk-fld" x="402" y="440">myyntisumma</text>
+        <text class="tk-fld" x="402" y="461">kappalemäärä</text>
+      </g>
+
+      <!-- d_tuote (ylhäällä) -->
+      <g>
+        <rect class="tk-bodydim" x="410" y="20" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="410" y="20" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="410" y="36" width="180" height="12" />
+        <text class="tk-hname" x="500" y="39">d_tuote</text>
+        <text class="tk-fld" x="422" y="66">tuoteId</text><text class="tk-pk" x="578" y="66">PK</text>
+        <text class="tk-fld" x="422" y="87">tuoteNimi</text>
+        <text class="tk-fld" x="422" y="108">kategoria</text>
+      </g>
+
+      <!-- d_asiakas (vasemmalla) -->
+      <g>
+        <rect class="tk-bodydim" x="20" y="334" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="20" y="334" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="20" y="350" width="180" height="12" />
+        <text class="tk-hname" x="110" y="353">d_asiakas</text>
+        <text class="tk-fld" x="32" y="380">asiakasId</text><text class="tk-pk" x="188" y="380">PK</text>
+        <text class="tk-fld" x="32" y="401">nimi</text>
+        <text class="tk-fld" x="32" y="422">kaupunki</text>
+      </g>
+
+      <!-- d_myymala (oikealla) -->
+      <g>
+        <rect class="tk-bodydim" x="800" y="334" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="800" y="334" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="800" y="350" width="180" height="12" />
+        <text class="tk-hname" x="890" y="353">d_myymala</text>
+        <text class="tk-fld" x="812" y="380">myymalaId</text><text class="tk-pk" x="968" y="380">PK</text>
+        <text class="tk-fld" x="812" y="401">myymala</text>
+        <text class="tk-fld" x="812" y="422">kaupunki</text>
+      </g>
+
+      <!-- d_aika (alhaalla vasemmalla) -->
+      <g>
+        <rect class="tk-bodydim" x="140" y="560" width="180" height="112" rx="6" />
+        <rect class="tk-head" x="140" y="560" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="140" y="576" width="180" height="12" />
+        <text class="tk-hname" x="230" y="579">d_aika</text>
+        <text class="tk-fld" x="152" y="606">aikaId</text><text class="tk-pk" x="308" y="606">PK</text>
+        <text class="tk-fld" x="152" y="627">paiva</text>
+        <text class="tk-fld" x="152" y="648">vuosi</text>
+        <text class="tk-fld" x="152" y="669">kuukausi</text>
+      </g>
+
+      <!-- d_myyja (alhaalla oikealla) -->
+      <g>
+        <rect class="tk-bodydim" x="680" y="560" width="180" height="70" rx="6" />
+        <rect class="tk-head" x="680" y="560" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="680" y="576" width="180" height="12" />
+        <text class="tk-hname" x="770" y="579">d_myyja</text>
+        <text class="tk-fld" x="692" y="606">myyjäId</text><text class="tk-pk" x="848" y="606">PK</text>
+        <text class="tk-fld" x="692" y="627">nimi</text>
+      </g>
+    </svg>
+    <figcaption>Tähtimalli: faktataulu <code>f_myynnit</code> keskellä ja viisi dimensiota (<code>d_tuote</code>,
+      <code>d_asiakas</code>, <code>d_myymala</code>, <code>d_aika</code>, <code>d_myyja</code>) sen ympärillä. Jokainen
+      relaatio kulkee dimension pääavaimesta (<a href="termisto.html#paaavain" class="termi-tip">PK</a>, merkitty
+      <strong>1</strong>) faktataulun vierasavaimeen (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>,
+      merkitty <strong>∗</strong>) yksi-moneen-suhteella.</figcaption>
+  </figure>
 
   <h2>Miten pää- ja vierasavaimet toimivat tähtimallissa?</h2>
   <p>
@@ -248,6 +366,8 @@
         AI-valmiiksi</li>
     </ul>
   </div>
+
+  <section class="katso-myos" data-kortit="faktataulu.html dimensiot.html avaimet-ja-relaatiot.html lumihiutalemalli.html"></section>
 
 </body>
 
