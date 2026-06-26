@@ -129,41 +129,41 @@
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
       datetime="2026-06-26">26.6.2026</time></p>
 
-  <p>Avaimet ovat se mekanismi, jolla <a href="faktataulu.html">faktataulu</a> ja <a href="dimensiot.html">dimensiot</a>
-    kytkeytyvät toisiinsa, ja relaatiot ovat <a href="tahtimalli.html">tähtimallin</a> selkäranka. Tällä sivulla
-    käydään läpi tietomallin avaintyypit, relaation kardinaliteetti ja suodatussuunta sekä se, mitä tapahtuu kun
-    relaatio katkeaa — eli kun faktataulun vierasavain ei löydä vastinetta dimensiosta.</p>
+  <p>Avaimet kytkevät <a href="faktataulu.html">faktataulun</a> ja <a href="dimensiot.html">dimensiot</a>
+    toisiinsa, ja relaatiot ovat <a href="tahtimalli.html">tähtimallin</a> selkäranka. Tämä sivu käy läpi
+    tietomallin avaintyypit, relaation kardinaliteetin ja suodatussuunnan sekä sen, mitä tapahtuu kun
+    relaatio katkeaa — kun faktataulun vierasavain ei löydä vastinetta dimensiosta.</p>
 
-  <p>Ennen yksityiskohtia tässä on tähtimallin relaatio pienimmillään: yksi dimensio <code>d_asiakas</code> ja
-    yksi faktataulu <code>f_myynnit</code>.</p>
+  <p>Ennen yksityiskohtia tässä on tähtimallin relaatio pienimmillään: yksi dimensio <code>DimAsiakas</code> ja
+    yksi faktataulu <code>FactMyynti</code>.</p>
 
   <figure>
     <div class="mermaid">
       erDiagram
-        d_asiakas {
-          int asiakasId PK
-          string nimi
-          string kaupunki
+        DimAsiakas {
+          int AsiakasAvain PK
+          string AsiakasNimi
+          string Kaupunki
         }
-        f_myynnit {
-          int myyntiId PK
-          int asiakasId FK
-          decimal myyntisumma
+        FactMyynti {
+          int MyyntiAvain PK
+          int AsiakasAvain FK
+          decimal Myyntisumma
         }
-        d_asiakas ||--o{ f_myynnit : "1 → *"
+        DimAsiakas ||--o{ FactMyynti : "1 → *"
     </div>
-    <figcaption>Tähtimallin perusrelaatio: dimensiotaulun <code>d_asiakas</code> pääavain (PK) kytkeytyy
-      faktataulun <code>f_myynnit</code> vierasavaimeen (FK) yksi-moneen-suhteella.</figcaption>
+    <figcaption>Tähtimallin perusrelaatio: dimensiotaulun <code>DimAsiakas</code> pääavain (PK) kytkeytyy
+      faktataulun <code>FactMyynti</code> vierasavaimeen (FK) yksi-moneen-suhteella.</figcaption>
   </figure>
 
-  <p>Relaatio rakennetaan dimension pääavaimesta faktataulun vierasavaimeen. <code>d_asiakas</code>-taulun
-    <a href="termisto.html#paaavain" class="termi-tip">pääavain</a> <code>asiakasId</code> (PK) yksilöi jokaisen
-    asiakkaan täsmälleen kerran, ja <code>f_myynnit</code>-taulun
-    <a href="termisto.html#vierasavain" class="termi-tip">vierasavain</a> <code>asiakasId</code> (FK) viittaa siihen
+  <p>Relaatio rakennetaan dimension pääavaimesta faktataulun vierasavaimeen. <code>DimAsiakas</code>-taulun
+    <a href="termisto.html#paaavain" class="termi-tip">pääavain</a> <code>AsiakasAvain</code> (PK) yksilöi jokaisen
+    asiakkaan täsmälleen kerran, ja <code>FactMyynti</code>-taulun
+    <a href="termisto.html#vierasavain" class="termi-tip">vierasavain</a> <code>AsiakasAvain</code> (FK) viittaa siihen
     jokaisella myyntirivillä. Suhde on <strong>yksi-moneen</strong> (1 → *): yksi asiakasrivi vastaa montaa
     myyntiriviä, muttei koskaan toisinpäin. Suodatus kulkee oletuksena yhteen suuntaan — dimensiosta faktatauluun.</p>
 
-  <p>Näin on tehty, koska se pitää laskennan yksiselitteisenä. Kun pääavain on uniikki, jokainen faktan vierasavain
+  <p>Tämä rakenne pitää laskennan yksiselitteisenä. Kun pääavain on uniikki, jokainen faktan vierasavain
     löytää täsmälleen yhden vastinrivin dimensiosta, joten Power BI ratkaisee mittarit ilman moniselitteisyyttä
     eivätkä summat tuplaannu. Yhteen suuntaan suodattava yksi-moneen-relaatio antaa myös ennustettavan
     suodatinkontekstin: kun valitset asiakkaan, näet vain hänen myyntinsä. Relaatio rakennetaan
@@ -175,8 +175,7 @@
 
   <p>Tietomallin avaimia on viisi: pääavain, vierasavain, surrogaattiavain, luonnollinen avain ja
     degeneraatioavain. Ne jakautuvat rooleihin sen mukaan, yksilöivätkö ne taulun rivin, viittaavatko ne
-    toiseen tauluun vai säilyttävätkö ne vain lähdejärjestelmän tunnisteen. Tähtimallissa relaatiot rakennetaan aina
-    kokonaislukumuotoisten surrogaattiavainten varaan.</p>
+    toiseen tauluun vai säilyttävätkö ne vain lähdejärjestelmän tunnisteen.</p>
 
   <table>
     <caption>Taulukko 1, Tietomallin avaintyypit – Avaimen rooli ja esimerkki kustakin tyypistä</caption>
@@ -223,11 +222,12 @@
 
   <h2>Miten relaatiot rakennetaan tähtimallissa?</h2>
 
-  <p>Relaatio kulkee dimension pääavaimesta faktataulun vierasavaimeen <strong>yksi-moneen</strong>-suhteella, ja
-    suodatus oletuksena yhteen suuntaan — dimensiosta faktatauluun. Relaatiot rakennetaan
-    <a href="termisto.html#surrogaattiavain" class="termi-tip">INT-surrogaattiavainten</a> varaan; niiden roolista
-    dimensioiden latauksessa kerrotaan sivulla <a href="surrogaattiavaimet.html">surrogaattiavaimet</a>. Alla
-    keskeiset ratkaisut tiiviisti.</p>
+  <p>Edellä kuvattu malli — yksi-moneen, suodatus yhteen suuntaan, relaatiot
+    <a href="termisto.html#surrogaattiavain" class="termi-tip">INT-surrogaattiavaimille</a> — on tähtimallin
+    oletus. Alla keskeiset ratkaisut tiiviisti.</p>
+  <!-- Linkki sivulle surrogaattiavaimet.html (surrogaattiavainten rooli dimensioiden latauksessa) poistettu
+       toistaiseksi, koska kohdesivu on noindex/luonnos. Palauta kun sivu julkaistaan. -->
+
 
   <table>
     <caption>Taulukko 2, Avain- ja relaatioratkaisut – Mitä kannattaa tehdä, missä, miksi ja mikä on riski jos jätetään tekemättä</caption>
@@ -311,11 +311,11 @@
     </tbody>
   </table>
 
-  <p>Alla seurataan samaa myyntidataa
-    <a href="termisto.html#medallion-arkkitehtuuri">medallion-arkkitehtuurin</a> kolmen kerroksen läpi:
-    <a href="termisto.html#bronze">Bronze</a>,
-    <a href="termisto.html#silver">Silver</a> ja
-    <a href="termisto.html#gold">Gold</a>.</p>
+  <p>Seuraavaksi sama myyntidata kulkee
+    <a href="termisto.html#medallion-arkkitehtuuri" class="termi-tip">medallion-arkkitehtuurin</a> kolmen kerroksen läpi:
+    <a href="termisto.html#bronze" class="termi-tip">Bronze</a>,
+    <a href="termisto.html#silver" class="termi-tip">Silver</a> ja
+    <a href="termisto.html#gold" class="termi-tip">Gold</a>.</p>
 
   <h3>Bronze: raakadata sellaisenaan</h3>
 
@@ -526,13 +526,12 @@
     <p>Relaatioiden mallinnuksessa kolme asiaa ratkaisee Power BI:ssä enemmän kuin mikään muu:</p>
     <ol>
       <li><strong>Yksi-moneen, yhteen suuntaan suodattava relaatio on oletus.</strong> Se on ainoa rakenne, jonka
-        suodatinkonteksti on aina ennustettava. Kaikki muut kardinaliteetit ja kaksisuuntainen suodatus ovat
-        poikkeuksia, jotka pitää osata perustella.</li>
+        suodatinkonteksti on aina ennustettava.</li>
       <li><strong>Relaatiot rakennetaan kokonaisluku-surrogaattiavaimille.</strong> INT-avain pakkautuu
         <a href="termisto.html#vertipaq" class="termi-tip">VertiPaqissa</a> tehokkaasti ja irrottaa analytiikan
         lähdejärjestelmän vaihtuvista tunnisteista. Teksti- tai GUID-avain hidastaa mallia ja kasvattaa sen kokoa.</li>
       <li><strong>Jokainen vierasavain löytää parinsa dimensiosta.</strong> Orpo FK tuottaa automaattisen
-        <strong>(Blank)</strong>-rivin, joka niputtaa eri syyt yhdeksi erottamattomaksi riviksi.
+        <strong>(Blank)</strong>-rivin, joka sulauttaa eri syyt yhteen.
         <a href="termisto.html#sentinel-rivi" class="termi-tip">Sentinel-rivit</a> pitävät jokaisen "ei tiedossa"
         -tilanteen erikseen suodatettavana.</li>
     </ol>

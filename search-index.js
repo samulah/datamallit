@@ -84,7 +84,7 @@ ratkaisu poista korkean kardinaliteetin sarakkeet sähköposti puhelin timestamp
 
 'avaimet-ja-relaatiot.html': `avaimien avaimet relaatioiden relaatiot mallinnus tähtimalli faktataulu dimensiot kytkeytyvät
 relaatio kardinaliteetti suodatussuunta yksi-moneen 1 moneen dimension pääavaimesta faktataulun vierasavaimeen
-d_asiakas f_myynnit asiakasid myyntisumma er-kaavio
+dimasiakas factmyynti asiakasavain myyntiavain myyntisumma er-kaavio
 avaintyypit pääavain pk primary key yksilöi rivin ei duplikaatteja ei tyhjiä
 vierasavain fk foreign key viittaa dimension pääavaimeen luo yhteyden
 surrogaattiavain sk surrogate key järjestelmän generoima juokseva kokonaisluku int pakkautuu vertipaqissa
