@@ -30,7 +30,7 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/litistaminen.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-07",
+        "dateModified": "2026-06-25",
         "wordCount": 360,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
@@ -47,8 +47,9 @@
   }
   </script>
   <title>Taulujen litistäminen (Flattening) | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=6" defer></script>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="navigation.js?v=8" defer></script>
+  <script src="kortit.js?v=2" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 </head>
 
@@ -70,7 +71,7 @@
 </noscript>
 
   <h1>Taulujen litistäminen (Flattening)</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-07">7.6.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-25">25.6.2026</time></p>
   <p>Litistäminen tarkoittaa useamman hierarkkisen taulun yhdistämistä yhdeksi leveäksi tauluksi ennen sen käyttöä
     semanttisessa tietomallissa. Tavoitteena on muuttaa <a href="lumihiutalemalli.html">lumihiutalemainen</a> rakenne <a href="tahtimalli.html">tähtimallin</a> mukaiseksi: yksi dimensio,
     yksi taulu.</p>
@@ -282,6 +283,8 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
       <code>KpAvain = KpID &amp; " – " &amp; Kustannuspaikka</code>. Tämä mahdollistaa lajittelun numeerisen avaimen
       mukaan samalla kun visuaaleissa näkyy selkokielinen nimi.</p>
   </div>
+
+  <section class="katso-myos" data-kortit="lumihiutalemalli.html tahtimalli.html dimensiot.html"></section>
 
 </body>
 
