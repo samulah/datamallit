@@ -91,6 +91,7 @@ surrogaattiavain sk surrogate key järjestelmän generoima juokseva kokonaisluku
 luonnollinen avain nk natural key business key lähdejärjestelmän liiketoimintatunniste cus-1042
 degeneraatioavain dd degenerate dimension tilausnumero laskunumero ei omaa dimensiotaulua
 relaatiot rakennetaan int-surrogaattiavainten varaan ei teksti ei guid
+snowflake postgresql varchar liitosavain 2-3 kertaa hitaampi kokonaisluku aikaleima timestamp tutkimus skaalautuvuus
 yksisuuntainen suodatus ennustettava suodatinkonteksti kaksisuuntainen väärät luvut
 yksi-moneen-kardinaliteetti moni-moneen summat tuplaantuvat mittarit lasketaan oikein
 orpo vierasavain ei löydä paria dimensiosta blank-rivi vertipaq niputtaa
@@ -103,7 +104,7 @@ dimasiakas factmyynti asiakasavain tuoteavain myyntipvmavain
 useRelationship aktiivinen inaktiivinen relaatio yksi aktiivinen tauluparia kohti
 conformed dimensions yhdenmukaistettu dimensio bridge-taulu välitaulu
 päivämäärädimensio mark as date table time intelligence aikatiedustelu
-kahdeksan kultaista sääntöä relaatioista power bi tietomalli`,
+seitsemän vinkkiä parempiin relaatioihin ja avaimiin power bi tietomalli`,
 
 'nimeamiskaytannot.html': `nimeämiskäytännöt tietomallin taulujen sarakkeiden nimeäminen
 tietomalliin haettaessa dataa tietolähteestä tietokannan taulut nimeämiskäytännöt
