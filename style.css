@@ -659,3 +659,74 @@ pre code {
 .byline a {
   color: var(--c-primary);
 }
+
+/* Kortit — etusivun "kortti"-ulkoasu, jaettu myös sisältösivujen "Katso myös" -lohkoon (kortit.js) */
+.kortti-rivi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.kortti {
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background: var(--c-surface);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.kortti:hover {
+  border-color: var(--c-primary);
+  box-shadow: 0 4px 14px rgba(30,58,95,0.13);
+  transform: translateY(-2px);
+}
+.kortti strong {
+  display: block;
+  font-family: var(--font-ui);
+  color: var(--c-primary);
+  margin-bottom: 6px;
+  font-size: 0.97em;
+  font-weight: 600;
+}
+.kortti span {
+  font-size: 0.88em;
+  color: var(--c-muted);
+  line-height: 1.5;
+}
+.kortti-tagit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+.tagi {
+  font-family: var(--font-ui);
+  font-size: 0.70em;
+  padding: 2px 8px;
+  background: #eef1f8;
+  color: var(--c-primary);
+  border-radius: 10px;
+}
+.kortti-lukemisaika {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.72em;
+  color: var(--c-muted);
+  background: #eef1f8;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 2px 9px;
+  margin-top: 10px;
+}
+
+/* "Katso myös" -lohko sisältösivujen lopussa */
+.katso-myos {
+  margin-top: 44px;
+}
+.katso-myos h2 {
+  border-bottom: 2px solid var(--c-primary);
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+}

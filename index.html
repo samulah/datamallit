@@ -48,9 +48,9 @@
   }
   </script>
   <title>Datamalli.fi – Datan mallinnuksen opas</title>
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=6" defer></script>
-  <script src="search-index.js?v=3" defer></script>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="navigation.js?v=8" defer></script>
+  <script src="search-index.js?v=4" defer></script>
   <script src="search.js?v=2" defer></script>
   <style>
     .kategoria {
@@ -60,40 +60,6 @@
       border-bottom: 2px solid var(--c-primary);
       padding-bottom: 6px;
       margin-bottom: 18px;
-    }
-    .kortti-rivi {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 14px;
-      margin-bottom: 8px;
-    }
-    .kortti {
-      border: 1px solid var(--c-border);
-      border-radius: 6px;
-      padding: 16px 18px;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      background: var(--c-surface);
-      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-    }
-    .kortti:hover {
-      border-color: var(--c-primary);
-      box-shadow: 0 4px 14px rgba(30,58,95,0.13);
-      transform: translateY(-2px);
-    }
-    .kortti strong {
-      display: block;
-      font-family: var(--font-ui);
-      color: var(--c-primary);
-      margin-bottom: 6px;
-      font-size: 0.97em;
-      font-weight: 600;
-    }
-    .kortti span {
-      font-size: 0.88em;
-      color: var(--c-muted);
-      line-height: 1.5;
     }
     .kortti.kesken {
       border-color: #e8eaf0;
@@ -207,36 +173,11 @@
       white-space: nowrap;
     }
     .nollaa-nappi:hover { background: #eef1f8; }
-    .kortti-tagit {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 10px;
-    }
-    .tagi {
-      font-family: var(--font-ui);
-      font-size: 0.70em;
-      padding: 2px 8px;
-      background: #eef1f8;
-      color: var(--c-primary);
-      border-radius: 10px;
-    }
     .ei-tuloksia {
       font-family: var(--font-ui);
       color: var(--c-muted);
       text-align: center;
       padding: 40px 0;
-    }
-    .kortti-lukemisaika {
-      display: inline-block;
-      font-family: var(--font-ui);
-      font-size: 0.72em;
-      color: var(--c-muted);
-      background: #eef1f8;
-      border: 1px solid var(--c-border);
-      border-radius: 10px;
-      padding: 2px 9px;
-      margin-top: 10px;
     }
     .sisalto-osuma {
       display: inline-block;
@@ -336,12 +277,12 @@
   <div class="kategoria">
     <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
     <div class="kortti-rivi">
-      <a class="kortti" href="tahtimalli.html" data-tags="tietomalli power-bi perusteoria ai" data-min="5">
+      <a class="kortti" href="tahtimalli.html" data-tags="tietomalli power-bi perusteoria ai" data-min="6">
         <strong>Tähtimalli (Star Schema)</strong>
         <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span><span class="tagi">AI</span></div>
       </a>
-      <a class="kortti" href="faktataulu.html" data-tags="tietomalli power-bi perusteoria" data-min="8">
+      <a class="kortti" href="faktataulu.html" data-tags="tietomalli power-bi perusteoria" data-min="13">
         <strong>Faktataulun mallinnus</strong>
         <span>Faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta. Vierasavaimet, additiivisuus ja kultaiset säännöt Power BI -tietomallia varten.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
@@ -356,17 +297,16 @@
         <span>Hierarkkisten dimensiotaulujen yhdistäminen yhdeksi leveäksi tauluksi ennen Power BI -latausta. Muuttaa lumihiutaleen tähtimalliksi.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
       </a>
-      <a class="kortti" href="lumihiutalemalli.html" data-tags="tietomalli power-bi perusteoria" data-min="2">
+      <a class="kortti" href="lumihiutalemalli.html" data-tags="tietomalli power-bi perusteoria" data-min="3">
         <strong>Lumihiutalemalli (Snowflake Schema)</strong>
         <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
       </a>
-      <div class="kortti kesken" data-tags="tietomalli power-bi perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
+      <a class="kortti" href="avaimet-ja-relaatiot.html" data-tags="tietomalli power-bi perusteoria" data-min="13">
         <strong>Avaimien ja relaatioiden mallinnus</strong>
         <span>Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
-      </div>
+      </a>
       <div class="kortti kesken" data-tags="tietomalli power-bi poikkeustapaus kesken">
         <div class="kesken-badge">🚧 Tulossa</div>
         <strong>Header-Detail-malli</strong>
@@ -391,7 +331,7 @@
   <div class="kategoria">
     <h2>Hallinta ja laatu</h2>
     <div class="kortti-rivi">
-      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="6">
+      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
         <strong>Nimeämiskäytännöt</strong>
         <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">tietomalli</span></div>
@@ -430,7 +370,7 @@
   <div class="kategoria">
     <h2>Resurssit</h2>
     <div class="kortti-rivi">
-      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="18">
+      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="22">
         <strong>Termistö</strong>
         <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
         <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>

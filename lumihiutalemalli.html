@@ -29,7 +29,7 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/lumihiutalemalli.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-11",
+        "dateModified": "2026-06-25",
         "wordCount": 320,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
@@ -46,8 +46,9 @@
   }
   </script>
   <title>Lumihiutalemalli (Snowflake Schema) | Datamalli.fi</title>
-<link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=6" defer></script>
+<link rel="stylesheet" href="style.css?v=6">
+  <script src="navigation.js?v=8" defer></script>
+  <script src="kortit.js?v=2" defer></script>
 </head>
 <body>
 <main-navigation></main-navigation>
@@ -66,7 +67,7 @@
   </nav>
 </noscript>
   <h1>Lumihiutalemalli (Snowflake Schema)</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-11">11.6.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-25">25.6.2026</time></p>
   <p>
     Lumihiutalemalli (Snowflake Schema) on <a href="tahtimalli.html">tähtimallia</a> muistuttava tietomalli. Toimintaperiaatteet ovat datan normalisointiin liittyen samanlaiset mutta lumihiutalemallin rakenne on hieman erilainen. Lumihiutalemallissa dimensioiden kuvaava tieto sijaitsee usein useammassa eri taulussa, jotka yhdistyvät syvemmälle dataan, kuten kuvasta ilmenee.
     Käsitteiden selitykset löydät <a href="termisto.html">datan termistöstä</a>.
@@ -112,6 +113,8 @@
       <li><strong>Litistä ennen lataamista.</strong> Jos lähteesi on lumihiutalemallinen tietovarasto ja rakennat Power BI -raporttia, tee <a href="litistaminen.html">litistäminen</a> ennen datan lataamista: yhdistä hierarkkiset dimensiotaulut yhdeksi leveäksi tauluksi ETL-vaiheessa tai SQL-näkymänä. Power BI saa valmiiksi muotoillun tähtimallin — eikä sen tarvitse tehdä yhdistelyjä itse.</li>
     </ul>
   </div>
+
+  <section class="katso-myos" data-kortit="litistaminen.html tahtimalli.html dimensiot.html avaimet-ja-relaatiot.html"></section>
 
 </body>
 </html>

@@ -1,0 +1,66 @@
+Tiesittekö että tietovarastoissa INT-avaimilla toimivat relaatiot ovat aina HUOMATTAVASTI nopeampia kuin GUID-, VARCHAR-, TIMESTAMP- tai DATE-yhteyksin tehdyt relaatiot?
+
+
+
+10 vuotta sitten kun aloitin urani BI:n parissa pääsin käyttämään analytiikkakerroksessa suoraan sellaista tietovarastoa jossa oli tähtimallin mukainen mallinnus tehtynä sisältäen kaikki "surrogaattiavaimet" ja "orporivitkin" loistivat poissaolollaan. En toki itse vielä silloin ymmärtänyt mitä nämä termit edes tarkoittavat saati sitten miksi niin kannattaisi tehdä, mutta nykyään kun on pyörinyt koko uran verran skaalautuvan datan parissa on syy selvä. Surrogaattiavaimet olivat kokonaislukuja ja Integer tallentuu pienempään tilaan kuin GUID- tai VARCHAR-avaimet, sekä "orporivit" aiheuttavat laskennallisia ongelmia. Nämä nopeusvaikutukset ja laskennalliset vaikeudet kun kerrotaan vielä rivien määrällä ja tehdyillä kyselyillä, ovat erot skaalautuvuuteen valtavia.
+
+
+
+Skaalautuvuus ei ole siis pelkästään sitä että ostetaan lisää kapasiteettia tai monistetaan yksi rakennettu ratkaisu sellaisenaan toiseen ympäristöön. Skaalautuminen on myös sitä että käytetään resursseja tehokkaasti, ja minimoidaan kapasiteetin "turha lisäarvoa tuottamaton käyttö". Käytännössä tämä voi tarkoittaa esimerkiksi sitä että mallinnetaan data kunnolla ja tehdään pieniä arkkitehtuurisia ja ylläpitoa sekä seurantaa vaativia tylsiä toimenpiteitä joiden edut ovat valtavia. 
+
+
+
+GUID/VARCHAR → INT -muutokset joineissa ja vaikutukset nopeuteen isoissa tauluissa on esim. Snowflaken performanssiarkkitehdin mukaan vastaavanlainen:
+
+
+
+"We can see from these results that using an integer data type for the join column (green) was the best choice for all queries, and by a significant margin. The varchar data type is nearly 2x to 3X slower than integer-only. "
+
+
+
+https://medium.com/snowflake/data-type-considerations-for-join-keys-in-snowflake-304d515d2b91
+
+
+
+
+
+Ja PostgreSQL:n puolella TIMESTAMP -> INT -muutokset sekä niiden vaikutukset nopeutuksiin ovat seuraavanlaiset:
+
+
+
+Prosessi joka tehtiin:
+
+• Obtain the current UTC time 
+
+• Apply the current TAI–UTC offset (as of 2024: 37 seconds) 
+
+• Convert to an integer-based format: -- Range query (ignoring leap seconds) SELECT * FROM scientific_data WHERE tai_time BETWEEN 2024010100000000000 AND 2024010200000000000;
+
+
+
+The conducted analysis demonstrates that integer-based timestamp storage is an efficient methodology for modern time-series processing systems, combining high performance, precision, and resource efficiency. This approach provides significant performance improvements: 
+
+
+
+• Insert operations accelerated by 35–50%;
+
+• Query execution time reduced by 25–40%;
+
+
+
+https://arxiv.org/pdf/2511.14502
+
+
+
+
+
+Tässä lukijalle ilmainen vinkki:
+
+- Surrogaattiavaimet ovat kriittinen osa skaalattavien ratkaisujen rakentamista, kannattaa tehdä ne kunnolla
+
+
+
+Ja perään vielä linkki verkkosivulleni jossa käsittelen asiaa:
+
+https://www.datamalli.fi/avaimet-ja-relaatiot.html
+
