@@ -23,6 +23,10 @@
     }, 1900);
 })();
 
+// Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
+// aina ennen git pushia, kun sisältöä on muutettu.
+const SIVUSTO_PAIVITETTY = '15.7.2026';
+
 class MainNavigation extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -51,6 +55,7 @@ class MainNavigation extends HTMLElement {
                     <a href="apuohjelmat.html">Apuohjelmat</a>
                     <a href="tietoa.html">Tietoa</a>
                 </div>
+                <a href="paivitykset.html" class="nav-paivitys" title="Katso päivityslista">Päivitetty ${SIVUSTO_PAIVITETTY}</a>
             </nav>
         `;
 

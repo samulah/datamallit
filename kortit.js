@@ -51,6 +51,18 @@ window.KORTIT = {
     tagit: ['hallinta', 'Power BI', 'AI', 'tietomalli'],
     min: 10
   },
+  'medallion.html': {
+    otsikko: 'Medallion-arkkitehtuuri',
+    kuvaus: 'Bronze, Silver ja Gold -tasot: mistä malli tulee, miksi se kannattaa ottaa käyttöön ja miten se rakennetaan käytännön tietovarastossa.',
+    tagit: ['arkkitehtuuri', 'tietomalli', 'hallinta'],
+    min: 8
+  },
+  'surrogaattiavaimet.html': {
+    otsikko: 'Surrogaattiavaimien mallintaminen',
+    kuvaus: 'Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.',
+    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
+    min: 13
+  },
   'kehittamisen-filosofia.html': {
     otsikko: 'Kehittämisen filosofia',
     kuvaus: 'Periaatteita, jotka ohjaavat hyvää BI-kehitystä: ylläpidettävyys, avoimuus ongelmista, tekninen velka ja käyttäjälähtöisyys.',

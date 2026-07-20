@@ -136,6 +136,7 @@ main-navigation {
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .nav-brand {
@@ -221,6 +222,7 @@ main-navigation {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  padding-right: 150px;
 }
 
 .nav-links a {
@@ -248,6 +250,44 @@ main-navigation {
 .nav-links a.nav-kesken::after {
   content: " 🚧";
   font-size: 0.8em;
+}
+
+.nav-paivitys {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  padding: 3px 0;
+  font-family: var(--font-ui);
+  font-size: 0.72em;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+  z-index: 2;
+}
+
+.nav-paivitys:hover {
+  color: rgba(255,255,255,0.85);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .nav-paivitys { font-size: 0.65em; right: 12px; }
+  .nav-links { padding-right: 100px; }
+}
+
+.paivitys-merkinta {
+  padding: 4px 0 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--c-border, #e2e8f0);
+}
+
+.paivitys-merkinta h2 {
+  margin-bottom: 8px;
+}
+
+.paivitys-merkinta:last-of-type {
+  border-bottom: none;
 }
 
 /* Erikoisluokat */

@@ -266,8 +266,12 @@ aloita pienestä dokumentoi asiakkaat tuotteet myynti omistajat laatukriteerit`,
 'etl-elt.html': `etl elt perinteinen tietovarasto pilvipohjaiset ratkaisut
 extract transform load extract load transform`,
 
-'medallion.html': `medallion-arkkitehtuuri bronze silver gold data lake
-raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi`,
+'medallion.html': `medallion-arkkitehtuuri bronze silver gold data lake lakehouse multi-hop
+raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi kerrokset
+historia databricks mitali staging integraatiokerros tähtimalli
+surrogaattiavain inkrementaalinen lataus etl elt auditointi jäljitettävyys
+microsoft fabric onelake synapse snowflake tietovarasto power bi
+milloin kannattaa käyttää dataneuvoksen mielipide`,
 
 'data-vault.html': `data vault skaalautuva auditoitava tietomallinnusmenetelmä suurten muuttuvien tietovarastojen hallinta
 dan linstedt tiimi 1990-luvulla lockheed martin yritystason tietovarastot lähdejärjestelmien muutokset historia jäljitettävyys
