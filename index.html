@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/">
-  <meta name="description" content="Datamalli.fi on suomenkielinen opas datan mallinnukseen ja AI-valmiiseen dataan: tähtimalli, dimensiot, nimeämiskäytännöt ja BI-termistö.">
+  <meta name="description" content="Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Datamalli.fi – Datan mallinnuksen opas">
-  <meta property="og:description" content="Datamalli.fi on suomenkielinen opas datan mallinnukseen ja AI-valmiiseen dataan: tähtimalli, dimensiot, nimeämiskäytännöt ja BI-termistö.">
+  <meta property="og:title" content="Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi">
+  <meta property="og:description" content="Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.">
   <meta property="og:url" content="https://www.datamalli.fi/">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnus ja Power BI -kehitys suomeksi">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
@@ -28,7 +28,7 @@
         "alternateName": "Dataneuvos",
         "url": "https://www.datamalli.fi/",
         "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" },
-        "description": "Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen dataan.",
+        "description": "Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.",
         "founder": { "@type": "Person", "name": "Samu Lahdenperä", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "sameAs": [
           "https://dataneuvos.fi",
@@ -39,7 +39,7 @@
       {
         "@type": "WebSite",
         "@id": "https://www.datamalli.fi/#website",
-        "name": "Datamalli.fi – Datan mallinnuksen opas",
+        "name": "Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi",
         "url": "https://www.datamalli.fi/",
         "inLanguage": "fi",
         "publisher": { "@id": "https://www.datamalli.fi/#organization" }
@@ -47,11 +47,13 @@
     ]
   }
   </script>
-  <title>Datamalli.fi – Datan mallinnuksen opas</title>
+  <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
   <script src="navigation.js?v=8" defer></script>
   <script src="search-index.js?v=4" defer></script>
   <script src="search.js?v=2" defer></script>
+  <script src="termi-lotto-data.js?v=1" defer></script>
+  <script src="termi-paivassa.js?v=2" defer></script>
   <style>
     .kategoria {
       margin: 36px 0 8px 0;
@@ -86,6 +88,61 @@
     }
     .haku-alue {
       margin: 4px 0 28px 0;
+    }
+    #termi-paivassa {
+      display: none;
+      margin: 20px 0 28px 0;
+    }
+    .tp-otsikko {
+      font-family: var(--font-ui);
+      font-size: 0.73em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-primary);
+      margin-bottom: 6px;
+    }
+    .tp-termi {
+      display: block;
+      border: 1px solid var(--c-border);
+      border-left: 3px solid var(--c-primary);
+      border-radius: 6px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--c-surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .tp-termi:hover {
+      border-color: var(--c-primary);
+      box-shadow: 0 4px 14px rgba(30,58,95,0.13);
+    }
+    .tp-termi strong {
+      display: block;
+      font-family: var(--font-ui);
+      color: var(--c-primary);
+      font-size: 1.02em;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .tp-en {
+      font-weight: 400;
+      color: var(--c-muted);
+      font-size: 0.85em;
+    }
+    .tp-selite {
+      display: block;
+      font-size: 0.9em;
+      color: var(--c-muted);
+      line-height: 1.5;
+    }
+    .tp-linkki {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--c-primary);
     }
     .haku-kentta {
       width: 100%;
@@ -261,7 +318,10 @@
 </noscript>
 
   <h1>Datan mallinnuksen opas</h1>
-  <p>Tervetuloa datamalli.fi-sivustolle. Täältä löydät tietoa datan mallinnusmenetelmistä, arkkitehtuureista, hallintakäytännöistä sekä suositelluista työkaluista ja kirjallisuudesta.</p>
+
+  <div id="termi-paivassa"></div>
+
+  <p>Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: tähtimalli, dimensiot ja avaimet konkreettisin esimerkein, yli 140 termin sanasto sekä suositellut työkalut ja kirjallisuus.</p>
 
   <div class="haku-alue">
     <input type="search" id="haku" class="haku-kentta" placeholder="Etsi aiheita...">
