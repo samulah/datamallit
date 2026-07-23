@@ -20,7 +20,7 @@
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
-| tahtimalli-esimerkit.html | ⭐⭐ 2 | Palautettu noindexiin 2026-06-21 (noindex,nofollow + poistettu sitemapista ja llms.txt:stä) — sisältö valmis, mutta poissa indeksistä toistaiseksi |
+| sekasikiomalli-vs-tahtimalli.html | ⭐⭐ 2 | Julkaistu 2026-07-23 (uudelleennimetty tahtimalli-esimerkit.html:stä, noindex pois, sitemap + llms.txt + nav + etusivun kortti + kortit.js) |
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - header-detail.html
 - useampi-fakta.html
@@ -57,7 +57,7 @@ Yksi julkaisu per viikko. Järjestys: helpoimmat ensin (vain viimeistely), vaike
 | 8 | Medallion | medallion.html | Kirjoitettava alusta | 5 h | — |
 | 9 | Data Vault | data-vault.html | Kirjoitettava alusta | 6 h | — |
 | 10 | Data Contract | data-contract.html | Kirjoitettava alusta — julkaistessa palauta linkit termistöön (Käyttötarkoituksen rajaus, Rikkova muutos ja SLA -termit, poistettu 2026-06-11) | 5 h | — |
-| 11 | Sekasikiö vs tähti | sekasikiomalli-vs-tahtimalli.html | Kirjoitettava alusta — etusivun tulossa-kortti lisätty 2026-06-11 | 4 h | — |
+| 11 | Sekasikiö vs tähti | sekasikiomalli-vs-tahtimalli.html | Julkaistu 2026-07-23 — uudelleennimetty tahtimalli-esimerkit.html:stä, sisältö oli jo valmis | 4 h | ✅ Julkaistu |
 
 Kokonaiskesto: 10 viikkoa, työmäärä yhteensä noin 36 tuntia.
 

@@ -1,0 +1,21 @@
+Sekasikiömalli ei synny pahasta tahdosta. Se syntyy siitä, että jokaiseen yksittäiseen pyyntöön on sanottu kyllä.
+
+Julkaisin datamalli-verkkosivulleni artikkelin, jota teasasin jo edellisessä postauksessani: sekasikiömalli vs. tähtimalli. Sivustolla oli jo ohjeet dimensioiden ja faktataulun mallintamiseen erikseen, joten seuraava looginen askel oli näyttää mitä käy, kun näitä ohjeita ei seurata ja mitä käy, kun ohjeita seurataan.
+
+Viisi Power BI -esimerkkiä, sama myyntiaineisto, järjestettynä huonoimmasta parhaaseen. Ensimmäinen ja huonoin on sekasikiömalli: vuosien varrella orgaanisesti kasvanut malli, jossa "lisää vain uusi sarake", "tee uusi taulu, älä koske vanhaan" ja "jätä vanha versio varmuuden vuoksi" ovat kaikki tuntuneet järkeviltä päätöksiltä sillä hetkellä. Kukaan ei ole tehnyt yhtään tietoisesti huonoa ratkaisua. Silti lopputulos on kaksi faktataulua, kaksi asiakasrekisteriä, kaksi kalenteria ja fakta-fakta-yhteys, joka rikkoo koko filterin leviämisen.
+
+Muutama nosto sivulta:
+
+- Moniselitteisyys syntyy useimmiten dimensiotaulun duplikaattiavaimesta: kun sama asiakasId toistuu kahdella rivillä, yksi-moneen-suhde muuttuu moni-moneen-suhteeksi ja raportti voi kaksoislaskea myynnit.
+- Lumihiutalemalli ei riko laskelmia samalla tavalla, mutta jokainen ylimääräinen relaatioaskel hierarkiassa on paikka, jossa filterin suunta voi yllättää, lisäksi DAX:sta tulee sitä vaikeampaa mitä pidempi ketju.
+- Sekasikiömalli ei ole vain sotkuinen, se on myös hidas ja iso: arviolta noin nelinkertainen tietomallin koko ja kymmenkertainen laskenta-aika verrattuna kurinalaiseen tähtimalliin, koska sama data on monistettu päällekkäisiin tauluihin ja kopioitu tekstinä faktatauluun.
+- Kaikki viisi mallia vastaavat samoihin kysymyksiin ja antavat loppukäyttäjälle täysin samat luvut. Ero ei ole siinä mitä mallilla voi laskea, vaan kuinka nopeasti, varmasti ja pienellä vaivalla tulos syntyy ensimmäisellä yrityksellä.
+
+Tämän takia mallia kannattaa katsoa kokonaisuutena eikä pyyntö kerrallaan. Jos tietomallilla ei ole omistajaa, joka aika ajoin pysähtyy katsomaan kokonaiskuvaa, jokainen "tehdään ominaisuus X" on varmasti erikseen perustelltavissa, mutta lopputuloksena on silti sekasikiömalli jos kukaan ei omista itse ratkaisua.
+
+Teen tätä samasta syystä kuin aiemminkin: ilmainen, kaikille avoin verkkokirja siitä miten tähtimallin mukainen datan mallinnus tehdään hyvin semanttiselle kerrokselle. Tämä nimenomainen aihe on tylsää työtä — kukaan ei kiitä sinua siitä, että malli ei ole sekasikiö — mutta se on edellytys sille, että raportit toimivat oikein ja data on AI-valmista.
+
+Ite suosittelen ottamaan ainakin termistö-sivun talteen kirjainmerkkeihin vieläkin. Vein sivustolle myös uuden "Päivän termi" ominaisuuden. Ehkä jokin wordle peli myöhemmin, niin datakehittäjät voivat tappaa aikaa nopean opiskelun parissa? :D 
+https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html
+
+Sivusto päivittyy jatkossakin, etusivulta näkyy mitä on suunnitelmissa.

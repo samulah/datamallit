@@ -39,6 +39,12 @@ window.KORTIT = {
     tagit: ['tietomalli', 'Power BI', 'perusteoria'],
     min: 3
   },
+  'sekasikiomalli-vs-tahtimalli.html': {
+    otsikko: 'Sekasikiömalli vs tähtimalli',
+    kuvaus: 'Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.',
+    tagit: ['tietomalli', 'Power BI', 'AI'],
+    min: 7
+  },
   'nimeamiskaytannot.html': {
     otsikko: 'Nimeämiskäytännöt',
     kuvaus: 'Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.',
