@@ -8,6 +8,10 @@ Staattinen suomenkielinen HTML-sivusto (datamalli.fi) datan mallinnuksesta ja Po
 
 Kirjoittajapersoona on "Dataneuvos" — ks. `.claude/commands/kirjoittaja-tyyli.md` tyylisäännöille (suora, opinionoitu, konkreettisia lukuja, suomi ensin).
 
+## Git-työskentely
+
+Älä koskaan tee omia branchejä tai worktreejä tähän repoon — muokkaa suoraan käyttäjän nykyisellä branchilla ja tee commit/push sinne. `.claude/settings.json`:ssa on `worktree.bgIsolation: "none"` juuri tätä varten.
+
 ## Tekstinkorjaus: Word → HTML
 
 Kun viedään sisältöä `.docx`-tiedostosta HTML:ään, noudatetaan näitä sääntöjä **tiukasti** (myös `/siirra-word`-komennon takana):
