@@ -1607,11 +1607,11 @@
   </script>
   <title>Data-alan sanasto: 140+ termiä suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=8" defer></script>
+  <script src="navigation.js?v=9" defer></script>
   <script src="kortit.js?v=2" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=2" defer></script>
+  <script src="termi-paivassa.js?v=3" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
     .suodatin-paneeli {
@@ -1645,6 +1645,19 @@
     #termi-paivassa {
       display: none;
       margin: 20px 0 28px 0;
+    }
+    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi, mutta sisältö
+       sijoitetaan vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen
+       yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
+       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
+       ainoa solu venyisi taas koko leveyteen. */
+    #termi-paivassa.tp-nakyvissa {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0 14px;
+    }
+    #termi-paivassa.tp-nakyvissa > * {
+      grid-column: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);
@@ -3085,7 +3098,7 @@
     <dl class="termi" id="sekasikiomalli" data-tags="tietomalli konseptit tahtimalli">
       <dt><span class="termi-nimi">Sekasikiömalli</span> <span class="termi-en">(jeesmies malli)</span></dt>
       <dd class="termi-selite">Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan
-        sellaisenaan kyseenalaistamatta — jeesmiesten työn jälki. Malliin kertyy vuosien
+        sellaisenaan kyseenalaistamatta ratkaisujen kestävyyttä ja järkevyyttä. Malliin kertyy vuosien
         varrella duplikaattitauluja, vanhoja versioita "varmuuden vuoksi" ja moni-moneen-relaatioita, eikä
         kokonaisuudella ole omistajaa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>

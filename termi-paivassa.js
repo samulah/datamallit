@@ -25,5 +25,7 @@
       <span class="tp-linkki">Koko termistö →</span>
     </a>
   `;
-  kohde.style.display = 'block';
+  // Näkyvyys luokan kautta, ei inline-tyylillä — inline display:block ohittaisi
+  // CSS:n grid-asettelun, jolla laatikko rajataan yhden kortin levyiseksi.
+  kohde.classList.add('tp-nakyvissa');
 })();

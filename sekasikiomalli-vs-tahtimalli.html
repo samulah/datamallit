@@ -5,15 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
-  <meta name="robots" content="noindex,nofollow">
-  <link rel="canonical" href="https://www.datamalli.fi/tahtimalli-esimerkit.html">
-  <meta name="description" content="Viisi Power BI -esimerkkiä tähtimallista (star schema) ja lumihiutalemallista (snowflake schema) huonoimmasta parhaaseen — mukana myös sekasikiömalli.">
+  <link rel="canonical" href="https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html">
+  <meta name="description" content="Sekasikiömalli vs. tähtimalli — viisi Power BI -esimerkkiä huonoimmasta parhaaseen. Näin tietomalli rapautuu, kun jokaiseen pyyntöön sanotaan aina kyllä.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä">
-  <meta property="og:description" content="Viisi Power BI -esimerkkiä tähtimallista (star schema) ja lumihiutalemallista (snowflake schema) huonoimmasta parhaaseen — mukana myös sekasikiömalli.">
-  <meta property="og:url" content="https://www.datamalli.fi/tahtimalli-esimerkit.html">
+  <meta property="og:title" content="Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä">
+  <meta property="og:description" content="Sekasikiömalli vs. tähtimalli — viisi Power BI -esimerkkiä huonoimmasta parhaaseen. Näin tietomalli rapautuu, kun jokaiseen pyyntöön sanotaan aina kyllä.">
+  <meta property="og:url" content="https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-sekasikio.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,14 +24,14 @@
     "@graph": [
       {
         "@type": "TechArticle",
-        "headline": "Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä",
-        "description": "Viisi Power BI -esimerkkiä tähtimallista (star schema) ja lumihiutalemallista (snowflake schema) huonoimmasta parhaaseen — mukana myös sekasikiömalli.",
-        "url": "https://www.datamalli.fi/tahtimalli-esimerkit.html",
-        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/tahtimalli-esimerkit.html" },
+        "headline": "Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä",
+        "description": "Sekasikiömalli vs. tähtimalli — viisi Power BI -esimerkkiä huonoimmasta parhaaseen. Näin tietomalli rapautuu, kun jokaiseen pyyntöön sanotaan aina kyllä.",
+        "url": "https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html" },
         "inLanguage": "fi",
-        "keywords": "tähtimalli, star schema, lumihiutalemalli, snowflake schema, Power BI, tietomallinnus, DAX, moni-moneen-relaatio, kaksoislaskenta, duplikaattiavain, dimensiotaulu, faktataulu, litistäminen, sekasikiömalli",
-        "datePublished": "2026-06-08",
-        "dateModified": "2026-06-25",
+        "keywords": "sekasikiömalli, tähtimalli, star schema, lumihiutalemalli, snowflake schema, Power BI, tietomallinnus, DAX, moni-moneen-relaatio, kaksoislaskenta, duplikaattiavain, dimensiotaulu, faktataulu, litistäminen",
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
         "wordCount": 1330,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
@@ -43,36 +42,48 @@
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
           { "@type": "ListItem", "position": 2, "name": "Tähtimalli (Star Schema)", "item": "https://www.datamalli.fi/tahtimalli.html" },
-          { "@type": "ListItem", "position": 3, "name": "Tähtimalli ja lumihiutalemalli: viisi esimerkkiä", "item": "https://www.datamalli.fi/tahtimalli-esimerkit.html" }
+          { "@type": "ListItem", "position": 3, "name": "Sekasikiömalli vs. tähtimalli: viisi esimerkkiä", "item": "https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html" }
         ]
       }
     ]
   }
   </script>
-  <title>Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä | Datamalli.fi</title>
+  <title>Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=5">
-  <script src="navigation.js?v=8" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#eaf2ec',
-        primaryTextColor: '#1a2218',
-        primaryBorderColor: '#015E38',
-        lineColor: '#4a5e48',
-        secondaryColor: '#f6f8f6',
-        tertiaryColor: '#f6f8f6',
-        fontFamily: '"DM Sans", system-ui, sans-serif',
-        fontSize: '13px'
-      }
-    });
-  </script>
+  <script src="navigation.js?v=9" defer></script>
   <style>
     .varoitus-rivi td {
       background: #fff8e1;
     }
+
+    /* Tietomallikaaviot (sama tekniikka kuin tahtimalli.html) */
+    .tahti-kaavio {
+      width: 100%;
+      height: auto;
+      max-width: 1000px;
+      display: block;
+      margin: 0 auto;
+      font-family: var(--font-ui, "DM Sans", system-ui, sans-serif);
+    }
+    .tk-rel { stroke: #4a5e48; stroke-width: 1.8; fill: none; }
+    .tk-rel-varo { stroke: #c9922a; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+    .tk-rel-huono { stroke: #b3261e; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+    .tk-card { fill: #4a5e48; font-size: 14px; font-weight: 600; }
+    .tk-card-huono { fill: #b3261e; font-size: 14px; font-weight: 600; }
+    .tk-lbl { fill: #4a5e48; font-size: 11.5px; font-weight: 600; text-anchor: middle; }
+    .tk-lbl-varo { fill: #8B6914; font-size: 11.5px; font-weight: 600; text-anchor: middle; }
+    .tk-lbl-huono { fill: #b3261e; font-size: 11.5px; font-weight: 600; text-anchor: middle; }
+    .tk-bodyfakta { fill: #eaf2ec; stroke: #015E38; stroke-width: 2; }
+    .tk-bodydim { fill: #f6f8f6; stroke: #015E38; stroke-width: 1.4; }
+    .tk-bodyvaro { fill: #fff8e1; stroke: #e6a817; stroke-width: 1.6; }
+    .tk-head { fill: #015E38; }
+    .tk-headvaro { fill: #8B6914; }
+    .tk-hname { fill: #ffffff; font-size: 14px; font-weight: 600; text-anchor: middle; }
+    .tk-fld { fill: #1a2218; font-size: 12.5px; }
+    .tk-fld-varo { fill: #8B6914; font-size: 12.5px; }
+    .tk-pk { fill: #015E38; font-size: 11px; font-weight: 700; text-anchor: end; }
+    .tk-fk { fill: #9a6a00; font-size: 11px; font-weight: 700; text-anchor: end; }
+    .tk-huom { fill: #b3261e; font-size: 11px; font-weight: 700; text-anchor: end; }
 
     /* Asteikko: huonoimmasta parhaaseen */
     .malliskaala {
@@ -219,8 +230,8 @@
     </nav>
   </noscript>
 
-  <h1>Tähtimalli ja lumihiutalemalli Power BI:ssä: viisi esimerkkiä</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-06-08">8.6.2026</time> · Päivitetty <time datetime="2026-06-25">25.6.2026</time></p>
+  <h1>Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-07-23">23.7.2026</time></p>
 
   <p>
     Sama myyntiaineisto voidaan mallintaa neljällä eri tavalla — kahtena tähtimallina (star schema) ja kahtena
@@ -275,33 +286,151 @@
   </p>
 
   <figure>
-    <div class="mermaid">
-      flowchart LR
-        MU["f_myynnit_uusi\n(faktataulu)"]
-        MV["f_myynnit_vanha\n(vanha faktataulu ⚠)"]
-        A["d_asiakas"]
-        A2["d_asiakkaat2\n(toinen asiakasrekisteri ⚠)"]
-        T["d_tuote"]
-        TK["d_tuote_kategoria"]
-        P["d_paiva"]
-        K["d_kalenteri\n(toinen päivämäärä ⚠)"]
-        MR["f_myynti_raportti\n(kopio faktataulusta ⚠)"]
+    <svg class="tahti-kaavio" viewBox="0 0 1000 740" role="img"
+      aria-labelledby="sek-svg-title sek-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="sek-svg-title">Sekasikiömallin kaavio</title>
+      <desc id="sek-svg-desc">Orgaanisesti kasvanut tietomalli, jossa on yhdeksän taulua: kaksi faktataulua
+        (f_myynnit_uusi ja f_myynnit_vanha), kopio faktataulusta (f_myynti_raportti), kaksi asiakastaulua
+        (d_asiakas ja d_asiakkaat2), kaksi päivämäärätaulua (d_paiva ja d_kalenteri) sekä d_tuote ja
+        d_tuote_kategoria. Relaatiot menevät ristiin: mukana on kaksi moni-moneen-relaatiota, vanha yhteys
+        poistuneeseen faktatauluun ja faktataulusta toiseen faktatauluun kulkeva yhteys. Keltaiset taulut ja
+        katkoviivat ovat ongelmallisia.</desc>
 
-        A -->|"1 → *"| MU
-        A2 -->|"moni-moneen ⚠"| MU
-        A -->|"vanha yhteys ⚠"| MV
-        T -->|"1 → *"| MU
-        TK -->|"lumihiutale"| T
-        P -->|"1 → *"| MU
-        K -->|"moni-moneen ⚠"| MU
-        MR -->|"fakta → fakta ⚠"| MU
+      <!-- Ongelmalliset relaatiot (katkoviiva) -->
+      <g class="tk-rel-varo">
+        <path d="M 180 300 Q 470 150 760 315" />
+        <line x1="770" y1="121" x2="622" y2="272" />
+        <line x1="245" y1="600" x2="400" y2="455" />
+        <line x1="770" y1="580" x2="628" y2="462" />
+      </g>
 
-        style MV fill:#fff8e1,stroke:#e6a817
-        style A2 fill:#fff8e1,stroke:#e6a817
-        style K  fill:#fff8e1,stroke:#e6a817
-        style MR fill:#fff8e1,stroke:#e6a817
-    </div>
-    <figcaption>Sekasikiömalli: kymmenen taulua, kaksi faktaa, kaksi asiakastaulua, kaksi päivämäärätaulua, fakta-fakta-yhteys ja moni-moneen-relaatioita. Keltaiset solmut ovat ongelmallisia.</figcaption>
+      <!-- Kunnolliset relaatiot -->
+      <g class="tk-rel">
+        <line x1="330" y1="65" x2="430" y2="75" />
+        <line x1="520" y1="121" x2="515" y2="270" />
+        <line x1="220" y1="330" x2="400" y2="340" />
+        <line x1="500" y1="620" x2="500" y2="466" />
+      </g>
+
+      <!-- Kardinaliteetit -->
+      <g class="tk-card" text-anchor="middle">
+        <text x="342" y="60">1</text><text x="420" y="70">∗</text>
+        <text x="534" y="138">1</text><text x="529" y="258">∗</text>
+        <text x="234" y="323">1</text><text x="386" y="333">∗</text>
+        <text x="514" y="612">1</text><text x="514" y="482">∗</text>
+      </g>
+
+      <!-- Relaatioselitteet -->
+      <text class="tk-lbl" x="380" y="46">lumihiutale</text>
+      <text class="tk-lbl-varo" x="300" y="232">vanha yhteys ⚠</text>
+      <text class="tk-lbl-varo" x="790" y="170">fakta → fakta ⚠</text>
+      <text class="tk-lbl-varo" x="270" y="505">moni-moneen ⚠</text>
+      <text class="tk-lbl-varo" x="760" y="500">moni-moneen ⚠</text>
+
+      <!-- d_tuote_kategoria -->
+      <g>
+        <rect class="tk-bodydim" x="120" y="30" width="210" height="70" rx="6" />
+        <rect class="tk-head" x="120" y="30" width="210" height="28" rx="6" />
+        <rect class="tk-head" x="120" y="46" width="210" height="12" />
+        <text class="tk-hname" x="225" y="49">d_tuote_kategoria</text>
+        <text class="tk-fld" x="132" y="76">kategoriaId</text><text class="tk-pk" x="318" y="76">PK</text>
+        <text class="tk-fld" x="132" y="97">kategoriaNimi</text>
+      </g>
+
+      <!-- d_tuote -->
+      <g>
+        <rect class="tk-bodydim" x="430" y="30" width="190" height="91" rx="6" />
+        <rect class="tk-head" x="430" y="30" width="190" height="28" rx="6" />
+        <rect class="tk-head" x="430" y="46" width="190" height="12" />
+        <text class="tk-hname" x="525" y="49">d_tuote</text>
+        <text class="tk-fld" x="442" y="76">tuoteId</text><text class="tk-pk" x="608" y="76">PK</text>
+        <text class="tk-fld" x="442" y="97">tuoteNimi</text>
+        <text class="tk-fld-varo" x="442" y="118">kategoriaNimi ⚠</text>
+      </g>
+
+      <!-- f_myynti_raportti (kopio faktataulusta) -->
+      <g>
+        <rect class="tk-bodyvaro" x="740" y="30" width="220" height="91" rx="6" />
+        <rect class="tk-headvaro" x="740" y="30" width="220" height="28" rx="6" />
+        <rect class="tk-headvaro" x="740" y="46" width="220" height="12" />
+        <text class="tk-hname" x="850" y="49">f_myynti_raportti ⚠</text>
+        <text class="tk-fld" x="752" y="76">raporttiId</text><text class="tk-pk" x="948" y="76">PK</text>
+        <text class="tk-fld" x="752" y="97">myyntiId</text><text class="tk-fk" x="948" y="97">FK</text>
+        <text class="tk-fld" x="752" y="118">summa</text>
+      </g>
+
+      <!-- d_asiakas -->
+      <g>
+        <rect class="tk-bodydim" x="30" y="300" width="190" height="91" rx="6" />
+        <rect class="tk-head" x="30" y="300" width="190" height="28" rx="6" />
+        <rect class="tk-head" x="30" y="316" width="190" height="12" />
+        <text class="tk-hname" x="125" y="319">d_asiakas</text>
+        <text class="tk-fld" x="42" y="346">asiakasId</text><text class="tk-pk" x="208" y="346">PK</text>
+        <text class="tk-fld" x="42" y="367">nimi</text>
+        <text class="tk-fld" x="42" y="388">kaupunki</text>
+      </g>
+
+      <!-- f_myynnit_uusi (pääfaktataulu) -->
+      <g>
+        <rect class="tk-bodyfakta" x="400" y="270" width="230" height="196" rx="6" />
+        <rect class="tk-head" x="400" y="270" width="230" height="28" rx="6" />
+        <rect class="tk-head" x="400" y="286" width="230" height="12" />
+        <text class="tk-hname" x="515" y="289">f_myynnit_uusi</text>
+        <text class="tk-fld" x="412" y="316">myyntiId</text><text class="tk-pk" x="618" y="316">PK</text>
+        <text class="tk-fld" x="412" y="337">asiakasId</text><text class="tk-fk" x="618" y="337">FK</text>
+        <text class="tk-fld" x="412" y="358">tuoteId</text><text class="tk-fk" x="618" y="358">FK</text>
+        <text class="tk-fld" x="412" y="379">paivaId</text><text class="tk-fk" x="618" y="379">FK</text>
+        <text class="tk-fld-varo" x="412" y="400">asiakasNimi ⚠</text>
+        <text class="tk-fld" x="412" y="421">myyntisumma</text>
+        <text class="tk-fld-varo" x="412" y="442">myyntisumma_korjattu ⚠</text>
+        <text class="tk-fld-varo" x="412" y="463">kustannuspaikka ⚠</text>
+      </g>
+
+      <!-- f_myynnit_vanha -->
+      <g>
+        <rect class="tk-bodyvaro" x="760" y="300" width="210" height="91" rx="6" />
+        <rect class="tk-headvaro" x="760" y="300" width="210" height="28" rx="6" />
+        <rect class="tk-headvaro" x="760" y="316" width="210" height="12" />
+        <text class="tk-hname" x="865" y="319">f_myynnit_vanha ⚠</text>
+        <text class="tk-fld" x="772" y="346">myyntiId</text><text class="tk-pk" x="958" y="346">PK</text>
+        <text class="tk-fld" x="772" y="367">asiakasId</text><text class="tk-fk" x="958" y="367">FK</text>
+        <text class="tk-fld" x="772" y="388">myyntisumma</text>
+      </g>
+
+      <!-- d_asiakkaat2 (toinen asiakasrekisteri) -->
+      <g>
+        <rect class="tk-bodyvaro" x="30" y="580" width="215" height="91" rx="6" />
+        <rect class="tk-headvaro" x="30" y="580" width="215" height="28" rx="6" />
+        <rect class="tk-headvaro" x="30" y="596" width="215" height="12" />
+        <text class="tk-hname" x="137" y="599">d_asiakkaat2 ⚠</text>
+        <text class="tk-fld" x="42" y="626">asiakasId (teksti)</text><text class="tk-huom" x="233" y="626">PK</text>
+        <text class="tk-fld" x="42" y="647">nimi</text>
+        <text class="tk-fld" x="42" y="668">segmentti</text>
+      </g>
+
+      <!-- d_paiva -->
+      <g>
+        <rect class="tk-bodydim" x="400" y="620" width="200" height="91" rx="6" />
+        <rect class="tk-head" x="400" y="620" width="200" height="28" rx="6" />
+        <rect class="tk-head" x="400" y="636" width="200" height="12" />
+        <text class="tk-hname" x="500" y="639">d_paiva</text>
+        <text class="tk-fld" x="412" y="666">paivaId</text><text class="tk-pk" x="588" y="666">PK</text>
+        <text class="tk-fld" x="412" y="687">paiva</text>
+        <text class="tk-fld" x="412" y="708">vuosi</text>
+      </g>
+
+      <!-- d_kalenteri (toinen päivämäärädimensio) -->
+      <g>
+        <rect class="tk-bodyvaro" x="740" y="580" width="210" height="91" rx="6" />
+        <rect class="tk-headvaro" x="740" y="580" width="210" height="28" rx="6" />
+        <rect class="tk-headvaro" x="740" y="596" width="210" height="12" />
+        <text class="tk-hname" x="845" y="599">d_kalenteri ⚠</text>
+        <text class="tk-fld" x="752" y="626">pvmId</text><text class="tk-pk" x="938" y="626">PK</text>
+        <text class="tk-fld" x="752" y="647">pvm</text>
+        <text class="tk-fld" x="752" y="668">vuosi</text>
+      </g>
+    </svg>
+    <figcaption>Sekasikiömalli: yhdeksän taulua, kaksi faktaa, kaksi asiakastaulua, kaksi päivämäärätaulua, fakta-fakta-yhteys ja moni-moneen-relaatioita. Keltaiset taulut ja katkoviivat ovat ongelmallisia.</figcaption>
   </figure>
 
   <div class="fakta-laatikko">
@@ -371,20 +500,42 @@
   </p>
 
   <figure>
-    <div class="mermaid">
-      erDiagram
-        d_asiakas {
-          int asiakasId "ei uniikki"
-          string nimi
-          string kaupunki
-        }
-        f_myynnit {
-          int myyntiId PK
-          int asiakasId FK
-          decimal myyntisumma
-        }
-        d_asiakas }o--o{ f_myynnit : "moni-moneen"
-    </div>
+    <svg class="tahti-kaavio" viewBox="0 0 1000 155" role="img"
+      aria-labelledby="mon-svg-title mon-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="mon-svg-title">Moniselitteisen tähtimallin relaatio</title>
+      <desc id="mon-svg-desc">Dimensiotaulu d_asiakas ja faktataulu f_myynnit. Koska d_asiakas-taulun asiakasId
+        ei ole uniikki, relaatio ei ole yksi-moneen vaan moni-moneen: molemmissa päissä on tähtimerkki.</desc>
+
+      <g class="tk-rel-huono">
+        <line x1="360" y1="86" x2="640" y2="86" />
+      </g>
+      <g class="tk-card-huono" text-anchor="middle">
+        <text x="378" y="79">∗</text><text x="622" y="79">∗</text>
+      </g>
+      <text class="tk-lbl-huono" x="500" y="76">moni-moneen ⚠</text>
+
+      <!-- d_asiakas (duplikaattiavain) -->
+      <g>
+        <rect class="tk-bodyvaro" x="150" y="40" width="210" height="91" rx="6" />
+        <rect class="tk-headvaro" x="150" y="40" width="210" height="28" rx="6" />
+        <rect class="tk-headvaro" x="150" y="56" width="210" height="12" />
+        <text class="tk-hname" x="255" y="59">d_asiakas ⚠</text>
+        <text class="tk-fld" x="162" y="86">asiakasId</text><text class="tk-huom" x="338" y="86">ei uniikki</text>
+        <text class="tk-fld" x="162" y="107">nimi</text>
+        <text class="tk-fld" x="162" y="128">kaupunki</text>
+      </g>
+
+      <!-- f_myynnit -->
+      <g>
+        <rect class="tk-bodyfakta" x="640" y="40" width="210" height="91" rx="6" />
+        <rect class="tk-head" x="640" y="40" width="210" height="28" rx="6" />
+        <rect class="tk-head" x="640" y="56" width="210" height="12" />
+        <text class="tk-hname" x="745" y="59">f_myynnit</text>
+        <text class="tk-fld" x="652" y="86">myyntiId</text><text class="tk-pk" x="828" y="86">PK</text>
+        <text class="tk-fld" x="652" y="107">asiakasId</text><text class="tk-fk" x="828" y="107">FK</text>
+        <text class="tk-fld" x="652" y="128">myyntisumma</text>
+      </g>
+    </svg>
     <figcaption>Moniselitteinen relaatio: Asiakas-dimensiossa duplikaattiavaimia → suhde muuttuu moni-moneen-relaatioksi.</figcaption>
   </figure>
 
@@ -461,31 +612,67 @@
   </p>
 
   <figure>
-    <div class="mermaid">
-      erDiagram
-        d_tuoteperhe {
-          int perheId PK
-          string perheNimi
-        }
-        d_tuotekategoria {
-          int kategoriaId PK
-          string kategoriaNimi
-          int perheId FK
-        }
-        d_tuote {
-          int tuoteId PK
-          string tuoteNimi
-          int kategoriaId FK
-        }
-        f_myynnit {
-          int myyntiId PK
-          int tuoteId FK
-          decimal myyntisumma
-        }
-        d_tuoteperhe ||--o{ d_tuotekategoria : "1 → *"
-        d_tuotekategoria ||--o{ d_tuote : "1 → *"
-        d_tuote ||--o{ f_myynnit : "1 → *"
-    </div>
+    <svg class="tahti-kaavio" viewBox="0 0 1000 155" role="img"
+      aria-labelledby="lumi-svg-title lumi-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="lumi-svg-title">Moniselitteisen lumihiutalemallin kaavio</title>
+      <desc id="lumi-svg-desc">Tuote-hierarkia on hajautettu kolmeen tauluun ketjuksi: d_tuoteperhe,
+        d_tuotekategoria ja d_tuote, joista viimeinen on yhteydessä faktatauluun f_myynnit. Jokainen relaatio
+        on yksi-moneen, mutta faktataulun filtteröimiseen tuoteperheellä tarvitaan kolmen relaation ketju.</desc>
+
+      <g class="tk-rel">
+        <line x1="210" y1="86" x2="280" y2="86" />
+        <line x1="465" y1="86" x2="535" y2="86" />
+        <line x1="720" y1="86" x2="790" y2="86" />
+      </g>
+      <g class="tk-card" text-anchor="middle">
+        <text x="222" y="79">1</text><text x="268" y="79">∗</text>
+        <text x="477" y="79">1</text><text x="523" y="79">∗</text>
+        <text x="732" y="79">1</text><text x="778" y="79">∗</text>
+      </g>
+
+      <!-- d_tuoteperhe -->
+      <g>
+        <rect class="tk-bodydim" x="25" y="50" width="185" height="70" rx="6" />
+        <rect class="tk-head" x="25" y="50" width="185" height="28" rx="6" />
+        <rect class="tk-head" x="25" y="66" width="185" height="12" />
+        <text class="tk-hname" x="117" y="69">d_tuoteperhe</text>
+        <text class="tk-fld" x="37" y="96">perheId</text><text class="tk-pk" x="198" y="96">PK</text>
+        <text class="tk-fld" x="37" y="117">perheNimi</text>
+      </g>
+
+      <!-- d_tuotekategoria -->
+      <g>
+        <rect class="tk-bodydim" x="280" y="40" width="185" height="91" rx="6" />
+        <rect class="tk-head" x="280" y="40" width="185" height="28" rx="6" />
+        <rect class="tk-head" x="280" y="56" width="185" height="12" />
+        <text class="tk-hname" x="372" y="59">d_tuotekategoria</text>
+        <text class="tk-fld" x="292" y="86">kategoriaId</text><text class="tk-pk" x="453" y="86">PK</text>
+        <text class="tk-fld" x="292" y="107">kategoriaNimi</text>
+        <text class="tk-fld" x="292" y="128">perheId</text><text class="tk-fk" x="453" y="128">FK</text>
+      </g>
+
+      <!-- d_tuote -->
+      <g>
+        <rect class="tk-bodydim" x="535" y="40" width="185" height="91" rx="6" />
+        <rect class="tk-head" x="535" y="40" width="185" height="28" rx="6" />
+        <rect class="tk-head" x="535" y="56" width="185" height="12" />
+        <text class="tk-hname" x="627" y="59">d_tuote</text>
+        <text class="tk-fld" x="547" y="86">tuoteId</text><text class="tk-pk" x="708" y="86">PK</text>
+        <text class="tk-fld" x="547" y="107">tuoteNimi</text>
+        <text class="tk-fld" x="547" y="128">kategoriaId</text><text class="tk-fk" x="708" y="128">FK</text>
+      </g>
+
+      <!-- f_myynnit -->
+      <g>
+        <rect class="tk-bodyfakta" x="790" y="40" width="185" height="91" rx="6" />
+        <rect class="tk-head" x="790" y="40" width="185" height="28" rx="6" />
+        <rect class="tk-head" x="790" y="56" width="185" height="12" />
+        <text class="tk-hname" x="882" y="59">f_myynnit</text>
+        <text class="tk-fld" x="802" y="86">myyntiId</text><text class="tk-pk" x="963" y="86">PK</text>
+        <text class="tk-fld" x="802" y="107">tuoteId</text><text class="tk-fk" x="963" y="107">FK</text>
+        <text class="tk-fld" x="802" y="128">myyntisumma</text>
+      </g>
+    </svg>
     <figcaption>Moniselitteinen lumihiutalemalli: Tuote-hierarkia kolmessa taulussa. Myynnin summaamiseen tarvitaan kolmen relaation ketju.</figcaption>
   </figure>
 
@@ -579,21 +766,43 @@
   </p>
 
   <figure>
-    <div class="mermaid">
-      erDiagram
-        d_tuote {
-          int tuoteId PK
-          string tuoteNimi
-          string kategoriaNimi
-          string perheNimi
-        }
-        f_myynnit {
-          int myyntiId PK
-          int tuoteId FK
-          decimal myyntisumma
-        }
-        d_tuote ||--o{ f_myynnit : "1 → *"
-    </div>
+    <svg class="tahti-kaavio" viewBox="0 0 1000 165" role="img"
+      aria-labelledby="lit-svg-title lit-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="lit-svg-title">Litistetyn lumihiutalemallin kaavio</title>
+      <desc id="lit-svg-desc">Koko Tuote-hierarkia on litistetty yhteen dimensiotauluun d_tuote, jossa ovat
+        sekä tuoteNimi, kategoriaNimi että perheNimi. Taulusta on yksi yksi-moneen-relaatio faktatauluun
+        f_myynnit, joten filtterin polku on vain yhden relaation mittainen.</desc>
+
+      <g class="tk-rel">
+        <line x1="360" y1="86" x2="640" y2="86" />
+      </g>
+      <g class="tk-card" text-anchor="middle">
+        <text x="376" y="79">1</text><text x="624" y="79">∗</text>
+      </g>
+
+      <!-- d_tuote (litistetty) -->
+      <g>
+        <rect class="tk-bodydim" x="150" y="30" width="210" height="112" rx="6" />
+        <rect class="tk-head" x="150" y="30" width="210" height="28" rx="6" />
+        <rect class="tk-head" x="150" y="46" width="210" height="12" />
+        <text class="tk-hname" x="255" y="49">d_tuote</text>
+        <text class="tk-fld" x="162" y="76">tuoteId</text><text class="tk-pk" x="338" y="76">PK</text>
+        <text class="tk-fld" x="162" y="97">tuoteNimi</text>
+        <text class="tk-fld" x="162" y="118">kategoriaNimi</text>
+        <text class="tk-fld" x="162" y="139">perheNimi</text>
+      </g>
+
+      <!-- f_myynnit -->
+      <g>
+        <rect class="tk-bodyfakta" x="640" y="41" width="210" height="91" rx="6" />
+        <rect class="tk-head" x="640" y="41" width="210" height="28" rx="6" />
+        <rect class="tk-head" x="640" y="57" width="210" height="12" />
+        <text class="tk-hname" x="745" y="60">f_myynnit</text>
+        <text class="tk-fld" x="652" y="87">myyntiId</text><text class="tk-pk" x="828" y="87">PK</text>
+        <text class="tk-fld" x="652" y="108">tuoteId</text><text class="tk-fk" x="828" y="108">FK</text>
+        <text class="tk-fld" x="652" y="129">myyntisumma</text>
+      </g>
+    </svg>
     <figcaption>Yksiselitteinen lumihiutalemalli litistettynä: kaikki Tuote-hierarkian tiedot yhdessä taulussa. Filterin polku on yksi relaatio.</figcaption>
   </figure>
 
@@ -645,50 +854,110 @@
   </p>
 
   <figure>
-    <div class="mermaid">
-      erDiagram
-        d_asiakas {
-          int asiakasId PK
-          string nimi
-          string kaupunki
-        }
-        d_tuote {
-          int tuoteId PK
-          string tuoteNimi
-          string kategoria
-        }
-        d_myymala {
-          int myymalaId PK
-          string myymala
-          string kaupunki
-        }
-        d_aika {
-          int aikaId PK
-          date paiva
-          int vuosi
-          string kuukausi
-        }
-        d_myyja {
-          int myyjäId PK
-          string nimi
-        }
-        f_myynnit {
-          int myyntiId PK
-          int asiakasId FK
-          int tuoteId FK
-          int myymalaId FK
-          int aikaId FK
-          int myyjäId FK
-          decimal myyntisumma
-          int kappalemäärä
-        }
-        d_asiakas ||--o{ f_myynnit : "1 → *"
-        d_tuote ||--o{ f_myynnit : "1 → *"
-        d_myymala ||--o{ f_myynnit : "1 → *"
-        d_aika ||--o{ f_myynnit : "1 → *"
-        d_myyja ||--o{ f_myynnit : "1 → *"
-    </div>
-    <figcaption>Yksiselitteinen tähtimalli: viisi dimensiota, yksi faktataulu, kaikki relaatiot yksi-moneen. d_myymala = Myymälä, d_myyja = Myyjä.</figcaption>
+    <svg class="tahti-kaavio" viewBox="0 0 1000 692" role="img"
+      aria-labelledby="ssvt-svg-title ssvt-svg-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="ssvt-svg-title">Yksiselitteisen tähtimallin kaavio</title>
+      <desc id="ssvt-svg-desc">Faktataulu f_myynnit keskellä ja viisi dimensiota – d_tuote, d_asiakas, d_myymala,
+        d_aika ja d_myyja – sen ympärillä tähtimäisesti. Jokaisen dimension pääavain on yhdistetty faktataulun
+        vastaavaan vierasavaimeen yksi-moneen-relaatiolla.</desc>
+
+      <!-- Relaatiot: dimension PK (1) -> faktan FK (*) -->
+      <g class="tk-rel">
+        <line x1="500" y1="111" x2="500" y2="270" />
+        <line x1="200" y1="390" x2="390" y2="362" />
+        <line x1="800" y1="390" x2="610" y2="374" />
+        <line x1="230" y1="560" x2="450" y2="466" />
+        <line x1="770" y1="560" x2="550" y2="466" />
+      </g>
+      <g class="tk-card" text-anchor="middle">
+        <!-- tuote -->
+        <text x="514" y="128">1</text><text x="514" y="258">∗</text>
+        <!-- asiakas -->
+        <text x="214" y="382">1</text><text x="378" y="350">∗</text>
+        <!-- myymala -->
+        <text x="786" y="382">1</text><text x="624" y="362">∗</text>
+        <!-- aika -->
+        <text x="244" y="552">1</text><text x="440" y="478">∗</text>
+        <!-- myyja -->
+        <text x="756" y="552">1</text><text x="560" y="478">∗</text>
+      </g>
+
+      <!-- f_myynnit (faktataulu, keskellä) -->
+      <g>
+        <rect class="tk-bodyfakta" x="390" y="270" width="220" height="196" rx="6" />
+        <rect class="tk-head" x="390" y="270" width="220" height="28" rx="6" />
+        <rect class="tk-head" x="390" y="286" width="220" height="12" />
+        <text class="tk-hname" x="500" y="290">f_myynnit</text>
+        <text class="tk-fld" x="402" y="314">myyntiId</text><text class="tk-pk" x="598" y="314">PK</text>
+        <text class="tk-fld" x="402" y="335">tuoteId</text><text class="tk-fk" x="598" y="335">FK</text>
+        <text class="tk-fld" x="402" y="356">asiakasId</text><text class="tk-fk" x="598" y="356">FK</text>
+        <text class="tk-fld" x="402" y="377">myymalaId</text><text class="tk-fk" x="598" y="377">FK</text>
+        <text class="tk-fld" x="402" y="398">aikaId</text><text class="tk-fk" x="598" y="398">FK</text>
+        <text class="tk-fld" x="402" y="419">myyjäId</text><text class="tk-fk" x="598" y="419">FK</text>
+        <text class="tk-fld" x="402" y="440">myyntisumma</text>
+        <text class="tk-fld" x="402" y="461">kappalemäärä</text>
+      </g>
+
+      <!-- d_tuote (ylhäällä) -->
+      <g>
+        <rect class="tk-bodydim" x="410" y="20" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="410" y="20" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="410" y="36" width="180" height="12" />
+        <text class="tk-hname" x="500" y="39">d_tuote</text>
+        <text class="tk-fld" x="422" y="66">tuoteId</text><text class="tk-pk" x="578" y="66">PK</text>
+        <text class="tk-fld" x="422" y="87">tuoteNimi</text>
+        <text class="tk-fld" x="422" y="108">kategoria</text>
+      </g>
+
+      <!-- d_asiakas (vasemmalla) -->
+      <g>
+        <rect class="tk-bodydim" x="20" y="334" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="20" y="334" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="20" y="350" width="180" height="12" />
+        <text class="tk-hname" x="110" y="353">d_asiakas</text>
+        <text class="tk-fld" x="32" y="380">asiakasId</text><text class="tk-pk" x="188" y="380">PK</text>
+        <text class="tk-fld" x="32" y="401">nimi</text>
+        <text class="tk-fld" x="32" y="422">kaupunki</text>
+      </g>
+
+      <!-- d_myymala (oikealla) -->
+      <g>
+        <rect class="tk-bodydim" x="800" y="334" width="180" height="91" rx="6" />
+        <rect class="tk-head" x="800" y="334" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="800" y="350" width="180" height="12" />
+        <text class="tk-hname" x="890" y="353">d_myymala</text>
+        <text class="tk-fld" x="812" y="380">myymalaId</text><text class="tk-pk" x="968" y="380">PK</text>
+        <text class="tk-fld" x="812" y="401">myymala</text>
+        <text class="tk-fld" x="812" y="422">kaupunki</text>
+      </g>
+
+      <!-- d_aika (alhaalla vasemmalla) -->
+      <g>
+        <rect class="tk-bodydim" x="140" y="560" width="180" height="112" rx="6" />
+        <rect class="tk-head" x="140" y="560" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="140" y="576" width="180" height="12" />
+        <text class="tk-hname" x="230" y="579">d_aika</text>
+        <text class="tk-fld" x="152" y="606">aikaId</text><text class="tk-pk" x="308" y="606">PK</text>
+        <text class="tk-fld" x="152" y="627">paiva</text>
+        <text class="tk-fld" x="152" y="648">vuosi</text>
+        <text class="tk-fld" x="152" y="669">kuukausi</text>
+      </g>
+
+      <!-- d_myyja (alhaalla oikealla) -->
+      <g>
+        <rect class="tk-bodydim" x="680" y="560" width="180" height="70" rx="6" />
+        <rect class="tk-head" x="680" y="560" width="180" height="28" rx="6" />
+        <rect class="tk-head" x="680" y="576" width="180" height="12" />
+        <text class="tk-hname" x="770" y="579">d_myyja</text>
+        <text class="tk-fld" x="692" y="606">myyjäId</text><text class="tk-pk" x="848" y="606">PK</text>
+        <text class="tk-fld" x="692" y="627">nimi</text>
+      </g>
+    </svg>
+    <figcaption>Yksiselitteinen tähtimalli: faktataulu <code>f_myynnit</code> keskellä ja viisi dimensiota
+      (<code>d_tuote</code>, <code>d_asiakas</code>, <code>d_myymala</code>, <code>d_aika</code>, <code>d_myyja</code>)
+      sen ympärillä. Jokainen relaatio kulkee dimension pääavaimesta (<a href="termisto.html#paaavain" class="termi-tip">PK</a>,
+      merkitty <strong>1</strong>) faktataulun vierasavaimeen (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>,
+      merkitty <strong>∗</strong>) yksi-moneen-suhteella.</figcaption>
   </figure>
 
   <div class="fakta-laatikko">

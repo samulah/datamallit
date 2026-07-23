@@ -19,7 +19,7 @@ dax patterns pyri aina rakentamaan tähtimalli
 tekoälyvalmis ai-pohjainen analytiikka
 avaintyypit muistikokovertailu koko nopeus arvio tähtinä`,
 
-'tahtimalli-esimerkit.html': `tähtimalli lumihiutalemalli viisi esimerkkiä yksiselitteinen moniselitteinen
+'sekasikiomalli-vs-tahtimalli.html': `sekasikiömalli tähtimalli lumihiutalemalli viisi esimerkkiä yksiselitteinen moniselitteinen
 star schema snowflake schema power bi dax tietomallinnus huonoimmasta parhaaseen
 sama myyntiaineisto neljä eri tapaa duplikaattiavaimet relaatioketju join filtteri
 pääavain pk uniikki yksi-moneen-suhde dax yksikäsitteinen

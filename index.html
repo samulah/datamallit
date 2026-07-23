@@ -49,11 +49,11 @@
   </script>
   <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=8" defer></script>
+  <script src="navigation.js?v=9" defer></script>
   <script src="search-index.js?v=4" defer></script>
   <script src="search.js?v=2" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=2" defer></script>
+  <script src="termi-paivassa.js?v=3" defer></script>
   <style>
     .kategoria {
       margin: 36px 0 8px 0;
@@ -86,12 +86,37 @@
       padding: 1px 7px;
       margin-bottom: 7px;
     }
+    .uutuus-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.73em;
+      font-weight: 600;
+      background: #e3f2e6;
+      border: 1px solid #4caf70;
+      color: #1e6b38;
+      border-radius: 4px;
+      padding: 1px 7px;
+      margin-bottom: 7px;
+    }
     .haku-alue {
       margin: 4px 0 28px 0;
     }
     #termi-paivassa {
       display: none;
       margin: 20px 0 28px 0;
+    }
+    /* Näytetään samalla ruudukolla kuin .kortti-rivi, mutta sisältö sijoitetaan
+       vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen yhden
+       etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
+       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
+       ainoa solu venyisi taas koko leveyteen. */
+    #termi-paivassa.tp-nakyvissa {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0 14px;
+    }
+    #termi-paivassa.tp-nakyvissa > * {
+      grid-column: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);
@@ -337,6 +362,12 @@
   <div class="kategoria">
     <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
     <div class="kortti-rivi">
+      <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="7">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Sekasikiömalli vs tähtimalli</strong>
+        <span>Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">AI</span></div>
+      </a>
       <a class="kortti" href="tahtimalli.html" data-tags="tietomalli power-bi perusteoria ai" data-min="6">
         <strong>Tähtimalli (Star Schema)</strong>
         <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
@@ -378,12 +409,6 @@
         <strong>Useamman faktataulun malli</strong>
         <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">poikkeustapaus</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="tietomalli power-bi ai kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Sekasikiömalli vs tähtimalli</strong>
-        <span>Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.</span>
-        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">AI</span></div>
       </div>
     </div>
   </div>
