@@ -1611,7 +1611,7 @@
   <script src="kortit.js?v=2" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=2" defer></script>
+  <script src="termi-paivassa.js?v=3" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
     .suodatin-paneeli {
@@ -1645,6 +1645,19 @@
     #termi-paivassa {
       display: none;
       margin: 20px 0 28px 0;
+    }
+    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi, mutta sisältö
+       sijoitetaan vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen
+       yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
+       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
+       ainoa solu venyisi taas koko leveyteen. */
+    #termi-paivassa.tp-nakyvissa {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0 14px;
+    }
+    #termi-paivassa.tp-nakyvissa > * {
+      grid-column: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);
