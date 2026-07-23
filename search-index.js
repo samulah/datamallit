@@ -357,6 +357,7 @@ pääavain primary key pk yksilöi rivin uniikki ei tyhjiä
 power query m-kieli haku muunnos yhdistäminen
 q&a power bi luonnollinen kieli kyselytoiminto visualisointi synonyymit metadata
 relaatio relationship yhteys avainkenttä yksi-moneen dimensio faktataulu
+relaatiomalli relational model tietomalli taulut avaimet sql server postgresql denormalisointi tähtimalli vertipaq
 rls row-level security rivitason tietoturva dax suodatin
 row context rivikonteksti dax laskennallinen sarake iteraatio sumx rivitaso
 sarake column pystysuora kenttä vertipaq pakkaa saraketasolla
@@ -384,6 +385,8 @@ toimialueen eheys domain integrity sarakkeen arvot sallittu joukko vaihteluväli
 orporivi orphan row faktarivi vierasavain dimensiotaulu vastinetta viite-eheys power bi tyhjä rivi
 tietoeheys data integrity täsmällinen yhtenäinen viite-eheys vierasavain pääavain normalisointi entiteettieheys toimialueen eheys
 tietoluokka data category power bi sarake maa kaupunki postinumero url kuva-url copilot q&a
+tietomalli data model rakenne entiteetit attribuutit suhteet tähtimalli lumihiutalemalli bim rakennusala eri asia
+tietomallinnus data modeling tiedon mallintaminen tiedon mallinnus prosessi taulut avaimet relaatiot käsitemalli looginen malli fyysinen toteutus
 tietovarasto data warehouse dwh keskitetty jäsennelty raportointi analytiikka
 vertipaq sarake in-memory pakkausmoottori kardinaliteetti optimoi saraketasolla
 vierasavain foreign key fk faktataulussa dimensio pääavain relaatio
@@ -432,6 +435,7 @@ degeneraatioavain degenerate dimension dd tilausnumero kuittinumero faktataulu t
 transaktiofakta transaction fact table tapahtuma rivi myyntirivit maksutapahtumat yleisin
 kausifakta periodic snapshot tilannekuva ajanjakso varastosaldo säännöllinen
 kumulatiivinen fakta accumulating snapshot prosessi elinkaari tilaus päivitetään
+käsitemalli conceptual model tietomallinnus liiketoiminnan käsitteet asiakas tilaus tuote looginen malli fyysinen tietomalli
 päivämäärädimensio date dimension kalenteripäivä vuosi kuukausi time intelligence role-playing`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
