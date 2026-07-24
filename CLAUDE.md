@@ -48,12 +48,14 @@ Ennen kuin raportoidaan "valmis", käydään Word-teksti lause lauseelta:
 - `words/` — Word-lähteet per sivu
 - `julkaisusuunnitelma.md` — sivujen julkaisutila ja aikataulu
 - `suunnitelma.txt` — yksityiskohtainen tehtävälistaus per sivu
-- `navigation.js` — navigaatio ja footer (muokkaa vain tässä; sisältää myös lukemisajan laskennan)
+- `navigation.js` — navigaatio ja footer (muokkaa vain tässä; sisältää lukemisajan fallback-laskennan)
 - `search-index.js` — etusivun hakuindeksi: `window.HAKU_INDEKSI['sivu.html'] = "koko tekstisisältö pienillä"` — päivitettävä käsin kun sivun sisältö muuttuu
 - `termisto-search.js` — termistön oma dynaaminen haku (erillinen `search-index.js`:stä, mutta termien pitää löytyä myös sieltä — ks. `/julkaisuvalmius`)
-- `kortit.js` — "Katso myös" -korttien jaettu data (`window.KORTIT`); pidettävä synkassa `index.html`:n vastaavien korttien otsikon/kuvauksen/tagien/`min`-arvon kanssa
+- `kortit.js` — "Katso myös" -korttien renderöinti; **ei sisällä dataa**, lukee `sivut.js`:n `window.SIVUT`
+- `sivut.js` — **generoitu**, älä muokkaa käsin (ks. alla)
+- `tyokalut/rakenna.py` — metatietogeneraattori
 - `style.css` — sivuston tyylit
-- `sitemap.xml`, `robots.txt`, `llms.txt` — SEO/indeksointirakenteet
+- `sitemap.xml` — **generoitu**; `robots.txt`, `llms.txt` — SEO/indeksointirakenteet
 
 ### Päivityslista (pakollinen ennen git pushia)
 
@@ -63,11 +65,57 @@ Sivun oikeassa yläkulmassa (nav-palkissa, logon rivillä) näkyy teksti "Päivi
 
 Älä tee tätä keskeneräisistä/kokeiluluontoisista muutoksista — vain kun muutos oikeasti viedään gittiin.
 
+## Metatietojen generointi (tyokalut/rakenna.py)
+
+**Sivu on ainoa lähde omalle metatiedolleen.** Kaikki muu generoidaan siitä:
+
+```
+sivu.html <head>  ──▶  sivut.js  ──▶  index.html (kortit) + kortit.js ("Katso myös")
+                  ──▶  sivu.html <meta name="lukemisaika">
+                  ──▶  sitemap.xml
+```
+
+Käsin kirjoitetaan sivun `<head>`:ssä:
+
+| Kenttä | Merkitys | Jos puuttuu |
+|---|---|---|
+| `kortti-otsikko` | kortin otsikko (lyhyt, ei sama kuin SEO-otsikko) | `<title>` ilman `" \| Datamalli.fi"` |
+| `kortti-kuvaus` | kortin kuvaus (navigointiteksti) | `description` |
+| `tagit` | tagislugit välilyönnein, esim. `tietomalli power-bi ai` | ei tageja |
+| `kortti-badge` | `uutuus` → ✨ Uutuus -merkki | ei merkkiä |
+| `robots` | `noindex` = keskeneräinen | julkaistu |
+
+Sallitut tagislugit tulevat `search.js`:n `TAGI_NIMET`-taulusta — tuntematon slug pysäyttää ajon.
+`kesken`-tagia ei kirjoiteta käsin, se johdetaan `noindex`istä.
+
+```bash
+python3 tyokalut/rakenna.py              # kirjoittaa muuttuneet tiedostot
+python3 tyokalut/rakenna.py --tarkista   # exit 1 jos jokin on vanhentunut (pre-push-hook)
+python3 tyokalut/rakenna.py --raportti   # metatietojen puutteet, julkaisutila, hakuindeksi
+```
+
+`.githooks/pre-push` estää epäsynkan pushaamisen (`git config core.hooksPath .githooks`).
+
+**Älä koskaan muokkaa käsin:** `sivut.js`, `sitemap.xml`, `index.html`:n `KORTIT:alku`/`KORTIT:loppu`
+-markkerien väliä, tai sivujen `<meta name="lukemisaika">`-tageja. Ne kirjoitetaan yli.
+
+Etusivun **rakenne** (kategoriat ja korttien järjestys) on edelleen käsin `index.html`:ssä:
+kategorian `.kortti-rivi`-elementin `data-kortit`-attribuutti listaa sivut järjestyksessä.
+
+"Katso myös" -osion lisääminen sivulle vaatii vain placeholderin — generaattori lisää
+tarvittavat skriptitagit (`sivut.js` ennen `kortit.js`:ää) automaattisesti:
+
+```html
+<section class="katso-myos" data-kortit="tahtimalli.html faktataulu.html"></section>
+```
+
 ### Sivun julkaisutila
-Julkaisematon/kesken-sivu tunnistetaan kolmesta paikasta, jotka on aina pidettävä synkassa:
-1. `<meta name="robots" content="noindex">` sivun `<head>`:ssä
-2. Poissa `sitemap.xml`:stä
-3. TechArticle JSON-LD -skeema (`headline`, `description`, `url`, `datePublished`) täytettynä
+
+Julkaisutilaa ohjaa **yksi kytkin**: sivun `robots`-meta. Kun `noindex` poistetaan ja
+generaattori ajetaan, sivu ilmestyy sitemapiin ja sen etusivukortti muuttuu
+"🚧 Tulossa" -laatikosta linkiksi lukemisaikoineen. Sitä ennen kannattaa tarkistaa että
+TechArticle JSON-LD -skeema (`headline`, `description`, `url`, `datePublished`,
+`dateModified`) on täytetty — `dateModified` päätyy sitemapin `lastmod`-arvoksi.
 
 Ks. `/julkaisuvalmius`-komento kokonaistarkistukseen ja `julkaisusuunnitelma.md` nykytilaan.
 

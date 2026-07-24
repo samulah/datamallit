@@ -1,114 +1,36 @@
-// "Katso myös" -korttien data ja renderöinti.
-// HUOM: pidä otsikko/kuvaus/tagit/min synkassa index.html:n vastaavien korttien kanssa.
-// min = navigation.js:n laskema "Lukemisaika: noin N min" (laske uudelleen jos sivun sisältö muuttuu).
-// Sivu lisää placeholderin: <section class="katso-myos" data-kortit="tahtimalli.html faktataulu.html …"></section>
-window.KORTIT = {
-  'tahtimalli.html': {
-    otsikko: 'Tähtimalli (Star Schema)',
-    kuvaus: 'Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria', 'AI'],
-    min: 6
-  },
-  'faktataulu.html': {
-    otsikko: 'Faktataulun mallinnus',
-    kuvaus: 'Faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta. Vierasavaimet, additiivisuus ja kultaiset säännöt Power BI -tietomallia varten.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 13
-  },
-  'dimensiot.html': {
-    otsikko: 'Dimensioiden mallinnus',
-    kuvaus: 'Surrogaattiavaimet, SCD-tyypit 0–6, parhaat käytännöt ja Power BI:n suorituskykyrajat eri kokoisilla dimensioilla.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 13
-  },
-  'avaimet-ja-relaatiot.html': {
-    otsikko: 'Avaimien ja relaatioiden mallinnus',
-    kuvaus: 'Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 13
-  },
-  'litistaminen.html': {
-    otsikko: 'Taulujen litistäminen (Flattening)',
-    kuvaus: 'Hierarkkisten dimensiotaulujen yhdistäminen yhdeksi leveäksi tauluksi ennen Power BI -latausta. Muuttaa lumihiutaleen tähtimalliksi.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 5
-  },
-  'lumihiutalemalli.html': {
-    otsikko: 'Lumihiutalemalli (Snowflake Schema)',
-    kuvaus: 'Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 3
-  },
-  'sekasikiomalli-vs-tahtimalli.html': {
-    otsikko: 'Sekasikiömalli vs tähtimalli',
-    kuvaus: 'Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.',
-    tagit: ['tietomalli', 'Power BI', 'AI'],
-    min: 7
-  },
-  'nimeamiskaytannot.html': {
-    otsikko: 'Nimeämiskäytännöt',
-    kuvaus: 'Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.',
-    tagit: ['hallinta', 'Power BI', 'tietomalli'],
-    min: 7
-  },
-  'ai-valmis-metadata.html': {
-    otsikko: 'AI-valmis metadata',
-    kuvaus: 'Mitä tauluista, sarakkeista ja mittareista kannattaa kuvata tietovarastossa ja Power BI:ssä, jotta Copilot ja muut AI-työkalut toimivat luotettavasti.',
-    tagit: ['hallinta', 'Power BI', 'AI', 'tietomalli'],
-    min: 10
-  },
-  'medallion.html': {
-    otsikko: 'Medallion-arkkitehtuuri',
-    kuvaus: 'Bronze, Silver ja Gold -tasot: mistä malli tulee, miksi se kannattaa ottaa käyttöön ja miten se rakennetaan käytännön tietovarastossa.',
-    tagit: ['arkkitehtuuri', 'tietomalli', 'hallinta'],
-    min: 8
-  },
-  'surrogaattiavaimet.html': {
-    otsikko: 'Surrogaattiavaimien mallintaminen',
-    kuvaus: 'Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.',
-    tagit: ['tietomalli', 'Power BI', 'perusteoria'],
-    min: 13
-  },
-  'kehittamisen-filosofia.html': {
-    otsikko: 'Kehittämisen filosofia',
-    kuvaus: 'Periaatteita, jotka ohjaavat hyvää BI-kehitystä: ylläpidettävyys, avoimuus ongelmista, tekninen velka ja käyttäjälähtöisyys.',
-    tagit: ['hallinta', 'perusteoria'],
-    min: 1
-  },
-  'termisto.html': {
-    otsikko: 'Termistö',
-    kuvaus: 'Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.',
-    tagit: ['perusteoria', 'tietomalli'],
-    min: 22
-  },
-  'kirjallisuus-suositukset.html': {
-    otsikko: 'Suositeltu kirjallisuus',
-    kuvaus: 'Parhaat kirjat datan mallinnuksesta, tietovarastoinnista ja Power BI:stä. Hyvä lukupaketti niin aloittelijoille kuin kokeneille.',
-    tagit: ['kirjallisuus', 'DAX', 'tietomalli'],
-    min: 8
-  },
-  'apuohjelmat.html': {
-    otsikko: 'Apuohjelmat',
-    kuvaus: 'DAX Studio, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut selitettynä.',
-    tagit: ['työkalut', 'Power BI', 'DAX', 'AI'],
-    min: 9
-  },
-  'tietoa.html': {
-    otsikko: 'Tietoa sivustosta',
-    kuvaus: 'Kuka datamalli.fi:n takana on ja mihin sivusto tähtää — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.',
-    tagit: [],
-    min: 3
-  }
-};
-
+// "Katso myös" -korttien renderöinti.
+//
+// Korttien data EI ole enää täällä — se tulee sivut.js:stä (window.SIVUT), jonka
+// tyokalut/rakenna.py generoi sivujen omista <head>-metatiedoista. Kortin otsikko,
+// kuvaus, tagit ja lukemisaika muuttuvat siis automaattisesti kun sivu muuttuu.
+//
+// Sivu lisää placeholderin:
+//   <section class="katso-myos" data-kortit="tahtimalli.html faktataulu.html …"></section>
+// ja lataa sivut.js:n ennen tätä tiedostoa.
 (function () {
+  function lisaaBadge(kortti, teksti, luokka) {
+    const badge = document.createElement('div');
+    badge.className = luokka;
+    badge.textContent = teksti;
+    kortti.appendChild(badge);
+  }
+
   function rakennaKortti(slug) {
-    const data = window.KORTIT[slug];
+    const data = (window.SIVUT || {})[slug];
     if (!data) return null;
 
-    const kortti = document.createElement('a');
-    kortti.className = 'kortti';
-    kortti.href = slug;
+    const tagiNimet = window.SIVUSTO_TAGIT || {};
+
+    // Keskeneräinen sivu (robots-noindex) ei ole linkki eikä siinä näytetä lukemisaikaa.
+    const kortti = document.createElement(data.julkaistu ? 'a' : 'div');
+    kortti.className = data.julkaistu ? 'kortti' : 'kortti kesken';
+    if (data.julkaistu) kortti.href = slug;
+
+    if (!data.julkaistu) {
+      lisaaBadge(kortti, '🚧 Tulossa', 'kesken-badge');
+    } else if (data.badge === 'uutuus') {
+      lisaaBadge(kortti, '✨ Uutuus', 'uutuus-badge');
+    }
 
     const otsikko = document.createElement('strong');
     otsikko.textContent = data.otsikko;
@@ -124,13 +46,13 @@ window.KORTIT = {
       data.tagit.forEach(t => {
         const tagi = document.createElement('span');
         tagi.className = 'tagi';
-        tagi.textContent = t;
+        tagi.textContent = tagiNimet[t] || t;
         tagit.appendChild(tagi);
       });
       kortti.appendChild(tagit);
     }
 
-    if (data.min) {
+    if (data.julkaistu && data.min) {
       const aika = document.createElement('span');
       aika.className = 'kortti-lukemisaika';
       aika.textContent = `⏱ Lukemisaika: ${data.min} min`;

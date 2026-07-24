@@ -1,0 +1,16 @@
+#!/bin/sh
+# Estää epäsynkassa olevien generoitujen tiedostojen pushaamisen.
+#
+# Tarkistaa että sivut.js, index.html:n kortit, sitemap.xml ja sivujen
+# lukemisaika-metat vastaavat sivujen nykyistä sisältöä.
+#
+# Käyttöön:  git config core.hooksPath .githooks
+# Ohitus (vain poikkeustapauksissa):  git push --no-verify
+
+if ! python3 tyokalut/rakenna.py --tarkista; then
+    echo ""
+    echo "Push keskeytetty: generoidut tiedostot ovat vanhentuneet."
+    echo "Korjaa ajamalla:  python3 tyokalut/rakenna.py"
+    echo "Muista myös päivittää paivitykset.html ennen pushia."
+    exit 1
+fi
