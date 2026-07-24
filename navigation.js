@@ -25,7 +25,7 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '23.7.2026';
+const SIVUSTO_PAIVITETTY = '24.7.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {

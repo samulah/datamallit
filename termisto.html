@@ -1607,11 +1607,11 @@
   </script>
   <title>Data-alan sanasto: 140+ termiä suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=9" defer></script>
+  <script src="navigation.js?v=10" defer></script>
   <script src="kortit.js?v=2" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=3" defer></script>
+  <script src="termi-paivassa.js?v=4" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
     .suodatin-paneeli {
@@ -1646,18 +1646,25 @@
       display: none;
       margin: 20px 0 28px 0;
     }
-    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi, mutta sisältö
-       sijoitetaan vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen
-       yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
-       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
-       ainoa solu venyisi taas koko leveyteen. */
+    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi: päivän termi
+       ensimmäiseen sarakkeeseen ja satunnainen termi sen viereen. Kumpikin on
+       täsmälleen yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa
+       kuin kortit. auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä,
+       muuten kortit venyisivät taas koko leveyteen. Kapealla ruudulla kortit
+       menevät allekkain. */
     #termi-paivassa.tp-nakyvissa {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0 14px;
+      gap: 18px 14px;
     }
     #termi-paivassa.tp-nakyvissa > * {
-      grid-column: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Kortit venytetään samankorkuisiksi vaikka selitteet ovat eripituisia. */
+    #termi-paivassa .tp-termi {
+      flex: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);

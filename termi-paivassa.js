@@ -1,6 +1,7 @@
-// Termi päivässä -kortti. Lukee termit termi-lotto-data.js:n staattisesta taulukosta
-// (window.TERMI_LOTTO), jotta kortti toimii myös file://-esikatselussa eikä vain
-// http(s)-palvelimella (fetch() on estetty file://-sivuilta selainturvallisuuden takia).
+// Termi päivässä- ja Satunnainen termi -kortit. Lukevat termit termi-lotto-data.js:n
+// staattisesta taulukosta (window.TERMI_LOTTO), jotta kortit toimivat myös
+// file://-esikatselussa eikä vain http(s)-palvelimella (fetch() on estetty
+// file://-sivuilta selainturvallisuuden takia).
 
 (function () {
   const kohde = document.getElementById('termi-paivassa');
@@ -10,22 +11,35 @@
   if (termit.length === 0) return;
 
   const paivaIndeksi = Math.floor(Date.now() / 86400000); // päivä 1970-01-01 -epookista
-  const termi = termit[paivaIndeksi % termit.length];
+  const paivanTermi = termit[paivaIndeksi % termit.length];
 
-  let teaser = termi.selite;
-  if (teaser.length > 170) {
-    teaser = teaser.slice(0, 167).replace(/\s+\S*$/, '') + '…';
+  // Satunnaistermi arvotaan uudelleen joka sivulatauksella. Ei sama kuin päivän
+  // termi, jotta kortit eivät koskaan näytä samaa termiä vierekkäin.
+  let satunnainenTermi = paivanTermi;
+  while (termit.length > 1 && satunnainenTermi === paivanTermi) {
+    satunnainenTermi = termit[Math.floor(Math.random() * termit.length)];
   }
 
-  kohde.innerHTML = `
-    <div class="tp-otsikko">Termi päivässä</div>
-    <a class="tp-termi" href="termisto.html#${termi.id}">
-      <strong>${termi.nimi}${termi.en ? ` <span class="tp-en">${termi.en}</span>` : ''}</strong>
-      <span class="tp-selite">${teaser}</span>
-      <span class="tp-linkki">Koko termistö →</span>
-    </a>
-  `;
+  function teaser(selite) {
+    if (selite.length <= 170) return selite;
+    return selite.slice(0, 167).replace(/\s+\S*$/, '') + '…';
+  }
+
+  function kortti(otsikko, termi) {
+    return `
+    <div class="tp-solu">
+      <div class="tp-otsikko">${otsikko}</div>
+      <a class="tp-termi" href="termisto.html#${termi.id}">
+        <strong>${termi.nimi}${termi.en ? ` <span class="tp-en">${termi.en}</span>` : ''}</strong>
+        <span class="tp-selite">${teaser(termi.selite)}</span>
+        <span class="tp-linkki">Koko termistö →</span>
+      </a>
+    </div>`;
+  }
+
+  kohde.innerHTML = kortti('Termi päivässä', paivanTermi) +
+                    kortti('Satunnainen termi', satunnainenTermi);
   // Näkyvyys luokan kautta, ei inline-tyylillä — inline display:block ohittaisi
-  // CSS:n grid-asettelun, jolla laatikko rajataan yhden kortin levyiseksi.
+  // CSS:n grid-asettelun, jolla kortit rajataan yhden kortin levyisiksi.
   kohde.classList.add('tp-nakyvissa');
 })();
