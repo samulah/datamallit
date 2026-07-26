@@ -7,3 +7,6 @@ secrets.env
 # Python-välimuisti
 __pycache__/
 *.pyc
+
+# Analyysimateriaali — ei julkaista sivuston repossa
+gsc tutkimus/
