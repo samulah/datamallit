@@ -15,6 +15,7 @@
 - [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 150 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
 - [Suositeltu kirjallisuus](https://www.datamalli.fi/kirjallisuus-suositukset.html): Parhaat kirjat datan mallinnuksen, DAX:n ja BI-kehittämisen oppimiseen perusteluineen.
 - [Apuohjelmat](https://www.datamalli.fi/apuohjelmat.html): DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut.
+- [Kehittämisen filosofia](https://www.datamalli.fi/kehittamisen-filosofia.html): Kuusi periaatetta hyvään BI- ja datakehitykseen: oikeellisuus, ylläpidettävyys ja käyttäjäkeskeisyys.
 
 ## Tietoa
 - [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).
