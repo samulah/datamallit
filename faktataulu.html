@@ -44,6 +44,35 @@
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
       },
       {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Miten faktataulu rakentuu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hyvin rakennettu faktataulu on pitkä ja kapea: miljoonia rivejä, mutta vähän sarakkeita. Sarakkeet jakautuvat vierasavaimiin ja mittareihin, ei mitään muuta. Kuvailevat attribuutit kuuluvat dimensioihin, ei faktatauluun. Faktataulu ei välttämättä tarvitse omaa surrogaattipääavainta — rivin yksilöi vierasavainten yhdistelmä."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitkä ovat faktataulun parhaat käytännöt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Granulariteetti päätetään ensin, ennen yhtäkään saraketta. Faktataulussa on pelkkiä lukuja ja avaimia, ei tekstiä. Jokaisen vierasavaimen on löydettävä pari dimensiosta, muuten Power BI luo automaattisen tyhjän rivin. Relaatioihin ei käytetä GUID- tai VARCHAR-avaimia, vaan INT-surrogaattiavaimia, jotka pakkautuvat VertiPaqissa tehokkaasti. Faktataulu pidetään ohuena ja dimensiot leveinä. Johdetut luvut, kuten kateprosentti, lasketaan DAX-mittareina, ei laskettuina sarakkeina. Granulariteetti kannattaa suunnitella niin, että mahdollisimman moni mittari on additiivinen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten granulariteetti vaikuttaa suorituskykyyn Power BI:ssä?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Granulariteetti tarkoittaa sitä, mitä faktataulun yksi rivi edustaa — yhtä myyntitapahtumaa, yhden päivän myyntiä tai yhden kuukauden myyntiä. Se on faktataulun tarkkuustaso, ja se päätetään ennen yhtäkään saraketta. Mitä hienompi granulariteetti, sitä enemmän rivejä, mutta Power BI:ssä rivimäärä ei ole merkittävin suorituskykytekijä. VertiPaq on sarakepohjainen moottori, joka pakkaa datan sarake kerrallaan RLE- ja sanakirjapakkauksella, joten ratkaisevaa on sarakkeiden kardinaliteetti."
+            }
+          }
+        ]
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
@@ -55,7 +84,7 @@
   </script>
   <title>Faktataulu ja granulariteetti Power BI:ssä | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=10" defer></script>
+  <script src="navigation.js?v=11" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
 </head>
@@ -65,6 +94,7 @@
   <noscript>
     <nav class="simple-nav" style="padding:12px 24px">
       <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
       <a href="litistaminen.html">Litistäminen</a> ·
@@ -417,7 +447,7 @@
     </ul>
   </div>
 
-  <section class="katso-myos" data-kortit="dimensiot.html tahtimalli.html avaimet-ja-relaatiot.html nimeamiskaytannot.html"></section>
+  <section class="katso-myos" data-kortit="tietomalli.html dimensiot.html tahtimalli.html avaimet-ja-relaatiot.html"></section>
 
 </body>
 

@@ -37,11 +37,48 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/tahtimalli.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-07-23",
+        "dateModified": "2026-07-26",
         "wordCount": 720,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Miten tähtimalli rakentuu ja toimii?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tähtimalli koostuu yhdestä faktataulusta ja useasta dimensiotaulusta. Faktataulussa ovat transaktiotason tapahtumat, kuten myyntitapahtumat, ja dimensiotauluissa dataa kuvailevat tiedot, kuten asiakas-, tuote- tai aikatiedot. Faktataulusta lähtee relaatio jokaiseen dimensiotauluun, ja rakenne muistuttaa tähteä. Jokainen faktataulun rivi sisältää mitattavia lukuja sekä vierasavaimia, jotka osoittavat dimensiotauluihin. Dimensiot vastaavat kysymyksiin kuka, mitä, milloin ja missä."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten pää- ja vierasavaimet toimivat tähtimallissa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pääavain (PK) sijaitsee dimensiotaulussa ja yksilöi jokaisen rivin: ei duplikaatteja eikä tyhjiä arvoja. Vierasavain (FK) sijaitsee faktataulussa ja viittaa dimensiotaulun pääavaimeen, mikä luo yhteyden taulujen välille. Yhdellä faktataulun myyntirivillä voi olla useita vierasavaimia, yksi kutakin dimensiota kohti. Dimensiotaulun pääavaimen on oltava aina uniikki: jos sama arvo esiintyy useasti, relaatio muuttuu moni-moneen-suhteeksi, joka rikkoo tähtimallin ja aiheuttaa virheellisiä laskutuloksia Power BI:ssä."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä etuja normalisointi tuo tähtimalliin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Normalisoinnilla tarkoitetaan sitä, että data sijaitsee vain yhdessä paikassa. Tämä tekee tietomallista yksiselitteisen ja estää datan toistumisen, mikä vähentää teknistä velkaa ja helpottaa laskurien tekemistä. Normalisoitu tähtimalli on helppo ymmärtää ja hallita, se pakkautuu VertiPaqissa tehokkaasti ja vie vähemmän muistia, ja yksiselitteinen malli mahdollistaa AI-pohjaisen kielimallikyselemisen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kuinka suuri on tähtimallin taloudellinen hyöty?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Russon ja Ferrarin mittauksessa tähtimallia käyttävän tietomallin muistikoko on 16,80 GB, kun denormalisoitu yhden taulun malli vie 44,51 GB — 2,65 kertaa enemmän. Ero siirtyy suoraan pilvilaskuun: Azure Analysis Servicesissä alle 25 GB:n muistikanta (S1) maksaa 1 266,37 € kuussa ja vähintään 50 GB:n muistikanta (S2) 2 532,73 € kuussa. Hyvin suunnitellulla normalisoidulla tähtimallilla voidaan tehdä vuosittain vähintään 15 196 euron säästöt."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -55,7 +92,7 @@
   </script>
   <title>Tähtimalli (Star Schema) | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=10" defer></script>
+  <script src="navigation.js?v=11" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
   <style>
@@ -73,6 +110,7 @@
   <noscript>
     <nav class="simple-nav" style="padding:12px 24px">
       <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
       <a href="litistaminen.html">Litistäminen</a> ·
@@ -86,7 +124,7 @@
   </noscript>
   <h1>Tähtimalli (Star Schema)</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-07-23">23.7.2026</time></p>
+      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-07-26">26.7.2026</time></p>
 
   <p>
     Tähtimalli on vähintään kahdesta taulusta koostuva tietomalli, joka on yksi suosituimmista Power BI:ssä ja SSAS:ssä
@@ -374,7 +412,7 @@
     </ul>
   </div>
 
-  <section class="katso-myos" data-kortit="faktataulu.html dimensiot.html avaimet-ja-relaatiot.html lumihiutalemalli.html"></section>
+  <section class="katso-myos" data-kortit="tietomalli.html faktataulu.html dimensiot.html avaimet-ja-relaatiot.html"></section>
 
 </body>
 

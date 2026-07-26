@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="lukemisaika" content="1">
+  <meta name="lukemisaika" content="3">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/">
-  <meta name="description" content="Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.">
+  <meta name="description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 157 termin sanasto suomeksi.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi">
-  <meta property="og:description" content="Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.">
+  <meta property="og:description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 157 termin sanasto suomeksi.">
   <meta property="og:url" content="https://www.datamalli.fi/">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -50,10 +50,10 @@
   </script>
   <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=10" defer></script>
-  <script src="search-index.js?v=4" defer></script>
+  <script src="navigation.js?v=11" defer></script>
+  <script src="search-index.js?v=5" defer></script>
   <script src="search.js?v=2" defer></script>
-  <script src="termi-lotto-data.js?v=1" defer></script>
+  <script src="termi-lotto-data.js?v=2" defer></script>
   <script src="termi-paivassa.js?v=4" defer></script>
   <style>
     .kategoria {
@@ -329,6 +329,11 @@
     .kategoria.piilotettu .kortti-rivi {
       display: none;
     }
+    #opas-teksti {
+      margin-top: 48px;
+      padding-top: 8px;
+      border-top: 1px solid var(--c-border);
+    }
   </style>
 </head>
 <body>
@@ -336,6 +341,7 @@
 <noscript>
   <nav class="simple-nav" style="padding:12px 24px">
     <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="tietomalli.html">Tietomalli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
     <a href="faktataulu.html">Faktataulu</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
@@ -353,7 +359,7 @@
 
   <div id="termi-paivassa"></div>
 
-  <p>Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: tähtimalli, dimensiot ja avaimet konkreettisin esimerkein, yli 140 termin sanasto sekä suositellut työkalut ja kirjallisuus.</p>
+  <p><strong>Datan mallinnus</strong> on työ, jossa päätetään miten data järjestetään tauluihin, sarakkeisiin ja niiden välisiin relaatioihin. Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: tähtimalli, dimensiot ja avaimet konkreettisin esimerkein, yli 140 termin sanasto sekä suositellut työkalut ja kirjallisuus.</p>
 
   <div class="haku-alue">
     <input type="search" id="haku" class="haku-kentta" placeholder="Etsi aiheita...">
@@ -368,8 +374,14 @@
 
   <div class="kategoria">
     <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
-    <div class="kortti-rivi" data-kortit="sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html header-detail.html useampi-fakta.html">
+    <div class="kortti-rivi" data-kortit="tietomalli.html sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html header-detail.html useampi-fakta.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="tietomalli.html" data-tags="tietomalli perusteoria power-bi" data-min="7">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Tietomalli</strong>
+        <span>Mikä tietomalli on, mitä eroa on käsitemallilla, loogisella ja fyysisellä mallilla ja mistä tietomallinnus aloitetaan. Aloitussivu koko aiheeseen.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">perusteoria</span><span class="tagi">Power BI</span></div>
+      </a>
       <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="15">
         <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Sekasikiömalli vs tähtimalli</strong>
@@ -469,7 +481,7 @@
     <h2>Resurssit</h2>
     <div class="kortti-rivi" data-kortit="termisto.html kirjallisuus-suositukset.html apuohjelmat.html tietoa.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
-      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="26">
+      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="27">
         <strong>Termistö</strong>
         <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
         <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>
@@ -524,6 +536,68 @@
     </div>
   </div>
 
+  <section id="opas-teksti">
+    <h2>Mitä datan mallinnus on?</h2>
+    <p>
+      Datan mallinnuksessa päätetään, mihin tauluihin data jaetaan, mitä yksi rivi tarkoittaa ja miten taulut
+      liittyvät toisiinsa. Lopputulos on <a href="tietomalli.html">tietomalli</a>: rakenne, jonka päälle
+      raportit, mittarit ja tekoälytyökalut rakennetaan.
+    </p>
+    <p>
+      Sama data voidaan järjestää kymmenellä eri tavalla, ja kaikki tuottavat oikean vastauksen jollakin
+      kysymyksellä. Ero syntyy siinä, kuinka monella kysymyksellä vastaus on oikea. Hyvä malli on
+      yksiselitteinen: siitä saa vain yhden vastauksen kysymykseen "paljonko myimme viime kuussa".
+      Huonosta mallista saa kolme, ja kaikki kolme ovat jonkun mielestä oikein.
+    </p>
+
+    <h2>Miksi datan mallinnukseen kannattaa käyttää aikaa?</h2>
+    <p>
+      Koska huono malli tuhlaa resursseja niin kauan kuin se on käytössä. Sama data vie huonosti
+      mallinnettuna moninkertaisesti muistia, ja kysely, joka <a href="tahtimalli.html">hyvin
+      rakennetussa mallissa</a> palautuu sekunnissa, kestää huonossa kolme. Pilvikapasiteetti ostetaan
+      juuri muistin ja laskennan mukaan, joten pahimmillaan sama ratkaisu maksaa kolminkertaisen hinnan
+      pelkän rakenteen takia — samalla datalla, samoilla raporteilla ja samoilla käyttäjillä. Rakennetta
+      ei myöskään korjata lisäämällä tehoa: huono malli on huono myös isommalla kapasiteetilla, se vain
+      maksaa enemmän.
+    </p>
+    <p>
+      Toinen kustannus on hitaampi huomata. Moniselitteinen malli tuottaa raportteja, joiden lukuja
+      joudutaan selittämään joka kokouksessa. Kun selittäminen käy raskaaksi, joku rakentaa oman Excelin,
+      ja siitä alkaa versio numero kaksi totuudesta.
+    </p>
+    <p>
+      Kolmas syy on uusi. Copilot ja muut kielimallipohjaiset työkalut kyselevät tietomallia samalla
+      logiikalla kuin ihminen: ne lukevat taulujen ja sarakkeiden nimet ja arvaavat lopun. Yksiselitteinen
+      malli ja kunnollinen <a href="ai-valmis-metadata.html">metadata</a> ovat edellytys sille, että
+      vastaukset ovat oikein.
+    </p>
+
+    <h2>Mistä datan mallinnus aloitetaan?</h2>
+    <p>
+      Aloita yhdestä liiketoimintaprosessista, älä koko organisaatiosta. Järjestys on tässä:
+    </p>
+    <ul>
+      <li><strong>1. Opettele tähtimalli.</strong> Se on analyyttisen mallinnuksen oletusrakenne ja kattaa
+        valtaosan tapauksista. Aloita <a href="tahtimalli.html">tähtimallista</a>.</li>
+      <li><strong>2. Päätä faktataulun granulariteetti.</strong> Mitä yksi rivi tarkoittaa — yksi myyntirivi,
+        yksi tilaus vai yksi päivä per tuote? Tämä on mallin tärkein yksittäinen päätös, ja se tehdään
+        <a href="faktataulu.html">faktataulua</a> suunniteltaessa.</li>
+      <li><strong>3. Rakenna dimensiot.</strong> Kuka, mitä, milloin ja missä. Historian käsittely eli
+        SCD-tyypit päätetään tässä vaiheessa, ei jälkikäteen — ks. <a href="dimensiot.html">dimensiot</a>.</li>
+      <li><strong>4. Kytke taulut avaimilla.</strong> Pääavain dimensiossa, vierasavain faktassa, yksi suunta
+        suodatukselle. Katso <a href="avaimet-ja-relaatiot.html">avaimet ja relaatiot</a>.</li>
+      <li><strong>5. Nimeä malli loppukäyttäjän kielellä.</strong> <code>Myyntisumma</code>, ei
+        <code>SLS_AMT_EUR</code>. <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ovat mallin
+        käyttöliittymä.</li>
+    </ul>
+    <p>
+      Jos termi on vieras, tarkista se <a href="termisto.html">termistöstä</a> — siellä on 157 data-alan
+      termiä suomeksi ja englanniksi. Jos haluat nähdä eron käytännössä, vertaa
+      <a href="sekasikiomalli-vs-tahtimalli.html">sekasikiömallia ja tähtimallia</a>: viisi mallia, samat
+      kysymykset, eri vastaukset.
+    </p>
+  </section>
+
   <script>
     document.querySelectorAll('.kortti[data-min]').forEach(kortti => {
       const min = kortti.dataset.min;
@@ -559,8 +633,11 @@
 
     // Haku pakottaa kaikki osiot auki
     const hakuKentta = document.getElementById('haku');
+    const opasTeksti = document.getElementById('opas-teksti');
     if (hakuKentta) {
       hakuKentta.addEventListener('input', () => {
+        // Leipäteksti pois näkyvistä haun ajaksi — se ei ole hakutulos.
+        if (opasTeksti) opasTeksti.style.display = hakuKentta.value.trim() ? 'none' : '';
         if (hakuKentta.value.trim()) {
           document.querySelectorAll('.kategoria').forEach(k => k.classList.remove('piilotettu'));
         } else {
