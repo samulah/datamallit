@@ -41,6 +41,7 @@ class MainNavigation extends HTMLElement {
                     </div>
                 </div>
                 <div class="nav-links">
+                    <a href="tietomalli.html">Tietomalli</a>
                     <a href="tahtimalli.html">Tähtimalli</a>
                     <a href="faktataulu.html">Faktataulu</a>
                     <a href="dimensiot.html">Dimensiot</a>

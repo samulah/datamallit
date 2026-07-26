@@ -12,13 +12,13 @@
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/dimensiot.html">
   <meta name="description"
-    content="Dimensio on dataa kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä, milloin ja miten. Opi dimensioiden mallinnus tähtimallissa.">
+    content="Dimensio tarkoittaa tietomallin kuvailevaa taulua: kuka, mitä, missä, milloin. Dimensiotaulun rakenne, SCD-tyypit 0–6 ja Power BI:n suorituskykyrajat.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Dimensioiden mallinnus">
+  <meta property="og:title" content="Dimensio ja dimensiotaulu Power BI:ssä">
   <meta property="og:description"
-    content="Dimensio on dataa kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä, milloin ja miten. Opi dimensioiden mallinnus tähtimallissa.">
+    content="Dimensio tarkoittaa tietomallin kuvailevaa taulua: kuka, mitä, missä, milloin. Dimensiotaulun rakenne, SCD-tyypit 0–6 ja Power BI:n suorituskykyrajat.">
   <meta property="og:url" content="https://www.datamalli.fi/dimensiot.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -31,17 +31,62 @@
     "@graph": [
       {
         "@type": "TechArticle",
-        "headline": "Dimensioiden mallinnus",
-        "description": "Dimensio on dataa kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä, milloin ja miten. Opi dimensioiden mallinnus tähtimallissa.",
+        "headline": "Dimensio ja dimensiotaulu Power BI:ssä",
+        "description": "Dimensio tarkoittaa tietomallin kuvailevaa taulua: kuka, mitä, missä, milloin. Dimensiotaulun rakenne, SCD-tyypit 0–6 ja Power BI:n suorituskykyrajat.",
         "url": "https://www.datamalli.fi/dimensiot.html",
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/dimensiot.html" },
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-06-25",
+        "dateModified": "2026-07-26",
         "wordCount": 1150,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mitä dimensio tarkoittaa tietomallissa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dimensio on dataa kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä, milloin ja miten. Faktataulussa ovat luvut ja dimensiossa konteksti: dimensio on tietomallin kuvaava osa, fakta laskettava. Dimensiot liittyvät faktatauluun yksi-moneen-relaatiolla — jokaiselle faktataulun riville löytyy tasan yksi vastaava rivi dimensiossa, mutta yhdellä dimensiorivillä voi olla monta faktariviä. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää numerosarjaa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten dimensio rakentuu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hyvin rakennettu dimensio on leveä ja litteä: paljon kuvailevia sarakkeita, ei alatauluja. Tämä on tietoista denormalisointia. Loppukäyttäjät haluavat suodattaa asiakasta maan, segmentin ja toimialan mukaan yhdestä taulusta, ei kolmesta liittyneestä taulusta. Jos data tulee hierarkkisena lumihiutalemallina, se kannattaa litistää yhdeksi tauluksi ennen lataamista."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitkä ovat dimension mallinnuksen parhaat käytännöt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dimensiossa ei saa olla tyhjiä rivejä: jos faktataulun vierasavain ei löydä vastinetta, kyseessä on virhe, ei normaali tila. Tuntemattomille ja kohdistamattomille arvoille luodaan omat rivit. Surrogaattiavain on aina kokonaisluku, koska VertiPaq pakkaa INT-sarakkeet tehokkaasti ja GUID- tai merkkijonoavaimet turvottavat mallia. Dimensiossa on yksi rivi per yksilö, ellei käytetä SCD Type 2 -historiaa. Dimensio tehdään leveäksi, ei syväksi, ja attribuuttien kardinaliteetti pidetään matalana. Hyvin tehty dimensio palvelee useaa faktataulua."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten SCD-tyypit hallitsevat dimension muutoksia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lähes kaikki dimensiot muuttuvat ajan myötä: asiakas vaihtaa kaupunkia, tuote vaihtaa kategoriaa, myyjä siirtyy toiseen tiimiin. SCD-tyyppi (Slowly Changing Dimension) määrittää, miten dimensio käsittelee muutokset — säilytetäänkö historia vai ylikirjoitetaanko vanha tieto. Yleisin on tyyppi 2, joka säilyttää historian luomalla uuden rivin jokaisesta muutoksesta."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten koko ja kardinaliteetti vaikuttavat suorituskykyyn Power BI:ssä?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Power BI:n VertiPaq-moottori pakkaa sarakkeet kardinaliteetin perusteella: mitä vähemmän uniikkeja arvoja, sitä parempi pakkaussuhde ja sitä nopeampi kysely. Surrogaattiavain on ainoa sarake, jolla odotetaan korkeaa kardinaliteettia — kaikki muut attribuutit tulisi pyrkiä pitämään matalana. Russo ja Ferrari osoittavat käytännön esimerkillä, kuinka tähtimallin normalisointi pienentää muistikokoa yli 60 % denormalisoituun malliin verrattuna."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -53,9 +98,9 @@
     ]
   }
   </script>
-  <title>Dimensioiden mallinnus | Datamalli.fi</title>
+  <title>Dimensio ja dimensiotaulu Power BI:ssä | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=10" defer></script>
+  <script src="navigation.js?v=11" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
 </head>
@@ -65,6 +110,7 @@
   <noscript>
     <nav class="simple-nav" style="padding:12px 24px">
       <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
       <a href="litistaminen.html">Litistäminen</a> ·
@@ -79,16 +125,20 @@
 
   <h1>Dimensioiden mallinnus</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-25">25.6.2026</time></p>
+      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-07-26">26.7.2026</time></p>
 
   <p>Dimensio on dataa kuvaileva taulu joka vastaa kysymyksiin <em>kuka, mitä, missä, milloin</em> ja <em>miten</em>.
-    Dimensioita käytetään usein kertomaan tapahtumien lisätietoja esim. asiakaskohtaisesti. Faktataulussa on luvut ja
-    dimensiossa konteksti sekä metatiedot. Ilman hyvin mallinnettuja dimensioita faktataulun rivit ovat pelkkää
+    Faktataulussa on luvut ja dimensiossa konteksti: dimensio on tietomallin kuvaava osa, fakta laskettava.</p>
+
+  <h2>Mitä dimensio tarkoittaa tietomallissa?</h2>
+
+  <p>Dimensioita käytetään kertomaan tapahtumien lisätietoja esim. asiakaskohtaisesti. Ilman hyvin
+    mallinnettuja dimensioita faktataulun rivit ovat pelkkää
     numerosarjaa. Dimensiot toimivat 1:M relaatioiden kautta: jokaiselle faktataulun riville löytyy tasan yksi vastaava
-    rivi dimensiossa, mutta yhdellä dimensiorivillä voi olla monta faktataulun riviä,esimerkiksi yksi asiakas voi
+    rivi dimensiossa, mutta yhdellä dimensiorivillä voi olla monta faktataulun riviä, esimerkiksi yksi asiakas voi
     liittyä tuhansiin myyntitapahtumiin. Tämä yksi-moneen-suhde (1:*) on <a href="tahtimalli.html">tähtimallin</a>
     perusrakenne ja se on edellytys sille, että Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy pakkaamaan datan tehokkaasti ja
-    laskemaan luvut oikein. Dimensio on siis tietomallin kuvaava osa ja fakta on laskettava osa. Vieraat termit
+    laskemaan luvut oikein. Vieraat termit
     voit tarkistaa <a href="termisto.html">data-alan sanastosta</a>.</p>
 
   <h2>Miten dimensio rakentuu?</h2>
@@ -416,7 +466,7 @@
     </ul>
   </div>
 
-  <section class="katso-myos" data-kortit="faktataulu.html tahtimalli.html avaimet-ja-relaatiot.html litistaminen.html"></section>
+  <section class="katso-myos" data-kortit="tietomalli.html faktataulu.html tahtimalli.html avaimet-ja-relaatiot.html"></section>
 
 </body>
 

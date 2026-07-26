@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Tietomalli">
+  <meta name="kortti-kuvaus" content="Mikä tietomalli on, mitä eroa on käsitemallilla, loogisella ja fyysisellä mallilla ja mistä tietomallinnus aloitetaan. Aloitussivu koko aiheeseen.">
+  <meta name="tagit" content="tietomalli perusteoria power-bi">
+  <meta name="kortti-badge" content="uutuus">
+  <meta name="lukemisaika" content="7">
+  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="canonical" href="https://www.datamalli.fi/tietomalli.html">
+  <meta name="description"
+    content="Tietomalli kuvaa, miten data on järjestetty tauluihin, sarakkeisiin ja relaatioihin. Käsitemalli, looginen ja fyysinen malli, tietomallin osat ja mistä tietomallinnus aloitetaan.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Tietomalli: mitä se on ja miten se rakennetaan">
+  <meta property="og:description"
+    content="Tietomalli kuvaa, miten data on järjestetty tauluihin, sarakkeisiin ja relaatioihin. Käsitemalli, looginen ja fyysinen malli, tietomallin osat ja mistä tietomallinnus aloitetaan.">
+  <meta property="og:url" content="https://www.datamalli.fi/tietomalli.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Tietomalli: mitä se on ja miten se rakennetaan",
+        "description": "Tietomalli kuvaa, miten data on järjestetty tauluihin, sarakkeisiin ja relaatioihin. Käsitemalli, looginen ja fyysinen malli, tietomallin osat ja mistä tietomallinnus aloitetaan.",
+        "url": "https://www.datamalli.fi/tietomalli.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/tietomalli.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-07-26",
+        "dateModified": "2026-07-26",
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mitä tietomalli tarkoittaa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tietomalli on kuvaus siitä, miten data on järjestetty tauluihin, sarakkeisiin ja niiden välisiin relaatioihin. Se määrittelee mitä käsitteitä data sisältää, miten ne liittyvät toisiinsa ja miten ne tallennetaan tietokantaan tai Power BI -malliin. Tietomalli on datan pohjapiirustus: sama data voidaan järjestää monella tavalla, ja järjestys ratkaisee kuinka nopeasti ja luotettavasti dataa voi kysellä."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä eroa on tietomallilla, tietokannalla ja tietovarastolla?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tietomalli on rakenne eli suunnitelma siitä, miten data järjestetään. Tietokanta on ohjelmisto, joka tallentaa datan tuon rakenteen mukaisesti. Tietovarasto on käyttötarkoitus: raportointia varten koottu ja historioitu kokonaisuus, joka on toteutettu tietokantaan jonkin tietomallin mukaan. Sama tietomalli voidaan toteuttaa SQL Serveriin, Fabriciin tai Power BI:n semanttiseen malliin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä eroa on käsitemallilla, loogisella ja fyysisellä tietomallilla?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Käsitemalli kuvaa liiketoiminnan käsitteet ja niiden suhteet ilman teknisiä yksityiskohtia. Looginen malli lisää taulut, sarakkeet, avaimet ja kardinaliteetit mutta pysyy tuoteriippumattomana. Fyysinen malli on toteutus tietyssä tuotteessa: tietotyypit, indeksit, partitiot ja pakkaus. Kaikki kolme kuvaavat samaa dataa eri tarkkuudella."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mistä tietomalli koostuu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Analyyttinen tietomalli koostuu neljästä osasta: faktatauluista, jotka sisältävät mitattavat luvut; dimensiotauluista, jotka sisältävät kuvailevan kontekstin; avaimista, jotka yksilöivät rivit ja yhdistävät taulut; ja relaatioista, jotka määrittelevät miten suodatus kulkee taulusta toiseen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mikä tietomalli kannattaa valita?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tähtimalli. Se on analyyttisen mallinnuksen oletusrakenne: yksi faktataulu keskellä ja dimensiot sen ympärillä yksi-moneen-relaatioilla. Sama data litistettynä yhteen leveään tauluun vie moninkertaisesti muistia ja on pahimmillaan kolme kertaa hitaampi. Erot eivät ole yhden tuotteen erikoisuus, vaan sama pätee tietovarastoissa ja analytiikkavälineissä yleisesti. Lumihiutalemalli sopii tietovarastoon, mutta semanttiseen kerrokseen dimensiot kannattaa litistää."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten useampi tietomalli yhdistetään?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yhteisillä dimensioilla, ei liittämällä faktatauluja toisiinsa. Kun mallissa on useampi liiketoimintaprosessi, esimerkiksi myynti ja budjetti, sama tuotedimensio ja sama päivämäärädimensio palvelevat molempia faktatauluja. Faktataulujen suora relaatio tekee mallista moniselitteisen, jolloin Power BI joko kieltäytyy luomasta relaatiota tai laskee hiljaisesti väärin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mistä tietomallinnus aloitetaan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Valitse yksi liiketoimintaprosessi, esimerkiksi myynti. Päätä faktataulun granulariteetti eli mitä yksi rivi tarkoittaa. Tunnista dimensiot, jotka vastaavat kysymyksiin kuka, mitä, milloin ja missä. Valitse mitattavat luvut. Rakenna tähtimalli, nimeä taulut ja sarakkeet loppukäyttäjän kielellä ja dokumentoi malli. Vasta sen jälkeen kannattaa lisätä toinen prosessi."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Tietomalli", "item": "https://www.datamalli.fi/tietomalli.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Tietomalli: mitä se on ja miten se rakennetaan | Datamalli.fi</title>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="navigation.js?v=11" defer></script>
+  <script src="sivut.js?v=1" defer></script>
+  <script src="kortit.js?v=2" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="faktataulu.html">Faktataulu</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
+
+  <h1>Tietomalli: mitä se on ja miten se rakennetaan</h1>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
+      datetime="2026-07-26">26.7.2026</time></p>
+
+  <p>
+    Tietomalli on kuvaus siitä, miten data on järjestetty tauluihin, sarakkeisiin ja niiden välisiin relaatioihin.
+    Tällä sivulla tietomalli tarkoittaa <strong>datan tietomallia</strong>: tietokannan, tietovaraston ja
+    Power BI -raportoinnin rakennetta. Rakennusalan tietomalli (BIM, Building Information Model) on eri asia,
+    eikä siitä kerrota tässä.
+  </p>
+
+  <p>
+    Tämä sivu on aloituspiste koko aiheeseen. Se määrittelee käsitteen, käy läpi tietomallin kolme tasoa ja
+    neljä osaa, vertaa yleisimmät mallityypit ja kertoo mistä tietomallinnus aloitetaan. Jokaisesta osasta on
+    oma syväsivunsa, ja termit löytyvät selitettyinä <a href="termisto.html">datan mallinnuksen termistöstä</a>.
+  </p>
+
+  <h2>Mitä tietomalli tarkoittaa?</h2>
+  <p>
+    Tietomalli on datan pohjapiirustus. Se määrittelee mitä käsitteitä data sisältää (asiakas, tuote, myynti),
+    miten ne liittyvät toisiinsa ja miten ne tallennetaan. Sama data voidaan järjestää kymmenellä eri tavalla,
+    ja järjestys ratkaisee kuinka nopeasti sitä voi kysellä, kuinka paljon se vie muistia ja kuinka moniselitteisiä
+    vastauksia siitä saa.
+  </p>
+  <p>
+    Tietomallinnus on työ, jossa tuo järjestys päätetään. Se ei ole tekninen yksityiskohta vaan
+    liiketoimintapäätös: malli määrää, mihin kysymyksiin dataa voi kysyä ilman erillistä kehitysprojektia.
+  </p>
+
+  <h2>Mitä eroa on tietomallilla, tietokannalla ja tietovarastolla?</h2>
+  <p>
+    Nämä kolme sekoitetaan jatkuvasti keskenään, vaikka ne ovat eri asioita.
+    <strong>Tietomalli</strong> on rakenne eli suunnitelma. <strong>Tietokanta</strong> on ohjelmisto, joka
+    tallentaa datan tuon rakenteen mukaisesti. <strong>Tietovarasto</strong> on käyttötarkoitus: raportointia
+    varten koottu ja historioitu kokonaisuus, joka on toteutettu tietokantaan jonkin tietomallin mukaan.
+  </p>
+  <p>
+    Sama tietomalli voidaan toteuttaa SQL Serveriin, Fabriciin tai Power BI:n semanttiseen malliin, ja se on
+    edelleen sama malli. Siksi mallia kannattaa suunnitella tuotteesta riippumatta, vaikka toteutus lopulta
+    sidotaan yhteen alustaan.
+  </p>
+
+  <h2>Mitä eroa on käsitemallilla, loogisella ja fyysisellä tietomallilla?</h2>
+  <p>
+    Tietomalli kuvataan kolmella tarkkuustasolla. Kaikki kolme kuvaavat samaa dataa, mutta eri yleisölle.
+  </p>
+
+  <table>
+    <caption>Taulukko 1, Tietomallin kolme tasoa – Kuvauksen tarkkuus, yleisö ja sisältö</caption>
+    <thead>
+      <tr>
+        <th>Taso</th>
+        <th>Vastaa kysymykseen</th>
+        <th>Sisältää</th>
+        <th>Yleisö</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Käsitemalli (Conceptual)</td>
+        <td>Mistä liiketoiminta puhuu?</td>
+        <td>Käsitteet ja niiden suhteet: asiakas tilaa tuotteita. Ei tauluja, ei tietotyyppejä.</td>
+        <td>Liiketoiminta</td>
+      </tr>
+      <tr>
+        <td>Looginen malli (Logical)</td>
+        <td>Mihin tauluihin data jaetaan?</td>
+        <td>Taulut, sarakkeet, <a href="avaimet-ja-relaatiot.html">avaimet ja relaatioiden kardinaliteetit</a>. Tuoteriippumaton.</td>
+        <td>Mallintaja</td>
+      </tr>
+      <tr>
+        <td>Fyysinen malli (Physical)</td>
+        <td>Miten se toteutetaan tässä tuotteessa?</td>
+        <td>Tietotyypit, indeksit, partitiot, pakkaus. Riippuu tuotteesta (SQL Server, Fabric, Power BI).</td>
+        <td>Toteuttaja</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Käytännössä useimmat BI-projektit hyppäävät suoraan loogiseen malliin. Se toimii niin kauan kuin käsitteet
+    ovat kaikille selviä. Jos liiketoiminnalla ja IT:llä on eri käsitys siitä, mitä "asiakas" tarkoittaa,
+    käsitemalli on nopein tapa löytää se erimielisyys ennen kuin se on koodattu tauluihin.
+  </p>
+
+  <h2>Mistä tietomalli koostuu?</h2>
+  <p>
+    Analyyttinen tietomalli koostuu neljästä osasta. Jokaisella on oma tehtävänsä, ja jokaisesta on oma sivunsa.
+  </p>
+
+  <div class="fakta-laatikko">
+    <strong>Tietomallin neljä osaa:</strong>
+    <ul>
+      <li><strong><a href="faktataulu.html">Faktataulu</a>.</strong> Mitattavat luvut ja tapahtumat: myyntisumma,
+        kappalemäärä, tuntimäärä. Faktataulu on mallin suurin taulu, ja sen rivin tarkkuustaso eli
+        granulariteetti ratkaisee mallin koon ja nopeuden.</li>
+      <li><strong><a href="dimensiot.html">Dimensiotaulut</a>.</strong> Kuvaileva konteksti: kuka (asiakas),
+        mitä (tuote), milloin (päivämäärä), missä (myymälä). Dimensiot ovat pieniä ja leveitä, ja niistä
+        suodatetaan.</li>
+      <li><strong><a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>.</strong> Pääavain yksilöi
+        dimension rivin, vierasavain viittaa siihen faktataulusta. Relaatio määrittelee mihin suuntaan
+        suodatus kulkee.</li>
+      <li><strong><a href="nimeamiskaytannot.html">Nimet ja metadata</a>.</strong> Taulujen ja sarakkeiden
+        nimet ovat mallin käyttöliittymä. Ne ratkaisevat, löytääkö loppukäyttäjä — tai
+        <a href="ai-valmis-metadata.html">tekoälytyökalu</a> — oikean sarakkeen ilman apua.</li>
+    </ul>
+  </div>
+
+  <h2>Mikä tietomalli kannattaa valita?</h2>
+  <p>
+    Analyyttisessa käytössä vaihtoehtoja on käytännössä neljä. Ne eivät ole tasavertaisia.
+  </p>
+
+  <table>
+    <caption>Taulukko 2, Tietomallityypit – Rakenne, käyttökohde ja soveltuvuus analytiikkakäyttöön</caption>
+    <thead>
+      <tr>
+        <th>Malli</th>
+        <th>Rakenne</th>
+        <th>Milloin</th>
+        <th>Analytiikkakäytössä</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="tahtimalli.html">Tähtimalli</a></td>
+        <td>Faktataulu keskellä, dimensiot suoraan sen ympärillä</td>
+        <td>Lähes aina analyyttisessä mallinnuksessa</td>
+        <td>Suositeltu oletus</td>
+      </tr>
+      <tr>
+        <td><a href="lumihiutalemalli.html">Lumihiutalemalli</a></td>
+        <td>Dimensiot normalisoitu useaan tauluun</td>
+        <td>Tietovarastossa, jossa toisteisuutta halutaan välttää</td>
+        <td>Toimii, mutta <a href="litistaminen.html">litistä dimensiot</a> ennen latausta</td>
+      </tr>
+      <tr>
+        <td>Litistetty yhden taulun malli</td>
+        <td>Kaikki sarakkeet yhdessä leveässä taulussa</td>
+        <td>Kertaluonteinen analyysi, pieni aineisto</td>
+        <td>Moninkertaisesti muistia, pahimmillaan 3× hitaampi kuin tähtimalli</td>
+      </tr>
+      <tr>
+        <td><a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli</a></td>
+        <td>Orgaanisesti kasvanut sekoitus kaikkea</td>
+        <td>Ei koskaan tarkoituksella</td>
+        <td>Moniselitteinen, tuottaa vääriä lukuja</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Erot eivät ole Power BI:n erikoisuus. Sama pätee tietovarastoissa ja analytiikkavälineissä yleisesti:
+    huonosti rakennettu malli lukee enemmän dataa kuin kysymys vaatii, vie enemmän muistia ja laskee
+    hitaammin riippumatta siitä, pyöriikö se Fabricissa, Snowflakessa, SQL Serverillä vai Power BI:ssä.
+    Huono malli on huono kaikkialla — alusta vaihtaa vain sitä, kenen laskussa se näkyy.
+  </p>
+
+  <h2>Miten useampi tietomalli yhdistetään?</h2>
+  <p>
+    Kun mallissa on useampi liiketoimintaprosessi — esimerkiksi myynti ja budjetti — niitä ei yhdistetä
+    liittämällä faktatauluja toisiinsa. Ne yhdistetään <strong>yhteisillä dimensioilla</strong>: sama
+    <code>d_tuote</code> ja sama <code>d_aika</code> palvelevat molempia faktatauluja.
+  </p>
+  <p>
+    Tämä on ainoa turvallinen tapa yhdistää tietomalleja. Faktataulujen suora relaatio tekee mallista
+    moniselitteisen, jolloin Power BI joko kieltäytyy luomasta relaatiota tai laskee hiljaisesti väärin.
+    Jos sama käsite on kahdessa mallissa eri nimillä ja eri avaimilla, työ alkaa avainten yhtenäistämisestä,
+    ei relaatioiden piirtämisestä.
+  </p>
+
+  <h2>Mistä tietomallinnus aloitetaan?</h2>
+  <p>
+    Järjestys on tärkeä. Jokainen askel rajaa seuraavaa, ja väärässä järjestyksessä tehty työ joudutaan
+    tekemään uudelleen.
+  </p>
+
+  <div class="fakta-laatikko">
+    <strong>Tietomallinnuksen kuusi askelta:</strong>
+    <ul>
+      <li><strong>1. Valitse yksi liiketoimintaprosessi.</strong> Myynti, ostot tai tuotanto — yksi kerrallaan.
+        Koko organisaation kattava malli kerralla ei valmistu koskaan.</li>
+      <li><strong>2. Päätä granulariteetti.</strong> Mitä yksi faktataulun rivi tarkoittaa? Yksi myyntirivi,
+        yksi tilaus vai yksi päivä per tuote? Tämä päätös ratkaisee mallin koon ja sen, mitä kysymyksiä
+        siltä voi kysyä.</li>
+      <li><strong>3. Tunnista dimensiot.</strong> Kuka, mitä, milloin, missä. Päivämäärädimensio tarvitaan
+        aina, ja se kannattaa rakentaa ensimmäisenä.</li>
+      <li><strong>4. Valitse mitattavat luvut.</strong> Vain ne, jotka ovat valitulla granulariteetilla
+        additiivisia. Suhdeluvut ja prosentit lasketaan mittareissa, ei tallenneta faktatauluun.</li>
+      <li><strong>5. Rakenna tähtimalli ja nimeä se.</strong> Nimet loppukäyttäjän kielellä, ei
+        lähdejärjestelmän. <code>Myyntisumma</code>, ei <code>SLS_AMT_EUR</code>.</li>
+      <li><strong>6. Dokumentoi.</strong> Kuvaukset tauluille, sarakkeille ja mittareille. Ilman niitä
+        malli on käyttökelpoinen vain sen rakentajalle ja tekoälytyökalut arvaavat.</li>
+    </ul>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <ul>
+      <li><strong>Tietomalli on halvin korjattava alussa.</strong> Granulariteetin muuttaminen maksaa
+        päivän ennen ensimmäistä raporttia ja kuukauden sen jälkeen, kun raportteja on viisikymmentä.</li>
+      <li><strong>Aloita tähtimallista, älä perustele poikkeuksia etukäteen.</strong> Poikkeustapaukset
+        ovat harvinaisempia kuin miltä ne suunnitteluvaiheessa näyttävät. Rakenna tähtimalli, ja poikkea
+        siitä vasta kun malli oikeasti ei taivu.</li>
+      <li><strong>Malli, jota ei ymmärretä, on rikki.</strong> Teknisesti oikea mutta selittämätön malli
+        tuottaa vääriä raportteja, koska joku laskee sen ohi omalla Excelillään. Nimet ja dokumentaatio
+        eivät ole viimeistelyä, ne ovat osa mallia.</li>
+    </ul>
+  </div>
+
+  <section class="katso-myos" data-kortit="tahtimalli.html faktataulu.html dimensiot.html avaimet-ja-relaatiot.html"></section>
+
+</body>
+
+</html>

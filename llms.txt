@@ -4,15 +4,17 @@
 > Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen metadataan: tähtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, taulujen litistäminen ja BI-kehittämisen termistö. Sisältö on käytännönläheistä ja keskittyy Power BI- ja SSAS-ympäristöihin. Tekijä: Samu Lahdenperä (Dataneuvos, Datamalli Tiimi Oy).
 
 ## Sisältösivut
+- [Tietomalli](https://www.datamalli.fi/tietomalli.html): Mitä tietomalli tarkoittaa data-alalla (ei rakennusalan BIM), käsitemalli–looginen–fyysinen malli, tietomallin neljä osaa, mallityyppien vertailu ja tietomallinnuksen kuusi askelta.
 - [Tähtimalli (Star Schema)](https://www.datamalli.fi/tahtimalli.html): Yksi Power BI:n ja SSAS:n suosituimmista tietomalleista; rakenne ja suorituskykyhyödyt.
 - [Faktataulun mallinnus (Fact Table)](https://www.datamalli.fi/faktataulu.html): Faktataulun rakenne, kolme arkkityyppiä, granulariteetti ja vierasavaimet Power BI -tietomallia varten.
 - [Lumihiutalemalli (Snowflake Schema)](https://www.datamalli.fi/lumihiutalemalli.html): Tähtimallin muunnos, jossa dimensiot on normalisoitu omiin tauluihinsa; erot ja käyttötavat.
 - [Sekasikiömalli vs. tähtimalli](https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html): Viisi Power BI -esimerkkiä huonoimmasta parhaaseen: orgaanisesti kasvanut sekasikiömalli, moniselitteinen ja yksiselitteinen tähtimalli sekä lumihiutalemalli.
 - [Dimensioiden mallinnus](https://www.datamalli.fi/dimensiot.html): Dimensiotaulut, surrogaattiavaimet, SCD-tyypit ja kardinaliteetin vaikutus suorituskykyyn.
+- [Avaimien ja relaatioiden mallinnus](https://www.datamalli.fi/avaimet-ja-relaatiot.html): Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.
 - [Taulujen litistäminen (Flattening)](https://www.datamalli.fi/litistaminen.html): Hierarkkisten taulujen yhdistäminen yhdeksi tähtimallin tauluksi ETL-vaiheessa.
 - [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
-- [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 150 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
+- [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 157 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
 - [Suositeltu kirjallisuus](https://www.datamalli.fi/kirjallisuus-suositukset.html): Parhaat kirjat datan mallinnuksen, DAX:n ja BI-kehittämisen oppimiseen perusteluineen.
 - [Apuohjelmat](https://www.datamalli.fi/apuohjelmat.html): DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut.
 - [Kehittämisen filosofia](https://www.datamalli.fi/kehittamisen-filosofia.html): Kuusi periaatetta hyvään BI- ja datakehitykseen: oikeellisuus, ylläpidettävyys ja käyttäjäkeskeisyys.

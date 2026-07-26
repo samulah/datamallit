@@ -1,6 +1,24 @@
 // Esirakennettu hakuindeksi — päivitä kun sivujen sisältö muuttuu
 window.HAKU_INDEKSI = {
 
+'tietomalli.html': `tietomalli tietomallinnus tietomallintaminen datan mallinnus pohjapiirustus
+kuvaus miten data on järjestetty tauluihin sarakkeisiin relaatioihin
+datan tietomalli ei rakennusalan tietomalli bim building information model
+ero tietokanta tietovarasto rakenne suunnitelma ohjelmisto käyttötarkoitus historioitu
+sql server fabric power bi semanttinen malli tuoteriippumaton
+käsitemalli conceptual looginen malli logical fyysinen malli physical kolme tasoa
+tarkkuustaso liiketoiminta mallintaja toteuttaja tietotyypit indeksit partitiot pakkaus
+tietomallin neljä osaa faktataulu dimensiotaulut avaimet relaatiot nimet metadata
+granulariteetti mitattavat luvut kuvaileva konteksti pääavain vierasavain suodatus
+mallityypit tähtimalli lumihiutalemalli litistetty yhden taulun malli sekasikiömalli
+milloin mitäkin mallia analytiikkakäytössä suositeltu oletus moninkertaisesti muistia kolme kertaa hitaampi
+huono malli on huono kaikkialla fabric snowflake sql server power bi tietovarastot analytiikkavälineet
+tietomallien yhdistäminen yhteiset dimensiot conformed useampi liiketoimintaprosessi
+myynti budjetti faktataulujen suora relaatio moniselitteinen avainten yhtenäistäminen
+tietomallinnuksen kuusi askelta liiketoimintaprosessi granulariteetti dimensiot
+päivämäärädimensio additiivinen nimeäminen loppukäyttäjän kielellä dokumentointi
+dataneuvoksen mielipide halvin korjattava alussa aloita tähtimallista malli jota ei ymmärretä`,
+
 'tahtimalli.html': `tähtimalli star schema tietomalli faktatauluun ympärille dimensiotaulut
 rakenne toiminta normalisoitu relaatiotietokanta faktataulussa transaktiotason tapahtumat
 myyntitapahtumat dimensiotauluissa asiakas tuote aikataulu
@@ -33,6 +51,7 @@ samat kysymykset samat tulokset samat arvot loppukäyttäjä nopein paras analyt
 litistetty lumihiutalemalli on rakenteeltaan tähtimalli helppo rakentaa faktataulu keskellä dimensiot ympärillä`,
 
 'dimensiot.html': `dimensioiden mallinnus dimensio tähtimallin kuvaileva taulu
+mitä dimensio tarkoittaa tietomallissa dimensio tarkoittaa dimensiotaulu
 kuka mitä missä milloin miten faktataulussa luvut dimensiossa konteksti
 vierasavain fk yksi-moneen-suhde perusrakenne
 dimension rakenne leveä litteä kuvailevia sarakkeita ei alatauluja
@@ -306,6 +325,13 @@ koodiarvot aikavyöhyke synonyymit sertifioitu datan omistaja päivitysaikataulu
 investointi maksaa takaisin tunti kuvauksia säästää selvittelyä raportteja`,
 
 'termisto.html': `termistö sanasto data-alan termit suomeksi tekoälytermit datan mallinnus tietovarastointi bi-kehittäminen käsitteet
+big data massadata volume velocity variety kolme v:tä määrä nopeus muotojen kirjo
+data havainto tapahtuma-aineisto luku teksti päivämäärä mittaustulos konteksti taivutus
+data-alusta data platform microsoft fabric databricks snowflake keräys tallennus muunnos jakelu
+datatuote data product omistaja rajapinta laatulupaus elinkaari data mesh
+strukturoitu data structured rakenteinen rivit sarakkeet tietotyypit strukturoimaton puolistrukturoitu json xml
+tietokanta database sql server postgresql fabric rakenne toteutus paikka
+ytd year to date vuoden alusta kertynyt kumulatiivinen totalytd datesytd mtd qtd
 aggregaatti aggregate yhteenlaskettu koostettu arvo summa kuukausi tuoteryhmä
 attribuutti attribute dimensiotaulun kuvaileva sarake maa kategoria tiimi suodattaminen ryhmittely
 bpa best practice analyzer tabular editor tarkistaa parhaat käytännöt korjausehdotukset
