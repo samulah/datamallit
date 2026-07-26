@@ -25,7 +25,7 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '23.7.2026';
+const SIVUSTO_PAIVITETTY = '26.7.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {
@@ -157,8 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const excl = el => el.closest('nav, footer, .tool-meta');
+// Lukemisaika luetaan ensisijaisesti <meta name="lukemisaika">-tagista, jonka
+// tyokalut/rakenna.py laskee sivun sisällöstä. Näin artikkelin ja etusivun kortin luku
+// on sama lähtökohtaisesti — niitä ei tarvitse pitää käsin synkassa.
+// Alla oleva laskenta on fallback sivuille joille generaattoria ei ole vielä ajettu.
+function laskeLukemisaika() {
+  // #sivusto-splash ohitetaan: splash-logo on <img>, joka laskettaisiin visuaaliksi (+40 s).
+  // Splash on DOM:ssa vain istunnon ensimmäisellä sivulla, joten ilman tätä sama sivu
+  // näyttäisi eri lukemisajan riippuen siitä monesko sivu se on istunnossa.
+  const excl = el => el.closest('nav, footer, .tool-meta, #sivusto-splash');
 
   const countWords = selector => [...document.querySelectorAll(selector)]
     .filter(el => !excl(el))
@@ -174,7 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 + (tableWords /  50) * 60
                 + visuals * 40;
 
-  const minutes = Math.ceil(seconds / 60);
+  return Math.ceil(seconds / 60);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const meta = document.querySelector('meta[name="lukemisaika"]');
+  const luettu = meta ? parseInt(meta.content, 10) : NaN;
+  const minutes = Number.isFinite(luettu) ? luettu : laskeLukemisaika();
+
   const h1 = document.querySelector('h1');
   if (h1 && minutes > 0) {
     const tag = document.createElement('p');

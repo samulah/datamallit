@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="lukemisaika" content="1">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/">
   <meta name="description" content="Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.">
@@ -49,11 +50,11 @@
   </script>
   <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=9" defer></script>
+  <script src="navigation.js?v=10" defer></script>
   <script src="search-index.js?v=4" defer></script>
   <script src="search.js?v=2" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=3" defer></script>
+  <script src="termi-paivassa.js?v=4" defer></script>
   <style>
     .kategoria {
       margin: 36px 0 8px 0;
@@ -105,18 +106,24 @@
       display: none;
       margin: 20px 0 28px 0;
     }
-    /* Näytetään samalla ruudukolla kuin .kortti-rivi, mutta sisältö sijoitetaan
-       vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen yhden
-       etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
-       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
-       ainoa solu venyisi taas koko leveyteen. */
+    /* Näytetään samalla ruudukolla kuin .kortti-rivi: päivän termi ensimmäiseen
+       sarakkeeseen ja satunnainen termi sen viereen. Kumpikin on täsmälleen
+       yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
+       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten kortit
+       venyisivät taas koko leveyteen. Kapealla ruudulla kortit menevät allekkain. */
     #termi-paivassa.tp-nakyvissa {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0 14px;
+      gap: 18px 14px;
     }
     #termi-paivassa.tp-nakyvissa > * {
-      grid-column: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Kortit venytetään samankorkuisiksi vaikka selitteet ovat eripituisia. */
+    #termi-paivassa .tp-termi {
+      flex: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);
@@ -361,8 +368,9 @@
 
   <div class="kategoria">
     <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
-    <div class="kortti-rivi">
-      <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="7">
+    <div class="kortti-rivi" data-kortit="sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html header-detail.html useampi-fakta.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="15">
         <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Sekasikiömalli vs tähtimalli</strong>
         <span>Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.</span>
@@ -410,12 +418,14 @@
         <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">poikkeustapaus</span></div>
       </div>
+      <!-- KORTIT:loppu -->
     </div>
   </div>
 
   <div class="kategoria">
     <h2>Hallinta ja laatu</h2>
-    <div class="kortti-rivi">
+    <div class="kortti-rivi" data-kortit="nimeamiskaytannot.html ai-valmis-metadata.html data-governance.html data-contract.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
       <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
         <strong>Nimeämiskäytännöt</strong>
         <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
@@ -438,24 +448,28 @@
         <span>Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä muodossa, millä laadulla ja kenen vastuulla.</span>
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
       </div>
+      <!-- KORTIT:loppu -->
     </div>
   </div>
 
   <div class="kategoria">
     <h2>Filosofia ja käytännöt</h2>
-    <div class="kortti-rivi">
+    <div class="kortti-rivi" data-kortit="kehittamisen-filosofia.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
       <a class="kortti" href="kehittamisen-filosofia.html" data-tags="hallinta perusteoria" data-min="1">
         <strong>Kehittämisen filosofia</strong>
         <span>Periaatteita, jotka ohjaavat hyvää BI-kehitystä: ylläpidettävyys, avoimuus ongelmista, tekninen velka ja käyttäjälähtöisyys.</span>
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
       </a>
+      <!-- KORTIT:loppu -->
     </div>
   </div>
 
   <div class="kategoria">
     <h2>Resurssit</h2>
-    <div class="kortti-rivi">
-      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="22">
+    <div class="kortti-rivi" data-kortit="termisto.html kirjallisuus-suositukset.html apuohjelmat.html tietoa.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="26">
         <strong>Termistö</strong>
         <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
         <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>
@@ -474,12 +488,14 @@
         <strong>Tietoa sivustosta</strong>
         <span>Kuka datamalli.fi:n takana on ja mihin sivusto tähtää — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.</span>
       </a>
+      <!-- KORTIT:loppu -->
     </div>
   </div>
 
   <div class="kategoria">
     <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit <span class="otsikko-tulossa">tulossa</span></span></h2>
-    <div class="kortti-rivi">
+    <div class="kortti-rivi" data-kortit="arkkitehtuurivalinta.html data-vault.html medallion.html etl-elt.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
       <div class="kortti kesken" data-tags="arkkitehtuuri tietomalli perusteoria kesken">
         <div class="kesken-badge">🚧 Tulossa</div>
         <strong>Milloin käyttää mitäkin mallia</strong>
@@ -504,6 +520,7 @@
         <span>Kaksi päälähestymistapaa datan siirtämiseen lähdejärjestelmistä kohdeympäristöön. Missä ja milloin data muunnetaan?</span>
         <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
       </div>
+      <!-- KORTIT:loppu -->
     </div>
   </div>
 

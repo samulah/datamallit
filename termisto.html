@@ -4,14 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Termistö">
+  <meta name="kortti-kuvaus" content="Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.">
+  <meta name="tagit" content="perusteoria tietomalli">
+  <meta name="lukemisaika" content="26">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/termisto.html">
-  <meta name="description" content="146 data-alan termiä suomeksi englanninkielisin vastinein: tähtimalli, tietovarasto, DAX, tekoäly. Hae ja suodata aiheen mukaan.">
+  <meta name="description" content="Mitä on datasheet, payload tai attribute suomeksi? 150 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Data-alan sanasto: 140+ termiä suomeksi">
-  <meta property="og:description" content="146 data-alan termiä suomeksi englanninkielisin vastinein: tähtimalli, tietovarasto, DAX, tekoäly. Hae ja suodata aiheen mukaan.">
+  <meta property="og:title" content="Data-alan sanasto englanti–suomi: 150 termiä">
+  <meta property="og:description" content="Mitä on datasheet, payload tai attribute suomeksi? 150 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:url" content="https://www.datamalli.fi/termisto.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-termisto.png">
   <meta property="og:image:width" content="1200">
@@ -26,11 +31,11 @@
         "@type": "DefinedTermSet",
         "@id": "https://www.datamalli.fi/termisto.html#termisto",
         "name": "Datan mallinnuksen termistö",
-        "description": "146 data-alan termiä suomeksi englanninkielisin vastinein: tähtimalli, tietovarasto, DAX, tekoäly. Hae ja suodata aiheen mukaan.",
+        "description": "Mitä on datasheet, payload tai attribute suomeksi? 150 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.",
         "url": "https://www.datamalli.fi/termisto.html",
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-07-23",
+        "dateModified": "2026-07-26",
         "author": {
           "@type": "Person",
           "name": "Samu Lahdenperä",
@@ -271,6 +276,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datasheet",
+            "name": "Datasheet",
+            "url": "https://www.datamalli.fi/termisto.html#datasheet",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "datalehti, taulukkonäkymä",
+            "description": "Englanniksi Datasheet, suomeksi datalehti tai taulukkonäkymä. Sanalla on data-alalla kaksi eri merkitystä. Taulukkonäkymä tarkoittaa rivi–sarake-muotoista näkymää dataan, kuten Accessin Datasheet View tai Power BI:n taulukkonäkymä. Datalehti taas on dokumentti, joka kuvaa aineiston sisällön, alkuperän, rajoitukset ja käyttötarkoituksen — koneoppimisessa käytäntö tunnetaan nimellä Datasheets for Datasets. Jälkimmäinen on data contractin lähisukulainen: datalehti kuvaa, data contract velvoittaa. Kumpikin on osa sitä metadataa, jonka varassa myös tekoälyavustaja tulkitsee datan oikein."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#dax",
             "name": "DAX",
             "url": "https://www.datamalli.fi/termisto.html#dax",
@@ -446,6 +462,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#formatointi",
+            "name": "Formatointi",
+            "url": "https://www.datamalli.fi/termisto.html#formatointi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Formatting",
+            "description": "Englanniksi Formatting, suomeksi muotoilu tai formatointi. Tapa, jolla arvo näytetään käyttäjälle: tuhaterotin, desimaalien määrä, valuuttamerkki, prosenttimuoto tai päivämäärän esitystapa. Formatointi ei muuta tallennettua arvoa eikä tietotyyppiä — 0,1234 on levyllä sama luku riippumatta siitä, näkyykö se muodossa 12,34 % vai 0,12. Power BI:ssä muotoilu kannattaa määritellä mittarin format string -ominaisuuteen eikä visuaalikohtaisesti: silloin sama muoto seuraa mittaria jokaiseen raporttiin, Exceliin ja Copilotin vastauksiin."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#gdpr",
             "name": "GDPR",
             "url": "https://www.datamalli.fi/termisto.html#gdpr",
@@ -528,6 +555,17 @@
             },
             "alternateName": "jeesmies malli",
             "description": "Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan sellaisenaan kyseenalaistamatta — jeesmiesten työn jälki. Malliin kertyy vuosien varrella duplikaattitauluja, vanhoja versioita \"varmuuden vuoksi\" ja moni-moneen-relaatioita, eikä kokonaisuudella ole omistajaa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#identity",
+            "name": "IDENTITY",
+            "url": "https://www.datamalli.fi/termisto.html#identity",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Auto-increment, Serial",
+            "description": "SQL Serverin sarakeominaisuus joka generoi automaattisesti nousevan kokonaisluvun aina kun tauluun lisätään uusi rivi. IDENTITY(1,1) tarkoittaa: lähtöarvo 1, askel 1 — ensimmäinen rivi saa arvon 1, toinen 2, kolmas 3. Käytetään surrogaattiavainten luomiseen ilman manuaalista numerointia. INSERT-lauseessa IDENTITY-saraketta ei mainita lainkaan — tietokanta täyttää sen itse."
           },
           {
             "@type": "DefinedTerm",
@@ -798,6 +836,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#nk",
+            "name": "NK",
+            "url": "https://www.datamalli.fi/termisto.html#nk",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Natural Key, Business Key",
+            "description": "Lyhenne: Luonnollinen avain. Lähdejärjestelmästä tuleva tunniste kuten asiakasnumero tai tuotekoodi. Dimensiossa säilytetään NK hakua ja debug-työtä varten, mutta relaatiot rakennetaan surrogaattiavaimella (SK)."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#normalisointi",
             "name": "Normalisointi",
             "url": "https://www.datamalli.fi/termisto.html#normalisointi",
@@ -860,6 +909,17 @@
             },
             "alternateName": "Orphan Row",
             "description": "Englanniksi Orphan Row, suomeksi orporivi. Faktarivi, jonka vierasavain ei löydä vastinetta dimensiotaulusta. Orporivi on viite-eheyden rikkoontuminen käytännössä: Power BI reagoi siihen luomalla automaattisen tyhjän rivin dimensiotauluun. Syntyy tyypillisesti kun lähdedata sisältää faktarivejä dimensioille, joita ei ole vielä ladattu tai jotka on poistettu."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#payload",
+            "name": "Payload",
+            "url": "https://www.datamalli.fi/termisto.html#payload",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "hyötykuorma",
+            "description": "Englanniksi Payload, suomeksi hyötykuorma. Sanoman tai rajapintakutsun varsinainen sisältö — se osa, joka kuljettaa dataa, erotuksena otsikko- ja reititystiedoista. Esimerkiksi REST-rajapinnan JSON-vastauksessa payload on datakenttien sisältö, ei HTTP-otsikot. Integraatioissa payloadin rakenne on juuri se asia, jonka data contract lukitsee: kun payload muuttuu ilman ennakkoilmoitusta, kyseessä on rikkova muutos ja latausputki hajoaa."
           },
           {
             "@type": "DefinedTerm",
@@ -1229,6 +1289,28 @@
             },
             "alternateName": "SSOT, yksi totuuden lähde",
             "description": "Suomeksi yksi totuuden lähde (SSOT). Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on yksiselitteisen tietomallin keskeinen tavoite."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#sirontakuvio",
+            "name": "Sirontakuvio",
+            "url": "https://www.datamalli.fi/termisto.html#sirontakuvio",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Scatter Plot, Scatter Chart",
+            "description": "Englanniksi Scatter Plot tai Scatter Chart, suomeksi sirontakuvio (myös hajontakuvio). Kaavio, jossa kaksi mittaria asetetaan x- ja y-akselille ja jokainen piste vastaa yhtä dimension jäsentä, esimerkiksi tuotetta tai asiakasta. Sirontakuvio näyttää kahden mittarin välisen riippuvuuden, jota pylväs- tai viivakaavio ei paljasta. Power BI:ssä sama visuaali muuttuu kuplakaavioksi, kun kolmas mittari ohjaa pisteen kokoa. Piirrettävien pisteiden määrä seuraa suoraan granulariteettia, joten liian tarkalla tasolla kuviosta tulee yhtenäinen musta möykky eikä se kerro mitään."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#sk",
+            "name": "SK",
+            "url": "https://www.datamalli.fi/termisto.html#sk",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Surrogate Key",
+            "description": "Lyhenne: Surrogaattiavain. Järjestelmän generoima kokonaislukutunniste joka korvaa lähdejärjestelmän luonnollisen avaimen (NK) relaatioissa. Dimensiotaulun pääavain (PK). Pakkautuu VertiPaqissa optimaalisesti."
           },
           {
             "@type": "DefinedTerm",
@@ -1605,13 +1687,14 @@
     ]
   }
   </script>
-  <title>Data-alan sanasto: 140+ termiä suomeksi | Datamalli.fi</title>
+  <title>Data-alan sanasto englanti–suomi: 150 termiä | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=9" defer></script>
+  <script src="navigation.js?v=10" defer></script>
+  <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
   <script src="termisto-search.js?v=4" defer></script>
   <script src="termi-lotto-data.js?v=1" defer></script>
-  <script src="termi-paivassa.js?v=3" defer></script>
+  <script src="termi-paivassa.js?v=4" defer></script>
   <style>
     /* ============ Suodatinpaneeli ============ */
     .suodatin-paneeli {
@@ -1646,18 +1729,25 @@
       display: none;
       margin: 20px 0 28px 0;
     }
-    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi, mutta sisältö
-       sijoitetaan vain ensimmäiseen sarakkeeseen — näin laatikko on täsmälleen
-       yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa kuin kortit.
-       auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä, muuten
-       ainoa solu venyisi taas koko leveyteen. */
+    /* Näytetään samalla ruudukolla kuin etusivun .kortti-rivi: päivän termi
+       ensimmäiseen sarakkeeseen ja satunnainen termi sen viereen. Kumpikin on
+       täsmälleen yhden etusivun kortin levyinen ja kaventuu samoissa kohdissa
+       kuin kortit. auto-fill (ei auto-fit): tyhjät sarakkeet on säilytettävä,
+       muuten kortit venyisivät taas koko leveyteen. Kapealla ruudulla kortit
+       menevät allekkain. */
     #termi-paivassa.tp-nakyvissa {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0 14px;
+      gap: 18px 14px;
     }
     #termi-paivassa.tp-nakyvissa > * {
-      grid-column: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Kortit venytetään samankorkuisiksi vaikka selitteet ovat eripituisia. */
+    #termi-paivassa .tp-termi {
+      flex: 1;
     }
     .tp-otsikko {
       font-family: var(--font-ui);
@@ -2117,7 +2207,7 @@
   <nav class="aakkos-leiju" aria-label="Aakkosnavigaatio"></nav>
 
   <h1>Datan mallinnuksen termistö</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-07-23">23.7.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-07-26">26.7.2026</time></p>
 
   <div id="termi-paivassa"></div>
 
@@ -2349,6 +2439,12 @@
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">datan laatu</span></div>
     </dl>
 
+    <dl class="termi" id="datasheet" data-tags="konseptit hallinta data-contract ai-metadata">
+      <dt><span class="termi-nimi">Datasheet</span> <span class="termi-en">(datalehti, taulukkonäkymä)</span></dt>
+      <dd class="termi-selite">Englanniksi Datasheet, suomeksi datalehti tai taulukkonäkymä. Sanalla on data-alalla kaksi eri merkitystä. Taulukkonäkymä tarkoittaa rivi–sarake-muotoista näkymää dataan, kuten Accessin Datasheet View tai Power BI:n taulukkonäkymä. Datalehti taas on dokumentti, joka kuvaa aineiston sisällön, alkuperän, rajoitukset ja käyttötarkoituksen — koneoppimisessa käytäntö tunnetaan nimellä Datasheets for Datasets. Jälkimmäinen on <a href="#data-contract">data contractin</a> lähisukulainen: datalehti kuvaa, data contract velvoittaa. Kumpikin on osa sitä <a href="#metadata">metadataa</a>, jonka varassa myös tekoälyavustaja tulkitsee datan oikein.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">AI-valmis metadata</span></div>
+    </dl>
+
     <dl class="termi" id="dax" data-tags="power-bi">
       <dt><span class="termi-nimi">DAX</span> <span class="termi-en">(Data Analysis Expressions)</span></dt>
       <dd class="termi-selite">Microsoftin lausekekieli mittareiden ja laskennallisten sarakkeiden rakentamiseen Power
@@ -2482,6 +2578,12 @@
       <dt><span class="termi-nimi">Flattening</span> <span class="termi-en">(litistäminen)</span></dt>
       <dd class="termi-selite">Ks. <a href="#litistaminen">Litistäminen</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Litistäminen</span></div>
+    </dl>
+
+    <dl class="termi" id="formatointi" data-tags="power-bi konseptit mittaaminen">
+      <dt><span class="termi-nimi">Formatointi</span> <span class="termi-en">(Formatting)</span></dt>
+      <dd class="termi-selite">Englanniksi Formatting, suomeksi muotoilu tai formatointi. Tapa, jolla arvo näytetään käyttäjälle: tuhaterotin, desimaalien määrä, valuuttamerkki, prosenttimuoto tai päivämäärän esitystapa. Formatointi ei muuta tallennettua arvoa eikä tietotyyppiä — 0,1234 on levyllä sama luku riippumatta siitä, näkyykö se muodossa 12,34 % vai 0,12. Power BI:ssä muotoilu kannattaa määritellä <a href="#mittari">mittarin</a> format string -ominaisuuteen eikä visuaalikohtaisesti: silloin sama muoto seuraa mittaria jokaiseen raporttiin, Exceliin ja <a href="#copilot">Copilotin</a> vastauksiin.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
   </div>
@@ -2850,6 +2952,12 @@
   <h2 id="p" class="termi-aakkos-otsikko">P</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="payload" data-tags="prosessit konseptit data-contract">
+      <dt><span class="termi-nimi">Payload</span> <span class="termi-en">(hyötykuorma)</span></dt>
+      <dd class="termi-selite">Englanniksi Payload, suomeksi hyötykuorma. Sanoman tai rajapintakutsun varsinainen sisältö — se osa, joka kuljettaa dataa, erotuksena otsikko- ja reititystiedoista. Esimerkiksi REST-rajapinnan JSON-vastauksessa payload on datakenttien sisältö, ei HTTP-otsikot. Integraatioissa payloadin rakenne on juuri se asia, jonka <a href="#data-contract">data contract</a> lukitsee: kun payload muuttuu ilman ennakkoilmoitusta, kyseessä on <a href="#rikkova-muutos">rikkova muutos</a> ja latausputki hajoaa.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Data Contract</span></div>
+    </dl>
+
     <dl class="termi" id="power-pivot" data-tags="tyokalut power-bi">
       <dt><span class="termi-nimi">Power Pivot</span></dt>
       <dd class="termi-selite">Excelin sisäinen tietomallimoottori, joka perustuu samaan <a
@@ -3151,6 +3259,12 @@
       <dt><span class="termi-nimi">Single Source of Truth</span> <span class="termi-en">(SSOT, yksi totuuden lähde)</span></dt>
       <dd class="termi-selite">Suomeksi yksi totuuden lähde (SSOT). Periaate, jonka mukaan organisaation tiedolla on yksi virallinen, hallittu lähde. Jokainen järjestelmä hakee tiedon tästä yhdestä paikasta eikä pidä omaa kopiotaan. Käytännön tasolla tämä tarkoittaa, että esimerkiksi asiakastieto on yhdessä dimensiotaulussa, josta kaikki raportit ja mallinnukset viittaavat siihen. Vastakohta on hajautettu tai kopioitu tieto, joka johtaa ristiriitaisiin lukuihin eri raporteissa. SSOT on <a href="#yksiselitteinen-tietomalli">yksiselitteisen tietomallin</a> keskeinen tavoite.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
+    <dl class="termi" id="sirontakuvio" data-tags="power-bi konseptit mittaaminen">
+      <dt><span class="termi-nimi">Sirontakuvio</span> <span class="termi-en">(Scatter Plot, Scatter Chart)</span></dt>
+      <dd class="termi-selite">Englanniksi Scatter Plot tai Scatter Chart, suomeksi sirontakuvio (myös hajontakuvio). Kaavio, jossa kaksi <a href="#mittari">mittaria</a> asetetaan x- ja y-akselille ja jokainen piste vastaa yhtä dimension jäsentä, esimerkiksi tuotetta tai asiakasta. Sirontakuvio näyttää kahden mittarin välisen riippuvuuden, jota pylväs- tai viivakaavio ei paljasta. Power BI:ssä sama visuaali muuttuu kuplakaavioksi, kun kolmas mittari ohjaa pisteen kokoa. Piirrettävien pisteiden määrä seuraa suoraan <a href="#granulariteetti">granulariteettia</a>, joten liian tarkalla tasolla kuviosta tulee yhtenäinen musta möykky eikä se kerro mitään.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
     <dl class="termi" id="sk" data-tags="avaimet dimensiot">

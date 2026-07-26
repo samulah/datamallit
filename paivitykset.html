@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="lukemisaika" content="2">
   <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
   <link rel="canonical" href="https://www.datamalli.fi/paivitykset.html">
   <meta name="description" content="Päivityslista datamalli.fi-sivustolle tehdyistä muutoksista ja uusista sisällöistä.">
@@ -34,7 +35,7 @@
   </script>
   <title>Päivitykset | Datamalli.fi</title>
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=9" defer></script>
+  <script src="navigation.js?v=10" defer></script>
 </head>
 
 <body>
@@ -44,6 +45,27 @@
   <p class="byline">Ylläpitää <a href="tietoa.html">Samu Lahdenperä</a></p>
 
   <p>Tälle sivulle kirjataan jokainen datamalli.fi:hin tehty sisällöllinen muutos: uudet sivut, päivitetyt tiedot ja korjaukset. Uusimmat ylimpänä.</p>
+
+  <div class="paivitys-merkinta">
+    <h2>26.7.2026</h2>
+    <ul>
+      <li>Lisätty <a href="termisto.html">termistöön</a> neljä uutta termiä, joita haettiin sivustolta mutta joita ei ollut: <a href="termisto.html#datasheet">Datasheet</a>, <a href="termisto.html#formatointi">Formatointi</a>, <a href="termisto.html#payload">Payload</a> ja <a href="termisto.html#sirontakuvio">Sirontakuvio</a>. Termejä on nyt 150.</li>
+      <li>Täydennetty termistön rakenteinen data: IDENTITY, NK ja SK puuttuivat sanaston koneluettavasta hakemistosta, vaikka ne olivat sivulla.</li>
+      <li>Muotoiltu termistön otsikko ja kuvaus vastaamaan sitä, mitä sanastosta oikeasti haetaan — englanninkielisen termin suomennosta.</li>
+      <li>Nostettu granulariteetti esiin <a href="faktataulu.html">faktataulusivulla</a>: uusi otsikko, kuvaus ja yhden lauseen määritelmä suorituskykyosion alussa.</li>
+    </ul>
+  </div>
+
+  <div class="paivitys-merkinta">
+    <h2>24.7.2026</h2>
+    <ul>
+      <li>Lisätty "Satunnainen termi" -kortti "Termi päivässä" -kortin viereen etusivulle ja <a href="termisto.html">termistöön</a>. Päivän termi vaihtuu kerran vuorokaudessa, satunnaistermi joka sivulatauksella.</li>
+      <li>Korjattu kolme lukemisaikaa, jotka olivat jääneet jälkeen sivun sisällöstä: <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> 7 → 15 min, <a href="termisto.html">Termistö</a> 22 → 24 min ja Surrogaattiavaimien mallintaminen 13 → 15 min.</li>
+      <li>Korjattu virhe, joka näytti istunnon ensimmäisellä sivulla minuutin liian pitkän lukemisajan: aloitusruudun logo laskettiin mukaan sivun kuviin.</li>
+      <li>Korjattu <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> -sivun "Katso myös" -osio, joka ei tullut näkyviin lainkaan.</li>
+      <li>Lukemisajat ja korttien tiedot tulevat nyt yhdestä paikasta — sivun omista metatiedoista — joten etusivun kortti ja artikkeli eivät voi enää näyttää eri lukemisaikaa. Sivukartan päivämäärät päivittyvät samalla automaattisesti.</li>
+    </ul>
+  </div>
 
   <div class="paivitys-merkinta">
     <h2>23.7.2026</h2>

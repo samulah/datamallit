@@ -1,54 +1,63 @@
-Tarkista sivuston julkaisukunto ja päivitä automaattiset rakenteet. Käyttö: /julkaisuvalmius tai /julkaisuvalmius @html/sivu.html
+Tarkista sivuston julkaisukunto ja päivitä automaattiset rakenteet. Käyttö: /julkaisuvalmius tai /julkaisuvalmius @sivu.html
 
 Jos tiedosto annetaan, tarkistetaan vain se sivu + yleiset rakenteet. Ilman argumenttia tarkistetaan kaikki.
 
+Kaikki sivut ovat repon **juuressa** (ei `html/`-alikansiossa).
+
 ## Mitä tehdään järjestyksessä
 
-### 1. Lukemisaikojen päivitys (index.html data-min)
+### 1. Metatietojen generointi
 
-Laske kaikille sivuille lukemisaika samalla Python-logiikalla kuin navigation.js:ssä:
-- Teksti (p, li, h2, h3): 200 sanaa/min
-- Taulukkosarakkeet (td, th): 50 sanaa/min
-- Visuaalit (img, figure, .mermaid): 40 s per kappale
+Aja generaattori — se hoitaa lukemisajat, etusivun kortit, `sivut.js`:n ja `sitemap.xml`:n:
 
-Päivitä `data-min="X"` jokaisen `.kortti[href]`-elementin href-kohdetta vastaavalle riville `index.html`:ssä.
-Käytä BeautifulSouppia tai python3 + html.parser. Älä koske kortteihin joilla ei ole data-min -attribuuttia (kesken-kortit jätetään).
+```bash
+python3 tyokalut/rakenna.py
+python3 tyokalut/rakenna.py --raportti
+```
+
+Älä laske lukemisaikoja käsin äläkä muokkaa `data-min`-attribuutteja — generaattori omistaa ne.
+Raportoi mitkä tiedostot muuttuivat ja mitä `--raportti` nosti esiin (puuttuvat `description`- tai
+`dateModified`-kentät, tagittomat sivut, julkaisutila, hakuindeksistä puuttuvat sivut).
+
+Jos `--raportti` valittaa tuntemattomasta tagista, lisää slug ensin `search.js`:n `TAGI_NIMET`-tauluun.
 
 ### 2. Hakuindeksin tarkistus (search-index.js)
 
-Lue `html/search-index.js`. Listaa kaikki sivut jotka löytyvät `index.html`:n korteista mutta PUUTTUVAT hakuindeksistä.
-Lue myös sivujen nykyinen sisältö ja vertaa: onko hakuindeksissä vanhentunutta tekstiä joka ei enää vastaa sivun sisältöä (esim. poistetut kappaleet).
-Raportoi puuttuvat ja mahdollisesti vanhentuneet — älä muuta hakuindeksiä automaattisesti, se vaatii harkintaa.
+`--raportti` listaa jo sivut jotka puuttuvat hakuindeksistä. Lue lisäksi sivujen nykyinen sisältö ja
+vertaa: onko hakuindeksissä vanhentunutta tekstiä joka ei enää vastaa sivun sisältöä (esim. poistetut
+kappaleet). Raportoi puuttuvat ja mahdollisesti vanhentuneet — älä muuta hakuindeksiä automaattisesti,
+se vaatii harkintaa.
 
 ### 3. Termistö-haun päivitys (search-index.js + termisto.html)
 
-Termistöllä on oma dynaaminen haku (termisto-search.js), mutta sen sisältö pitää olla myös päähaun (search-index.js) piirissä niin että etusivun hakukenttä löytää termejä.
+Termistöllä on oma dynaaminen haku (termisto-search.js), mutta sen sisältö pitää olla myös päähaun
+(search-index.js) piirissä niin että etusivun hakukenttä löytää termejä.
 
-Tee nämä:
-
-1. Lue `html/termisto.html`. Kerää kaikki `.termi`-elementit: `.termi-nimi`, `.termi-selite`, `.termi-en` -kentät tekstinä.
-2. Rakenna niistä kompakti hakuindeksiteksti (terminimi + selite + englanninkielinen vastine, yksi per rivi tai välilyönnillä erotettuna).
-3. Tarkista onko `html/search-index.js`:ssä jo merkintä `'termisto.html'`. Jos on, korvaa se uudella. Jos ei ole, lisää se muiden merkintöjen loppuun ennen sulkevaa `}`.
+1. Lue `termisto.html`. Kerää kaikki `.termi`-elementit: `.termi-nimi`, `.termi-selite`, `.termi-en`.
+2. Rakenna niistä kompakti hakuindeksiteksti (terminimi + selite + englanninkielinen vastine).
+3. Tarkista onko `search-index.js`:ssä jo merkintä `'termisto.html'`. Jos on, korvaa se uudella.
+   Jos ei ole, lisää se muiden merkintöjen loppuun ennen sulkevaa `}`.
 4. Raportoi montako termiä löytyi ja päivitettiinkö indeksi.
 
 ### 4. Lorem ipsum -skannaus
 
-Etsi kaikista `html/*.html`-tiedostoista "Lorem ipsum" -teksti.
-Raportoi: missä tiedostoissa ja miten monta osumaa.
+Etsi kaikista juuren `*.html`-tiedostoista "Lorem ipsum" -teksti. Raportoi tiedostot ja osumamäärät.
 
-### 4. Navigaatiotarkistus (navigation.js)
+### 5. Navigaatiotarkistus (navigation.js)
 
-Lue `html/navigation.js`. Listaa sivut jotka:
-- Ovat navigaatiossa mutta EIVÄT index.html:n korteissa
-- Ovat index.html:n korteissa (ilman .kesken-luokkaa) mutta EIVÄT navigaatiossa
+Listaa sivut jotka:
+- Ovat navigaatiossa mutta EIVÄT `index.html`:n `data-kortit`-listoissa
+- Ovat `data-kortit`-listoissa julkaistuina (ei `noindex`) mutta EIVÄT navigaatiossa
 
-### 5. Rikkoutuneet sisäiset linkit
+### 6. Rikkoutuneet sisäiset linkit
 
-Käy kaikki `href`-attribuutit läpi kaikista HTML-tiedostoista. Tarkista että `html/`-kansio sisältää kohdetiedoston. Raportoi puuttuvat.
+Käy kaikki `href`-attribuutit läpi kaikista HTML-tiedostoista. Tarkista että repon juuressa on
+kohdetiedosto. Raportoi puuttuvat.
 
-### 6. Kehityspäiväkirjamerkintä
+### 7. Päivityslista
 
-Lisää `kehityspaivakirja.md`:hen tänään tehtyjen muutosten tiivistelmä (1–3 riviä) nykyisen päivän kohtaan.
+Jos muutokset ollaan viemässä gittiin, lisää merkintä `paivitykset.html`:ään ja päivitä
+`navigation.js`:n `SIVUSTO_PAIVITETTY` samaan päivämäärään.
 
 ---
 
@@ -57,9 +66,12 @@ Lisää `kehityspaivakirja.md`:hen tänään tehtyjen muutosten tiivistelmä (1�
 ```
 ## Julkaisuvalmius — [päivämäärä]
 
-### Lukemisajat päivitetty
-- sivu.html: X min → Y min (muuttui)
-- sivu.html: X min (ei muutosta)
+### Generointi
+- Kirjoitettu N tiedostoa: [lista] / Ei muutoksia
+- Lukemisaika muuttui: sivu.html X → Y min
+
+### Metatietojen puutteet
+- sivu.html: dateModified puuttuu
 
 ### Termistö-haku
 - Päivitetty: N termiä indeksoitu search-index.js:ään
@@ -70,7 +82,6 @@ Lisää `kehityspaivakirja.md`:hen tänään tehtyjen muutosten tiivistelmä (1�
 
 ### Lorem ipsum
 - apuohjelmat.html: 2 osumaa
-- kirjallisuus-suositukset.html: 4 osumaa
 
 ### Navigaatio
 - OK / [poikkeamat]

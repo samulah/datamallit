@@ -436,7 +436,11 @@ transaktiofakta transaction fact table tapahtuma rivi myyntirivit maksutapahtuma
 kausifakta periodic snapshot tilannekuva ajanjakso varastosaldo säännöllinen
 kumulatiivinen fakta accumulating snapshot prosessi elinkaari tilaus päivitetään
 käsitemalli conceptual model tietomallinnus liiketoiminnan käsitteet asiakas tilaus tuote looginen malli fyysinen tietomalli
-päivämäärädimensio date dimension kalenteripäivä vuosi kuukausi time intelligence role-playing`,
+päivämäärädimensio date dimension kalenteripäivä vuosi kuukausi time intelligence role-playing
+datasheet datalehti taulukkonäkymä suomeksi datasheets for datasets aineiston kuvaus alkuperä rajoitukset
+formatointi formatting muotoilu suomeksi format string tuhaterotin desimaalit valuutta prosentti näyttömuoto
+payload hyötykuorma suomeksi rajapinta sanoma json rest integraatio sisältö
+sirontakuvio scatter plot scatter chart hajontakuvio suomeksi kuplakaavio korrelaatio riippuvuus akseli`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi
