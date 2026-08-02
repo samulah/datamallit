@@ -7,10 +7,10 @@
   <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
   <meta name="kortti-otsikko" content="Medallion-arkkitehtuuri">
   <meta name="kortti-kuvaus" content="Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.">
+  <meta name="kortti-badge" content="uutuus">
   <meta name="tagit" content="arkkitehtuuri perusteoria">
-  <meta name="lukemisaika" content="8">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="lukemisaika" content="11">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/medallion.html">
   <meta name="description"
     content="Medallion-arkkitehtuuri jakaa datan Bronze-, Silver- ja Gold-tasoihin. Mistä malli tulee, miksi se kannattaa ottaa käyttöön ja miten se rakennetaan käytännössä.">
@@ -37,8 +37,8 @@
         "url": "https://www.datamalli.fi/medallion.html",
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/medallion.html" },
         "inLanguage": "fi",
-        "datePublished": "2026-07-15",
-        "dateModified": "2026-07-15",
+        "datePublished": "2026-08-03",
+        "dateModified": "2026-08-03",
         "wordCount": 1250,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
@@ -55,8 +55,12 @@
   }
   </script>
   <title>Medallion-arkkitehtuuri (Bronze/Silver/Gold) | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=11" defer></script>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
 </head>
@@ -65,7 +69,7 @@
 <main-navigation></main-navigation>
 <noscript>
   <nav class="simple-nav" style="padding:12px 24px">
-    <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
     <a href="tietomalli.html">Tietomalli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
@@ -80,8 +84,7 @@
 </noscript>
 
   <h1>Medallion-arkkitehtuuri</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-07-15">15.7.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-08-03">3.8.2026</time></p>
 
   <p>
     <a href="termisto.html#medallion-arkkitehtuuri" class="termi-tip">Medallion-arkkitehtuuri</a> on apuväline datan
@@ -184,7 +187,7 @@
       raporttia.</li>
   </ul>
 
-  <h3>Miksi Medallion EI aina kannata</h3>
+  <h3>Miksi Medallionia EI aina kannata rakentaa</h3>
 
   <ul>
     <li><strong>Kolme kertaa infrastruktuuria.</strong> Jokainen kerros tarvitsee oman tallennuspaikan, oman
@@ -210,7 +213,8 @@
   <ul>
     <li><strong>Bronze = staging-alue.</strong> Perinteisessä <a href="termisto.html#tietovarasto">tietovarastossa</a> tämä on staging-tietokanta tai
       -skeema, johon data ladataan lähdejärjestelmästä ilman muunnoksia.</li>
-    <li><strong>Silver = integraatiokerros.</strong> Tässä eri lähdejärjestelmien data yhdistetään ja puhdistetaan
+    <li><strong>Silver = integraatiokerros, ja se on materialisoitu.</strong> Tässä eri lähdejärjestelmien
+      data yhdistetään ja puhdistetaan
       ennen kuin siitä rakennetaan raportointimalli.</li>
     <li><strong>Gold = tähtimalli Power BI:tä varten.</strong> <a href="dimensiot.html">Dimensiotaulut</a> ja
       faktataulut sellaisina kuin ne ladataan Power BI:hin.</li>
@@ -225,7 +229,7 @@
   <h3>Missä Medallion EI toimi</h3>
 
   <ul>
-    <li><strong>Yhden Exceltiedoston Power BI -pilotissa.</strong> Kun koko datalähde on yksi taulukko jota
+    <li><strong>Yhden Excel-tiedoston Power BI -pilotissa.</strong> Kun koko datalähde on yksi taulukko jota
       päivitetään kerran kuussa käsin, kolme kerrosta on kolme ylimääräistä klikkausta ilman hyötyä.</li>
     <li><strong>Ilman orkestrointia.</strong> Jos kerrosten välistä ajojärjestystä ei voi automatisoida (ajastin,
       riippuvuudet), kerrokset ajautuvat helposti epäsynkkaan — Gold lukee vanhaa Silveriä eikä kukaan huomaa.</li>
@@ -248,11 +252,45 @@
       merkitään, tietotyypit yhdenmukaistetaan ja useasta lähteestä tuleva sama entiteetti (esim. asiakas kahdesta
       eri järjestelmästä) yhdistetään yhdeksi riviksi. Tässä vaiheessa luodaan myös
       <a href="surrogaattiavaimet.html">surrogaattiavaimet</a> — ei aiemmin, koska Bronzen duplikaatit loisivat
-      turhia avaimia, eikä myöhemmin, koska jokainen Gold-taulu tarvitsee saman yhteisen avaimen.</li>
+      turhia avaimia, eikä myöhemmin, koska jokainen Gold-taulu tarvitsee saman yhteisen avaimen.
+      Avaimet <strong>materialisoidaan</strong> Silver-tasolla eli kirjoitetaan fyysisiin tauluihin, ja se tehdään
+      <strong>ennen faktataulun latausta</strong>: faktan lataus liittyy valmiiseen avaimeen sen sijaan että
+      ratkaisisi sen itse.</li>
     <li><strong>Gold: mallinna liiketoiminnan käyttöön.</strong> Silver-data litistetään ja mallinnetaan
       <a href="tahtimalli.html">tähtimalliksi</a>: faktataulut ja dimensiot, <a href="nimeamiskaytannot.html">nimetty</a>
       liiketoiminnan termein, valmiina ladattavaksi Power BI -tietomalliin.</li>
   </ol>
+
+  <p>
+    Sama asiakasentiteetti kolmella kerroksella näyttää SQL:nä tältä — huomaa miten rajoitteet ja liiketoiminnan
+    nimeäminen ilmestyvät vasta sitä mukaa kun kerros nousee:
+  </p>
+
+  <pre style="background:#1e1e1e; color:#d4d4d4; padding:1.2em; border-radius:6px; overflow-x:auto;"><code>-- Bronze: lähdetaulu sellaisenaan + tekniset metasarakkeet
+CREATE TABLE bronze.Asiakas_raw (
+    AsiakasTunnus    VARCHAR(50)  NULL,   -- ei rajoitteita: virheellinenkin rivi säilyy
+    AsiakasNimi      VARCHAR(200) NULL,
+    Segmentti        VARCHAR(50)  NULL,
+    LatausAika       DATETIME2    NOT NULL DEFAULT SYSDATETIME(),
+    EraTunniste      VARCHAR(50)  NOT NULL,
+    Lahdejarjestelma VARCHAR(50)  NOT NULL
+);
+
+-- Silver: puhdistettu ja yhdistetty — surrogaattiavain luodaan tässä
+CREATE TABLE silver.DimAsiakas (
+    AsiakasAvain  INT          NOT NULL,   -- SK, mapping-taulusta
+    AsiakasTunnus VARCHAR(50)  NOT NULL,   -- NK säilyy attribuuttina
+    AsiakasNimi   VARCHAR(200) NOT NULL,
+    Segmentti     VARCHAR(50)  NOT NULL,
+    CONSTRAINT PK_DimAsiakas PRIMARY KEY (AsiakasAvain)
+);
+
+-- Gold: raportointimalli — relaatioissa vain surrogaattiavaimet
+CREATE VIEW gold.D_Asiakas AS
+SELECT AsiakasAvain,
+       AsiakasNimi AS [Asiakas],
+       Segmentti   AS [Asiakassegmentti]
+FROM   silver.DimAsiakas;</code></pre>
 
   <p>
     Kerrosten välinen siirtymä hoidetaan yleensä ajastetulla, inkrementaalisella latauksella: jokainen erä käsittelee
@@ -261,7 +299,7 @@
     arkkitehtuurin ydin riippumatta siitä, ajetaanko muunnokset SQL:llä, Sparkilla vai Power Queryllä.
   </p>
 
-  <h3>Miten Medallion EI kannata rakentaa</h3>
+  <h3>Miten Medallionia EI kannata rakentaa</h3>
 
   <ul>
     <li><strong>Älä lisää liiketoimintalogiikkaa Bronzeen.</strong> Jos Bronze suodattaa tai muokkaa dataa, koko
@@ -278,24 +316,78 @@
 
   <h2>Milloin Medallion-arkkitehtuuria kannattaa käyttää — ja milloin ei?</h2>
 
+  <p>
+    Päätös ei ole makuasia vaan kynnyskysymys. Medallion maksaa kolminkertaisen infrastruktuurin ja hitaamman
+    ensimmäisen toimituksen, ja tuottaa vastineeksi jäljitettävyyttä ja uudelleenkäyttöä. Jos kumpaakaan ei tarvita,
+    kolme kerrosta on kolme ylimääräistä paikkaa joissa data voi mennä rikki. Käy kuusi signaalia läpi. Jos yksikin
+    rivi osuu sarakkeeseen <em>Medallion kannattaa</em>, rakenna kerrokset. Jos kaikki kuusi osuvat sarakkeeseen
+    <em>ylimitoitettu</em>, rakenna suoraan Gold-malli.
+  </p>
+
+  <table>
+    <caption>Taulukko 2, Medallionin kannattavuus – Signaalit jotka ratkaisevat tarvitaanko kolme kerrosta vai
+      ei</caption>
+    <thead>
+      <tr>
+        <th>Signaali</th>
+        <th>Medallion kannattaa</th>
+        <th>Medallion on ylimitoitettu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lähdejärjestelmiä</strong></td>
+        <td>Kaksi tai useampi syöttää samaa entiteettiä — asiakas tulee CRM:stä ja laskutuksesta, ja ne on
+          yhdistettävä yhdeksi riviksi</td>
+        <td>Yksi lähde, yksi skeema, ei mitään yhdistettävää</td>
+      </tr>
+      <tr>
+        <td><strong>Datan kuluttajia</strong></td>
+        <td>Useampi tiimi tai raportti lukee samaa puhdistettua dataa</td>
+        <td>Yksi raportti, yksi katsoja</td>
+      </tr>
+      <tr>
+        <td><strong>Jäljitettävyys</strong></td>
+        <td>Auditointi tai regulaatio vaatii polun raakadatasta lopulliseen lukuun asti</td>
+        <td>Riittää että luku on oikein tänään</td>
+      </tr>
+      <tr>
+        <td><strong>Uudelleenajo</strong></td>
+        <td>Logiikka muuttuu ja koko historia pitää laskea uudelleen ilman että lähdejärjestelmää kysytään uudestaan
+        </td>
+        <td>Lähteestä saa haettua saman datan milloin tahansa uudelleen</td>
+      </tr>
+      <tr>
+        <td><strong>Elinkaari</strong></td>
+        <td>Ratkaisu elää vuosia ja vaihtaa ylläpitäjää matkan varrella</td>
+        <td>Kertaraportti, joka on tarpeeton kolmen kuukauden päästä</td>
+      </tr>
+      <tr>
+        <td><strong>Kurinalaisuus</strong></td>
+        <td>Kerrosten säännöistä pidetään kiinni myös kiireessä</td>
+        <td>Sääntöjä ei valvo kukaan — silloin kolme kerrosta on kolme paikkaa joissa sama bugi voi piillä</td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
-    <p>
-      Yhden lähdejärjestelmän kertaraportti ei tarvitse kolmea kerrosta — silloin Medallion on ylimitoitettu, ja
-      raakadatasta suoraan Gold-malliin on ihan oikea ratkaisu. Medallion alkaa maksaa itsensä takaisin siinä
-      vaiheessa kun lähteitä on useampi kuin yksi, dataa käyttää useampi kuin yksi tiimi, tai kun joku kysyy
-      auditointitilanteessa "mistä tämä luku tulee" ja vastauksen pitää löytyä ilman arvailua. Älä rakenna kolmea
-      kerrosta koska se on trendikästä — rakenna se kun ensimmäinen näistä kolmesta ehdosta täyttyy.
-    </p>
+    <ul>
+      <li><strong>Yksi ehto riittää — kolme ei ole kiintiö.</strong> Rakenna kerrokset heti kun yksikin Taulukko 2:n
+        rivi osuu sarakkeeseen <em>Medallion kannattaa</em>. Se tarkoittaa käytännössä toista lähdejärjestelmää, toista
+        tiimiä tai ensimmäistä kertaa kun joku kysyy auditoinnissa mistä luku tulee. Jos odotat että useampi ehto
+        täyttyy, joudut lisäämään kerrokset valmiiseen latausputkeen: se puretaan ja historia ajetaan uudelleen.
+        Kalliimpaa kuin rakentaa kerrokset alusta.</li>
+      <li><strong>Ylimitoitettu Medallion on halvempi virhe kuin puuttuva.</strong> Turhat kerrokset maksavat
+        ylläpitoaikaa, ja sen huomaa heti. Puuttuva Silver taas johtaa siihen, että kolme tiimiä puhdistaa saman datan
+        eri tavalla ja kolme raporttia näyttää eri lukua samasta asiasta. Sen huomaa vasta kokouksessa, jossa luvut
+        ovat näytöllä. Jos joudut arvaamaan, arvaa kerrosten puolesta.</li>
+      <li><strong>Kerrosten nimet eivät ole arkkitehtuuri.</strong> Bronze, Silver ja Gold ilman sääntöä siitä mitä
+        kussakin saa tehdä on yksi kerros kolmella nimellä. Testi: sano yhdellä lauseella mitä Silver-taululle pitää
+        vielä tehdä ennen kuin se kelpaa Goldiin. Jos vastausta ei tule, sinulla ei ole kerroksia vaan kolme
+        kansiota.</li>
+    </ul>
   </div>
-
-  <p>
-    Merkkejä siitä että Medallion kannattaa: useampi lähdejärjestelmä syöttää samaa entiteettiä (esim. asiakas
-    CRM:stä ja laskutusjärjestelmästä), data-alusta palvelee montaa raportointitarvetta samalla puhdistetulla
-    datalla, tai regulaatio vaatii jäljitettävyyttä raakadatasta lopulliseen lukuun asti. Merkkejä siitä ettei
-    kannata: yksi lähde, yksi kertaluontoinen raportti, ei uudelleenkäyttöä näköpiirissä — silloin kolme kerrosta on
-    kolme ylimääräistä paikkaa joissa data voi mennä rikki.
-  </p>
 
   <section class="katso-myos"
     data-kortit="surrogaattiavaimet.html tahtimalli.html dimensiot.html termisto.html"></section>

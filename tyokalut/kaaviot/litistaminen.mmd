@@ -1,0 +1,6 @@
+flowchart LR
+  t1["Yritys"] --> etl["ETL / SQL VIEW\nJOIN × 2"]
+  t2["Liiketoimintaryhmä"] --> etl
+  t3["Kustannuspaikka"] --> etl
+  etl --> dim["V_D_Kustannuspaikka\n(litistetty)"]
+  dim --> pbi["Power BI\nVertiPaq"]

@@ -9,7 +9,7 @@
   <meta name="kortti-kuvaus" content="Faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta. Vierasavaimet, additiivisuus ja kultaiset säännöt Power BI -tietomallia varten.">
   <meta name="tagit" content="tietomalli power-bi perusteoria">
   <meta name="lukemisaika" content="13">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/faktataulu.html">
   <meta name="description"
     content="Granulariteetti tarkoittaa faktataulun rivin tarkkuustasoa — se ratkaisee mallin koon ja nopeuden. Faktataulun rakenne, arkkityypit ja granulariteetin valinta.">
@@ -83,8 +83,12 @@
   }
   </script>
   <title>Faktataulu ja granulariteetti Power BI:ssä | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=11" defer></script>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
 </head>
@@ -93,7 +97,7 @@
   <main-navigation></main-navigation>
   <noscript>
     <nav class="simple-nav" style="padding:12px 24px">
-      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
       <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
@@ -118,7 +122,7 @@
     tuhansia faktataulun rivejä, mutta jokaisella faktataulun rivillä on tasan yksi vastine jokaisessa dimensiossa. Tämä
     relaatiorakenne on edellytys sille, että Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy pakkaamaan datan tehokkaasti ja
     laskemaan mittarit oikein. Faktataulu on vain yksi osa kokonaisuutta — kaikki tietomallit ja mallinnusperiaatteet
-    kokoaa <a href="index.html">datan mallinnuksen opas</a>.</p>
+    kokoaa <a href="/">datan mallinnuksen opas</a>.</p>
 
   <h2>Miten faktataulu rakentuu?</h2>
 
@@ -447,7 +451,7 @@
     </ul>
   </div>
 
-  <section class="katso-myos" data-kortit="tietomalli.html dimensiot.html tahtimalli.html avaimet-ja-relaatiot.html"></section>
+  <section class="katso-myos" data-kortit="surrogaattiavaimet.html tietomalli.html dimensiot.html tahtimalli.html avaimet-ja-relaatiot.html"></section>
 
 </body>
 

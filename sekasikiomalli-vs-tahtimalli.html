@@ -8,9 +8,8 @@
   <meta name="kortti-otsikko" content="Sekasikiömalli vs tähtimalli">
   <meta name="kortti-kuvaus" content="Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.">
   <meta name="tagit" content="tietomalli power-bi ai">
-  <meta name="kortti-badge" content="uutuus">
   <meta name="lukemisaika" content="15">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html">
   <meta name="description" content="Sekasikiömalli vs. tähtimalli — viisi Power BI -esimerkkiä huonoimmasta parhaaseen. Näin tietomalli rapautuu, kun jokaiseen pyyntöön sanotaan aina kyllä.">
   <meta property="og:type" content="article">
@@ -55,8 +54,12 @@
   }
   </script>
   <title>Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä | Datamalli.fi</title>
-  <link rel="stylesheet" href="style.css?v=5">
-  <script src="navigation.js?v=11" defer></script>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
   <style>
@@ -225,7 +228,7 @@
   <main-navigation></main-navigation>
   <noscript>
     <nav class="simple-nav" style="padding:12px 24px">
-      <a href="index.html" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
       <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·

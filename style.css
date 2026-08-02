@@ -735,6 +735,31 @@ pre code {
   color: var(--c-muted);
   line-height: 1.5;
 }
+/* Korttimerkit — sekä etusivulla että "Katso myös" -osioissa.
+   Näiden on oltava täällä eikä index.html:n omassa style-lohkossa:
+   kortit.js renderöi samat merkit artikkelisivuille. */
+.kesken-badge,
+.uutuus-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.73em;
+  border-radius: 4px;
+  padding: 1px 7px;
+  margin-bottom: 7px;
+  align-self: flex-start;
+}
+.kesken-badge {
+  background: #fff3cd;
+  border: 1px solid #e0c060;
+  color: #856404;
+}
+.uutuus-badge {
+  font-weight: 600;
+  background: #e3f2e6;
+  border: 1px solid #4caf70;
+  color: #1e6b38;
+}
+
 .kortti-tagit {
   display: flex;
   flex-wrap: wrap;

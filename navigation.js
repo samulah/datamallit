@@ -10,7 +10,7 @@
             <div class="splash-rengas splash-rengas-1"></div>
             <div class="splash-rengas splash-rengas-2"></div>
             <div class="splash-rengas splash-rengas-3"></div>
-            <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="splash-logo">
+            <img src="kuvat/logo-176.png" alt="Dataneuvos" class="splash-logo" width="88" height="88">
         </div>
         <span class="splash-nimi">datamalli.fi</span>
         <span class="splash-alaotsikko">Datan mallinnuksen opas</span>
@@ -25,18 +25,18 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '27.7.2026';
+const SIVUSTO_PAIVITETTY = '3.8.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <nav class="simple-nav">
                 <div class="nav-brand">
-                    <a href="index.html" class="nav-logo-link" title="Etusivu">
-                        <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="nav-logo">
+                    <a href="/" class="nav-logo-link" title="Etusivu">
+                        <img src="kuvat/logo-176.png" alt="Dataneuvos" class="nav-logo" width="30" height="30">
                     </a>
                     <div class="nav-brand-teksti">
-                        <a href="index.html" class="nav-site-name">datamalli.fi</a>
+                        <a href="/" class="nav-site-name">datamalli.fi</a>
                         <span class="nav-tagline">Datan mallinnuksen opas</span>
                     </div>
                 </div>
@@ -49,6 +49,8 @@ class MainNavigation extends HTMLElement {
                     <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
                     <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a>
                     <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>
+                    <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a>
+                    <a href="medallion.html">Medallion</a>
                     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
@@ -67,8 +69,8 @@ class MainNavigation extends HTMLElement {
             footer.className = 'sivusto-footer';
             footer.innerHTML = `
                 <div class="footer-logo-rivi">
-                    <a href="index.html" class="footer-logo-link" title="Etusivu">
-                        <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="footer-logo">
+                    <a href="/" class="footer-logo-link" title="Etusivu">
+                        <img src="kuvat/logo-176.png" alt="Dataneuvos" class="footer-logo" width="44" height="44">
                     </a>
                 </div>
                 <p>
@@ -211,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'ei-additiivinen-mittari':   { fi: 'Ei-additiivinen mittari',      en: 'Non-Additive Measure',   selite: 'Ei voi summata minkään dimension yli. Laske aina DAX-kaavalla kontekstin mukaan.' },
     'granulariteetti':           { fi: 'Granulariteetti',              en: 'Granularity',            selite: 'Faktataulun rivin yksityiskohtaisuuden taso — mitä yksi rivi edustaa. Määrää mihin kysymyksiin malli pystyy vastaamaan.' },
     'scd':                       { fi: 'SCD',                          en: 'Slowly Changing Dimension', selite: 'Dimension muutostenkäsittelytapa. Tyyppi 2 säilyttää historian luomalla uuden rivin vanhalle arvolle.' },
+    'scd-type-1':                { fi: 'SCD Type 1',                   en: 'Slowly Changing Dimension, Type 1', selite: 'Dimension muutostenkäsittely, jossa vanha arvo ylikirjoitetaan uudella. Historia häviää. Sopii silloin kun muutos on korjaus eikä liiketoiminnallinen tapahtuma — esimerkiksi kirjoitusvirhe asiakkaan nimessä.' },
+    'scd-type-2':                { fi: 'SCD Type 2',                   en: 'Slowly Changing Dimension, Type 2', selite: 'Dimension muutostenkäsittely, jossa muutos tuottaa uuden rivin. Vanha rivi säilyy, joten historiallinen raportointi toimii oikein. Vaatii surrogaattiavaimen ja voimassaoloaikasarakkeet. Yleisin SCD-tyyppi.' },
     'vertipaq':                  { fi: 'VertiPaq',                     en: 'VertiPaq',               selite: 'Power BI:n muistimoottori. Pakkaa datan sarake kerrallaan — matala kardinaliteetti pakkautuu parhaiten.' },
     'etl':                       { fi: 'ETL',                          en: 'Extract, Transform, Load', selite: 'Prosessi jossa data poimitaan lähdejärjestelmästä, muunnetaan ja ladataan kohdetietokantaan.' },
     'medallion-arkkitehtuuri':   { fi: 'Medallion-arkkitehtuuri',      en: 'Medallion Architecture', selite: 'Kolmikerroksinen arkkitehtuuri: Bronze (raakadata), Silver (puhdistettu) ja Gold (raportoinnille valmis).' },
@@ -229,6 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'sentinel-rivi':             { fi: 'Sentinel-rivi',                  en: 'Sentinel Row',               selite: 'Dimensiotauluun ennalta lisätty rivi, joka kerää alleen puuttuvat, tuntemattomat ja poistetut viittaukset (Ei tiedossa, Anonyymi, [Poistettu]). Saa oman surrogaattiavaimen, joten faktataulun vierasavain löytää aina vastineen eikä Power BI luo automaattista tyhjää riviä.' },
     'valitaulu':                 { fi: 'Välitaulu',                      en: 'Bridge Table',               selite: 'Aputaulu, joka purkaa hankalan monen-moneen-suhteen kahdeksi hallituksi yksi-moneen-suhteeksi. Sisältää uniikit yhdistelmät kahden taulun avaimista ja toimii niiden välissä siltana.' },
     'yhdenmukaistettu-dimensio': { fi: 'Yhdenmukaistettu dimensio',      en: 'Conformed Dimension',        selite: 'Dimensio, jota käytetään samanlaisena useammassa faktataulussa — sama taulu, samat sarakkeet ja arvot. Mahdollistaa faktataulujen yhdistelyn raporteissa ilman ristiriitoja.' },
+    'faktataulu':                { fi: 'Faktataulu',                     en: 'Fact Table',                 selite: 'Tähtimallin keskeinen taulu, joka sisältää mitattavia tapahtumia kuten myyntejä, tilauksia tai laskutuksia. Rivit koostuvat enimmäkseen luvuista ja avaimista, ja tauluun viitataan dimensioiden kautta.' },
+    'dimensiotaulu':             { fi: 'Dimensiotaulu',                  en: 'Dimension Table',            selite: 'Kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä ja milloin. Sisältää attribuutteja kuten asiakkaan nimi, tuotteen kategoria tai päivämäärä.' },
+    'tietovarasto':              { fi: 'Tietovarasto (DWH)',             en: 'Data Warehouse',             selite: 'Keskitetty, jäsennelty data-alusta, johon eri lähdejärjestelmien data yhdistetään raportointia ja analytiikkaa varten.' },
   };
 
   const css = document.createElement('style');

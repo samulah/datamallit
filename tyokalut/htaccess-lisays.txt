@@ -1,0 +1,84 @@
+# ===========================================================================
+# datamalli.fi — LISÄYKSET palvelimen .htaccess-tiedostoon
+#
+# HUOM: tämä EI ole valmis .htaccess eikä sitä saa kopioida sellaisenaan
+# palvelimelle. Palvelimella on jo .htaccess, jossa on ainakin HSTS,
+# X-Frame-Options, Content-Security-Policy ja brotli-pakkaus. Se ei ole
+# tässä repossa (.gitignore), joten näitä ei voi yhdistää automaattisesti.
+#
+# Lisää alla olevat lohkot olemassa olevan .htaccessin perään — paitsi
+# kohta 3, joka KORVAA nykyisen CSP-rivin.
+#
+# Testaa muutoksen jälkeen:
+#   curl -sI https://www.datamalli.fi/index.html | head -3        # 301
+#   curl -sI https://www.datamalli.fi/fontit/dm-sans-normal-latin.woff2 | grep -i cache
+# ===========================================================================
+
+
+# ---------------------------------------------------------------------------
+# 1. Etusivun duplikaatti-URL pois
+#
+# /index.html ja / palauttavat tällä hetkellä saman sivun statuksella 200.
+# Canonical osoittaa /-osoitteeseen, mutta duplikaatti hajottaa silti
+# kävijädatan kahdelle riville. Ohjataan pysyvästi kanoniseen osoitteeseen.
+#
+# RewriteCond katsoo alkuperäistä pyyntöriviä (THE_REQUEST), jotta sääntö ei
+# laukea palvelimen sisäisestä /-pyynnön uudelleenkirjoituksesta index.html:ksi
+# — muuten syntyisi ikuinen silmukka.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ /%1 [R=301,L]
+</IfModule>
+
+
+# ---------------------------------------------------------------------------
+# 2. Välimuistiotsakkeet
+#
+# Nykytila: fonteilta puuttuu Cache-Control kokonaan (462 kt ladataan uudelleen
+# selaimen heuristiikan mukaan), HTML:ltä myös, ja muilla on 7 vrk.
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+
+  # Fontit: tiedostonimet eivät muutu koskaan — uusi fontti = uusi tiedostonimi.
+  <FilesMatch "\.(woff2?|ttf|eot|otf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # CSS ja JS: versioitu ?v=-parametrilla (style.css?v=6).
+  # 30 vrk eikä vuosi, koska version nosto on käsityötä: jos se unohtuu,
+  # vuoden immutable jättäisi kävijät vanhaan tiedostoon ilman keinoa korjata.
+  # Jos haluat vuoden: vaihda arvoksi "public, max-age=31536000, immutable"
+  # ja tee ?v=-noston muistaminen osaksi julkaisurutiinia.
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # Kuvat
+  <FilesMatch "\.(png|jpe?g|gif|svg|webp|avif|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # HTML: sisältö muuttuu, joten tuoreus tarkistetaan usein.
+  # must-revalidate + lyhyt max-age = nopea paluukäynti, ei vanhentunutta tekstiä.
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=600, must-revalidate"
+  </FilesMatch>
+
+</IfModule>
+
+
+# ---------------------------------------------------------------------------
+# 3. Content-Security-Policy — KORVAA nykyinen CSP-rivi tällä
+#
+# Nykyinen CSP sallii yhä https://cdn.jsdelivr.net ja 'unsafe-eval'. Kumpaakaan
+# ei enää tarvita: Mermaid itsehostattiin (commit f5129f5) ja nyt se poistettiin
+# selainpuolelta kokonaan — kaaviot ovat esirenderöityä SVG:tä.
+#
+# 'unsafe-inline' jää script-srciin, koska sivuilla on inline-skriptejä
+# (mm. index.html:n kategoriasuodatin ja .js-luokan asetus <head>issä).
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>

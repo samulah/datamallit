@@ -290,7 +290,21 @@ raakadata puhdistettu yhdistetty analyysiin valmis jalostusprosessi kerrokset
 historia databricks mitali staging integraatiokerros tähtimalli
 surrogaattiavain inkrementaalinen lataus etl elt auditointi jäljitettävyys
 microsoft fabric onelake synapse snowflake tietovarasto power bi
-milloin kannattaa käyttää dataneuvoksen mielipide`,
+milloin kannattaa käyttää dataneuvoksen mielipide
+materialisoitu materialisointi fyysinen taulu ei näkymä integraatiokerros
+avaimet materialisoidaan silver-tasolla ennen faktataulun latausta`,
+'surrogaattiavaimet.html': `surrogaattiavaimien mallintaminen surrogaattiavain sk luonnollinen avain nk
+mapping-taulu lookup nk sk viitetaulu int identity luontiaika datetime2
+missä kerroksessa avaimet luodaan silver bronze gold medallion
+materialisoitu silver-kerros fyysinen taulu ei näkymä identity ei toimi näkymässä
+avaimet materialisoidaan ennen faktataulun latausta bi-kerros
+scd type 1 type 2 unique-rajoite voimassaoloaika onkonykyinen alkupvm loppupvm
+inkrementaalinen lataus staging cdc merge suuri dimensio miljoonia rivejä
+vaihejärjestys sulje vanha rivi ennen uuden avaimen luontia
+älä luo surrogaatteja hashista md5 sha256 törmäysriski
+dimensio ladataan ennen faktaa vierasavain haamufakta
+sql server create table insert update dataneuvoksen mielipide`,
+
 
 'data-vault.html': `data vault skaalautuva auditoitava tietomallinnusmenetelmä suurten muuttuvien tietovarastojen hallinta
 dan linstedt tiimi 1990-luvulla lockheed martin yritystason tietovarastot lähdejärjestelmien muutokset historia jäljitettävyys
