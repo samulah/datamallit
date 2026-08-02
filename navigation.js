@@ -32,11 +32,11 @@ class MainNavigation extends HTMLElement {
         this.innerHTML = `
             <nav class="simple-nav">
                 <div class="nav-brand">
-                    <a href="index.html" class="nav-logo-link" title="Etusivu">
+                    <a href="/" class="nav-logo-link" title="Etusivu">
                         <img src="kuvat/logo-176.png" alt="Dataneuvos" class="nav-logo" width="30" height="30">
                     </a>
                     <div class="nav-brand-teksti">
-                        <a href="index.html" class="nav-site-name">datamalli.fi</a>
+                        <a href="/" class="nav-site-name">datamalli.fi</a>
                         <span class="nav-tagline">Datan mallinnuksen opas</span>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ class MainNavigation extends HTMLElement {
             footer.className = 'sivusto-footer';
             footer.innerHTML = `
                 <div class="footer-logo-rivi">
-                    <a href="index.html" class="footer-logo-link" title="Etusivu">
+                    <a href="/" class="footer-logo-link" title="Etusivu">
                         <img src="kuvat/logo-176.png" alt="Dataneuvos" class="footer-logo" width="44" height="44">
                     </a>
                 </div>
