@@ -54,10 +54,49 @@ Listaa sivut jotka:
 Käy kaikki `href`-attribuutit läpi kaikista HTML-tiedostoista. Tarkista että repon juuressa on
 kohdetiedosto. Raportoi puuttuvat.
 
-### 7. Päivityslista
+### 7. "Katso myös" -verkoston tarkistus
+
+`katso-myos`-osiot ovat sivujen omissa tiedostoissa (`<section class="katso-myos" data-kortit="...">`),
+eikä generaattori luo niitä — vain skriptitagit. Uusi sivu jää siis helposti irralleen verkostosta.
+Tarkista neljä asiaa:
+
+1. **Onko jokaisella julkaistulla artikkelisivulla `katso-myos`-osio?** Meta- ja hakemistosivut
+   (`index`, `sivupohja`, `paivitykset`, `tietosuoja`, `tietoa`, `termisto`) eivät tarvitse.
+2. **Osoittaako jokin `katso-myos` keskeneräiselle (`noindex`) tai olemattomalle sivulle?** Nämä
+   renderöityvät rikkinäisinä kortteina.
+3. **Saako jokainen julkaistu artikkeli vähintään yhden saapuvan `katso-myos`-linkin?** Ilman sitä
+   sivu on orpo: siihen pääsee vain navigaatiosta ja etusivulta.
+4. **Onko juuri julkaistu sivu lisätty aiheeltaan läheisten sivujen listoihin?** Esim. uuden
+   `surrogaattiavaimet.html`:n pitää löytyä ainakin `avaimet-ja-relaatiot.html`:n listasta. Pelkkä
+   uuden sivun oma lista ei riitä — linkkien pitää osoittaa myös sisäänpäin.
+
+Korttirivi on `grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))`, joten viides ja kuudes
+kortti rivittyvät siististi. Listaan saa siis lisätä poistamatta olemassa olevia.
+
+### 8. ✨ Uutuus -merkkien tarkistus
+
+Merkki tulee sivun omasta `<meta name="kortti-badge" content="uutuus">`-tagista, ei etusivulta.
+Sen poistaminen etusivun näkymästä ei siis onnistu `index.html`:ää muokkaamalla.
+
+1. **Listaa kaikki sivut joilla on `kortti-badge: uutuus`.** Merkin pitäisi olla vain viimeksi
+   julkaistuilla sivuilla — tarkista että edellisen julkaisukierroksen sivuilta se on **poistettu
+   niiden omasta `<head>`-lohkosta**, ei vain etusivulta.
+2. **Tarkista ettei merkki ole keskeneräisellä (`noindex`) sivulla** — se ei näy etusivulla mutta
+   ilmestyy heti kun sivu julkaistaan.
+3. **Tarkista että merkki näkyy etusivulla sekä ylhäällä että alhaalla.** Kortit renderöityvät
+   kategorioittain siihen kohtaan `index.html`:ää missä kategoria on. Jos kaikki uutuudet osuvat
+   samaan kategoriaan, ne kasautuvat yhteen kohtaan sivua. Etsi `index.html`:stä
+   `<div class="uutuus-badge">` ja katso mihin kategorioihin ne osuvat — hyvässä tapauksessa
+   uutuuksia on sekä ensimmäisissä että viimeisissä kategorioissa.
+
+### 9. Päivityslista
 
 Jos muutokset ollaan viemässä gittiin, lisää merkintä `paivitykset.html`:ään ja päivitä
 `navigation.js`:n `SIVUSTO_PAIVITETTY` samaan päivämäärään.
+
+Jos sivun `datePublished` on tulevaisuudessa (ajastettu julkaisu), käytä päivityslistan merkinnässä
+ja `SIVUSTO_PAIVITETTY`-vakiossa **samaa päivää kuin sivun julkaisupäivä**, ei tätä päivää — muuten
+päivityslista väittää sivun ilmestyneen ennen kuin se sen oman bylinen mukaan ilmestyi.
 
 ---
 
@@ -88,4 +127,15 @@ Jos muutokset ollaan viemässä gittiin, lisää merkintä `paivitykset.html`:ä
 
 ### Rikkoutuneet linkit
 - OK / [puuttuvat tiedostot]
+
+### Katso myös -verkosto
+- Ilman osiota: [sivut] / ei yhtään
+- Linkkejä keskeneräisiin: [sivu -> kohde] / ei yhtään
+- Orpoja (ei saapuvia linkkejä): [sivut] / ei yhtään
+- Uusien sivujen saapuvat linkit: sivu.html — N kpl [mistä]
+
+### Uutuus-merkit
+- Merkki päällä: [sivut]
+- Poistettu edellisiltä: [sivut] / ei tarvetta
+- Etusivun sijainti: ylhäällä [kategoria], alhaalla [kategoria]
 ```
