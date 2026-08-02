@@ -8,7 +8,7 @@
   <meta name="kortti-otsikko" content="Tietoa sivustosta">
   <meta name="kortti-kuvaus" content="Kuka datamalli.fi:n takana on ja mihin sivusto tähtää — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.">
   <meta name="lukemisaika" content="3">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/tietoa.html">
   <meta name="description"
     content="Datamalli.fi:n takana on Samu Lahdenperä, Power BI- ja tietomallinnusasiantuntija. Lue kuka kirjoittaa ja miksi sivusto on olemassa.">
@@ -68,6 +68,10 @@
   }
   </script>
   <title>Kuka on Dataneuvos? – Samu Lahdenperä | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=11" defer></script>
   <style>

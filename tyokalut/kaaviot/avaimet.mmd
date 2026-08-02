@@ -1,0 +1,12 @@
+erDiagram
+    DimAsiakas {
+      int AsiakasAvain PK
+      string AsiakasNimi
+      string Kaupunki
+    }
+    FactMyynti {
+      int MyyntiAvain PK
+      int AsiakasAvain FK
+      decimal Myyntisumma
+    }
+    DimAsiakas ||--o{ FactMyynti : "1 → *"

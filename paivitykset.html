@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="lukemisaika" content="3">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <meta name="lukemisaika" content="4">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/paivitykset.html">
   <meta name="description" content="Päivityslista datamalli.fi-sivustolle tehdyistä muutoksista ja uusista sisällöistä.">
   <meta property="og:type" content="website">
@@ -34,6 +34,10 @@
   }
   </script>
   <title>Päivitykset | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=11" defer></script>
 </head>
@@ -46,6 +50,15 @@
 
   <p>Tälle sivulle kirjataan jokainen datamalli.fi:hin tehty sisällöllinen muutos: uudet sivut, päivitetyt tiedot ja korjaukset. Uusimmat ylimpänä.</p>
 
+  <div class="paivitys-merkinta">
+    <h2>2.8.2026</h2>
+    <ul>
+      <li>Nopeutettu sivuja <a href="litistaminen.html">Taulujen litistäminen</a> ja <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> merkittävästi: kaaviot piirsi aiemmin selaimessa Mermaid-kirjasto, jonka lataaminen pysäytti sivun näyttämisen ja toi mukanaan 3,5 megatavua koodia. Kaaviot on nyt piirretty valmiiksi, joten kirjastoa ei ladata lainkaan. Kaavioiden teksti on samalla muuttunut koneluettavaksi — myös hakukoneet ja tekoälyhaut näkevät nyt kaavion sisällön.</li>
+      <li>Kevennetty sivuston logoa: aiemmin jokainen sivu latasi 1000 × 1000 pikselin kuvan, joka näytettiin 30 pikselin kokoisena. Nyt ladataan sopivan kokoinen versio, ja selaimen välilehtikuvake on oma pieni tiedostonsa. Säästää noin 70 kilotavua jokaisella sivulatauksella.</li>
+      <li>Kirjasimet ladataan nyt heti sivun alussa, jolloin teksti ei enää vaihda ulkoasuaan kesken lukemisen.</li>
+      <li>Korjattu etusivun nykiminen: "Termi päivässä" -korteille varataan tila etukäteen, joten sivun sisältö ei enää hyppää alaspäin korttien ilmestyessä.</li>
+    </ul>
+  </div>
   <div class="paivitys-merkinta">
     <h2>27.7.2026</h2>
     <ul>

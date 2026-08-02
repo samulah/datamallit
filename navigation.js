@@ -10,7 +10,7 @@
             <div class="splash-rengas splash-rengas-1"></div>
             <div class="splash-rengas splash-rengas-2"></div>
             <div class="splash-rengas splash-rengas-3"></div>
-            <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="splash-logo">
+            <img src="kuvat/logo-176.png" alt="Dataneuvos" class="splash-logo" width="88" height="88">
         </div>
         <span class="splash-nimi">datamalli.fi</span>
         <span class="splash-alaotsikko">Datan mallinnuksen opas</span>
@@ -25,7 +25,7 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '27.7.2026';
+const SIVUSTO_PAIVITETTY = '2.8.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {
@@ -33,7 +33,7 @@ class MainNavigation extends HTMLElement {
             <nav class="simple-nav">
                 <div class="nav-brand">
                     <a href="index.html" class="nav-logo-link" title="Etusivu">
-                        <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="nav-logo">
+                        <img src="kuvat/logo-176.png" alt="Dataneuvos" class="nav-logo" width="30" height="30">
                     </a>
                     <div class="nav-brand-teksti">
                         <a href="index.html" class="nav-site-name">datamalli.fi</a>
@@ -68,7 +68,7 @@ class MainNavigation extends HTMLElement {
             footer.innerHTML = `
                 <div class="footer-logo-rivi">
                     <a href="index.html" class="footer-logo-link" title="Etusivu">
-                        <img src="kuvat/dataneuvos_logo.png" alt="Dataneuvos" class="footer-logo">
+                        <img src="kuvat/logo-176.png" alt="Dataneuvos" class="footer-logo" width="44" height="44">
                     </a>
                 </div>
                 <p>

@@ -13,7 +13,7 @@
        se tulee automaattisesti niin kauan kuin alla oleva noindex on paikallaan.
        <meta name="lukemisaika"> lisätään automaattisesti: python3 tyokalut/rakenna.py -->
   <meta name="robots" content="noindex">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/SIVU.html">
   <meta name="description" content="KUVAUS">
   <meta property="og:type" content="article">
@@ -54,6 +54,10 @@
   }
   </script>
   <title>OTSIKKO | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=11" defer></script>
 </head>

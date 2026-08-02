@@ -10,7 +10,7 @@
   <meta name="tagit" content="tietomalli power-bi ai">
   <meta name="kortti-badge" content="uutuus">
   <meta name="lukemisaika" content="15">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html">
   <meta name="description" content="Sekasikiömalli vs. tähtimalli — viisi Power BI -esimerkkiä huonoimmasta parhaaseen. Näin tietomalli rapautuu, kun jokaiseen pyyntöön sanotaan aina kyllä.">
   <meta property="og:type" content="article">
@@ -55,6 +55,10 @@
   }
   </script>
   <title>Sekasikiömalli vs. tähtimalli: viisi Power BI -esimerkkiä | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=5">
   <script src="navigation.js?v=11" defer></script>
   <script src="sivut.js?v=1" defer></script>

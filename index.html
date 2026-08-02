@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Merkitään JS-tuki ennen ensimmäistä maalausta, jotta CSS voi varata
+       tilan JS:n tuottamille "Termi päivässä" -korteille. -->
+  <script>document.documentElement.classList.add('js');</script>
   <meta name="lukemisaika" content="3">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/">
   <meta name="description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 157 termin sanasto suomeksi.">
   <meta property="og:type" content="website">
@@ -49,6 +52,10 @@
   }
   </script>
   <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=6">
   <script src="navigation.js?v=11" defer></script>
   <script src="search-index.js?v=5" defer></script>
@@ -105,6 +112,22 @@
     #termi-paivassa {
       display: none;
       margin: 20px 0 28px 0;
+    }
+    /* Tila varataan etukäteen, muuten kortit työntävät koko sivun sisältöä
+       alaspäin latautuessaan (CLS heti H1:n alla). Varaus on sidottu
+       .js-luokkaan: ilman JS:ää kortteja ei tule, eikä tyhjää aukkoa jää.
+       Korkeudet on mitattu — työpöydällä kortit ovat rinnakkain (280 px),
+       alle 550 px:n leveydellä allekkain (392–413 px). Varaus on hitusen
+       mitattua suurempi, koska pitkä termin nimi voi rivittyä; ylivaraus
+       näkyy vain kapeana tyhjänä kaistana, alivaraus taas hyppäyksenä. */
+    .js #termi-paivassa {
+      display: block;
+      min-height: 296px;
+    }
+    @media (max-width: 550px) {
+      .js #termi-paivassa {
+        min-height: 420px;
+      }
     }
     /* Näytetään samalla ruudukolla kuin .kortti-rivi: päivän termi ensimmäiseen
        sarakkeeseen ja satunnainen termi sen viereen. Kumpikin on täsmälleen
@@ -403,7 +426,7 @@
         <span>Surrogaattiavaimet, SCD-tyypit 0–6, parhaat käytännöt ja Power BI:n suorituskykyrajat eri kokoisilla dimensioilla.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
       </a>
-      <a class="kortti" href="litistaminen.html" data-tags="tietomalli power-bi perusteoria" data-min="5">
+      <a class="kortti" href="litistaminen.html" data-tags="tietomalli power-bi perusteoria" data-min="4">
         <strong>Taulujen litistäminen (Flattening)</strong>
         <span>Hierarkkisten dimensiotaulujen yhdistäminen yhdeksi leveäksi tauluksi ennen Power BI -latausta. Muuttaa lumihiutaleen tähtimalliksi.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
@@ -413,7 +436,7 @@
         <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
       </a>
-      <a class="kortti" href="avaimet-ja-relaatiot.html" data-tags="tietomalli power-bi perusteoria" data-min="13">
+      <a class="kortti" href="avaimet-ja-relaatiot.html" data-tags="tietomalli power-bi perusteoria" data-min="12">
         <strong>Avaimien ja relaatioiden mallinnus</strong>
         <span>Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>

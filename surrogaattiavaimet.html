@@ -9,7 +9,7 @@
   <meta name="kortti-kuvaus" content="Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.">
   <meta name="tagit" content="tietomalli power-bi perusteoria">
   <meta name="lukemisaika" content="15">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <meta name="robots" content="noindex,nofollow">
   <link rel="canonical" href="https://www.datamalli.fi/surrogaattiavaimet.html">
   <meta name="description"
@@ -55,6 +55,10 @@
   }
   </script>
   <title>Surrogaattiavaimien mallintaminen | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=11" defer></script>
 </head>

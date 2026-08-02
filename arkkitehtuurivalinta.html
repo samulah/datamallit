@@ -9,7 +9,7 @@
   <meta name="tagit" content="arkkitehtuuri tietomalli perusteoria">
   <meta name="lukemisaika" content="13">
   <meta name="robots" content="noindex,nofollow">
-  <link rel="icon" type="image/png" href="kuvat/dataneuvos_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/arkkitehtuurivalinta.html">
   <meta name="description" content="Milloin käyttää tähtimallia, lumihiutalemallia, One Big Tablea, 3NF:ää, Data Vaultia, Medallion-arkkitehtuuria tai Data Meshia? Vertailutaulukot ja käytännön ohjeet arkkitehtuurivalintaan.">
   <meta property="og:type" content="article">
@@ -52,6 +52,10 @@
   }
   </script>
   <title>Milloin käyttää mitäkin mallia | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
   <script src="navigation.js?v=11" defer></script>
 </head>
