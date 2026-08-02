@@ -49,6 +49,8 @@ class MainNavigation extends HTMLElement {
                     <a href="lumihiutalemalli.html">Lumihiutalemalli</a>
                     <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a>
                     <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>
+                    <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a>
+                    <a href="medallion.html">Medallion</a>
                     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="kehittamisen-filosofia.html">Filosofia</a>
@@ -211,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'ei-additiivinen-mittari':   { fi: 'Ei-additiivinen mittari',      en: 'Non-Additive Measure',   selite: 'Ei voi summata minkään dimension yli. Laske aina DAX-kaavalla kontekstin mukaan.' },
     'granulariteetti':           { fi: 'Granulariteetti',              en: 'Granularity',            selite: 'Faktataulun rivin yksityiskohtaisuuden taso — mitä yksi rivi edustaa. Määrää mihin kysymyksiin malli pystyy vastaamaan.' },
     'scd':                       { fi: 'SCD',                          en: 'Slowly Changing Dimension', selite: 'Dimension muutostenkäsittelytapa. Tyyppi 2 säilyttää historian luomalla uuden rivin vanhalle arvolle.' },
+    'scd-type-1':                { fi: 'SCD Type 1',                   en: 'Slowly Changing Dimension, Type 1', selite: 'Dimension muutostenkäsittely, jossa vanha arvo ylikirjoitetaan uudella. Historia häviää. Sopii silloin kun muutos on korjaus eikä liiketoiminnallinen tapahtuma — esimerkiksi kirjoitusvirhe asiakkaan nimessä.' },
+    'scd-type-2':                { fi: 'SCD Type 2',                   en: 'Slowly Changing Dimension, Type 2', selite: 'Dimension muutostenkäsittely, jossa muutos tuottaa uuden rivin. Vanha rivi säilyy, joten historiallinen raportointi toimii oikein. Vaatii surrogaattiavaimen ja voimassaoloaikasarakkeet. Yleisin SCD-tyyppi.' },
     'vertipaq':                  { fi: 'VertiPaq',                     en: 'VertiPaq',               selite: 'Power BI:n muistimoottori. Pakkaa datan sarake kerrallaan — matala kardinaliteetti pakkautuu parhaiten.' },
     'etl':                       { fi: 'ETL',                          en: 'Extract, Transform, Load', selite: 'Prosessi jossa data poimitaan lähdejärjestelmästä, muunnetaan ja ladataan kohdetietokantaan.' },
     'medallion-arkkitehtuuri':   { fi: 'Medallion-arkkitehtuuri',      en: 'Medallion Architecture', selite: 'Kolmikerroksinen arkkitehtuuri: Bronze (raakadata), Silver (puhdistettu) ja Gold (raportoinnille valmis).' },
@@ -229,6 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'sentinel-rivi':             { fi: 'Sentinel-rivi',                  en: 'Sentinel Row',               selite: 'Dimensiotauluun ennalta lisätty rivi, joka kerää alleen puuttuvat, tuntemattomat ja poistetut viittaukset (Ei tiedossa, Anonyymi, [Poistettu]). Saa oman surrogaattiavaimen, joten faktataulun vierasavain löytää aina vastineen eikä Power BI luo automaattista tyhjää riviä.' },
     'valitaulu':                 { fi: 'Välitaulu',                      en: 'Bridge Table',               selite: 'Aputaulu, joka purkaa hankalan monen-moneen-suhteen kahdeksi hallituksi yksi-moneen-suhteeksi. Sisältää uniikit yhdistelmät kahden taulun avaimista ja toimii niiden välissä siltana.' },
     'yhdenmukaistettu-dimensio': { fi: 'Yhdenmukaistettu dimensio',      en: 'Conformed Dimension',        selite: 'Dimensio, jota käytetään samanlaisena useammassa faktataulussa — sama taulu, samat sarakkeet ja arvot. Mahdollistaa faktataulujen yhdistelyn raporteissa ilman ristiriitoja.' },
+    'faktataulu':                { fi: 'Faktataulu',                     en: 'Fact Table',                 selite: 'Tähtimallin keskeinen taulu, joka sisältää mitattavia tapahtumia kuten myyntejä, tilauksia tai laskutuksia. Rivit koostuvat enimmäkseen luvuista ja avaimista, ja tauluun viitataan dimensioiden kautta.' },
+    'dimensiotaulu':             { fi: 'Dimensiotaulu',                  en: 'Dimension Table',            selite: 'Kuvaileva taulu, joka vastaa kysymyksiin kuka, mitä, missä ja milloin. Sisältää attribuutteja kuten asiakkaan nimi, tuotteen kategoria tai päivämäärä.' },
+    'tietovarasto':              { fi: 'Tietovarasto (DWH)',             en: 'Data Warehouse',             selite: 'Keskitetty, jäsennelty data-alusta, johon eri lähdejärjestelmien data yhdistetään raportointia ja analytiikkaa varten.' },
   };
 
   const css = document.createElement('style');

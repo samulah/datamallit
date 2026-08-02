@@ -57,7 +57,7 @@
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=11" defer></script>
+  <script src="navigation.js?v=12" defer></script>
   <script src="search-index.js?v=5" defer></script>
   <script src="search.js?v=2" defer></script>
   <script src="termi-lotto-data.js?v=2" defer></script>
@@ -397,16 +397,14 @@
 
   <div class="kategoria">
     <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
-    <div class="kortti-rivi" data-kortit="tietomalli.html sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html header-detail.html useampi-fakta.html">
+    <div class="kortti-rivi" data-kortit="tietomalli.html sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html surrogaattiavaimet.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
       <a class="kortti" href="tietomalli.html" data-tags="tietomalli perusteoria power-bi" data-min="7">
-        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Tietomalli</strong>
         <span>Mikä tietomalli on, mitä eroa on käsitemallilla, loogisella ja fyysisellä mallilla ja mistä tietomallinnus aloitetaan. Aloitussivu koko aiheeseen.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">perusteoria</span><span class="tagi">Power BI</span></div>
       </a>
       <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="15">
-        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Sekasikiömalli vs tähtimalli</strong>
         <span>Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">AI</span></div>
@@ -441,25 +439,19 @@
         <span>Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.</span>
         <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
       </a>
-      <div class="kortti kesken" data-tags="tietomalli power-bi poikkeustapaus kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Header-Detail-malli</strong>
-        <span>Malli tapahtumatietojen hallintaan, jossa otsikkotaulu (esim. tilaus) ja rivitaulu (esim. tilausrivit) ovat erillään.</span>
-        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">poikkeustapaus</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="tietomalli power-bi dax poikkeustapaus kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Useamman faktataulun malli</strong>
-        <span>Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.</span>
-        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">poikkeustapaus</span></div>
-      </div>
+      <a class="kortti" href="surrogaattiavaimet.html" data-tags="tietomalli power-bi perusteoria" data-min="16">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Surrogaattiavaimien mallintaminen</strong>
+        <span>Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
       <!-- KORTIT:loppu -->
     </div>
   </div>
 
   <div class="kategoria">
     <h2>Hallinta ja laatu</h2>
-    <div class="kortti-rivi" data-kortit="nimeamiskaytannot.html ai-valmis-metadata.html data-governance.html data-contract.html">
+    <div class="kortti-rivi" data-kortit="nimeamiskaytannot.html ai-valmis-metadata.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
       <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
         <strong>Nimeämiskäytännöt</strong>
@@ -471,18 +463,6 @@
         <span>Mitä tauluista, sarakkeista ja mittareista kannattaa kuvata tietovarastossa ja Power BI:ssä, jotta Copilot ja muut AI-työkalut toimivat luotettavasti.</span>
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">AI</span><span class="tagi">tietomalli</span></div>
       </a>
-      <div class="kortti kesken" data-tags="hallinta perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Data Governance</strong>
-        <span>Datan omistajuus, laadunvarmistus, metadatan hallinta, elinkaari ja tietosuoja. Vastaukset keskeisimpiin hallintakysymyksiin dataneuvoksen suosituksineen.</span>
-        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="hallinta perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Data Contract</strong>
-        <span>Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä muodossa, millä laadulla ja kenen vastuulla.</span>
-        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
-      </div>
       <!-- KORTIT:loppu -->
     </div>
   </div>
@@ -528,33 +508,15 @@
   </div>
 
   <div class="kategoria">
-    <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit <span class="otsikko-tulossa">tulossa</span></span></h2>
-    <div class="kortti-rivi" data-kortit="arkkitehtuurivalinta.html data-vault.html medallion.html etl-elt.html">
+    <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit</span></h2>
+    <div class="kortti-rivi" data-kortit="medallion.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
-      <div class="kortti kesken" data-tags="arkkitehtuuri tietomalli perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Milloin käyttää mitäkin mallia</strong>
-        <span>Vertailutaulukot ja käytännön ohjeet: tähtimalli, lumihiutalemalli, Data Vault, Data Mesh, ETL ja ELT — milloin kukin on hyvä, milloin huono ja miksi.</span>
-        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">tietomalli</span><span class="tagi">perusteoria</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="arkkitehtuuri tietomalli kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>Data Vault</strong>
-        <span>Skaalautuva ja auditoitava tietovarastoarkkitehtuuri. Perustuu hub-, satellite- ja link-tauluihin. Sopii erityisesti historiallisten tietojen hallintaan.</span>
-        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">tietomalli</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="arkkitehtuuri perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
+      <a class="kortti" href="medallion.html" data-tags="arkkitehtuuri perusteoria" data-min="11">
+        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Medallion-arkkitehtuuri</strong>
         <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
         <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
-      </div>
-      <div class="kortti kesken" data-tags="arkkitehtuuri perusteoria kesken">
-        <div class="kesken-badge">🚧 Tulossa</div>
-        <strong>ETL ja ELT</strong>
-        <span>Kaksi päälähestymistapaa datan siirtämiseen lähdejärjestelmistä kohdeympäristöön. Missä ja milloin data muunnetaan?</span>
-        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
-      </div>
+      </a>
       <!-- KORTIT:loppu -->
     </div>
   </div>

@@ -57,7 +57,7 @@
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=6">
-  <script src="navigation.js?v=11" defer></script>
+  <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
 </head>
@@ -138,6 +138,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
   <div class="fakta-laatikko">
     <strong>Ennen litistämistä — 3 taulua hierarkiassa:</strong>
     <table>
+      <caption>Taulukko 1, Yritys – Hierarkian ylin taso lumihiutalemallissa</caption>
       <thead>
         <tr>
           <th>Yritys</th>
@@ -152,6 +153,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
       </tbody>
     </table>
     <table>
+      <caption>Taulukko 2, Liiketoimintaryhmä – Hierarkian keskitaso, viittaa yritykseen vierasavaimella</caption>
       <thead>
         <tr>
           <th>Liiketoimintaryhmä</th>
@@ -173,6 +175,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
       </tbody>
     </table>
     <table>
+      <caption>Taulukko 3, Kustannuspaikka – Hierarkian alin taso, viittaa liiketoimintaryhmään vierasavaimella</caption>
       <thead>
         <tr>
           <th>Kustannuspaikka</th>
@@ -203,6 +206,7 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
   <div class="fakta-laatikko">
     <strong>Litistämisen jälkeen — 1 taulu:</strong>
     <table>
+      <caption>Taulukko 4, V_D_Kustannuspaikka – Kolme hierarkiatasoa litistettynä yhdeksi dimensiotauluksi</caption>
       <thead>
         <tr>
           <th>KpID</th>
@@ -247,6 +251,8 @@ JOIN Yritys             AS y  ON r.YritysID  = y.YritysID</code></pre>
   <div class="fakta-laatikko">
     <strong>Litistämisen jälkeen — yhdistelmäkentillä:</strong>
     <table>
+      <caption>Taulukko 5, V_D_Kustannuspaikka yhdistelmäkentillä – Numeerinen avain ja selkokielinen nimi samassa
+        sarakkeessa</caption>
       <thead>
         <tr>
           <th>KpID</th>

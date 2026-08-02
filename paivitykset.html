@@ -39,7 +39,7 @@
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css?v=4">
-  <script src="navigation.js?v=11" defer></script>
+  <script src="navigation.js?v=12" defer></script>
 </head>
 
 <body>
@@ -53,6 +53,9 @@
   <div class="paivitys-merkinta">
     <h2>2.8.2026</h2>
     <ul>
+      <li>Julkaistu kaksi uutta sivua: <a href="medallion.html">Medallion-arkkitehtuuri</a> kertoo mistä Bronze–Silver–Gold-kerrosjaossa on kyse ja milloin kolme kerrosta on ylimitoitettu, ja <a href="surrogaattiavaimet.html">Surrogaattiavaimien mallintaminen</a> käy läpi missä kerroksessa avaimet luodaan, miten mapping-taulu rakennetaan ja miten inkrementaalinen lataus toimii. Molemmilla sivuilla on SQL-koodi kokonaisuudessaan, ei pseudokoodina.</li>
+      <li>Täsmennetty molemmille sivuille, että surrogaattiavaimet <strong>materialisoidaan</strong> Silver-tasolla eli kirjoitetaan fyysisiin tauluihin, ja että se tehdään ennen faktataulun latausta. Asia oli aiemmin vain rivien välissä: sivujen SQL käyttää IDENTITY-saraketta, jota ei voi määritellä näkymässä, mutta sitä ei sanottu ääneen. Näkymäpohjaisessa Silverissä avainta ei kirjoiteta mihinkään, jolloin koko INT-avaimen hyöty jää saamatta.</li>
+      <li>Siivottu etusivulta keskeneräisten sivujen "Tulossa"-laatikot. Etusivu näyttää nyt vain sivut jotka on oikeasti kirjoitettu — aiemmin seitsemän korttia lupasi sisältöä jota ei ollut. Sivut eivät ole kadonneet mihinkään, ne palaavat etusivulle kun ne julkaistaan.</li>
       <li>Nopeutettu sivuja <a href="litistaminen.html">Taulujen litistäminen</a> ja <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> merkittävästi: kaaviot piirsi aiemmin selaimessa Mermaid-kirjasto, jonka lataaminen pysäytti sivun näyttämisen ja toi mukanaan 3,5 megatavua koodia. Kaaviot on nyt piirretty valmiiksi, joten kirjastoa ei ladata lainkaan. Kaavioiden teksti on samalla muuttunut koneluettavaksi — myös hakukoneet ja tekoälyhaut näkevät nyt kaavion sisällön.</li>
       <li>Kevennetty sivuston logoa: aiemmin jokainen sivu latasi 1000 × 1000 pikselin kuvan, joka näytettiin 30 pikselin kokoisena. Nyt ladataan sopivan kokoinen versio, ja selaimen välilehtikuvake on oma pieni tiedostonsa. Säästää noin 70 kilotavua jokaisella sivulatauksella.</li>
       <li>Kirjasimet ladataan nyt heti sivun alussa, jolloin teksti ei enää vaihda ulkoasuaan kesken lukemisen.</li>
