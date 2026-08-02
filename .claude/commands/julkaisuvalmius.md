@@ -58,7 +58,7 @@ kohdetiedosto. Raportoi puuttuvat.
 
 `katso-myos`-osiot ovat sivujen omissa tiedostoissa (`<section class="katso-myos" data-kortit="...">`),
 eikä generaattori luo niitä — vain skriptitagit. Uusi sivu jää siis helposti irralleen verkostosta.
-Tarkista neljä asiaa:
+Tarkista viisi asiaa:
 
 1. **Onko jokaisella julkaistulla artikkelisivulla `katso-myos`-osio?** Meta- ja hakemistosivut
    (`index`, `sivupohja`, `paivitykset`, `tietosuoja`, `tietoa`, `termisto`) eivät tarvitse.
@@ -69,6 +69,9 @@ Tarkista neljä asiaa:
 4. **Onko juuri julkaistu sivu lisätty aiheeltaan läheisten sivujen listoihin?** Esim. uuden
    `surrogaattiavaimet.html`:n pitää löytyä ainakin `avaimet-ja-relaatiot.html`:n listasta. Pelkkä
    uuden sivun oma lista ei riitä — linkkien pitää osoittaa myös sisäänpäin.
+5. **Onko juuri julkaistu sivu listan ensimmäisenä?** `data-kortit` renderöityy siinä järjestyksessä
+   kuin se on kirjoitettu, joten uutuus jää muuten viimeiseksi kortiksi — pahimmillaan toiselle riville
+   omaksi orvokseen. Uutuusmerkin saanut sivu kuuluu jokaisen listan kärkeen.
 
 Korttirivi on `grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))`, joten viides ja kuudes
 kortti rivittyvät siististi. Listaan saa siis lisätä poistamatta olemassa olevia.
@@ -83,7 +86,15 @@ Sen poistaminen etusivun näkymästä ei siis onnistu `index.html`:ää muokkaam
    niiden omasta `<head>`-lohkosta**, ei vain etusivulta.
 2. **Tarkista ettei merkki ole keskeneräisellä (`noindex`) sivulla** — se ei näy etusivulla mutta
    ilmestyy heti kun sivu julkaistaan.
-3. **Tarkista että merkki näkyy etusivulla sekä ylhäällä että alhaalla.** Kortit renderöityvät
+3. **Tarkista että merkin tyyli on `style.css`:ssä eikä `index.html`:n omassa `<style>`-lohkossa.**
+   `kortit.js` renderöi samat `.uutuus-badge`- ja `.kesken-badge`-elementit myös artikkelisivujen
+   "Katso myös" -osioihin, jotka lataavat vain `style.css`:n. Jos säännöt ovat vain etusivulla, merkki
+   näyttää etusivulla oikealta mutta artikkelisivulla tyylittömältä tekstilohkolta otsikon yläpuolella.
+   Sama ansa koskee jokaista `kortit.js`:n käyttämää luokkaa: `kortti`, `kortti-rivi`, `kortti-tagit`,
+   `tagi`, `kortti-lukemisaika`.
+4. **Jos `style.css` muuttui, nosta välimuistiversio** kaikilla sivuilla samaan lukuun
+   (`style.css?v=N`). Versiot pääsevät helposti eri tahtiin eri sivuilla.
+5. **Tarkista että merkki näkyy etusivulla sekä ylhäällä että alhaalla.** Kortit renderöityvät
    kategorioittain siihen kohtaan `index.html`:ää missä kategoria on. Jos kaikki uutuudet osuvat
    samaan kategoriaan, ne kasautuvat yhteen kohtaan sivua. Etsi `index.html`:stä
    `<div class="uutuus-badge">` ja katso mihin kategorioihin ne osuvat — hyvässä tapauksessa
@@ -133,9 +144,12 @@ päivityslista väittää sivun ilmestyneen ennen kuin se sen oman bylinen mukaa
 - Linkkejä keskeneräisiin: [sivu -> kohde] / ei yhtään
 - Orpoja (ei saapuvia linkkejä): [sivut] / ei yhtään
 - Uusien sivujen saapuvat linkit: sivu.html — N kpl [mistä]
+- Uutuus listan kärjessä: OK / [sivut joissa ei]
 
 ### Uutuus-merkit
 - Merkki päällä: [sivut]
 - Poistettu edellisiltä: [sivut] / ei tarvetta
+- Merkkien tyyli style.css:ssä: OK / vain index.html:ssä
+- style.css?v=N yhtenäinen: OK / [poikkeamat]
 - Etusivun sijainti: ylhäällä [kategoria], alhaalla [kategoria]
 ```
