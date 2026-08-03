@@ -34,7 +34,7 @@ from bs4 import BeautifulSoup
 JUURI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Tiedostot joita ei skannata sivuina lainkaan
-OHITA = {"sivupohja.html"}
+OHITA = {"sivupohja.html", "404.html"}
 
 # Sivut jotka eivät ole sisältösivuja (ei korttia, ei lukemisaikaa), mutta kuuluvat sitemapiin
 EI_KORTTIA = {"index.html", "paivitykset.html", "tietosuoja.html"}

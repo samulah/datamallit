@@ -110,6 +110,15 @@ h3 {
   color: var(--c-primary);
 }
 
+/* Kirjojen otsikot ovat semanttisesti h2 (h1 -> h3 olisi tasohyppy),
+   mutta ne renderöidään h3:n kokoisina kirjakorttien sisällä. */
+.book-content h2 {
+  font-size: 1.17em;
+  font-weight: 500;
+  letter-spacing: normal;
+  margin: 1em 0;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1em;

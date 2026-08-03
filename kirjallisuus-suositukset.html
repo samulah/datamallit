@@ -129,7 +129,7 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
   <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
@@ -233,13 +233,20 @@
     <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
     <a href="tietomalli.html">Tietomalli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
+    <a href="faktataulu.html">Faktataulu</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
     <a href="litistaminen.html">Litistäminen</a> ·
     <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="medallion.html">Medallion</a> ·
     <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
     <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
     <a href="kehittamisen-filosofia.html">Filosofia</a> ·
     <a href="termisto.html">Termistö</a> ·
+    <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="apuohjelmat.html">Apuohjelmat</a> ·
     <a href="tietoa.html">Tietoa</a>
   </nav>
 </noscript>
@@ -258,7 +265,7 @@
           alt="Analyzing Data with Microsoft Power BI and Power Pivot for Excel -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>Analyzing Data with Microsoft Power BI and Power Pivot for Excel</h3>
+        <h2>Analyzing Data with Microsoft Power BI and Power Pivot for Excel</h2>
         <p><strong>Kirjoittajat:</strong> Alberto Ferrari & Marco Russo (2017)</p>
         <p>Kirja rakentaa ymmärryksen siitä, miksi Power BI -tietomalli toimii niin kuin se toimii. Ferrari ja Russo
           selittävät tähtimallin, <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottorin peruslogiikan ja DAX-kielen yhteyden toisiinsa arkkitehtuurin tasolla.</p>
@@ -278,7 +285,7 @@
           alt="The Definitive Guide to DAX -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>The Definitive Guide to DAX</h3>
+        <h2>The Definitive Guide to DAX</h2>
         <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2019)</p>
         <p>Kirja syventyy DAX-kieleen (Data Analysis Expressions) ja <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottorin toimintaan. Se selittää, miten
           moottori pakkaa ja enkoodaa dataa ja miksi sarakkeiden kardinaliteetin vähentäminen on suorituskyvyn kannalta
@@ -299,7 +306,7 @@
         <img src="kuvat/kirjallisuus-suositukset/dax-patterns.jpg" alt="DAX Patterns Second Edition -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>DAX Patterns, Second Edition</h3>
+        <h2>DAX Patterns, Second Edition</h2>
         <p><strong>Kirjoittajat:</strong> Marco Russo & Alberto Ferrari (2021)</p>
         <p>Kirjasta löytyy paljon hyviä suoraan ympäristöön käytettäviä kaavoja. Kaavat noudattavat kaikki tähtimallin
           pohjalle rakennettua sapluunaa. Voit käyttää kaavoja sellaisenaan tai muokata niitä tarpeidesi mukaan. Teos on
@@ -322,7 +329,7 @@
           alt="Star Schema: The Complete Reference -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>Star Schema: The Complete Reference</h3>
+        <h2>Star Schema: The Complete Reference</h2>
         <p><strong>Kirjoittaja:</strong> Christopher Adamson (2010)</p>
         <p>Kattava opas dimensionaaliseen tietovarastosuunnitteluun, joka kattaa sekä perusteet että edistyneet
           tekniikat todellisen maailman monimutkaisiin tilanteisiin. Kirja etenee dimensionaalisen suunnittelun
@@ -346,7 +353,7 @@
           alt="The Data Model Resource Book Revised Edition -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>The Data Model Resource Book, Revised Edition</h3>
+        <h2>The Data Model Resource Book, Revised Edition</h2>
         <p><strong>Kirjoittaja:</strong> Len Silverston (2001)</p>
         <p>A Library of Universal Data Models for All Enterprises — kattava kokoelma valmiita tietomalleja yleisimpiin
           liiketoiminta-alueisiin, kuten henkilöihin, organisaatioihin, tuotteisiin, tilauksiin ja taloushallintoon.
@@ -368,7 +375,7 @@
         <img src="kuvat/kirjallisuus-suositukset/business-bullshit.jpg" alt="Business Bullshit -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>Business Bullshit</h3>
+        <h2>Business Bullshit</h2>
         <p><strong>Kirjoittaja:</strong> André Spicer (2018)</p>
         <p>Kirja tutkii, miksi organisaatioissa puhutaan niin paljon ilman, että sanotaan mitään. Spicer analysoi johdon
           sanahelinää kuten "synergiat", "agiliteetti" ja "disruption" ja osoittaa, kuinka se haittaa oikeaa
@@ -389,7 +396,7 @@
         <img src="kuvat/kirjallisuus-suositukset/rebel-ideas.jpg" alt="Rebel Ideas -kirjan kansi">
       </div>
       <div class="book-content">
-        <h3>Rebel Ideas: The Power of Diverse Thinking</h3>
+        <h2>Rebel Ideas: The Power of Diverse Thinking</h2>
         <p><strong>Kirjoittaja:</strong> Matthew Syed (2019)</p>
         <p>Kirja käsittelee, miksi kognitiivisesti monimuotoiset ryhmät ratkaisevat monimutkaisia ongelmia tehokkaammin
           kuin homogeeniset asiantuntijaryhmät. Syed osoittaa konkreettisilla esimerkeillä, miten erilaiset näkökulmat

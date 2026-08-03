@@ -11,7 +11,9 @@
 - [Sekasikiömalli vs. tähtimalli](https://www.datamalli.fi/sekasikiomalli-vs-tahtimalli.html): Viisi Power BI -esimerkkiä huonoimmasta parhaaseen: orgaanisesti kasvanut sekasikiömalli, moniselitteinen ja yksiselitteinen tähtimalli sekä lumihiutalemalli.
 - [Dimensioiden mallinnus](https://www.datamalli.fi/dimensiot.html): Dimensiotaulut, surrogaattiavaimet, SCD-tyypit ja kardinaliteetin vaikutus suorituskykyyn.
 - [Avaimien ja relaatioiden mallinnus](https://www.datamalli.fi/avaimet-ja-relaatiot.html): Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.
+- [Surrogaattiavaimien mallintaminen](https://www.datamalli.fi/surrogaattiavaimet.html): Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.
 - [Taulujen litistäminen (Flattening)](https://www.datamalli.fi/litistaminen.html): Hierarkkisten taulujen yhdistäminen yhdeksi tähtimallin tauluksi ETL-vaiheessa.
+- [Medallion-arkkitehtuuri](https://www.datamalli.fi/medallion.html): Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.
 - [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
 - [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 157 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
