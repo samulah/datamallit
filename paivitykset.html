@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="lukemisaika" content="4">
+  <meta name="lukemisaika" content="6">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/paivitykset.html">
-  <meta name="description" content="Päivityslista datamalli.fi-sivustolle tehdyistä muutoksista ja uusista sisällöistä.">
+  <meta name="description" content="Julkinen loki datamalli.fi:n muutoksista: uudet sivut, päivitetty sisältö ja korjaukset aikajärjestyksessä. Näet mitä sivustolla on viimeksi tehty.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Päivitykset">
-  <meta property="og:description" content="Päivityslista datamalli.fi-sivustolle tehdyistä muutoksista ja uusista sisällöistä.">
+  <meta property="og:description" content="Julkinen loki datamalli.fi:n muutoksista: uudet sivut, päivitetty sisältö ja korjaukset aikajärjestyksessä. Näet mitä sivustolla on viimeksi tehty.">
   <meta property="og:url" content="https://www.datamalli.fi/paivitykset.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -38,12 +38,34 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
   <script src="navigation.js?v=12" defer></script>
 </head>
 
 <body>
   <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="faktataulu.html">Faktataulu</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+      <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+      <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+      <a href="medallion.html">Medallion</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+      <a href="apuohjelmat.html">Apuohjelmat</a> ·
+      <a href="tietoa.html">Tietoa</a>
+    </nav>
+  </noscript>
 
   <h1>Päivitykset</h1>
   <p class="byline">Ylläpitää <a href="tietoa.html">Samu Lahdenperä</a></p>
@@ -56,6 +78,14 @@
       <li>Julkaistu kaksi uutta sivua: <a href="medallion.html">Medallion-arkkitehtuuri</a> kertoo mistä Bronze–Silver–Gold-kerrosjaossa on kyse ja milloin kolme kerrosta on ylimitoitettu, ja <a href="surrogaattiavaimet.html">Surrogaattiavaimien mallintaminen</a> käy läpi missä kerroksessa avaimet luodaan, miten mapping-taulu rakennetaan ja miten inkrementaalinen lataus toimii. Molemmilla sivuilla on SQL-koodi kokonaisuudessaan, ei pseudokoodina.</li>
       <li>Täsmennetty molemmille sivuille, että surrogaattiavaimet <strong>materialisoidaan</strong> Silver-tasolla eli kirjoitetaan fyysisiin tauluihin, ja että se tehdään ennen faktataulun latausta. Asia oli aiemmin vain rivien välissä: sivujen SQL käyttää IDENTITY-saraketta, jota ei voi määritellä näkymässä, mutta sitä ei sanottu ääneen. Näkymäpohjaisessa Silverissä avainta ei kirjoiteta mihinkään, jolloin koko INT-avaimen hyöty jää saamatta.</li>
       <li>Siivottu etusivulta keskeneräisten sivujen "Tulossa"-laatikot. Etusivu näyttää nyt vain sivut jotka on oikeasti kirjoitettu — aiemmin seitsemän korttia lupasi sisältöä jota ei ollut. Sivut eivät ole kadonneet mihinkään, ne palaavat etusivulle kun ne julkaistaan.</li>
+      <li>Lisätty <a href="medallion.html">Medallion-arkkitehtuuri</a> ja <a href="surrogaattiavaimet.html">Surrogaattiavaimien mallintaminen</a> myös llms.txt-tiedostoon. Se on sivuston sisällysluettelo tekoälyhauille, ja päivän uudet sivut puuttuivat siitä — eli kielimallit eivät löytäneet niitä vaikka hakukoneet löysivät.</li>
+      <li>Lyhennetty neljän sivun hakutuloskuvaukset ja <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> -sivun otsikko. Ne olivat niin pitkiä että Google katkaisi ne kesken lauseen, jolloin lukija näki hakutuloksessa vain alkupään.</li>
+      <li>Korjattu <a href="kirjallisuus-suositukset.html">kirjallisuussivun</a> otsikkotasot: kirjojen nimet olivat kolmannen tason otsikoita ilman toisen tason otsikkoa välissä. Ruudunlukuohjelmat tulkitsevat tällaisen aukon puuttuvaksi sisällöksi. Sivun ulkoasu ei muutu.</li>
+      <li>Estetty sivupohjatiedoston indeksointi robots.txt-tiedostossa. Kyseessä on uuden sivun runko, ei luettava sivu.</li>
+      <li>Kevennetty kirjasintiedostoja 78 kilotavulla. Kirjasimet ovat säädettäviä: samasta tiedostosta saa minkä tahansa lihavuuden välillä 100–1000 ja optisen koon välillä 8–60 pistettä. Sivusto käyttää lihavuuksia 300–600 ja kokoja 10–32, joten loput on nyt karsittu pois. Sivun kahdesta esiladattavasta kirjasimesta lähtee 42 kilotavua, eli noin neljännes. Teksti näyttää täsmälleen samalta kuin ennenkin.</li>
+      <li>Lisätty sivustolle oma virhesivu. Väärä osoite näytti aiemmin palvelimen oletussivun, jossa ei ollut navigaatiota eikä linkkiä takaisin. Uudella sivulla on tavallinen valikko ja neljä reittiä eteenpäin: etusivu ja haku, termistö, tietomallin aloitussivu sekä päivityslista.</li>
+      <li>Täydennetty valikko sivuille, joilla JavaScript ei ole käytössä. Se listasi kymmenen sivua seitsemäntoista sijasta, ja oli ehtinyt eriytyä neljäksi eri versioksi eri sivuilla — yhdellä niistä oli linkki keskeneräiseen sivuun. Nyt kaikilla sivuilla on sama valikko kuin muillakin. Vaikutus näkyy lähinnä hakukoneille, jotka löytävät syvimmät sivut nyt heti.</li>
+      <li>Lisätty ristiinlinkitystä sivujen välille: <a href="tahtimalli.html">tähtimallista</a> faktatauluun ja mallivertailuun, <a href="dimensiot.html">dimensioista</a> surrogaattiavaimiin, <a href="tietomalli.html">tietomallista</a> medallioniin ja <a href="faktataulu.html">faktataulusta</a> avaimiin ja relaatioihin.</li>
     </ul>
   </div>
   <div class="paivitys-merkinta">

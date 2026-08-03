@@ -6,4 +6,8 @@
 User-agent: *
 Allow: /
 
+# Sivupohja ei ole sisältösivu: sen kanoninen osoite on paikanvaraaja
+# (SIVU.html), joka ei ole olemassa. Estetään crawlaus kokonaan.
+Disallow: /sivupohja.html
+
 Sitemap: https://www.datamalli.fi/sitemap.xml

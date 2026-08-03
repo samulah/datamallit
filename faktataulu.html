@@ -87,7 +87,7 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
   <script src="navigation.js?v=12" defer></script>
   <script src="sivut.js?v=1" defer></script>
   <script src="kortit.js?v=2" defer></script>
@@ -100,13 +100,20 @@
       <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
       <a href="tietomalli.html">Tietomalli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="faktataulu.html">Faktataulu</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
       <a href="litistaminen.html">Litistäminen</a> ·
       <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+      <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+      <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+      <a href="medallion.html">Medallion</a> ·
       <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
       <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
       <a href="kehittamisen-filosofia.html">Filosofia</a> ·
       <a href="termisto.html">Termistö</a> ·
+      <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+      <a href="apuohjelmat.html">Apuohjelmat</a> ·
       <a href="tietoa.html">Tietoa</a>
     </nav>
   </noscript>
@@ -118,7 +125,7 @@
   <p>Faktataulu on <a href="tahtimalli.html">tähtimallin</a> laskennallinen ydin: jokainen rivi edustaa yhtä mitattavaa
     tapahtumaa — myyntiä, tilausta, klikkausta tai muuta liiketoiminnan kannalta merkityksellistä tapahtumaa.
     Faktataulussa on luvut, <a href="dimensiot.html">dimensiossa</a> konteksti. Yhteys dimensioihin kulkee
-    kokonaislukumuotoisten vierasavaimien (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>) kautta yksi-moneen-relaatiolla: yhdelle dimensioriville voi löytyä
+    kokonaislukumuotoisten <a href="avaimet-ja-relaatiot.html">vierasavaimien</a> (<a href="termisto.html#vierasavain" class="termi-tip">FK</a>) kautta yksi-moneen-relaatiolla: yhdelle dimensioriville voi löytyä
     tuhansia faktataulun rivejä, mutta jokaisella faktataulun rivillä on tasan yksi vastine jokaisessa dimensiossa. Tämä
     relaatiorakenne on edellytys sille, että Power BI:n <a href="termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-moottori pystyy pakkaamaan datan tehokkaasti ja
     laskemaan mittarit oikein. Faktataulu on vain yksi osa kokonaisuutta — kaikki tietomallit ja mallinnusperiaatteet

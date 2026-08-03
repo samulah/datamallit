@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <meta name="description" content="Sivua ei löytynyt. Datamalli.fi on suomenkielinen opas datan mallinnukseen ja Power BI -kehittämiseen.">
+  <title>Sivua ei löytynyt | Datamalli.fi</title>
+
+  <!-- ============================================================
+       TÄMÄ SIVU ON TARKOITUKSELLA ITSENÄINEN.
+
+       1. Ei style.css- eikä navigation.js-viittausta. Palvelin näyttää
+          tämän sivun sillä osoitteella jota käyttäjä pyysi (esim.
+          /words/jotain), joten suhteelliset polut hajoaisivat — ja
+          absoluuttiset polut taas eivät toimi paikallisessa
+          esikatselussa. Tyylit on siksi upotettu tähän.
+       2. Virhesivun pitää toimia myös silloin kun vika on juuri siinä,
+          ettei jokin tiedosto lataudu.
+       3. Navigaatio on kirjoitettu tähän staattisena, ei
+          navigation.js:n kautta.
+
+       Jos style.css:n värit tai valikko muuttuvat, päivitä myös tämä.
+       Sivun linkit ovat absoluuttisia (/termisto.html) — pakollista,
+       koska sivu voidaan näyttää minkä tahansa polun alla.
+       ============================================================ -->
+  <style>
+    :root {
+      --c-primary: #015E38;
+      --c-bg:      #f6f8f6;
+      --c-surface: #ffffff;
+      --c-text:    #1a2218;
+      --c-muted:   #4a5e48;
+      --font-body: 'Source Serif 4', Georgia, serif;
+      --font-ui:   'DM Sans', system-ui, sans-serif;
+    }
+
+    @font-face {
+      font-family: 'Source Serif 4'; font-style: normal; font-weight: 300 600; font-display: swap;
+      src: url('/fontit/source-serif-4-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212;
+    }
+    @font-face {
+      font-family: 'DM Sans'; font-style: normal; font-weight: 300 600; font-display: swap;
+      src: url('/fontit/dm-sans-normal-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212;
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.75;
+      color: var(--c-text);
+      background: var(--c-bg);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .simple-nav {
+      background-color: #013d25;
+      margin: 0 -20px 36px -20px;
+      padding: 0 20px;
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .nav-brand {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 20px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      padding-right: 20px;
+    }
+    .nav-logo-link { display: flex; align-items: center; padding: 10px 0; text-decoration: none; }
+    .nav-logo {
+      height: 30px; width: 30px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 0 0 1.5px rgba(255,255,255,0.15);
+    }
+    .nav-brand-teksti { display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 10px 0; }
+    .nav-site-name {
+      font-family: var(--font-ui); font-weight: 600; font-size: 0.95em; color: #fff;
+      text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; line-height: 1.2;
+    }
+    .nav-site-name:hover { opacity: 0.8; }
+    .nav-tagline {
+      font-family: var(--font-body); font-style: italic; font-size: 0.70em;
+      color: rgba(255,255,255,0.45); letter-spacing: 0.01em; white-space: nowrap; line-height: 1;
+    }
+    .nav-links { display: flex; flex-wrap: wrap; align-items: stretch; }
+    .nav-links a {
+      font-family: var(--font-ui); font-size: 0.82em; color: rgba(255,255,255,0.65);
+      text-decoration: none; padding: 14px 9px; display: flex; align-items: center;
+      transition: color 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+    h1 {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: var(--c-primary);
+      letter-spacing: -0.01em;
+      margin-top: 28px;
+    }
+    p { margin-top: 0; margin-bottom: 1em; }
+
+    .fakta-laatikko {
+      background-color: var(--c-surface);
+      border-left: 4px solid var(--c-primary);
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .fakta-laatikko ul { margin: 8px 0 0; padding-left: 22px; }
+    .fakta-laatikko li { margin-bottom: 10px; }
+
+    .virhekoodi {
+      font-family: var(--font-ui);
+      font-size: 0.82em;
+      color: var(--c-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 -14px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="simple-nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo-link" title="Etusivu">
+        <img src="/kuvat/logo-176.png" alt="Dataneuvos" class="nav-logo" width="30" height="30">
+      </a>
+      <div class="nav-brand-teksti">
+        <a href="/" class="nav-site-name">datamalli.fi</a>
+        <span class="nav-tagline">Datan mallinnuksen opas</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="/tietomalli.html">Tietomalli</a>
+      <a href="/tahtimalli.html">Tähtimalli</a>
+      <a href="/faktataulu.html">Faktataulu</a>
+      <a href="/dimensiot.html">Dimensiot</a>
+      <a href="/litistaminen.html">Litistäminen</a>
+      <a href="/lumihiutalemalli.html">Lumihiutalemalli</a>
+      <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a>
+      <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>
+      <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a>
+      <a href="/medallion.html">Medallion</a>
+      <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a>
+      <a href="/ai-valmis-metadata.html">AI-valmis metadata</a>
+      <a href="/kehittamisen-filosofia.html">Filosofia</a>
+      <a href="/termisto.html">Termistö</a>
+      <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a>
+      <a href="/apuohjelmat.html">Apuohjelmat</a>
+      <a href="/tietoa.html">Tietoa</a>
+    </div>
+  </nav>
+
+  <p class="virhekoodi">Virhe 404</p>
+  <h1>Sivua ei löytynyt</h1>
+
+  <p>Osoitetta ei ole olemassa. Yleensä syy on toinen näistä: linkissä on kirjoitusvirhe, tai
+    sivu on ollut olemassa mutta se on sittemmin nimetty uudelleen. Sivuston osoitteet eivät
+    muutu ilman syytä, joten jälkimmäinen on harvinaisempi.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Mistä tästä pääsee eteenpäin:</strong>
+    <ul>
+      <li><strong><a href="/">Etusivu</a>.</strong> Kaikki sivut on koottu sinne aiheittain, ja
+        siellä on haku joka käy läpi koko sivuston sisällön.</li>
+      <li><strong><a href="/termisto.html">Termistö</a>.</strong> 157 data-alan termiä suomeksi
+        englanninkielisin vastinein. Jos etsit yksittäisen käsitteen selitystä, se löytyy täältä.</li>
+      <li><strong><a href="/tietomalli.html">Tietomalli</a>.</strong> Aloituspiste koko aiheeseen:
+        mitä tietomalli tarkoittaa, mistä se koostuu ja mistä mallinnus aloitetaan.</li>
+      <li><strong><a href="/paivitykset.html">Päivitykset</a>.</strong> Jos sivu on hiljattain
+        nimetty uudelleen tai julkaistu, muutos näkyy päivityslistalla.</li>
+    </ul>
+  </div>
+
+  <p>Jos tulit tänne sivuston sisäisestä linkistä, linkki on rikki ja se kannattaa kertoa:
+    <a href="mailto:samu@dataneuvos.fi">samu@dataneuvos.fi</a>.</p>
+
+</body>
+
+</html>
