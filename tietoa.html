@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
   <meta name="kortti-otsikko" content="Tietoa sivustosta">
-  <meta name="kortti-kuvaus" content="Kuka datamalli.fi:n takana on ja mihin sivusto tähtää — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.">
-  <meta name="lukemisaika" content="3">
+  <meta name="kortti-kuvaus" content="Kuka datamalli.fi:n takana on ja mitä palveluita saat — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.">
+  <meta name="lukemisaika" content="6">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/tietoa.html">
   <meta name="description"
-    content="Datamalli.fi:n takana on Samu Lahdenperä, Power BI- ja tietomallinnusasiantuntija. Lue kuka kirjoittaa ja miksi sivusto on olemassa.">
+    content="Datamalli.fi:n takana on Samu Lahdenperä, Power BI- ja tietomallinnusasiantuntija. Palvelut: sparrauskumppanuus, tietomallin kuntotarkastus, suorituskykyselvitys.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Kuka on Dataneuvos? – Samu Lahdenperä">
   <meta property="og:description"
-    content="Datamalli.fi:n takana on Samu Lahdenperä, Power BI- ja tietomallinnusasiantuntija. Lue kuka kirjoittaa ja miksi sivusto on olemassa.">
+    content="Datamalli.fi:n takana on Samu Lahdenperä, Power BI- ja tietomallinnusasiantuntija. Palvelut: sparrauskumppanuus, tietomallin kuntotarkastus, suorituskykyselvitys.">
   <meta property="og:url" content="https://www.datamalli.fi/tietoa.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -58,6 +58,64 @@
         ]
       },
       {
+        "@type": "ProfessionalService",
+        "@id": "https://www.datamalli.fi/#dataneuvos",
+        "name": "Dataneuvos",
+        "legalName": "Datamalli Tiimi Oy",
+        "url": "https://dataneuvos.fi",
+        "email": "samu@dataneuvos.fi",
+        "telephone": "+358404115851",
+        "founder": { "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "areaServed": { "@type": "Country", "name": "Suomi" },
+        "knowsLanguage": ["fi", "en"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Datan mallinnuksen ja Power BI:n asiantuntijapalvelut",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sparrauskumppanuus",
+                "description": "Jatkuva tuki BI-tiimille: käytettävissä esimerkiksi 8–10 tuntia viikossa, mallien ja DAXin katselmoinnit sekä mallinnusstandardin ylläpito."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tietomallin kuntotarkastus",
+                "description": "Power BI -semanttisen mallin tai gold-kerroksen auditointi: rakenne, relaatiot, avaimet, nimeämiskäytännöt ja AI-valmius. Tuloksena priorisoitu korjauslista."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Suorituskykyselvitys",
+                "description": "Hitaan raportin tai venyvän päivityksen juurisyyanalyysi: DAX, VertiPaq-kompressio, kardinaliteetit ja päivitysikkuna."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Toinen mielipide arkkitehtuurista",
+                "description": "Riippumaton kannanotto arkkitehtuurivalintaan: Fabric vai nykyinen ympäristö, Direct Lake vai import, medallion-kerrosten määrä ja mallinnustavan valinta."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dataneuvot",
+                "description": "Maksullinen kertaluontoinen neuvonta yksittäiseen mallinnus-, DAX- tai työkalukysymykseen ilman erillistä projektia."
+              }
+            }
+          ]
+        }
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
@@ -75,26 +133,204 @@
   <link rel="stylesheet" href="style.css?v=8">
   <script src="navigation.js?v=12" defer></script>
   <style>
-    /* Henkilökuva — pienempi portretti, kelluu oikealle työpöydällä */
+    /* Yläosa kahdessa palstassa: esittely vasemmalla, kuva ja yhteystiedot oikealla */
+    .tietoa-yla {
+      display: grid;
+      grid-template-columns: 1fr 250px;
+      gap: 0 36px;
+      align-items: start;
+    }
+
+    .tietoa-yla > * {
+      min-width: 0;
+    }
+
+    .tietoa-teksti h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Henkilökuva — portretti sivupalstan yläreunassa */
     figure.henkilokuva {
-      float: right;
-      width: 240px;
-      max-width: 45%;
-      margin: 8px 0 24px 32px;
+      margin: 6px 0 20px;
     }
 
     figure.henkilokuva img {
-      max-width: 100%;
+      width: 100%;
       margin: 0;
       border-radius: 8px;
     }
 
-    @media (max-width: 600px) {
+    figure.henkilokuva figcaption {
+      font-family: var(--font-ui);
+      font-size: 0.82em;
+      color: var(--c-muted);
+      margin-top: 6px;
+    }
+
+    /* Yhteystietolaatikko kuvan alla */
+    .yhteys-laatikko {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      font-family: var(--font-ui);
+      font-size: 0.88em;
+      line-height: 1.6;
+    }
+
+    .yhteys-laatikko h2 {
+      font-size: 1em;
+      margin: 0 0 10px;
+    }
+
+    .yhteys-laatikko ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+
+    .yhteys-laatikko li {
+      margin-bottom: 5px;
+    }
+
+    .yhteys-laatikko .yhteys-vinkki {
+      margin: 0;
+      font-size: 0.94em;
+      color: var(--c-muted);
+    }
+
+    /* Palvelukortit */
+    .palvelut {
+      margin-top: 40px;
+    }
+
+    .palvelut > h2 {
+      border-bottom: 2px solid var(--c-primary);
+      padding-bottom: 6px;
+    }
+
+    .palvelu-rivi {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin: 26px 0 18px;
+    }
+
+    .palvelu-kortti {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      background: var(--c-surface);
+      padding: 20px 22px 22px;
+    }
+
+    .palvelu-kortti h3 {
+      margin: 0 0 4px;
+      font-size: 1.08em;
+      font-weight: 600;
+    }
+
+    .palvelu-lead {
+      font-style: italic;
+      color: var(--c-muted);
+      margin: 0 0 12px;
+    }
+
+    .palvelu-kortti ul {
+      margin: 0 0 14px;
+      padding-left: 20px;
+      font-size: 0.93em;
+    }
+
+    .palvelu-kortti li {
+      margin-bottom: 5px;
+    }
+
+    .palvelu-tulos {
+      font-size: 0.93em;
+      margin: 0 0 10px;
+    }
+
+    /* Hyötyrivi — sama asia päättäjän kielellä */
+    .palvelu-hyoty {
+      font-family: var(--font-ui);
+      font-size: 0.86em;
+      color: var(--c-muted);
+      border-left: 3px solid var(--c-border);
+      padding-left: 12px;
+      margin: 0 0 16px;
+    }
+
+    /* Hinnat lisätään myöhemmin: poista kommentti kortin hinta-riviltä */
+    .palvelu-hinta {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: var(--c-primary);
+      margin: 0 0 14px;
+    }
+
+    .palvelu-cta {
+      margin: auto 0 0;
+    }
+
+    .nappi {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.87em;
+      font-weight: 600;
+      background: var(--c-primary);
+      color: #fff;
+      padding: 9px 17px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .nappi:hover,
+    .nappi:focus {
+      background: var(--c-primary-hover);
+      color: #fff;
+    }
+
+    /* Maksullinen neuvonta — leveä laatikko, ei tasavertainen kortti */
+    .kysy-laatikko {
+      border: 1px solid var(--c-primary);
+      border-left-width: 4px;
+      border-radius: 6px;
+      background: var(--c-surface);
+      padding: 22px 24px;
+      margin-top: 8px;
+    }
+
+    .kysy-laatikko h3 {
+      margin-top: 0;
+      font-size: 1.08em;
+      font-weight: 600;
+    }
+
+    .kysy-laatikko p:last-of-type {
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 700px) {
+      .tietoa-yla {
+        grid-template-columns: 1fr;
+      }
+
+      /* Kapealla näytöllä kuva ja yhteystiedot nousevat esittelytekstin edelle —
+         muuten portretti jäisi vasta koko työhistorian alapuolelle. */
+      .tietoa-sivupalsta {
+        order: -1;
+      }
+
       figure.henkilokuva {
-        float: none;
-        width: auto;
-        max-width: 280px;
-        margin: 16px auto 24px;
+        max-width: 250px;
+        margin: 16px auto 20px;
+      }
+
+      .yhteys-laatikko {
+        margin-bottom: 28px;
       }
     }
   </style>
@@ -127,7 +363,7 @@
 
   <h1>Tietoa sivustosta</h1>
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
-      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-06-25">25.6.2026</time></p>
+      datetime="2026-06-01">1.6.2026</time> · Päivitetty <time datetime="2026-08-10">10.8.2026</time></p>
 
   <p>Datamalli.fi on suomenkielinen opas datan mallinnukseen ja AI-valmiiseen dataan. Sivusto kokoaa
     käytännönläheistä tietoa tietomalleista, arkkitehtuureista, hallintakäytännöistä ja BI-kehittämisestä
@@ -135,69 +371,211 @@
     ylläpidettäviä, suorituskykyisiä ja AI-aikaan valmiita tietomalleja.</p>
 
 
-  <h2>Kuka sivuston takana on</h2>
+  <div class="tietoa-yla">
+    <div class="tietoa-teksti">
 
-  <figure class="henkilokuva">
-    <img src="kuvat/tietoa/samu.jpg" alt="Samu Lahdenperä, Dataneuvoksen perustaja ja datan mallinnuksen asiantuntija">
-    <figcaption>Samu Lahdenperä</figcaption>
-  </figure>
+      <h2>Kuka sivuston takana on</h2>
 
-  <p>Sivuston rakentaja ja ylläpitäjä on yli 10 vuoden analytiikka- ja konsulttikokemuksen omaava
-    <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> toimitusjohtaja ja perustaja
-    <strong>Samu Lahdenperä</strong>.
-  </p>
+      <p>Sivuston rakentaja ja ylläpitäjä on yli 10 vuoden analytiikka- ja konsulttikokemuksen omaava
+        <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> toimitusjohtaja ja perustaja
+        <strong>Samu Lahdenperä</strong>.
+      </p>
 
-  <p>Samu on ratkaisukeskeinen, korkean tason BI-kehittäjä, joka on erikoistunut datan
-    demokratisointiin, laajojen tietomallien rakentamiseen ja optimointiin sekä
-    liiketoiminnan tarpeiden kääntämiseen ylläpidettäviksi teknisiksi ratkaisuiksi.</p>
+      <p>Samu on ratkaisukeskeinen, korkean tason BI-kehittäjä, joka on erikoistunut datan
+        demokratisointiin, laajojen tietomallien rakentamiseen ja optimointiin sekä
+        liiketoiminnan tarpeiden kääntämiseen ylläpidettäviksi teknisiksi ratkaisuiksi.</p>
 
-  <h2>Koulutus</h2>
+      <h2>Koulutus</h2>
 
-  <p>Diplomi-insinööri (tuotantotalous) LUT-yliopistosta, erikoistumisalueena
-    data-analytiikka päätöksenteossa.</p>
+      <p>Diplomi-insinööri (tuotantotalous) LUT-yliopistosta, erikoistumisalueena
+        data-analytiikka päätöksenteossa.</p>
 
-  <h2>Sertifikaatit</h2>
+      <h2>Sertifikaatit</h2>
 
-  <ul>
-    <li>Microsoft Certified: Fabric Analytics Engineer Associate (2024)</li>
-    <li>Microsoft Certified: Azure Enterprise Data Analyst Associate (2022)</li>
-    <li>Microsoft Certified: Power BI Data Analyst Associate (2021)</li>
-    <li>Mastering DAX (2017)</li>
-  </ul>
+      <ul>
+        <li>Microsoft Certified: Fabric Analytics Engineer Associate (2024)</li>
+        <li>Microsoft Certified: Azure Enterprise Data Analyst Associate (2022)</li>
+        <li>Microsoft Certified: Power BI Data Analyst Associate (2021)</li>
+        <li>Mastering DAX (2017)</li>
+      </ul>
 
-  <h2>Työhistoria ja yrittäjyys</h2>
+      <h2>Työhistoria ja yrittäjyys</h2>
 
-  <p>Samu on tehnyt BI-kehitystyötä vuodesta 2016 alkaen ja toiminut yrittäjänä
-    <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> kautta vuodesta 2022. Yli
-    kahdeksan vuoden aikana hän on johtanut tietomallinnusprojekteja organisaatioissa,
-    joiden datamäärät vaihtelevat sadoista miljoonista riveistä useampaan miljardiin.
-  </p>
+      <p>Samu on tehnyt BI-kehitystyötä vuodesta 2016 alkaen ja toiminut yrittäjänä
+        <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> kautta vuodesta 2022. Yli
+        kahdeksan vuoden aikana hän on johtanut tietomallinnusprojekteja organisaatioissa,
+        joiden datamäärät vaihtelevat sadoista miljoonista riveistä useampaan miljardiin.
+      </p>
 
-  <p><strong>Yleisradiolla</strong> Samu toimi Power BI Lead -roolissa, jossa hän vastasi
-    koko organisaation BI-arkkitehtuurista ja useiden tiimien tietomallien laadusta.
-    <strong>Keusotessa</strong> hän toimi BI Lead -roolissa kehittäen terveydenhuollon
-    analytiikkaratkaisuja vaativaan sote-ympäristöön. <strong>Loihde Analyticsilla</strong>,
-    <strong>Destialla</strong> ja <strong>Postilla</strong> hän on toiminut
-    asiantuntijaroolissa vastaten tietomallinnuksen, DAX-kehittämisen ja Microsoft
-    Fabric -käyttöönoton kokonaisuuksista.
-  </p>
+      <p><strong>Yleisradiolla</strong> Samu toimi Power BI Lead -roolissa, jossa hän vastasi
+        koko organisaation BI-arkkitehtuurista ja useiden tiimien tietomallien laadusta.
+        <strong>Keusotessa</strong> hän toimi BI Lead -roolissa kehittäen terveydenhuollon
+        analytiikkaratkaisuja vaativaan sote-ympäristöön. <strong>Loihde Analyticsilla</strong>,
+        <strong>Destialla</strong> ja <strong>Postilla</strong> hän on toiminut
+        asiantuntijaroolissa vastaten tietomallinnuksen, DAX-kehittämisen ja Microsoft
+        Fabric -käyttöönoton kokonaisuuksista.
+      </p>
 
-  <p>Dataneuvos-yrityksensä kautta Samu toimii nykyisin itsenäisenä konsulttina,
-    auttaen suomalaisia organisaatioita rakentamaan laadukkaita, skaalautuvia ja
-    AI-valmiita tietomalleja Power BI:ssä ja Microsoft Fabricissa. Erityisosaamista
-    ovat datan mallinnus, SQL, DAX, SSAS, Power BI ja Microsoft Fabric.</p>
+      <p>Dataneuvos-yrityksensä kautta Samu toimii nykyisin itsenäisenä konsulttina,
+        auttaen suomalaisia organisaatioita rakentamaan laadukkaita, skaalautuvia ja
+        AI-valmiita tietomalleja Power BI:ssä ja Microsoft Fabricissa. Erityisosaamista
+        ovat datan mallinnus, SQL, DAX, SSAS, Power BI ja Microsoft Fabric.</p>
 
-  <h2>Yhteys</h2>
+    </div>
 
-  <p>
-    <a href="https://dataneuvos.fi" target="_blank" rel="noopener">dataneuvos.fi</a>
-    &nbsp;&middot;&nbsp;
-    <a href="https://www.linkedin.com/in/samulahdenpera/" target="_blank" rel="noopener">LinkedIn</a>
-    &nbsp;&middot;&nbsp;
-    <a href="mailto:samu@dataneuvos.fi">samu@dataneuvos.fi</a>
-    &nbsp;&middot;&nbsp;
-    <a href="tel:+358404115851">+358 40 411 5851</a>
-  </p>
+    <aside class="tietoa-sivupalsta">
+      <figure class="henkilokuva">
+        <img src="kuvat/tietoa/samu.jpg"
+          alt="Samu Lahdenperä, Dataneuvoksen perustaja ja datan mallinnuksen asiantuntija">
+        <figcaption>Samu Lahdenperä</figcaption>
+      </figure>
+
+      <div class="yhteys-laatikko">
+        <h2>Ota yhteyttä</h2>
+        <ul>
+          <li><a href="mailto:samu@dataneuvos.fi">samu@dataneuvos.fi</a></li>
+          <li><a href="tel:+358404115851">+358 40 411 5851</a></li>
+          <li><a href="https://www.linkedin.com/in/samulahdenpera/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://dataneuvos.fi" target="_blank" rel="noopener">dataneuvos.fi</a></li>
+        </ul>
+        <p class="yhteys-vinkki">Mieluiten viestillä: kerro lyhyesti tilanne, niin sovitaan
+          tarkemmin, mitä kannattaa tehdä.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="palvelut">
+    <h2>Palvelut</h2>
+
+    <p>Sivuston sisältö on ilmaista. Sen lisäksi teen samaa työtä toimeksiantoina
+      <strong>Dataneuvoksen (Datamalli Tiimi Oy)</strong> kautta. Alla tavallisimmat paketit —
+      jokainen niistä on rajattu niin, että lopputulos on jotain konkreettista, ei tuntilaskua.
+      Työ tehdään etänä, ja tarvittaessa allekirjoitetaan salassapitosopimus ennen aineiston
+      luovutusta.</p>
+
+    <p>Sertifikaatit ja työhistoria ovat Microsoftin maailmasta, ja siellä osaaminen on syvintä.
+      Se ei kuitenkaan tarkoita, että myisin Microsoftia joka tilanteeseen. En ole
+      teknologiariippuvainen toimija: jos jokin työkalu tai lähestymistapa ei toimi teidän
+      tapauksessanne, sanon sen ääneen — myös silloin, kun se on Microsoftin tuote tai kun se
+      tarkoittaa, ettei minulla ole teille myytävää.</p>
+
+    <div class="palvelu-rivi">
+
+      <article class="palvelu-kortti">
+        <h3>Sparrauskumppanuus</h3>
+        <p class="palvelu-lead">Tiimi osaa tehdä, mutta ei aina tiedä, onko tehty oikein.</p>
+        <ul>
+          <li>Käytettävissä esimerkiksi 8–10 tuntia viikossa — suuntaa antavasti, ei tuntikirjanpitona</li>
+          <li>Mallien ja DAXin katselmoinnit ennen tuotantoon vientiä</li>
+          <li>Kysymyksiin vastaaminen sovitulla kanavalla, ilman erillistä tarjouskierrosta</li>
+          <li>Mallinnusstandardin ja nimeämiskäytäntöjen ylläpito tiimin kasvaessa</li>
+        </ul>
+        <p class="palvelu-tulos"><strong>Lopputulos:</strong> tiimillä on jatkuva pääsy toiseen
+          mielipiteeseen silloin, kun ratkaisu vielä on halpa muuttaa.</p>
+        <p class="palvelu-hyoty">Virheet jäävät kiinni katselmoinnissa eivätkä puoli vuotta
+          myöhemmin, kun malli on jo kymmenen raportin alla.</p>
+        <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
+        <p class="palvelu-hinta">alkaen X XXX € / kk (alv 0 %)</p>
+        -->
+        <p class="palvelu-cta">
+          <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Sparrauskumppanuus">
+            Kysy sparrauksesta</a>
+        </p>
+      </article>
+
+      <article class="palvelu-kortti">
+        <h3>Tietomallin kuntotarkastus</h3>
+        <p class="palvelu-lead">Malli toimii, mutta kukaan ei enää uskalla koskea siihen.</p>
+        <ul>
+          <li>Rakenne läpi joko .pbix-tiedostosta tai gold-kerroksen tauluista:
+            <a href="tahtimalli.html">tähtimalli</a> vai
+            <a href="sekasikiomalli-vs-tahtimalli.html">sekasikiö</a>, kiertävät relaatiot,
+            kaksisuuntaiset suodatukset</li>
+          <li><a href="avaimet-ja-relaatiot.html">Avaimet ja liitokset</a>: puuttuvat
+            <a href="surrogaattiavaimet.html">surrogaattiavaimet</a>, monesta moneen -relaatiot,
+            passiiviset polut</li>
+          <li><a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ja mittarien rakenne —
+            löytääkö raportin tekijä oikean mittarin ilman arvailua</li>
+          <li><a href="ai-valmis-metadata.html">AI-valmius</a>: riittävätkö kuvaukset,
+            synonyymit ja mittarien selkokielisyys Copilotille ja agenteille</li>
+        </ul>
+        <p class="palvelu-tulos"><strong>Lopputulos:</strong> priorisoitu korjauslista — mitä
+          korjataan ensin, mikä voi odottaa ja mihin ei kannata koskea lainkaan. Raportti ja
+          läpikäynti yhdessä tiimin kanssa.</p>
+        <p class="palvelu-hyoty">Uusi kehittäjä pääsee malliin sisään päivissä eikä kuukausissa,
+          ja mallin muuttaminen lakkaa olemasta riski.</p>
+        <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
+        <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
+        -->
+        <p class="palvelu-cta">
+          <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Tietomallin%20kuntotarkastus">
+            Kysy kuntotarkastuksesta</a>
+        </p>
+      </article>
+
+      <article class="palvelu-kortti">
+        <h3>Suorituskykyselvitys</h3>
+        <p class="palvelu-lead">Raportti latautuu 40 sekuntia, eikä kukaan tiedä miksi.</p>
+        <ul>
+          <li>Mittarien DAX läpi: kontekstinsiirto, turhat iteraattorit, päällekkäiset
+            <code>CALCULATE</code>-kerrokset</li>
+          <li>VertiPaq-analyysi: mikä sarake syö muistin, mitkä sarakkeet voi poistaa kokonaan</li>
+          <li>Kardinaliteetit, tietotyypit ja <a href="litistaminen.html">litistämättömät</a>
+            rakenteet</li>
+          <li>Päivitysikkuna: inkrementaalinen lataus ja kyselyiden taittuminen lähteeseen asti</li>
+        </ul>
+        <p class="palvelu-tulos"><strong>Lopputulos:</strong> mitattu lähtötaso, korjaukset
+          tärkeysjärjestyksessä ja arvio siitä, paljonko kukin niistä oikeasti tuo.</p>
+        <p class="palvelu-hyoty">Hidas raportti on käyttämätön raportti — ja käyttämätön raportti
+          on koko investoinnin verran hukkaan mennyttä rahaa.</p>
+        <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
+        <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
+        -->
+        <p class="palvelu-cta">
+          <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Suorituskykyselvitys">
+            Kysy suorituskyvystä</a>
+        </p>
+      </article>
+
+      <article class="palvelu-kortti">
+        <h3>Toinen mielipide arkkitehtuurista</h3>
+        <p class="palvelu-lead">Iso päätös edessä, eikä talon sisällä ole ketään, jolta kysyä.</p>
+        <ul>
+          <li>Fabric, Synapse vai nykyinen ympäristö — ja mitä siirtymä oikeasti maksaa</li>
+          <li>Direct Lake vai import, ja mitä kumpikin tarkoittaa mallin rakenteelle</li>
+          <li><a href="medallion.html">Medallion</a>: tarvitaanko kolme kerrosta vai riittääkö kaksi</li>
+          <li>Data Vault, tähtimalli vai jotain siltä väliltä — ja mihin kohtaan
+            mallinnus kannattaa sijoittaa</li>
+        </ul>
+        <p class="palvelu-tulos"><strong>Lopputulos:</strong> kirjallinen kannanotto
+          perusteluineen ja suora arvio siitä, mikä valinnassa kaatuu ensimmäisenä.</p>
+        <p class="palvelu-hyoty">Väärä arkkitehtuurivalinta maksaa vuosia. Toisen mielipiteen
+          pyytäminen maksaa päiviä.</p>
+        <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
+        <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
+        -->
+        <p class="palvelu-cta">
+          <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Toinen%20mielipide%20arkkitehtuurista">
+            Kysy arkkitehtuurista</a>
+        </p>
+      </article>
+
+    </div>
+
+    <div class="kysy-laatikko">
+      <h3>Kysy Dataneuvokselta</h3>
+      <p>Kaikki ei mahdu pakettiin. Jos kysymys on kertaluontoinen — mallinnusratkaisu,
+        DAX-pulma, mielipide työkaluvalinnasta tai näkemys siitä, onko suunnitelmanne järkevä —
+        siihen saa vastauksen sellaisenaan, ilman että käynnistetään projektia. Neuvonta on
+        maksullista ja hinnoitellaan kysymyksen laajuuden mukaan.</p>
+      <p>Jos kysymys osuu oman osaamiseni ulkopuolelle, sanon sen suoraan — ja voin kysellä asiaa
+        verkostoltani ja alaa osaavilta ihmisiltä. En keksi vastausta, jota minulla ei ole.</p>
+      <p class="palvelu-cta">
+        <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Dataneuvot%20%E2%80%93%20kysymys">
+          Lähetä kysymys</a>
+      </p>
+    </div>
+  </section>
 
 </body>
 

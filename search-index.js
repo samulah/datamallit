@@ -500,6 +500,13 @@ koulutus diplomi-insinööri tuotantotalous lut-yliopisto data-analytiikka
 sertifikaatit microsoft certified fabric analytics engineer azure enterprise data analyst power bi data analyst mastering dax
 työhistoria yrittäjyys freelancer yleisradio keusote loihde analytics destia posti
 ssas snowflake dbt qlik sql
-yhteys linkedin sähköposti puhelin dataneuvos.fi`
+yhteys linkedin sähköposti puhelin dataneuvos.fi
+palvelut konsultointi konsultti myyntipaketit hinnat tarjous toimeksianto
+tietomallin kuntotarkastus auditointi pbix gold-kerros korjauslista
+suorituskykyselvitys hidas raportti dax vertipaq kardinaliteetti päivitysikkuna
+toinen mielipide arkkitehtuuri fabric synapse direct lake import medallion data vault
+sparrauskumppanuus katselmointi tuntipankki jatkuva tuki mallinnusstandardi 8-10 tuntia viikossa
+riippumaton teknologiariippumaton rehellinen mielipide microsoft osaaja ei myy kaikkea
+dataneuvot maksullinen neuvonta kysy kysymys apua ongelma optimointi`
 
 };
