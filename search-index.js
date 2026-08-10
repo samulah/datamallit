@@ -509,7 +509,9 @@ suorituskykyselvitys hidas raportti dax vertipaq kardinaliteetti päivitysikkuna
 toinen mielipide arkkitehtuuri fabric synapse direct lake import medallion data vault
 sparrauskumppanuus katselmointi tuntipankki jatkuva tuki mallinnusstandardi 8-10 tuntia viikossa
 riippumaton teknologiariippumaton rehellinen mielipide microsoft osaaja ei myy kaikkea
-dataneuvot maksullinen neuvonta kysy kysymys apua ongelma optimointi
+dataneuvot maksullinen neuvonta kysy kysymys apua ongelma optimointi ota yhteyttä
+tietovarastoarkkitehtuuri data-arkkitehtuuri datan hallinta governance omistajuus laatusäännöt metatieto
+hinnoittelu tuntihinta 140 euroa alv 25,5 % hinta-arvio työpäivää kesto alkaen
 samu lahdenperä dataneuvos salassapitosopimus etätyö`
 
 };

@@ -6,19 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
   <meta name="kortti-otsikko" content="Palvelut">
-  <meta name="kortti-kuvaus" content="Tietomallin kuntotarkastus, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus — rajattuina paketteina.">
+  <meta name="kortti-kuvaus" content="Tietomallin kuntotarkastus, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus — rajattuina paketteina, hinta-arvioineen.">
   <meta name="tagit" content="tietomalli power-bi">
   <meta name="lukemisaika" content="4">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/palvelut.html">
   <meta name="description"
-    content="Power BI -tietomallin auditointi, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus. Rajatut paketit, konkreettinen lopputulos.">
+    content="Power BI -tietomallin auditointi, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus. Rajatut paketit, hinta-arviot ja konkreettinen lopputulos.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Palvelut – tietomallin auditointi ja suorituskyky">
   <meta property="og:description"
-    content="Power BI -tietomallin auditointi, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus. Rajatut paketit, konkreettinen lopputulos.">
+    content="Power BI -tietomallin auditointi, suorituskykyselvitys, arkkitehtuurin toinen mielipide ja jatkuva sparraus. Rajatut paketit, hinta-arviot ja konkreettinen lopputulos.">
   <meta property="og:url" content="https://www.datamalli.fi/palvelut.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -59,6 +59,13 @@
           "itemListElement": [
             {
               "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": 4500,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "description": "alkaen, kuukaudessa"
+              },
               "itemOffered": {
                 "@type": "Service",
                 "name": "Sparrauskumppanuus",
@@ -67,6 +74,13 @@
             },
             {
               "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": 2400,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "description": "alkaen, tyypillinen kesto 2–4 työpäivää"
+              },
               "itemOffered": {
                 "@type": "Service",
                 "name": "Tietomallin kuntotarkastus",
@@ -75,6 +89,13 @@
             },
             {
               "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": 1200,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "description": "alkaen, tyypillinen kesto 1–3 työpäivää"
+              },
               "itemOffered": {
                 "@type": "Service",
                 "name": "Suorituskykyselvitys",
@@ -83,6 +104,13 @@
             },
             {
               "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": 1200,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "description": "alkaen, tyypillinen kesto 1–2 työpäivää"
+              },
               "itemOffered": {
                 "@type": "Service",
                 "name": "Toinen mielipide arkkitehtuurista",
@@ -91,6 +119,28 @@
             },
             {
               "@type": "Offer",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 140,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "unitCode": "HUR"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Tietovarastoarkkitehtuurin arviointi",
+                "description": "Tietovarastoarkkitehtuurin, data-arkkitehtuurin ja datan hallinnan arviointi: kerrosten työnjako, historian käsittely, latauslogiikka, omistajuudet, laatusäännöt ja metatiedon ylläpito."
+              }
+            },
+            {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": 140,
+                "priceCurrency": "EUR",
+                "valueAddedTaxIncluded": false,
+                "unitCode": "HUR"
+              },
               "itemOffered": {
                 "@type": "Service",
                 "name": "Dataneuvot",
@@ -174,16 +224,33 @@
       margin: 0 0 16px;
     }
 
-    /* Hinnat lisätään myöhemmin: poista kommentti kortin hinta-riviltä */
+    /* Hinta ja nappi tarttuvat kortin alareunaan, jolloin rinnakkaisten
+       korttien hintarivit ovat samalla korkeudella. */
     .palvelu-hinta {
       font-family: var(--font-ui);
+      font-size: 0.92em;
       font-weight: 600;
       color: var(--c-primary);
-      margin: 0 0 14px;
+      margin: auto 0 14px;
+    }
+
+    .palvelu-alv {
+      font-weight: 400;
+      color: var(--c-muted);
+    }
+
+    /* Hinnoitteluperuste: yksi paikka, johon kortit viittaavat */
+    .hinta-perusta {
+      font-family: var(--font-ui);
+      font-size: 0.9em;
+      border-left: 4px solid var(--c-primary);
+      background: var(--c-surface);
+      padding: 14px 18px;
+      margin: 24px 0 0;
     }
 
     .palvelu-cta {
-      margin: auto 0 0;
+      margin: 0;
     }
 
     .nappi {
@@ -294,16 +361,18 @@
   <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time
       datetime="2026-08-10">10.8.2026</time></p>
 
-  <p>Sivuston sisältö on ilmaista. Sen lisäksi teen samaa työtä toimeksiantoina Dataneuvoksen
-    kautta. Jokainen paketti on rajattu niin, että lopputuloksena on dokumentti ja läpikäynti,
-    ei tuntilasku. Teen työn etänä ja allekirjoitan salassapitosopimuksen ennen kuin saan
-    aineiston käsiini.</p>
+  <p>Sivuston sisältö on ilmaista. Teen datan mallintamisen työtä myös toimeksiantoina yritykseni Dataneuvoksen
+    kautta. Tällä sivulla kerron teille palvelupaketeista joita minulla on tarjolla. Voit myös ottaa rohkeasti yhteyttä, sillä kaikki asiat ovat keskusteltavissa ja sovittavissa, myös vaikeat asiat.</p>
 
-  <p>Sertifikaatit ja työhistoria ovat Microsoftin maailmasta, ja siellä osaaminen on syvintä.
-    Se ei tarkoita, että Microsoft on vastaus joka kysymykseen. En ole teknologiariippuvainen
-    toimija: jos työkalu tai lähestymistapa ei toimi teidän tapauksessanne, sanon sen ääneen.
-    Myös silloin, kun kyse on Microsoftin tuotteesta, ja myös silloin, kun se tarkoittaa,
+  <p>Vaikka oma ydinosaamiseni onkin Microsoftin maailmasta en ole silti teknologiauskovainen toimija. En myy teille mitään, enkä suosittele mitään, mikä ei oikeasti toimi. Olen riippumaton
+    toimija; jos työkalu tai lähestymistapa ei toimi teidän tapauksessanne, sanon sen ääneen. Myös silloin, kun kyse on Microsoftin tuotteesta, ja myös silloin, kun se tarkoittaa,
     ettei minulla ole teille myytävää.</p>
+
+  <p class="hinta-perusta"><strong>Hinnoittelu.</strong> Tuntihinta on 140 € (alv 0 %), ja
+    arvonlisävero 25,5 % lisätään laskulle päälle. Korttien hinnat ovat arvioita: ne perustuvat
+    työn tyypilliseen kestoon, ja lopullinen hinta sovitaan, kun tiedän mallin koon ja sen, mitä
+    tavoittelette. Jatkuvassa sparrauksessa tuntihinta on kertatoimeksiantoja matalampi.
+    Ensimmäinen keskustelu on maksuton.</p>
 
   <div class="palvelu-rivi">
 
@@ -322,9 +391,8 @@
         mielipiteeseen silloin, kun ratkaisu vielä on halpa muuttaa.</p>
       <p class="palvelu-hyoty">Virheet jäävät kiinni katselmoinnissa eivätkä puoli vuotta
         myöhemmin, kun malli on jo kymmenen raportin alla.</p>
-      <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
-      <p class="palvelu-hinta">alkaen X XXX € / kk (alv 0 %)</p>
-      -->
+      <p class="palvelu-hinta">alkaen 4 500 € / kk <span class="palvelu-alv">(alv 0 %,
+          8–10 h viikossa)</span></p>
       <p class="palvelu-cta">
         <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Sparrauskumppanuus">
           Kysy sparrauksesta</a>
@@ -352,9 +420,8 @@
         läpikäynti yhdessä tiimin kanssa.</p>
       <p class="palvelu-hyoty">Uusi kehittäjä pääsee malliin sisään päivissä eikä kuukausissa,
         ja mallin muuttaminen lakkaa olemasta riski.</p>
-      <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
-      <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
-      -->
+      <p class="palvelu-hinta">2–4 työpäivää · alkaen 2 400 €
+        <span class="palvelu-alv">(alv 0 %)</span></p>
       <p class="palvelu-cta">
         <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Tietomallin%20kuntotarkastus">
           Kysy kuntotarkastuksesta</a>
@@ -379,9 +446,8 @@
         tärkeysjärjestyksessä ja arvio siitä, paljonko kukin niistä tuo.</p>
       <p class="palvelu-hyoty">Hidas raportti on käyttämätön raportti, ja käyttämätön raportti
         on koko investoinnin verran hukkaan mennyttä rahaa.</p>
-      <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
-      <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
-      -->
+      <p class="palvelu-hinta">1–3 työpäivää · alkaen 1 200 €
+        <span class="palvelu-alv">(alv 0 %)</span></p>
       <p class="palvelu-cta">
         <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Suorituskykyselvitys">
           Kysy suorituskyvystä</a>
@@ -405,9 +471,8 @@
         perusteluineen ja suora arvio siitä, mikä valinnassa kaatuu ensimmäisenä.</p>
       <p class="palvelu-hyoty">Väärä arkkitehtuurivalinta maksaa vuosia. Toisen mielipiteen
         pyytäminen maksaa päiviä.</p>
-      <!-- HINTA: poista kommentti ja täytä luku, kun hinnoittelu on päätetty
-      <p class="palvelu-hinta">alkaen X XXX € (alv 0 %)</p>
-      -->
+      <p class="palvelu-hinta">1–2 työpäivää · alkaen 1 200 €
+        <span class="palvelu-alv">(alv 0 %)</span></p>
       <p class="palvelu-cta">
         <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Toinen%20mielipide%20arkkitehtuurista">
           Kysy arkkitehtuurista</a>
@@ -417,16 +482,21 @@
   </div>
 
   <div class="kysy-laatikko">
-    <h2>Kysy Dataneuvokselta</h2>
-    <p>Kaikki ei mahdu pakettiin. Jos kysymys on kertaluontoinen — mallinnusratkaisu,
-      DAX-pulma, mielipide työkaluvalinnasta tai näkemys siitä, onko suunnitelmanne järkevä —
-      siihen saa vastauksen sellaisenaan, ilman projektia. Neuvonta on maksullista ja
-      hinnoittelen sen kysymyksen laajuuden mukaan.</p>
-    <p>Jos kysymys osuu oman osaamiseni ulkopuolelle, sanon sen suoraan — ja voin kysellä asiaa
+    <h2>Ota yhteyttä</h2>
+    <p>Kaikki ei mahdu pakettiin. Neljä korttia yllä ovat ne toimeksiannot, joita teen useimmin,
+      eivät koko osaamiseni rajat.</p>
+    <p><strong>Tietovarastoarkkitehtuurin arvioinnit onnistuvat myös.</strong> Kerroksien
+      työnjako, historian käsittely, latauslogiikka ja se, kuuluuko mallinnus tietovarastoon vai
+      semanttiseen kerrokseen. Samoin data-arkkitehtuuri kokonaisuutena ja datan hallinta:
+      omistajuudet, laatusäännöt, metatiedon ylläpito ja se, kuka päättää mikä luku on oikea.</p>
+    <p>Kertaluontoinen kysymys ei tarvitse projektia. Mallinnusratkaisu, DAX-pulma, mielipide
+      työkaluvalinnasta tai näkemys siitä, onko suunnitelmanne järkevä, siihen saa vastauksen
+      sellaisenaan. Veloitus käytetyn ajan mukaan, 140 € / h (alv 0 %).</p>
+    <p>Jos kysymys osuu oman osaamiseni ulkopuolelle, sanon sen suoraan, ja voin kysellä asiaa
       verkostoltani ja alaa osaavilta ihmisiltä. En keksi vastausta, jota minulla ei ole.</p>
     <p class="palvelu-cta">
-      <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Dataneuvot%20%E2%80%93%20kysymys">
-        Lähetä kysymys</a>
+      <a class="nappi" href="mailto:samu@dataneuvos.fi?subject=Yhteydenotto%20%E2%80%93%20datamalli.fi">
+        Lähetä viesti</a>
     </p>
   </div>
 

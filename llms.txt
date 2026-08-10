@@ -23,6 +23,6 @@
 
 ## Tietoa
 - [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).
-- [Palvelut](https://www.datamalli.fi/palvelut.html): Asiantuntijapalvelut: sparrauskumppanuus, tietomallin kuntotarkastus, suorituskykyselvitys, toinen mielipide arkkitehtuurista ja maksullinen kertaneuvonta.
+- [Palvelut](https://www.datamalli.fi/palvelut.html): Asiantuntijapalvelut hinta-arvioineen: sparrauskumppanuus, tietomallin kuntotarkastus, suorituskykyselvitys, toinen mielipide arkkitehtuurista, tietovarasto- ja data-arkkitehtuurin arviointi sekä maksullinen kertaneuvonta.
 - [Päivitykset](https://www.datamalli.fi/paivitykset.html): Julkinen loki sivuston sisältömuutoksista.
 - [Tietosuoja](https://www.datamalli.fi/tietosuoja.html): Sivuston tietosuojaseloste.
