@@ -58,6 +58,7 @@ class MainNavigation extends HTMLElement {
                     <a href="kirjallisuus-suositukset.html">Kirjallisuus</a>
                     <a href="apuohjelmat.html">Apuohjelmat</a>
                     <a href="tietoa.html">Tietoa</a>
+                    <a href="palvelut.html">Palvelut</a>
                 </div>
                 <a href="paivitykset.html" class="nav-paivitys" title="Katso päivityslista">Päivitetty ${SIVUSTO_PAIVITETTY}</a>
             </nav>
