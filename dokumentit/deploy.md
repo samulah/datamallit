@@ -24,29 +24,71 @@ yläpuolelle, eikä sinne pääse käsiksi millään osoitteella. Työnkulku ei 
 
 ## Käyttöönotto
 
-Vaiheet 2–4 kannattaa tehdä yhdellä istumalla: niiden välissä sivusto on hetken alhaalla
-(muutama minuutti).
+Vaiheet 2–5 tehdään yhdellä istumalla: vaiheen 4 jälkeen sivusto on alhaalla siihen asti
+kunnes vaihe 5 tuo tiedostot uuteen juureen (muutama minuutti). Tee se hiljaiseen aikaan.
+
+### 0. Esitarkistus
+
+cPanelin **Update from Remote** vetää vain sen branchin, joka on palvelimella
+checkoutattuna — yleensä `main`. Rakennemuutos on siis oltava mergattuna siihen branchiin
+ennen kuin palvelimella tehdään mitään:
+
+```bash
+# paikallisesti
+git checkout main && git merge <työbranch> && git push origin main
+```
+
+Tarkista samalla SSH:lla, ettei palvelimen työpuussa ole käsin muokattuja tiedostoja —
+muuten vaiheen 5 pull kaatuu:
+
+```bash
+cd /home/inflaati/public_html/datamalli
+git status                  # clean; .htaccess ei näy, se on .gitignoressa
+git branch --show-current
+```
 
 ### 1. Pushaa uusi rakenne GitHubiin
 
 Palvelimella ei vielä tapahdu mitään ennen kuin pull ajetaan.
 
-### 2. Luo `sivusto/`-kansio ja siirrä `.htaccess` sinne
+### 2. Luo `sivusto/`-kansio ja kopioi `.htaccess` sinne
 
-cPanel → **File Manager** → `public_html/datamalli`:
+Kansio on luotava **ennen** vaihetta 4: cPanel ei hyväksy dokumenttijuureksi polkua jota
+ei ole olemassa.
 
-1. Luo kansio `sivusto` (jos `git pull` on jo ajettu, se on jo olemassa).
-2. **Kopioi** `.htaccess` kansioon `sivusto/`. Näytä piilotiedostot: Settings → *Show
-   Hidden Files*.
+```bash
+cd /home/inflaati/public_html/datamalli
+mkdir -p sivusto
+cp -p .htaccess sivusto/.htaccess      # kopio, EI siirto
+ls -la sivusto/
+```
 
-`.htaccess` on pakko saada uuteen dokumenttijuureen: siinä ovat turvaotsakkeet (HSTS,
-CSP), verkkotunnusten ohjaukset ja `ErrorDocument 404`. Ilman sitä ne katoavat.
-Vanha kopio vanhaan paikkaan saa jäädä — se muuttuu vaikutuksettomaksi.
+File Managerilla sama: `public_html/datamalli` → **Settings → Show Hidden Files** →
+valitse `.htaccess` → **Copy** → kohteeksi `/public_html/datamalli/sivusto`.
+
+Kolme asiaa tähän kohtaan:
+
+1. **Kopioi, älä siirrä.** Alkuperäinen jää vanhaan juureen, jolloin dokumenttijuuren
+   palauttaminen toimii yhä hätätilanteessa. Se muuttuu vaikutuksettomaksi heti kun juuri
+   vaihtuu.
+2. `.htaccess` on `.gitignoressa` eikä ole koskaan ollut repossa, joten `git pull` **ei
+   koskaan** luo `sivusto/.htaccess`-tiedostoa. Tämä on koko operaation ainoa kohta jota
+   automatiikka ei tee puolestasi: jos se unohtuu, turvaotsakkeet (HSTS, CSP),
+   verkkotunnusten ohjaukset ja `ErrorDocument 404` katoavat samalla sekunnilla kun juuri
+   vaihtuu.
+3. Katso `ls -a`:lla, onko vanhassa juuressa **muita käsin lisättyjä tiedostoja jotka
+   eivät ole gitissä** — tyypillisesti Search Consolen tai Bingin verifiointitiedosto
+   (`google*.html`, `BingSiteAuth.xml`), `.well-known/` tai `ads.txt`. Repossa ei ole
+   yhtäkään tällaista eikä sivuilla ole `google-site-verification`-metatagia, joten jos
+   verifiointi on tehty tiedostolla, se on viety käsin ja jäisi juuren yläpuolelle →
+   verifiointi katkeaa seuraavassa tarkistuksessa. Kopioi löytyneet `sivusto/`-kansioon.
 
 ### 3. Lisää `.htaccess`-sääntö luonnoksille
 
-Keskeneräiset sivut ovat `sivusto/luonnos/`-kansiossa eli dokumenttijuuren sisällä.
-Lisää uuteen `sivusto/.htaccess`-tiedostoon:
+Keskeneräiset sivut ovat `sivusto/luonnos/`-kansiossa eli ainoana keskeneräisenä
+aineistona dokumenttijuuren **sisällä** — kaikki muu suojautuu rakenteella. Lisää uuteen
+`sivusto/.htaccess`-tiedostoon (mihin tahansa kohtaan, mod_alias ei ole
+järjestysriippuvainen):
 
 ```apache
 # Keskeneräiset sivut eivät ole luettavaa sisältöä. 404 eikä 403, jottei
@@ -54,11 +96,19 @@ Lisää uuteen `sivusto/.htaccess`-tiedostoon:
 RedirectMatch 404 ^/luonnos(/|$)
 ```
 
-Loput `.htaccess-lisays`-tiedoston säännöistä (kohdat 5–6: `/words/`, `/tyokalut/`,
-`/raportit/`, `*.md`, `*.py`, `*.docx`, `*.pdf`, `sivupohja.html`) käyvät tarpeettomiksi,
-koska ne osoittavat dokumenttijuuren ulkopuolelle. Ne saa jättää paikoilleen
-kaksinkertaisena varmistuksena. Kohdat 1–4 (turvaotsakkeet, ohjaukset, `ErrorDocument`,
-`Options -Indexes`) pidetään ehdottomasti.
+Polku on juurisuhteellinen uuteen juureen, eli `^/luonnos` osuu osoitteeseen
+`www.datamalli.fi/luonnos/…`.
+
+Palvelimen `.htaccessissa` on lisäksi vanhoja tiedostotyyppikohtaisia estoja
+(`/words/`, `/tyokalut/`, `/raportit/`, `*.md`, `*.py`, `*.docx`, `*.pdf`,
+`sivupohja.html`). Ne käyvät tarpeettomiksi, koska ne osoittavat dokumenttijuuren
+ulkopuolelle, mutta ovat harmittomia — jätä paikoilleen kaksinkertaisena varmistuksena.
+Turvaotsakkeet, ohjaukset, `ErrorDocument` ja `Options -Indexes` pidetään ehdottomasti.
+
+Nämä estot eivät ole `dokumentit/htaccess-lisays.txt`-tiedostossa: siinä on enää kohdat
+1–3 (etusivun duplikaatti-URL, välimuistiotsakkeet, CSP:n korvaava rivi), jotka ovat
+rakennemuutoksesta riippumattomia lisäyksiä palvelimen `.htaccessiin`. Vanhat
+tiedostotyyppiestot ovat vain palvelimella.
 
 ### 4. Vaihda dokumenttijuuri
 
@@ -68,7 +118,16 @@ cPanel → **Domains** → `datamalli.fi` → *Manage* → **Document Root**:
 /home/inflaati/public_html/datamalli/sivusto
 ```
 
-Jos cPanel ei anna muokata kenttää, ks. "Varasuunnitelma" alempana.
+→ **Update**. cPanel kirjoittaa vhostin uudelleen ja käynnistää Apachen; muutos on
+voimassa noin minuutissa. DNS:ään ei kosketa, sertifikaatti ei muutu. Tarkista että sama
+juuri tuli myös `www.datamalli.fi`-riville, jos se on listassa erikseen.
+
+Jos kenttä on lukittu (osalla cPanel-versioista pääverkkotunnuksen juurta ei voi muokata
+käyttöliittymästä), älä yritä kiertää sitä — ks. "Varasuunnitelma" alempana.
+
+**Tästä hetkestä sivusto on alhaalla** kunnes vaihe 5 tuo tiedostot: juuri osoittaa
+kansioon jossa on vain `.htaccess`. Kävijä saa Apachen oman 404:n eikä omaa virhesivua,
+koska `404.html` ei ole vielä paikallaan.
 
 ### 5. Update from Remote
 
@@ -78,29 +137,32 @@ Vanhat tiedostot poistuvat vanhasta dokumenttijuuresta itsestään: git tietää
 siirtyivät `sivusto/`-kansioon. Erillistä siivousta ei tarvita.
 
 Jos pull valittaa paikallisista muutoksista, palvelimen työpuussa on käsin muokattuja
-tiedostoja. Katso `git status` SSH:lla ennen kuin ylikirjoitat mitään.
+tiedostoja. Älä pakota — katso `git status` SSH:lla ennen kuin ylikirjoitat mitään.
 
 ### 6. Tarkista
 
-| Osoite | Odotus |
-|---|---|
-| `https://www.datamalli.fi/` | 200 |
-| `https://www.datamalli.fi/tahtimalli.html` | 200 |
-| `https://www.datamalli.fi/tyylit/style.css` | 200 |
-| `https://www.datamalli.fi/skriptit/navigation.js` | 200 |
-| `https://www.datamalli.fi/kuvat/logo-176.png` | 200 |
-| `https://www.datamalli.fi/sitemap.xml` | 200 |
-| `https://www.datamalli.fi/CLAUDE.md` | 404 |
-| `https://www.datamalli.fi/words/` | 404 |
-| `https://www.datamalli.fi/etl-elt.html` | 404 |
-| `https://www.datamalli.fi/luonnos/etl-elt.html` | 404 |
-
-Tarkista lisäksi että turvaotsakkeet tulevat mukana — jos eivät, `.htaccess` ei ole
-uudessa dokumenttijuuressa:
-
-```sh
-curl -sI https://www.datamalli.fi/ | grep -i "strict-transport\|content-security"
+```bash
+for u in / /tahtimalli.html /tyylit/style.css /skriptit/navigation.js \
+         /kuvat/logo-176.png /sitemap.xml /robots.txt /favicon.ico \
+         /CLAUDE.md /words/ /dokumentit/deploy.md /etl-elt.html /luonnos/etl-elt.html; do
+  printf '%-32s %s\n' "$u" "$(curl -s -o /dev/null -w '%{http_code}' https://www.datamalli.fi$u)"
+done
 ```
+
+Kahdeksan ensimmäistä → **200**, neljä viimeistä → **404**.
+
+Sitten otsakkeet. Jos ensimmäinen komento ei tulosta mitään, `.htaccess` ei ole uudessa
+dokumenttijuuressa:
+
+```bash
+curl -sI https://www.datamalli.fi/ | grep -i "strict-transport\|content-security"
+curl -sI https://www.datamalli.fi/index.html | head -3          # 301 → /
+curl -sI https://www.datamalli.fi/fontit/dm-sans-normal-latin.woff2 | grep -i cache
+```
+
+Lopuksi selaimella: etusivun kolme nostoa latautuvat, termistön haku toimii ja
+nav-palkissa lukee oikea "Päivitetty"-päivämäärä. Viimeinen kertoo että `navigation.js`:n
+`?v=`-nosto puri eikä välimuisti tarjoile vanhaa versiota.
 
 ### 7. Jälkisiivous
 
@@ -108,6 +170,24 @@ curl -sI https://www.datamalli.fi/ | grep -i "strict-transport\|content-security
   `luonnos/`-kansiossa eikä sitä enää palvella.
 - Vanhaan kansioon `public_html/datamalli/` jää `.htaccess`-kopio ja mahdollisia
   git-jäänteitä. Ne eivät ole webissä, joten kiirettä ei ole.
+- `DATAN MALLINTAMISEN MERKITYS BI-ohjelmistoilla.pdf` oli aiemmin webissä ja on nyt
+  `arkisto/`-kansiossa eli 404. Yksikään sivu ei linkitä siihen, mutta jos se on
+  indeksoitu tai jaettu ulkopuolelle, palauta se `sivusto/`-kansioon tai 301-ohjaa
+  sisältösivulle.
+
+## Peruutus
+
+**Pullin jälkeen dokumenttijuuren palauttaminen vanhaan polkuun ei riitä**, koska git on
+jo poistanut sivut sieltä. Peruutus on kaksi liikettä:
+
+```bash
+cd /home/inflaati/public_html/datamalli
+git reset --hard 9eb09b6        # viimeinen litteä main
+```
+
+…ja dokumenttijuuri takaisin `/home/inflaati/public_html/datamalli`. Vanhassa juuressa
+oleva alkuperäinen `.htaccess` on silloin yhä paikallaan — juuri siksi se kopioitiin
+vaiheessa 2 eikä siirretty.
 
 ## Varasuunnitelma: klooni pois dokumenttijuuresta
 
