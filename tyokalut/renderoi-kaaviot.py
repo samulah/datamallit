@@ -33,10 +33,11 @@ import sys
 import tempfile
 
 JUURI = pathlib.Path(__file__).resolve().parent.parent
+SIVUSTO = JUURI / 'sivusto'
 KAAVIOHAKEMISTO = JUURI / 'tyokalut' / 'kaaviot'
 MERMAID = JUURI / 'tyokalut' / 'mermaid.min.js'
 
-# kaavion nimi (= .mmd-tiedosto) -> sivu johon se upotetaan
+# kaavion nimi (= .mmd-tiedosto) -> sivu johon se upotetaan (polku sivusto/-kansiosta)
 KAAVIOT = {
     'avaimet': 'avaimet-ja-relaatiot.html',
     'litistaminen': 'litistaminen.html',
@@ -160,7 +161,7 @@ def merkkikuvio(nimi):
 
 def nykyinen_sha(sivu_polku, nimi):
     """Sivuun upotetun kaavion tiiviste, tai None jos merkkejä ei ole."""
-    s = (JUURI / sivu_polku).read_text(encoding='utf-8')
+    s = (SIVUSTO / sivu_polku).read_text(encoding='utf-8')
     m = merkkikuvio(nimi).search(s)
     if not m:
         sys.exit(f'{sivu_polku}: KAAVIO:alku {nimi} / KAAVIO:loppu -merkkejä ei löydy.')
@@ -168,7 +169,7 @@ def nykyinen_sha(sivu_polku, nimi):
 
 
 def upota(sivu_polku, nimi, svg, sha):
-    p = JUURI / sivu_polku
+    p = SIVUSTO / sivu_polku
     s = p.read_text(encoding='utf-8')
     alku = (f'<!-- KAAVIO:alku {nimi} sha={sha} — generoitu, '
             f'aja tyokalut/renderoi-kaaviot.py -->\n')

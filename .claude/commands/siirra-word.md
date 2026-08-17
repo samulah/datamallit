@@ -1,4 +1,4 @@
-Siirrä Word-tiedoston sisältö HTML-sivulle. Käyttö: /siirrä-word @html/sivu.html @words/Tiedosto.docx
+Siirrä Word-tiedoston sisältö HTML-sivulle. Käyttö: /siirrä-word @sivusto/sivu.html @words/Tiedosto.docx
 
 ## Työnkulku
 
@@ -21,7 +21,7 @@ Siirrä Word-tiedoston sisältö HTML-sivulle. Käyttö: /siirrä-word @html/siv
 
 ## Linkit termistöön
 
-Termistö sijaitsee `html/termisto.html`. Kaikilla termeillä on `id`-attribuutti. Yleisimpiä:
+Termistö sijaitsee `sivusto/termisto.html`. Kaikilla termeillä on `id`-attribuutti. Yleisimpiä:
 - `#vierasavain` — FK
 - `#etl` — ETL-prosessi
 - `#kardinaliteetti` — kardinaliteetti
@@ -35,7 +35,7 @@ Termistö sijaitsee `html/termisto.html`. Kaikilla termeillä on `id`-attribuutt
 Kun siirto on valmis, päivitä molemmat:
 - `suunnitelma.txt` — lisää rivi mitä päivitettiin ja milloin
 - `julkaisusuunnitelma.md` — päivitä sivun tila-kenttä
-- `search-index.js`,`search.js`, `termisto-search.js` - päivitä hakuindeksit 
+- `sivusto/skriptit/search-index.js`, `search.js`, `termisto-search.js` - päivitä hakuindeksit 
 
 ## Raportti käyttäjälle
 

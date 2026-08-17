@@ -1,4 +1,4 @@
-Tarkista annetun HTML-sivun kirjoitusvirheet ja typogrpafiset ongelmat. Käyttö: /tarkista-kirjoitus @html/sivu.html
+Tarkista annetun HTML-sivun kirjoitusvirheet ja typogrpafiset ongelmat. Käyttö: /tarkista-kirjoitus @sivusto/sivu.html
 
 ## Mitä tarkistetaan
 

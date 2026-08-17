@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Useamman faktataulun malli">
+  <meta name="kortti-kuvaus" content="Useamman faktataulun yhdistäminen yhteisten dimensioiden avulla. Mahdollistaa eri liiketoimintaprosessien vertailun.">
+  <meta name="tagit" content="tietomalli power-bi dax poikkeustapaus">
+  <meta name="lukemisaika" content="2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Useamman faktataulun käyttö | Datamalli.fi</title>
+  <meta name="description"
+    content="Useamman faktataulun käyttö tähtimallissa: miten osto- ja myyntidataa yhdistetään dimensioiden kautta ja miten vältetään moniselitteiset relaatiot.">
+<!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+     CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+<link rel="preload" href="/fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/tyylit/style.css?v=8">
+  <script src="/skriptit/navigation.js?v=13" defer></script>
+</head>
+<body>
+<main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/tietomalli.html">Tietomalli</a> ·
+    <a href="/tahtimalli.html">Tähtimalli</a> ·
+    <a href="/faktataulu.html">Faktataulu</a> ·
+    <a href="/dimensiot.html">Dimensiot</a> ·
+    <a href="/litistaminen.html">Litistäminen</a> ·
+    <a href="/lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="/medallion.html">Medallion</a> ·
+    <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="/kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="/termisto.html">Termistö</a> ·
+    <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="/apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="/tietoa.html">Tietoa</a> ·
+    <a href="/palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+  <h1>Useamman faktataulun käyttö</h1>
+  <p class="byline">Kirjoittanut <a href="/tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+  <p>
+    Tähtimalliin pyrkiminen on tietomallia rakentaessa aiemmin mainittujen tapojen mukaisesti järkevin vaihtoehto mallinnusta varten, mikäli liiketoimintakysymyksiin on mahdollista vastata tällä tavalla. Tämänkaltainen tapaus voi olla esimerkiksi raportti, jossa halutaan analysoida osto- ja myyntidataa. Osto- ja myyntidata sijaitsevat eri tauluissa ja kahta faktataulua käyttäessä yksi tapa yhdistää tämänkaltaiset tiedot toisiinsa on luoda yhteydet molempiin faktatauluihin dimensioiden avulla kuvan 18 tyylisesti.
+  </p>
+  <p>
+    Yhdistämällä myynti- ja ostotaulu tuotekategoriaan luodaan mahdolliseksi molempien taulujen suodattaminen tuotedimension tietojen avulla. Tämä voi tarkoittaa esimerkiksi sitä, että voit valita tuotteen nimen tai valmistusmaan perusteella, ja tarkastella sen osto- ja myyntitietoja samoissa visualisoinneissa. Nämä kuitenkin vaativat toimiakseen erilliset laskurit, koska varsinaiset tilaustiedot ostojen ja myyntien suhteen ovat eri tauluissa. Jos taulut ovat vahvasti denormalisoituja eikä avainkenttiä ja dimensiotauluja löydy, niin tällöin kannattaa normalisoida taulut tai luoda vaihtoehtoiset näkymät ja luoda dimensiotieto suoraan tietovarastoon. Samankaltaiset dimensiotietojen yhdistämiset voidaan tehdä kaikkiin avainkenttiin. (<a href="/kirjallisuus-suositukset.html#analyzing-data">Ferrari &amp; Russo, 2017. s. 40–43</a>) Esimerkki avainkenttien datan yhdistävistä kahdesta fakta- ja dimensiotaulun koostavasta tietomallista löytyy kuvasta 19.
+  </p>
+  <p>
+    Edellä olevan kuvan tavalla esitetty tietomalliratkaisu mahdollistaa myynti- ja ostotietojen suodattamisen kalenterin ja tuotetietojen avulla. Tietomallissa on käytetty vain suositeltuja yhden suunnan relaatioita. Jos halutaan luoda esimerkiksi laskurin, joka kertoo ostot vain niille tuotteille, joita on myyty, tulee sinun ratkaista tämä joko DAX-kielen avulla tai vaihtoehtoisesti suodattamalla dataa tai visualisointeja kuvan 20 tyylisesti käyttäen hyödyksi toisiin faktatauluihin perustuvia laskureita. Näiden avulla kyetään suodattamaan näytettävää dataa valittujen kuvaavien tietojen, kuten tässä tapauksessa tuotteen nimen perusteella.
+  </p>
+  <p>
+    Hyvänä muistisääntönä useamman faktataulun käyttöön voidaan pitää dimensioiden ja suodattimien käyttöä, mikäli tämä on mahdollista. Denormalisointi eli avainkenttien kuvaavan tiedon vienti tauluihin toimii mahdollisena vaihtoehtona, mikäli esimerkiksi faktataulut sisältävät tietoja jotka eivät suoranaisesti liity toisiinsa. Datan vieminen yhteen faktatauluun kannattaa Power BI -mallinnukseen liittyvistä toiminnallisista näkökulmista johtuen toteuttaa aina sen ollessa mahdollista. Liika denormalisointi tekee kuitenkin faktataulujen keskinäisestä suodattamisesta mahdotonta. Tämän korjaamiseksi tulee valita hyvä joukko dimensioita, joiden välillä päästään suodattamaan faktataulujen arvoja. Samalla useamman faktataulun omaavan mallin rakentaminen on kompleksista relaatioiden hallintaa. Useamman faktataulun käyttö luo helposti moniselitteisiä tietomalleja, joissa laskurit voivat antaa useita eri lukuja riippuen, missä tietoja näytetään ja mitä tietoja suodatetaan. DAX-moottorin on vaikea käsitellä moniselitteisiä ratkaisumalleja, ja ongelman voi ratkaista tällöin taulujen monistamisella ja denormalisoinnilla. (<a href="/kirjallisuus-suositukset.html#analyzing-data">Ferrari &amp; Russo, 2017. s.53.</a>)
+  </p>
+</body>
+</html>

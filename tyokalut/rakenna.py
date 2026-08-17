@@ -5,11 +5,21 @@ datamalli.fi — sivujen metatietojen generaattori.
 Sivu itse on ainoa lähde omalle metatiedolleen. Tämä skripti lukee jokaisen sivun <head>:n,
 laskee lukemisajan sivun sisällöstä ja generoi niistä kaiken muun:
 
-    sivu.html <head>  ──▶  sivut.js  ──▶  index.html (kortit)
-                                     ──▶  kortit.js ("Katso myös" lukee window.SIVUT)
+    sivu.html <head>  ──▶  skriptit/sivut.js  ──▶  index.html (kortit)
+                                              ──▶  skriptit/kortit.js ("Katso myös")
                       ──▶  sivu.html <meta name="lukemisaika">
+                      ──▶  index.html ("Uusin juttu" -nosto)
                       ──▶  sitemap.xml
-                      ──▶  navigation.js (SIVUSTO_PAIVITETTY)
+                      ──▶  skriptit/navigation.js (SIVUSTO_PAIVITETTY)
+
+Skannattavat sivut ovat kahdessa paikassa, ja paikka määräytyy julkaisutilasta:
+
+    sivusto/*.html          julkaistut sivut (ei robots-noindexiä)
+    sivusto/luonnos/*.html  keskeneräiset (robots-noindex) — eivät päädy palvelimelle
+
+Tämä ei ole tyylisääntö vaan tarkistettu invariantti: väärässä kansiossa oleva sivu
+pysäyttää ajon. Julkaiseminen on siten pelkkä siirto — luonnossivujen polut ovat
+juurisuhteellisia, joten ne toimivat sellaisenaan myös sivuston juuressa.
 
 Ajot:
     python3 tyokalut/rakenna.py              kirjoittaa muuttuneet tiedostot
@@ -32,6 +42,13 @@ from datetime import date
 from bs4 import BeautifulSoup
 
 JUURI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Deployattava sivusto. Kaikki polut tässä skriptissä ovat suhteessa tähän, eivät repon
+# juureen — repon juuressa on myös aineistoa joka ei kuulu sivustolle (tyokalut/,
+# dokumentit/, words/, arkisto/).
+SIVUSTO = os.path.join(JUURI, "sivusto")
+LUONNOS = "luonnos"
+SKRIPTIT = "skriptit"
 
 # Tiedostot joita ei skannata sivuina lainkaan
 OHITA = {"sivupohja.html", "404.html"}
@@ -63,18 +80,37 @@ def kirjoita(polku, sisalto):
         f.write(sisalto)
 
 
+def sivustopolku(suhteellinen):
+    """sivusto/-kansion sisäinen polku absoluuttiseksi."""
+    return os.path.join(SIVUSTO, suhteellinen)
+
+
 def sivutiedostot():
-    """Kaikki skannattavat HTML-sivut repon juuressa, aakkosjärjestyksessä."""
-    return sorted(
-        n
-        for n in os.listdir(JUURI)
-        if n.endswith(".html") and n not in OHITA and os.path.isfile(os.path.join(JUURI, n))
-    )
+    """Skannattavat sivut {slug: polku sivusto/-kansion sisällä}, aakkosjärjestyksessä.
+
+    Slug on aina pelkkä tiedostonimi — se on sivun tunniste sitemapissa, sivut.js:ssä,
+    hakuindeksissä ja data-kortit-listoissa riippumatta siitä onko sivu luonnos vai ei.
+    Näin julkaiseminen ei muuta yhtäkään viittausta.
+    """
+    loydot = {}
+    for kansio in ("", LUONNOS):
+        hakemisto = sivustopolku(kansio) if kansio else SIVUSTO
+        for nimi in sorted(os.listdir(hakemisto)):
+            if not nimi.endswith(".html") or nimi in OHITA:
+                continue
+            if not os.path.isfile(os.path.join(hakemisto, nimi)):
+                continue
+            if nimi in loydot:
+                raise SystemExit(
+                    f"VIRHE: {nimi} on sekä sivusto/- että sivusto/{LUONNOS}/-kansiossa"
+                )
+            loydot[nimi] = os.path.join(kansio, nimi) if kansio else nimi
+    return loydot
 
 
 def lue_tagi_nimet():
     """TAGI_NIMET search.js:stä — slug → näkyvä nimi. Yksi lähde tagien nimille."""
-    teksti = lue(os.path.join(JUURI, "search.js"))
+    teksti = lue(sivustopolku(f"{SKRIPTIT}/search.js"))
     lohko = re.search(r"const\s+TAGI_NIMET\s*=\s*\{(.*?)\}", teksti, re.S)
     if not lohko:
         raise SystemExit("VIRHE: TAGI_NIMET-taulua ei löytynyt search.js:stä")
@@ -162,9 +198,8 @@ def lue_jsonld_paivat(soup):
     return varalla
 
 
-def lue_sivu(slug, tagi_nimet):
-    polku = os.path.join(JUURI, slug)
-    soup = BeautifulSoup(lue(polku), "html.parser")
+def lue_sivu(slug, sivupolku, tagi_nimet):
+    soup = BeautifulSoup(lue(sivustopolku(sivupolku)), "html.parser")
 
     otsikko_tag = soup.title.get_text().strip() if soup.title else ""
     otsikko_tag = re.sub(r"\s*\|\s*Datamalli\.fi\s*$", "", otsikko_tag)
@@ -184,6 +219,7 @@ def lue_sivu(slug, tagi_nimet):
 
     return {
         "slug": slug,
+        "polku": sivupolku,
         "otsikko": meta_sisalto(soup, "kortti-otsikko") or otsikko_tag,
         "kuvaus": meta_sisalto(soup, "kortti-kuvaus") or meta_sisalto(soup, "description") or "",
         "tagit": tagit,
@@ -200,9 +236,40 @@ def lue_sivu(slug, tagi_nimet):
     }
 
 
+def tarkista_sijainnit(sivut):
+    """Julkaisutila ja kansio kertovat saman asian — jos ne eroavat, ajo pysähtyy.
+
+    Ilman tätä keskeneräinen sivu voisi lipsahtaa deployattavaan sivusto/-juureen tai
+    valmis sivu jäädä luonnoksiin näkymättömiin.
+    """
+    virheet = []
+    for slug, sivu in sorted(sivut.items()):
+        luonnoksissa = sivu["polku"].startswith(LUONNOS + os.sep)
+        if sivu["julkaistu"] and luonnoksissa:
+            virheet.append(
+                f"  {sivu['polku']}: ei robots-noindexiä, joten sivu on julkaistu.\n"
+                f"      Julkaise siirtämällä: git mv sivusto/{sivu['polku']} sivusto/{slug}"
+            )
+        elif not sivu["julkaistu"] and not luonnoksissa:
+            virheet.append(
+                f"  {sivu['polku']}: robots-noindex, joten sivu on keskeneräinen.\n"
+                f"      Siirrä luonnoksiin: git mv sivusto/{slug} sivusto/{LUONNOS}/{slug}"
+            )
+    if virheet:
+        raise SystemExit(
+            "VIRHE: sivun julkaisutila ja sijainti ovat ristiriidassa.\n\n"
+            + "\n".join(virheet)
+        )
+
+
 def kerää_sivut():
     tagi_nimet = lue_tagi_nimet()
-    return {slug: lue_sivu(slug, tagi_nimet) for slug in sivutiedostot()}, tagi_nimet
+    sivut = {
+        slug: lue_sivu(slug, polku, tagi_nimet)
+        for slug, polku in sivutiedostot().items()
+    }
+    tarkista_sijainnit(sivut)
+    return sivut, tagi_nimet
 
 
 # ---------------------------------------------------------------- generointi
@@ -255,6 +322,13 @@ def kortti_html(sivu, tagi_nimet, sisennys="      "):
 ALKU = "<!-- KORTIT:alku"
 LOPPU = "<!-- KORTIT:loppu -->"
 
+UUSIN_ALKU = "<!-- UUSIN:alku"
+UUSIN_LOPPU = "<!-- UUSIN:loppu -->"
+
+# Nostokortin selitteen enimmäispituus. Sama raja kuin termi-paivassa.js:n
+# teaser()-funktiossa, jotta kolme vierekkäistä nostoa pysyy samankokoisena.
+NOSTO_MERKIT = 170
+
 
 def generoi_index(lahde, sivut, tagi_nimet):
     """Täyttää index.html:n KORTIT-markkerien välit .kortti-rivi:n data-kortit-listan mukaan."""
@@ -287,6 +361,71 @@ def generoi_index(lahde, sivut, tagi_nimet):
         i = j + 1
 
     return "\n".join(tulos)
+
+
+def uusin_sivu(sivut):
+    """Tuorein julkaistu sisältösivu — etusivun "Uusin juttu" -noston lähde.
+
+    Järjestys tulee sivun omasta JSON-LD:stä: ensin datePublished, sitten
+    dateModified. Samana päivänä julkaistut sivut eivät ole keskenään
+    vertailtavissa, joten tasapelin ratkaisee aakkosjärjestys — sääntö saa olla
+    mikä tahansa, kunhan tulos ei heilu ajojen välillä.
+    """
+    ehdokkaat = [
+        s for s in sivut.values()
+        if s["julkaistu"] and s["_kortti"] and s["julkaistu_pvm"]
+    ]
+    if not ehdokkaat:
+        raise SystemExit(
+            "VIRHE: yhdelläkään julkaistulla sivulla ei ole JSON-LD:n datePublished-päivää,\n"
+            "       joten etusivun Uusin juttu -nostoa ei voi valita."
+        )
+    ehdokkaat.sort(key=lambda s: s["slug"])
+    ehdokkaat.sort(key=lambda s: (s["julkaistu_pvm"], s["paivitetty"] or ""), reverse=True)
+    return ehdokkaat[0]
+
+
+def pvm_fi(iso):
+    """2026-08-03 → 3.8.2026"""
+    v, k, p = iso.split("-")
+    return f"{int(p)}.{int(k)}.{v}"
+
+
+def tiivista(teksti, raja=NOSTO_MERKIT):
+    if len(teksti) <= raja:
+        return teksti
+    return re.sub(r"\s+\S*$", "", teksti[: raja - 3]) + "…"
+
+
+def uusin_html(sivu, sisennys="    "):
+    """Etusivun "Uusin juttu" -nosto. Sama rakenne kuin termi-paivassa.js:n korteilla."""
+    s = sisennys
+    meta = f'{pvm_fi(sivu["julkaistu_pvm"])} · {sivu["min"]} min'
+    return "\n".join([
+        f'{s}<div class="tp-solu">',
+        f'{s}  <div class="tp-otsikko">Uusin juttu</div>',
+        f'{s}  <a class="tp-termi tp-uusin" href="{sivu["slug"]}">',
+        f'{s}    <strong>{teksti_html(sivu["otsikko"])}</strong>',
+        f'{s}    <span class="tp-selite">{teksti_html(tiivista(sivu["kuvaus"]))}</span>',
+        f'{s}    <span class="tp-linkki">Lue juttu → <span class="tp-nosto-meta">{meta}</span></span>',
+        f"{s}  </a>",
+        f"{s}</div>",
+    ])
+
+
+def generoi_uusin(lahde, sivu):
+    """Täyttää index.html:n UUSIN-markkerien välin tuoreimmalla sivulla."""
+    rivit = lahde.split("\n")
+    for i, rivi in enumerate(rivit):
+        if UUSIN_ALKU not in rivi:
+            continue
+        j = i + 1
+        while j < len(rivit) and UUSIN_LOPPU not in rivit[j]:
+            j += 1
+        if j == len(rivit):
+            raise SystemExit("VIRHE: index.html:n UUSIN:loppu-markkeri puuttuu")
+        return "\n".join(rivit[: i + 1] + [uusin_html(sivu)] + rivit[j:])
+    raise SystemExit("VIRHE: index.html:stä ei löytynyt UUSIN:alku-markkeria")
 
 
 def generoi_sivut_js(sivut, tagi_nimet):
@@ -347,7 +486,7 @@ def generoi_sitemap(sivut, vanhat_lastmod):
 
 
 def lue_vanhat_lastmod():
-    polku = os.path.join(JUURI, "sitemap.xml")
+    polku = sivustopolku("sitemap.xml")
     if not os.path.exists(polku):
         return {}
     teksti = lue(polku)
@@ -358,7 +497,7 @@ def lue_vanhat_lastmod():
 
 def uusin_paivitys():
     """paivitykset.html:n tuorein merkintä muodossa P.K.VVVV."""
-    soup = BeautifulSoup(lue(os.path.join(JUURI, "paivitykset.html")), "html.parser")
+    soup = BeautifulSoup(lue(sivustopolku("paivitykset.html")), "html.parser")
     paivat = []
     for merkinta in soup.select("div.paivitys-merkinta > h2"):
         osuma = re.match(r"\s*(\d{1,2})\.(\d{1,2})\.(\d{4})\s*$", merkinta.get_text())
@@ -399,34 +538,37 @@ def aseta_lukemisaika(lahde, minuutit):
     return "\n".join(rivit)
 
 
-SIVUT_JS_TAGI = '  <script src="sivut.js?v=1" defer></script>'
-KORTIT_JS_TAGI = '  <script src="kortit.js?v=2" defer></script>'
-
-
-def varmista_korttiskriptit(slug, lahde):
+def varmista_korttiskriptit(sivu, lahde):
     """Katso myös -osio ei renderöidy ilman sivut.js:ää ja kortit.js:ää.
 
     Kumpikin puuttuva skriptitagi lisätään automaattisesti, jotta osion voi lisätä
     sivulle pelkällä placeholderilla. Järjestyksellä on väliä: defer-skriptit ajetaan
     dokumenttijärjestyksessä, ja kortit.js tarvitsee sivut.js:n window.SIVUT:n.
 
+    Polkuprefiksi tulee sivun sijainnista: sivuston juuressa suhteellinen
+    (skriptit/…), luonnoksissa juurisuhteellinen (/skriptit/…).
+
     index.html on poikkeus — sen kortit generoidaan staattiseksi HTML:ksi.
     """
-    if slug == "index.html" or "data-kortit" not in lahde:
+    if sivu["slug"] == "index.html" or "data-kortit" not in lahde:
         return lahde
+
+    etuliite = f"/{SKRIPTIT}/" if sivu["polku"].startswith(LUONNOS + os.sep) else f"{SKRIPTIT}/"
+    sivut_tagi = f'  <script src="{etuliite}sivut.js?v=1" defer></script>'
+    kortit_tagi = f'  <script src="{etuliite}kortit.js?v=2" defer></script>'
 
     if "kortit.js" not in lahde:
         lahde = re.sub(
-            r'^(  <script src="navigation\.js[^"]*" defer></script>)$',
-            r"\1\n" + SIVUT_JS_TAGI + "\n" + KORTIT_JS_TAGI,
+            r'^(  <script src="/?skriptit/navigation\.js[^"]*" defer></script>)$',
+            r"\1\n" + sivut_tagi + "\n" + kortit_tagi,
             lahde,
             count=1,
             flags=re.M,
         )
     elif "sivut.js" not in lahde:
         lahde = re.sub(
-            r'^(  <script src="kortit\.js[^"]*" defer></script>)$',
-            SIVUT_JS_TAGI + r"\n\1",
+            r'^(  <script src="/?skriptit/kortit\.js[^"]*" defer></script>)$',
+            sivut_tagi + r"\n\1",
             lahde,
             count=1,
             flags=re.M,
@@ -444,25 +586,33 @@ def aseta_paivitetty(lahde, pvm):
 
 
 def generoi_kaikki(sivut, tagi_nimet):
-    """Palauttaa {polku: uusi sisältö} — sama tulos ajettiin sitten kirjoitus- tai tarkistustilassa."""
+    """Palauttaa {polku: uusi sisältö} — sama tulos ajettiin sitten kirjoitus- tai tarkistustilassa.
+
+    Avaimet ovat sivusto/-kansion sisäisiä polkuja.
+    """
     tiedostot = {}
 
-    index_uusi = generoi_index(lue(os.path.join(JUURI, "index.html")), sivut, tagi_nimet)
+    index_uusi = generoi_uusin(
+        generoi_index(lue(sivustopolku("index.html")), sivut, tagi_nimet),
+        uusin_sivu(sivut),
+    )
 
     for slug, sivu in sivut.items():
-        lahde = index_uusi if slug == "index.html" else lue(os.path.join(JUURI, slug))
+        lahde = index_uusi if slug == "index.html" else lue(sivustopolku(sivu["polku"]))
         # index.html:n sanamäärä lasketaan vasta generoiduista korteista
         minuutit = (
             laske_lukemisaika(BeautifulSoup(lahde, "html.parser"))[0]
             if slug == "index.html"
             else sivu["min"]
         )
-        tiedostot[slug] = varmista_korttiskriptit(slug, aseta_lukemisaika(lahde, minuutit))
+        tiedostot[sivu["polku"]] = varmista_korttiskriptit(
+            sivu, aseta_lukemisaika(lahde, minuutit)
+        )
 
-    tiedostot["sivut.js"] = generoi_sivut_js(sivut, tagi_nimet)
+    tiedostot[f"{SKRIPTIT}/sivut.js"] = generoi_sivut_js(sivut, tagi_nimet)
     tiedostot["sitemap.xml"] = generoi_sitemap(sivut, lue_vanhat_lastmod())
-    tiedostot["navigation.js"] = aseta_paivitetty(
-        lue(os.path.join(JUURI, "navigation.js")), uusin_paivitys()
+    tiedostot[f"{SKRIPTIT}/navigation.js"] = aseta_paivitetty(
+        lue(sivustopolku(f"{SKRIPTIT}/navigation.js")), uusin_paivitys()
     )
     return tiedostot
 
@@ -475,11 +625,11 @@ def vertaa_nykyisiin(sivut):
 
     Käytössä ennen migraatiota: paljastaa mitkä kortit ovat päässeet epäsynkkaan.
     """
-    idx = BeautifulSoup(lue(os.path.join(JUURI, "index.html")), "html.parser")
+    idx = BeautifulSoup(lue(sivustopolku("index.html")), "html.parser")
     index_min = {
         a["href"]: int(a["data-min"]) for a in idx.select("a.kortti[data-min][href]")
     }
-    kortit_teksti = lue(os.path.join(JUURI, "kortit.js"))
+    kortit_teksti = lue(sivustopolku(f"{SKRIPTIT}/kortit.js"))
     kortit_min = {
         m.group(1): int(m.group(2))
         for m in re.finditer(r"'([\w\-.]+\.html)':\s*\{.*?min:\s*(\d+)", kortit_teksti, re.S)
@@ -533,7 +683,7 @@ def aja_raportti(sivut):
         print(f"    - {slug}")
 
     print("\n== Hakuindeksi (search-index.js) ==\n")
-    hakuindeksi = lue(os.path.join(JUURI, "search-index.js"))
+    hakuindeksi = lue(sivustopolku(f"{SKRIPTIT}/search-index.js"))
     puuttuvat = [
         slug
         for slug, s in sorted(sivut.items())
@@ -565,7 +715,7 @@ def main():
     tiedostot = generoi_kaikki(sivut, tagi_nimet)
     muuttuneet = []
     for nimi, uusi in sorted(tiedostot.items()):
-        polku = os.path.join(JUURI, nimi)
+        polku = sivustopolku(nimi)
         vanha = lue(polku) if os.path.exists(polku) else None
         if vanha != uusi:
             muuttuneet.append(nimi)

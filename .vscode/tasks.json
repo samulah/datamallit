@@ -1,0 +1,32 @@
+{
+    // Esikatselu ilman Live Previewiä: palvelin nousee sivusto/-kansion juuresta,
+    // jolloin luonnossivujen juurisuhteelliset polut (/tyylit/style.css) toimivat.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Esikatsele sivusto",
+            "type": "shell",
+            "command": "python3 tyokalut/esikatsele.py",
+            "problemMatcher": [],
+            "isBackground": true,
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        },
+        {
+            "label": "Esikatsele avoin sivu",
+            "type": "shell",
+            "command": "python3 tyokalut/esikatsele.py '${relativeFile}'",
+            "problemMatcher": [],
+            "isBackground": true,
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        },
+        {
+            "label": "Esikatsele luonnokset",
+            "type": "shell",
+            "command": "python3 tyokalut/esikatsele.py luonnos",
+            "problemMatcher": [],
+            "isBackground": true,
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        }
+    ]
+}

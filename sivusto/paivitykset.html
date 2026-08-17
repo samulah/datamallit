@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="lukemisaika" content="8">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
+  <link rel="canonical" href="https://www.datamalli.fi/paivitykset.html">
+  <meta name="description" content="Julkinen loki datamalli.fi:n muutoksista: uudet sivut, päivitetty sisältö ja korjaukset aikajärjestyksessä. Näet mitä sivustolla on viimeksi tehty.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Päivitykset">
+  <meta property="og:description" content="Julkinen loki datamalli.fi:n muutoksista: uudet sivut, päivitetty sisältö ja korjaukset aikajärjestyksessä. Näet mitä sivustolla on viimeksi tehty.">
+  <meta property="og:url" content="https://www.datamalli.fi/paivitykset.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Päivitykset", "item": "https://www.datamalli.fi/paivitykset.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Päivitykset | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="tyylit/style.css?v=8">
+  <script src="skriptit/navigation.js?v=13" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+  <noscript>
+    <nav class="simple-nav" style="padding:12px 24px">
+      <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+      <a href="tietomalli.html">Tietomalli</a> ·
+      <a href="tahtimalli.html">Tähtimalli</a> ·
+      <a href="faktataulu.html">Faktataulu</a> ·
+      <a href="dimensiot.html">Dimensiot</a> ·
+      <a href="litistaminen.html">Litistäminen</a> ·
+      <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+      <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+      <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+      <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+      <a href="medallion.html">Medallion</a> ·
+      <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+      <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+      <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+      <a href="termisto.html">Termistö</a> ·
+      <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+      <a href="apuohjelmat.html">Apuohjelmat</a> ·
+      <a href="tietoa.html">Tietoa</a> ·
+      <a href="palvelut.html">Palvelut</a>
+    </nav>
+  </noscript>
+
+  <h1>Päivitykset</h1>
+  <p class="byline">Ylläpitää <a href="tietoa.html">Samu Lahdenperä</a></p>
+
+  <p>Tälle sivulle kirjataan jokainen datamalli.fi:hin tehty sisällöllinen muutos: uudet sivut, päivitetyt tiedot ja korjaukset. Uusimmat ylimpänä.</p>
+
+  <div class="paivitys-merkinta">
+    <h2>15.8.2026</h2>
+    <ul>
+      <li>Etusivulle lisätty <strong>Uusin juttu</strong> -nosto termikorttien rinnalle. Kolme nostoa ovat nyt samalla rivillä heti otsikon alla: uusin juttu, termi päivässä ja satunnainen termi. Nosto kertoo mikä sivustolle on viimeksi kirjoitettu — tällä hetkellä <a href="medallion.html">Medallion-arkkitehtuuri</a> — julkaisupäivineen ja lukemisaikoineen. Aiemmin uuden sivun löysi vain selaamalla kategoriat läpi tai lukemalla tätä päivityslistaa.</li>
+      <li>Nosto valitaan automaattisesti sivujen omista julkaisupäivistä, eikä sitä ylläpidetä käsin. Käsin ylläpidetty nosto vanhenee ensimmäisenä päivänä jona se unohdetaan päivittää, ja väärä "uusin" on huonompi kuin ei nostoa lainkaan. Toisin kuin termikortit, nosto näkyy myös ilman JavaScriptiä.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>11.8.2026</h2>
+    <ul>
+      <li>Keskeneräiset sivut eivät enää päädy palvelimelle. Niitä on kahdeksan, ja vaikka ne oli merkitty hakukoneilta piilotetuiksi, ne olivat silti kenen tahansa luettavissa suoralla osoitteella — mukaan lukien 63 sanan tynkä ETL:stä ja ELT:stä. Keskeneräinen teksti sivuston nimissä on huonompi kuin ei tekstiä lainkaan. Sivut palaavat näkyviin sitä mukaa kun ne kirjoitetaan valmiiksi.</li>
+      <li>Sivustolta ei enää lataudu sisäistä työaineistoa. Julkaisusuunnitelmat, aiemmat hakukoneauditoinnit, sivujen Word-lähteet ja sivuston rakennusskriptit olivat kaikki haettavissa palvelimelta, koska palvelimelle vietiin koko työkansio. Nyt sinne viedään vain valmis sivusto.</li>
+      <li>Medallion-sivun kaksi ETL/ELT-linkkiä osoittavat toistaiseksi <a href="termisto.html#etl">termistön ETL-määritelmään</a>, koska oma ETL-sivu on yhä kesken. Linkit palautetaan kun sivu julkaistaan.</li>
+      <li>Tyylitiedosto ja skriptit siirretty omiin kansioihinsa (<code>/tyylit/</code> ja <code>/skriptit/</code>). Sivujen ulkoasu ja toiminta eivät muutu.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>10.8.2026</h2>
+    <ul>
+      <li>Julkaistu uusi <a href="palvelut.html">Palvelut</a>-sivu. Sivuston sisältö on ja pysyy ilmaisena, mutta samaa työtä voi nyt myös tilata: jatkuva sparrauskumppanuus, tietomallin kuntotarkastus, suorituskykyselvitys ja toinen mielipide arkkitehtuurivalinnasta. Jokaisesta kerrotaan mitä käydään läpi ja mitä lopputuloksena saa, ei pelkkää palvelunimeä. Lisäksi maksullinen kertaneuvonta yksittäisiin kysymyksiin, joihin ei tarvita kokonaista projektia — ja jos kysymys osuu oman osaamisen ulkopuolelle, sitä voi kysyä verkostolta.</li>
+      <li>Lisätty palvelusivulle hinta-arviot. Tuntihinta on 140 € (alv 0 %), ja jokaisesta paketista kerrotaan tyypillinen kesto ja lähtöhinta: kuntotarkastus 2–4 työpäivää alkaen 2 400 €, suorituskykyselvitys 1–3 työpäivää alkaen 1 200 €, arkkitehtuurin toinen mielipide 1–2 työpäivää alkaen 1 200 € ja jatkuva sparraus alkaen 4 500 € kuukaudessa. Luvut ovat arvioita, ei hinnasto: lopullinen hinta riippuu mallin koosta ja tavoitteesta. Ensimmäinen keskustelu on maksuton.</li>
+      <li>Kerrottu palvelusivulla, että myös tietovarastoarkkitehtuurin arvioinnit onnistuvat, samoin data-arkkitehtuuri kokonaisuutena ja datan hallinta: omistajuudet, laatusäännöt, metatiedon ylläpito ja se, kuka päättää mikä luku on oikea. Neljä palvelukorttia ovat useimmin tehdyt toimeksiannot, eivät osaamisen rajat. Samalla sivun alalaidan laatikko nimetty uudelleen "Ota yhteyttä".</li>
+      <li>Kirjattu palvelusivulle näkyviin, ettei osaaminen ole sidottu yhteen teknologiaan. Sertifikaatit ja työhistoria ovat Microsoftin puolelta, mutta se ei tarkoita että jokaiseen tilanteeseen suositeltaisiin Microsoftia — myös se sanotaan ääneen, jos jokin ratkaisu ei toimi.</li>
+      <li>Lisätty Palvelut valikkoon, etusivun Resurssit-osioon ja llms.txt-tiedostoon eli sivuston sisällysluetteloon tekoälyhauille.</li>
+      <li>Jaettu <a href="tietoa.html">Tietoa sivustosta</a> -sivun yläosa kahteen palstaan: esittely, koulutus, sertifikaatit ja työhistoria vasemmalle, kuva ja yhteystiedot omaan laatikkoonsa oikealle. Yhteystiedot olivat aiemmin vasta sivun alalaidassa, eli ne näki vain se joka luki koko sivun loppuun. Kapealla näytöllä palstat menevät edelleen allekkain.</li>
+      <li>Kirjoitettu saman sivun esittelyteksti minämuotoon. Aiemmin sivu kertoi tekijästään kolmannessa persoonassa ("Samu on ratkaisukeskeinen, korkean tason BI-kehittäjä"), mikä on esitteen kieltä eikä sovi yhteen muun sivuston suoran tyylin kanssa. Samalla karsittu kappale, joka toisti työhistoriaosion sisällön uudelleen eri sanoilla.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>3.8.2026</h2>
+    <ul>
+      <li>Julkaistu kaksi uutta sivua: <a href="medallion.html">Medallion-arkkitehtuuri</a> kertoo mistä Bronze–Silver–Gold-kerrosjaossa on kyse ja milloin kolme kerrosta on ylimitoitettu, ja <a href="surrogaattiavaimet.html">Surrogaattiavaimien mallintaminen</a> käy läpi missä kerroksessa avaimet luodaan, miten mapping-taulu rakennetaan ja miten inkrementaalinen lataus toimii. Molemmilla sivuilla on SQL-koodi kokonaisuudessaan, ei pseudokoodina.</li>
+      <li>Täsmennetty molemmille sivuille, että surrogaattiavaimet <strong>materialisoidaan</strong> Silver-tasolla eli kirjoitetaan fyysisiin tauluihin, ja että se tehdään ennen faktataulun latausta. Asia oli aiemmin vain rivien välissä: sivujen SQL käyttää IDENTITY-saraketta, jota ei voi määritellä näkymässä, mutta sitä ei sanottu ääneen. Näkymäpohjaisessa Silverissä avainta ei kirjoiteta mihinkään, jolloin koko INT-avaimen hyöty jää saamatta.</li>
+      <li>Siivottu etusivulta keskeneräisten sivujen "Tulossa"-laatikot. Etusivu näyttää nyt vain sivut jotka on oikeasti kirjoitettu — aiemmin seitsemän korttia lupasi sisältöä jota ei ollut. Sivut eivät ole kadonneet mihinkään, ne palaavat etusivulle kun ne julkaistaan.</li>
+      <li>Lisätty <a href="medallion.html">Medallion-arkkitehtuuri</a> ja <a href="surrogaattiavaimet.html">Surrogaattiavaimien mallintaminen</a> myös llms.txt-tiedostoon. Se on sivuston sisällysluettelo tekoälyhauille, ja päivän uudet sivut puuttuivat siitä — eli kielimallit eivät löytäneet niitä vaikka hakukoneet löysivät.</li>
+      <li>Lyhennetty neljän sivun hakutuloskuvaukset ja <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> -sivun otsikko. Ne olivat niin pitkiä että Google katkaisi ne kesken lauseen, jolloin lukija näki hakutuloksessa vain alkupään.</li>
+      <li>Korjattu <a href="kirjallisuus-suositukset.html">kirjallisuussivun</a> otsikkotasot: kirjojen nimet olivat kolmannen tason otsikoita ilman toisen tason otsikkoa välissä. Ruudunlukuohjelmat tulkitsevat tällaisen aukon puuttuvaksi sisällöksi. Sivun ulkoasu ei muutu.</li>
+      <li>Estetty sivupohjatiedoston indeksointi robots.txt-tiedostossa. Kyseessä on uuden sivun runko, ei luettava sivu.</li>
+      <li>Kevennetty kirjasintiedostoja 78 kilotavulla. Kirjasimet ovat säädettäviä: samasta tiedostosta saa minkä tahansa lihavuuden välillä 100–1000 ja optisen koon välillä 8–60 pistettä. Sivusto käyttää lihavuuksia 300–600 ja kokoja 10–32, joten loput on nyt karsittu pois. Sivun kahdesta esiladattavasta kirjasimesta lähtee 42 kilotavua, eli noin neljännes. Teksti näyttää täsmälleen samalta kuin ennenkin.</li>
+      <li>Lisätty sivustolle oma virhesivu. Väärä osoite näytti aiemmin palvelimen oletussivun, jossa ei ollut navigaatiota eikä linkkiä takaisin. Uudella sivulla on tavallinen valikko ja neljä reittiä eteenpäin: etusivu ja haku, termistö, tietomallin aloitussivu sekä päivityslista.</li>
+      <li>Täydennetty valikko sivuille, joilla JavaScript ei ole käytössä. Se listasi kymmenen sivua seitsemäntoista sijasta, ja oli ehtinyt eriytyä neljäksi eri versioksi eri sivuilla — yhdellä niistä oli linkki keskeneräiseen sivuun. Nyt kaikilla sivuilla on sama valikko kuin muillakin. Vaikutus näkyy lähinnä hakukoneille, jotka löytävät syvimmät sivut nyt heti.</li>
+      <li>Lisätty ristiinlinkitystä sivujen välille: <a href="tahtimalli.html">tähtimallista</a> faktatauluun ja mallivertailuun, <a href="dimensiot.html">dimensioista</a> surrogaattiavaimiin, <a href="tietomalli.html">tietomallista</a> medallioniin ja <a href="faktataulu.html">faktataulusta</a> avaimiin ja relaatioihin.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>2.8.2026</h2>
+    <ul>
+      <li>Nopeutettu sivuja <a href="litistaminen.html">Taulujen litistäminen</a> ja <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> merkittävästi: kaaviot piirsi aiemmin selaimessa Mermaid-kirjasto, jonka lataaminen pysäytti sivun näyttämisen ja toi mukanaan 3,5 megatavua koodia. Kaaviot on nyt piirretty valmiiksi, joten kirjastoa ei ladata lainkaan. Kaavioiden teksti on samalla muuttunut koneluettavaksi — myös hakukoneet ja tekoälyhaut näkevät nyt kaavion sisällön.</li>
+      <li>Kevennetty sivuston logoa: aiemmin jokainen sivu latasi 1000 × 1000 pikselin kuvan, joka näytettiin 30 pikselin kokoisena. Nyt ladataan sopivan kokoinen versio, ja selaimen välilehtikuvake on oma pieni tiedostonsa. Säästää noin 70 kilotavua jokaisella sivulatauksella.</li>
+      <li>Kirjasimet ladataan nyt heti sivun alussa, jolloin teksti ei enää vaihda ulkoasuaan kesken lukemisen.</li>
+      <li>Korjattu etusivun nykiminen: "Termi päivässä" -korteille varataan tila etukäteen, joten sivun sisältö ei enää hyppää alaspäin korttien ilmestyessä.</li>
+      <li>Linkitetty etusivun aloituskappaleesta suoraan aihesivuille: <a href="tietomalli.html">tietomalli</a>, <a href="tahtimalli.html">tähtimalli</a>, <a href="dimensiot.html">dimensiot</a>, <a href="avaimet-ja-relaatiot.html">avaimet</a> ja <a href="termisto.html">termistö</a>. Korjattu samalla sanaston kooksi 157 termiä, joka oli aloituskappaleessa vielä "yli 140".</li>
+      <li>Sivuston sisäiset etusivulinkit osoittavat nyt osoitteeseen datamalli.fi eivätkä datamalli.fi/index.html. Etusivulla oli käytännössä kaksi osoitetta, mikä hajotti kävijätilastot kahdelle riville.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>27.7.2026</h2>
+    <ul>
+      <li>Poistettu viimeinen ulkopuoliselta palvelimelta ladattu resurssi: kaaviokirjasto Mermaid (versio 11.16.0) haettiin aiemmin jsDelivr-CDN:stä sivuilla <a href="litistaminen.html">Taulujen litistäminen</a> ja <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a>, nyt se palvellaan datamalli.fi:n omalta palvelimelta. Sivustolta ei enää synny yhteyttä yhdellekään kolmannen osapuolen palvelimelle.</li>
+      <li>Päivitetty <a href="tietosuoja.html">tietosuojaseloste</a> vastaamaan sitä, mitä sivustolla oikeasti tapahtuu. Seloste kertoo nyt avoimesti, että palvelinlokeista muodostetaan kävijätilastoja, ja nimeää käsittelyn oikeusperusteen (oikeutettu etu). Säilytysajat on eritelty todenmukaisesti: raaka IP-osoite 30 vuorokautta, siitä laskettu pseudonymisoitu tunniste ja tilastot toistaiseksi — aiempi teksti lupasi 30 päivää kaikelle. Lisätty kuvaus selaimeen tallennettavista tiedoista (istunto- ja paikallismuisti; evästeitä ei edelleenkään aseteta). Heinäkuussa lyhyen aikaa kokeiltu sivuston sisäinen tapahtumakeruu on lopetettu ja sen aikana kertynyt data poistettu, joten selosteessa ei ole siitä omaa osiota.</li>
+    </ul>
+  </div>
+
+  <div class="paivitys-merkinta">
+    <h2>26.7.2026</h2>
+    <ul>
+      <li>Lisätty <a href="termisto.html">termistöön</a> 11 uutta termiä, joita haettiin sivustolta mutta joita ei ollut: <a href="termisto.html#big-data">Big data</a>, <a href="termisto.html#data">Data</a>, <a href="termisto.html#data-alusta">Data-alusta</a>, <a href="termisto.html#datasheet">Datasheet</a>, <a href="termisto.html#datatuote">Datatuote</a>, <a href="termisto.html#formatointi">Formatointi</a>, <a href="termisto.html#payload">Payload</a>, <a href="termisto.html#sirontakuvio">Sirontakuvio</a>, <a href="termisto.html#strukturoitu-data">Strukturoitu data</a>, <a href="termisto.html#tietokanta">Tietokanta</a> ja <a href="termisto.html#ytd">YTD</a>. Termejä on nyt 157.</li>
+      <li>Täydennetty termistön rakenteinen data: IDENTITY, NK ja SK puuttuivat sanaston koneluettavasta hakemistosta, vaikka ne olivat sivulla.</li>
+      <li>Muotoiltu termistön otsikko ja kuvaus vastaamaan sitä, mitä sanastosta oikeasti haetaan — englanninkielisen termin suomennosta.</li>
+      <li>Nostettu granulariteetti esiin <a href="faktataulu.html">faktataulusivulla</a>: uusi otsikko, kuvaus ja yhden lauseen määritelmä suorituskykyosion alussa.</li>
+      <li>Julkaistu uusi <a href="tietomalli.html">Tietomalli</a>-sivu: aloitussivu koko aiheeseen. Määrittelee käsitteen, erottaa data-alan tietomallin rakennusalan tietomallista (BIM), käy läpi käsitemallin, loogisen ja fyysisen mallin, tietomallin neljä osaa, mallityyppien vertailun ja tietomallinnuksen kuusi askelta. Lisätty myös navigaatioon.</li>
+      <li>Laajennettu etusivua: mitä datan mallinnus on, miksi siihen kannattaa käyttää aikaa ja mistä se aloitetaan — viisi askelta linkkeineen. Aiemmin etusivulla oli vain korttilista.</li>
+      <li>Lisätty <a href="termisto.html">termistöön</a> 30 sisäistä linkkiä termiselityksistä aihesivuille: esimerkiksi Granulariteetti → <a href="faktataulu.html">faktataulu</a>, Pääavain → <a href="avaimet-ja-relaatiot.html">avaimet ja relaatiot</a> ja SCD → <a href="dimensiot.html">dimensiot</a>. Sanastosta pääsee nyt eteenpäin oikealle sivulle.</li>
+      <li>Lisätty kysymys–vastaus-rakenteinen data (FAQPage) sivuille <a href="tahtimalli.html">Tähtimalli</a>, <a href="faktataulu.html">Faktataulu</a> ja <a href="dimensiot.html">Dimensiot</a>. Auttaa tekoälyhakuja poimimaan vastaukset oikein.</li>
+      <li>Korjattu Sekasikiömalli-termin koneluettava kuvaus vastaamaan sivulla näkyvää tekstiä.</li>
+      <li>Selkeytetty <a href="dimensiot.html">dimensiosivun</a> alkua: ensimmäinen kappale on nyt pelkkä määritelmä ja sen alle tuli uusi osio "Mitä dimensio tarkoittaa tietomallissa?". Otsikko ja kuvaus vastaavat nyt kysymykseen, jota hakukoneesta oikeasti kysytään.</li>
+    </ul>
+  </div>
+
+  <div class="paivitys-merkinta">
+    <h2>24.7.2026</h2>
+    <ul>
+      <li>Lisätty "Satunnainen termi" -kortti "Termi päivässä" -kortin viereen etusivulle ja <a href="termisto.html">termistöön</a>. Päivän termi vaihtuu kerran vuorokaudessa, satunnaistermi joka sivulatauksella.</li>
+      <li>Korjattu kolme lukemisaikaa, jotka olivat jääneet jälkeen sivun sisällöstä: <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> 7 → 15 min, <a href="termisto.html">Termistö</a> 22 → 24 min ja Surrogaattiavaimien mallintaminen 13 → 15 min.</li>
+      <li>Korjattu virhe, joka näytti istunnon ensimmäisellä sivulla minuutin liian pitkän lukemisajan: aloitusruudun logo laskettiin mukaan sivun kuviin.</li>
+      <li>Korjattu <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> -sivun "Katso myös" -osio, joka ei tullut näkyviin lainkaan.</li>
+      <li>Lukemisajat ja korttien tiedot tulevat nyt yhdestä paikasta — sivun omista metatiedoista — joten etusivun kortti ja artikkeli eivät voi enää näyttää eri lukemisaikaa. Sivukartan päivämäärät päivittyvät samalla automaattisesti.</li>
+    </ul>
+  </div>
+
+  <div class="paivitys-merkinta">
+    <h2>23.7.2026</h2>
+    <ul>
+      <li>Julkaistu <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> -sivu (uudelleennimetty aiemmasta tahtimalli-esimerkit.html:stä): viisi Power BI -esimerkkiä huonoimmasta parhaaseen.</li>
+      <li>Nostettu <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> -kortti etusivun listan ensimmäiseksi ja merkitty Uutuus-tunnisteella.</li>
+      <li>Lisätty "Katso myös" -osio <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs tähtimalli</a> -sivun loppuun.</li>
+    </ul>
+  </div>
+
+  <div class="paivitys-merkinta">
+    <h2>15.7.2026</h2>
+    <ul>
+      <li>Lisätty favicon.ico sivuston juureen Google-hakutulosten ikonia varten.</li>
+      <li>Julkaistu <a href="avaimet-ja-relaatiot.html">Avaimien ja relaatioiden mallinnus</a> -sivu: avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>

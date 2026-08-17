@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Data Governance">
+  <meta name="kortti-kuvaus" content="Datan omistajuus, laadunvarmistus, metadatan hallinta, elinkaari ja tietosuoja. Vastaukset keskeisimpiin hallintakysymyksiin dataneuvoksen suosituksineen.">
+  <meta name="tagit" content="hallinta perusteoria">
+  <meta name="lukemisaika" content="7">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Data Governance | Datamalli.fi</title>
+  <meta name="description"
+    content="Data governance tarkoittaa organisaation datan hallintaan liittyviä päätöksiä, vastuita ja standardeja. Opi mitä hyvä data governance vaatii käytännössä.">
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="/fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/tyylit/style.css?v=8">
+  <script src="/skriptit/navigation.js?v=13" defer></script>
+</head>
+<body>
+<main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/tietomalli.html">Tietomalli</a> ·
+    <a href="/tahtimalli.html">Tähtimalli</a> ·
+    <a href="/faktataulu.html">Faktataulu</a> ·
+    <a href="/dimensiot.html">Dimensiot</a> ·
+    <a href="/litistaminen.html">Litistäminen</a> ·
+    <a href="/lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="/medallion.html">Medallion</a> ·
+    <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="/kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="/termisto.html">Termistö</a> ·
+    <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="/apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="/tietoa.html">Tietoa</a> ·
+    <a href="/palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+
+  <h1>Data Governance</h1>
+  <p class="byline">Kirjoittanut <a href="/tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+
+  <p>Data governance tarkoittaa organisaation datan hallinnan pelisääntöjä: päätöksiä, vastuita, prosesseja ja standardeja. Ilman niitä kukaan ei tiedä, mistä data tulee, kuka siitä vastaa tai onko se luotettavaa.</p>
+
+  <p>Data governance ei ratkea työkaluhankinnalla. Se on organisatorinen muutos, ja siksi ohjelmat kaatuvat kulttuuriin useammin kuin tekniikkaan.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Lyhyesti:</strong> Data governance vastaa neljään kysymykseen: kuka omistaa datan, kuka saa käyttää sitä, miten sen laatu varmistetaan ja miten sen elinkaarta hallitaan.
+  </div>
+
+  <h2>Kuka omistaa datan organisaatiossa?</h2>
+
+  <p>Omistajuus ei tarkoita teknistä hallintaa vaan vastuuta siitä, että data on oikeaa, ajantasaista ja käyttökelpoista. Neljä roolia riittää:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Rooli</th>
+        <th>Vastuu</th>
+        <th>Esimerkki</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Datan omistaja (<a href="/termisto.html#data-owner" class="termi-tip">Data Owner</a>)</td>
+        <td>Liiketoimintavastuu datan sisällöstä ja laadusta</td>
+        <td>Myyntijohtaja vastaa myyntidatasta</td>
+      </tr>
+      <tr>
+        <td>Datan hoitaja (<a href="/termisto.html#data-steward" class="termi-tip">Data Steward</a>)</td>
+        <td>Päivittäinen laadun valvonta ja dokumentointi</td>
+        <td>Controller ylläpitää asiakasrekisterin laatusääntöjä</td>
+      </tr>
+      <tr>
+        <td>Datan säilyttäjä (<a href="/termisto.html#data-custodian" class="termi-tip">Data Custodian</a>)</td>
+        <td>Tekninen vastuu tallennuksesta, varmuuskopioinnista ja tietoturvasta</td>
+        <td>IT-arkkitehti hallinnoi tietovaraston infrastruktuuria</td>
+      </tr>
+      <tr>
+        <td>Datan käyttäjä (<a href="/termisto.html#data-consumer" class="termi-tip">Data Consumer</a>)</td>
+        <td>Datan hyödyntäminen raporteissa ja päätöksenteossa</td>
+        <td>Analyytikko tai liiketoimintapäällikkö</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Älä nimeä yhtä "kaiken datan omistajaa" — se johtaa pullonkaulaan ja vastuun pakoiluun. Jaa omistajuus tietoalueittain: HR-data HR-johdolle, talousdata CFO:n alaisuuteen. Jokaisella kriittisellä tietoaineistolla pitää olla nimetty henkilö, joka osaa vastata kysymykseen "onko tämä data oikein?"</p>
+  </div>
+
+  <h2>Miten datan laatu varmistetaan?</h2>
+
+  <p><a href="/termisto.html#datan-laatu" class="termi-tip">Datan laatu</a> ei ole kertaprojekti vaan jatkuva seuranta. Nämä viisi ulottuvuutta kattavat sen, mitä laadusta kannattaa mitata:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ulottuvuus</th>
+        <th>Kysymys</th>
+        <th>Esimerkki ongelmasta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Täydellisyys</td>
+        <td>Onko kaikki tarvittava tieto tallessa?</td>
+        <td>Asiakkaalta puuttuu sähköpostiosoite</td>
+      </tr>
+      <tr>
+        <td>Tarkkuus</td>
+        <td>Vastaako data todellisuutta?</td>
+        <td>Puhelinnumero on kirjoitettu väärin</td>
+      </tr>
+      <tr>
+        <td>Ajantasaisuus</td>
+        <td>Onko data riittävän tuoretta käyttötarkoitukseen?</td>
+        <td>Asiakkaan osoite on päivittämättä muuton jälkeen</td>
+      </tr>
+      <tr>
+        <td>Johdonmukaisuus</td>
+        <td>Onko sama tieto samassa muodossa eri järjestelmissä?</td>
+        <td>Sukupuoli koodattu "M/N" yhdessä ja "Mies/Nainen" toisessa</td>
+      </tr>
+      <tr>
+        <td>Ainutlaatuisuus</td>
+        <td>Onko samaa kohdetta kuvaavia rivejä vain yksi?</td>
+        <td>Sama asiakas löytyy kahdesti eri kirjoitusasulla</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Rakenna laadunvalvonta suoraan tietovirtaan, älä tee siitä erillistä tarkistusprosessia. Kun laadun mittaaminen on automatisoitu ETL- tai ELT-prosessiin, saat hälytykset ongelmista heti — et vasta kun raportti on mennyt johdolle väärillä luvuilla. Power BI:ssä kannattaa luoda erillinen "Data Quality" -sivu, jossa keskeisten taulujen laatumittarit näkyvät vastuuhenkilöille.</p>
+  </div>
+
+  <h2>Mitä on metadatan hallinta?</h2>
+
+  <p><a href="/termisto.html#metadata" class="termi-tip">Metadata</a> on dataa datasta — tieto siitä, mitä data tarkoittaa, mistä se tulee, milloin se on päivitetty ja kuka siitä vastaa. Metadataa on kahta päätyyppiä:</p>
+
+  <ul>
+    <li><strong>Tekninen metadata.</strong> Taulun nimi, sarakkeiden tietotyypit, tiedoston koko, päivitysaikaleima ja tietokannan sijainti.</li>
+    <li><strong>Liiketoimintametadata.</strong> Mitä sarake tarkoittaa liiketoiminnallisesti, kenelle data kuuluu, mihin prosessiin se liittyy ja mikä on sallittu käyttötarkoitus.</li>
+  </ul>
+
+  <p><a href="/termisto.html#datakatalogi" class="termi-tip">Datakatalogi</a> kerää metadatan yhteen paikkaan. Se on organisaation datakirjasto: mitä dataa on saatavilla, mitä se tarkoittaa ja keneltä saa lisätietoa.</p>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Älä aliarvioi liiketoimintametadatan arvoa. Tekninen metadata syntyy järjestelmistä automaattisesti, mutta liiketoimintakonteksti — miksi tämä sarake on olemassa, mitä "aktiivinen asiakas" tarkalleen tarkoittaa organisaatiossanne — täytyy dokumentoida itse. Aloita täyttämällä liiketoimintakuvaukset 10–15 tärkeimmälle sarakkeelle. Työmäärä on pieni, vaikutus analytiikan luotettavuuteen huomattava.</p>
+  </div>
+
+  <h2>Miten GDPR ja tietosuoja liittyvät data governance -malliin?</h2>
+
+  <p><a href="/termisto.html#gdpr" class="termi-tip">GDPR</a> (yleinen tietosuoja-asetus) asettaa vaatimuksia henkilötietojen käsittelylle: organisaation on tiedettävä, mitä henkilötietoja sillä on, missä ne sijaitsevat ja mihin niitä käytetään. Data governance tuottaa nämä vastaukset:</p>
+
+  <ul>
+    <li><strong>Tietojen kartoitus.</strong> Missä järjestelmissä henkilötietoja on tallessa.</li>
+    <li><strong><a href="/termisto.html#kayttotarkoituksen-rajaus" class="termi-tip">Käyttötarkoituksen rajaus</a>.</strong> Data on käytettävissä vain siihen tarkoitukseen, johon se on kerätty.</li>
+    <li><strong>Käyttöoikeuksien hallinta.</strong> Henkilötietoja pääsevät käsittelemään vain ne, joilla on siihen oikeus ja tarve.</li>
+    <li><strong>Säilytysaikojen noudattaminen.</strong> Vanhentunut henkilötieto poistetaan tai <a href="/termisto.html#anonymisointi" class="termi-tip">anonymisoidaan</a> sovitun aikataulun mukaan.</li>
+    <li><strong>Rekisteröidyn oikeudet.</strong> Prosessit tietojen tarkastus-, korjaus- ja poistopyyntöjen käsittelyyn.</li>
+  </ul>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>GDPR ei ole pelkästään IT:n tai juristin asia — se koskee jokaista, joka käsittelee henkilötietoja. Vie tietosuojavaatimukset osaksi normaalia toimintaa sen sijaan, että ne ovat erillinen tarkistuslista auditointeja varten. Power BI -raporteissa merkitse selkeästi, mitkä raportit sisältävät henkilötietoja, ja varmista, että rivitason tietoturva (<a href="/termisto.html#rls" class="termi-tip">Row-Level Security</a>) on konfiguroitu oikein ennen jakelua.</p>
+  </div>
+
+  <h2>Miten datan elinkaarta hallitaan?</h2>
+
+  <p><a href="/termisto.html#datan-elinkaari" class="termi-tip">Datan elinkaari</a> kattaa kaikki vaiheet syntymästä hävittämiseen: kerääminen, käsittely, tallennus, käyttö, arkistointi ja hävittäminen. Elinkaaren hallinta pitää tarvittavan datan saatavilla ja vanhentuneen poissa — vanha data kuormittaa järjestelmiä ja kasvattaa tietosuojariskiä.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Elinkaaren vaihe</th>
+        <th>Kysymykset</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kerääminen</td>
+        <td>Mitä dataa kerätään? Onko keräämiselle laillinen peruste? Kuka kerää?</td>
+      </tr>
+      <tr>
+        <td>Käsittely ja jalostus</td>
+        <td>Miten raakadata muunnetaan käyttökelpoiseksi? Kuka vastaa laadusta?</td>
+      </tr>
+      <tr>
+        <td>Tallennus</td>
+        <td>Missä data säilytetään? Miten pitkään? Miten se suojataan?</td>
+      </tr>
+      <tr>
+        <td>Jakelu ja käyttö</td>
+        <td>Kenellä on pääsy? Mihin tarkoituksiin dataa saa käyttää?</td>
+      </tr>
+      <tr>
+        <td>Arkistointi</td>
+        <td>Siirretäänkö data kylmään arkistoon vai säilytetäänkö aktiivisena?</td>
+      </tr>
+      <tr>
+        <td>Hävittäminen</td>
+        <td>Milloin data poistetaan? Miten varmistetaan turvallinen poisto?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Monessa organisaatiossa data vain kertyy eikä kukaan mieti, milloin se poistetaan. Tämä on sekä tietoturvariski että kustannuskysymys. Tee säilytysaikapolitiikka samalla kun tietoaineisto otetaan käyttöön — ei sitten kun levytila loppuu tai tietosuojatarkastaja koputtaa ovelle. Nyrkkisääntö: jos et osaa nimetä yhtään käyttötapausta datalle, joka on yli kolme vuotta vanhaa, se kuuluu arkistoon tai roskakoriin.</p>
+  </div>
+
+  <h2>Miten data governance -ohjelma aloitetaan?</h2>
+
+  <p>Ohjelma etenee seitsemän vaiheen kautta. Järjestys ratkaisee: työkalut valitaan vasta kun tiedetään, mitä hallitaan.</p>
+
+  <ol>
+    <li><strong>Nykytilan arviointi.</strong> Kartoita, mitä dataa on, missä se sijaitsee ja ketkä sitä käyttävät.</li>
+    <li><strong>Kriittiset tietoalueet.</strong> Priorisoi alueet, joissa datan laatu tai hallinta aiheuttaa eniten ongelmia.</li>
+    <li><strong>Omistajien nimeäminen.</strong> Varmista liiketoimintajohdon tuki ja nimeä omistajat prioriteettialueille.</li>
+    <li><strong>Säännöt ja standardit.</strong> Määrittele <a href="/nimeamiskaytannot.html">nimeämiskäytännöt</a>, laatukriteerit ja pääsykäytännöt.</li>
+    <li><strong>Työkalujen valinta.</strong> Valitse datakatalogi ja laadunvalvontatyökalut tarpeen mukaan.</li>
+    <li><strong>Koulutus ja viestintä.</strong> Varmista, että kaikki ymmärtävät roolinsa ja hyödyt.</li>
+    <li><strong>Jatkuva kehittäminen.</strong> Mittaa tuloksia ja laajenna ohjelmaa asteittain.</li>
+  </ol>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <p>Suurin sudenkuoppa on yrittää tehdä kaikki kerralla. Data governance ei ole projekti, jolla on loppupäivämäärä — se on jatkuva toimintatapa. Valitse kolme tärkeintä tietoaineistoa, esimerkiksi asiakkaat, tuotteet ja myynti, ja määrittele niille omistajat ja laatukriteerit. Kommunikoi ensimmäinen korjattu ongelma näkyvästi: onnistumiset rakentavat luottamusta ja tekevät laajentamisen helpommaksi. Johdon tuki on välttämätöntä — ilman sitä ohjelma kuolee ensimmäiseen muutosvastarintaan.</p>
+  </div>
+
+</body>
+</html>
