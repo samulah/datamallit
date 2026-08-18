@@ -1,3 +1,6 @@
 {
-    "livePreview.defaultPreviewPath": "/html/index.html"
+    // Live Previewin juuri = sivuston juuri, jotta juurisuhteelliset polut
+    // (/tyylit/style.css, /skriptit/navigation.js) toimivat kuten palvelimella.
+    "livePreview.serverRoot": "sivusto",
+    "livePreview.defaultPreviewPath": "/index.html"
 }

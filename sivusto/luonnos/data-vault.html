@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Data Vault">
+  <meta name="kortti-kuvaus" content="Skaalautuva ja auditoitava tietovarastoarkkitehtuuri. Perustuu hub-, satellite- ja link-tauluihin. Sopii erityisesti historiallisten tietojen hallintaan.">
+  <meta name="tagit" content="arkkitehtuuri tietomalli">
+  <meta name="lukemisaika" content="3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Data Vault | Datamalli.fi</title>
+  <meta name="description"
+    content="Data Vault on skaalautuva ja auditoitava tietomallinnusmenetelmä suurille, muuttuville tietovarastoille. Opi Hub-, Link- ja Satellite-taulujen rakenne.">
+<!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+     CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+<link rel="preload" href="/fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/tyylit/style.css?v=8">
+  <script src="/skriptit/navigation.js?v=14" defer></script>
+</head>
+<body>
+<main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/tietomalli.html">Tietomalli</a> ·
+    <a href="/tahtimalli.html">Tähtimalli</a> ·
+    <a href="/faktataulu.html">Faktataulu</a> ·
+    <a href="/dimensiot.html">Dimensiot</a> ·
+    <a href="/litistaminen.html">Litistäminen</a> ·
+    <a href="/lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="/medallion.html">Medallion</a> ·
+    <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="/kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="/termisto.html">Termistö</a> ·
+    <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="/apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="/tietoa.html">Tietoa</a> ·
+    <a href="/palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+  <h1>Data Vault</h1>
+  <p class="byline">Kirjoittanut <a href="/tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026</p>
+  <p>Data Vault on skaalautuva ja auditoitava tietomallinnusmenetelmä, joka soveltuu erityisesti suurten ja muuttuvien <a href="/termisto.html#tietovarasto">tietovarastojen</a> hallintaan.</p>
+  <p>Dan Linstedt kehitti menetelmän tiimeineen 1990-luvulla Lockheed Martinilla (<a href="https://datavaultalliance.com/architecture-data/faq-about-data-vault-2-0/">DataVaultAlliance: FAQ About Data Vault 2.0</a>). Tarve syntyi lähdejärjestelmien muutoksista: perinteinen tietovarastorakenne muuttuu vaikeasti ylläpidettäväksi, kun lähteitä on paljon ja liiketoiminnan rakenteet muuttuvat nopeasti. Data Vault tallentaa historian, tukee datan jäljitettävyyttä ja kestää lähdejärjestelmien muutoksia.</p>
+  <p>Data Vault 2.0 laajentaa alkuperäistä menetelmää kokonaisemmaksi lähestymistavaksi: mallinnuksen lisäksi se kattaa arkkitehtuurin, kehitysmenetelmän, automaation ja nykyaikaisten data-alustojen käytännöt (<a href="https://datavaultalliance.com/engineering/data-vault-2-0-an-introduction/">DataVaultAlliance: Data Vault 2.0 Introduction</a>).</p>
+  <h2>Data Vault 2.0 -rakenne</h2>
+  <p>Data Vault 2.0 jakaa tietomallin kolmeen perusrakenteeseen: Hubeihin, Linkkeihin ja Satelliitteihin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Data Vault Glossary</a>). Rakenne erottaa toisistaan pysyvät liiketoiminta-avaimet, niiden väliset suhteet ja ajan myötä muuttuvat kuvailevat tiedot. Uuden lähdejärjestelmän tai attribuutin lisääminen ei riko olemassa olevaa rakennetta.</p>
+  <ul>
+    <li><strong>Hub</strong> kuvaa liiketoiminnan ydinkohdetta: asiakasta, tilausta, tuotetta tai työntekijää. Hub tallentaa liiketoiminta-avaimen, teknisen avaimen, latausajan ja lähdejärjestelmän. Hub ei sisällä kuvailevia attribuutteja, kuten asiakkaan nimeä tai osoitetta.</li>
+    <li><strong>Satelliitti</strong> sisältää Hubiin tai Linkkiin liittyvät kuvailevat tiedot ja niiden historian. Asiakkaan nimi, kaupunki ja asiakasryhmä kuuluvat asiakassatelliittiin. Kun tieto muuttuu, satelliittiin lisätään uusi rivi — vanhaa tietoa ei ylikirjoiteta.</li>
+    <li><strong>Linkki</strong> kuvaa Hubien välisen suhteen. Asiakas ja tilaus yhdistyvät asiakas-tilaus-linkillä. Linkki mahdollistaa myös moni-moneen-rakenteet muuttamatta Hubien perusrakennetta.</li>
+  </ul>
+  <p>Linkeillä on eri rooleja. Tavallinen linkki kuvaa kahden tai useamman Hubin suhdetta. Tapahtumalinkki kuvaa yksittäistä tapahtumaa. Status-linkki kuvaa kohteen suhdetta tilaan, kuten tilauksen yhteyttä statukseen <em>avoin</em>, <em>toimitettu</em> tai <em>peruttu</em> — voimassaolo ja muutoshistoria tallennetaan linkkiin liittyvään satelliittiin (<a href="https://www.scalefree.com/blog/data-vault/data-vault-glossary-hub-link-satellite-business-vault-and-more/">Scalefree: Effectivity Satellite</a>).</p>
+  <figure>
+    <img src="/kuvat/data-vault/data-vault-luokkakaavio.svg" alt="Luokkakaavio Data Vault -entiteeteistä: Hubit, Linkit ja Satelliitit asiakas-, tilaus- ja status-esimerkillä">
+    <figcaption>Yksinkertainen esimerkki Data Vault 2.0 -mallista: asiakas ja tilaus ovat Hubeja, niiden suhde on Linkki, ja muuttuvat tiedot säilytetään Satelliiteissa.</figcaption>
+  </figure>
+</body>
+</html>

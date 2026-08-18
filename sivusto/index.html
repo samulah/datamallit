@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Merkitään JS-tuki ennen ensimmäistä maalausta, jotta CSS voi varata
+       tilan JS:n tuottamille "Termi päivässä" -korteille. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <meta name="lukemisaika" content="3">
+  <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
+  <link rel="canonical" href="https://www.datamalli.fi/">
+  <meta name="description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 157 termin sanasto suomeksi.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi">
+  <meta property="og:description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 157 termin sanasto suomeksi.">
+  <meta property="og:url" content="https://www.datamalli.fi/">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnus ja Power BI -kehitys suomeksi">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.datamalli.fi/#organization",
+        "name": "Datamalli.fi",
+        "alternateName": "Dataneuvos",
+        "url": "https://www.datamalli.fi/",
+        "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" },
+        "description": "Tähtimalli, dimensiot, nimeämiskäytännöt ja yli 140 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.",
+        "founder": { "@type": "Person", "name": "Samu Lahdenperä", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "sameAs": [
+          "https://dataneuvos.fi",
+          "https://www.linkedin.com/in/samulahdenpera/",
+          "https://www.linkedin.com/company/86828481"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.datamalli.fi/#website",
+        "name": "Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi",
+        "url": "https://www.datamalli.fi/",
+        "inLanguage": "fi",
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" }
+      }
+    ]
+  }
+  </script>
+  <title>Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="tyylit/style.css?v=8">
+  <script src="skriptit/navigation.js?v=14" defer></script>
+  <script src="skriptit/search-index.js?v=5" defer></script>
+  <script src="skriptit/search.js?v=2" defer></script>
+  <script src="skriptit/termi-lotto-data.js?v=2" defer></script>
+  <script src="skriptit/termi-paivassa.js?v=5" defer></script>
+  <style>
+    .kategoria {
+      margin: 36px 0 8px 0;
+    }
+    .kategoria h2 {
+      border-bottom: 2px solid var(--c-primary);
+      padding-bottom: 6px;
+      margin-bottom: 18px;
+    }
+    .kortti.kesken {
+      border-color: #e8eaf0;
+      opacity: 0.72;
+    }
+    .kortti.kesken strong {
+      color: #8a93a6;
+    }
+    .kortti.kesken:hover {
+      border-color: #c8cdd8;
+      box-shadow: none;
+      transform: none;
+    }
+    .haku-alue {
+      margin: 4px 0 28px 0;
+    }
+    /* Nostot näytetään samalla ruudukolla kuin .kortti-rivi: uusin juttu
+       ensimmäiseen sarakkeeseen, päivän termi ja satunnainen termi sen viereen.
+       Kukin on täsmälleen yhden etusivun kortin levyinen ja kaventuu samoissa
+       kohdissa kuin kortit. auto-fill (ei auto-fit): tyhjät sarakkeet on
+       säilytettävä, muuten kortit venyisivät taas koko leveyteen. Kapealla
+       ruudulla kortit menevät allekkain. */
+    #termi-paivassa {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px 14px;
+      margin: 20px 0 28px 0;
+    }
+    #termi-paivassa > * {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Kortit venytetään samankorkuisiksi vaikka selitteet ovat eripituisia. */
+    #termi-paivassa .tp-termi {
+      flex: 1;
+    }
+    /* Termikortit tulevat JS:stä, uusin juttu on generoitua HTML:ää. Ilman
+       JS:ää termislotit jäisivät tyhjiksi laatikoiksi, joten ne piilotetaan —
+       uusin juttu näkyy silloin yksinään. */
+    html:not(.js) .tp-lotto {
+      display: none;
+    }
+    /* Tyhjälle slotille varataan tila etukäteen, muuten kortit työntävät sivun
+       sisältöä alaspäin latautuessaan (CLS heti H1:n alla). Varaus koskee vain
+       täyttämätöntä slottia (:empty) — täytyttyään kortti määrää korkeutensa
+       itse, eikä ylivarausta jää näkyviin. Korkeudet on mitattu (kolme saraketta
+       254 px, kaksi 210–232 px, yksi 189–232 px): kapeassa sarakkeessa termin
+       selite rivittyy useammalle riville kuin leveässä. Rajat ovat kohdissa
+       joissa ruudukon sarakemäärä vaihtuu — 240 px:n sarake + 14 px:n väli
+       mahtuu kolmesti 788 px:n ja kahdesti 534 px:n ikkunaan. */
+    .tp-lotto:empty {
+      min-height: 255px;
+    }
+    @media (max-width: 787px) {
+      .tp-lotto:empty { min-height: 230px; }
+    }
+    @media (max-width: 533px) {
+      .tp-lotto:empty { min-height: 205px; }
+    }
+    .tp-otsikko {
+      font-family: var(--font-ui);
+      font-size: 0.73em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-primary);
+      margin-bottom: 6px;
+    }
+    .tp-termi {
+      display: block;
+      border: 1px solid var(--c-border);
+      border-left: 3px solid var(--c-primary);
+      border-radius: 6px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--c-surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .tp-termi:hover {
+      border-color: var(--c-primary);
+      box-shadow: 0 4px 14px rgba(30,58,95,0.13);
+    }
+    .tp-termi strong {
+      display: block;
+      font-family: var(--font-ui);
+      color: var(--c-primary);
+      font-size: 1.02em;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .tp-en {
+      font-weight: 400;
+      color: var(--c-muted);
+      font-size: 0.85em;
+    }
+    .tp-selite {
+      display: block;
+      font-size: 0.9em;
+      color: var(--c-muted);
+      line-height: 1.5;
+    }
+    .tp-linkki {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--c-primary);
+    }
+    /* Uusin juttu erottuu termikorteista paksummalla reunaviivalla — sisältösivu,
+       ei sanaston termi. */
+    .tp-uusin {
+      border-left-width: 5px;
+    }
+    .tp-nosto-meta {
+      font-weight: 400;
+      color: var(--c-muted);
+      white-space: nowrap;
+    }
+    .haku-kentta {
+      width: 100%;
+      padding: 9px 14px;
+      font-size: 0.96em;
+      font-family: var(--font-ui);
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background: var(--c-surface);
+      color: var(--c-text);
+    }
+    .haku-kentta:focus {
+      outline: none;
+      border-color: var(--c-primary);
+      box-shadow: 0 0 0 3px rgba(30,58,95,0.12);
+    }
+    .tagi-rivi {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tagi-otsikko {
+      font-family: var(--font-ui);
+      font-size: 0.80em;
+      color: var(--c-muted);
+      white-space: nowrap;
+    }
+    #tagi-suodatin {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex: 1;
+    }
+    .tagi-nappi {
+      font-family: var(--font-ui);
+      font-size: 0.76em;
+      padding: 3px 10px;
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      background: var(--c-surface);
+      color: var(--c-muted);
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+    }
+    .tagi-nappi:hover {
+      border-color: var(--c-primary);
+      color: var(--c-primary);
+      background: #eef1f8;
+    }
+    .tagi-nappi.aktiivinen {
+      background: var(--c-primary);
+      color: #fff;
+      border-color: var(--c-primary);
+    }
+    .and-or-toggle {
+      font-family: var(--font-ui);
+      font-size: 0.76em;
+      padding: 3px 11px;
+      border: 1.5px solid var(--c-primary);
+      border-radius: 12px;
+      background: var(--c-surface);
+      color: var(--c-primary);
+      cursor: pointer;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    .and-or-toggle.and-aktiivinen {
+      background: #b03020;
+      border-color: #b03020;
+      color: #fff;
+    }
+    .nollaa-nappi {
+      font-family: var(--font-ui);
+      font-size: 0.76em;
+      padding: 3px 10px;
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      background: var(--c-surface);
+      color: var(--c-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .nollaa-nappi:hover { background: #eef1f8; }
+    .ei-tuloksia {
+      font-family: var(--font-ui);
+      color: var(--c-muted);
+      text-align: center;
+      padding: 40px 0;
+    }
+    .sisalto-osuma {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.69em;
+      padding: 2px 7px;
+      background: #fff8e1;
+      color: #8B6914;
+      border: 1px solid #e0c060;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
+    .kategoria h2 {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .kategoria h2 .otsikko-teksti {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+    .otsikko-tulossa {
+      font-size: 0.48em;
+      font-weight: 400;
+      font-family: var(--font-ui);
+      background: #fff3cd;
+      border: 1px solid #e0c060;
+      color: #856404;
+      border-radius: 4px;
+      padding: 2px 8px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .kategoria-chevron {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #eef1f8;
+      border: 1px solid #d8deec;
+      color: var(--c-muted);
+      font-size: 0.58em;
+      transition: transform 0.2s, background 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .kategoria h2:hover .kategoria-chevron {
+      background: #dde4f0;
+      color: var(--c-primary);
+    }
+    .kategoria.piilotettu .kategoria-chevron {
+      transform: rotate(-90deg);
+    }
+    .kategoria.piilotettu .kortti-rivi {
+      display: none;
+    }
+    #opas-teksti {
+      margin-top: 48px;
+      padding-top: 8px;
+      border-top: 1px solid var(--c-border);
+    }
+  </style>
+</head>
+<body>
+<main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="tietomalli.html">Tietomalli</a> ·
+    <a href="tahtimalli.html">Tähtimalli</a> ·
+    <a href="faktataulu.html">Faktataulu</a> ·
+    <a href="dimensiot.html">Dimensiot</a> ·
+    <a href="litistaminen.html">Litistäminen</a> ·
+    <a href="lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="medallion.html">Medallion</a> ·
+    <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="termisto.html">Termistö</a> ·
+    <a href="kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="tietoa.html">Tietoa</a> ·
+    <a href="palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+
+  <h1>Datan mallinnuksen opas</h1>
+
+  <!-- Etusivun nostot. Uusin juttu on generoitu (tyokalut/rakenna.py), termikortit
+       täyttää termi-paivassa.js — tyhjät slotit varaavat niille tilan etukäteen. -->
+  <div id="termi-paivassa">
+    <!-- UUSIN:alku — generoitu, älä muokkaa käsin -->
+    <div class="tp-solu">
+      <div class="tp-otsikko">Uusin juttu</div>
+      <a class="tp-termi tp-uusin" href="medallion.html">
+        <strong>Medallion-arkkitehtuuri</strong>
+        <span class="tp-selite">Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
+        <span class="tp-linkki">Lue juttu → <span class="tp-nosto-meta">3.8.2026 · 11 min</span></span>
+      </a>
+    </div>
+    <!-- UUSIN:loppu -->
+    <div class="tp-solu tp-lotto"></div>
+    <div class="tp-solu tp-lotto"></div>
+  </div>
+
+  <p><strong>Datan mallinnus</strong> on työ, jossa päätetään miten data järjestetään tauluihin, sarakkeisiin ja niiden välisiin relaatioihin. Lopputulosta kutsutaan <a href="tietomalli.html">tietomalliksi</a>. Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: <a href="tahtimalli.html">tähtimalli</a>, <a href="dimensiot.html">dimensiot</a> ja <a href="avaimet-ja-relaatiot.html">avaimet</a> konkreettisin esimerkein, <a href="termisto.html">157 termin sanasto</a> sekä suositellut työkalut ja kirjallisuus.</p>
+
+  <div class="haku-alue">
+    <input type="search" id="haku" class="haku-kentta" placeholder="Etsi aiheita...">
+    <div class="tagi-rivi">
+      <span class="tagi-otsikko">Suodata:</span>
+      <div id="tagi-suodatin"></div>
+      <button id="and-or-toggle" class="and-or-toggle" title="OR: jokin valituista tägeistä riittää">OR</button>
+      <button id="nollaa-nappi" class="nollaa-nappi" style="display:none">✕ Tyhjennä</button>
+    </div>
+  </div>
+  <p id="ei-tuloksia" class="ei-tuloksia" style="display:none">Ei hakutuloksia.</p>
+
+  <div class="kategoria">
+    <h2>Tietomallit ja datan mallinnusmenetelmät</h2>
+    <div class="kortti-rivi" data-kortit="tietomalli.html sekasikiomalli-vs-tahtimalli.html tahtimalli.html faktataulu.html dimensiot.html litistaminen.html lumihiutalemalli.html avaimet-ja-relaatiot.html surrogaattiavaimet.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="tietomalli.html" data-tags="tietomalli perusteoria power-bi" data-min="7">
+        <strong>Tietomalli</strong>
+        <span>Mikä tietomalli on, mitä eroa on käsitemallilla, loogisella ja fyysisellä mallilla ja mistä tietomallinnus aloitetaan. Aloitussivu koko aiheeseen.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">perusteoria</span><span class="tagi">Power BI</span></div>
+      </a>
+      <a class="kortti" href="sekasikiomalli-vs-tahtimalli.html" data-tags="tietomalli power-bi ai" data-min="15">
+        <strong>Sekasikiömalli vs tähtimalli</strong>
+        <span>Orgaanisesti kasvanut sekasikiömalli ja siivottu tähtimalli vastaavat samoihin kysymyksiin. Vertailu näyttää, miksi tähtimalli on silti nopeampi, varmempi ja AI-valmis.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">AI</span></div>
+      </a>
+      <a class="kortti" href="tahtimalli.html" data-tags="tietomalli power-bi perusteoria ai" data-min="6">
+        <strong>Tähtimalli (Star Schema)</strong>
+        <span>Yksinkertainen ja suorituskykyinen malli, jossa faktataulun ympärille liitetään dimensiotaulut suoraan. Yleisin valinta BI-ratkaisuissa.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span><span class="tagi">AI</span></div>
+      </a>
+      <a class="kortti" href="faktataulu.html" data-tags="tietomalli power-bi perusteoria" data-min="13">
+        <strong>Faktataulun mallinnus</strong>
+        <span>Faktataulun rakenne, kolme arkkityyppiä ja granulariteetin valinta. Vierasavaimet, additiivisuus ja kultaiset säännöt Power BI -tietomallia varten.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="dimensiot.html" data-tags="tietomalli power-bi perusteoria" data-min="14">
+        <strong>Dimensioiden mallinnus</strong>
+        <span>Surrogaattiavaimet, SCD-tyypit 0–6, parhaat käytännöt ja Power BI:n suorituskykyrajat eri kokoisilla dimensioilla.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="litistaminen.html" data-tags="tietomalli power-bi perusteoria" data-min="4">
+        <strong>Taulujen litistäminen (Flattening)</strong>
+        <span>Hierarkkisten dimensiotaulujen yhdistäminen yhdeksi leveäksi tauluksi ennen Power BI -latausta. Muuttaa lumihiutaleen tähtimalliksi.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="lumihiutalemalli.html" data-tags="tietomalli power-bi perusteoria" data-min="3">
+        <strong>Lumihiutalemalli (Snowflake Schema)</strong>
+        <span>Tähtimallin laajennus, jossa dimensiot on normalisoitu useampaan tauluun. Vähentää toisteisuutta mutta lisää monimutkaisuutta.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="avaimet-ja-relaatiot.html" data-tags="tietomalli power-bi perusteoria" data-min="12">
+        <strong>Avaimien ja relaatioiden mallinnus</strong>
+        <span>Avaintyypit (PK, FK, surrogaatti, degeneraatioavain), relaatioiden kardinaliteetti ja suodatussuunta sekä orpojen vierasavainten käsittely sentinel-rivein.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <a class="kortti" href="surrogaattiavaimet.html" data-tags="tietomalli power-bi perusteoria" data-min="16">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Surrogaattiavaimien mallintaminen</strong>
+        <span>Missä medallion-kerroksessa surrogaattiavaimet luodaan, miten suuria dimensioita hallitaan ja kuinka inkrementaalinen lataus toimii käytännössä.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <!-- KORTIT:loppu -->
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Hallinta ja laatu</h2>
+    <div class="kortti-rivi" data-kortit="nimeamiskaytannot.html ai-valmis-metadata.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="nimeamiskaytannot.html" data-tags="hallinta power-bi tietomalli" data-min="7">
+        <strong>Nimeämiskäytännöt</strong>
+        <span>Ferrarin ja Russon seitsemän sääntöä taulujen ja sarakkeiden nimeämiseen Power BI -tietomalleissa. Selkeys alkaa nimistä.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti" href="ai-valmis-metadata.html" data-tags="hallinta power-bi ai tietomalli" data-min="10">
+        <strong>AI-valmis metadata</strong>
+        <span>Mitä tauluista, sarakkeista ja mittareista kannattaa kuvata tietovarastossa ja Power BI:ssä, jotta Copilot ja muut AI-työkalut toimivat luotettavasti.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">Power BI</span><span class="tagi">AI</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <!-- KORTIT:loppu -->
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Filosofia ja käytännöt</h2>
+    <div class="kortti-rivi" data-kortit="kehittamisen-filosofia.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="kehittamisen-filosofia.html" data-tags="hallinta perusteoria" data-min="1">
+        <strong>Kehittämisen filosofia</strong>
+        <span>Periaatteita, jotka ohjaavat hyvää BI-kehitystä: ylläpidettävyys, avoimuus ongelmista, tekninen velka ja käyttäjälähtöisyys.</span>
+        <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <!-- KORTIT:loppu -->
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2>Resurssit</h2>
+    <div class="kortti-rivi" data-kortit="termisto.html kirjallisuus-suositukset.html apuohjelmat.html tietoa.html palvelut.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="27">
+        <strong>Termistö</strong>
+        <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
+        <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti" href="kirjallisuus-suositukset.html" data-tags="kirjallisuus dax tietomalli" data-min="8">
+        <strong>Suositeltu kirjallisuus</strong>
+        <span>Parhaat kirjat datan mallinnuksesta, tietovarastoinnista ja Power BI:stä. Hyvä lukupaketti niin aloittelijoille kuin kokeneille.</span>
+        <div class="kortti-tagit"><span class="tagi">kirjallisuus</span><span class="tagi">DAX</span><span class="tagi">tietomalli</span></div>
+      </a>
+      <a class="kortti" href="apuohjelmat.html" data-tags="tyokalut power-bi dax ai" data-min="9">
+        <strong>Apuohjelmat</strong>
+        <span>DAX Studio, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut selitettynä.</span>
+        <div class="kortti-tagit"><span class="tagi">työkalut</span><span class="tagi">Power BI</span><span class="tagi">DAX</span><span class="tagi">AI</span></div>
+      </a>
+      <a class="kortti" href="tietoa.html" data-min="3">
+        <strong>Tietoa sivustosta</strong>
+        <span>Kuka datamalli.fi:n takana on ja mihin sivusto tähtää — tekijänä Samu Lahdenperä (Dataneuvos), 10+ v. analytiikka- ja BI-kokemus.</span>
+      </a>
+      <a class="kortti" href="palvelut.html" data-tags="tietomalli power-bi" data-min="4">
+        <strong>Palvelut</strong>
+        <span>Tietomallin kuntotarkastus, suorituskykyselvitys ja jatkuva sparraus — rajattuina paketteina, hinta-arvioineen.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span></div>
+      </a>
+      <!-- KORTIT:loppu -->
+    </div>
+  </div>
+
+  <div class="kategoria">
+    <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit</span></h2>
+    <div class="kortti-rivi" data-kortit="medallion.html">
+      <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
+      <a class="kortti" href="medallion.html" data-tags="arkkitehtuuri perusteoria" data-min="11">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Medallion-arkkitehtuuri</strong>
+        <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
+        <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>
+      </a>
+      <!-- KORTIT:loppu -->
+    </div>
+  </div>
+
+  <section id="opas-teksti">
+    <h2>Mitä datan mallinnus on?</h2>
+    <p>
+      Datan mallinnuksessa päätetään, mihin tauluihin data jaetaan, mitä yksi rivi tarkoittaa ja miten taulut
+      liittyvät toisiinsa. Lopputulos on <a href="tietomalli.html">tietomalli</a>: rakenne, jonka päälle
+      raportit, mittarit ja tekoälytyökalut rakennetaan.
+    </p>
+    <p>
+      Sama data voidaan järjestää kymmenellä eri tavalla, ja kaikki tuottavat oikean vastauksen jollakin
+      kysymyksellä. Ero syntyy siinä, kuinka monella kysymyksellä vastaus on oikea. Hyvä malli on
+      yksiselitteinen: siitä saa vain yhden vastauksen kysymykseen "paljonko myimme viime kuussa".
+      Huonosta mallista saa kolme, ja kaikki kolme ovat jonkun mielestä oikein.
+    </p>
+
+    <h2>Miksi datan mallinnukseen kannattaa käyttää aikaa?</h2>
+    <p>
+      Koska huono malli tuhlaa resursseja niin kauan kuin se on käytössä. Sama data vie huonosti
+      mallinnettuna moninkertaisesti muistia, ja kysely, joka <a href="tahtimalli.html">hyvin
+      rakennetussa mallissa</a> palautuu sekunnissa, kestää huonossa kolme. Pilvikapasiteetti ostetaan
+      juuri muistin ja laskennan mukaan, joten pahimmillaan sama ratkaisu maksaa kolminkertaisen hinnan
+      pelkän rakenteen takia — samalla datalla, samoilla raporteilla ja samoilla käyttäjillä. Rakennetta
+      ei myöskään korjata lisäämällä tehoa: huono malli on huono myös isommalla kapasiteetilla, se vain
+      maksaa enemmän.
+    </p>
+    <p>
+      Toinen kustannus on hitaampi huomata. Moniselitteinen malli tuottaa raportteja, joiden lukuja
+      joudutaan selittämään joka kokouksessa. Kun selittäminen käy raskaaksi, joku rakentaa oman Excelin,
+      ja siitä alkaa versio numero kaksi totuudesta.
+    </p>
+    <p>
+      Kolmas syy on uusi. Copilot ja muut kielimallipohjaiset työkalut kyselevät tietomallia samalla
+      logiikalla kuin ihminen: ne lukevat taulujen ja sarakkeiden nimet ja arvaavat lopun. Yksiselitteinen
+      malli ja kunnollinen <a href="ai-valmis-metadata.html">metadata</a> ovat edellytys sille, että
+      vastaukset ovat oikein.
+    </p>
+
+    <h2>Mistä datan mallinnus aloitetaan?</h2>
+    <p>
+      Aloita yhdestä liiketoimintaprosessista, älä koko organisaatiosta. Järjestys on tässä:
+    </p>
+    <ul>
+      <li><strong>1. Opettele tähtimalli.</strong> Se on analyyttisen mallinnuksen oletusrakenne ja kattaa
+        valtaosan tapauksista. Aloita <a href="tahtimalli.html">tähtimallista</a>.</li>
+      <li><strong>2. Päätä faktataulun granulariteetti.</strong> Mitä yksi rivi tarkoittaa — yksi myyntirivi,
+        yksi tilaus vai yksi päivä per tuote? Tämä on mallin tärkein yksittäinen päätös, ja se tehdään
+        <a href="faktataulu.html">faktataulua</a> suunniteltaessa.</li>
+      <li><strong>3. Rakenna dimensiot.</strong> Kuka, mitä, milloin ja missä. Historian käsittely eli
+        SCD-tyypit päätetään tässä vaiheessa, ei jälkikäteen — ks. <a href="dimensiot.html">dimensiot</a>.</li>
+      <li><strong>4. Kytke taulut avaimilla.</strong> Pääavain dimensiossa, vierasavain faktassa, yksi suunta
+        suodatukselle. Katso <a href="avaimet-ja-relaatiot.html">avaimet ja relaatiot</a>.</li>
+      <li><strong>5. Nimeä malli loppukäyttäjän kielellä.</strong> <code>Myyntisumma</code>, ei
+        <code>SLS_AMT_EUR</code>. <a href="nimeamiskaytannot.html">Nimeämiskäytännöt</a> ovat mallin
+        käyttöliittymä.</li>
+    </ul>
+    <p>
+      Jos termi on vieras, tarkista se <a href="termisto.html">termistöstä</a> — siellä on 157 data-alan
+      termiä suomeksi ja englanniksi. Jos haluat nähdä eron käytännössä, vertaa
+      <a href="sekasikiomalli-vs-tahtimalli.html">sekasikiömallia ja tähtimallia</a>: viisi mallia, samat
+      kysymykset, eri vastaukset.
+    </p>
+  </section>
+
+  <script>
+    document.querySelectorAll('.kortti[data-min]').forEach(kortti => {
+      const min = kortti.dataset.min;
+      const badge = document.createElement('span');
+      badge.className = 'kortti-lukemisaika';
+      badge.textContent = `⏱ Lukemisaika: ${min} min`;
+      kortti.appendChild(badge);
+    });
+
+    // Piilotusnapit kategorioille
+    const TILA_AVAIN = 'kategoria-tilat';
+    const tallennetut = JSON.parse(localStorage.getItem(TILA_AVAIN) || '{}');
+
+    document.querySelectorAll('.kategoria').forEach(kategoria => {
+      const h2 = kategoria.querySelector('h2');
+      const nimi = h2.textContent.trim();
+
+      const chevron = document.createElement('span');
+      chevron.className = 'kategoria-chevron';
+      chevron.textContent = '▼';
+      h2.appendChild(chevron);
+
+      const oletusKiinni = nimi.startsWith('Arkkitehtuurit ja prosessit');
+      const onKiinni = nimi in tallennetut ? tallennetut[nimi] : oletusKiinni;
+      if (onKiinni) kategoria.classList.add('piilotettu');
+
+      h2.addEventListener('click', () => {
+        kategoria.classList.toggle('piilotettu');
+        tallennetut[nimi] = kategoria.classList.contains('piilotettu');
+        localStorage.setItem(TILA_AVAIN, JSON.stringify(tallennetut));
+      });
+    });
+
+    // Haku pakottaa kaikki osiot auki
+    const hakuKentta = document.getElementById('haku');
+    const opasTeksti = document.getElementById('opas-teksti');
+    if (hakuKentta) {
+      hakuKentta.addEventListener('input', () => {
+        // Leipäteksti pois näkyvistä haun ajaksi — se ei ole hakutulos.
+        if (opasTeksti) opasTeksti.style.display = hakuKentta.value.trim() ? 'none' : '';
+        if (hakuKentta.value.trim()) {
+          document.querySelectorAll('.kategoria').forEach(k => k.classList.remove('piilotettu'));
+        } else {
+          document.querySelectorAll('.kategoria').forEach(k => {
+            const nimi = k.querySelector('h2').textContent.replace('▼', '').trim();
+            const oletusKiinni = nimi.startsWith('Arkkitehtuurit ja prosessit');
+            const onKiinni = nimi in tallennetut ? tallennetut[nimi] : oletusKiinni;
+            k.classList.toggle('piilotettu', onKiinni);
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
