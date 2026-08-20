@@ -8,20 +8,20 @@
   <meta name="kortti-otsikko" content="Termistö">
   <meta name="kortti-kuvaus" content="Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.">
   <meta name="tagit" content="perusteoria tietomalli">
-  <meta name="lukemisaika" content="27">
+  <meta name="lukemisaika" content="40">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/termisto.html">
-  <meta name="description" content="Mitä on datasheet, payload tai attribute suomeksi? 157 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
+  <meta name="description" content="Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Data-alan sanasto englanti–suomi: 157 termiä">
-  <meta property="og:description" content="Mitä on datasheet, payload tai attribute suomeksi? 157 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
+  <meta property="og:title" content="Data-alan sanasto englanti–suomi: 213 termiä">
+  <meta property="og:description" content="Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:url" content="https://www.datamalli.fi/termisto.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-termisto.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Data-alan sanasto: 140+ termiä suomeksi">
+  <meta property="og:image:alt" content="Data-alan sanasto: 213 termiä suomeksi">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
@@ -31,11 +31,11 @@
         "@type": "DefinedTermSet",
         "@id": "https://www.datamalli.fi/termisto.html#termisto",
         "name": "Datan mallinnuksen termistö",
-        "description": "Mitä on datasheet, payload tai attribute suomeksi? 157 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.",
+        "description": "Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.",
         "url": "https://www.datamalli.fi/termisto.html",
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
-        "dateModified": "2026-07-26",
+        "dateModified": "2026-08-20",
         "author": {
           "@type": "Person",
           "name": "Samu Lahdenperä",
@@ -96,6 +96,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#aikaleima",
+            "name": "Aikaleima",
+            "url": "https://www.datamalli.fi/termisto.html#aikaleima",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Timestamp",
+            "description": "Englanniksi Timestamp, suomeksi aikaleima. Päivämäärän ja kellonajan sisältävä arvo, joka kertoo milloin tapahtuma sattui tai rivi muuttui. Aikaleima on tietomallissa eri asia kuin päivämäärä: sekunnin tarkkuus tuottaa lähes yhtä monta uniikkia arvoa kuin rivejä, mikä tuhoaa pakkauksen eikä kytkeydy päivämäärädimensioon sellaisenaan. Erota aikaleimasta päivämääräsarake liitosta varten ja jätä kellonaika omaksi sarakkeekseen. Ks. VertiPaq."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#alm-toolkit",
             "name": "ALM Toolkit",
             "url": "https://www.datamalli.fi/termisto.html#alm-toolkit",
@@ -125,6 +136,47 @@
             },
             "alternateName": "Attribute",
             "description": "Attribute tarkoittaa suomeksi attribuuttia: dimensiotaulun kuvailevaa saraketta, kuten asiakkaan maa, tuotteen kategoria tai myyjän tiimi. Raportit käyttävät attribuutteja suodattamiseen ja ryhmittelyyn."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#backfill",
+            "name": "Backfill",
+            "url": "https://www.datamalli.fi/termisto.html#backfill",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Suomeksi takautuva lataus. Historiadatan lataaminen jälkikäteen putken läpi, esimerkiksi kun uusi sarake lisätään tai vanha lataus korjataan. Backfill on riskialttein ajo koko putkessa, koska se kirjoittaa dataa, jota on jo raportoitu: jos ajo ei tuota samaa lopputulosta toistettuna, se joko kahdentaa rivit tai jättää osan päivittämättä. Aja backfill aina rajattuna aikavälinä ja tarkista rivimäärät ennen ja jälkeen. Ks. eräajo ja inkrementaalinen päivitys."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#batch",
+            "name": "Batch",
+            "url": "https://www.datamalli.fi/termisto.html#batch",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Eräajo."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#bi",
+            "name": "BI",
+            "url": "https://www.datamalli.fi/termisto.html#bi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Business Intelligence",
+            "description": "Englanniksi Business Intelligence, suomeksi liiketoimintatiedon hallinta. Datan kerääminen, mallintaminen ja esittäminen niin, että organisaatio tekee päätökset numeroiden eikä arvausten perusteella. BI on ketju, ei työkalu: lähdejärjestelmä, tietovarasto, tietomalli ja vasta viimeisenä raportti. Suomalaisyrityksissä yleisin BI-alusta on Power BI, ja sen nopeus ratkeaa tietomallissa — raporttityökalu ei korjaa huonoa mallia. Vrt. ennustava analytiikka, joka kertoo mitä tapahtuu seuraavaksi."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#bias",
+            "name": "Bias",
+            "url": "https://www.datamalli.fi/termisto.html#bias",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Vinouma."
           },
           {
             "@type": "DefinedTerm",
@@ -160,6 +212,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#cdc",
+            "name": "CDC",
+            "url": "https://www.datamalli.fi/termisto.html#cdc",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Change Data Capture",
+            "description": "Englanniksi Change Data Capture, suomeksi muutostiedon tunnistus. Menetelmä, jossa lähdejärjestelmästä poimitaan vain muuttuneet rivit sen sijaan että koko taulu luettaisiin joka ajossa. CDC lukee tyypillisesti tietokannan transaktiolokia, joten se havaitsee myös poistot — aikaleimaan perustuva vertailu ei havaitse. Ero näkyy heti kun lähde kasvaa: täyslataus, joka kestää tunnin, kutistuu minuuteiksi. Ks. inkrementaalinen päivitys ja ETL."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#copilot",
             "name": "Copilot",
             "url": "https://www.datamalli.fi/termisto.html#copilot",
@@ -167,6 +230,16 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "Power BI:n tekoälyavustaja, joka vastaa luonnollisen kielen kysymyksiin datan pohjalta. Toimii semanttisen mallin metadatan perusteella: taulukuvaukset, sarakkeiden nimet ja mittareiden selitteet ohjaavat vastausta. Mitä paremmin metadata on kirjoitettu, sitä tarkempia Copilotin vastaukset ovat."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#cube",
+            "name": "Cube",
+            "url": "https://www.datamalli.fi/termisto.html#cube",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Kuutio."
           },
           {
             "@type": "DefinedTerm",
@@ -222,6 +295,16 @@
             },
             "alternateName": "Datan säilyttäjä",
             "description": "Suomeksi datan säilyttäjä. Tekninen rooli, joka vastaa datan tallennuksesta, varmuuskopioinnista ja tietoturvasta — esimerkiksi IT-arkkitehti, joka hallinnoi tietovaraston infrastruktuuria. Erottuu liiketoimintavastuun rooleista data owner ja data steward."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#data-governance",
+            "name": "Data Governance",
+            "url": "https://www.datamalli.fi/termisto.html#data-governance",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Suomeksi datan hallintamalli. Säännöstö ja vastuunjako, joka kertoo kuka omistaa datan, kuka saa käyttää sitä ja mihin tarkoitukseen, ja millä laatutasolla se toimitetaan. Ilman nimettyjä rooleja — Data Owner, Data Steward, Data Custodian — hallintamalli jää dokumentiksi, jota kukaan ei noudata. Ks. myös datakatalogi ja Data Contract."
           },
           {
             "@type": "DefinedTerm",
@@ -287,6 +370,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datamartti",
+            "name": "Datamartti",
+            "url": "https://www.datamalli.fi/termisto.html#datamartti",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Mart",
+            "description": "Englanniksi Data Mart, suomeksi datamartti. Tietovaraston osajoukko, joka on rajattu yhden liiketoiminta-alueen tarpeisiin: myynnin martti, talouden martti. Idea on nopeus ja hallittavuus, koska käyttäjä näkee vain oman alueensa taulut. Riski on hajaannus: kun jokainen martti rakentaa oman asiakasdimensionsa, sama asiakas saa kolme eri määritelmää. Yhdenmukaistetut dimensiot erottavat marttikokoelman siilokokoelmasta."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#datan-elinkaari",
             "name": "Datan elinkaari",
             "url": "https://www.datamalli.fi/termisto.html#datan-elinkaari",
@@ -295,6 +389,17 @@
             },
             "alternateName": "Data Lifecycle",
             "description": "Englanniksi Data Lifecycle, suomeksi datan elinkaari. Datan kaikki vaiheet syntymästä poistamiseen: kerääminen, käsittely, tallennus, käyttö, arkistointi ja hävittäminen. Elinkaaren hallinta on osa datan hallintaa — esimerkiksi GDPR edellyttää, että henkilötiedot poistetaan, kun niitä ei enää tarvita."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datan-integrointi",
+            "name": "Datan integrointi",
+            "url": "https://www.datamalli.fi/termisto.html#datan-integrointi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Integration",
+            "description": "Englanniksi Data Integration, suomeksi datan integrointi. Useasta lähdejärjestelmästä tulevan datan yhdistäminen yhdeksi käyttökelpoiseksi kokonaisuudeksi. Tekninen siirto on helppo osa; vaikea osa on saada eri järjestelmien \"asiakas\" tarkoittamaan samaa asiaa. Siihen tarvitaan yhdenmukaistetut dimensiot ja sovitut avaimet, ei lisää putkia. Ks. ETL ja ELT."
           },
           {
             "@type": "DefinedTerm",
@@ -309,6 +414,39 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datan-profilointi",
+            "name": "Datan profilointi",
+            "url": "https://www.datamalli.fi/termisto.html#datan-profilointi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Profiling",
+            "description": "Englanniksi Data Profiling, suomeksi datan profilointi. Datan systemaattinen tutkiminen ennen mallinnusta: montako uniikkia arvoa sarakkeessa on, kuinka moni rivi on tyhjä, mikä on pienin ja suurin arvo, toistuuko avain. Profilointi vastaa siihen kysymykseen, jota oletukset eivät korvaa — onko tämä sarake oikeasti uniikki. Power Queryn sarakeprofiili tekee tämän ilmaiseksi, mutta oletuksena vain tuhannesta ensimmäisestä rivistä; vaihda asetus koko aineistoon. Ks. duplikaattiavain."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datan-puhdistus",
+            "name": "Datan puhdistus",
+            "url": "https://www.datamalli.fi/termisto.html#datan-puhdistus",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Cleansing",
+            "description": "Englanniksi Data Cleansing, suomeksi datan puhdistus. Virheellisten, puuttuvien ja epäyhtenäisten arvojen korjaaminen: kirjoitusasujen yhdenmukaistus, tyhjien käsittely, muotojen standardointi. Puhdistus kuuluu latausvaiheeseen eikä raportille — raportilla tehty korjaus katoaa seuraavan kehittäjän mukana ja lasketaan uudelleen joka kyselyssä. Korjaa mieluiten lähdejärjestelmässä, toiseksi mieluiten putkessa, viimeisenä mallissa. Ks. datan laatu ja ETL."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datanhallinta",
+            "name": "Datanhallinta",
+            "url": "https://www.datamalli.fi/termisto.html#datanhallinta",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Management",
+            "description": "Englanniksi Data Management, suomeksi datanhallinta. Kattotermi kaikelle datan elinkaaren hoitamiselle: keräämiselle, tallentamiselle, mallintamiselle, laadunvalvonnalle ja poistamiselle. Datanhallinta on tekemistä, Data Governance sen säännöt — sekoita nämä, ja saat joko komitean ilman käytäntöä tai käytännön ilman vastuita. Ks. myös datan elinkaari."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#datasheet",
             "name": "Datasheet",
             "url": "https://www.datamalli.fi/termisto.html#datasheet",
@@ -317,6 +455,17 @@
             },
             "alternateName": "datalehti, taulukkonäkymä",
             "description": "Englanniksi Datasheet, suomeksi datalehti tai taulukkonäkymä. Sanalla on data-alalla kaksi eri merkitystä. Taulukkonäkymä tarkoittaa rivi–sarake-muotoista näkymää dataan, kuten Accessin Datasheet View tai Power BI:n taulukkonäkymä. Datalehti taas on dokumentti, joka kuvaa aineiston sisällön, alkuperän, rajoitukset ja käyttötarkoituksen — koneoppimisessa käytäntö tunnetaan nimellä Datasheets for Datasets. Jälkimmäinen on data contractin lähisukulainen: datalehti kuvaa, data contract velvoittaa. Kumpikin on osa sitä metadataa, jonka varassa myös tekoälyavustaja tulkitsee datan oikein."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#datasuvereniteetti",
+            "name": "Datasuvereniteetti",
+            "url": "https://www.datamalli.fi/termisto.html#datasuvereniteetti",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Sovereignty",
+            "description": "Englanniksi Data Sovereignty, suomeksi datasuvereniteetti. Periaate, jonka mukaan dataan sovelletaan sen maan lakia, jonka alueella data fyysisesti sijaitsee. Pilvipalvelussa ratkaisee siis konesalin sijainti, ei palveluntarjoajan kotipaikka — ja siksi EU-alueen valinta on henkilötiedoille oletusvastaus, ei mielipidekysymys. Ks. myös GDPR ja anonymisointi."
           },
           {
             "@type": "DefinedTerm",
@@ -363,6 +512,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#deduplikointi",
+            "name": "Deduplikointi",
+            "url": "https://www.datamalli.fi/termisto.html#deduplikointi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Deduplication",
+            "description": "Englanniksi Deduplication, suomeksi deduplikointi. Kaksoiskappaleiden tunnistaminen ja poistaminen. Helppo tapaus on identtinen rivi; vaikea tapaus on sama asiakas kahdella kirjoitusasulla, ja juuri se rikkoo dimensiotaulun uniikkiuden ja tuottaa duplikaattiavaimen. Deduplikointi vaatii siksi säännön siitä, mikä tekee kahdesta rivistä saman — ja sääntö on liiketoimintapäätös, ei tekninen. Ks. luonnollinen avain."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#degeneraatioavain",
             "name": "Degeneraatioavain",
             "url": "https://www.datamalli.fi/termisto.html#degeneraatioavain",
@@ -382,6 +542,17 @@
             },
             "alternateName": "Denormalization",
             "description": "Englanniksi Denormalization, suomeksi denormalisointi. Denormalisointi toistaa tietoa useassa paikassa tarkoituksella, jotta luettavuus ja suorituskyky paranevat. Tähtimallin dimensiot ovat tyypillisesti denormalisoituja. Ks. myös Normalisointi."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#dimensio",
+            "name": "Dimensio",
+            "url": "https://www.datamalli.fi/termisto.html#dimensio",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Dimension",
+            "description": "Englanniksi Dimension, suomeksi dimensio. Näkökulma, jonka mukaan mittarit jaotellaan: aika, asiakas, tuote, maa. Kun raportti kertoo myynnin kuukausittain ja tuoteryhmittäin, kuukausi ja tuoteryhmä ovat dimensioita. Tähtimallissa jokainen dimensio on oma taulunsa, joka kytkeytyy faktatauluun yhdellä avaimella. Kirjanpito-ohjelmissa sama sana tarkoittaa laskentakohdetta, jolla tosite luokitellaan esimerkiksi kustannuspaikkaan tai projektiin — idea on sama, nimi vain vakiintui eri alalla. Ks. dimensiotaulu ja attribuutti."
           },
           {
             "@type": "DefinedTerm",
@@ -451,6 +622,27 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#embedding",
+            "name": "Embedding",
+            "url": "https://www.datamalli.fi/termisto.html#embedding",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Upotus."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#ennustava-analytiikka",
+            "name": "Ennustava analytiikka",
+            "url": "https://www.datamalli.fi/termisto.html#ennustava-analytiikka",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Predictive Analytics",
+            "description": "Englanniksi Predictive Analytics, suomeksi ennustava analytiikka. Historiadatasta rakennettu malli, joka arvioi mitä tapahtuu seuraavaksi: asiakaspoistuma, kysyntäpiikki, laitevika. Ennuste on täsmälleen niin hyvä kuin sen opetusdata, ja opetusdata tulee tietomallista — väärä granulariteetti tai puuttuva historia pilaa mallin ennen kuin algoritmia on edes valittu. Vrt. BI, joka kuvaa mennyttä."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#entiteettieheys",
             "name": "Entiteettieheys",
             "url": "https://www.datamalli.fi/termisto.html#entiteettieheys",
@@ -473,6 +665,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#eraajo",
+            "name": "Eräajo",
+            "url": "https://www.datamalli.fi/termisto.html#eraajo",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Batch",
+            "description": "Englanniksi Batch, suomeksi eräajo. Datan käsittely erissä sovituin väliajoin: yön aikana ajettu lataus, tunnin välein päivittyvä taulu. Eräajo on analytiikassa oletus, koska raportointi tarvitsee harvoin sekuntitason tuoreutta ja erä maksaa murto-osan jatkuvaan virtaan verrattuna. Kysy tuoreusvaatimus ennen arkkitehtuuria: \"reaaliaikainen\" tarkoittaa useimmiten \"aamulla ajan tasalla\". Ks. suoratoisto."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#faktataulu",
             "name": "Faktataulu",
             "url": "https://www.datamalli.fi/termisto.html#faktataulu",
@@ -492,6 +695,16 @@
             },
             "alternateName": "suodatinkonteksti",
             "description": "Suomeksi suodatinkonteksti. DAX-laskennan tilanne, jossa raporttiin valitut suodattimet määräävät, mitkä rivit otetaan laskennassa huomioon. Filter context kulkee aina raportin valintojen mukana ja vaikuttaa kaikkiin mittareihin."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#fine-tuning",
+            "name": "Fine-tuning",
+            "url": "https://www.datamalli.fi/termisto.html#fine-tuning",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Hienosäätö."
           },
           {
             "@type": "DefinedTerm",
@@ -549,6 +762,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#hahmontunnistus",
+            "name": "Hahmontunnistus",
+            "url": "https://www.datamalli.fi/termisto.html#hahmontunnistus",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Pattern Recognition",
+            "description": "Englanniksi Pattern Recognition, suomeksi hahmontunnistus. Koneen kyky löytää datasta toistuvia rakenteita: samankaltaiset asiakkaat, toistuvat tapahtumaketjut, tekstin aiheet. Data-alalla hahmontunnistus näkyy arkisimmillaan duplikaattien tunnistuksena ja poikkeavien havaintojen etsintänä — ei siis vain koneoppimisprojekteissa vaan jokaisessa latausajossa, joka tarkistaa datan laadun."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#hallusinaatio",
             "name": "Hallusinaatio",
             "url": "https://www.datamalli.fi/termisto.html#hallusinaatio",
@@ -567,6 +791,17 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "Tietorakenne, jossa yksi taulu sisältää tilauksen otsikkotiedot ja toinen rivitiedot. Yhteys muodostuu tilausnumeron kautta. VertiPaq-pohjaisissa malleissa taulut kannattaa yhdistää yhdeksi tauluksi."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#hienosaato",
+            "name": "Hienosäätö",
+            "url": "https://www.datamalli.fi/termisto.html#hienosaato",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Fine-tuning",
+            "description": "Englanniksi Fine-tuning, suomeksi hienosäätö. Valmiin kielimallin jatkokouluttaminen omalla aineistolla, jotta se oppii tietyn alan sanaston, muodon tai tyylin. Hienosäätö muuttaa mallin painoja pysyvästi, toisin kuin RAG, joka hakee tiedon kyselyhetkellä ulkopuolelta. Data-alan käyttötapauksissa RAG on lähes aina oikea vastaus: yrityksen luvut muuttuvat viikoittain, eikä mallia kouluteta uudelleen jokaisen muutoksen takia."
           },
           {
             "@type": "DefinedTerm",
@@ -591,17 +826,6 @@
           },
           {
             "@type": "DefinedTerm",
-            "@id": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
-            "name": "Sekasikiömalli",
-            "url": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
-            "inDefinedTermSet": {
-              "@id": "https://www.datamalli.fi/termisto.html#termisto"
-            },
-            "alternateName": "jeesmies malli",
-            "description": "Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan sellaisenaan kyseenalaistamatta ratkaisujen kestävyyttä ja järkevyyttä. Malliin kertyy vuosien varrella duplikaattitauluja, vanhoja versioita \"varmuuden vuoksi\" ja moni-moneen-relaatioita, eikä kokonaisuudella ole omistajaa."
-          },
-          {
-            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#identity",
             "name": "IDENTITY",
             "url": "https://www.datamalli.fi/termisto.html#identity",
@@ -610,6 +834,49 @@
             },
             "alternateName": "Auto-increment, Serial",
             "description": "SQL Serverin sarakeominaisuus joka generoi automaattisesti nousevan kokonaisluvun aina kun tauluun lisätään uusi rivi. IDENTITY(1,1) tarkoittaa: lähtöarvo 1, askel 1 — ensimmäinen rivi saa arvon 1, toinen 2, kolmas 3. Käytetään surrogaattiavainten luomiseen ilman manuaalista numerointia. INSERT-lauseessa IDENTITY-saraketta ei mainita lainkaan — tietokanta täyttää sen itse."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#indeksi",
+            "name": "Indeksi",
+            "url": "https://www.datamalli.fi/termisto.html#indeksi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Index",
+            "description": "Englanniksi Index, suomeksi indeksi. Tietokannan apurakenne, joka nopeuttaa rivien hakua samalla tavalla kuin kirjan hakemisto: moottori ei lue koko taulua läpi vaan hyppää oikeaan kohtaan. Indeksi maksaa kirjoitusnopeudessa ja levytilassa, joten operatiivisessa kannassa niitä pidetään harkitusti. Power BI:n VertiPaq ei käytä indeksejä lainkaan — se pakkaa sarakkeet ja skannaa ne, mikä on sarakepohjaisessa analytiikassa nopeampaa kuin hakemiston seuraaminen."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#inferenssi",
+            "name": "Inferenssi",
+            "url": "https://www.datamalli.fi/termisto.html#inferenssi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Inference",
+            "description": "Englanniksi Inference, suomeksi inferenssi eli päättely. Vaihe, jossa valmis malli tuottaa vastauksen syötteestä — vastakohta koulutukselle, jossa malli opetetaan. Kielimallin käytössä inferenssi on se hetki, joka kuluttaa tokeneita ja kestää sekunteja. Tietokantapuolella sama sana tarkoittaa tietotyypin päättelyä datasta, esimerkiksi kun Power Query arvaa sarakkeen tyypiksi kokonaisluvun — ja arvaa toisinaan väärin."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#inkrementaalinen-paivitys",
+            "name": "Inkrementaalinen päivitys",
+            "url": "https://www.datamalli.fi/termisto.html#inkrementaalinen-paivitys",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Incremental Refresh",
+            "description": "Englanniksi Incremental Refresh, suomeksi inkrementaalinen päivitys. Latausmalli, jossa vain uusi ja muuttunut aikaväli päivitetään ja vanha historia jätetään koskematta. Power BI:ssä tämä toteutetaan partitioimalla taulu ajan mukaan: viisi vuotta historiaa säilyy, mutta jokainen päivitys koskee vain kuluvaa kuukautta. Ero täyslataukseen on kertaluokka, ja se kasvaa joka vuosi kun historiaa karttuu lisää. Ks. CDC."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#join",
+            "name": "Join",
+            "url": "https://www.datamalli.fi/termisto.html#join",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Liitos."
           },
           {
             "@type": "DefinedTerm",
@@ -657,6 +924,28 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#koneoppiminen",
+            "name": "Koneoppiminen",
+            "url": "https://www.datamalli.fi/termisto.html#koneoppiminen",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Machine Learning",
+            "description": "Englanniksi Machine Learning, suomeksi koneoppiminen. Menetelmä, jossa malli päättelee säännöt datasta sen sijaan että ohjelmoija kirjoittaisi ne. Koneoppimisprojektin onnistuminen ratkeaa harvoin algoritmissa ja lähes aina datassa: puuttuva historia, väärä granulariteetti tai vinoutunut opetusaineisto kaataa mallin riippumatta menetelmästä. Tietomallinnus on siksi koneoppimisen esityö, ei sen kilpailija. Ks. ennustava analytiikka."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#kontekstin-ikkuna",
+            "name": "Kontekstin ikkuna",
+            "url": "https://www.datamalli.fi/termisto.html#kontekstin-ikkuna",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Context Window",
+            "description": "Englanniksi Context Window, suomeksi kontekstin ikkuna. Tokenimäärä, jonka kielimalli pystyy pitämään kerralla mielessään: kysymys, aineisto ja vastaus mahtuvat samaan ikkunaan tai eivät mahdu. Kun ikkuna täyttyy, malli ei varoita vaan pudottaa vanhimman osan — ja vastaus muuttuu itsevarmasti vääräksi. Siksi isoa tietomallia ei syötetä mallille kokonaisena vaan siitä haetaan olennainen osa kyselyhetkellä. Ks. RAG."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#kpi",
             "name": "KPI",
             "url": "https://www.datamalli.fi/termisto.html#kpi",
@@ -676,6 +965,28 @@
             },
             "alternateName": "Accumulating Snapshot Fact Table",
             "description": "Faktataulun arkkityyppi, jossa yksi rivi kuvaa koko prosessia — esimerkiksi tilauksen elinkaarta tilauksesta toimitukseen — ja riviä päivitetään prosessin edetessä. Ainoa arkkityyppi, jonka rivejä päivitetään. Eri vaiheille on omat päivämäärä-vierasavaimet. Ks. myös transaktiofakta ja kausifakta."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#kuutio",
+            "name": "Kuutio",
+            "url": "https://www.datamalli.fi/termisto.html#kuutio",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Cube",
+            "description": "Englanniksi Cube, suomeksi kuutio. OLAP-mallin rakenne, jossa mittarit on esilaskettu dimensioiden leikkauspisteisiin, niin että raportti lukee valmiin arvon sen sijaan että laskisi sen kyselyhetkellä. Klassinen moniulotteinen kuutio on Power BI:n aikakaudella pitkälti korvautunut tabular-mallilla, joka laskee lennossa muistista — nopeus tulee nyt pakkauksesta eikä esilaskennasta. Termi elää silti puheessa ja vanhoissa SSAS-toteutuksissa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#kysely",
+            "name": "Kysely",
+            "url": "https://www.datamalli.fi/termisto.html#kysely",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Query",
+            "description": "Englanniksi Query, suomeksi kysely. Pyyntö, joka kertoo mitä dataa halutaan ja millä ehdoilla: SQL:n SELECT-lause, Power Queryn hakuvaihe tai DAX-mittarin laskenta. Kysely kuvaa mitä halutaan, ei sitä miten se haetaan — reitin valitsee moottorin kyselyoptimoija. Siksi saman kyselyn nopeus voi vaihdella kertaluokan tietomallin rakenteen mukaan, vaikka kyselyteksti ei muutu riviäkään."
           },
           {
             "@type": "DefinedTerm",
@@ -740,6 +1051,17 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "Ks. Mittari."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#liitos",
+            "name": "Liitos",
+            "url": "https://www.datamalli.fi/termisto.html#liitos",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Join",
+            "description": "Englanniksi Join, suomeksi liitos. Kahden taulun yhdistäminen yhteisen sarakkeen perusteella: tilausrivi saa asiakkaan nimen, kun tilaustaulun asiakasavain vastaa asiakastaulun avainta. Liitostyyppi ratkaisee mitä puuttuville vastineille tapahtuu — inner join pudottaa ne pois, left join säilyttää ne tyhjinä, ja valinta muuttaa loppusumman. Tähtimallissa liitokset korvataan relaatioilla: liitos tehdään kerran malliin, ei joka kyselyssä uudelleen. Ks. vierasavain."
           },
           {
             "@type": "DefinedTerm",
@@ -945,6 +1267,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#opetusaineisto",
+            "name": "Opetusaineisto",
+            "url": "https://www.datamalli.fi/termisto.html#opetusaineisto",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Training Data",
+            "description": "Englanniksi Training Data, suomeksi opetusaineisto. Data, jolla malli opetetaan — se määrää mitä malli osaa ja mitä se ei osaa. Opetusaineiston virheet eivät jää aineistoon vaan siirtyvät malliin ja monistuvat jokaiseen ennusteeseen, eikä niitä näe valmiista mallista päälle päin. Sama laatuvaatimus koskee siis opetusaineistoa kuin raportoitavaa dataa: dokumentoitu alkuperä, tunnettu kattavuus, mitattu tarkkuus. Ks. vinouma."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#orporivi",
             "name": "Orporivi",
             "url": "https://www.datamalli.fi/termisto.html#orporivi",
@@ -956,6 +1289,49 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#overfitting",
+            "name": "Overfitting",
+            "url": "https://www.datamalli.fi/termisto.html#overfitting",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Ylisovittaminen."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#paikkamerkki",
+            "name": "Paikkamerkki",
+            "url": "https://www.datamalli.fi/termisto.html#paikkamerkki",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Placeholder",
+            "description": "Englanniksi Placeholder, suomeksi paikkamerkki. Väliaikainen arvo tai elementti, joka varaa paikan lopulliselle sisällölle. Tietomallissa paikkamerkkinä toimii sentinel-rivi, joka ottaa vastaan faktarivit, joiden dimensioarvo puuttuu — ilman sitä Power BI luo oman tyhjän rivin, jota et voi nimetä etkä suodattaa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#parametri",
+            "name": "Parametri",
+            "url": "https://www.datamalli.fi/termisto.html#parametri",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Parameter",
+            "description": "Englanniksi Parameter, suomeksi parametri. Nimetty arvo, joka annetaan prosessille tai laskennalle ulkopuolelta, niin ettei sitä kirjoiteta koodiin kiinni. Power Queryssä parametri pitää lähdepolun yhdessä paikassa, jolloin kehitys- ja tuotantoympäristön vaihto on yhden arvon muutos eikä kolmenkymmenen kyselyn haravointi. Raporttipuolella parametritaulu antaa käyttäjän valita esimerkiksi valuutan tai aikatason. Ks. M-kieli."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#partitio",
+            "name": "Partitio",
+            "url": "https://www.datamalli.fi/termisto.html#partitio",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Partition",
+            "description": "Englanniksi Partition, suomeksi partitio eli ositus. Taulun jakaminen osiin, joita voi ladata, päivittää ja lukea erikseen — yleensä ajan mukaan, esimerkiksi kuukausi kerrallaan. Partitiointi on inkrementaalisen päivityksen edellytys: ilman sitä koko taulu on yksi möykky, joka ladataan aina kokonaan. Hyöty näkyy myös luvussa, kun moottori ohittaa partitiot, joita kysely ei koske. Ks. VertiPaq."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#payload",
             "name": "Payload",
             "url": "https://www.datamalli.fi/termisto.html#payload",
@@ -964,6 +1340,28 @@
             },
             "alternateName": "hyötykuorma",
             "description": "Englanniksi Payload, suomeksi hyötykuorma. Sanoman tai rajapintakutsun varsinainen sisältö — se osa, joka kuljettaa dataa, erotuksena otsikko- ja reititystiedoista. Esimerkiksi REST-rajapinnan JSON-vastauksessa payload on datakenttien sisältö, ei HTTP-otsikot. Integraatioissa payloadin rakenne on juuri se asia, jonka data contract lukitsee: kun payload muuttuu ilman ennakkoilmoitusta, kyseessä on rikkova muutos ja latausputki hajoaa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#pivotointi",
+            "name": "Pivotointi",
+            "url": "https://www.datamalli.fi/termisto.html#pivotointi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Pivot",
+            "description": "Englanniksi Pivot ja Unpivot, suomeksi pivotointi ja sen purkaminen. Pivotointi kääntää sarakkeen arvot omiksi sarakkeikseen — kuukausi-sarake muuttuu kahdeksitoista sarakkeeksi. Unpivot tekee päinvastoin, ja juuri sitä tietomallissa tarvitaan: leveä taulu, jossa jokainen kuukausi on oma sarakkeensa, ei suodatu dimensiolla eikä laajene uuteen vuoteen ilman mallimuutosta. Käännä leveä lähdedata pitkäksi Power Queryssä ennen kuin viet sen malliin. Ks. sarake."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#poikkeava-havainto",
+            "name": "Poikkeava havainto",
+            "url": "https://www.datamalli.fi/termisto.html#poikkeava-havainto",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Outlier",
+            "description": "Englanniksi Outlier, suomeksi poikkeava havainto. Arvo, joka eroaa muusta aineistosta niin paljon, ettei se selity satunnaisvaihtelulla: miljoonan euron rivi tuhannen euron tilausten joukossa. Poikkeama on joko syöttövirhe tai koko taulun kiinnostavin rivi — älä poista sitä ennen kuin tiedät kumpi. Keskiarvo vääristyy yhdestäkin poikkeamasta, mediaani ei. Ks. datan laatu."
           },
           {
             "@type": "DefinedTerm",
@@ -1006,6 +1404,17 @@
             },
             "alternateName": "Pseudonymization",
             "description": "Englanniksi Pseudonymization, suomeksi pseudonymisointi. Henkilötietojen korvaaminen pseudonyymeillä, kuten hashatuilla tunnisteilla, niin että henkilön tunnistaminen vaikeutuu mutta on yhä mahdollista erillisen avaintiedon avulla. Toisin kuin anonymisointi, pseudonymisointi on käänteistettävissä. Pseudonymisoitu data on yhä henkilötietoa GDPR:n mielessä."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#puolistrukturoitu-data",
+            "name": "Puolistrukturoitu data",
+            "url": "https://www.datamalli.fi/termisto.html#puolistrukturoitu-data",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Semi-structured Data",
+            "description": "Englanniksi Semi-structured Data, suomeksi puolistrukturoitu data. Data, jolla on rakenne, mutta rakenne kulkee datan mukana eikä ole ennalta kiinnitetty tauluun: JSON, XML, Parquet, lokirivit. Kentät voivat vaihdella riviltä toiselle, mikä tekee lataamisesta joustavaa ja raportoinnista hankalaa. Analytiikkaa varten puolistrukturoitu data litistetään sarakkeiksi viimeistään hopeatasolla. Vrt. strukturoitu data ja strukturoimaton data."
           },
           {
             "@type": "DefinedTerm",
@@ -1107,6 +1516,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#rivi",
+            "name": "Rivi",
+            "url": "https://www.datamalli.fi/termisto.html#rivi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Row",
+            "description": "Englanniksi Row, suomeksi rivi. Taulun yksittäinen tietue: yksi asiakas, yksi tilausrivi, yksi päivä. Rivimäärä ratkaisee faktataulun koon mutta ei sen muistijalanjälkeä — VertiPaq pakkaa sarakkeittain, joten kymmenen miljoonaa riviä kapeaa faktataulua vie vähemmän tilaa kuin miljoona riviä leveää. Yksittäistä riviä käsittelee DAXissa rivikonteksti, joka kertoo mitä riviä laskenta parhaillaan katsoo. Ks. sarake."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#rle",
             "name": "RLE-pakkaus",
             "url": "https://www.datamalli.fi/termisto.html#rle",
@@ -1148,6 +1568,17 @@
             },
             "alternateName": "rivikonteksti",
             "description": "Suomeksi rivikonteksti. DAX-laskennan tilanne, jossa laskenta kohdistuu yhteen taulun riviin kerrallaan. Esiintyy laskennallisissa sarakkeissa ja iteraatiofunktioissa kuten SUMX. Eroaa filter contextista: filter context suodattaa taulua, row context iteroi rivejä."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#ryhmittely",
+            "name": "Ryhmittely",
+            "url": "https://www.datamalli.fi/termisto.html#ryhmittely",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Group By",
+            "description": "Englanniksi Group By, suomeksi ryhmittely. Rivien niputtaminen yhteisen arvon perusteella ja aggregaatin laskenta jokaiselle nipulle: myynti maittain, tilaukset kuukausittain. Ryhmittely on se, mitä jokainen raportti käytännössä tekee — dimensio määrää nipun, mittari laskettavan arvon. Latausvaiheessa ryhmittely kannattaa tehdä lähteessä eikä mallissa: ladattu rivi maksaa muistia riippumatta siitä, katsooko sitä kukaan."
           },
           {
             "@type": "DefinedTerm",
@@ -1271,6 +1702,28 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
+            "name": "Sekasikiömalli",
+            "url": "https://www.datamalli.fi/termisto.html#sekasikiomalli",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "jeesmies malli",
+            "description": "Tietomalli, joka syntyy kun jokainen ylhäältä päin tuleva pyyntö toteutetaan sellaisenaan kyseenalaistamatta ratkaisujen kestävyyttä ja järkevyyttä. Malliin kertyy vuosien varrella duplikaattitauluja, vanhoja versioita \"varmuuden vuoksi\" ja moni-moneen-relaatioita, eikä kokonaisuudella ole omistajaa."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#selitysaste",
+            "name": "Selitysaste",
+            "url": "https://www.datamalli.fi/termisto.html#selitysaste",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "R-squared",
+            "description": "Englanniksi R-squared tai Coefficient of Determination, suomeksi selitysaste. Luku välillä 0–1, joka kertoo kuinka suuren osan selitettävän muuttujan vaihtelusta malli selittää. Selitysaste 0,82 tarkoittaa, että malli selittää 82 prosenttia vaihtelusta ja loput 18 jää muiden tekijöiden ja satunnaisuuden varaan. Korkea selitysaste ei todista syy-seuraussuhdetta, se kertoo yhteisvaihtelusta. Power BI näyttää selitysasteen sirontakuvion trendiviivan yhteydessä."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#semanttinen-malli",
             "name": "Semanttinen malli",
             "url": "https://www.datamalli.fi/termisto.html#semanttinen-malli",
@@ -1358,6 +1811,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#skaalautuvuus",
+            "name": "Skaalautuvuus",
+            "url": "https://www.datamalli.fi/termisto.html#skaalautuvuus",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Scalability",
+            "description": "Englanniksi Scalability, suomeksi skaalautuvuus. Järjestelmän kyky kasvaa datamäärän tai käyttäjämäärän mukana ilman, että suorituskyky romahtaa tai arkkitehtuuri pitää kirjoittaa uusiksi. Tietomallissa skaalautuvuus ratkeaa rakenteessa: tähtimalli kestää rivien kasvun, koska suodatus etenee dimensiosta faktaan yhtä polkua pitkin, kun taas sekasikiömalli hidastuu jokaisesta uudesta relaatiosta. Ks. VertiPaq."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#skeema",
             "name": "Skeema",
             "url": "https://www.datamalli.fi/termisto.html#skeema",
@@ -1423,6 +1887,37 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#staging",
+            "name": "Staging",
+            "url": "https://www.datamalli.fi/termisto.html#staging",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Suomeksi välivarasto. Latausprosessin välivaihe, johon lähdedata tuodaan sellaisenaan ennen muunnoksia. Staging erottaa noudon ja muunnoksen toisistaan: kun muunnos epäonnistuu, lähdettä ei tarvitse lukea uudelleen, ja kun logiikka muuttuu, vanha data voidaan ajaa uusilla säännöillä. Medallion-arkkitehtuurissa pronssitaso hoitaa saman tehtävän. Ks. ETL."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#streaming",
+            "name": "Streaming",
+            "url": "https://www.datamalli.fi/termisto.html#streaming",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "description": "Ks. Suoratoisto."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#strukturoimaton-data",
+            "name": "Strukturoimaton data",
+            "url": "https://www.datamalli.fi/termisto.html#strukturoimaton-data",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Unstructured Data",
+            "description": "Englanniksi Unstructured Data, suomeksi strukturoimaton data. Data, jolla ei ole ennalta määrättyä rakennetta: vapaa teksti, sähköpostit, kuvat, ääni, video. Sitä ei voi ladata suoraan taululle, vaan siitä pitää ensin louhia rakenteisia kenttiä — nykyään yhä useammin kielimallilla. Suurin osa organisaation datasta on strukturoimatonta, ja lähes kaikki raportointi käyttää strukturoitua. Vrt. strukturoitu data ja puolistrukturoitu data."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#strukturoitu-data",
             "name": "Strukturoitu data",
             "url": "https://www.datamalli.fi/termisto.html#strukturoitu-data",
@@ -1431,6 +1926,28 @@
             },
             "alternateName": "Structured Data",
             "description": "Englanniksi Structured Data, suomeksi strukturoitu eli rakenteinen data. Data, jolla on ennalta määritelty rakenne: rivit, sarakkeet ja tietotyypit. Relaatiotietokannan taulu on strukturoitua dataa. Vastakohtia ovat strukturoimaton data (vapaa teksti, kuvat, ääni) ja puolistrukturoitu data (JSON, XML), jossa rakenne kulkee datan mukana. Analytiikka edellyttää käytännössä aina, että data on jossain vaiheessa strukturoitu."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#suodatin",
+            "name": "Suodatin",
+            "url": "https://www.datamalli.fi/termisto.html#suodatin",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Filter",
+            "description": "Englanniksi Filter, suomeksi suodatin. Ehto, joka rajaa mitkä rivit otetaan laskentaan mukaan. Power BI:ssä suodatin ei ole vain käyttöliittymän valinta vaan koko laskennan perusmekanismi: raportin valinnat muodostavat suodatinkontekstin, joka etenee dimensiotaulusta faktatauluun relaation suuntaa pitkin. Siksi väärinpäin oleva relaatio ei näy virheilmoituksena vaan väärinä lukuina."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#suoratoisto",
+            "name": "Suoratoisto",
+            "url": "https://www.datamalli.fi/termisto.html#suoratoisto",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Streaming",
+            "description": "Englanniksi Streaming, suomeksi suoratoisto. Datan käsittely tapahtuma kerrallaan sitä mukaa kuin sitä syntyy, ilman että odotetaan seuraavaa ajoa. Suoratoisto on oikea valinta silloin kun päätös tehdään sekunneissa: laitevalvonta, petostunnistus, verkkokaupan varastosaldo. Raportointiin se on useimmiten ylimitoitus, joka maksaa monimutkaisuutena ja tuo tuoreutta, jota kukaan ei katso. Ks. eräajo ja data-alusta."
           },
           {
             "@type": "DefinedTerm",
@@ -1462,6 +1979,28 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "description": "SSAS:n in-memory-pohjainen tietomallityyppi, joka perustuu VertiPaq-moottoriin. Power BI -tietomallit ovat aina Tabular-malleja."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#tarkkuus",
+            "name": "Tarkkuus",
+            "url": "https://www.datamalli.fi/termisto.html#tarkkuus",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Accuracy",
+            "description": "Englanniksi Accuracy, suomeksi tarkkuus. Datan laadun ulottuvuus, joka kertoo vastaako tallennettu arvo todellisuutta: onko asiakkaan osoite se, jossa asiakas oikeasti asuu. Tarkkuutta ei voi mitata datasta itsestään, vaan se vaatii vertailun lähteeseen — siksi se on datan laadun ulottuvuuksista kallein todentaa. Koneoppimisessa sama sana tarkoittaa eri asiaa: osuutta oikein menneistä ennusteista. Ks. myös tietoeheys."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#taulu",
+            "name": "Taulu",
+            "url": "https://www.datamalli.fi/termisto.html#taulu",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Table",
+            "description": "Englanniksi Table, suomeksi taulu. Riveistä ja sarakkeista koostuva datan perusrakenne, jossa jokainen sarake on yhtä tietotyyppiä ja jokainen rivi yksi tietue. Analytiikassa taulut jakautuvat kahteen lajiin, ja ero on koko tähtimallin perusta: faktataulu sisältää mitattavat tapahtumat, dimensiotaulu niitä kuvaavat näkökulmat. Taulu, joka on kumpaakin, on merkki mallinnusvirheestä."
           },
           {
             "@type": "DefinedTerm",
@@ -1519,6 +2058,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#tietokantasuunnittelu",
+            "name": "Tietokantasuunnittelu",
+            "url": "https://www.datamalli.fi/termisto.html#tietokantasuunnittelu",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Database Design",
+            "description": "Englanniksi Database Design, suomeksi tietokantasuunnittelu. Taulujen, sarakkeiden, avainten ja suhteiden suunnittelu ennen kuin yhtään riviä on tallennettu. Operatiivisessa järjestelmässä suunnittelu tähtää normalisointiin ja kirjoituksen nopeuteen, analytiikassa tähtimalliin ja luvun nopeuteen — sama data, vastakkaiset tavoitteet. Siksi operatiivisen kannan kopioiminen raportoinnin pohjaksi tuottaa aina hitaan mallin. Ks. käsitemalli ja OLTP."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#tietoluokka",
             "name": "Tietoluokka",
             "url": "https://www.datamalli.fi/termisto.html#tietoluokka",
@@ -1549,6 +2099,17 @@
             },
             "alternateName": "Data Modeling",
             "description": "Kutsutaan myös tiedon mallintamiseksi tai tiedon mallinnukseksi. Prosessi, jossa tietomalli suunnitellaan ja rakennetaan: määritellään taulut, avaimet ja niiden väliset relaatiot ennen kuin data ladataan raportointikäyttöön. Etenee tyypillisesti käsitemallista loogisen mallin kautta fyysiseen toteutukseen, kuten tähtimalliin."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#tietotyyppi",
+            "name": "Tietotyyppi",
+            "url": "https://www.datamalli.fi/termisto.html#tietotyyppi",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Data Type",
+            "description": "Englanniksi Data Type, suomeksi tietotyyppi. Määritys siitä, millaista dataa sarakkeeseen saa tallentaa: kokonaisluku, desimaaliluku, teksti, päivämäärä, totuusarvo. Tietotyyppi ei ole muotoiluasia vaan suorituskykyasia — kokonaisluku pakkautuu VertiPaqissa murto-osaan siitä mitä sama arvo tekstinä, ja siksi surrogaattiavain on aina INT. Väärä tyyppi paljastuu yleensä vasta laskennassa: tekstinä tallennettu luku ei summaudu ja tekstinä tallennettu päivämäärä lajittuu aakkosjärjestykseen. Ks. toimialueen eheys."
           },
           {
             "@type": "DefinedTerm",
@@ -1628,6 +2189,28 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#upotus",
+            "name": "Upotus",
+            "url": "https://www.datamalli.fi/termisto.html#upotus",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Embedding",
+            "description": "Englanniksi Embedding, suomeksi upotus eli vektoriesitys. Tekstin, kuvan tai muun sisällön muuntaminen numerovektoriksi niin, että merkitykseltään lähellä olevat asiat päätyvät lähelle toisiaan. Upotus on se rakenne, jonka ansiosta haku löytää \"liikevaihdon\" ja \"myyntitulot\" samaksi asiaksi ilman synonyymitaulukkoa. Data-alalla upotuksia käytetään metadatan haussa ja RAG-toteutuksissa, joissa oikea taulukuvaus pitää löytää sadan taulun joukosta. Ks. vektorikanta."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#vektorikanta",
+            "name": "Vektorikanta",
+            "url": "https://www.datamalli.fi/termisto.html#vektorikanta",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Vector Database",
+            "description": "Englanniksi Vector Database, suomeksi vektorikanta. Tietokanta, joka tallentaa upotuksia ja hakee niistä lähimmät osumat merkityksen perusteella, ei tekstin täsmäävyyden. Tavallinen tietokanta vastaa kysymykseen \"mikä rivi vastaa tätä arvoa\", vektorikanta kysymykseen \"mikä sisältö on lähinnä tätä ajatusta\". Se ei korvaa tietovarastoa vaan täydentää sitä: luvut tulevat yhä tähtimallista, kuvaukset ja dokumentaatio vektorikannasta."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#vertipaq",
             "name": "VertiPaq",
             "url": "https://www.datamalli.fi/termisto.html#vertipaq",
@@ -1677,6 +2260,17 @@
             },
             "alternateName": "Referential Integrity",
             "description": "Englanniksi Referential Integrity, suomeksi viite-eheys. Faktataulun vierasavain viittaa aina olemassa olevaan pääavaimeen dimensiotaulussa. Jos vastaavaa dimensioriviä ei löydy, yhteys katkeaa ja Power BI luo automaattisen tyhjän rivin — luvut voivat vääristyä. Viite-eheys rikkoutuu tyypillisesti kun dimensiorivi poistetaan tai sen avain muuttuu ilman että faktarivejä päivitetään."
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#vinouma",
+            "name": "Vinouma",
+            "url": "https://www.datamalli.fi/termisto.html#vinouma",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Bias",
+            "description": "Englanniksi Bias, suomeksi vinouma eli harha. Systemaattinen vääristymä, joka toistuu samaan suuntaan eikä tasoitu otoskoon kasvaessa. Vinouma syntyy useimmiten datasta eikä mallista: jos opetusaineisto sisältää vain hyväksytyt hakemukset, malli oppii hyväksyttyjen piirteet eikä näe hylättyjä koskaan. Vinoumaa ei löydä tarkkuutta katsomalla, koska vinoutunut malli voi olla erittäin tarkka väärässä asiassa."
           },
           {
             "@type": "DefinedTerm",
@@ -1733,6 +2327,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#ylisovittaminen",
+            "name": "Ylisovittaminen",
+            "url": "https://www.datamalli.fi/termisto.html#ylisovittaminen",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Overfitting",
+            "description": "Englanniksi Overfitting, suomeksi ylisovittaminen. Tilanne, jossa malli oppii opetusaineiston yksityiskohdat ja kohinan sen sijaan että oppisi yleisen säännön — se osaa menneen täydellisesti ja epäonnistuu uudella datalla. Tunnusmerkki on epäsuhta: selitysaste opetusaineistossa 0,98, testiaineistossa 0,41. Siksi mallia ei koskaan arvioida sillä datalla, jolla se opetettiin. Ks. opetusaineisto."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#ytd",
             "name": "YTD",
             "url": "https://www.datamalli.fi/termisto.html#ytd",
@@ -1764,7 +2369,7 @@
     ]
   }
   </script>
-  <title>Data-alan sanasto englanti–suomi: 157 termiä | Datamalli.fi</title>
+  <title>Data-alan sanasto englanti–suomi: 213 termiä | Datamalli.fi</title>
   <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -2297,7 +2902,7 @@
   <nav class="aakkos-leiju" aria-label="Aakkosnavigaatio"></nav>
 
   <h1>Datan mallinnuksen termistö</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-07-26">26.7.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu 1.6.2026 · Päivitetty <time datetime="2026-08-20">20.8.2026</time></p>
 
   <!-- Slotit täyttää termi-paivassa.js; ilman JS:ää koko ruudukko jää piiloon. -->
   <div id="termi-paivassa">
@@ -2309,7 +2914,7 @@
     käsitteet sekä keskeisimmät tekoälytermit. Jokainen termi sisältää suomenkielisen selityksen ja
     englanninkielisen vastineen.</p>
 
-  <p>Termejä on tällä hetkellä 157. Sanasto kasvaa sivuston mukana, ja syvemmät sisällöt löydät sivuston
+  <p>Termejä on tällä hetkellä 213. Sanasto kasvaa sivuston mukana, ja syvemmät sisällöt löydät sivuston
     muista sivuista — aloita <a href="tietomalli.html">tietomallista</a>.</p>
 
   <div class="suodatin-paneeli">
@@ -2384,6 +2989,15 @@
       </div>
     </dl>
 
+    <dl class="termi" id="aikaleima" data-tags="konseptit tietomalli">
+      <dt><span class="termi-nimi">Aikaleima</span> <span class="termi-en">(Timestamp)</span></dt>
+      <dd class="termi-selite">Englanniksi Timestamp, suomeksi aikaleima. Päivämäärän ja kellonajan sisältävä arvo, joka kertoo milloin tapahtuma sattui tai rivi muuttui.
+        Aikaleima on tietomallissa eri asia kuin päivämäärä: sekunnin tarkkuus tuottaa lähes yhtä monta uniikkia arvoa kuin rivejä, mikä tuhoaa
+        pakkauksen eikä kytkeydy <a href="#paivamaaradimensio">päivämäärädimensioon</a> sellaisenaan. Erota aikaleimasta päivämääräsarake liitosta
+        varten ja jätä kellonaika omaksi sarakkeekseen. Ks. <a href="#vertipaq">VertiPaq</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span></div>
+    </dl>
+
     <dl class="termi" id="alm-toolkit" data-tags="tyokalut power-bi apuohjelmat">
       <dt><span class="termi-nimi">ALM Toolkit</span></dt>
       <dd class="termi-selite"><a href="apuohjelmat.html">Ilmainen työkalu</a> Power BI -tietomallien vertailuun ja käyttöönottoon. Näyttää erot
@@ -2414,6 +3028,37 @@
   <h2 id="b" class="termi-aakkos-otsikko">B</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="backfill" data-tags="prosessit etl-elt">
+      <dt><span class="termi-nimi">Backfill</span> <span class="termi-en">(takautuva lataus)</span></dt>
+      <dd class="termi-selite">Suomeksi takautuva lataus. Historiadatan lataaminen jälkikäteen putken läpi, esimerkiksi kun uusi sarake lisätään tai vanha lataus
+        korjataan. Backfill on riskialttein ajo koko putkessa, koska se kirjoittaa dataa, jota on jo raportoitu: jos ajo ei tuota samaa lopputulosta
+        toistettuna, se joko kahdentaa rivit tai jättää osan päivittämättä. Aja backfill aina rajattuna aikavälinä ja tarkista rivimäärät ennen ja
+        jälkeen. Ks. <a href="#eraajo">eräajo</a> ja <a href="#inkrementaalinen-paivitys">inkrementaalinen päivitys</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span></div>
+    </dl>
+
+    <dl class="termi" id="batch" data-tags="prosessit etl-elt">
+      <dt><span class="termi-nimi">Batch</span> <span class="termi-en">(eräajo)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#eraajo">Eräajo</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span></div>
+    </dl>
+
+    <dl class="termi" id="bi" data-tags="konseptit arkkitehtuuri">
+      <dt><span class="termi-nimi">BI</span> <span class="termi-en">(Business Intelligence, liiketoimintatiedon hallinta)</span></dt>
+      <dd class="termi-selite">Englanniksi Business Intelligence, suomeksi liiketoimintatiedon hallinta. Datan kerääminen, mallintaminen ja esittäminen niin, että
+        organisaatio tekee päätökset numeroiden eikä arvausten perusteella. BI on ketju, ei työkalu: lähdejärjestelmä,
+        <a href="#tietovarasto">tietovarasto</a>, <a href="tietomalli.html">tietomalli</a> ja vasta viimeisenä raportti. Suomalaisyrityksissä
+        yleisin BI-alusta on Power BI, ja sen nopeus ratkeaa tietomallissa — raporttityökalu ei korjaa huonoa mallia. Vrt.
+        <a href="#ennustava-analytiikka">ennustava analytiikka</a>, joka kertoo mitä tapahtuu seuraavaksi.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
+    <dl class="termi" id="bias" data-tags="ai datan-laatu">
+      <dt><span class="termi-nimi">Bias</span> <span class="termi-en">(vinouma)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#vinouma">Vinouma</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">datan laatu</span></div>
+    </dl>
+
     <dl class="termi" id="big-data" data-tags="konseptit arkkitehtuuri">
       <dt><span class="termi-nimi">Big data</span> <span class="termi-en">(Big Data)</span></dt>
       <dd class="termi-selite">Englanniksi Big Data, suomeksi massadata. Aineisto, joka on niin suuri, niin nopeasti syntyvä tai rakenteeltaan niin vaihteleva, ettei sitä käsitellä perinteisellä tietokannalla. Klassinen määritelmä on kolme V:tä: volume (määrä), velocity (nopeus) ja variety (muotojen kirjo). Termi on käytännössä menettänyt terävyytensä, kun pilvialustat käsittelevät teratavuja arkisesti — kysymys ei ole enää datan koosta vaan siitä, onko se mallinnettu käyttökelpoiseksi.</dd>
@@ -2440,6 +3085,15 @@
   <h2 id="c" class="termi-aakkos-otsikko">C</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="cdc" data-tags="prosessit etl-elt arkkitehtuuri">
+      <dt><span class="termi-nimi">CDC</span> <span class="termi-en">(Change Data Capture, muutostiedon tunnistus)</span></dt>
+      <dd class="termi-selite">Englanniksi Change Data Capture, suomeksi muutostiedon tunnistus. Menetelmä, jossa lähdejärjestelmästä poimitaan vain muuttuneet rivit sen
+        sijaan että koko taulu luettaisiin joka ajossa. CDC lukee tyypillisesti tietokannan transaktiolokia, joten se havaitsee myös poistot —
+        <a href="#aikaleima">aikaleimaan</a> perustuva vertailu ei havaitse. Ero näkyy heti kun lähde kasvaa: täyslataus, joka kestää tunnin,
+        kutistuu minuuteiksi. Ks. <a href="#inkrementaalinen-paivitys">inkrementaalinen päivitys</a> ja <a href="#etl">ETL</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
     <dl class="termi" id="copilot" data-tags="power-bi ai-metadata">
       <dt><span class="termi-nimi">Copilot</span></dt>
       <dd class="termi-selite">Power BI:n tekoälyavustaja, joka vastaa luonnollisen kielen kysymyksiin datan pohjalta.
@@ -2447,6 +3101,12 @@
         nimet ja mittareiden selitteet ohjaavat vastausta. Mitä paremmin <a href="ai-valmis-metadata.html">metadata on kirjoitettu</a>, sitä tarkempia
         Copilotin vastaukset ovat.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
+    </dl>
+
+    <dl class="termi" id="cube" data-tags="olap arkkitehtuuri">
+      <dt><span class="termi-nimi">Cube</span> <span class="termi-en">(kuutio)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#kuutio">Kuutio</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span><span class="termi-tagi">arkkitehtuuri</span></div>
     </dl>
 
   </div>
@@ -2490,6 +3150,15 @@
         liiketoimintavastuun rooleista <a href="#data-owner">data owner</a> ja <a href="#data-steward">data
           steward</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
+    </dl>
+
+    <dl class="termi" id="data-governance" data-tags="hallinta data-governance data-contract">
+      <dt><span class="termi-nimi">Data Governance</span> <span class="termi-en">(datan hallintamalli)</span></dt>
+      <dd class="termi-selite">Suomeksi datan hallintamalli. Säännöstö ja vastuunjako, joka kertoo kuka omistaa datan, kuka saa käyttää sitä ja mihin tarkoitukseen, ja
+        millä laatutasolla se toimitetaan. Ilman nimettyjä rooleja — <a href="#data-owner">Data Owner</a>, <a href="#data-steward">Data Steward</a>,
+        <a href="#data-custodian">Data Custodian</a> — hallintamalli jää dokumentiksi, jota kukaan ei noudata. Ks. myös
+        <a href="#datakatalogi">datakatalogi</a> ja <a href="#data-contract">Data Contract</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">Data Contract</span></div>
     </dl>
 
     <dl class="termi" id="data-lake" data-tags="arkkitehtuuri">
@@ -2537,6 +3206,15 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
+    <dl class="termi" id="datamartti" data-tags="arkkitehtuuri tietomalli">
+      <dt><span class="termi-nimi">Datamartti</span> <span class="termi-en">(Data Mart)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Mart, suomeksi datamartti. <a href="#tietovarasto">Tietovaraston</a> osajoukko, joka on rajattu yhden liiketoiminta-alueen
+        tarpeisiin: myynnin martti, talouden martti. Idea on nopeus ja hallittavuus, koska käyttäjä näkee vain oman alueensa taulut. Riski on
+        hajaannus: kun jokainen martti rakentaa oman asiakasdimensionsa, sama asiakas saa kolme eri määritelmää.
+        <a href="#yhdenmukaistettu-dimensio">Yhdenmukaistetut dimensiot</a> erottavat marttikokoelman siilokokoelmasta.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">tietomalli</span></div>
+    </dl>
+
     <dl class="termi" id="datan-elinkaari" data-tags="hallinta data-governance">
       <dt><span class="termi-nimi">Datan elinkaari</span> <span class="termi-en">(Data Lifecycle)</span></dt>
       <dd class="termi-selite">Englanniksi Data Lifecycle, suomeksi datan elinkaari. Datan kaikki vaiheet syntymästä poistamiseen: kerääminen, käsittely, tallennus, käyttö,
@@ -2545,16 +3223,59 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
+    <dl class="termi" id="datan-integrointi" data-tags="prosessit arkkitehtuuri etl-elt">
+      <dt><span class="termi-nimi">Datan integrointi</span> <span class="termi-en">(Data Integration)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Integration, suomeksi datan integrointi. Useasta lähdejärjestelmästä tulevan datan yhdistäminen yhdeksi käyttökelpoiseksi
+        kokonaisuudeksi. Tekninen siirto on helppo osa; vaikea osa on saada eri järjestelmien "asiakas" tarkoittamaan samaa asiaa. Siihen tarvitaan
+        <a href="#yhdenmukaistettu-dimensio">yhdenmukaistetut dimensiot</a> ja sovitut avaimet, ei lisää putkia. Ks. <a href="#etl">ETL</a> ja
+        <a href="#elt">ELT</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">ETL / ELT</span></div>
+    </dl>
+
     <dl class="termi" id="datan-laatu" data-tags="konseptit hallinta data-governance datan-laatu">
       <dt><span class="termi-nimi">Datan laatu</span> <span class="termi-en">(Data Quality)</span></dt>
       <dd class="termi-selite">Englanniksi Data Quality, suomeksi datan laatu. Datan sopivuus sen käyttötarkoitukseen: täsmällisyys, täydellisyys, yhtenäisyys ja ajantasaisuus. Käytännössä laatu kattaa muun muassa <a href="#tietoeheys">tietoeheyden</a>, <a href="#entiteettieheys">entiteettieheyden</a>, <a href="#viite-eheys">viite-eheyden</a> ja <a href="#toimialueen-eheys">toimialueen eheyden</a>. Laadun ongelmat voivat johtaa vääriin raportteihin — <a href="#tyhja-rivi">tyhjät rivit</a> ja <a href="#orporivi">orporivit</a> ovat tyypillisiä merkkejä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">datan laatu</span></div>
     </dl>
 
+    <dl class="termi" id="datan-profilointi" data-tags="datan-laatu prosessit">
+      <dt><span class="termi-nimi">Datan profilointi</span> <span class="termi-en">(Data Profiling)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Profiling, suomeksi datan profilointi. Datan systemaattinen tutkiminen ennen mallinnusta: montako uniikkia arvoa
+        sarakkeessa on, kuinka moni rivi on tyhjä, mikä on pienin ja suurin arvo, toistuuko avain. Profilointi vastaa siihen kysymykseen, jota
+        oletukset eivät korvaa — onko tämä sarake oikeasti uniikki. <a href="#power-query">Power Queryn</a> sarakeprofiili tekee tämän ilmaiseksi,
+        mutta oletuksena vain tuhannesta ensimmäisestä rivistä; vaihda asetus koko aineistoon. Ks. <a href="#duplikaattiavain">duplikaattiavain</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">datan laatu</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+    <dl class="termi" id="datan-puhdistus" data-tags="datan-laatu prosessit etl-elt">
+      <dt><span class="termi-nimi">Datan puhdistus</span> <span class="termi-en">(Data Cleansing)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Cleansing, suomeksi datan puhdistus. Virheellisten, puuttuvien ja epäyhtenäisten arvojen korjaaminen: kirjoitusasujen
+        yhdenmukaistus, tyhjien käsittely, muotojen standardointi. Puhdistus kuuluu latausvaiheeseen eikä raportille — raportilla tehty korjaus
+        katoaa seuraavan kehittäjän mukana ja lasketaan uudelleen joka kyselyssä. Korjaa mieluiten lähdejärjestelmässä, toiseksi mieluiten putkessa,
+        viimeisenä mallissa. Ks. <a href="#datan-laatu">datan laatu</a> ja <a href="#etl">ETL</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">datan laatu</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span></div>
+    </dl>
+
+    <dl class="termi" id="datanhallinta" data-tags="hallinta prosessit">
+      <dt><span class="termi-nimi">Datanhallinta</span> <span class="termi-en">(Data Management)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Management, suomeksi datanhallinta. Kattotermi kaikelle datan elinkaaren hoitamiselle: keräämiselle, tallentamiselle,
+        mallintamiselle, laadunvalvonnalle ja poistamiselle. Datanhallinta on tekemistä, <a href="#data-governance">Data Governance</a> sen säännöt
+        — sekoita nämä, ja saat joko komitean ilman käytäntöä tai käytännön ilman vastuita. Ks. myös <a href="#datan-elinkaari">datan elinkaari</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
     <dl class="termi" id="datasheet" data-tags="konseptit hallinta data-contract ai-metadata">
       <dt><span class="termi-nimi">Datasheet</span> <span class="termi-en">(datalehti, taulukkonäkymä)</span></dt>
       <dd class="termi-selite">Englanniksi Datasheet, suomeksi datalehti tai taulukkonäkymä. Sanalla on data-alalla kaksi eri merkitystä. Taulukkonäkymä tarkoittaa rivi–sarake-muotoista näkymää dataan, kuten Accessin Datasheet View tai Power BI:n taulukkonäkymä. Datalehti taas on dokumentti, joka kuvaa aineiston sisällön, alkuperän, rajoitukset ja käyttötarkoituksen — koneoppimisessa käytäntö tunnetaan nimellä Datasheets for Datasets. Jälkimmäinen on <a href="#data-contract">data contractin</a> lähisukulainen: datalehti kuvaa, data contract velvoittaa. Kumpikin on osa sitä <a href="#metadata">metadataa</a>, jonka varassa myös tekoälyavustaja tulkitsee datan oikein.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">AI-valmis metadata</span></div>
+    </dl>
+
+    <dl class="termi" id="datasuvereniteetti" data-tags="hallinta data-governance">
+      <dt><span class="termi-nimi">Datasuvereniteetti</span> <span class="termi-en">(Data Sovereignty)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Sovereignty, suomeksi datasuvereniteetti. Periaate, jonka mukaan dataan sovelletaan sen maan lakia, jonka alueella data
+        fyysisesti sijaitsee. Pilvipalvelussa ratkaisee siis konesalin sijainti, ei palveluntarjoajan kotipaikka — ja siksi EU-alueen valinta on
+        henkilötiedoille oletusvastaus, ei mielipidekysymys. Ks. myös <a href="#gdpr">GDPR</a> ja <a href="#anonymisointi">anonymisointi</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span></div>
     </dl>
 
     <dl class="termi" id="datatuote" data-tags="hallinta konseptit">
@@ -2587,6 +3308,15 @@
       <div class="termi-tagit"><span class="termi-tagi">työkalut</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL/ELT</span></div>
     </dl>
 
+    <dl class="termi" id="deduplikointi" data-tags="datan-laatu prosessit avaimet">
+      <dt><span class="termi-nimi">Deduplikointi</span> <span class="termi-en">(Deduplication)</span></dt>
+      <dd class="termi-selite">Englanniksi Deduplication, suomeksi deduplikointi. Kaksoiskappaleiden tunnistaminen ja poistaminen. Helppo tapaus on identtinen rivi; vaikea
+        tapaus on sama asiakas kahdella kirjoitusasulla, ja juuri se rikkoo dimensiotaulun uniikkiuden ja tuottaa
+        <a href="#duplikaattiavain">duplikaattiavaimen</a>. Deduplikointi vaatii siksi säännön siitä, mikä tekee kahdesta rivistä saman — ja sääntö
+        on liiketoimintapäätös, ei tekninen. Ks. <a href="#luonnollinen-avain">luonnollinen avain</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">datan laatu</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">avaimet</span></div>
+    </dl>
+
     <dl class="termi" id="degeneraatioavain" data-tags="avaimet tietomalli faktataulu">
       <dt><span class="termi-nimi">Degeneraatioavain</span> <span class="termi-en">(Degenerate Dimension, DD)</span></dt>
       <dd class="termi-selite">Englanniksi Degenerate Dimension, suomeksi degeneraatioavain. Faktataulussa säilytettävä lähdejärjestelmän tunniste, kuten tilaus- tai kuittinumero,
@@ -2601,6 +3331,16 @@
         suorituskyky paranevat. Tähtimallin dimensiot ovat tyypillisesti denormalisoituja. Ks. myös <a
           href="#normalisointi">Normalisointi</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Lumihiutalemalli</span></div>
+    </dl>
+
+    <dl class="termi" id="dimensio" data-tags="tietomalli konseptit dimensiot tahtimalli">
+      <dt><span class="termi-nimi">Dimensio</span> <span class="termi-en">(Dimension)</span></dt>
+      <dd class="termi-selite">Englanniksi Dimension, suomeksi dimensio. Näkökulma, jonka mukaan mittarit jaotellaan: aika, asiakas, tuote, maa. Kun raportti kertoo
+        myynnin kuukausittain ja tuoteryhmittäin, kuukausi ja tuoteryhmä ovat dimensioita. <a href="tahtimalli.html">Tähtimallissa</a> jokainen
+        dimensio on oma taulunsa, joka kytkeytyy <a href="#faktataulu">faktatauluun</a> yhdellä avaimella. Kirjanpito-ohjelmissa sama sana
+        tarkoittaa laskentakohdetta, jolla tosite luokitellaan esimerkiksi kustannuspaikkaan tai projektiin — idea on sama, nimi vain vakiintui eri
+        alalla. Ks. <a href="#dimensiotaulu">dimensiotaulu</a> ja <a href="#attribuutti">attribuutti</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Dimensiot</span><span class="termi-tagi">Tähtimalli</span></div>
     </dl>
 
     <dl class="termi" id="dimensiotaulu" data-tags="tietomalli dimensiot tahtimalli">
@@ -2656,6 +3396,21 @@
       </div>
     </dl>
 
+    <dl class="termi" id="embedding" data-tags="ai konseptit">
+      <dt><span class="termi-nimi">Embedding</span> <span class="termi-en">(upotus)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#upotus">Upotus</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="ennustava-analytiikka" data-tags="ai mittaaminen konseptit">
+      <dt><span class="termi-nimi">Ennustava analytiikka</span> <span class="termi-en">(Predictive Analytics)</span></dt>
+      <dd class="termi-selite">Englanniksi Predictive Analytics, suomeksi ennustava analytiikka. Historiadatasta rakennettu malli, joka arvioi mitä tapahtuu seuraavaksi:
+        asiakaspoistuma, kysyntäpiikki, laitevika. Ennuste on täsmälleen niin hyvä kuin sen opetusdata, ja opetusdata tulee tietomallista — väärä
+        <a href="#granulariteetti">granulariteetti</a> tai puuttuva historia pilaa mallin ennen kuin algoritmia on edes valittu. Vrt.
+        <a href="#bi">BI</a>, joka kuvaa mennyttä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="entiteettieheys" data-tags="konseptit avaimet tietomalli datan-laatu">
       <dt><span class="termi-nimi">Entiteettieheys</span> <span class="termi-en">(Entity Integrity)</span></dt>
       <dd class="termi-selite">Englanniksi Entity Integrity, suomeksi entiteettieheys. Jokaisen taulun jokaisella rivillä on yksilöivä, ei-tyhjä <a href="#paaavain">pääavain</a>. Jos pääavain puuttuu tai toistuu, rivejä ei voi tunnistaa — raportti voi laskea ne useaan kertaan tai jättää kokonaan huomiotta. Entiteettieheys on edellytys sille, että <a href="#viite-eheys">viite-eheys</a> voi toimia.</dd>
@@ -2668,6 +3423,15 @@
         Perinteinen lähestymistapa tietovarastoissa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">ETL/ELT</span><span class="termi-tagi">Litistäminen</span>
       </div>
+    </dl>
+
+    <dl class="termi" id="eraajo" data-tags="prosessit etl-elt">
+      <dt><span class="termi-nimi">Eräajo</span> <span class="termi-en">(Batch)</span></dt>
+      <dd class="termi-selite">Englanniksi Batch, suomeksi eräajo. Datan käsittely erissä sovituin väliajoin: yön aikana ajettu lataus, tunnin välein päivittyvä taulu.
+        Eräajo on analytiikassa oletus, koska raportointi tarvitsee harvoin sekuntitason tuoreutta ja erä maksaa murto-osan jatkuvaan virtaan
+        verrattuna. Kysy tuoreusvaatimus ennen arkkitehtuuria: "reaaliaikainen" tarkoittaa useimmiten "aamulla ajan tasalla". Ks.
+        <a href="#suoratoisto">suoratoisto</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span></div>
     </dl>
 
   </div>
@@ -2690,6 +3454,12 @@
         mittareihin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Power BI</span>
       </div>
+    </dl>
+
+    <dl class="termi" id="fine-tuning" data-tags="ai">
+      <dt><span class="termi-nimi">Fine-tuning</span> <span class="termi-en">(hienosäätö)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#hienosaato">Hienosäätö</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
     </dl>
 
     <dl class="termi" id="flattening" data-tags="tietomalli litistaminen">
@@ -2738,6 +3508,15 @@
   <h2 id="h" class="termi-aakkos-otsikko">H</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="hahmontunnistus" data-tags="ai konseptit">
+      <dt><span class="termi-nimi">Hahmontunnistus</span> <span class="termi-en">(Pattern Recognition)</span></dt>
+      <dd class="termi-selite">Englanniksi Pattern Recognition, suomeksi hahmontunnistus. Koneen kyky löytää datasta toistuvia rakenteita: samankaltaiset asiakkaat,
+        toistuvat tapahtumaketjut, tekstin aiheet. Data-alalla hahmontunnistus näkyy arkisimmillaan duplikaattien tunnistuksena ja
+        <a href="#poikkeava-havainto">poikkeavien havaintojen</a> etsintänä — ei siis vain koneoppimisprojekteissa vaan jokaisessa latausajossa,
+        joka tarkistaa datan laadun.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="hallusinaatio" data-tags="ai">
       <dt><span class="termi-nimi">Hallusinaatio</span> <span class="termi-en">(Hallucination)</span></dt>
       <dd class="termi-selite">Englanniksi Hallucination, suomeksi hallusinaatio. Tilanne, jossa <a href="#kielimalli">kielimalli</a> tuottaa uskottavalta kuulostavaa mutta
@@ -2752,6 +3531,15 @@
         Yhteys muodostuu tilausnumeron kautta. VertiPaq-pohjaisissa malleissa taulut kannattaa yhdistää yhdeksi
         tauluksi.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Header-Detail</span></div>
+    </dl>
+
+    <dl class="termi" id="hienosaato" data-tags="ai">
+      <dt><span class="termi-nimi">Hienosäätö</span> <span class="termi-en">(Fine-tuning)</span></dt>
+      <dd class="termi-selite">Englanniksi Fine-tuning, suomeksi hienosäätö. Valmiin <a href="#kielimalli">kielimallin</a> jatkokouluttaminen omalla aineistolla, jotta se
+        oppii tietyn alan sanaston, muodon tai tyylin. Hienosäätö muuttaa mallin painoja pysyvästi, toisin kuin <a href="#rag">RAG</a>, joka hakee
+        tiedon kyselyhetkellä ulkopuolelta. Data-alan käyttötapauksissa RAG on lähes aina oikea vastaus: yrityksen luvut muuttuvat viikoittain, eikä
+        mallia kouluteta uudelleen jokaisen muutoksen takia.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
     </dl>
 
     <dl class="termi" id="hierarkia" data-tags="tietomalli konseptit lumihiutale litistaminen dimensiot">
@@ -2785,6 +3573,44 @@
         ilman manuaalista numerointia. INSERT-lauseessa IDENTITY-saraketta ei mainita lainkaan — tietokanta täyttää
         sen itse.</dd>
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">SQL</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+    <dl class="termi" id="indeksi" data-tags="tietomalli prosessit">
+      <dt><span class="termi-nimi">Indeksi</span> <span class="termi-en">(Index)</span></dt>
+      <dd class="termi-selite">Englanniksi Index, suomeksi indeksi. Tietokannan apurakenne, joka nopeuttaa rivien hakua samalla tavalla kuin kirjan hakemisto: moottori ei
+        lue koko taulua läpi vaan hyppää oikeaan kohtaan. Indeksi maksaa kirjoitusnopeudessa ja levytilassa, joten <a href="#oltp">operatiivisessa
+        kannassa</a> niitä pidetään harkitusti. Power BI:n <a href="#vertipaq">VertiPaq</a> ei käytä indeksejä lainkaan — se pakkaa sarakkeet ja
+        skannaa ne, mikä on sarakepohjaisessa analytiikassa nopeampaa kuin hakemiston seuraaminen.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+    <dl class="termi" id="inferenssi" data-tags="ai konseptit">
+      <dt><span class="termi-nimi">Inferenssi</span> <span class="termi-en">(Inference)</span></dt>
+      <dd class="termi-selite">Englanniksi Inference, suomeksi inferenssi eli päättely. Vaihe, jossa valmis malli tuottaa vastauksen syötteestä — vastakohta koulutukselle,
+        jossa malli opetetaan. <a href="#kielimalli">Kielimallin</a> käytössä inferenssi on se hetki, joka kuluttaa <a href="#token">tokeneita</a>
+        ja kestää sekunteja. Tietokantapuolella sama sana tarkoittaa tietotyypin päättelyä datasta, esimerkiksi kun <a href="#power-query">Power
+        Query</a> arvaa sarakkeen tyypiksi kokonaisluvun — ja arvaa toisinaan väärin.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="inkrementaalinen-paivitys" data-tags="power-bi prosessit">
+      <dt><span class="termi-nimi">Inkrementaalinen päivitys</span> <span class="termi-en">(Incremental Refresh)</span></dt>
+      <dd class="termi-selite">Englanniksi Incremental Refresh, suomeksi inkrementaalinen päivitys. Latausmalli, jossa vain uusi ja muuttunut aikaväli päivitetään ja vanha
+        historia jätetään koskematta. Power BI:ssä tämä toteutetaan <a href="#partitio">partitioimalla</a> taulu ajan mukaan: viisi vuotta historiaa
+        säilyy, mutta jokainen päivitys koskee vain kuluvaa kuukautta. Ero täyslataukseen on kertaluokka, ja se kasvaa joka vuosi kun historiaa
+        karttuu lisää. Ks. <a href="#cdc">CDC</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+  </div>
+
+  <h2 id="j" class="termi-aakkos-otsikko">J</h2>
+  <div class="termi-luettelo">
+
+    <dl class="termi" id="join" data-tags="tietomalli konseptit">
+      <dt><span class="termi-nimi">Join</span> <span class="termi-en">(liitos)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#liitos">Liitos</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
   </div>
@@ -2829,6 +3655,25 @@
       <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
     </dl>
 
+    <dl class="termi" id="koneoppiminen" data-tags="ai konseptit">
+      <dt><span class="termi-nimi">Koneoppiminen</span> <span class="termi-en">(Machine Learning)</span></dt>
+      <dd class="termi-selite">Englanniksi Machine Learning, suomeksi koneoppiminen. Menetelmä, jossa malli päättelee säännöt datasta sen sijaan että ohjelmoija
+        kirjoittaisi ne. Koneoppimisprojektin onnistuminen ratkeaa harvoin algoritmissa ja lähes aina datassa: puuttuva historia, väärä
+        <a href="#granulariteetti">granulariteetti</a> tai vinoutunut <a href="#opetusaineisto">opetusaineisto</a> kaataa mallin riippumatta
+        menetelmästä. Tietomallinnus on siksi koneoppimisen esityö, ei sen kilpailija. Ks. <a href="#ennustava-analytiikka">ennustava
+        analytiikka</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="kontekstin-ikkuna" data-tags="ai">
+      <dt><span class="termi-nimi">Kontekstin ikkuna</span> <span class="termi-en">(Context Window)</span></dt>
+      <dd class="termi-selite">Englanniksi Context Window, suomeksi kontekstin ikkuna. <a href="#token">Tokenimäärä</a>, jonka <a href="#kielimalli">kielimalli</a> pystyy
+        pitämään kerralla mielessään: kysymys, aineisto ja vastaus mahtuvat samaan ikkunaan tai eivät mahdu. Kun ikkuna täyttyy, malli ei varoita
+        vaan pudottaa vanhimman osan — ja vastaus muuttuu itsevarmasti vääräksi. Siksi isoa tietomallia ei syötetä mallille kokonaisena vaan siitä
+        haetaan olennainen osa kyselyhetkellä. Ks. <a href="#rag">RAG</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span></div>
+    </dl>
+
     <dl class="termi" id="kpi" data-tags="mittaaminen">
       <dt><span class="termi-nimi">KPI</span> <span class="termi-en">(Key Performance Indicator)</span></dt>
       <dd class="termi-selite">Toimintaa kuvaava avainmittari, kuten liikevaihto, asiakaspysyvyys tai
@@ -2843,6 +3688,24 @@
         päivitetään. Eri vaiheille on omat päivämäärä-vierasavaimet. Ks. myös <a
           href="#transaktiofakta">transaktiofakta</a> ja <a href="#kausifakta">kausifakta</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">Faktataulut</span></div>
+    </dl>
+
+    <dl class="termi" id="kuutio" data-tags="olap arkkitehtuuri">
+      <dt><span class="termi-nimi">Kuutio</span> <span class="termi-en">(Cube)</span></dt>
+      <dd class="termi-selite">Englanniksi Cube, suomeksi kuutio. <a href="#olap">OLAP</a>-mallin rakenne, jossa mittarit on esilaskettu dimensioiden leikkauspisteisiin,
+        niin että raportti lukee valmiin arvon sen sijaan että laskisi sen kyselyhetkellä. Klassinen moniulotteinen kuutio on Power BI:n
+        aikakaudella pitkälti korvautunut <a href="#tabular-malli">tabular-mallilla</a>, joka laskee lennossa muistista — nopeus tulee nyt
+        pakkauksesta eikä esilaskennasta. Termi elää silti puheessa ja vanhoissa <a href="#ssas">SSAS</a>-toteutuksissa.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
+    <dl class="termi" id="kysely" data-tags="prosessit power-bi konseptit">
+      <dt><span class="termi-nimi">Kysely</span> <span class="termi-en">(Query)</span></dt>
+      <dd class="termi-selite">Englanniksi Query, suomeksi kysely. Pyyntö, joka kertoo mitä dataa halutaan ja millä ehdoilla: SQL:n SELECT-lause,
+        <a href="#power-query">Power Queryn</a> hakuvaihe tai <a href="#dax">DAX</a>-mittarin laskenta. Kysely kuvaa mitä halutaan, ei sitä miten se
+        haetaan — reitin valitsee moottorin kyselyoptimoija. Siksi saman kyselyn nopeus voi vaihdella kertaluokan tietomallin rakenteen mukaan,
+        vaikka kyselyteksti ei muutu riviäkään.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
     <dl class="termi" id="kasitemalli" data-tags="konseptit tietomalli">
@@ -2896,6 +3759,16 @@
       <dt><span class="termi-nimi">Laskuri</span></dt>
       <dd class="termi-selite">Ks. <a href="#mittari">Mittari</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">mittaaminen</span></div>
+    </dl>
+
+    <dl class="termi" id="liitos" data-tags="tietomalli konseptit avaimet">
+      <dt><span class="termi-nimi">Liitos</span> <span class="termi-en">(Join)</span></dt>
+      <dd class="termi-selite">Englanniksi Join, suomeksi liitos. Kahden taulun yhdistäminen yhteisen sarakkeen perusteella: tilausrivi saa asiakkaan nimen, kun
+        tilaustaulun asiakasavain vastaa asiakastaulun avainta. Liitostyyppi ratkaisee mitä puuttuville vastineille tapahtuu — inner join pudottaa
+        ne pois, left join säilyttää ne tyhjinä, ja valinta muuttaa loppusumman. <a href="tahtimalli.html">Tähtimallissa</a> liitokset korvataan
+        <a href="#relaatio">relaatioilla</a>: liitos tehdään kerran malliin, ei joka kyselyssä uudelleen. Ks.
+        <a href="#vierasavain">vierasavain</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">avaimet</span></div>
     </dl>
 
     <dl class="termi" id="link" data-tags="arkkitehtuuri tietomalli data-vault">
@@ -3059,10 +3932,25 @@
       <div class="termi-tagit"><span class="termi-tagi">OLAP / OLTP</span></div>
     </dl>
 
+    <dl class="termi" id="opetusaineisto" data-tags="ai datan-laatu">
+      <dt><span class="termi-nimi">Opetusaineisto</span> <span class="termi-en">(Training Data)</span></dt>
+      <dd class="termi-selite">Englanniksi Training Data, suomeksi opetusaineisto. Data, jolla malli opetetaan — se määrää mitä malli osaa ja mitä se ei osaa.
+        Opetusaineiston virheet eivät jää aineistoon vaan siirtyvät malliin ja monistuvat jokaiseen ennusteeseen, eikä niitä näe valmiista mallista
+        päälle päin. Sama laatuvaatimus koskee siis opetusaineistoa kuin raportoitavaa dataa: dokumentoitu alkuperä, tunnettu kattavuus, mitattu
+        <a href="#tarkkuus">tarkkuus</a>. Ks. <a href="#vinouma">vinouma</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">datan laatu</span></div>
+    </dl>
+
     <dl class="termi" id="orporivi" data-tags="konseptit tietomalli tahtimalli datan-laatu">
       <dt><span class="termi-nimi">Orporivi</span> <span class="termi-en">(Orphan Row)</span></dt>
       <dd class="termi-selite">Englanniksi Orphan Row, suomeksi <a href="avaimet-ja-relaatiot.html">orporivi</a>. Faktarivi, jonka <a href="#vierasavain">vierasavain</a> ei löydä vastinetta dimensiotaulusta. Orporivi on <a href="#viite-eheys">viite-eheyden</a> rikkoontuminen käytännössä: Power BI reagoi siihen luomalla automaattisen <a href="#tyhja-rivi">tyhjän rivin</a> dimensiotauluun. Syntyy tyypillisesti kun lähdedata sisältää faktarivejä dimensioille, joita ei ole vielä ladattu tai jotka on poistettu.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">datan laatu</span></div>
+    </dl>
+
+    <dl class="termi" id="overfitting" data-tags="ai mittaaminen">
+      <dt><span class="termi-nimi">Overfitting</span> <span class="termi-en">(ylisovittaminen)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#ylisovittaminen">Ylisovittaminen</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
   </div>
@@ -3070,10 +3958,53 @@
   <h2 id="p" class="termi-aakkos-otsikko">P</h2>
   <div class="termi-luettelo">
 
+    <dl class="termi" id="paikkamerkki" data-tags="konseptit prosessit">
+      <dt><span class="termi-nimi">Paikkamerkki</span> <span class="termi-en">(Placeholder)</span></dt>
+      <dd class="termi-selite">Englanniksi Placeholder, suomeksi paikkamerkki. Väliaikainen arvo tai elementti, joka varaa paikan lopulliselle sisällölle. Tietomallissa
+        paikkamerkkinä toimii <a href="#sentinel-rivi">sentinel-rivi</a>, joka ottaa vastaan faktarivit, joiden dimensioarvo puuttuu — ilman sitä
+        Power BI luo oman <a href="#tyhja-rivi">tyhjän rivin</a>, jota et voi nimetä etkä suodattaa.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+    <dl class="termi" id="parametri" data-tags="power-bi prosessit dax-konseptit">
+      <dt><span class="termi-nimi">Parametri</span> <span class="termi-en">(Parameter)</span></dt>
+      <dd class="termi-selite">Englanniksi Parameter, suomeksi parametri. Nimetty arvo, joka annetaan prosessille tai laskennalle ulkopuolelta, niin ettei sitä kirjoiteta
+        koodiin kiinni. <a href="#power-query">Power Queryssä</a> parametri pitää lähdepolun yhdessä paikassa, jolloin kehitys- ja
+        tuotantoympäristön vaihto on yhden arvon muutos eikä kolmenkymmenen kyselyn haravointi. Raporttipuolella parametritaulu antaa käyttäjän
+        valita esimerkiksi valuutan tai aikatason. Ks. <a href="#m-kieli">M-kieli</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">DAX-konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="partitio" data-tags="arkkitehtuuri prosessit power-bi">
+      <dt><span class="termi-nimi">Partitio</span> <span class="termi-en">(Partition, ositus)</span></dt>
+      <dd class="termi-selite">Englanniksi Partition, suomeksi partitio eli ositus. Taulun jakaminen osiin, joita voi ladata, päivittää ja lukea erikseen — yleensä ajan
+        mukaan, esimerkiksi kuukausi kerrallaan. Partitiointi on <a href="#inkrementaalinen-paivitys">inkrementaalisen päivityksen</a> edellytys:
+        ilman sitä koko taulu on yksi möykky, joka ladataan aina kokonaan. Hyöty näkyy myös luvussa, kun moottori ohittaa partitiot, joita kysely ei
+        koske. Ks. <a href="#vertipaq">VertiPaq</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">Power BI</span></div>
+    </dl>
+
     <dl class="termi" id="payload" data-tags="prosessit konseptit data-contract">
       <dt><span class="termi-nimi">Payload</span> <span class="termi-en">(hyötykuorma)</span></dt>
       <dd class="termi-selite">Englanniksi Payload, suomeksi hyötykuorma. Sanoman tai rajapintakutsun varsinainen sisältö — se osa, joka kuljettaa dataa, erotuksena otsikko- ja reititystiedoista. Esimerkiksi REST-rajapinnan JSON-vastauksessa payload on datakenttien sisältö, ei HTTP-otsikot. Integraatioissa payloadin rakenne on juuri se asia, jonka <a href="#data-contract">data contract</a> lukitsee: kun payload muuttuu ilman ennakkoilmoitusta, kyseessä on <a href="#rikkova-muutos">rikkova muutos</a> ja latausputki hajoaa.</dd>
       <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Data Contract</span></div>
+    </dl>
+
+    <dl class="termi" id="pivotointi" data-tags="prosessit power-bi">
+      <dt><span class="termi-nimi">Pivotointi</span> <span class="termi-en">(Pivot, Unpivot)</span></dt>
+      <dd class="termi-selite">Englanniksi Pivot ja Unpivot, suomeksi pivotointi ja sen purkaminen. Pivotointi kääntää sarakkeen arvot omiksi sarakkeikseen —
+        kuukausi-sarake muuttuu kahdeksitoista sarakkeeksi. Unpivot tekee päinvastoin, ja juuri sitä tietomallissa tarvitaan: leveä taulu, jossa
+        jokainen kuukausi on oma sarakkeensa, ei suodatu dimensiolla eikä laajene uuteen vuoteen ilman mallimuutosta. Käännä leveä lähdedata
+        pitkäksi <a href="#power-query">Power Queryssä</a> ennen kuin viet sen malliin. Ks. <a href="#sarake">sarake</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">Power BI</span></div>
+    </dl>
+
+    <dl class="termi" id="poikkeava-havainto" data-tags="datan-laatu mittaaminen konseptit">
+      <dt><span class="termi-nimi">Poikkeava havainto</span> <span class="termi-en">(Outlier)</span></dt>
+      <dd class="termi-selite">Englanniksi Outlier, suomeksi poikkeava havainto. Arvo, joka eroaa muusta aineistosta niin paljon, ettei se selity satunnaisvaihtelulla:
+        miljoonan euron rivi tuhannen euron tilausten joukossa. Poikkeama on joko syöttövirhe tai koko taulun kiinnostavin rivi — älä poista sitä
+        ennen kuin tiedät kumpi. Keskiarvo vääristyy yhdestäkin poikkeamasta, mediaani ei. Ks. <a href="#datan-laatu">datan laatu</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">datan laatu</span><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
     <dl class="termi" id="power-pivot" data-tags="tyokalut power-bi">
@@ -3106,6 +4037,16 @@
           href="#anonymisointi">anonymisointi</a>, pseudonymisointi on käänteistettävissä. Pseudonymisoitu data on yhä
         henkilötietoa <a href="#gdpr">GDPR:n</a> mielessä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Contract</span><span class="termi-tagi">Data Governance</span></div>
+    </dl>
+
+    <dl class="termi" id="puolistrukturoitu-data" data-tags="konseptit arkkitehtuuri">
+      <dt><span class="termi-nimi">Puolistrukturoitu data</span> <span class="termi-en">(Semi-structured Data)</span></dt>
+      <dd class="termi-selite">Englanniksi Semi-structured Data, suomeksi puolistrukturoitu data. Data, jolla on rakenne, mutta rakenne kulkee datan mukana eikä ole
+        ennalta kiinnitetty tauluun: JSON, XML, Parquet, lokirivit. Kentät voivat vaihdella riviltä toiselle, mikä tekee lataamisesta joustavaa ja
+        raportoinnista hankalaa. Analytiikkaa varten puolistrukturoitu data <a href="litistaminen.html">litistetään</a> sarakkeiksi viimeistään
+        <a href="#silver">hopeatasolla</a>. Vrt. <a href="#strukturoitu-data">strukturoitu data</a> ja
+        <a href="#strukturoimaton-data">strukturoimaton data</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
     </dl>
 
     <dl class="termi" id="paivamaaradimensio" data-tags="tietomalli dimensiot tahtimalli faktataulu">
@@ -3193,6 +4134,15 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">prosessit</span><span class="termi-tagi">Data Contract</span></div>
     </dl>
 
+    <dl class="termi" id="rivi" data-tags="tietomalli konseptit">
+      <dt><span class="termi-nimi">Rivi</span> <span class="termi-en">(Row)</span></dt>
+      <dd class="termi-selite">Englanniksi Row, suomeksi rivi. Taulun yksittäinen tietue: yksi asiakas, yksi tilausrivi, yksi päivä. Rivimäärä ratkaisee
+        <a href="#faktataulu">faktataulun</a> koon mutta ei sen muistijalanjälkeä — <a href="#vertipaq">VertiPaq</a> pakkaa sarakkeittain, joten
+        kymmenen miljoonaa riviä kapeaa faktataulua vie vähemmän tilaa kuin miljoona riviä leveää. Yksittäistä riviä käsittelee DAXissa
+        <a href="#row-context">rivikonteksti</a>, joka kertoo mitä riviä laskenta parhaillaan katsoo. Ks. <a href="#sarake">sarake</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="rle" data-tags="power-bi header-detail apuohjelmat">
       <dt><span class="termi-nimi">RLE-pakkaus</span> <span class="termi-en">(Run-Length Encoding)</span></dt>
       <dd class="termi-selite"><a href="#vertipaq">VertiPaq</a>-pakkausmenetelmä, joka korvaa peräkkäiset identtiset
@@ -3222,6 +4172,15 @@
           contextista</a>: filter context suodattaa taulua, row context iteroi rivejä.</dd>
       <div class="termi-tagit"><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">Power BI</span>
       </div>
+    </dl>
+
+    <dl class="termi" id="ryhmittely" data-tags="prosessit mittaaminen">
+      <dt><span class="termi-nimi">Ryhmittely</span> <span class="termi-en">(Group By)</span></dt>
+      <dd class="termi-selite">Englanniksi Group By, suomeksi ryhmittely. Rivien niputtaminen yhteisen arvon perusteella ja <a href="#aggregaatti">aggregaatin</a> laskenta
+        jokaiselle nipulle: myynti maittain, tilaukset kuukausittain. Ryhmittely on se, mitä jokainen raportti käytännössä tekee —
+        <a href="#dimensio">dimensio</a> määrää nipun, <a href="#mittari">mittari</a> laskettavan arvon. Latausvaiheessa ryhmittely kannattaa tehdä
+        lähteessä eikä mallissa: ladattu rivi maksaa muistia riippumatta siitä, katsooko sitä kukaan.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
   </div>
@@ -3330,6 +4289,15 @@
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
     </dl>
 
+    <dl class="termi" id="selitysaste" data-tags="mittaaminen konseptit">
+      <dt><span class="termi-nimi">Selitysaste</span> <span class="termi-en">(R-squared, Coefficient of Determination)</span></dt>
+      <dd class="termi-selite">Englanniksi R-squared tai Coefficient of Determination, suomeksi selitysaste. Luku välillä 0–1, joka kertoo kuinka suuren osan selitettävän
+        muuttujan vaihtelusta malli selittää. Selitysaste 0,82 tarkoittaa, että malli selittää 82 prosenttia vaihtelusta ja loput 18 jää muiden
+        tekijöiden ja satunnaisuuden varaan. Korkea selitysaste ei todista syy-seuraussuhdetta, se kertoo yhteisvaihtelusta. Power BI näyttää
+        selitysasteen <a href="#sirontakuvio">sirontakuvion</a> trendiviivan yhteydessä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="semanttinen-malli" data-tags="tietomalli power-bi ai-metadata">
       <dt><span class="termi-nimi">Semanttinen malli</span> <span class="termi-en">(Semantic Model)</span></dt>
       <dd class="termi-selite">Englanniksi Semantic Model, suomeksi semanttinen malli. Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI:ssä ja SSAS Tabularissa tätä kerrosta kutsuttiin aiemmin nimellä data model. Metadatan laatu ratkaisee, miten hyvin <a href="#copilot">Copilot</a> ja <a href="#qa">Q&amp;A</a> toimivat.</dd>
@@ -3394,6 +4362,16 @@
       <div class="termi-tagit"><span class="termi-tagi">avaimet</span><span class="termi-tagi">Dimensiot</span></div>
     </dl>
 
+    <dl class="termi" id="skaalautuvuus" data-tags="arkkitehtuuri konseptit">
+      <dt><span class="termi-nimi">Skaalautuvuus</span> <span class="termi-en">(Scalability)</span></dt>
+      <dd class="termi-selite">Englanniksi Scalability, suomeksi skaalautuvuus. Järjestelmän kyky kasvaa datamäärän tai käyttäjämäärän mukana ilman, että suorituskyky
+        romahtaa tai arkkitehtuuri pitää kirjoittaa uusiksi. Tietomallissa skaalautuvuus ratkeaa rakenteessa:
+        <a href="tahtimalli.html">tähtimalli</a> kestää rivien kasvun, koska suodatus etenee dimensiosta faktaan yhtä polkua pitkin, kun taas
+        <a href="sekasikiomalli-vs-tahtimalli.html">sekasikiömalli</a> hidastuu jokaisesta uudesta relaatiosta. Ks.
+        <a href="#vertipaq">VertiPaq</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="skeema" data-tags="tietomalli konseptit tahtimalli data-contract">
       <dt><span class="termi-nimi">Skeema</span> <span class="termi-en">(Schema)</span></dt>
       <dd class="termi-selite">Englanniksi Schema, suomeksi skeema. Tietokannan tai tietomallin rakenne: taulut, sarakkeet ja niiden väliset suhteet.
@@ -3442,10 +4420,52 @@
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
     </dl>
 
+    <dl class="termi" id="staging" data-tags="prosessit etl-elt arkkitehtuuri">
+      <dt><span class="termi-nimi">Staging</span> <span class="termi-en">(välivarasto)</span></dt>
+      <dd class="termi-selite">Suomeksi välivarasto. Latausprosessin välivaihe, johon lähdedata tuodaan sellaisenaan ennen muunnoksia. Staging erottaa noudon ja muunnoksen
+        toisistaan: kun muunnos epäonnistuu, lähdettä ei tarvitse lukea uudelleen, ja kun logiikka muuttuu, vanha data voidaan ajaa uusilla
+        säännöillä. <a href="medallion.html">Medallion-arkkitehtuurissa</a> <a href="#bronze">pronssitaso</a> hoitaa saman tehtävän. Ks.
+        <a href="#etl">ETL</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">prosessit</span><span class="termi-tagi">ETL / ELT</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
+    <dl class="termi" id="streaming" data-tags="arkkitehtuuri prosessit">
+      <dt><span class="termi-nimi">Streaming</span> <span class="termi-en">(suoratoisto)</span></dt>
+      <dd class="termi-selite">Ks. <a href="#suoratoisto">Suoratoisto</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">prosessit</span></div>
+    </dl>
+
+    <dl class="termi" id="strukturoimaton-data" data-tags="konseptit arkkitehtuuri">
+      <dt><span class="termi-nimi">Strukturoimaton data</span> <span class="termi-en">(Unstructured Data)</span></dt>
+      <dd class="termi-selite">Englanniksi Unstructured Data, suomeksi strukturoimaton data. Data, jolla ei ole ennalta määrättyä rakennetta: vapaa teksti, sähköpostit,
+        kuvat, ääni, video. Sitä ei voi ladata suoraan taululle, vaan siitä pitää ensin louhia rakenteisia kenttiä — nykyään yhä useammin
+        <a href="#kielimalli">kielimallilla</a>. Suurin osa organisaation datasta on strukturoimatonta, ja lähes kaikki raportointi käyttää
+        strukturoitua. Vrt. <a href="#strukturoitu-data">strukturoitu data</a> ja <a href="#puolistrukturoitu-data">puolistrukturoitu data</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
     <dl class="termi" id="strukturoitu-data" data-tags="konseptit">
       <dt><span class="termi-nimi">Strukturoitu data</span> <span class="termi-en">(Structured Data)</span></dt>
       <dd class="termi-selite">Englanniksi Structured Data, suomeksi strukturoitu eli rakenteinen data. Data, jolla on ennalta määritelty rakenne: rivit, sarakkeet ja tietotyypit. Relaatiotietokannan taulu on strukturoitua dataa. Vastakohtia ovat strukturoimaton data (vapaa teksti, kuvat, ääni) ja puolistrukturoitu data (JSON, XML), jossa rakenne kulkee datan mukana. Analytiikka edellyttää käytännössä aina, että data on jossain vaiheessa strukturoitu.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="suodatin" data-tags="power-bi dax-konseptit konseptit">
+      <dt><span class="termi-nimi">Suodatin</span> <span class="termi-en">(Filter)</span></dt>
+      <dd class="termi-selite">Englanniksi Filter, suomeksi suodatin. Ehto, joka rajaa mitkä rivit otetaan laskentaan mukaan. Power BI:ssä suodatin ei ole vain
+        käyttöliittymän valinta vaan koko laskennan perusmekanismi: raportin valinnat muodostavat <a href="#filter-context">suodatinkontekstin</a>,
+        joka etenee dimensiotaulusta faktatauluun <a href="#relaatio">relaation</a> suuntaa pitkin. Siksi väärinpäin oleva relaatio ei näy
+        virheilmoituksena vaan väärinä lukuina.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">Power BI</span><span class="termi-tagi">DAX-konseptit</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+    <dl class="termi" id="suoratoisto" data-tags="arkkitehtuuri prosessit">
+      <dt><span class="termi-nimi">Suoratoisto</span> <span class="termi-en">(Streaming)</span></dt>
+      <dd class="termi-selite">Englanniksi Streaming, suomeksi suoratoisto. Datan käsittely tapahtuma kerrallaan sitä mukaa kuin sitä syntyy, ilman että odotetaan
+        seuraavaa ajoa. Suoratoisto on oikea valinta silloin kun päätös tehdään sekunneissa: laitevalvonta, petostunnistus, verkkokaupan
+        varastosaldo. Raportointiin se on useimmiten ylimitoitus, joka maksaa monimutkaisuutena ja tuo tuoreutta, jota kukaan ei katso. Ks.
+        <a href="#eraajo">eräajo</a> ja <a href="#data-alusta">data-alusta</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">prosessit</span></div>
     </dl>
 
     <dl class="termi" id="surrogaattiavain" data-tags="avaimet dimensiot">
@@ -3473,6 +4493,24 @@
       <dd class="termi-selite">SSAS:n in-memory-pohjainen tietomallityyppi, joka perustuu VertiPaq-moottoriin. Power BI
         -tietomallit ovat aina Tabular-malleja.</dd>
       <div class="termi-tagit"><span class="termi-tagi">Power BI</span></div>
+    </dl>
+
+    <dl class="termi" id="tarkkuus" data-tags="datan-laatu mittaaminen">
+      <dt><span class="termi-nimi">Tarkkuus</span> <span class="termi-en">(Accuracy)</span></dt>
+      <dd class="termi-selite">Englanniksi Accuracy, suomeksi tarkkuus. <a href="#datan-laatu">Datan laadun</a> ulottuvuus, joka kertoo vastaako tallennettu arvo
+        todellisuutta: onko asiakkaan osoite se, jossa asiakas oikeasti asuu. Tarkkuutta ei voi mitata datasta itsestään, vaan se vaatii vertailun
+        lähteeseen — siksi se on datan laadun ulottuvuuksista kallein todentaa. Koneoppimisessa sama sana tarkoittaa eri asiaa: osuutta oikein
+        menneistä ennusteista. Ks. myös <a href="#tietoeheys">tietoeheys</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">datan laatu</span><span class="termi-tagi">mittaaminen</span></div>
+    </dl>
+
+    <dl class="termi" id="taulu" data-tags="tietomalli konseptit">
+      <dt><span class="termi-nimi">Taulu</span> <span class="termi-en">(Table)</span></dt>
+      <dd class="termi-selite">Englanniksi Table, suomeksi taulu. Riveistä ja sarakkeista koostuva datan perusrakenne, jossa jokainen sarake on yhtä
+        <a href="#tietotyyppi">tietotyyppiä</a> ja jokainen <a href="#rivi">rivi</a> yksi tietue. Analytiikassa taulut jakautuvat kahteen lajiin, ja
+        ero on koko <a href="tahtimalli.html">tähtimallin</a> perusta: <a href="#faktataulu">faktataulu</a> sisältää mitattavat tapahtumat,
+        <a href="#dimensiotaulu">dimensiotaulu</a> niitä kuvaavat näkökulmat. Taulu, joka on kumpaakin, on merkki mallinnusvirheestä.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
     <dl class="termi" id="tekoalyavustaja" data-tags="ai power-bi ai-metadata apuohjelmat">
@@ -3508,6 +4546,16 @@
       <div class="termi-tagit"><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
+    <dl class="termi" id="tietokantasuunnittelu" data-tags="tietomalli konseptit">
+      <dt><span class="termi-nimi">Tietokantasuunnittelu</span> <span class="termi-en">(Database Design)</span></dt>
+      <dd class="termi-selite">Englanniksi Database Design, suomeksi tietokantasuunnittelu. Taulujen, sarakkeiden, avainten ja suhteiden suunnittelu ennen kuin yhtään
+        riviä on tallennettu. Operatiivisessa järjestelmässä suunnittelu tähtää <a href="#normalisointi">normalisointiin</a> ja kirjoituksen
+        nopeuteen, analytiikassa <a href="tahtimalli.html">tähtimalliin</a> ja luvun nopeuteen — sama data, vastakkaiset tavoitteet. Siksi
+        operatiivisen kannan kopioiminen raportoinnin pohjaksi tuottaa aina hitaan mallin. Ks. <a href="#kasitemalli">käsitemalli</a> ja
+        <a href="#oltp">OLTP</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
     <dl class="termi" id="tietoluokka" data-tags="power-bi ai-metadata">
       <dt><span class="termi-nimi">Tietoluokka</span> <span class="termi-en">(Data Category)</span></dt>
       <dd class="termi-selite">Englanniksi Data Category, suomeksi tietoluokka. Power BI:n sarakeominaisuus, joka kertoo AI-toiminnoille sarakkeen semanttisen
@@ -3536,6 +4584,16 @@
           href="#kasitemalli">käsitemallista</a> loogisen mallin kautta fyysiseen toteutukseen, kuten
         tähtimalliin.</dd>
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">tietomalli</span></div>
+    </dl>
+
+    <dl class="termi" id="tietotyyppi" data-tags="tietomalli datan-laatu">
+      <dt><span class="termi-nimi">Tietotyyppi</span> <span class="termi-en">(Data Type)</span></dt>
+      <dd class="termi-selite">Englanniksi Data Type, suomeksi tietotyyppi. Määritys siitä, millaista dataa sarakkeeseen saa tallentaa: kokonaisluku, desimaaliluku,
+        teksti, päivämäärä, totuusarvo. Tietotyyppi ei ole muotoiluasia vaan suorituskykyasia — kokonaisluku pakkautuu
+        <a href="#vertipaq">VertiPaqissa</a> murto-osaan siitä mitä sama arvo tekstinä, ja siksi
+        <a href="surrogaattiavaimet.html">surrogaattiavain</a> on aina INT. Väärä tyyppi paljastuu yleensä vasta laskennassa: tekstinä tallennettu
+        luku ei summaudu ja tekstinä tallennettu päivämäärä lajittuu aakkosjärjestykseen. Ks. <a href="#toimialueen-eheys">toimialueen eheys</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">datan laatu</span></div>
     </dl>
 
     <dl class="termi" id="tietovarasto" data-tags="arkkitehtuuri">
@@ -3594,8 +4652,32 @@
 
   </div>
 
+  <h2 id="u" class="termi-aakkos-otsikko">U</h2>
+  <div class="termi-luettelo">
+
+    <dl class="termi" id="upotus" data-tags="ai konseptit">
+      <dt><span class="termi-nimi">Upotus</span> <span class="termi-en">(Embedding)</span></dt>
+      <dd class="termi-selite">Englanniksi Embedding, suomeksi upotus eli vektoriesitys. Tekstin, kuvan tai muun sisällön muuntaminen numerovektoriksi niin, että
+        merkitykseltään lähellä olevat asiat päätyvät lähelle toisiaan. Upotus on se rakenne, jonka ansiosta haku löytää "liikevaihdon" ja
+        "myyntitulot" samaksi asiaksi ilman synonyymitaulukkoa. Data-alalla upotuksia käytetään <a href="ai-valmis-metadata.html">metadatan</a>
+        haussa ja <a href="#rag">RAG</a>-toteutuksissa, joissa oikea taulukuvaus pitää löytää sadan taulun joukosta. Ks.
+        <a href="#vektorikanta">vektorikanta</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">konseptit</span></div>
+    </dl>
+
+  </div>
+
   <h2 id="v" class="termi-aakkos-otsikko">V</h2>
   <div class="termi-luettelo">
+
+    <dl class="termi" id="vektorikanta" data-tags="ai arkkitehtuuri">
+      <dt><span class="termi-nimi">Vektorikanta</span> <span class="termi-en">(Vector Database)</span></dt>
+      <dd class="termi-selite">Englanniksi Vector Database, suomeksi vektorikanta. Tietokanta, joka tallentaa <a href="#upotus">upotuksia</a> ja hakee niistä lähimmät
+        osumat merkityksen perusteella, ei tekstin täsmäävyyden. Tavallinen tietokanta vastaa kysymykseen "mikä rivi vastaa tätä arvoa",
+        vektorikanta kysymykseen "mikä sisältö on lähinnä tätä ajatusta". Se ei korvaa <a href="#tietovarasto">tietovarastoa</a> vaan täydentää
+        sitä: luvut tulevat yhä tähtimallista, kuvaukset ja dokumentaatio vektorikannasta.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
 
     <dl class="termi" id="vertipaq" data-tags="power-bi apuohjelmat header-detail dimensiot">
       <dt><span class="termi-nimi">VertiPaq</span></dt>
@@ -3636,6 +4718,15 @@
       <div class="termi-tagit"><span class="termi-tagi">konseptit</span><span class="termi-tagi">avaimet</span><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Tähtimalli</span><span class="termi-tagi">datan laatu</span></div>
     </dl>
 
+    <dl class="termi" id="vinouma" data-tags="ai datan-laatu">
+      <dt><span class="termi-nimi">Vinouma</span> <span class="termi-en">(Bias)</span></dt>
+      <dd class="termi-selite">Englanniksi Bias, suomeksi vinouma eli harha. Systemaattinen vääristymä, joka toistuu samaan suuntaan eikä tasoitu otoskoon kasvaessa.
+        Vinouma syntyy useimmiten datasta eikä mallista: jos <a href="#opetusaineisto">opetusaineisto</a> sisältää vain hyväksytyt hakemukset, malli
+        oppii hyväksyttyjen piirteet eikä näe hylättyjä koskaan. Vinoumaa ei löydä <a href="#tarkkuus">tarkkuutta</a> katsomalla, koska vinoutunut
+        malli voi olla erittäin tarkka väärässä asiassa.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">datan laatu</span></div>
+    </dl>
+
     <dl class="termi" id="valitaulu" data-tags="tietomalli konseptit useampi-fakta">
       <dt><span class="termi-nimi">Välitaulu</span> <span class="termi-en">(Bridge Table)</span></dt>
       <dd class="termi-selite">Englanniksi Bridge Table, suomeksi välitaulu. Aputaulu, joka purkaa hankalan <a href="#monen-moneen">monen-moneen-suhteen</a> kahdeksi
@@ -3672,6 +4763,15 @@
       <dt><span class="termi-nimi">Yksiselitteinen tietomalli</span></dt>
       <dd class="termi-selite">Tietomalli, jossa jokainen tieto on tallennettuna vain yhteen paikkaan ja sen merkitys on selvä ilman tulkintaa. <a href="#tahtimalli">Tähtimalli</a> on tyypillinen esimerkki: dimensiotaulun sarake esiintyy vain kyseisessä dimensiossa, eikä sama tieto toistu eri nimillä useassa taulussa. <a href="sekasikiomalli-vs-tahtimalli.html">Yksiselitteinen rakenne</a> vähentää virheitä, helpottaa ylläpitoa ja tekee raporteista luotettavampia. Vrt. <a href="#moniselitteinen-tietomalli">moniselitteinen tietomalli</a>.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">konseptit</span><span class="termi-tagi">Tähtimalli</span></div>
+    </dl>
+
+    <dl class="termi" id="ylisovittaminen" data-tags="ai mittaaminen">
+      <dt><span class="termi-nimi">Ylisovittaminen</span> <span class="termi-en">(Overfitting)</span></dt>
+      <dd class="termi-selite">Englanniksi Overfitting, suomeksi ylisovittaminen. Tilanne, jossa malli oppii opetusaineiston yksityiskohdat ja kohinan sen sijaan että
+        oppisi yleisen säännön — se osaa menneen täydellisesti ja epäonnistuu uudella datalla. Tunnusmerkki on epäsuhta:
+        <a href="#selitysaste">selitysaste</a> opetusaineistossa 0,98, testiaineistossa 0,41. Siksi mallia ei koskaan arvioida sillä datalla, jolla
+        se opetettiin. Ks. <a href="#opetusaineisto">opetusaineisto</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">AI / tekoäly</span><span class="termi-tagi">mittaaminen</span></div>
     </dl>
 
     <dl class="termi" id="ytd" data-tags="dax-konseptit mittaaminen">

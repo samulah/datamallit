@@ -490,7 +490,55 @@ päivämäärädimensio date dimension kalenteripäivä vuosi kuukausi time inte
 datasheet datalehti taulukkonäkymä suomeksi datasheets for datasets aineiston kuvaus alkuperä rajoitukset
 formatointi formatting muotoilu suomeksi format string tuhaterotin desimaalit valuutta prosentti näyttömuoto
 payload hyötykuorma suomeksi rajapinta sanoma json rest integraatio sisältö
-sirontakuvio scatter plot scatter chart hajontakuvio suomeksi kuplakaavio korrelaatio riippuvuus akseli`,
+sirontakuvio scatter plot scatter chart hajontakuvio suomeksi kuplakaavio korrelaatio riippuvuus akseli
+dimensio dimension suomeksi näkökulma aika asiakas tuote maa kuukausi tuoteryhmä laskentakohde kustannuspaikka dimensiointi
+bi business intelligence liiketoimintatiedon hallinta suomeksi power bi raportointi päätöksenteko tietovarasto
+data governance datan hallintamalli suomeksi säännöstö vastuunjako omistajuus data owner steward custodian
+datanhallinta data management suomeksi datan elinkaari kerääminen tallentaminen laadunvalvonta
+datan integrointi data integration suomeksi lähdejärjestelmä yhdistäminen yhdenmukaistetut dimensiot etl elt
+datasuvereniteetti data sovereignty suomeksi konesali sijainti eu gdpr henkilötiedot lainsäädäntö pilvipalvelu
+strukturoimaton data unstructured data suomeksi vapaa teksti sähköposti kuva ääni video kielimalli
+puolistrukturoitu data semi-structured data suomeksi json xml parquet lokirivit litistäminen
+inferenssi inference suomeksi päättely kielimalli token tietotyypin päättely power query
+tarkkuus accuracy suomeksi englanniksi datan laatu oikeellisuus ennuste koneoppiminen tietoeheys
+parametri parameter parameters suomeksi power query lähdepolku kehitys tuotanto parametritaulu m-kieli
+paikkamerkki placeholder suomeksi sentinel-rivi tyhjä rivi väliaikainen arvo
+skaalautuvuus scalability scalable suomeksi suorituskyky datamäärä käyttäjämäärä tähtimalli vertipaq
+poikkeava havainto outlier suomeksi poikkeama keskiarvo mediaani datan laatu syöttövirhe
+selitysaste r-squared coefficient of determination englanniksi regressio trendiviiva sirontakuvio vaihtelu
+hahmontunnistus pattern recognition suomeksi koneoppiminen duplikaatit poikkeamat toistuvat rakenteet
+ennustava analytiikka predictive analytics suomeksi ennuste asiakaspoistuma kysyntä laitevika opetusdata
+tietokantasuunnittelu database design suomeksi taulut sarakkeet avaimet suhteet normalisointi oltp tähtimalli
+taulu table suomeksi rivit sarakkeet tietue faktataulu dimensiotaulu perusrakenne
+rivi row suomeksi tietue rivimäärä rivikonteksti vertipaq pakkaus
+liitos join suomeksi inner left yhdistäminen avain relaatio tähtimalli
+kysely query suomeksi select sql power query dax kyselyoptimoija
+suodatin filter suomeksi suodatinkonteksti relaatio suunta power bi valinta
+tietotyyppi data type suomeksi kokonaisluku desimaali teksti päivämäärä totuusarvo int pakkaus
+indeksi index suomeksi hakemisto tietokanta kirjoitusnopeus vertipaq skannaus
+ryhmittely group by suomeksi aggregaatti nippu myynti maittain mittari dimensio
+pivotointi pivot unpivot suomeksi leveä pitkä sarakkeet power query kuukausi
+aikaleima timestamp suomeksi päivämäärä kellonaika sekunti pakkaus päivämäärädimensio
+upotus embedding suomeksi vektoriesitys merkitys haku rag vektorikanta metadata
+vektorikanta vector database suomeksi upotus lähin osuma merkitys rag tietovarasto
+kontekstin ikkuna context window suomeksi token kielimalli muisti rag
+hienosäätö fine-tuning suomeksi kielimalli jatkokoulutus painot rag
+koneoppiminen machine learning suomeksi malli säännöt data granulariteetti opetusaineisto
+vinouma bias suomeksi harha systemaattinen vääristymä opetusaineisto tarkkuus
+ylisovittaminen overfitting suomeksi kohina opetusaineisto testiaineisto selitysaste
+opetusaineisto training data suomeksi koneoppiminen laatu alkuperä kattavuus vinouma
+partitio partition ositus suomeksi taulu aikaväli inkrementaalinen päivitys vertipaq
+inkrementaalinen päivitys incremental refresh suomeksi power bi partitio historia täyslataus cdc
+eräajo batch suomeksi lataus yöajo tuoreus suoratoisto etl
+suoratoisto streaming suomeksi tapahtuma reaaliaikainen laitevalvonta petostunnistus eräajo
+cdc change data capture muutostiedon tunnistus suomeksi transaktiologi poisto täyslataus
+staging välivarasto suomeksi lähdedata muunnos bronze medallion etl
+backfill takautuva lataus suomeksi historiadata korjaus rivimäärä eräajo
+datan profilointi data profiling suomeksi uniikit arvot tyhjät power query sarakeprofiili
+datan puhdistus data cleansing suomeksi virheet puuttuvat kirjoitusasu lataus etl
+deduplikointi deduplication suomeksi kaksoiskappale duplikaattiavain luonnollinen avain sääntö
+datamartti data mart suomeksi tietovarasto osajoukko liiketoiminta-alue yhdenmukaistettu dimensio
+kuutio cube suomeksi olap esilaskenta tabular ssas moniulotteinen`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi

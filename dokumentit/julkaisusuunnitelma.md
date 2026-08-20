@@ -20,7 +20,7 @@
 | nimeamiskaytannot.html | ⭐⭐ 2 | Valmis — päivitetty 2026-06-07 |
 | kehittamisen-filosofia.html | ⭐ 1 | Valmis — julkaistu 2026-06-07 (noindex poistettu, sitemap lisätty) |
 | ai-valmis-metadata.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
-| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — päivitetty 2026-06-10 |
+| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — 213 termiä, päivitetty 2026-08-20 |
 | kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, llms.txt) — 4/5 kirjaa katettu |
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
@@ -100,13 +100,23 @@ Kokonaiskesto: 10 viikkoa, työmäärä yhteensä noin 36 tuntia.
 
 ## Termistö-sivun jatkosuunnitelma
 
-Termejä on nyt 131 kpl. Lisättäväksi tulevissa aalloissa:
+Termejä on nyt 213 kpl.
+
+Tasot 1–4 toteutettiin 20.8.2026 (yhteensä 56 termiä, ks. `20082026_uudet_termit.md`).
+Taso 1 oli kysyntävetoinen: käännöskyselyt `X suomeksi` kasvoivat 18 päivässä 39 → 270
+näyttöön, ja sanat joilla on oma hakusana rankkaavat sijalla ~12, sanat joilla ei ole
+sijalla ~35. Tasot 2–4 olivat oletusvetoisia: sanastollisia aukkoja, joille ei vielä ollut
+mitattua kysyntää. Vaikutus mitataan seuraavasta GSC-otoksesta.
+
+Seuraaviin aaltoihin jäljellä:
 
 - **Avaimet**: yhdistetty avain, alternate key
 - **Tietomallit**: galaksimalli, big table -malli
 - **Power BI**: näyttökansio, perspektiivi
-- **ETL/ELT**: CDC (Change Data Capture), staging, idempotenssi
+- **ETL/ELT**: idempotenssi
+- **Harkinnassa**: BIM (rakennuksen tietomalli) — 130 näyttöä sijalla 41, mutta väärä
+  hakuaikomus; perusteltu vain yhtenä täsmennysterminä, ei aihepiirin laajennuksena
 
-Aiemmista aalloista toteutettu: candidate key (ehdokasavain), BPA, RLE, sanakirjapakkaus, filter/row context, time intelligence, data lineage/steward/owner, GDPR, Bronze/Silver/Gold, hub, link, satellite — sekä 2026-06-10 lisätyt faktataulutermit (additiivisuustyypit, degeneraatioavain, arkkityypit, päivämäärädimensio).
+Aiemmista aalloista toteutettu: 2026-08-20 lisätyt 56 termiä, joista 18 GSC-vetoista (dimensio, BI, Data Governance, datanhallinta, datan integrointi, datasuvereniteetti, strukturoimaton ja puolistrukturoitu data, inferenssi, tarkkuus, parametri, paikkamerkki, skaalautuvuus, poikkeava havainto, selitysaste, hahmontunnistus, ennustava analytiikka, tietokantasuunnittelu). Aiemmin: candidate key (ehdokasavain), BPA, RLE, sanakirjapakkaus, filter/row context, time intelligence, data lineage/steward/owner, GDPR, Bronze/Silver/Gold, hub, link, satellite, sekä 2026-06-10 lisätyt faktataulutermit (additiivisuustyypit, degeneraatioavain, arkkityypit, päivämäärädimensio).
 
 Sivu on tarkoituksellisesti yksinkertainen ja akateemisen tyylinen kuten PDF: lyhyt selite, englanninkielinen vastine sulkeissa, ei mielipidelaatikoita. Sivulla on oma haku ja tägäys (termisto-search.js).
