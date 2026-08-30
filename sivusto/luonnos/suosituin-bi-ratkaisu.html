@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="lukemisaika" content="11">
+  <meta name="kortti-otsikko" content="Suomen suosituin BI-ratkaisu">
+  <meta name="kortti-kuvaus" content="Mikä analytiikka-alusta suomalaisyrityksissä oikeasti on käytössä — ja mitä Pron ja kapasiteetin välillä muuttuu.">
+  <meta name="tagit" content="power-bi tyokalut">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <link rel="canonical" href="https://www.datamalli.fi/suosituin-bi-ratkaisu.html">
+  <meta name="description" content="Suomen suosituin BI-ratkaisu 2026 on Power BI ja Microsoft Fabric. Työpaikkadata, Gartnerin arvio sekä Pron ja Fabric-kapasiteetin tekniset erot.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Suomen suosituin data-analytiikka- ja BI-ratkaisu 2026">
+  <meta property="og:description" content="Suomen suosituin BI-ratkaisu 2026 on Power BI ja Microsoft Fabric. Työpaikkadata, Gartnerin arvio sekä Pron ja Fabric-kapasiteetin tekniset erot.">
+  <meta property="og:url" content="https://www.datamalli.fi/suosituin-bi-ratkaisu.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Mikä on Suomen suosituin data-analytiikka- ja business intelligence -ratkaisu 2026?",
+        "description": "Suomen suosituin BI-ratkaisu 2026 on Power BI ja Microsoft Fabric. Työpaikkadata, Gartnerin arvio sekä Pron ja Fabric-kapasiteetin tekniset erot.",
+        "url": "https://www.datamalli.fi/suosituin-bi-ratkaisu.html",
+        "mainEntityOfPage": "https://www.datamalli.fi/suosituin-bi-ratkaisu.html",
+        "inLanguage": "fi",
+        "datePublished": "2026-08-22",
+        "dateModified": "2026-08-22",
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mikä on Suomen suosituin data-analytiikka- ja business intelligence -ratkaisu 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Microsoft Power BI, ja alustatasolla Microsoft Fabric, jonka osa Power BI nykyään on. Suomen avoimista työpaikkailmoituksista Power BI mainitaan 89 ilmoituksessa, Microsoft Fabric 35:ssä, Tableau 13:ssa ja Qlik 9:ssä (Duunitori 22.8.2026). Gartner on arvioinut Microsoftin Analytics and Business Intelligence Platforms -neliössä Leaderiksi 19 vuotta peräkkäin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miten BI-työkalun suosiota voi mitata Suomessa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Markkinaosuustilastot ovat globaaleja ja maksumuurin takana, eikä Suomen kokoisesta markkinasta julkaista luotettavaa asennuskantatilastoa. Avoimet työpaikkailmoitukset ovat julkinen ja toistettava mittari: työpaikkailmoitus kertoo, mitä yrityksen ympäristössä oikeasti ajetaan. Mittari kuvaa kysyntää eikä asennuskantaa, ja se on tilannekuva, joka elää päivittäin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ketkä ovat Leadereita Gartnerin 2026 Magic Quadrantissa analytiikka-alustoille?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gartner julkaisi Magic Quadrant for Analytics and Business Intelligence Platforms -raportin 29.6.2026. Leader-neliössä on viisi toimittajaa: Microsoft, Salesforcen Tableau, Googlen Looker, Qlik ja ThoughtSpot. Microsoft on ollut Leader 19 vuotta peräkkäin ja Qlik 16. Gartner ei siis nimeä yhtä parasta alustaa, vaan toteaa viisi alustaa kypsyydeltään samaan kärkiryhmään kuuluviksi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä eroa on Power BI Pro -lisenssillä ja Fabric-kapasiteetilla?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pro ajaa mallit jaetulla kapasiteetilla, jota Microsoft hallinnoi ja joka jaetaan muiden asiakkaiden kanssa. Fabric-kapasiteetti (F-SKU) on oma resurssialtaasi. Keskeiset tekniset erot: semanttisen mallin koko 1 GB vs. 25 GB F64:llä, ajastettuja päivityksiä 8 vs. 48 vuorokaudessa, päivityksen aikaraja 2 h vs. 5 h, sekä XMLA-päätepiste, Direct Lake, hybriditaulut, julkaisuputket ja sivutetut raportit, jotka vaativat kapasiteetin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Milloin Power BI Prosta kannattaa siirtyä Fabric-kapasiteettiin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Neljä teknistä laukaisinta, joista yksikin riittää: semanttinen malli lähestyy 1 GB:n rajaa, tarvitset enemmän kuin kahdeksan päivitystä vuorokaudessa, mallia pitää kehittää XMLA-päätepistettä vaativilla työkaluilla kuten Tabular Editorilla, tai siirryt Direct Lakeen ja muihin Fabric-työkuormiin. Ilmaiset katsojalisenssit F64:stä ylöspäin ovat lisenssikysymys, eivät tekninen laukaisin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tarvitsevatko Power BI -kehittäjät Pro-lisenssin, jos käytössä on F64-kapasiteetti?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kyllä. F64:stä ylöspäin ilmainen lisenssi riittää raporttien katsomiseen katsojaroolissa, mutta Power BI -sisällön luominen ja julkaiseminen muussa kuin omassa työtilassa vaatii Pro- tai PPU-lisenssin riippumatta kapasiteetin koosta. Kapasiteetti ei siis tee kehittäjistä ilmaisia."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Suomen suosituin BI-ratkaisu", "item": "https://www.datamalli.fi/suosituin-bi-ratkaisu.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Suomen suosituin data-analytiikka- ja BI-ratkaisu 2026 | Datamalli.fi</title>
+  <link rel="preload" href="/fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/tyylit/style.css?v=9">
+  <script src="/skriptit/navigation.js?v=14" defer></script>
+  <script src="/skriptit/sivut.js?v=1" defer></script>
+  <script src="/skriptit/kortit.js?v=2" defer></script>
+  <style>
+    .mq-aikajana { width: 100%; height: auto; }
+    .laukaisin-lista > li { margin-bottom: 10px; }
+    .gartner-huomio {
+      font-family: var(--font-ui);
+      font-size: 0.76em;
+      color: var(--c-muted);
+      line-height: 1.55;
+      border-top: 1px solid var(--c-border);
+      margin-top: 40px;
+      padding-top: 14px;
+    }
+    .lahde-rivi {
+      font-family: var(--font-ui);
+      font-size: 0.8em;
+      color: var(--c-muted);
+      font-style: italic;
+      margin: 4px 0 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/tietomalli.html">Tietomalli</a> ·
+    <a href="/tahtimalli.html">Tähtimalli</a> ·
+    <a href="/faktataulu.html">Faktataulu</a> ·
+    <a href="/dimensiot.html">Dimensiot</a> ·
+    <a href="/litistaminen.html">Litistäminen</a> ·
+    <a href="/lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="/medallion.html">Medallion</a> ·
+    <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="/kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="/termisto.html">Termistö</a> ·
+    <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="/apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="/tietoa.html">Tietoa</a> ·
+    <a href="/palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+
+  <h1>Mikä on Suomen suosituin data-analytiikka- ja business intelligence -ratkaisu 2026?</h1>
+  <p class="byline">Kirjoittanut <a href="/tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-08-22">22.8.2026</time></p>
+
+  <p>Microsoft Power BI. Alustatasolla <a href="/termisto.html#microsoft-fabric" class="termi-tip">Microsoft Fabric</a>,
+    jonka osa Power BI nykyään on. Suomen avoimista BI-työpaikoista Power BI mainitaan 89 ilmoituksessa,
+    Tableau 13:ssa ja Qlik 9:ssä. Ero ei ole prosentteja vaan kertaluokka. Sama pätee Gartnerin arvioon:
+    Microsoft on ollut Analytics &amp; BI Platforms -neliössä Leader 19 vuotta peräkkäin.</p>
+
+  <p>Mutta ”suosituin” ei tarkoita ”paras sinulle”. Eikä Power BI ole yksi tuote. Pro-lisenssin ja
+    Fabric-kapasiteetin välillä kulkee tekninen raja, joka ratkaisee ympäristön onnistumisen enemmän
+    kuin koko työkaluvalinta.</p>
+
+  <h2>Miten ”suosituin” oikeasti mitataan?</h2>
+
+  <p>Markkinaosuusluvut eivät kelpaa tähän kysymykseen. Ne ovat globaaleja, maksumuurin takana, ja
+    useimmiten toimittaja on ne itse tilannut. Suomen kokoisesta markkinasta ei julkaista luotettavaa
+    BI-työkalujen asennuskantatilastoa.</p>
+
+  <p>Yksi mittari on kuitenkin julkinen, laskettavissa ja suomalainen: avoimet työpaikat.
+    Työpaikkailmoitus on yrityksen oma ilmoitus siitä, mitä sen ympäristössä oikeasti ajetaan.
+    Kukaan ei rekrytoi Qlik-osaajaa Power BI -taloon.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Mittarin kaksi rajoitusta:</strong>
+    <ul>
+      <li><strong>Se mittaa kysyntää, ei asennuskantaa.</strong> Vakiintunut Qlik-ympäristö voi pyöriä
+        vuosia ilman yhtäkään rekrytointia. Kasvava Power BI -ympäristö rekrytoi jatkuvasti.</li>
+      <li><strong>Se on tilannekuva.</strong> Luku elää päivittäin. Siksi jokaisen luvun perässä on
+        päivämäärä ja hakuohje, jolla lukija voi toistaa mittauksen itse.</li>
+    </ul>
+  </div>
+
+  <p>Nämä rajoitukset kallistavat lukua Power BI:n eduksi. Ero on silti niin suuri, ettei suuntaa voi
+    selittää mittausvirheellä.</p>
+
+  <h2>Mitä Suomen työmarkkina kertoo?</h2>
+
+  <div class="kokoero-graafi" role="img"
+    aria-label="Pylväsvertailu avoimista työpaikkailmoituksista Suomessa 22.8.2026: Power BI 89 ilmoitusta, Microsoft Fabric 35, Tableau 13, Qlik 9, Looker 4, Cognos 1.">
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Power BI</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 100%; background: #015E38;"></div></div>
+      <span class="kokoero-arvo"><strong>89</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Microsoft Fabric</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 39.3%; background: #1a8a50;"></div></div>
+      <span class="kokoero-arvo"><strong>35</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Tableau</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 14.6%; background: #C9A84C;"></div></div>
+      <span class="kokoero-arvo"><strong>13</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Qlik</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 10.1%; background: #C9A84C;"></div></div>
+      <span class="kokoero-arvo"><strong>9</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Looker</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 4.5%; background: #9aa89a;"></div></div>
+      <span class="kokoero-arvo"><strong>4</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">Cognos</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 1.1%; background: #9aa89a;"></div></div>
+      <span class="kokoero-arvo"><strong>1</strong> <span class="kokoero-kerroin">ilmoitusta</span></span>
+    </div>
+  </div>
+  <p class="lahde-rivi">Avoimet työpaikkailmoitukset, haku myös ilmoitusten kuvauksista.
+    Lähde: <a href="https://duunitori.fi/tyopaikat?haku=power+bi&amp;search_also_descr=1" target="_blank" rel="noopener">Duunitori</a>,
+    haettu 22.8.2026. Luku elää päivittäin — toista haku itse vaihtamalla hakusana.</p>
+
+  <p>Kaksi huomiota lukuihin. Power BI ja Microsoft Fabric menevät päällekkäin: sama ilmoitus mainitsee
+    usein molemmat, joten lukuja ei lasketa yhteen. Ja ainoa Cognos-osuma on Tukholmasta, eli Suomen
+    osalta luku on käytännössä nolla.</p>
+
+  <p>Power BI:llä on enemmän avoimia paikkoja kuin kaikilla muilla yhteensä, viisinkertaisesti. Se on
+    työmarkkinan vastaus kysymykseen.</p>
+
+  <h2>Mitä Gartner sanoo 2026?</h2>
+
+  <p>Gartner julkaisi <cite>Magic Quadrant for Analytics and Business Intelligence Platforms</cite> -raportin
+    29.6.2026 (Anirudh Ganeshan, Edgar Macari, Christopher Long). Microsoft on Leader 19. peräkkäisen
+    vuoden.</p>
+
+  <figure>
+    <svg class="mq-aikajana" viewBox="0 0 720 96" role="img" aria-labelledby="mq-title mq-desc">
+      <title id="mq-title">Microsoftin Leader-vuodet Gartnerin Analytics ja BI Platforms -neliössä</title>
+      <desc id="mq-desc">Aikajana vuodesta 2008 vuoteen 2026: yhdeksäntoista peräkkäistä vuotta Leader-neliössä, yksi merkki kutakin vuotta kohti.</desc>
+      <line x1="30" y1="52" x2="690" y2="52" stroke="#d8e4da" stroke-width="3" stroke-linecap="round"></line>
+      <g fill="#015E38">
+        <circle cx="30" cy="52" r="7"></circle>
+        <circle cx="66.7" cy="52" r="7"></circle>
+        <circle cx="103.3" cy="52" r="7"></circle>
+        <circle cx="140" cy="52" r="7"></circle>
+        <circle cx="176.7" cy="52" r="7"></circle>
+        <circle cx="213.3" cy="52" r="7"></circle>
+        <circle cx="250" cy="52" r="7"></circle>
+        <circle cx="286.7" cy="52" r="7"></circle>
+        <circle cx="323.3" cy="52" r="7"></circle>
+        <circle cx="360" cy="52" r="7"></circle>
+        <circle cx="396.7" cy="52" r="7"></circle>
+        <circle cx="433.3" cy="52" r="7"></circle>
+        <circle cx="470" cy="52" r="7"></circle>
+        <circle cx="506.7" cy="52" r="7"></circle>
+        <circle cx="543.3" cy="52" r="7"></circle>
+        <circle cx="580" cy="52" r="7"></circle>
+        <circle cx="616.7" cy="52" r="7"></circle>
+        <circle cx="653.3" cy="52" r="7"></circle>
+        <circle cx="690" cy="52" r="9"></circle>
+      </g>
+      <text x="30" y="82" font-family="DM Sans, system-ui, sans-serif" font-size="15" fill="#4a5e48" text-anchor="start">2008</text>
+      <text x="690" y="82" font-family="DM Sans, system-ui, sans-serif" font-size="15" fill="#4a5e48" text-anchor="end">2026</text>
+      <text x="360" y="22" font-family="DM Sans, system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a2218" text-anchor="middle">19 peräkkäistä vuotta Leader-neliössä</text>
+    </svg>
+    <figcaption>Microsoftin asema Gartnerin Analytics and Business Intelligence Platforms -neliössä
+      2008–2026. Magic Quadrant -kaaviota itsessään ei toisteta tällä sivulla — se on Gartnerin
+      tekijänoikeus.</figcaption>
+  </figure>
+
+  <p>Tässä kohtaa useimmat toimittajien blogit lopettavat. Se on epärehellistä, koska Leader-neliössä on
+    Microsoftin lisäksi neljä muuta: Salesforcen Tableau, Googlen Looker, Qlik ja ThoughtSpot. Qlik on
+    ollut Leader 16 vuotta peräkkäin, Google kolme.</p>
+
+  <p>Gartner ei siis sano, että Power BI on paras. Se sanoo, että viisi alustaa on kypsyydeltään samassa
+    kärkiryhmässä. Jos työkaluvalinta ratkeaisi Magic Quadrantilla, Suomessa käytettäisiin viittä
+    työkalua suunnilleen tasan. Näin ei ole. Selitys on siis muualla kuin tuotteen kypsyydessä.</p>
+
+  <p>Arviointiperusteet ovat sen sijaan muuttuneet, ja se on tämän sivun kannalta olennaisempaa kuin
+    neliön asetelma. Vuoden 2026 raportissa painottuvat hallittu semanttinen kerros ja kyky syöttää
+    tekoälykokemuksia luotettavalla datalla — ei visualisointien määrä eikä raporttien ulkoasu. Microsoft
+    nostaa <a href="https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/Microsoft-named-a-Leader-in-the-2026-Gartner-Magic-Quadrant-for/ba-p/5262403" target="_blank" rel="noopener">omassa
+    tiedotteessaan</a> esiin täsmälleen samat asiat: <a href="/termisto.html#semanttinen-malli" class="termi-tip">semanttiset
+    mallit</a>, <a href="/termisto.html#copilot" class="termi-tip">Copilot</a> ja skaala.</p>
+
+  <p>Tämä tarkoittaa käytännössä yhtä asiaa. Alustan arvo ratkaistaan yhä enemmän tietomallin laadulla,
+    ei raporttityökalun ominaisuuslistalla. Copilot lukee semanttista mallia, ja se vastaa täsmälleen
+    niin hyvin kuin malli on nimetty ja kuvattu — siitä lisää sivulla
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a>.</p>
+
+  <h2>Miksi juuri Power BI voittaa Suomessa?</h2>
+
+  <p>Vastaus ei ole tuotteessa vaan siinä, mikä on jo ostettu. Suomalainen keskisuuri yritys ajaa
+    Microsoft 365:tä. Kun BI-työkalua valitaan, Power BI ei aloita nollasta.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Neljä etua, jotka eivät liity raporttityökaluun:</strong>
+    <ul>
+      <li><strong>Identiteetit ovat valmiina.</strong> Käyttäjät, ryhmät ja ehdollinen käyttöoikeus
+        tulevat Entra ID:stä. Kilpailijalla tämä on integraatioprojekti, Power BI:llä se on jo tehty.</li>
+      <li><strong>Jakelukanava on valmiina.</strong> Raportti upotetaan Teams-välilehdeksi, ei uudeksi
+        kirjautumiseksi uuteen palveluun. Käyttöönoton suurin este on aina se, että käyttäjän pitää
+        muistaa mennä jonnekin.</li>
+      <li><strong>Excel-tuttuus siirtyy.</strong> Power Query on sama moottori kuin Excelin Hae ja
+        muunna. Organisaatiossa on jo kymmeniä ihmisiä, jotka osaavat sen tietämättä osaavansa.</li>
+      <li><strong>Hankintaa ei tarvita.</strong> Pro-lisenssi lisätään olemassa olevaan
+        Microsoft-sopimukseen. Kilpailijan tuominen tarkoittaa uutta toimittajaa, uutta sopimusta ja
+        uutta tietosuoja-arviointia. Tämä kaataa enemmän työkaluvalintoja kuin yksikään tekninen
+        ominaisuus.</li>
+    </ul>
+  </div>
+
+  <p>Power BI voittaa Suomessa, koska se on halvin <em>päätös</em>, ei koska se olisi paras
+    <em>tuote</em>. Ne ovat eri asioita, ja päätöksen hinta ratkaisee useammin.</p>
+
+  <h2>Mitä Pro ja Fabric-kapasiteetti oikeasti eroavat?</h2>
+
+  <p>Kun Power BI valitaan, valitaan käytännössä Pro-lisenssi. Se riittää yllättävän pitkälle. Mutta Pro
+    ajaa mallit <em>jaetulla kapasiteetilla</em>, jota Microsoft hallinnoi ja jota jaetaan muiden
+    asiakkaiden kanssa. Fabric-kapasiteetti (F-SKU) on <em>oma</em> resurssialtaasi. Ero ei ole kokoluokka vaan
+    eri arkkitehtuuri.</p>
+
+  <table>
+    <caption>Taulukko 1, Power BI Pro (jaettu kapasiteetti) ja Fabric-kapasiteetti F64 — tekniset rajat</caption>
+    <thead>
+      <tr><th scope="col">Rajoite</th><th scope="col">Pro / jaettu kapasiteetti</th><th scope="col">Fabric F64</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Semanttisen mallin koko</td><td>1 GB</td><td>25 GB</td></tr>
+      <tr><td>Ajastettuja päivityksiä</td><td>8 / vrk</td><td>48 / vrk</td></tr>
+      <tr><td>Päivityksen aikaraja</td><td>2 h</td><td>5 h (XMLA:n kautta ei rajaa)</td></tr>
+      <tr><td>Purkamaton data päivityksessä</td><td>10 GB</td><td>kapasiteetin rajoissa</td></tr>
+      <tr><td>XMLA-päätepiste</td><td>ei</td><td>luku ja kirjoitus</td></tr>
+      <tr><td>Direct Lake</td><td>ei</td><td>kyllä</td></tr>
+      <tr><td>Hybriditaulut (reaaliaikainen DirectQuery-partitio)</td><td>ei</td><td>kyllä</td></tr>
+      <tr><td>Julkaisuputket, sivutetut raportit, kyselyvälimuisti, automaattiset aggregaatit</td><td>ei</td><td>kyllä</td></tr>
+      <tr><td>Katsoja tarvitsee maksullisen lisenssin</td><td>kyllä</td><td>ei (katsojarooli)</td></tr>
+      <tr><td>Muut Fabric-työkuormat (lakehouse, warehouse, notebookit)</td><td>ei</td><td>kyllä</td></tr>
+    </tbody>
+  </table>
+
+  <p>Rajat tulevat vastaan suunnilleen tässä järjestyksessä.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Mikä loppuu ensin:</strong>
+    <ul>
+      <li><strong>Semanttisen mallin koko.</strong> Jaetulla kapasiteetilla yksittäinen malli saa olla
+        enintään 1 GB. Tämä on useimmiten ensimmäinen seinä, ja se tulee vastaan aiemmin kuin luullaan:
+        <a href="/termisto.html#vertipaq" class="termi-tip">VertiPaqin</a> pakkaama 1 GB on paljon
+        vähemmän lähdedataa kuin miltä kuulostaa, ja huono malli syö sen moninkertaisesti nopeammin.</li>
+      <li><strong>Päivitysten määrä.</strong> Jos liiketoiminta haluaa datan tuoreeksi tunnin välein, Pro
+        ei riitä. Ei suorituskyvyn takia, vaan koska laskuri loppuu kahdeksaan.</li>
+      <li><strong>Purkamattoman datan raja.</strong> 10 GB koskee päivityksen aikana käsiteltyä dataa,
+        ei mallin kokoa. Sen voi ylittää mallilla, joka mahtuu 1 GB:hen.</li>
+      <li><strong>XMLA-päätepiste.</strong> Kehittäjän kannalta tämä on suurin ero. Ilman XMLA:ta
+        <a href="/apuohjelmat.html">Tabular Editor, ALM Toolkit ja DAX Studio</a> eivät pääse kiinni
+        julkaistuun malliin. Osittainen julkaisu, mittarien massamuokkaus ja mallin versiointi jäävät
+        pois — kehitys on Desktopista julkaisemista koko malli kerrallaan.</li>
+      <li><strong>Direct Lake.</strong> Direct Lake lukee Delta-taulut OneLakesta ilman tuontikopiota.
+        Se on koko Fabric-arkkitehtuurin ydin, eikä sitä saa Pro-lisenssillä lainkaan.</li>
+    </ul>
+  </div>
+
+  <p>PPU-lisenssi on välimuoto: se antaa suurimman osan näistä ominaisuuksista käyttäjäkohtaisesti. Se ei
+    kuitenkaan ole kapasiteetti, joten Fabricin muut työkuormat — lakehouse, warehouse, notebookit,
+    putket — eivät ole PPU:lla käytettävissä lainkaan.</p>
+
+  <h2>Missä Power BI ja Fabric sattuvat?</h2>
+
+  <p><strong>Katsojalisenssit ovat portaikko, eivät liukumäki.</strong> Alle F64:n kapasiteetilla jokainen
+    raportin katsoja tarvitsee oman Pro- tai PPU-lisenssin. F64:stä ylöspäin ilmainen lisenssi riittää
+    katsojaroolissa. Välimuotoa ei ole — F32 ei anna puolta hyötyä, se ei anna sitä lainkaan.</p>
+
+  <p>Ja tässä on kohta, jota myyntimateriaali ei kerro: <strong>kapasiteetti ei tee kehittäjistä
+    ilmaisia.</strong> Power BI -sisällön luominen ja julkaiseminen muussa kuin omassa työtilassa vaatii
+    Pro- tai PPU-lisenssin riippumatta kapasiteetin koosta. Ilmainen lisenssi riittää vain katsomiseen.</p>
+
+  <p><strong>Kapasiteetti loppuu kesken, eikä se varoita etukäteen.</strong> Fabric tasoittaa kuormaa:
+    interaktiiviset operaatiot jaetaan 5–64 minuutille, taustaoperaatiot 24 tunnille. Kun tasoitettu
+    kulutus ylittää kapasiteetin, seuraa kolmiportainen kuristus.</p>
+
+  <table>
+    <caption>Taulukko 2, Fabric-kapasiteetin kuristusportaat</caption>
+    <thead>
+      <tr><th scope="col">Ylikulutus</th><th scope="col">Mitä tapahtuu</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>enintään 10 min</td><td>ei kuristusta (ylityssuoja)</td></tr>
+      <tr><td>10–60 min</td><td>interaktiivisiin operaatioihin 20 sekunnin viive</td></tr>
+      <tr><td>60 min – 24 h</td><td>interaktiiviset operaatiot hylätään</td></tr>
+      <tr><td>yli 24 h</td><td>kaikki operaatiot hylätään</td></tr>
+    </tbody>
+  </table>
+
+  <p>Käyttäjä näkee virheen <i lang="en">”Your organization's Fabric compute capacity has exceeded its limits”</i>.
+    Kuristus jatkuu, kunnes kertynyt velka on maksettu käyttämättömällä kapasiteetilla. Nopeampia
+    ulospääsyjä on kaksi, ja molemmat maksavat: kapasiteetin nosto, tai ylityslaskutus kolminkertaisella
+    yksikköhinnalla.</p>
+
+  <p>Tämä on olennainen ero jaettuun kapasiteettiin. Pro-lisenssillä raja tulee vastaan kovana: malli ei
+    mahdu, päivitys ei ala. Kapasiteetilla raja tulee vastaan liukuvana ja viiveellä, mikä on käytännössä
+    vaikeampi havaita ja selittää käyttäjille.</p>
+
+  <p><strong>Pieni kapasiteetti on pieni.</strong> F2, F4 ja F8 antavat kaikki saman 3 GB:n muistirajan
+    semanttiselle mallille.</p>
+
+  <div class="kokoero-graafi" role="img"
+    aria-label="Pylväsvertailu semanttisen mallin muistirajasta Fabric-kapasiteeteittain: F2, F4 ja F8 kukin 3 gigatavua, F16 5 gigatavua, F32 10 gigatavua ja F64 25 gigatavua. Kapasiteettiyksiköt kasvavat samalla välillä kaksista kuuteenkymmeneenneljään.">
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F2</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 12%; background: #9aa89a;"></div></div>
+      <span class="kokoero-arvo"><strong>3 GB</strong> <span class="kokoero-kerroin">2 CU</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F4</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 12%; background: #9aa89a;"></div></div>
+      <span class="kokoero-arvo"><strong>3 GB</strong> <span class="kokoero-kerroin">4 CU</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F8</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 12%; background: #9aa89a;"></div></div>
+      <span class="kokoero-arvo"><strong>3 GB</strong> <span class="kokoero-kerroin">8 CU</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F16</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 20%; background: #C9A84C;"></div></div>
+      <span class="kokoero-arvo"><strong>5 GB</strong> <span class="kokoero-kerroin">16 CU</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F32</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 40%; background: #1a8a50;"></div></div>
+      <span class="kokoero-arvo"><strong>10 GB</strong> <span class="kokoero-kerroin">32 CU</span></span>
+    </div>
+    <div class="kokoero-rivi">
+      <span class="kokoero-nimi">F64</span>
+      <div class="kokoero-track"><div class="kokoero-bar" style="width: 100%; background: #015E38;"></div></div>
+      <span class="kokoero-arvo"><strong>25 GB</strong> <span class="kokoero-kerroin">64 CU</span></span>
+    </div>
+  </div>
+  <p class="lahde-rivi">Semanttisen mallin muistiraja kapasiteetin koon mukaan. Kapasiteettiyksiköt
+    kuusitoistakertaistuvat F2:sta F32:een, mutta muistiraja vain kolminkertaistuu.</p>
+
+  <p>Kolme halvinta porrasta eivät siis osta yhtään lisää mallimuistia. Ne ostavat laskentatehoa. Jos
+    ongelma on mallin koko, kapasiteetin kasvattaminen pienessä päässä ei auta lainkaan.</p>
+
+  <p>Tästä seuraa sivun tärkein havainto: kapasiteettitarve on
+    <a href="/tietomalli.html">tietomallikysymys</a> ennen kuin se on lisenssikysymys.</p>
+
+  <h2>Milloin Prosta kannattaa siirtyä kapasiteettiin?</h2>
+
+  <p>Neljä teknistä laukaisinta. Yksikin riittää.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Siirry kapasiteettiin kun:</strong>
+    <ul class="laukaisin-lista">
+      <li><strong>Semanttinen malli lähestyy 1 GB:n rajaa.</strong> Älä odota seinään asti. Raja tulee
+        vastaan päivityksen aikana, ei julkaisussa — eli ympäristö kaatuu tuotannossa, ei testissä.</li>
+      <li><strong>Tarvitset enemmän kuin kahdeksan päivitystä vuorokaudessa.</strong> Tämä on kova raja
+        jaetulla kapasiteetilla. Sitä ei kierretä porrastamalla eikä optimoimalla.</li>
+      <li><strong>Mallia pitää kehittää työkaluilla.</strong> Tabular Editor, ALM Toolkit ja
+        versionhallinta vaativat XMLA-päätepisteen. Jos malli on kasvanut siihen kokoon, ettei sitä voi
+        ylläpitää Desktopista, kapasiteetti on edellytys eikä optimointi.</li>
+      <li><strong>Siirryt Direct Lakeen tai muihin Fabric-työkuormiin.</strong> Lakehouse, warehouse,
+        notebookit ja putket vaativat F-kapasiteetin. PPU ei riitä, koska PPU ei ole kapasiteetti.</li>
+    </ul>
+  </div>
+
+  <p>Ilmaiset katsojalisenssit eivät ole tässä listassa, ja se on tarkoituksellista. Ne ovat
+    lisenssikysymys, eivät tekninen laukaisin. Kapasiteetin ostaminen katsojalisenssien takia johtaa
+    helposti siihen, että maksetaan alustasta, jonka ominaisuuksia ei käytetä.</p>
+
+  <h2>Milloin vastaus on jokin muu?</h2>
+
+  <div class="fakta-laatikko">
+    <strong>Neljä tilannetta, joissa Power BI ei ole oikea valinta:</strong>
+    <ul>
+      <li><strong>Talo ei ole Microsoft-talo.</strong> Jos identiteetit ovat Googlessa ja data
+        BigQueryssä, Looker on lyhyempi matka. Power BI:n koko etu perustuu valmiiseen ekosysteemiin, ja
+        ilman sitä etua ei ole.</li>
+      <li><strong>Toimiva Qlik-ympäristö on olemassa.</strong> Migraatio maksaa enemmän kuin lisenssiero
+        säästää. Vaihda vasta kun ympäristö on muutenkin uusittava.</li>
+      <li><strong>Analyytikot tekevät raskasta eksploratiivista analyysiä.</strong> Power BI on
+        rakennettu ennalta mallinnetun datan jakeluun. Vapaamuotoiseen tutkimiseen on parempia
+        työkaluja.</li>
+      <li><strong>Datamäärä on pieni ja käyttäjiä on kolme.</strong> Silloin oikea vastaus voi olla
+        Excel. Se on tylsä vastaus, mutta usein oikea.</li>
+    </ul>
+  </div>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <ul>
+      <li><strong>Työkaluvalinta on helpoin päätös koko projektissa, ja se ratkaisee vähiten.</strong>
+        Viisi Gartnerin Leaderia tekee saman asian riittävän hyvin. Valitse se, joka on jo talossa, ja
+        käytä säästetty aika tietomalliin.</li>
+      <li><strong>Suosituin ei ole sama kuin paras sinulle.</strong> 89 vastaan 9 kertoo, mistä löydät
+        tekijöitä ja konsultteja. Se on hyvä syy valita Power BI. Se ei ole peruste hylätä toimivaa
+        ympäristöä.</li>
+      <li><strong>Oikea kysymys ei ole ”Power BI vai jokin muu”, vaan ”Pro vai kapasiteetti”.</strong>
+        Ensimmäinen on käytännössä ratkaistu ennen kuin kokous alkaa. Toinen ratkaisee, mitä
+        ympäristöllä voi tehdä — ja siitä ei puhuta tarpeeksi.</li>
+      <li><strong>XMLA-päätepiste on se ominaisuus, jonka takia kapasiteettiin siirrytään.</strong> Ei
+        ilmaiset katsojat. Ilman XMLA:ta mallia ei voi versioida, julkaista osissa eikä muokata
+        työkaluilla. Se on ero käsityön ja insinöörityön välillä.</li>
+      <li><strong>Kapasiteettiongelma on melkein aina mallinnusongelma.</strong> Kuristus ei ala siitä,
+        että Fabric on kallis. Se alkaa siitä, että
+        <a href="/sekasikiomalli-vs-tahtimalli.html">sekasikiömalli</a> lukee moninkertaisesti enemmän
+        dataa kuin <a href="/tahtimalli.html">tähtimalli</a>. Kapasiteetin nostaminen ostaa aikaa, ei
+        ratkaisua.</li>
+    </ul>
+  </div>
+
+  <p class="gartner-huomio">
+    Lähteet: työpaikkaluvut <a href="https://duunitori.fi/tyopaikat?haku=power+bi&amp;search_also_descr=1" target="_blank" rel="noopener">Duunitorista</a>
+    22.8.2026. Tekniset rajat ja lisenssisäännöt Microsoftin dokumentaatiosta:
+    <a href="https://learn.microsoft.com/fi-fi/fabric/enterprise/licenses" target="_blank" rel="noopener">Fabric-lisenssit ja kapasiteetti</a>,
+    <a href="https://learn.microsoft.com/fi-fi/fabric/enterprise/throttling" target="_blank" rel="noopener">kapasiteetin kuristus ja tasoitus</a> sekä
+    <a href="https://learn.microsoft.com/fi-fi/fabric/enterprise/powerbi/service-premium-what-is" target="_blank" rel="noopener">Power BI Premium ja SKU-rajat</a>.
+    <br><br>
+    GARTNER on Gartner, Inc:n ja/tai sen tytäryhtiöiden rekisteröity tavaramerkki ja palvelumerkki
+    Yhdysvalloissa ja kansainvälisesti, ja MAGIC QUADRANT on Gartner, Inc:n ja/tai sen tytäryhtiöiden
+    rekisteröity tavaramerkki. Kaikki oikeudet pidätetään. Gartner ei suosittele mitään
+    tutkimusjulkaisuissaan mainittua toimittajaa, tuotetta tai palvelua, eikä kehota teknologian
+    käyttäjiä valitsemaan vain korkeimmat arviot saaneita toimittajia. Gartnerin tutkimusjulkaisut
+    edustavat Gartnerin tutkimusorganisaation näkemyksiä, eikä niitä tule tulkita tosiasiaväitteiksi.
+    Gartner ei anna tähän tutkimukseen liittyen mitään nimenomaisia tai konkludenttisia takuita, mukaan
+    lukien takuut myyntikelpoisuudesta tai soveltuvuudesta tiettyyn tarkoitukseen.
+  </p>
+
+  <section class="katso-myos" data-kortit="tahtimalli.html tietomalli.html ai-valmis-metadata.html apuohjelmat.html sekasikiomalli-vs-tahtimalli.html medallion.html"></section>
+
+</body>
+
+</html>

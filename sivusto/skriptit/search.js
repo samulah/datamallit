@@ -9,6 +9,7 @@ const TAGI_NIMET = {
   'perusteoria':     'perusteoria',
   'poikkeustapaus':  'poikkeustapaus',
   'ai':              'AI',
+  'yrittajyys':      'yrittäjyys',
   'kesken':          'Kesken'
 };
 

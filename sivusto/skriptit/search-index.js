@@ -569,6 +569,40 @@ riippumaton teknologiariippumaton rehellinen mielipide microsoft osaaja ei myy k
 dataneuvot maksullinen neuvonta kysy kysymys apua ongelma optimointi ota yhteyttä
 tietovarastoarkkitehtuuri data-arkkitehtuuri datan hallinta governance omistajuus laatusäännöt metatieto
 hinnoittelu tuntihinta 140 euroa alv 25,5 % hinta-arvio työpäivää kesto alkaen
-samu lahdenperä dataneuvos salassapitosopimus etätyö`
+samu lahdenperä dataneuvos salassapitosopimus etätyö`,
+
+'datayrittajan-kustannusrakenne.html': `datayrittäjä yrittäjyys kustannusrakenne kulurakenne kulut tilinpäätös
+it-konsulttiyritys freelancer konsultti yksinyrittäjä osakeyhtiö oy paljonko maksaa
+perustaminen perustamiskulut osakepääoma 0 euroa kaupparekisteri prh käsittelymaksu 300 400 euroa
+ytj ohjattu perustamispaketti tilintarkastaja mikroyritys osakaslaina käynnistysraha 2500 euroa
+käynnistäminen 1227,65 euroa 94 päivää ensimmäinen lasku 18469,80 tositteet
+pakolliset kulut 857 euroa kuukaudessa 10284 vuodessa kiinteät kulut alv 0
+yel-vakuutus kirjanpito tilitoimisto puhelin netti vakuutukset if ohjelmistot pankki poistot
+tietoturvavakuutus ict konsulttivastuu toiminnanvastuu 500,46 euroa vuodessa
+laskutettu euro sentteinä 59 senttiä palkkaa 31 senttiä liikevoittoa 9,7 senttiä kuluja
+palkka brutto 53,38 henkilösivukulut liikevoitto tuloverot skaalattuna kuukaudessa
+liikevaihto 488965 neljä vuotta 2022 2023 2024 2025 tuloslaskelma oma pääoma
+palkka on tasauserä hajonta 7,6 2,8 prosenttia liikevoitto 43 45 tuhatta
+mitä 857 ei osta koulutus markkinointi sopimuspohjat sparraaja kevyt kulurakenne riski
+paljonko jää käteen dataneuvoksen mielipide hanki asiakas ennen y-tunnusta`,
+
+'freelancerin-tuntihintalaskuri.html': `freelancerin tuntihintalaskuri laskuri tuntihinta laskutusaste
+paljonko tuntihinnasta jää käteen konsultin tuntihinta 70 80 90 100 euroa tunnissa
+laskutettavat tunnit 1320 1485 990 1155 työpäiviä vuodessa 220 seitsemän ja puoli tuntia
+liikevaihto kiinteät kulut yel-työtulo bruttopalkka kuukaudessa yhteisövero yhtiöön jäävä voitto
+kate katetuotto kriittinen piste tunteja kiinteiden kattamiseen 154 108
+laskutusaste ratkaisee enemmän kuin tuntihinta 12,5 prosentin korotus kapasiteettikatto
+alv 0 tuloslaskelma sivukulut sairausvakuutusmaksu 1,91 yel 24,40 prosenttia`,
+
+'datayrittajan-verotus-ja-riskit.html': `datayrittäjän verotus riskit tulevaisuus yrittäjyys
+yel-uudistus 2028 työtulo vähimmäistaso 30 50 prosenttia ansiotulosta siirtymäkausi
+aloittavan yrittäjän alennus 22 prosenttia poistuu maksuprosentti 24,40 alivakuutus
+sairauspäiväraha eläke ansiosidonnainen yrittäjäkassa 15000 euroa työtulo minimissä
+huojennettu osinko 8 prosenttia nettovarallisuus matemaattinen arvo 7,5 veroprosentti
+listaamaton yhtiö osinkoverotus verovapaa kiristys 4 prosenttia 40 veronalainen osuus
+150000 euron raja ansiotulo-osinko 49 prosenttia hankintameno-olettama purkaminen 2032
+yhteisövero 20 18 prosenttia 2027 tappion vähentämisaika 25 vuotta
+asiakaskeskittymä yksi asiakas 88,8 prosenttia riski kassapuskuri
+valtiovarainministeriö verotuki 400 500 miljoonaa hetemäki työryhmä 2017`
 
 };
