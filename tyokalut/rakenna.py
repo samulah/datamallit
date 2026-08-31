@@ -560,7 +560,9 @@ def varmista_korttiskriptit(sivu, lahde):
         return lahde
 
     etuliite = f"/{SKRIPTIT}/" if sivu["polku"].startswith(LUONNOS + os.sep) else f"{SKRIPTIT}/"
-    sivut_tagi = f'  <script src="{etuliite}sivut.js?v=1" defer></script>'
+    # ?v= on välimuistin katkaisija: nosta lukua täällä samalla kun nostat sen
+    # olemassa olevilla sivuilla, jotta uusi sivu saa saman version kuin muut.
+    sivut_tagi = f'  <script src="{etuliite}sivut.js?v=2" defer></script>'
     kortit_tagi = f'  <script src="{etuliite}kortit.js?v=2" defer></script>'
 
     if "kortit.js" not in lahde:
