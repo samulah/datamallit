@@ -1,7 +1,7 @@
 # Datamalli.fi
 # License: CC BY 4.0
 
-> Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen metadataan: tähtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, taulujen litistäminen ja BI-kehittämisen termistö. Sisältö on käytännönläheistä ja keskittyy Power BI- ja SSAS-ympäristöihin. Tekijä: Samu Lahdenperä (Dataneuvos, Datamalli Tiimi Oy).
+> Suomenkielinen opas datan mallinnukseen ja AI-valmiiseen metadataan: tähtimalli, lumihiutalemalli, dimensiot, nimeämiskäytännöt, taulujen litistäminen ja BI-kehittämisen termistö. Lisäksi datayrittäjyyden kustannus- ja hinnoittelusivut, joiden luvut ovat tekijän oman yhtiön tilinpäätöksistä. Sisältö on käytännönläheistä ja keskittyy Power BI- ja SSAS-ympäristöihin. Tekijä: Samu Lahdenperä (Dataneuvos, Datamalli Tiimi Oy).
 
 ## Sisältösivut
 - [Tietomalli](https://www.datamalli.fi/tietomalli.html): Mitä tietomalli tarkoittaa data-alalla (ei rakennusalan BIM), käsitemalli–looginen–fyysinen malli, tietomallin neljä osaa, mallityyppien vertailu ja tietomallinnuksen kuusi askelta.
@@ -16,10 +16,15 @@
 - [Medallion-arkkitehtuuri](https://www.datamalli.fi/medallion.html): Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.
 - [Nimeämiskäytännöt](https://www.datamalli.fi/nimeamiskaytannot.html): Selkeät taulujen ja sarakkeiden nimeämiskäytännöt, jotka tukevat myös Copilotin ja AI-työkalujen ymmärrystä.
 - [AI-valmis metadata](https://www.datamalli.fi/ai-valmis-metadata.html): Miten taulut, sarakkeet ja mittarit kuvataan niin, että tekoälyavustajat ymmärtävät datan oikein.
-- [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 157 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
+- [Datan termistö ja sanasto](https://www.datamalli.fi/termisto.html): 213 data-alan termiä suomeksi: datan mallinnuksen, tietovarastoinnin, BI-kehittämisen ja tekoälyn sanasto englanninkielisin vastinein.
 - [Suositeltu kirjallisuus](https://www.datamalli.fi/kirjallisuus-suositukset.html): Parhaat kirjat datan mallinnuksen, DAX:n ja BI-kehittämisen oppimiseen perusteluineen.
 - [Apuohjelmat](https://www.datamalli.fi/apuohjelmat.html): DAX Studio, VertiPaq Analyzer, Tabular Editor, ALM Toolkit ja Power BI MCP — Power BI -kehittäjän tärkeimmät lisätyökalut.
 - [Kehittämisen filosofia](https://www.datamalli.fi/kehittamisen-filosofia.html): Kuusi periaatetta hyvään BI- ja datakehitykseen: oikeellisuus, ylläpidettävyys ja käyttäjäkeskeisyys.
+
+## Datayrittäjyys
+- [Datayrittäjän kustannusrakenne](https://www.datamalli.fi/datayrittajan-kustannusrakenne.html): Mitä yhden hengen data-alan osakeyhtiön perustaminen, käynnistäminen ja pyörittäminen maksaa. Luvut neljästä vahvistetusta tilinpäätöksestä: perustaminen 0 €, käynnistäminen 1 227,65 €, pyörittäminen 857 €/kk, ja laskutetusta eurosta 59 senttiä omaa palkkaa.
+- [Freelancerin tuntihintalaskuri](https://www.datamalli.fi/freelancerin-tuntihintalaskuri.html): Laskuri ja valmiit taulukot siitä, mitä tuntihinta ja laskutusaste tarkoittavat euroina yhtiön tuloslaskelmassa: liikevaihto, kiinteät kulut, YEL, bruttopalkka ja yhtiöön jäävä voitto hinnoilla 70–100 €/h.
+- [Datayrittäjän verotus ja riskit](https://www.datamalli.fi/datayrittajan-verotus-ja-riskit.html): YEL-uudistus 2028, huojennettu osinko, yhteisöveron lasku 18 prosenttiin ja asiakaskeskittymä euroina samasta yhtiöstä. Jokaisen kohdalla merkitty, onko muutos päätetty vai ehdotettu.
 
 ## Tietoa
 - [Tietoa sivustosta](https://www.datamalli.fi/tietoa.html): Sivuston tarkoitus ja tekijä Samu Lahdenperä (Dataneuvos).

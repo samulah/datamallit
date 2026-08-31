@@ -413,9 +413,14 @@ tr.rivi-sentinel td { background-color: #f2f6ff; }
   font-family: var(--font-ui);
   font-size: 0.82em;
   color: var(--c-muted);
-  margin-top: -12px;
   margin-bottom: 28px;
 }
+/* Negatiivinen ylämarginaali kuuluu vain taulukon tai kuvan perään, jossa
+   lähdeviite luetaan osana sitä. Muualla se on tavallinen kappale — ilman
+   tätä rajausta viite kiipeää edeltävän laatikon (esim. Dataneuvoksen
+   mielipide) reunan päälle. */
+table + .lahde-rivi,
+figure + .lahde-rivi { margin-top: -12px; }
 
 /* Avainluvut heti otsikon alle */
 .avainluvut {
