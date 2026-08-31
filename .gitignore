@@ -11,5 +11,7 @@ __pycache__/
 # Analyysimateriaali — ei julkaista sivuston repossa
 gsc tutkimus/
 kirjoitukset/
+dokumentit/
+data-analyysi/
 # Palvelinkonfiguraation lisays — ei julkaista sivustolla
 .htaccess-lisays

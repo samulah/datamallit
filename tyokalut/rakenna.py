@@ -50,8 +50,14 @@ SIVUSTO = os.path.join(JUURI, "sivusto")
 LUONNOS = "luonnos"
 SKRIPTIT = "skriptit"
 
-# Tiedostot joita ei skannata sivuina lainkaan
+# Tiedostot joita ei skannata sivuina lainkaan. Alaviivalla alkavat ovat
+# työtiedostoja (esim. _lk-testi.html) — ne eivät saa korttia, lukemisaikaa
+# eivätkä sitemap-riviä, eivätkä pysäytä ajoa puuttuvien metatietojen takia.
 OHITA = {"sivupohja.html", "404.html"}
+
+
+def ohitetaanko(nimi):
+    return nimi in OHITA or nimi.startswith("_")
 
 # Sivut jotka eivät ole sisältösivuja (ei korttia, ei lukemisaikaa), mutta kuuluvat sitemapiin
 EI_KORTTIA = {"index.html", "paivitykset.html", "tietosuoja.html"}
@@ -96,7 +102,7 @@ def sivutiedostot():
     for kansio in ("", LUONNOS):
         hakemisto = sivustopolku(kansio) if kansio else SIVUSTO
         for nimi in sorted(os.listdir(hakemisto)):
-            if not nimi.endswith(".html") or nimi in OHITA:
+            if not nimi.endswith(".html") or ohitetaanko(nimi):
                 continue
             if not os.path.isfile(os.path.join(hakemisto, nimi)):
                 continue

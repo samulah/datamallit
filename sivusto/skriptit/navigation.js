@@ -25,7 +25,7 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '20.8.2026';
+const SIVUSTO_PAIVITETTY = '31.8.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {
@@ -54,6 +54,9 @@ class MainNavigation extends HTMLElement {
                     <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a>
                     <a href="/ai-valmis-metadata.html">AI-valmis metadata</a>
                     <a href="/kehittamisen-filosofia.html">Filosofia</a>
+                    <a href="/datayrittajan-kustannusrakenne.html">Kustannusrakenne</a>
+                    <a href="/freelancerin-tuntihintalaskuri.html">Tuntihintalaskuri</a>
+                    <a href="/datayrittajan-verotus-ja-riskit.html">Verotus ja riskit</a>
                     <a href="/termisto.html">Termistö</a>
                     <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a>
                     <a href="/apuohjelmat.html">Apuohjelmat</a>

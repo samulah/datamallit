@@ -402,6 +402,273 @@ tr.rivi-sentinel td { background-color: #f2f6ff; }
   .kokoero-arvo  { flex-basis: 104px; font-size: 0.8em; }
 }
 
+/* ===== Eurobar ja numerotaulukot =====================================
+   Segmentoitu palkki, jolla yksi kokonaisuus näytetään osiinsa leikattuna,
+   sekä sitä tukevat taulukko- ja yksikkötyylit. Käytössä datayrittäjän
+   kustannussivuilla. Staattiset palkit ovat pelkkää HTML:ää (leveydet
+   inline-tyyleinä), laskuri rakentaa saman DOM-rakenteen JavaScriptillä. */
+
+/* Lähdeviite taulukon tai graafin alla */
+.lahde-rivi {
+  font-family: var(--font-ui);
+  font-size: 0.82em;
+  color: var(--c-muted);
+  margin-bottom: 28px;
+}
+/* Negatiivinen ylämarginaali kuuluu vain taulukon tai kuvan perään, jossa
+   lähdeviite luetaan osana sitä. Muualla se on tavallinen kappale — ilman
+   tätä rajausta viite kiipeää edeltävän laatikon (esim. Dataneuvoksen
+   mielipide) reunan päälle. */
+table + .lahde-rivi,
+figure + .lahde-rivi { margin-top: -12px; }
+
+/* Avainluvut heti otsikon alle */
+.avainluvut {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 28px 0;
+  font-family: var(--font-ui);
+}
+.avainluku {
+  background: var(--c-surface);
+  padding: 16px 18px 18px;
+}
+.avainluku .al-nimi {
+  display: block;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 8px;
+}
+.avainluku .al-arvo {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--c-primary);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.avainluku .al-selite {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8em;
+  color: var(--c-muted);
+  line-height: 1.45;
+}
+@media (max-width: 700px) {
+  .avainluvut { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Numeeriset taulukkosolut oikealle ja tasalevyisin numeroin */
+table.luvut td:not(:first-child),
+table.luvut th:not(:first-child) { text-align: right; white-space: nowrap; }
+/* Selitesarake on tekstiä, ei lukuja — se saa rivittyä normaalisti. */
+table.luvut td.selite,
+table.luvut th.selite { text-align: left; white-space: normal; }
+table.luvut td { font-variant-numeric: tabular-nums; }
+table.luvut tr.summa td,
+table.luvut tr.summa th {
+  font-weight: 600;
+  border-top: 2px solid var(--c-primary);
+  background: #f4f8f5;
+}
+
+/* ---- Eurobar ----------------------------------------------------------
+   Sivun toistuva graafi-idiomi: yksi kokonaisuus leikattuna segmentteihin.
+   Sama komponentti neljässä paikassa. Staattiset palkit ovat pelkkää HTML:ää
+   (leveydet inline-tyyleinä, toimivat ilman JavaScriptiä); laskuri rakentaa
+   saman DOM-rakenteen JS:llä.
+
+   Kaksi väriskaalaa tarkoituksella:
+   - kategorinen (palkka / kulu / vero / jäännös) kun erät ovat eri asioita
+   - sekventiaalinen tumma->vaalea kun erät ovat yhden kulupotin osia */
+.eurobar {
+  margin: 26px 0 30px;
+  padding: 20px 22px 18px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  font-family: var(--font-ui);
+}
+.eb-otsikko {
+  display: block;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-style: normal;
+  color: var(--c-text);
+  caption-side: top;
+  padding: 0;
+}
+.eb-otsikko strong { display: block; font-size: 0.98em; font-weight: 600; }
+.eb-otsikko span { display: block; margin-top: 3px; font-size: 0.84em; color: var(--c-muted); }
+
+/* Ohuiden segmenttien etiketit palkin yläpuolella, viivalla segmenttiin.
+   Vierekkäiset porrastetaan kahdelle tasolle: taso1:n viiva on pidempi,
+   joten sen etiketti nousee taso0:n yläpuolelle. */
+.eb-yla { position: relative; height: 46px; margin-top: 16px; }
+.eb-viite { position: absolute; bottom: 0; transform: translateX(-50%); text-align: center; }
+.eb-viite.eb-vasen { transform: translateX(0); text-align: left; }
+.eb-viite.eb-oikea { transform: translateX(-100%); text-align: right; }
+.eb-viite b {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 500;
+  color: var(--c-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.eb-viite::after {
+  content: "";
+  display: block;
+  width: 1px;
+  margin: 3px auto 0;
+  background: #b9c9bd;
+}
+.eb-viite.eb-vasen::after { margin-left: 0; }
+.eb-viite.eb-oikea::after { margin-left: auto; margin-right: 0; }
+.eb-taso0::after { height: 9px; }
+.eb-taso1::after { height: 26px; }
+
+.eb-palkki {
+  display: flex;
+  height: 46px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--c-border);
+}
+.eb-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  transition: width 0.18s ease;
+}
+.eb-seg span {
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0 6px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.eb-ala { position: relative; height: 20px; margin-top: 8px; }
+.eb-nimi {
+  position: absolute;
+  top: 0;
+  padding: 0 4px;
+  font-size: 0.79em;
+  color: var(--c-muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.eb-paatteet {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+  font-size: 0.75em;
+  color: var(--c-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.eb-legenda {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 13px 0 0;
+  border-top: 1px solid var(--c-border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+  gap: 7px 24px;
+  font-size: 0.82em;
+}
+.eb-legenda li { display: flex; align-items: baseline; gap: 8px; margin: 0; }
+.eb-legenda i {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  position: relative;
+  top: 1px;
+}
+.eb-legenda li > span { flex: 1 1 auto; color: var(--c-text); }
+.eb-legenda li b { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.eb-legenda li em {
+  font-style: normal;
+  min-width: 58px;
+  text-align: right;
+  color: var(--c-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Kapealla näytöllä segmenttien sisäiset luvut eivät mahdu — legenda kertoo
+   saman tiedon, joten ne piilotetaan. */
+@media (max-width: 560px) {
+  .eurobar { padding: 16px 14px 14px; }
+  .eb-seg span, .eb-nimi { display: none; }
+  .eb-ala { height: 0; margin-top: 0; }
+  .eb-yla { height: 42px; }
+  .eb-legenda { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eb-seg { transition: none; }
+}
+
+/* Yksikkö luvun jäljessä: luku pysyy pääasiana, mutta yksikään sarake ei jää
+   yksiköttä. Yksikkö on pienempi ja vaaleampi eikä rivity irti luvusta. */
+.yks { font-size: 0.82em; color: var(--c-muted); }
+table.luvut .luku { font-variant-numeric: tabular-nums; }
+
+/* Alarivi erittelee ylemmän rivin osiin. Sisennetty ja vaaleampi, jotta lukija
+   näkee heti ettei näitä lasketa yhteen muiden rivien kanssa. */
+table.luvut tr.alarivi td { background: #fbfdfb; color: var(--c-muted); }
+table.luvut tr.alarivi td:first-child {
+  padding-left: 32px;
+  font-size: 0.94em;
+  font-style: italic;
+}
+
+/* Vuosi/kuukausi-kytkin taulukon yllä. Piilotettu oletuksena — JS näyttää sen,
+   joten ilman JavaScriptiä taulukko näkyy normaalisti vuosilukuina. */
+.nakyma {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 -12px;
+  font-family: var(--font-ui);
+  font-size: 0.85em;
+}
+.nakyma-otsikko { color: var(--c-muted); }
+.nakyma-nappi {
+  font-family: var(--font-ui);
+  font-size: 1em;
+  padding: 5px 14px;
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  background: var(--c-surface);
+  color: var(--c-muted);
+  cursor: pointer;
+}
+.nakyma-nappi:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.nakyma-nappi[aria-pressed="true"] {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+  color: #fff;
+  font-weight: 500;
+}
+.nakyma-nappi:focus-visible { outline: 2px solid var(--c-primary); outline-offset: 2px; }
+
 img {
   display: block;
   max-width: 88%;

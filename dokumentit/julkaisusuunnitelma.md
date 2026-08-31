@@ -26,6 +26,20 @@
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
 | apuohjelmat.html | ⭐⭐ 2 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, navigaatio + etusivun kortti) — 2 dataneuvos-mielipidettä vielä kirjoittamatta |
 | sekasikiomalli-vs-tahtimalli.html | ⭐⭐ 2 | Julkaistu 2026-07-23 (uudelleennimetty tahtimalli-esimerkit.html:stä, noindex pois, sitemap + llms.txt + nav + etusivun kortti + kortit.js) |
+**Datayrittäjyys — uusi kokonaisuus 2026-08-30, kolme sivua (kaikki noindex):**
+
+| Sivu | Lukemisaika | Huomio |
+|---|---|---|
+| datayrittajan-kustannusrakenne.html | 9 min | Hub. Perustaminen 0 €, käynnistys 1 227,65 €, pyörittäminen 857 €/kk, laskutettu euro senteittäin. Pilkottu 36 min mittaisesta versiosta 2026-08-30 |
+| freelancerin-tuntihintalaskuri.html | 6 min | Laskuri + taulukot 70/80/90/100 €/h × laskutusaste |
+| datayrittajan-verotus-ja-riskit.html | 9 min | YEL-uudistus 2028, huojennettu osinko, yhteisövero 18 %, asiakaskeskittymä |
+
+Kolme sivua ristiinlinkitetty toisiinsa; hubin proosassa linkit molempiin alasivuihin.
+Julkaistava yhtenä eränä, koska juurisuhteelliset linkit osoittavat toisiinsa.
+Uusi tagi `yrittajyys` lisätty `search.js`:n `TAGI_NIMET`-tauluun.
+Jaettu `.eurobar`-komponentti siirretty `style.css`:ään (välimuisti `?v=8` → `?v=9`).
+LinkedIn-postaus: `kirjoitukset/Datayrittajan-kustannusrakenne.txt`.
+
 **Piilotettu navigaatiosta, kesken — sisältö olemassa mutta ei valmis (4 kpl):**
 - header-detail.html
 - useampi-fakta.html
