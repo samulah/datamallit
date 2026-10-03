@@ -708,6 +708,27 @@ figcaption {
   letter-spacing: 0.01em;
 }
 
+/* Leveä kaaviokuva — tiheä infografiikka ei ole luettava 900px palstassa.
+   Klikkaus avaa täyden koon, joten pienintä tekstiä ei tarvitse lukea sivulta. */
+figure.kaavio-levea a {
+  display: block;
+  cursor: zoom-in;
+}
+
+figure.kaavio-levea img {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 1000px) {
+  figure.kaavio-levea {
+    width: min(1240px, 94vw);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* Kuvateksti — <p><em>Kuva:...</em></p> */
 p:has(> em:only-child) {
   font-family: var(--font-ui);

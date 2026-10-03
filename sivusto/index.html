@@ -9,12 +9,12 @@
   <meta name="lukemisaika" content="3">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/">
-  <meta name="description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 213 termin sanasto suomeksi.">
+  <meta name="description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 215 termin sanasto suomeksi.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
   <meta property="og:title" content="Datan mallinnus ja Power BI -kehitys suomeksi | Datamalli.fi">
-  <meta property="og:description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 213 termin sanasto suomeksi.">
+  <meta property="og:description" content="Datan mallinnus on työ, jossa data järjestetään tauluihin ja relaatioihin niin, että siihen voi luottaa. Tähtimalli, dimensiot ja 215 termin sanasto suomeksi.">
   <meta property="og:url" content="https://www.datamalli.fi/">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
   <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
         "alternateName": "Dataneuvos",
         "url": "https://www.datamalli.fi/",
         "logo": { "@type": "ImageObject", "url": "https://www.datamalli.fi/kuvat/dataneuvos_logo.png" },
-        "description": "Tähtimalli, dimensiot, nimeämiskäytännöt ja 213 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.",
+        "description": "Tähtimalli, dimensiot, nimeämiskäytännöt ja 215 termin sanasto — suomenkielinen opas datan mallinnukseen ja Power BI -kehitykseen.",
         "founder": { "@type": "Person", "name": "Samu Lahdenperä", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "sameAs": [
           "https://dataneuvos.fi",
@@ -56,9 +56,9 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="tyylit/style.css?v=10">
-  <script src="skriptit/navigation.js?v=15" defer></script>
-  <script src="skriptit/search-index.js?v=6" defer></script>
+  <link rel="stylesheet" href="tyylit/style.css?v=11">
+  <script src="skriptit/navigation.js?v=17" defer></script>
+  <script src="skriptit/search-index.js?v=7" defer></script>
   <script src="skriptit/search.js?v=3" defer></script>
   <script src="skriptit/termi-lotto-data.js?v=2" defer></script>
   <script src="skriptit/termi-paivassa.js?v=5" defer></script>
@@ -357,6 +357,7 @@
   <nav class="simple-nav" style="padding:12px 24px">
     <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
     <a href="tietomalli.html">Tietomalli</a> ·
+    <a href="semanttinen-malli.html">Semanttinen malli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
     <a href="faktataulu.html">Faktataulu</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
@@ -388,10 +389,10 @@
     <!-- UUSIN:alku — generoitu, älä muokkaa käsin -->
     <div class="tp-solu">
       <div class="tp-otsikko">Uusin juttu</div>
-      <a class="tp-termi tp-uusin" href="datayrittajan-kustannusrakenne.html">
-        <strong>Datayrittäjän kustannusrakenne</strong>
-        <span class="tp-selite">Mitä yhden hengen data-alan osakeyhtiön perustaminen, käynnistäminen ja pyörittäminen maksaa — ja paljonko laskutetusta eurosta jää käteen. Neljä tilinpäätöstä auki.</span>
-        <span class="tp-linkki">Lue juttu → <span class="tp-nosto-meta">31.8.2026 · 10 min</span></span>
+      <a class="tp-termi tp-uusin" href="semanttinen-malli.html">
+        <strong>Semanttinen malli</strong>
+        <span class="tp-selite">Mitä semanttinen malli ja semanttinen kerros ovat, miten ne eroavat tietomallista ja miksi tekoäly tarvitsee niitä.</span>
+        <span class="tp-linkki">Lue juttu → <span class="tp-nosto-meta">1.10.2026 · 13 min</span></span>
       </a>
     </div>
     <!-- UUSIN:loppu -->
@@ -399,7 +400,7 @@
     <div class="tp-solu tp-lotto"></div>
   </div>
 
-  <p><strong>Datan mallinnus</strong> on työ, jossa päätetään miten data järjestetään tauluihin, sarakkeisiin ja niiden välisiin relaatioihin. Lopputulosta kutsutaan <a href="tietomalli.html">tietomalliksi</a>. Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: <a href="tahtimalli.html">tähtimalli</a>, <a href="dimensiot.html">dimensiot</a> ja <a href="avaimet-ja-relaatiot.html">avaimet</a> konkreettisin esimerkein, <a href="termisto.html">213 termin sanasto</a> sekä suositellut työkalut ja kirjallisuus.</p>
+  <p><strong>Datan mallinnus</strong> on työ, jossa päätetään miten data järjestetään tauluihin, sarakkeisiin ja niiden välisiin relaatioihin. Lopputulosta kutsutaan <a href="tietomalli.html">tietomalliksi</a>. Datamalli.fi kokoaa datan mallinnuksen ja Power BI -kehityksen ydinasiat yhteen paikkaan: <a href="tahtimalli.html">tähtimalli</a>, <a href="dimensiot.html">dimensiot</a> ja <a href="avaimet-ja-relaatiot.html">avaimet</a> konkreettisin esimerkein, <a href="termisto.html">215 termin sanasto</a> sekä suositellut työkalut ja kirjallisuus.</p>
 
   <div class="haku-alue">
     <input type="search" id="haku" class="haku-kentta" placeholder="Etsi aiheita...">
@@ -493,19 +494,16 @@
         <div class="kortti-tagit"><span class="tagi">hallinta</span><span class="tagi">perusteoria</span></div>
       </a>
       <a class="kortti" href="datayrittajan-kustannusrakenne.html" data-tags="yrittajyys hallinta" data-min="10">
-        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Datayrittäjän kustannusrakenne</strong>
         <span>Mitä yhden hengen data-alan osakeyhtiön perustaminen, käynnistäminen ja pyörittäminen maksaa — ja paljonko laskutetusta eurosta jää käteen. Neljä tilinpäätöstä auki.</span>
         <div class="kortti-tagit"><span class="tagi">yrittäjyys</span><span class="tagi">hallinta</span></div>
       </a>
       <a class="kortti" href="freelancerin-tuntihintalaskuri.html" data-tags="yrittajyys tyokalut" data-min="6">
-        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Freelancerin tuntihintalaskuri</strong>
         <span>Mitä tuntihinta ja laskutusaste tarkoittavat euroina? Laskuri ja valmiit taulukot hinnoille 70–100 €/h.</span>
         <div class="kortti-tagit"><span class="tagi">yrittäjyys</span><span class="tagi">työkalut</span></div>
       </a>
       <a class="kortti" href="datayrittajan-verotus-ja-riskit.html" data-tags="yrittajyys hallinta" data-min="11">
-        <div class="uutuus-badge">✨ Uutuus</div>
         <strong>Datayrittäjän verotus ja riskit</strong>
         <span>YEL-uudistus 2028, huojennettu osinko ja yhteisöveron lasku — mitä ne tekevät yksinyrittäjän kulurakenteelle euroina.</span>
         <div class="kortti-tagit"><span class="tagi">yrittäjyys</span><span class="tagi">hallinta</span></div>
@@ -518,7 +516,7 @@
     <h2>Resurssit</h2>
     <div class="kortti-rivi" data-kortit="termisto.html kirjallisuus-suositukset.html apuohjelmat.html tietoa.html palvelut.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
-      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="40">
+      <a class="kortti" href="termisto.html" data-tags="perusteoria tietomalli" data-min="41">
         <strong>Termistö</strong>
         <span>Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.</span>
         <div class="kortti-tagit"><span class="tagi">perusteoria</span><span class="tagi">tietomalli</span></div>
@@ -548,9 +546,15 @@
 
   <div class="kategoria">
     <h2><span class="otsikko-teksti">Arkkitehtuurit ja prosessit</span></h2>
-    <div class="kortti-rivi" data-kortit="medallion.html">
+    <div class="kortti-rivi" data-kortit="semanttinen-malli.html medallion.html">
       <!-- KORTIT:alku — generoitu, älä muokkaa käsin -->
-      <a class="kortti" href="medallion.html" data-tags="arkkitehtuuri perusteoria" data-min="11">
+      <a class="kortti" href="semanttinen-malli.html" data-tags="tietomalli power-bi arkkitehtuuri ai" data-min="13">
+        <div class="uutuus-badge">✨ Uutuus</div>
+        <strong>Semanttinen malli</strong>
+        <span>Mitä semanttinen malli ja semanttinen kerros ovat, miten ne eroavat tietomallista ja miksi tekoäly tarvitsee niitä.</span>
+        <div class="kortti-tagit"><span class="tagi">tietomalli</span><span class="tagi">Power BI</span><span class="tagi">arkkitehtuuri</span><span class="tagi">AI</span></div>
+      </a>
+      <a class="kortti" href="medallion.html" data-tags="arkkitehtuuri perusteoria" data-min="18">
         <strong>Medallion-arkkitehtuuri</strong>
         <span>Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.</span>
         <div class="kortti-tagit"><span class="tagi">arkkitehtuuri</span><span class="tagi">perusteoria</span></div>

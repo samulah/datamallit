@@ -302,7 +302,16 @@ surrogaattiavain inkrementaalinen lataus etl elt auditointi jäljitettävyys
 microsoft fabric onelake synapse snowflake tietovarasto power bi
 milloin kannattaa käyttää dataneuvoksen mielipide
 materialisoitu materialisointi fyysinen taulu ei näkymä integraatiokerros
-avaimet materialisoidaan silver-tasolla ennen faktataulun latausta`,
+avaimet materialisoidaan silver-tasolla ennen faktataulun latausta
+medallion talona laivana metafora vertauskuva perustus kellari runko seinät
+huoneet käyttötarkoituksen mukaan katto ikkunat esityskerros semanttinen malli
+datamartti liitospinta datasopimus data contract sovittu skeema
+laivanrakennus lohko lohkohalli moduuli moduulihalli komentosilta nosturi
+kattoa voi rakentaa ensin rinnakkain testidata prototypointi
+top-down bottom-up tarpeesta dataan datasta tarpeeseen
+piirustukset tietoarkkitehtuuri käsitemalli kpi-määritykset
+putket pipeline orkestrointi lukot pääsynhallinta rivitason oikeudet rls
+datan laatusäännöt testit tarkastus kerrosten välissä`,
 'surrogaattiavaimet.html': `surrogaattiavaimien mallintaminen surrogaattiavain sk luonnollinen avain nk
 mapping-taulu lookup nk sk viitetaulu int identity luontiaika datetime2
 missä kerroksessa avaimet luodaan silver bronze gold medallion
@@ -331,6 +340,15 @@ tavallinen linkki tapahtumalinkki status-linkki tilauksen status avoin toimitett
 luokkakaavio data vault entiteetit asiakas tilaus status hub link satellite
 raw vault business vault pit-taulut bridge-taulut latausautomaatio`,
 
+'semanttinen-malli.html': `semanttinen malli semantic model semanttiset mallit semanttinen kerros semantic layer semanttinen mallinnus semantic modeling
+metriikkakerros metrics layer tietomalli liiketoimintalogiikka mittarit relaatiot hierarkiat kuvaukset synonyymit rivitason suojaus rls kardinaliteetti
+johtoryhmä kolme liikevaihtoa luvut eivät täsmää hyvitykset tilaukset laskut ravintola keittiö ruokalista reseptikansio resepti tarjoilija annos
+business objects universumi 1991 patentti liiketoimintaobjektit olap kuutio cognos framework manager analysis services tabular vertipaq
+power bi dataset tietojoukko nimettiin uudelleen marraskuu 2023 xmla import directquery direct lake excel sumif
+dbt semantic layer metricflow fabric iq ontologia ontology lakehouse eventhouse cube atscale snowflake semantic views databricks metric views unity catalog open semantic interchange osi apache ossie kenguru
+tmdl pbip git koodina dax measure kuvaus formatstring displayfolder aktiiviset asiakkaat 90 päivää
+tekoäly copilot tekoälyagentti kielimalli sql arvaa yksi määritelmä liikevaihto power bi modeling mcp
+tähtimalli gold-kerros litistäminen eksplisiittiset mittarit nimeäminen ai-valmis metadata sertifioitu malli jaettu malli raportit viiden minuutin testi omistaja`,
 'ai-valmis-metadata.html': `ai-valmis metadata tekoäly copilot power bi tietovarasto metadata
 kuvailu nimeäminen taulut sarakkeet mittarit liiketoimintakuvaus
 tietomalli semanttinen kerros synonyymit kategoriat kuvaustekstit
@@ -362,7 +380,7 @@ bpa best practice analyzer tabular editor tarkistaa parhaat käytännöt korjaus
 bronze medallion-arkkitehtuuri alin taso raakadata lähdejärjestelmä muokkauksia laadunvarmistusta
 copilot power bi tekoälyavustaja luonnollinen kieli semanttinen malli metadata
 dax data analysis expressions lausekekieli mittarit laskennalliset sarakkeet power bi ssas tabular
-datakatalog data catalog organisaation tietoaineistot omistajuus käyttötarkoitukset datakirjasto
+datakatalogi data catalog organisaation tietoaineistot omistajuus käyttötarkoitukset datakirjasto
 data contract datasopimus sopimus tuottaja kuluttaja muoto laatu vastuu nimeämiskäytännöt
 data lake tietoallas suuri datavarasto raakadata skeema käyttötarkoitus
 data lineage mistä data peräisin muunnettu järjestelmät virheenjäljitys vaikutusarvio
@@ -397,6 +415,7 @@ m-kieli power query funktionaalinen kieli muunnos yhdistäminen
 master data asiakkaat tuotteet toimittajat keskeinen ohjaava laatu yhtenäisyys
 medallion-arkkitehtuuri bronze silver gold jalostaminen kerroksittain
 metadata tieto datasta tekninen liiketoiminta sarakkeiden tietotyypit merkitys
+metriikkakerros metrics layer mittarit metriikat kaava aggregointi dbt transform semanttinen kerros
 mittari measure dax laskenta konteksti summat keskiarvot
 monen-moneen-suhde many-to-many suosittelemme välttämään arvaamaton dax suorituskyky välitaulu bridge table
 normalisointi normalization kukin tieto vain yhdessä paikassa toisteisuus tietoeheys
@@ -416,7 +435,8 @@ scd slowly changing dimension muutostenkäsittely type 1 2 3
 scd type 1 ylikirjoittaa vanhan arvon historia katoaa kirjoitusvirhe korjaus
 scd type 2 uusi rivi surrogaattiavain voimassaoloaika historia säilyy yleisin
 scd type 3 edellinen arvo erilliseen sarakkeeseen yksi historiavaihe harvinainen
-semanttinen malli semantic model power bi ssas tabular tietomalli mittarit hierarkiat metadata
+semanttinen kerros semantic layer semanttinen mallinnus metriikka mittarit dbt semantic layer fabric iq ontologia ontology cube atscale snowflake semantic views databricks metric views tekoälyagentti yhtenäiset luvut
+semanttinen malli semantic model semanttiset mallit power bi dataset tietojoukko ssas tabular tietomalli mittarit hierarkiat metadata
 sentinel-rivi sentinel row dimensio puuttuva tuntematon poistettu ei tiedossa anonyymi surrogaattiavain tyhjä rivi blank null orporivi gdpr
 sertifiointi certification power bi palvelu virallinen luotettava semanttinen malli
 silver medallion-arkkitehtuuri keskitaso puhdistettu validoitu duplikaatit viitteet tietotyypit
@@ -538,7 +558,16 @@ datan profilointi data profiling suomeksi uniikit arvot tyhjät power query sara
 datan puhdistus data cleansing suomeksi virheet puuttuvat kirjoitusasu lataus etl
 deduplikointi deduplication suomeksi kaksoiskappale duplikaattiavain luonnollinen avain sääntö
 datamartti data mart suomeksi tietovarasto osajoukko liiketoiminta-alue yhdenmukaistettu dimensio
-kuutio cube suomeksi olap esilaskenta tabular ssas moniulotteinen`,
+kuutio cube suomeksi olap esilaskenta tabular ssas moniulotteinen
+identity auto-increment serial sql server sarakeominaisuus automaattisesti nouseva kokonaisluku lähtöarvo askel insert surrogaattiavain
+kaksoislaskenta double counting sama arvo lasketaan useaan kertaan monen-moneen ei-uniikki pääavain duplikaattiavain
+moniselitteinen tietomalli sama tieto useassa paikassa sarakkeen merkitys riippuu kontekstista tilauspäivä toimituspäivä laskutuspäivä
+yksiselitteinen tietomalli jokainen tieto vain yhdessä paikassa merkitys selvä ilman tulkintaa tähtimalli ylläpito
+single source of truth ssot yksi totuuden lähde virallinen hallittu lähde kopio ristiriitaiset luvut
+scd type 0 slowly changing dimension arvo lukitaan ei koskaan muuteta syntymäaika alkuperäinen rekisteröintipäivä
+scd type 5 slowly changing dimension minidimensio nopeasti muuttuvat attribuutit tyyppi 4 + 1 nykyprofiili
+scd type 6 slowly changing dimension hybridi tyypit 1 2 3 uusi rivi nykyarvo edellinen arvo täysi historia
+vertipaq analyzer analyysityökalu muistinkäyttö taulu sarake kardinaliteetti dax studio mallin koko suorituskyky`,
 
 'kehittamisen-filosofia.html': `kehittämisen filosofia periaatteet käytännöt bi-kehitys
 ylläpidettävyys ymmärrettävyys selkeys dokumentointi

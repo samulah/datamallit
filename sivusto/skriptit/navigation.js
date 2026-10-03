@@ -25,7 +25,7 @@
 
 // Sivuston viimeisin päivityspäivä — päivitä tämä JA lisää merkintä paivitykset.html:ään
 // aina ennen git pushia, kun sisältöä on muutettu.
-const SIVUSTO_PAIVITETTY = '31.8.2026';
+const SIVUSTO_PAIVITETTY = '1.10.2026';
 
 class MainNavigation extends HTMLElement {
     connectedCallback() {
@@ -42,6 +42,7 @@ class MainNavigation extends HTMLElement {
                 </div>
                 <div class="nav-links">
                     <a href="/tietomalli.html">Tietomalli</a>
+                    <a href="/semanttinen-malli.html">Semanttinen malli</a>
                     <a href="/tahtimalli.html">Tähtimalli</a>
                     <a href="/faktataulu.html">Faktataulu</a>
                     <a href="/dimensiot.html">Dimensiot</a>
@@ -252,6 +253,29 @@ document.addEventListener('DOMContentLoaded', () => {
     'anonymisointi':             { fi: 'Anonymisointi',                  en: 'Anonymization',              selite: 'Henkilötietojen muuttaminen pysyvästi tunnistamattomiksi. Toisin kuin pseudonymisointia, anonymisointia ei voi peruuttaa — anonymisoitu data ei ole enää henkilötietoa GDPR:n mielessä.' },
     'rls':                       { fi: 'RLS (rivitason tietoturva)',     en: 'Row-Level Security',         selite: 'Käyttäjä näkee vain itselleen sallitut rivit. Power BI toteuttaa sen DAX-suodattimilla. Vrt. objektitason OLS, joka piilottaa kokonaisia tauluja tai sarakkeita.' },
     'datan-elinkaari':           { fi: 'Datan elinkaari',                en: 'Data Lifecycle',             selite: 'Datan kaikki vaiheet syntymästä poistamiseen: kerääminen, käsittely, tallennus, käyttö, arkistointi ja hävittäminen. GDPR edellyttää poistoa, kun dataa ei enää tarvita.' },
+    'semanttinen-malli':         { fi: 'Semanttinen malli',              en: 'Semantic Model',             selite: 'Looginen kerros raakataulujen ja loppukäyttäjän välissä: taulut, relaatiot, mittarit ja metadata. Power BI:ssä nimeltään dataset vuoteen 2023 asti.' },
+    'semanttinen-kerros':        { fi: 'Semanttinen kerros',             en: 'Semantic Layer',             selite: 'Arkkitehtuurikerros, joka määrittelee liiketoimintakäsitteet ja mittarit kerran kaikille työkaluille: raporteille, sovelluksille ja tekoälyagenteille.' },
+    'metriikkakerros':           { fi: 'Metriikkakerros',                en: 'Metrics Layer',              selite: 'Semanttisen kerroksen osa, jossa mittareiden kaavat määritellään kerran koodina ja työkalut kysyvät luvut kerrokselta.' },
+    'hierarkia':                 { fi: 'Hierarkia',                      en: 'Hierarchy',                  selite: 'Dimension tasorakenne, jossa ylemmät tasot kokoavat alempia, esimerkiksi Vuosi → Kvartaali → Kuukausi. Power BI:ssä hierarkia rakennetaan dimensiotauluun sarakkeina, ei erillisinä tauluina.' },
+    'relaatio':                  { fi: 'Relaatio',                       en: 'Relationship',               selite: 'Kahden taulun välinen yhteys, joka rakennetaan avainkenttien avulla. Tyypillisin tapaus on yksi-moneen-suhde dimension ja faktataulun välillä.' },
+    'aggregaatti':               { fi: 'Aggregaatti',                    en: 'Aggregate',                  selite: 'Yhteenlaskettu tai muulla tavalla koostettu arvo, kuten myyntiluvun summa kuukauden tai tuoteryhmän tasolla.' },
+    'dax':                       { fi: 'DAX',                            en: 'Data Analysis Expressions',  selite: 'Microsoftin lausekekieli mittareiden ja laskennallisten sarakkeiden rakentamiseen Power BI:ssä, SSAS Tabularissa ja Power Pivotissa.' },
+    'kuutio':                    { fi: 'Kuutio',                         en: 'Cube',                       selite: 'OLAP-mallin rakenne, jossa mittarit on esilaskettu dimensioiden leikkauspisteisiin, niin että raportti lukee valmiin arvon sen sijaan että laskisi sen kyselyhetkellä. Power BI:n aikakaudella pitkälti korvautunut tabular-mallilla.' },
+    'ssas':                      { fi: 'SSAS',                           en: 'SQL Server Analysis Services', selite: 'Microsoftin analyyttinen tietokantapalvelu, joka tukee Tabular- ja Multidimensional-malleja. Power BI -tietomallit perustuvat SSAS Tabular -teknologiaan.' },
+    'tabular-malli':             { fi: 'Tabular-malli',                  en: 'Tabular Model',              selite: 'SSAS:n in-memory-pohjainen tietomallityyppi, joka perustuu VertiPaq-moottoriin. Power BI -tietomallit ovat aina Tabular-malleja.' },
+    'tabular-editor':            { fi: 'Tabular Editor',                 en: 'Tabular Editor',             selite: 'Apuohjelma, jolla muokataan ja hallitaan Power BI- ja SSAS Tabular -tietomalleja. Sisältää muun muassa Best Practice Analyzerin parhaiden käytäntöjen tarkistukseen.' },
+    'power-query':               { fi: 'Power Query',                    en: 'Power Query',                selite: 'Power BI:n ja Excelin sisältämä työkalu datan hakemiseen, muuntamiseen ja yhdistämiseen. Käyttää M-kieltä taustalla.' },
+    'sertifiointi':              { fi: 'Sertifiointi',                   en: 'Certification',              selite: 'Power BI -palvelun merkintä, jolla organisaatio osoittaa semanttisen mallin viralliseksi ja luotettavaksi. Sertifioitu malli näkyy hakutuloksissa korostettuna ja kertoo AI-toiminnoille, että lähde on hyväksytty käytettäväksi.' },
+    'qa-synonyymi':              { fi: 'Q&amp;A-synonyymi',              en: 'Q&amp;A Synonym',            selite: 'Vaihtoehtoinen sana, jolla loppukäyttäjä voi viitata samaan mittaan tai sarakkeeseen. Synonyymit asetetaan semanttisen mallin metadataan, ja ne parantavat Q&amp;A:n ja Copilotin kykyä ymmärtää käyttäjän kysymyksiä.' },
+    'copilot':                   { fi: 'Copilot',                        en: 'Copilot',                    selite: 'Power BI:n tekoälyavustaja, joka vastaa luonnollisen kielen kysymyksiin datan pohjalta. Toimii semanttisen mallin metadatan perusteella: taulukuvaukset, sarakkeiden nimet ja mittareiden selitteet ohjaavat vastausta.' },
+    'kielimalli':                { fi: 'Kielimalli (LLM)',               en: 'Large Language Model',       selite: 'Suurilla tekstimäärillä koulutettu tekoälymalli, joka ennustaa ja tuottaa luonnollista kieltä. Data-alalla kielimalleja käytetään esimerkiksi dokumentointiin, kyselyiden kirjoittamiseen ja metadatan rikastamiseen.' },
+    'agentti':                   { fi: 'Agentti',                        en: 'AI Agent',                   selite: 'Tekoälyjärjestelmä, joka ei vain vastaa kysymyksiin vaan suorittaa monivaiheisia tehtäviä itsenäisesti: se suunnittelee, kutsuu työkaluja, tarkistaa tuloksen ja jatkaa kunnes tavoite on saavutettu.' },
+    'mcp':                       { fi: 'MCP',                            en: 'Model Context Protocol',     selite: 'Anthropicin kehittämä avoin standardi, jonka avulla tekoälyavustajat kutsuvat ulkoisia työkaluja ja palveluita strukturoidusti. Tekoäly voi MCP:n kautta hakea tietoa tietokannasta tai datakatalogista ilman erillistä räätälöityä integraatiota.' },
+    'lakehouse':                 { fi: 'Lakehouse',                      en: 'Lakehouse',                  selite: 'Arkkitehtuuri, joka yhdistää data laken joustavuuden ja tietovaraston rakenteen. Tunnetuin toteutus on Databricks; myös Microsoft Fabric perustuu samaan Delta-tauluformaattiin.' },
+    'microsoft-fabric':          { fi: 'Microsoft Fabric',               en: 'Microsoft Fabric',           selite: 'Microsoftin yhtenäinen data-analytiikka-alusta, joka kokoaa saman katon alle lakehousen, tietovaraston, datavirtaukset ja Power BI:n. Rakentuu OneLake-tallennuksen ja Delta-muodon päälle.' },
+    'data-contract':             { fi: 'Datasopimus',                    en: 'Data Contract',              selite: 'Sopimus datan tuottajan ja kuluttajan välillä. Määrittelee mitä dataa toimitetaan, missä muodossa, millä laadulla ja kenen vastuulla.' },
+    'datamartti':                { fi: 'Datamartti',                     en: 'Data Mart',                  selite: 'Tietovaraston osajoukko, joka on rajattu yhden liiketoiminta-alueen tarpeisiin: myynnin martti, talouden martti. Idea on nopeus ja hallittavuus, koska käyttäjä näkee vain oman alueensa taulut.' },
+    'kasitemalli':               { fi: 'Käsitemalli',                    en: 'Conceptual Model',           selite: 'Tietomallinnuksen ensimmäinen, tekniikasta riippumaton vaihe: kuvataan liiketoiminnan keskeiset käsitteet ja niiden väliset suhteet ilman tauluja, avaimia tai tietotyyppejä.' },
   };
 
   const css = document.createElement('style');

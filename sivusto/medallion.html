@@ -8,7 +8,7 @@
   <meta name="kortti-otsikko" content="Medallion-arkkitehtuuri">
   <meta name="kortti-kuvaus" content="Datan jalostaminen kerroksittain: Bronze (raakadata), Silver (puhdistettu) ja Gold (liiketoimintavalmis). Yleinen data lake -ympäristöissä.">
   <meta name="tagit" content="arkkitehtuuri perusteoria">
-  <meta name="lukemisaika" content="11">
+  <meta name="lukemisaika" content="18">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/medallion.html">
   <meta name="description"
@@ -37,8 +37,8 @@
         "mainEntityOfPage": { "@id": "https://www.datamalli.fi/medallion.html" },
         "inLanguage": "fi",
         "datePublished": "2026-08-03",
-        "dateModified": "2026-08-03",
-        "wordCount": 1250,
+        "dateModified": "2026-09-25",
+        "wordCount": 2300,
         "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
         "publisher": { "@id": "https://www.datamalli.fi/#organization" },
         "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
@@ -58,9 +58,9 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="tyylit/style.css?v=10">
-  <script src="skriptit/navigation.js?v=15" defer></script>
-  <script src="skriptit/sivut.js?v=2" defer></script>
+  <link rel="stylesheet" href="tyylit/style.css?v=11">
+  <script src="skriptit/navigation.js?v=17" defer></script>
+  <script src="skriptit/sivut.js?v=4" defer></script>
   <script src="skriptit/kortit.js?v=2" defer></script>
 </head>
 
@@ -70,6 +70,7 @@
   <nav class="simple-nav" style="padding:12px 24px">
     <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
     <a href="tietomalli.html">Tietomalli</a> ·
+    <a href="semanttinen-malli.html">Semanttinen malli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
     <a href="faktataulu.html">Faktataulu</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
@@ -94,7 +95,7 @@
 </noscript>
 
   <h1>Medallion-arkkitehtuuri</h1>
-  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-08-03">3.8.2026</time></p>
+  <p class="byline">Kirjoittanut <a href="tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-08-03">3.8.2026</time> · Päivitetty <time datetime="2026-09-25">25.9.2026</time></p>
 
   <p>
     <a href="termisto.html#medallion-arkkitehtuuri" class="termi-tip">Medallion-arkkitehtuuri</a> on apuväline datan
@@ -171,6 +172,109 @@
     <li><strong>Ei pakollinen kolmen kerroksen laki.</strong> Osa organisaatioista lisää neljännen kerroksen (esim.
       "Platinum" liiketoiminta-aggregaateille) tai yhdistää Silverin ja Goldin pienissä ratkaisuissa. Kolme on
       lähtökohta, ei sääntö johon on pakko pitäytyä.</li>
+  </ul>
+
+  <h2>Medallion talona</h2>
+
+  <p>
+    Bronze, Silver ja Gold ovat työnimiä, eivät selityksiä. Kun ne sanoo ääneen palaverissa jossa istuu myyntijohtaja
+    ja controller, puolet pöydästä putoaa kärryiltä ensimmäisen minuutin aikana. Perustus, seinät ja huoneet menevät
+    perille ilman selitystä, koska jokainen on nähnyt talon.
+  </p>
+
+  <figure class="kaavio-levea">
+    <a href="kuvat/medallion/medallion-talo.png" target="_blank" rel="noopener">
+      <img src="kuvat/medallion/medallion-talo.png" width="2000" height="1268" loading="lazy"
+        alt="Kaavio tietoalustasta talona: Bronze on perustus ja kellari johon lähdejärjestelmät tuovat raakadatan, Silver runko ja seinät jossa data puhdistetaan, Gold huoneet käyttötarkoituksen mukaan eli myynnin, talouden ja HR:n datamartit omine lukkoineen, ja Esityskerros katto ja ikkunat eli raportit, dashboardit ja semanttinen malli. Nosturi nostaa moduulihallista uutta huonetta vapaaseen paikkaan. Sivussa arkkitehdin piirustukset sekä nuolet top-down ja bottom-up. Kerroksissa työskentelee myös violetteja AI-agentteja.">
+    </a>
+    <figcaption>Tietoalusta talona: Bronze on perustus, Silver runko, Gold huoneet käyttötarkoituksen mukaan ja
+      Esityskerros katto ja ikkunat, joista käyttäjä katsoo sisään. Klikkaa kuva auki täydessä koossa.</figcaption>
+  </figure>
+
+  <p>
+    Metaforan tehtävä ei ole yksinkertaistaa arkkitehtuuria pois. Se antaa liiketoiminnalle ja datatiimille yhteisen
+    kielen, jolla molemmat puhuvat samasta asiasta — ja vasta sen jälkeen varsinaiset termit menevät perille.
+  </p>
+
+  <table>
+    <caption>Taulukko 2, Medallion talona – Mitä kukin kerros vastaa rakennuksessa</caption>
+    <thead>
+      <tr>
+        <th>Kerros</th>
+        <th>Talon osa</th>
+        <th>Mitä se käytännössä tarkoittaa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="termisto.html#bronze" class="termi-tip"><strong>Bronze</strong></a></td>
+        <td>Perustus ja kellari</td>
+        <td>Lähdejärjestelmien data sellaisenaan, koko historia, mitään ei heitetä pois. Ei kaunista, mutta kaikki
+          muu seisoo sen päällä.</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#silver" class="termi-tip"><strong>Silver</strong></a></td>
+        <td>Runko ja seinät</td>
+        <td>Puhdistettu, validoitu ja yhtenäistetty data. Tämä on se rakenne johon voi luottaa — ja se osa
+          valmiista talosta jota kukaan ei näe.</td>
+      </tr>
+      <tr>
+        <td><a href="termisto.html#gold" class="termi-tip"><strong>Gold</strong></a></td>
+        <td>Huoneet käyttötarkoituksen mukaan</td>
+        <td>Myynnillä, taloudella ja HR:llä on kullakin oma
+          <a href="termisto.html#datamartti" class="termi-tip">datamarttinsa</a>. Yhteinen perustus pitää huolen
+          siitä etteivät luvut ala elää omaa elämäänsä huoneittain.</td>
+      </tr>
+      <tr>
+        <td><strong>Esityskerros</strong></td>
+        <td>Katto ja ikkunat</td>
+        <td>Raportit, dashboardit ja <a href="semanttinen-malli.html">semanttinen
+          malli</a>. Tästä käyttäjä katsoo sisään, ja tämä on ainoa kerros jonka hän näkee.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Esityskerros on kuvassa sininen, kun Bronze, Silver ja Gold muodostavat ruskea-harmaa-kultaisen rungon. Ero on
+    tahallinen: <strong>esityskerros ei ole Medallion-kerros</strong>. Medallion loppuu Goldiin, ja esityskerros on
+    se mikä Goldin päälle rakennetaan — <a href="tahtimalli.html">tähtimalliksi</a> ladattu semanttinen malli ja sen
+    päällä olevat raportit. Siksi Taulukko 1:ssä on kolme riviä ja tässä neljä.
+  </p>
+
+  <h3>Mikä kulkee kaikkien kerrosten läpi</h3>
+
+  <p>
+    Kerrokset ovat kuvan helppo osa. Vaikeampi osa on se mikä kulkee niiden kaikkien läpi — ja se on myös se osa
+    joka jää rakentamatta kun kiire tulee.
+  </p>
+
+  <ul>
+    <li><strong>Arkkitehdin piirustukset.</strong> Tietoarkkitehtuuri,
+      <a href="termisto.html#kasitemalli" class="termi-tip">käsitemalli</a> ja KPI-määritykset. Talo piirretään
+      ennen kuin perustus valetaan, eikä tietoalusta ole poikkeus.</li>
+    <li><strong>Putket.</strong> Pipelinet ja orkestrointi eli se mikä liikuttaa datan kerroksesta toiseen oikeassa
+      järjestyksessä. Ilman ajastusta ja riippuvuuksia Gold lukee vanhaa Silveriä eikä kukaan huomaa.</li>
+    <li><strong>Tarkastus kerrosten välissä.</strong>
+      <a href="termisto.html#datan-laatu" class="termi-tip">Datan laatusäännöt</a> ja testit jokaisella
+      tasosiirtymällä. Rakennustarkastaja ei katso valmista taloa vaan käy paikalla joka vaiheessa.</li>
+    <li><strong>Lukot.</strong> Pääsynhallinta ja <a href="termisto.html#rls" class="termi-tip">rivitason
+      oikeudet</a>. Jokaisella huoneella on oma avaimensa, eikä yleisavainta anneta kenellekään.</li>
+    <li><strong>Liitospinnat.</strong> Sovitut skeemat ja avaimet kerrosten välillä. Niiden oikea nimi on
+      <a href="termisto.html#data-contract" class="termi-tip">datasopimus</a>, ja ne ovat syy siihen miksi kerroksia
+      voi rakentaa rinnakkain eikä vain alhaalta ylös.</li>
+  </ul>
+
+  <h3>Missä talometafora EI päde</h3>
+
+  <ul>
+    <li><strong>Talo valmistuu, tietoalusta ei.</strong> Talo rakennetaan kerran ja sen jälkeen sitä huolletaan.
+      Tietoalustaa rakennetaan uudelleen niin kauan kuin lähdejärjestelmät muuttuvat — eli koko sen eliniän.</li>
+    <li><strong>Perustus ei kasva, Bronze kasvaa.</strong> Talon perustus on samankokoinen kymmenen vuoden päästä.
+      Bronze kasvaa joka yö, ja juuri se kasvu näkyy kapasiteettilaskussa.</li>
+    <li><strong>Väliseinä on kiinteä, datamartin raja ei.</strong> Huoneen seinää ei siirretä kesken viikon.
+      Gold-datamarttien raja on sopimus, ja sopimuksia siirretään jatkuvasti.</li>
+    <li><strong>Kuva ei kerro miten taulut mallinnetaan.</strong> Metafora kertoo missä data on matkallaan, ei sitä
+      miten dimensio- tai faktataulu rakennetaan sisäisesti. Sen tekee <a href="tahtimalli.html">tähtimalli</a>.</li>
   </ul>
 
   <h2>Miksi Medallion-arkkitehtuuri kannattaa ottaa käyttöön?</h2>
@@ -250,8 +354,8 @@
   <h2>Miten Medallion-arkkitehtuuri rakennetaan käytännössä?</h2>
 
   <p>
-    Rakentaminen etenee kerros kerrokselta, ja jokaisella kerroksella on oma vastuunsa — sekoittamalla vastuita
-    kerrosten välillä koko hyöty katoaa.
+    Data etenee kerros kerrokselta, ja jokaisella kerroksella on oma vastuunsa — sekoittamalla vastuita kerrosten
+    välillä koko hyöty katoaa. Työjärjestys on eri asia kuin datan kulkusuunta, ja siihen palataan osion lopussa.
   </p>
 
   <ol>
@@ -309,6 +413,43 @@ FROM   silver.DimAsiakas;</code></pre>
     arkkitehtuurin ydin riippumatta siitä, ajetaanko muunnokset SQL:llä, Sparkilla vai Power Queryllä.
   </p>
 
+  <h3>Kattoa voi rakentaa ensin</h3>
+
+  <p>
+    Talometaforan yleisin väärinkäsitys on, että rakentaminen etenee alhaalta ylös. Ei etene. Laivanrakennuksessa
+    komentosilta tehdään hallissa valmiiksi ja lasketaan paikalleen vasta kun runko kantaa ja liitospinnat täsmäävät.
+    Sama kerrosjako, eri työjärjestys.
+  </p>
+
+  <figure class="kaavio-levea">
+    <a href="kuvat/medallion/medallion-laiva.png" target="_blank" rel="noopener">
+      <img src="kuvat/medallion/medallion-laiva.png" width="2000" height="1268" loading="lazy"
+        alt="Kaavio tietoalustasta laivana: Bronze on pohja ja painolasti, Silver runko ja kannet, Gold hytit käyttötarkoituksen mukaan ja Esityskerros komentosilta. Nosturi laskee valmiiksi rakennettua komentosiltaa paikalleen, ja teksti kertoo sen laskeutuvan kun liitospinnat täsmäävät. Oikealla lohkohalli, jossa lohkot rakennetaan rinnakkain ja testataan testidatalla. Kerroksissa työskentelee myös violetteja AI-agentteja.">
+    </a>
+    <figcaption>Sama kerrosjako laivana. Komentosilta rakennetaan hallissa valmiiksi ja lasketaan paikalleen vasta
+      kun liitospinnat täsmäävät — lohkot syntyvät rinnakkain, eivät alhaalta ylös. Klikkaa kuva auki täydessä
+      koossa.</figcaption>
+  </figure>
+
+  <p>
+    BI:ssä tämä tarkoittaa sitä, että dashboardin voi suunnitella ja prototypoida testidatalla ennen kuin oikea data
+    virtaa. Ehto on yksi: liitospinta on sovittava etukäteen. Kun taulujen nimet, sarakkeet, tietotyypit ja avaimet
+    on lyöty lukkoon <a href="termisto.html#data-contract" class="termi-tip">datasopimuksena</a>, molemmat päät
+    rakentavat omaa lohkoaan samaan aikaan ja palat sopivat yhteen ensimmäisellä nostolla.
+  </p>
+
+  <p>
+    Silloin ylhäältä alas (tarpeesta dataan) ja alhaalta ylös (datasta tarpeeseen) eivät ole vaihtoehtoja joista
+    valitaan toinen. Ne ovat kaksi suuntaa jotka etenevät rinnakkain ja kohtaavat sovitussa liitospinnassa. Ilman
+    datasopimusta ne eivät kohtaa, ja toinen pää rakennetaan uudelleen.
+  </p>
+
+  <p>
+    Erottelu kannattaa pitää mielessä: <strong>data kulkee kerroksittain, työ ei</strong>. Yllä oleva numeroitu
+    lista kertoo missä järjestyksessä data liikkuu Bronzesta Goldiin. Se ei kerro missä järjestyksessä kerrokset
+    rakennetaan.
+  </p>
+
   <h3>Miten Medallionia EI kannata rakentaa</h3>
 
   <ul>
@@ -320,6 +461,9 @@ FROM   silver.DimAsiakas;</code></pre>
     <li><strong>Älä sekoita kerroksia samaan skeemaan tai tauluun.</strong> Jos Bronze- ja Silver-taulut ovat
       samassa tietokannassa ilman selkeää <a href="nimeamiskaytannot.html">nimeämiskäytäntöä</a> (esim. etuliite tai
       erillinen skeema), kukaan ei tiedä kesken kehitystä kumman version taulua ollaan lukemassa.</li>
+    <li><strong>Älä sovi liitospintaa jälkikäteen.</strong> Jos skeema ja avaimet sovitaan vasta kun kerrosten
+      molemmat päät on rakennettu, toinen niistä rakennetaan uudelleen. Datasopimus on halvimmillaan silloin kun se
+      kirjoitetaan ennen ensimmäistä riviä koodia.</li>
     <li><strong>Älä luo surrogaattiavaimia Bronzeen tai Goldiin.</strong> Oikea paikka on Silver — ks.
       <a href="surrogaattiavaimet.html">surrogaattiavaimien mallintaminen</a> tarkemmin perusteluineen.</li>
   </ul>
@@ -335,7 +479,7 @@ FROM   silver.DimAsiakas;</code></pre>
   </p>
 
   <table>
-    <caption>Taulukko 2, Medallionin kannattavuus – Signaalit jotka ratkaisevat tarvitaanko kolme kerrosta vai
+    <caption>Taulukko 3, Medallionin kannattavuus – Signaalit jotka ratkaisevat tarvitaanko kolme kerrosta vai
       ei</caption>
     <thead>
       <tr>
@@ -383,7 +527,7 @@ FROM   silver.DimAsiakas;</code></pre>
   <div class="dataneuvos-opinion">
     <div class="opinion-label">Dataneuvoksen mielipide</div>
     <ul>
-      <li><strong>Yksi ehto riittää — kolme ei ole kiintiö.</strong> Rakenna kerrokset heti kun yksikin Taulukko 2:n
+      <li><strong>Yksi ehto riittää — kolme ei ole kiintiö.</strong> Rakenna kerrokset heti kun yksikin Taulukko 3:n
         rivi osuu sarakkeeseen <em>Medallion kannattaa</em>. Se tarkoittaa käytännössä toista lähdejärjestelmää, toista
         tiimiä tai ensimmäistä kertaa kun joku kysyy auditoinnissa mistä luku tulee. Jos odotat että useampi ehto
         täyttyy, joudut lisäämään kerrokset valmiiseen latausputkeen: se puretaan ja historia ajetaan uudelleen.
@@ -400,7 +544,7 @@ FROM   silver.DimAsiakas;</code></pre>
   </div>
 
   <section class="katso-myos"
-    data-kortit="surrogaattiavaimet.html tahtimalli.html dimensiot.html termisto.html"></section>
+    data-kortit="semanttinen-malli.html surrogaattiavaimet.html tahtimalli.html dimensiot.html termisto.html"></section>
 
 </body>
 </html>

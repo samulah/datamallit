@@ -527,6 +527,9 @@ def aseta_lukemisaika(lahde, minuutit):
     for i, rivi in enumerate(rivit):
         if "Korttitiedot:" in rivi:
             ankkuri = i
+            # Monirivinen kommentti: ankkuroidaan vasta sen loppuun, muuten meta jää kommentin sisään
+            while "-->" not in rivit[ankkuri] and ankkuri + 1 < len(rivit):
+                ankkuri += 1
             while ankkuri + 1 < len(rivit) and re.match(
                 r'^  <meta name="(kortti-|tagit)', rivit[ankkuri + 1]
             ):

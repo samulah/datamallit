@@ -38,7 +38,27 @@
       "Bash(node --check search-index.js)",
       "Bash(sed -n '/<script type=\"application\\\\/ld+json\">/,/<\\\\/script>/p' avaimet-ja-relaatiot.html)",
       "Bash(ls -la .claude/agents/)",
-      "Bash(ls -la /home/samu/.claude/agents/)"
+      "Bash(ls -la /home/samu/.claude/agents/)",
+      "Edit",
+      "Write",
+      "Bash(sed *)",
+      "Bash(grep *)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(diff *)",
+      "Bash(cd *)",
+      "Bash(curl -s *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git mv *)",
+      "Bash(git add *)",
+      "Bash(git show *)",
+      "Bash(git check-ignore *)"
     ]
   }
 }

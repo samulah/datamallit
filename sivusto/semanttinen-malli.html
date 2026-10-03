@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Korttitiedot: etusivun ja "Katso myös" -korttien lähde -->
+  <meta name="kortti-otsikko" content="Semanttinen malli">
+  <meta name="kortti-kuvaus" content="Mitä semanttinen malli ja semanttinen kerros ovat, miten ne eroavat tietomallista ja miksi tekoäly tarvitsee niitä.">
+  <meta name="tagit" content="tietomalli power-bi arkkitehtuuri ai">
+  <meta name="kortti-badge" content="uutuus">
+  <meta name="lukemisaika" content="13">
+  <link rel="icon" type="image/png" sizes="32x32" href="/kuvat/favicon-32.png">
+  <link rel="canonical" href="https://www.datamalli.fi/semanttinen-malli.html">
+  <meta name="description" content="Mikä on semanttinen malli ja mikä semanttinen kerros? Erot tietomalliin, mitä Power BI:n semanttiseen malliin kuuluu ja miksi tekoäly tarvitsee niitä.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Datamalli.fi">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:title" content="Mikä on semanttinen malli ja semanttinen kerros?">
+  <meta property="og:description" content="Mikä on semanttinen malli ja mikä semanttinen kerros? Erot tietomalliin, mitä Power BI:n semanttiseen malliin kuuluu ja miksi tekoäly tarvitsee niitä.">
+  <meta property="og:url" content="https://www.datamalli.fi/semanttinen-malli.html">
+  <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-datamalli.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Datamalli.fi – Datan mallinnuksen opas">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Mikä on semanttinen malli ja semanttinen kerros?",
+        "description": "Mikä on semanttinen malli ja mikä semanttinen kerros? Erot tietomalliin, mitä Power BI:n semanttiseen malliin kuuluu ja miksi tekoäly tarvitsee niitä.",
+        "about": [
+          { "@type": "DefinedTerm", "name": "Semanttinen malli", "alternateName": "Semantic Model", "@id": "https://www.datamalli.fi/termisto.html#semanttinen-malli" },
+          { "@type": "DefinedTerm", "name": "Semanttinen kerros", "alternateName": "Semantic Layer", "@id": "https://www.datamalli.fi/termisto.html#semanttinen-kerros" }
+        ],
+        "url": "https://www.datamalli.fi/semanttinen-malli.html",
+        "mainEntityOfPage": { "@id": "https://www.datamalli.fi/semanttinen-malli.html" },
+        "inLanguage": "fi",
+        "datePublished": "2026-10-01",
+        "dateModified": "2026-10-01",
+        "author": { "@type": "Person", "name": "Samu Lahdenperä", "url": "https://www.datamalli.fi/tietoa.html", "@id": "https://www.datamalli.fi/#samu-lahdenpera" },
+        "publisher": { "@id": "https://www.datamalli.fi/#organization" },
+        "image": "https://www.datamalli.fi/kuvat/og-datamalli.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mikä on semanttinen malli?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Semanttinen malli on kerros tietovaraston ja raporttien välissä. Siihen kirjataan kerran, mitä luvut tarkoittavat: taulut ja relaatiot, mittarit, hierarkiat, kuvaukset ja käyttöoikeudet. Tietomalli kertoo, missä data on, ja semanttinen malli kertoo, mitä se tarkoittaa. Power BI:ssä jokainen raportti lukee semanttista mallia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mikä on semanttinen kerros?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Semanttinen kerros (englanniksi semantic layer) on arkkitehtuurikerros tietovaraston ja kaikkien datan käyttäjien välissä. Se määrittelee kerran, mitä liikevaihto, asiakas tai aktiivinen asiakas tarkoittaa, ja jakaa saman määritelmän raporteille, Excelille, sovelluksille ja tekoälyagenteille."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mitä eroa on semanttisella mallilla ja semanttisella kerroksella?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Semanttinen malli on yhden työkalun, esimerkiksi Power BI:n, malli. Semanttinen kerros jakaa samat mittarien ja käsitteiden määritelmät kaikille työkaluille ja tekoälyagenteille. Jos kaikki raportointi tehdään Power BI:llä, ne ovat käytännössä sama asia. Ero tulee vastaan, kun samaa lukua lasketaan Power BI:n ohi, esimerkiksi Pythonissa tai tietovarastoa suoraan lukevassa tekoälyagentissa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Onko semanttinen kerros uusi keksintö?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ei ole. Business Objects haki vuonna 1991 patenttia tekniikalle, jossa IT määritteli valmiiksi liiketoimintaobjektit, kuten asiakkaan, liikevaihdon ja alueen, ja käyttäjä kysyi tietokannalta osaamatta SQL:ää. Yhtiö kutsui kerrosta universumiksi. Uutta on kysyjä: nyt semanttista kerrosta rakennetaan myös tekoälyagenteille."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Miksi Power BI:n dataset nimettiin semanttiseksi malliksi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Microsoft nimesi Power BI:n datasetit semanttisiksi malleiksi marraskuussa 2023. Objekti ei muuttunut, vain nimi: dataset oli liian yleinen sana ja sekoittui Fabricin muihin objekteihin. Rajapinnoissa ja vanhoissa ohjeissa puhutaan yhä dataseteistä."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Etusivu", "item": "https://www.datamalli.fi/" },
+          { "@type": "ListItem", "position": 2, "name": "Semanttinen malli", "item": "https://www.datamalli.fi/semanttinen-malli.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <title>Mikä on semanttinen malli ja semanttinen kerros? | Datamalli.fi</title>
+  <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
+       CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
+  <link rel="preload" href="/fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/tyylit/style.css?v=11">
+  <script src="/skriptit/navigation.js?v=17" defer></script>
+  <script src="/skriptit/sivut.js?v=4" defer></script>
+  <script src="/skriptit/kortit.js?v=2" defer></script>
+</head>
+
+<body>
+  <main-navigation></main-navigation>
+<noscript>
+  <nav class="simple-nav" style="padding:12px 24px">
+    <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
+    <a href="/tietomalli.html">Tietomalli</a> ·
+    <a href="/semanttinen-malli.html">Semanttinen malli</a> ·
+    <a href="/tahtimalli.html">Tähtimalli</a> ·
+    <a href="/faktataulu.html">Faktataulu</a> ·
+    <a href="/dimensiot.html">Dimensiot</a> ·
+    <a href="/litistaminen.html">Litistäminen</a> ·
+    <a href="/lumihiutalemalli.html">Lumihiutalemalli</a> ·
+    <a href="/sekasikiomalli-vs-tahtimalli.html">Sekasikiömalli vs. tähtimalli</a> ·
+    <a href="/avaimet-ja-relaatiot.html">Avaimet ja relaatiot</a> ·
+    <a href="/surrogaattiavaimet.html">Surrogaattiavaimet</a> ·
+    <a href="/medallion.html">Medallion</a> ·
+    <a href="/nimeamiskaytannot.html">Nimeämiskäytännöt</a> ·
+    <a href="/ai-valmis-metadata.html">AI-valmis metadata</a> ·
+    <a href="/kehittamisen-filosofia.html">Filosofia</a> ·
+    <a href="/datayrittajan-kustannusrakenne.html">Kustannusrakenne</a> ·
+    <a href="/freelancerin-tuntihintalaskuri.html">Tuntihintalaskuri</a> ·
+    <a href="/datayrittajan-verotus-ja-riskit.html">Verotus ja riskit</a> ·
+    <a href="/termisto.html">Termistö</a> ·
+    <a href="/kirjallisuus-suositukset.html">Kirjallisuus</a> ·
+    <a href="/apuohjelmat.html">Apuohjelmat</a> ·
+    <a href="/tietoa.html">Tietoa</a> ·
+    <a href="/palvelut.html">Palvelut</a>
+  </nav>
+</noscript>
+
+  <h1>Semanttinen malli ja semanttinen kerros</h1>
+  <p class="byline">Kirjoittanut <a href="/tietoa.html">Samu Lahdenperä</a> · Julkaistu <time datetime="2026-10-01">1.10.2026</time></p>
+
+  <p>Tuttu tilanne johtoryhmästä: myyntijohtajan kalvolla liikevaihto on 4,2 miljoonaa, talousjohtajan kalvolla 3,9 ja jonkun Excelissä jotain siltä väliltä. Kukaan ei ole laskenut väärin. Jokainen on vain laskenut vähän eri asian: yksi vähentää hyvitykset, toinen ei, ja kolmas katsoo tilauksia eikä laskuja. Puoli palaveria menee siihen, että selvitetään kenen luku on oikea, eikä itse asiasta ehditä puhua.</p>
+
+  <p><strong>Semanttinen malli</strong> (englanniksi semantic model) on paikka, jossa tämä riita ratkaistaan etukäteen. Se on kerros <a href="/termisto.html#tietovarasto" class="termi-tip">tietovaraston</a> ja raporttien välissä, ja siihen kirjataan kerran, mitä liikevaihto tarkoittaa, miten asiakkaat lasketaan ja miten taulut liittyvät toisiinsa. Power BI:ssä jokainen raportti lukee semanttista mallia, vaikka käyttäjä ei näe sitä koskaan. Hän näkee vain luvun, ja luku on sama kaikilla.</p>
+
+  <p><strong>Semanttinen kerros</strong> (semantic layer) on sama ajatus isommassa mittakaavassa. Määritelmät eivät asu yhden työkalun sisällä vaan yhteisessä kerroksessa, josta Power BI, Excel, sovellukset ja <a href="/termisto.html#agentti" class="termi-tip">tekoälyagentit</a> hakevat ne. Kumpikaan ei ole uusi keksintö, mutta molemmista puhutaan nyt enemmän kuin koskaan, ja syy on tekoäly. Siihen palataan alempana.</p>
+
+  <h2>Mikä on semanttinen malli?</h2>
+  <p>Lyhyin selitys on tämä: <a href="/tietomalli.html">tietomalli</a> kertoo, missä data on, ja semanttinen malli kertoo, mitä se tarkoittaa. Tietomalli on taulut, sarakkeet ja <a href="/termisto.html#relaatio" class="termi-tip">relaatiot</a>. Semanttinen malli on sama rakenne, johon on lisätty liiketoimintalogiikka: <a href="/termisto.html#mittari" class="termi-tip">mittarit</a>, <a href="/termisto.html#hierarkia" class="termi-tip">hierarkiat</a>, kuvaukset ja käyttöoikeudet.</p>
+
+  <p>Eroa on helpointa ajatella ravintolana. Tietovarasto on keittiö: raaka-aineet, kylmiöt ja hellat. Raportti on ruokasali, jossa asiakas istuu. Semanttinen malli on ruokalista ja reseptikansio samassa paketissa. Asiakas tilaa listalta liikevaihdon tietämättä, mitä kaikkea siihen keitettiin, ja keittiö tekee annoksen joka kerta samalla reseptillä. Jos reseptiä ei ole kirjattu, jokainen kokki tekee omansa, ja sama annos maistuu eri päivinä erilaiselta. Juuri sitä johtoryhmän kolme liikevaihtoa ovat.</p>
+
+  <p>Vertaus kertoo myös, mitä semanttinen malli ei ole. Se ei ole varasto, vaikka Power BI tallentaakin datan malliin import-tilassa. Mallin arvo ei ole datassa vaan resepteissä: samasta datasta voi rakentaa hyvän ja huonon mallin, ja ero näkyy vasta, kun joku kysyy siltä jotain.</p>
+
+  <h2>Mikä on semanttinen kerros?</h2>
+  <p><strong>Semanttinen kerros</strong> on arkkitehtuurikerros tietovaraston ja kaikkien datan käyttäjien välissä. Se määrittelee kerran, mitä liikevaihto, asiakas tai aktiivinen asiakas tarkoittaa, ja jakaa saman määritelmän raporteille, Excelille, sovelluksille ja tekoälyagenteille. Ravintolavertauksessa se on ketjun yhteinen reseptikirja: annos maistuu samalta jokaisessa toimipisteessä, vaikka keittiöt ja kokit ovat eri. Semanttinen malli kuuluu yhdelle työkalulle, semanttinen kerros ei kuulu millekään.</p>
+
+  <h3>Vanha idea, uusi kysyjä</h3>
+  <p>Semanttinen kerros kuulostaa tekoälyajan keksinnöltä, mutta idea on yli 30 vuotta vanha. Ranskalainen Business Objects haki vuonna 1991 patenttia tekniikalle, jolla liiketoimintakäyttäjä kysyy relaatiotietokannalta osaamatta SQL:ää. IT määritteli valmiiksi ”liiketoimintaobjektit”, kuten asiakkaan, liikevaihdon ja alueen, ja käyttäjä raahasi niitä raporttiin. Yhtiö kutsui kerrosta universumiksi. Nimi semanttinen kerros vakiintui vasta myöhemmin.</p>
+
+  <p>Sen jälkeen samaa työtä ovat tehneet <a href="/termisto.html#kuutio" class="termi-tip">OLAP-kuutiot</a>, Cognosin Framework Manager ja <a href="/termisto.html#ssas" class="termi-tip">Analysis Services</a>, jonka tabular-moottori pyörii nykyään jokaisen Power BI -mallin alla. Idea ei siis ole muuttunut, kysyjä on. Kolmekymmentä vuotta semanttista kerrosta rakennettiin ihmiselle, joka ei osaa SQL:ää. Nyt sitä rakennetaan <a href="/termisto.html#kielimalli" class="termi-tip">kielimallille</a>, joka osaa SQL:ää liiankin hyvin mutta ei tiedä, mitä teidän talossanne liikevaihdolla tarkoitetaan.</p>
+
+  <h2>Semanttinen malli, semanttinen kerros vai tietomalli?</h2>
+  <p>Termejä käytetään sekaisin, ja se on ymmärrettävää, koska rajat ovat liukuvia. Ero kannattaa silti tuntea, koska se ratkaisee, mitä organisaation kannattaa rakentaa itse ja mitä ostaa.</p>
+
+  <table>
+    <caption>Taulukko 1. Tietomallin, semanttisen mallin, semanttisen kerroksen ja metriikkakerroksen erot</caption>
+    <thead>
+      <tr><th>Käsite</th><th>Mitä se on</th><th>Esimerkki</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><a href="/tietomalli.html">Tietomalli</a></td><td>Rakenne: taulut, sarakkeet ja relaatiot. Ei riipu tuotteesta, ja saman mallin voi toteuttaa mihin tahansa alustaan.</td><td>Myynnin tähtimalli</td></tr>
+      <tr><td><a href="/termisto.html#semanttinen-malli" class="termi-tip">Semanttinen malli</a></td><td>Tietomalli ja liiketoimintalogiikka yhdessä työkalussa: mittarit, hierarkiat, kuvaukset ja oikeudet.</td><td>Power BI:n semanttinen malli, Analysis Servicesin <a href="/termisto.html#tabular-malli" class="termi-tip">tabular-malli</a></td></tr>
+      <tr><td><a href="/termisto.html#semanttinen-kerros" class="termi-tip">Semanttinen kerros</a></td><td>Arkkitehtuurikerros, joka jakaa samat määritelmät kaikille työkaluille ja tekoälyagenteille.</td><td>Microsoft Fabric IQ:n ontologia, dbt Semantic Layer, Cube, AtScale, Snowflake Semantic Views, Databricks Metric Views</td></tr>
+      <tr><td><a href="/termisto.html#metriikkakerros" class="termi-tip">Metriikkakerros</a></td><td>Semanttisen kerroksen mittariosa: kaavat, <a href="/termisto.html#aggregaatti" class="termi-tip">aggregoinnit</a> ja sallitut dimensiot koodina.</td><td>dbt:n MetricFlow</td></tr>
+    </tbody>
+  </table>
+
+  <p>Käytännössä semanttinen malli on semanttinen kerros, jonka omistaa yksi työkalu. Jos koko raportointi tehdään Power BI:llä, ne ovat sama asia, eikä erosta kannata menettää yöuniaan. Ero tulee vastaan siinä vaiheessa, kun samaa lukua aletaan laskea Power BI:n ohi: Python-muistikirjassa, omassa sovelluksessa tai tekoälyagentissa, joka lukee tietovarastoa suoraan. Silloin määritelmä pitää nostaa työkalun ulkopuolelle, tai jokainen työkalu keksii liikevaihdon uudelleen omalla tavallaan.</p>
+
+  <p>Excel on tässä hauska välitapaus. Excel, joka lukee Power BI:n semanttista mallia, on osa ratkaisua. Excel, johon on liimattu raakadataa ja kirjoitettu oma SUMIF, on osa ongelmaa.</p>
+
+  <h3>Microsoftin vastaus: Fabric IQ ja ontologia</h3>
+  <p>Microsoftin maailmassa raja semanttisen mallin ja semanttisen kerroksen välillä on nyt konkreettinen. Ignite 2025 -tapahtumassa esitellyn Fabric IQ:n ytimessä on <a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview" target="_blank" rel="noopener">ontologia</a> (Ontology). Se on jaettu kuvaus liiketoiminnan käsitteistä, kuten asiakkaasta, tuotteesta ja tilauksesta, sekä niiden ominaisuuksista, suhteista ja rajoitteista. Asiakas tekee tilauksen, tilaus koskee tuotetta, ja jokainen agentti puhuu samoilla sanoilla sen sijaan, että jokaiseen kehotteeseen liimattaisiin oma selitys siitä, mikä asiakas on.</p>
+
+  <p>Power BI -ihmiselle kiinnostavinta on se, että ontologian voi generoida olemassa olevasta semanttisesta mallista. Liikkeelle pääsee siis niistä määritelmistä, jotka ovat jo tuotannossa ja joihin on jo totuttu luottamaan. Ontologia ei myöskään ole uusi datavarasto. Sen käsitteet sidotaan olemassa olevaan dataan, kuten <a href="/termisto.html#lakehouse" class="termi-tip">lakehouse</a>-tauluihin, Eventhousen dataan ja Power BI:n semanttisiin malleihin. Työnjako on selkeä: semanttinen malli laskee, ja ontologia kertoo, mitä lasketaan ja miten käsitteet liittyvät toisiinsa. Ontologia on ollut julkistuksesta asti esikatseluversio (preview), joten tarkista sen tila ennen kuin rakennat tuotannon sen varaan.</p>
+
+  <h2>Datasetista semanttiseksi malliksi</h2>
+  <p>Jos olet tehnyt Power BI:tä vähänkään pidempään, tunnet semanttisen mallin vanhalla nimellä: dataset, suomenkielisessä käyttöliittymässä tietojoukko. Microsoft <a href="https://powerbi.microsoft.com/en-us/blog/datasets-renamed-to-semantic-models/" target="_blank" rel="noopener">nimesi sen uudelleen marraskuussa 2023</a>. Objekti ei muuttunut lainkaan, vain nimi. Perustelu oli, että ”dataset” on liian yleinen sana eikä kerro, mitä objekti tekee, ja että se sekoittui <a href="/termisto.html#microsoft-fabric" class="termi-tip">Fabricin</a> muihin objekteihin.</p>
+
+  <p>Nimenmuutos oli harvinaisen onnistunut, koska dataset tarkoitti kaikkea ja ei mitään. CSV-tiedosto on dataset, ja niin on Excelin välilehtikin. Semanttinen malli sen sijaan kertoo, mitä objekti tekee: antaa datalle merkityksen. Vanha nimi elää silti sitkeästi. REST-rajapinnoissa, PowerShell-komennoissa ja vanhoissa ohjeissa puhutaan edelleen dataseteistä, joten kun haet ohjetta, hae molemmilla nimillä.</p>
+
+  <h2>Mitä Power BI:n semanttiseen malliin kuuluu?</h2>
+  <p>Power BI:n semanttinen malli ajetaan Analysis Servicesin tabular-moottorilla ja <a href="/termisto.html#vertipaq" class="termi-tip">VertiPaq</a>-pakkauksella. Sama malli palvelee raportteja, Exceliä, <a href="/termisto.html#copilot" class="termi-tip">Copilotia</a> ja XMLA-päätepisteen kautta muita työkaluja. Mallissa on kuusi osaa, ja jokainen niistä pystyy pilaamaan luvun omalla tavallaan:</p>
+
+  <table>
+    <caption>Taulukko 2. Power BI:n semanttisen mallin osat ja niiden merkitys</caption>
+    <thead>
+      <tr><th>Osa</th><th>Mitä se tekee</th><th>Miksi sillä on väliä</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Taulut ja relaatiot</td><td><a href="/termisto.html#faktataulu" class="termi-tip">Faktat</a> ja <a href="/termisto.html#dimensiotaulu" class="termi-tip">dimensiot</a>, relaatioiden suunta ja <a href="/termisto.html#kardinaliteetti" class="termi-tip">kardinaliteetti</a></td><td>Väärä suodatussuunta tai kardinaliteetti tuottaa vääriä lukuja ilman yhtään virheilmoitusta</td></tr>
+      <tr><td>Mittarit (<a href="/termisto.html#dax" class="termi-tip">DAX</a>)</td><td>Liiketoimintalogiikka: summat, suhdeluvut, aikavertailut</td><td>Kaava kirjoitetaan kerran, ja jokainen raportti käyttää samaa</td></tr>
+      <tr><td><a href="/termisto.html#hierarkia" class="termi-tip">Hierarkiat</a></td><td>Porautumispolut, esim. vuosi → kuukausi → päivä</td><td>Käyttäjä liikkuu datassa ilman, että raportin tekijä rakentaa polut joka kerta uudelleen</td></tr>
+      <tr><td>Kuvaukset ja <a href="/termisto.html#qa-synonyymi" class="termi-tip">synonyymit</a></td><td>Kertovat, mitä taulu, sarake tai mittari tarkoittaa</td><td>Copilot ja tekoälyagentit valitsevat mittarin näiden perusteella</td></tr>
+      <tr><td>Rivitason suojaus (<a href="/termisto.html#rls" class="termi-tip">RLS</a>)</td><td>Rajaa rivit käyttäjän mukaan</td><td>Oikeudet pysyvät voimassa kaikissa raporteissa ja työkaluissa, koska ne on määritelty mallissa eikä raportissa</td></tr>
+      <tr><td>Tallennustila</td><td>Import, DirectQuery tai Direct Lake</td><td>Ratkaisee nopeuden, datan tuoreuden ja mallin kokorajat</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Miltä semanttinen malli näyttää koodina?</h3>
+  <p>Kun Power BI -projekti tallennetaan PBIP-muodossa, semanttinen malli tallentuu TMDL-tiedostoiksi, joita voi lukea ja versioida Gitissä kuin mitä tahansa koodia. Liikevaihto ja aktiiviset asiakkaat näyttävät siellä tältä:</p>
+
+  <pre style="background:#1e1e1e; color:#d4d4d4; padding:1.2em; border-radius:6px; overflow-x:auto; margin-bottom:16px;"><code>table Myynnit
+
+    /// Laskutettu myynti euroina ilman arvonlisäveroa, hyvitykset vähennetty.
+    /// Ei sisällä avoimia tilauksia eikä tarjouksia.
+    measure Liikevaihto = SUM ( Myynnit[LaskutettuEur] ) - SUM ( Myynnit[HyvitettyEur] )
+        formatString: #,##0 €
+        displayFolder: Myynti
+
+    /// Asiakas on aktiivinen, jos sillä on laskutettua myyntiä viimeisen 90 päivän aikana.
+    measure 'Aktiiviset asiakkaat' =
+            CALCULATE (
+                DISTINCTCOUNT ( Myynnit[AsiakasAvain] ),
+                DATESINPERIOD ( Kalenteri[Paivamaara], MAX ( Kalenteri[Paivamaara] ), -90, DAY )
+            )
+        formatString: #,##0</code></pre>
+
+  <p>Kolmella vinoviivalla alkavat rivit ovat mittarin kuvaus. Se on sama teksti, joka näkyy Power BI Desktopin kuvauskentässä, ja juuri sen Copilot lukee, kun se päättää, mitä mittaria käyttää. Kuvaus ei siis ole dokumentaatiota mallin vieressä vaan osa mallia. Sama ”90 päivää”, josta johtoryhmässä kerran sovittiin, on nyt kirjattu paikkaan, josta sekä ihminen että kone sen löytävät. Kuvausten kirjoittamisesta enemmän sivulla <a href="/ai-valmis-metadata.html">AI-valmis metadata</a>.</p>
+
+  <h2>Miksi semanttisesta kerroksesta puhutaan nyt niin paljon?</h2>
+  <p>Syitä on kaksi, vanha ja uusi. Vanha on se johtoryhmän kolme liikevaihtoa. Sitä on yritetty ratkaista 1990-luvulta asti, ja useimmissa organisaatioissa se on yhä ratkaisematta, koska raportteja syntyy nopeammin kuin määritelmistä ehditään sopia.</p>
+
+  <p>Uusi on tekoäly. Kielimalli ei tiedä, että teillä liikevaihdosta vähennetään hyvitykset tai että asiakas on aktiivinen vain, jos se on ostanut viimeisen 90 päivän aikana. Jos sen päästää suoraan raakatauluihin, se arvaa, ja arvaus näyttää täsmälleen yhtä varmalta kuin oikea vastaus. Ravintolavertauksessa raakatauluihin päästetty kielimalli on tarjoilija, joka lähetetään keittiöön tekemään annos itse: jotain syötävää syntyy, mutta reseptiä ei ole. Ruokalistan kanssa sama tarjoilija pärjää ensimmäisestä päivästä lähtien, kunhan listalla lukee muutakin kuin ”Annos 14”. Semanttinen kerros on se ruokalista. Agentti valitsee mittarin ja dimensiot, ja kerros laskee luvun.</p>
+
+  <div class="fakta-laatikko">
+    <strong>Mitä markkinalla tapahtuu:</strong>
+    <ul>
+      <li><strong>Tietoalustat rakentavat omansa.</strong> Snowflakella on Semantic Views ja Databricksillä <a href="https://docs.databricks.com/aws/en/uc-semantics/metric-views/" target="_blank" rel="noopener">Metric Views</a> Unity Catalogissa. Kun tietovarasto alkaa itse tarjota mittareita, se kilpailee suoraan BI-työkalujen kanssa siitä, kenen kerroksessa liikevaihto määritellään.</li>
+      <li><strong>Kilpailijat sopivat yhteisestä muodosta.</strong> Snowflake, Salesforce, dbt Labs ja joukko muita käynnistivät <a href="https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/" target="_blank" rel="noopener">Open Semantic Interchange</a> -hankkeen (OSI), joka hyväksyttiin kesäkuussa 2026 Apache-säätiön inkubaattoriin nimellä <a href="https://ossie.apache.org/updates/ossie-enters-apache-incubator/" target="_blank" rel="noopener">Apache Ossie</a>. Tavoite on muoto, jolla mittarin määritelmä siirtyy työkalusta toiseen ilman, että merkitys katoaa matkalla. Kun kilpailijat istuvat saman pöydän ääreen, ongelma on todellinen. Hankkeen maskotti on muuten kenguru, joka kantaa metatietoa pussissaan järjestelmästä toiseen.</li>
+      <li><strong>Agentit muokkaavat malleja suoraan.</strong> Microsoftin Power BI Modeling <a href="/termisto.html#mcp" class="termi-tip">MCP</a> -palvelimen kautta tekoälyagentti lukee ja muokkaa semanttista mallia: tauluja, mittareita, relaatioita ja kuvauksia. Malli ei ole enää vain asia, jolta agentti kysyy, vaan myös asia, jota se rakentaa.</li>
+    </ul>
+  </div>
+
+  <h2>Semanttinen mallinnus käytännössä</h2>
+  <p>Semanttinen mallinnus on työtä, jossa päätetään, mitä luvut tarkoittavat. Tekninen osuus on yllättävän helppo, koska Power BI Desktop, <a href="/termisto.html#tabular-editor" class="termi-tip">Tabular Editor</a> ja <a href="/termisto.html#dbt" class="termi-tip">dbt</a> tekevät suurimman osan puolestasi. Vaikein osuus tapahtuu neuvotteluhuoneessa, kun myynti ja talous sopivat, mikä liikevaihto on. Kun se on sovittu, järjestys on aika suoraviivainen:</p>
+
+  <ol>
+    <li><strong>Tähtimalli ensin.</strong> Semanttinen malli rakennetaan <a href="/medallion.html">Gold-kerroksen</a> päälle, ja Goldin pitää olla valmiiksi <a href="/tahtimalli.html">tähtimallina</a>. Jos rakennetta korjataan vasta mallin sisällä <a href="/termisto.html#power-query" class="termi-tip">Power Queryllä</a>, korjaus on olemassa vain siinä yhdessä mallissa, ja seuraava malli tekee saman korjauksen uudelleen, vähän eri tavalla.</li>
+    <li><strong>Litistä dimensiot.</strong> <a href="/litistaminen.html">Lumihiutaleen haarat kannattaa yhdistää yhdeksi dimensioksi</a>, jotta käyttäjä suodattaa yhdestä paikasta eikä etsi tuoteryhmää kolmesta toisiinsa liittyvästä taulusta.</li>
+    <li><strong>Kirjoita mittarit itse.</strong> Tee jokaisesta luvusta eksplisiittinen mittari ja piilota numerosarakkeet. Jos käyttäjä raahaa sarakkeen suoraan visuaaliin, Power BI summaa sen automaattisesti, ja mallin liiketoimintalogiikka ohitetaan kokonaan.</li>
+    <li><strong>Nimeä liiketoiminnan kielellä.</strong> ”Liikevaihto”, ei ”SUM_NET_AMT”. Nimi on ensimmäinen asia, jonka ihminen ja kielimalli näkevät, ja usein ainoa, jonka ne lukevat. Ks. <a href="/nimeamiskaytannot.html">nimeämiskäytännöt</a>.</li>
+    <li><strong>Kuvaa kaikki.</strong> Taulut, sarakkeet ja mittarit. Kuvaus on se, mitä Copilot lukee, ja se on halvin tapa parantaa tekoälyn vastauksia. Ks. <a href="/ai-valmis-metadata.html">AI-valmis metadata</a>.</li>
+    <li><strong>Yksi jaettu malli, monta raporttia.</strong> <a href="/termisto.html#sertifiointi" class="termi-tip">Sertifioi</a> malli ja rakenna raportit sen päälle. Raportti, jolla ei ole omaa mallia, ei pysty määrittelemään liikevaihtoa uudelleen, vaikka tekijä haluaisi.</li>
+  </ol>
+
+  <h3>Viiden minuutin testi omalle mallille</h3>
+  <p>Semanttisen mallin laadun näkee nopeammin kuin luulisi. Avaa malli ja käy läpi viisi kysymystä:</p>
+
+  <ul>
+    <li><strong>Löytääkö uusi työntekijä liikevaihdon 30 sekunnissa?</strong> Jos hän joutuu valitsemaan kolmesta melkein samannimisestä mittarista, Copilot joutuu tekemään saman valinnan, eikä se kysy keneltäkään.</li>
+    <li><strong>Onko mittareilla kuvaukset?</strong> Jos ei ole, tekoäly päättelee merkityksen pelkästä nimestä, ja ihminen kysyy sen Teamsissa siltä, joka mallin teki.</li>
+    <li><strong>Näkyykö kenttälistassa summattavia numerosarakkeita?</strong> Jokainen niistä on oikotie mallin logiikan ohi.</li>
+    <li><strong>Antaako Copilot saman luvun kuin raportti?</strong> Kysy siltä viime kuun liikevaihto ja vertaa sertifioituun raporttiin. Jos luvut eroavat, vika on yleensä mallissa: epäselvässä nimessä, puuttuvassa kuvauksessa tai näkyvissä olevassa sarakkeessa, jonka Copilot summasi.</li>
+    <li><strong>Tietääkö joku, kuka mallin omistaa?</strong> Malli ilman omistajaa ei pysy kunnossa, eikä kukaan uskalla muuttaa sen määritelmiä.</li>
+  </ul>
+
+  <div class="dataneuvos-opinion">
+    <div class="opinion-label">Dataneuvoksen mielipide</div>
+    <ul>
+      <li><strong>Power BI -talossa semanttinen malli on semanttinen kerros.</strong> Erillistä semanttisen kerroksen tuotetta ei kannata ostaa ennen kuin samaa lukua oikeasti lasketaan monella työkalulla Power BI:n ohi. Yksi hyvin rakennettu, kuvattu ja sertifioitu malli ratkaisee useimpien organisaatioiden ongelman, ja se on halvempi kuin yksikään uusi lisenssi.</li>
+      <li><strong>Kymmenen mallia on kymmenen liikevaihtoa.</strong> Jos jokaisella raportilla on oma semanttinen mallinsa, teillä ei ole semanttista kerrosta vaan kopioita, jotka erkanevat toisistaan sitä mukaa kun niitä korjataan. Konsolidoi ennen kuin tuot tekoälyn mukaan. Tekoäly ei valitse kymmenestä liikevaihdosta oikeaa, se valitsee jonkin.</li>
+      <li><strong>Tekoäly ei korjaa huonoa mallia, se monistaa sen.</strong> Copilot vastaa täsmälleen niin hyvin kuin malli on rakennettu, nimetty ja kuvattu. Ennen tekoälyä huono malli tuotti vääriä lukuja hitaasti, raportti kerrallaan. Nyt se tuottaa niitä sekunneissa, siistissä muodossa ja itsevarmasti.</li>
+    </ul>
+  </div>
+
+  <section class="katso-myos" data-kortit="ai-valmis-metadata.html tahtimalli.html medallion.html termisto.html"></section>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="lukemisaika" content="12">
+  <meta name="lukemisaika" content="14">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/paivitykset.html">
   <meta name="description" content="Julkinen loki datamalli.fi:n muutoksista: uudet sivut, päivitetty sisältö ja korjaukset aikajärjestyksessä. Näet mitä sivustolla on viimeksi tehty.">
@@ -38,8 +38,8 @@
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="tyylit/style.css?v=10">
-  <script src="skriptit/navigation.js?v=15" defer></script>
+  <link rel="stylesheet" href="tyylit/style.css?v=11">
+  <script src="skriptit/navigation.js?v=17" defer></script>
 </head>
 
 <body>
@@ -48,6 +48,7 @@
     <nav class="simple-nav" style="padding:12px 24px">
       <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
       <a href="tietomalli.html">Tietomalli</a> ·
+      <a href="semanttinen-malli.html">Semanttinen malli</a> ·
       <a href="tahtimalli.html">Tähtimalli</a> ·
       <a href="faktataulu.html">Faktataulu</a> ·
       <a href="dimensiot.html">Dimensiot</a> ·
@@ -76,6 +77,24 @@
 
   <p>Tälle sivulle kirjataan jokainen datamalli.fi:hin tehty sisällöllinen muutos: uudet sivut, päivitetyt tiedot ja korjaukset. Uusimmat ylimpänä.</p>
 
+  <div class="paivitys-merkinta">
+    <h2>1.10.2026</h2>
+    <ul>
+      <li>Uusi sivu: <a href="semanttinen-malli.html">semanttinen malli ja semanttinen kerros</a>. Mitä eroa on tietomallilla, semanttisella mallilla, semanttisella kerroksella ja metriikkakerroksella, miksi Power BI:n datasetit nimettiin semanttisiksi malleiksi ja miksi tekoälyagentit tarvitsevat yhden sovitun määritelmän jokaiselle luvulle. Mukana semanttisen kerroksen historia Business Objectsin universumista asti, Microsoftin Fabric IQ:n ontologia, esimerkki siitä miltä mittari ja sen kuvaus näyttävät TMDL-koodina, järjestys jossa semanttinen malli kannattaa rakentaa ja viiden minuutin testi omalle mallille.</li>
+      <li>Sivu on lisätty navigaatioon, etusivun Arkkitehtuurit ja prosessit -kategoriaan sekä Katso myös -kortteihin sivuilla Medallion, tietomalli, tähtimalli, AI-valmis metadata, nimeämiskäytännöt ja apuohjelmat. Termistön semanttisen mallin ja semanttisen kerroksen selitykset linkittävät nyt uudelle sivulle.</li>
+    </ul>
+  </div>
+  <div class="paivitys-merkinta">
+    <h2>25.9.2026</h2>
+    <ul>
+      <li><a href="medallion.html">Medallion-arkkitehtuuri</a> sai kaksi kaaviota ja niiden mukana sen osan aiheesta, joka sivulta puuttui: mitä Bronze, Silver ja Gold tarkoittavat ihmiselle joka ei ole kuullut sanaa medallion. Talossa ne ovat perustus, runko ja huoneet käyttötarkoituksen mukaan. Metaforan tehtävä ei ole yksinkertaistaa arkkitehtuuria pois vaan antaa liiketoiminnalle ja datatiimille yhteinen kieli — ja sivulla on myös lista siitä missä vertaus ei päde.</li>
+      <li>Esityskerros on nyt nimetty: raportit, dashboardit ja semanttinen malli. Se ei ole Medallion-kerros vaan se mikä Goldin päälle rakennetaan, ja siksi kerrostaulukossa on edelleen kolme riviä mutta talotaulukossa neljä. Aiemmin sivu käsitteli Power BI:tä vain Goldin käyttäjänä, mikä jätti pois sen kerroksen jonka loppukäyttäjä oikeasti näkee.</li>
+      <li>Korjattu se mitä sivu aiemmin antoi ymmärtää rakennusjärjestyksestä. Teksti sanoi ”rakentaminen etenee kerros kerrokselta”, mikä pitää paikkansa datan kulusta mutta ei työstä. Uusi osio <em>Kattoa voi rakentaa ensin</em> kertoo miksi: laivanrakennuksessa komentosilta tehdään hallissa valmiiksi ja lasketaan paikalleen vasta kun liitospinnat täsmäävät. Dashboardin voi samalla tavalla prototypoida testidatalla ennen kuin oikea data virtaa — kunhan liitospinta on sovittu etukäteen.</li>
+      <li>Liitospinnan oikea nimi on datasopimus, ja se on sivulla nyt ensimmäistä kertaa. Ilman sitä ylhäältä alas ja alhaalta ylös etenevä työ ei kohtaa, ja toinen pää rakennetaan uudelleen. Samasta syystä ”EI kannata rakentaa” -listalle tuli uusi kohta: skeemaa ja avaimia ei sovita jälkikäteen.</li>
+      <li>Kaaviot ovat tiheitä, eivätkä ne olisi luettavia 900 pikselin palstassa — pienin teksti olisi ollut noin viisi pikseliä. Siksi kuvat levittäytyvät leveillä näytöillä tekstipalstan yli ja klikkaus avaa täyden koon. Ne ovat myös sivuston ensimmäiset kuvat joilla on mitat ja viivästetty lataus, eli ne eivät hyppäytä sivun sisältöä latautuessaan.</li>
+      <li>Nostettu tyylitiedoston ja muuttuneiden skriptien välimuistiversiot (<code>style.css</code>, <code>navigation.js</code>, <code>sivut.js</code>, <code>search-index.js</code>). Ilman nostoa paluukävijän selain olisi näyttänyt uudet kaaviot vanhoilla tyyleillä eli tekstipalstan levyisinä, eikä haku olisi löytänyt sivun uutta sisältöä.</li>
+    </ul>
+  </div>
   <div class="paivitys-merkinta">
     <h2>31.8.2026</h2>
     <ul>

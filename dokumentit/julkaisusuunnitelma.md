@@ -20,7 +20,7 @@
 | nimeamiskaytannot.html | ⭐⭐ 2 | Valmis — päivitetty 2026-06-07 |
 | kehittamisen-filosofia.html | ⭐ 1 | Valmis — julkaistu 2026-06-07 (noindex poistettu, sitemap lisätty) |
 | ai-valmis-metadata.html | ⭐ 1 | Valmis — päivitetty 2026-06-07 |
-| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — 213 termiä, päivitetty 2026-08-20 |
+| termisto.html | ⭐⭐ 2 | Valmis, kasvaa jatkuvasti — 215 termiä, päivitetty 2026-08-20 |
 | kirjallisuus-suositukset.html | ⭐⭐⭐ 3 | Julkaistu 2026-06-11 (noindex pois, sitemap, TechArticle, llms.txt) — 4/5 kirjaa katettu |
 | tietoa.html | ⭐⭐ 2 | Valmis — laajennettu 500+ sanaan 2026-06-07 |
 | tietosuoja.html | ⭐ 1 | Valmis — luotu 2026-06-07 (GDPR) |
@@ -114,7 +114,7 @@ Kokonaiskesto: 10 viikkoa, työmäärä yhteensä noin 36 tuntia.
 
 ## Termistö-sivun jatkosuunnitelma
 
-Termejä on nyt 213 kpl.
+Termejä on nyt 215 kpl.
 
 Tasot 1–4 toteutettiin 20.8.2026 (yhteensä 56 termiä, ks. `20082026_uudet_termit.md`).
 Taso 1 oli kysyntävetoinen: käännöskyselyt `X suomeksi` kasvoivat 18 päivässä 39 → 270

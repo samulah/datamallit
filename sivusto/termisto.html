@@ -8,20 +8,20 @@
   <meta name="kortti-otsikko" content="Termistö">
   <meta name="kortti-kuvaus" content="Datan mallinnuksen, tietovarastoinnin ja BI-kehittämisen termit aakkosjärjestyksessä. Lyhyet selitykset suomeksi, englanninkieliset vastineet mukana.">
   <meta name="tagit" content="perusteoria tietomalli">
-  <meta name="lukemisaika" content="40">
+  <meta name="lukemisaika" content="41">
   <link rel="icon" type="image/png" sizes="32x32" href="kuvat/favicon-32.png">
   <link rel="canonical" href="https://www.datamalli.fi/termisto.html">
-  <meta name="description" content="Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
+  <meta name="description" content="Mitä on datasheet, payload tai attribute suomeksi? 215 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Datamalli.fi">
   <meta property="og:locale" content="fi_FI">
-  <meta property="og:title" content="Data-alan sanasto englanti–suomi: 213 termiä">
-  <meta property="og:description" content="Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
+  <meta property="og:title" content="Data-alan sanasto englanti–suomi: 215 termiä">
+  <meta property="og:description" content="Mitä on datasheet, payload tai attribute suomeksi? 215 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.">
   <meta property="og:url" content="https://www.datamalli.fi/termisto.html">
   <meta property="og:image" content="https://www.datamalli.fi/kuvat/og-termisto.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Data-alan sanasto: 213 termiä suomeksi">
+  <meta property="og:image:alt" content="Data-alan sanasto: 215 termiä suomeksi">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
@@ -31,7 +31,7 @@
         "@type": "DefinedTermSet",
         "@id": "https://www.datamalli.fi/termisto.html#termisto",
         "name": "Datan mallinnuksen termistö",
-        "description": "Mitä on datasheet, payload tai attribute suomeksi? 213 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.",
+        "description": "Mitä on datasheet, payload tai attribute suomeksi? 215 data-alan termiä englanti–suomi selityksineen. Hae termi tai suodata aiheen mukaan.",
         "url": "https://www.datamalli.fi/termisto.html",
         "inLanguage": "fi",
         "datePublished": "2026-06-01",
@@ -1160,6 +1160,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#metriikkakerros",
+            "name": "Metriikkakerros",
+            "url": "https://www.datamalli.fi/termisto.html#metriikkakerros",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Metrics Layer",
+            "description": "Englanniksi Metrics Layer, suomeksi metriikkakerros. Semanttisen kerroksen osa, joka keskittyy pelkkiin mittareihin: kaava, aggregointi, sallitut dimensiot ja aikaikkunat määritellään kerran koodina, ja työkalut kysyvät luvut kerrokselta eivätkä laske niitä itse. Termi yleistyi dbt:n ja Transformin myötä 2020-luvun alussa, ja nykyään se on sulautunut semanttisen kerroksen käsitteeseen. Power BI:ssä saman roolin hoitavat semanttisen mallin mittarit. Ks. myös semanttinen kerros."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#microsoft-fabric",
             "name": "Microsoft Fabric",
             "url": "https://www.datamalli.fi/termisto.html#microsoft-fabric",
@@ -1724,6 +1735,17 @@
           },
           {
             "@type": "DefinedTerm",
+            "@id": "https://www.datamalli.fi/termisto.html#semanttinen-kerros",
+            "name": "Semanttinen kerros",
+            "url": "https://www.datamalli.fi/termisto.html#semanttinen-kerros",
+            "inDefinedTermSet": {
+              "@id": "https://www.datamalli.fi/termisto.html#termisto"
+            },
+            "alternateName": "Semantic Layer",
+            "description": "Englanniksi Semantic Layer, suomeksi semanttinen kerros. Arkkitehtuurikerros tietovaraston ja datan käyttäjien välissä: raporttien, taulukkolaskennan, sovellusten ja tekoälyagenttien. Kerros määrittelee kerran, mitä liikevaihto, asiakas tai aktiivinen käyttäjä tarkoittaa, ja jokainen työkalu laskee luvun samalla kaavalla. Toteutuksia ovat Power BI:n semanttinen malli, Microsoft Fabric IQ:n ontologia, dbt Semantic Layer, Cube, AtScale sekä Snowflaken Semantic Views ja Databricksin Metric Views. Semanttisella mallilla tarkoitetaan yleensä yhden BI-työkalun mallia, semanttisella kerroksella työkaluista riippumatonta ratkaisua. Ks. myös metriikkakerros."
+          },
+          {
+            "@type": "DefinedTerm",
             "@id": "https://www.datamalli.fi/termisto.html#semanttinen-malli",
             "name": "Semanttinen malli",
             "url": "https://www.datamalli.fi/termisto.html#semanttinen-malli",
@@ -1731,7 +1753,7 @@
               "@id": "https://www.datamalli.fi/termisto.html#termisto"
             },
             "alternateName": "Semantic Model",
-            "description": "Englanniksi Semantic Model, suomeksi semanttinen malli. Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI:ssä ja SSAS Tabularissa tätä kerrosta kutsuttiin aiemmin nimellä data model. Metadatan laatu ratkaisee, miten hyvin Copilot ja Q&A toimivat."
+            "description": "Englanniksi Semantic Model, suomeksi semanttinen malli. Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI -palvelussa sama objekti tunnettiin nimellä dataset (tietojoukko), kunnes Microsoft nimesi sen marraskuussa 2023 semanttiseksi malliksi. Analysis Servicesissä vastaava on tabular-malli. Semanttinen malli on yhden työkalun toteutus semanttisesta kerroksesta. Metadatan laatu ratkaisee, miten hyvin Copilot ja Q&A toimivat."
           },
           {
             "@type": "DefinedTerm",
@@ -2369,14 +2391,14 @@
     ]
   }
   </script>
-  <title>Data-alan sanasto englanti–suomi: 213 termiä | Datamalli.fi</title>
+  <title>Data-alan sanasto englanti–suomi: 215 termiä | Datamalli.fi</title>
   <!-- Kriittiset fontit esiladataan: ilman tätä selain löytää ne vasta
        CSS:n jäsennettyään, mikä näkyy fontin vaihtumisena (FOUT). -->
   <link rel="preload" href="fontit/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fontit/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="tyylit/style.css?v=10">
-  <script src="skriptit/navigation.js?v=15" defer></script>
-  <script src="skriptit/sivut.js?v=2" defer></script>
+  <link rel="stylesheet" href="tyylit/style.css?v=11">
+  <script src="skriptit/navigation.js?v=17" defer></script>
+  <script src="skriptit/sivut.js?v=4" defer></script>
   <script src="skriptit/kortit.js?v=2" defer></script>
   <script src="skriptit/termisto-search.js?v=4" defer></script>
   <script src="skriptit/termi-lotto-data.js?v=2" defer></script>
@@ -2879,6 +2901,7 @@
   <nav class="simple-nav" style="padding:12px 24px">
     <a href="/" style="font-weight:bold;margin-right:16px">datamalli.fi</a>
     <a href="tietomalli.html">Tietomalli</a> ·
+    <a href="semanttinen-malli.html">Semanttinen malli</a> ·
     <a href="tahtimalli.html">Tähtimalli</a> ·
     <a href="faktataulu.html">Faktataulu</a> ·
     <a href="dimensiot.html">Dimensiot</a> ·
@@ -2917,7 +2940,7 @@
     käsitteet sekä keskeisimmät tekoälytermit. Jokainen termi sisältää suomenkielisen selityksen ja
     englanninkielisen vastineen.</p>
 
-  <p>Termejä on tällä hetkellä 213. Sanasto kasvaa sivuston mukana, ja syvemmät sisällöt löydät sivuston
+  <p>Termejä on tällä hetkellä 215. Sanasto kasvaa sivuston mukana, ja syvemmät sisällöt löydät sivuston
     muista sivuista — aloita <a href="tietomalli.html">tietomallista</a>.</p>
 
   <div class="suodatin-paneeli">
@@ -3846,6 +3869,12 @@
       <div class="termi-tagit"><span class="termi-tagi">hallinta</span><span class="termi-tagi">Data Governance</span><span class="termi-tagi">AI-valmis metadata</span></div>
     </dl>
 
+    <dl class="termi" id="metriikkakerros" data-tags="mittaaminen arkkitehtuuri">
+      <dt><span class="termi-nimi">Metriikkakerros</span> <span class="termi-en">(Metrics Layer)</span></dt>
+      <dd class="termi-selite">Englanniksi Metrics Layer, suomeksi metriikkakerros. Semanttisen kerroksen osa, joka keskittyy pelkkiin mittareihin: kaava, aggregointi, sallitut dimensiot ja aikaikkunat määritellään kerran koodina, ja työkalut kysyvät luvut kerrokselta eivätkä laske niitä itse. Termi yleistyi dbt:n ja Transformin myötä 2020-luvun alussa, ja nykyään se on sulautunut semanttisen kerroksen käsitteeseen. Power BI:ssä saman roolin hoitavat semanttisen mallin <a href="#mittari">mittarit</a>. Ks. myös <a href="#semanttinen-kerros">semanttinen kerros</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">arkkitehtuuri</span></div>
+    </dl>
+
     <dl class="termi" id="microsoft-fabric" data-tags="tyokalut arkkitehtuuri">
       <dt><span class="termi-nimi">Microsoft Fabric</span></dt>
       <dd class="termi-selite">Microsoftin yhtenäinen data-analytiikka-alusta, joka kokoaa saman katon alle <a
@@ -4301,9 +4330,15 @@
       <div class="termi-tagit"><span class="termi-tagi">mittaaminen</span><span class="termi-tagi">konseptit</span></div>
     </dl>
 
+    <dl class="termi" id="semanttinen-kerros" data-tags="tietomalli arkkitehtuuri ai-metadata">
+      <dt><span class="termi-nimi">Semanttinen kerros</span> <span class="termi-en">(Semantic Layer)</span></dt>
+      <dd class="termi-selite">Englanniksi Semantic Layer, suomeksi <a href="semanttinen-malli.html">semanttinen kerros</a>. Arkkitehtuurikerros tietovaraston ja datan käyttäjien välissä: raporttien, taulukkolaskennan, sovellusten ja tekoälyagenttien. Kerros määrittelee kerran, mitä liikevaihto, asiakas tai aktiivinen käyttäjä tarkoittaa, ja jokainen työkalu laskee luvun samalla kaavalla. Toteutuksia ovat Power BI:n <a href="#semanttinen-malli">semanttinen malli</a>, Microsoft Fabric IQ:n ontologia, dbt Semantic Layer, Cube, AtScale sekä Snowflaken Semantic Views ja Databricksin Metric Views. Semanttisella mallilla tarkoitetaan yleensä yhden BI-työkalun mallia, semanttisella kerroksella työkaluista riippumatonta ratkaisua. Ks. myös <a href="#metriikkakerros">metriikkakerros</a>.</dd>
+      <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">arkkitehtuuri</span><span class="termi-tagi">AI-valmis metadata</span></div>
+    </dl>
+
     <dl class="termi" id="semanttinen-malli" data-tags="tietomalli power-bi ai-metadata">
       <dt><span class="termi-nimi">Semanttinen malli</span> <span class="termi-en">(Semantic Model)</span></dt>
-      <dd class="termi-selite">Englanniksi Semantic Model, suomeksi semanttinen malli. Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI:ssä ja SSAS Tabularissa tätä kerrosta kutsuttiin aiemmin nimellä data model. Metadatan laatu ratkaisee, miten hyvin <a href="#copilot">Copilot</a> ja <a href="#qa">Q&amp;A</a> toimivat.</dd>
+      <dd class="termi-selite">Englanniksi Semantic Model, suomeksi <a href="semanttinen-malli.html">semanttinen malli</a>. Semanttinen malli on looginen kerros raakataulujen ja loppukäyttäjän välissä. Se sisältää taulut, relaatiot, mittarit, hierarkiat ja metadatan, ja kääntää tekniset rakenteet liiketoiminnan kielelle. Power BI -palvelussa sama objekti tunnettiin nimellä dataset (tietojoukko), kunnes Microsoft nimesi sen marraskuussa 2023 semanttiseksi malliksi. Analysis Servicesissä vastaava on tabular-malli. Semanttinen malli on yhden työkalun toteutus <a href="#semanttinen-kerros">semanttisesta kerroksesta</a>. Metadatan laatu ratkaisee, miten hyvin <a href="#copilot">Copilot</a> ja <a href="#qa">Q&amp;A</a> toimivat.</dd>
       <div class="termi-tagit"><span class="termi-tagi">tietomalli</span><span class="termi-tagi">Power BI</span><span class="termi-tagi">AI-valmis metadata</span></div>
     </dl>
 
