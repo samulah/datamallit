@@ -198,3 +198,7 @@ nykytilaan.
 - `/kirjoittaja-tyyli` — muokkaa tekstiä Dataneuvos-äänen mukaiseksi
 - `/tarkista-kirjoitus @sivusto/sivu.html` — kirjoitusvirheet ja typografia (ei koske sisältöön/faktoihin)
 - `/julkaisuvalmius [@sivusto/sivu.html]` — lukemisajat, hakuindeksit, rikkoutuneet linkit, navigaatio-poikkeamat
+
+Agentit (`.claude/agents/`):
+
+- `sivuston-tarkastaja` — bugit ja parannuskohteet raportiksi `dokumentit/raportit/VVVV-KK-PP-tarkastus.md`: generaattorin synkka, paikalliset ja live-404:t, GSC:n soft 404:t, luonnosten näkyvyys palvelimella, ulkoiset linkit, metatiedot. Ei muokkaa sivustoa; aja ennen pushia ja deployn jälkeen
